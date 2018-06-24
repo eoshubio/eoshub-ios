@@ -19,8 +19,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame : UIScreen.main.bounds)
         
         //set host
-//        EOSHost.shared.host = "http://192.168.0.12:8888"
-        EOSHost.shared.host = "http://175.195.57.102:8888"
+        EOSHost.shared.host = "https://eos-hub.io:8443"
+//        EOSHost.shared.host = "http://192.168.0.2:8888"
+//        EOSHost.shared.host = "http://175.195.57.102:8888"
         
         
         //Start Flow
