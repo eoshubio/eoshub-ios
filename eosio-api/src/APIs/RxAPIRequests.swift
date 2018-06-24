@@ -58,9 +58,14 @@ extension RxAPIRequest {
                 .responseJSON(completionHandler: { (response) in
                     switch response.result {
                     case .success(let result):
+                        print("Result response: \(result)")
                         let json = result as? JSON ?? [:]
-                        observer.onNext(json)
-                        observer.onCompleted()
+                        if let error = EOSResponseError(json: json) {
+                            observer.onError(error)
+                        } else {
+                            observer.onNext(json)
+                            observer.onCompleted()
+                        }
                     case  .failure(let error):
                         observer.onError(error)
                     }
@@ -79,6 +84,7 @@ extension RxAPIRequest {
                     switch response.result {
                     case .success(let result):
                         let array = result as? [Any] ?? []
+                        print("Result response: \(array)")
                         observer.onNext(array)
                         observer.onCompleted()
                     case  .failure(let error):

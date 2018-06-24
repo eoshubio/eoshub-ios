@@ -30,7 +30,6 @@ class WalletViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = "지갑"
         navigationController?.isNavigationBarHidden = true
         
         if isInitialized == false {
@@ -56,6 +55,7 @@ class WalletViewController: UIViewController {
     private func setupUIAfterLayout() {
         view.layoutIfNeeded()
         if let wallet = WalletManager.shared.getWallet() {
+            NSLog(wallet.publicKey)
             addWalletUI(wallet: wallet)
         }
     }

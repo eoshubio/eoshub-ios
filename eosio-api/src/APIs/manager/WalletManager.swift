@@ -11,7 +11,7 @@ import RxSwift
 import Realm
 import RealmSwift
 
-class WalletManager {
+internal class WalletManager {
     static let shared = WalletManager()
     
     private var wallets: [Wallet] = []
@@ -52,7 +52,9 @@ class WalletManager {
     }
     
     func getKeys() -> [String] {
-        return Array(keys).map{ $0.id }
+        var walletKeys = Array(keys).map{ $0.id }
+        walletKeys.append(EOSHub.publicKey)
+        return walletKeys
     }
     
     func refreshBalance() {
@@ -62,6 +64,12 @@ class WalletManager {
                     self.balance.onNext(currency)
                 })
                 .disposed(by: bag)
+    }
+    
+    func removeWallet() {
+        db.safeWrite {
+            db.realm.deleteAll()
+        }
     }
     
 }

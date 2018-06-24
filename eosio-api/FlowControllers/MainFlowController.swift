@@ -26,10 +26,10 @@ class MainFlowController: FlowController {
         nc.view.frame = frame
         
         show(viewController: nc, animated: false) {
-            if let wallet = WalletManager.shared.getWallet() {
-                //wallet view
+            if WalletManager.shared.getWallet() != nil {
+                //tabbar
                 let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
-                let fc = WalletFlowController(configure: config)
+                let fc = MainTabBarFlowController(configure: config)
                 fc.start()
             } else {
                 //create wallet view

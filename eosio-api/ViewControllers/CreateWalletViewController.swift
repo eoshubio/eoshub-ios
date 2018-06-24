@@ -57,11 +57,23 @@ class CreateWalletViewController: UIViewController {
             return
         }
         
-        RxEOSAPI.createAccount(name: name, authorization: Authorization.eosio)
+        RxEOSAPI.createAccount(name: name, authorization: Authorization.eoshub)
             .subscribe(onNext: { [weak self](json) in
                 print(json)
                 self?.goToWalletView()
+            }, onError: { (error) in
+                print(error)
+                WalletManager.shared.removeWallet()
+            }, onCompleted: {
+                
+            }, onDisposed: {
+                
             })
+            
+//            .subscribe(onNext: { [weak self](json) in
+//                print(json)
+//                self?.goToWalletView()
+//                })
             .disposed(by: bag)
     }
     

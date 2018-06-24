@@ -71,6 +71,18 @@ struct RxEOSAPI {
                 })
     }
     
+    static func walletGetKeys() -> Observable<[String]> {
+        return EOSAPI.Wallet.get_public_keys
+                .responseArray(method: .post, parameter: nil, encoding: URLEncoding.default)
+                .flatMap({ (array) -> Observable<[String]> in
+                    if let array = array as? [String] {
+                        return Observable.just(array)
+                    } else {
+                        return Observable.just([])
+                    }
+                })
+    }
+    
     static func walletUnlock(array: [String]) -> Observable<Bool> {
         
         return EOSAPI.Wallet.unlock
@@ -99,46 +111,45 @@ struct RxEOSAPI {
     }
     
     //MARK: Contract
-    static func pushContract(contract: Contract, wallet: Wallet) -> Observable<JSON> {
+    static func pushContract(contracts: [Contract], wallet: Wallet) -> Observable<JSON> {
         
         //1. unlock wallet
         return RxEOSAPI.walletUnlock(array: wallet.paramter)
-            .flatMap { (open) -> Observable<BinaryString> in
-                //2. json to bin
-                return RxEOSAPI.jsonToBin(json: contract.json)
-            }
-            .flatMap { (binary) -> Observable<(BlockInfo, Action)> in
+            .flatMap { (_) -> Observable<BlockInfo> in
                 //2. get block info
                 return RxEOSAPI.getInfo()
-                    .flatMap({ (blockInfo) -> Observable<(BlockInfo, Action)> in
-                        let action = Action(account: contract.code, name: contract.action, authorization: contract.authorization, data: binary.bin)
-                        return Observable.just((blockInfo, action))
-                    })
             }
-            .flatMap { (data) -> Observable<(BlockInfo, Action, Block)> in
+            .flatMap { (blockInfo) -> Observable<(blockInfo: BlockInfo ,block: Block)> in
                 //3. get block
-                return RxEOSAPI.getBlock(json: ["block_num_or_id": data.0.headBlockNum])
-                    .flatMap({ (block) -> Observable<(BlockInfo, Action, Block)> in
-                        return Observable.just((data.0, data.1, block))
+                return RxEOSAPI.getBlock(json: ["block_num_or_id": blockInfo.headBlockNum])
+                    .flatMap({ (block) -> Observable<(blockInfo: BlockInfo , block: Block)> in
+                        return Observable.just((blockInfo: blockInfo, block: block))
                     })
             }
-            .flatMap({ (data) -> Observable<(BlockInfo, Action, Block, [String])> in
+            .flatMap({ (data) -> Observable<(blockInfo: BlockInfo, block: Block, actions: [Action])> in
+                //3. make binaries -> make actions
+                return makeActions(contracts: contracts)
+                    .flatMap({ (actions) -> Observable<(blockInfo: BlockInfo , block: Block, actions: [Action])> in
+                        return Observable.just((blockInfo: data.blockInfo, block: data.block, actions: actions))
+                    })
+            })
+            
+            .flatMap({ (data) -> Observable<(blockInfo: BlockInfo, block: Block, actions: [Action], keys: [String])> in
                 //4. get requried keys
-                let trx = Transaction(block: data.2, actions: [data.1])
+                let trx = Transaction(block: data.block, actions: data.actions)
                 var input: JSON = [:]
                 input["available_keys"] = WalletManager.shared.getKeys()
                 input["transaction"] = trx.json
                 return RxEOSAPI.getRequiredKeys(json: input)
-                    .flatMap({ (response) -> Observable<(BlockInfo, Action, Block, [String])> in
-                        let keys = response["required_keys"] as? [String] ?? [EOSIO.publicKey]
-                        return Observable.just((data.0, data.1, data.2, keys))
+                    .flatMap({ (response) -> Observable<(blockInfo: BlockInfo, block: Block, actions: [Action], keys: [String])> in
+                        let keys = response["required_keys"] as? [String] ?? [EOSHub.publicKey]
+                        return Observable.just((blockInfo: data.blockInfo, block: data.block, actions: data.actions, keys: keys))
                     })
             })
             .flatMap { (data) -> Observable<JSON> in
                 //5. sign transaction
-                let trx = Transaction(block: data.2, actions: [data.1]).json
-                let input: [Any] = [trx, data.3, data.0.chainId] //transaction, keys, chainid
-                print(input)
+                let trx = Transaction(block: data.block, actions: data.actions).json
+                let input: [Any] = [trx, data.keys, data.blockInfo.chainId] //transaction, keys, chainid
                 return RxEOSAPI.signTransaction(array: input)
             }
             .flatMap { (json) -> Observable<JSON> in
@@ -147,7 +158,19 @@ struct RxEOSAPI {
                 print(input)
                 return RxEOSAPI.pushTransaction(json: input.json)
         }
-        
+    }
+    
+    static func makeAction(contract: Contract) -> Observable<Action> {
+        return RxEOSAPI.jsonToBin(json: contract.json)
+            .flatMap { (binary) -> Observable<Action> in
+                let action = Action(account: contract.code, name: contract.action, authorization: contract.authorization, data: binary.bin)
+                return Observable.just(action)
+            }
+    }
+    
+    static func makeActions(contracts: [Contract]) -> Observable<[Action]>  {
+        let rxActions = contracts.map{ makeAction(contract: $0)}
+        return Observable.zip(rxActions)
     }
     
     
@@ -155,43 +178,53 @@ struct RxEOSAPI {
 
 
 extension RxEOSAPI {
-    static func createAccount(name: String, authorization: Authorization) -> Observable<JSON> {
+    //MARK: Create Wallet & Account
+    static func createAccount(name: String, authorization: Authorization) -> Observable<Wallet> {
         //1. create wallet
         
         return walletCreate(name: name)
             .flatMap { (wallet) -> Observable<Wallet> in
                 //2. import eosio key
-                return walletImportKey(key: EOSIO.privateKey, to: wallet)
+                return walletImportKey(key: EOSHub.privateKey, to: wallet)
             }
             .flatMap { (wallet) -> Observable<Wallet> in
                 //3. create key for new account
                 return walletCreateKey(wallet: wallet)
             }
-            .flatMap { (wallet) -> Observable<JSON> in
-                
+            .flatMap { (wallet) -> Observable<Wallet> in
+                WalletManager.shared.addWallet(wallet: wallet)
+                let minCurrency = Currency(currency: "0.0001 EOS")!
                 let authority = Authority(key: wallet.publicKey)
-                let contract = Contract.newAccount(name: name, owner: authority, active: authority, authorization: Authorization.eosio)
-                return RxEOSAPI.pushContract(contract: contract, wallet: wallet)
-                    .flatMap({ (json) -> Observable<JSON> in
+                let contract = Contract.newAccount(name: name, owner: authority, active: authority, authorization: Authorization.eoshub)
+//                let buyram = Contract.buyram(payer: EOSHub.account, receiver: name, quant: minCurrency)
+                let buyrambytes = Contract.buyramBytes(payer: EOSHub.account, receiver: name, bytes: 8024)
+                let delegatebw = Contract.delegateBW(from: EOSHub.account, receiver: name, cpu: minCurrency, net: minCurrency)
+                return RxEOSAPI.pushContract(contracts: [contract, buyrambytes, delegatebw], wallet: wallet)
+                    .flatMap({ (_) -> Observable<Wallet> in
                         //account 생성시에만 wallet을 저장하게 한다.
-                        WalletManager.shared.addWallet(wallet: wallet)
-                        return Observable.just(json)
+                        return Observable.just(wallet)
                     })
             }
+        
     }
     
+    //MARK: get account
+    static func getAccount(name: String) -> Observable<JSON> {
+        return Observable.empty()
+    }
+    
+    //MARK: transfer currency
     static func sendCurrency(from: String, to: String, quantity: Currency, memo: String = "") -> Observable<JSON> {
         
         guard let wallet = WalletManager.shared.getWallet() else { return Observable.error(EOSErrorType.walletIsNotExist)}
         
         let contract = Contract.transfer(from: from, to: to, quantity: quantity)
         
-        return RxEOSAPI.pushContract(contract: contract, wallet: wallet)
+        return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
         
     }
-    
+    //MARK: Get Currency
     static func getCurrencyBalance(name: String, symbol: String) -> Observable<[Currency]> {
-//        curl http://175.195.57.102:8888/v1/chain/get_currency_balance -d '{"account": "eoshub", "code": "eosio.token", "symbol": "EOS"}'
         let input = ["account": name, "symbol": symbol, "code": "eosio.token"]
         return EOSAPI.Chain.get_currency_balance
                 .responseArray(method: .post, parameter: input, encoding: JSONEncoding.default)
@@ -199,6 +232,12 @@ extension RxEOSAPI {
                     let currency = result.compactMap { $0 as? String }.compactMap(Currency.init)
                     return Observable.just(currency)
                 }
-        }
+    }
+    
+    //MARK: Delegate Bandwidth
+//   get_currency_stats -> abi_json_to_bin -> get_info -> get_public_keys
+    
+    
+    
 }
 

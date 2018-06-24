@@ -82,7 +82,7 @@ class SettingData: NSObject, UITableViewDataSource, UITableViewDelegate {
     
     fileprivate func airDropEOS() {
         guard let wallet = WalletManager.shared.getWallet() else { return }
-        RxEOSAPI.sendCurrency(from: "eosio", to: wallet.name, quantity: Currency(currency: "777.0000 EOS")!, memo: "777 airdrop")
+        RxEOSAPI.sendCurrency(from: EOSHub.account, to: wallet.name, quantity: Currency(currency: "7.0000 EOS")!, memo: "7 airdrop")
             .subscribe(onNext: { (json) in
                 print(json)
                 WalletManager.shared.refreshBalance()

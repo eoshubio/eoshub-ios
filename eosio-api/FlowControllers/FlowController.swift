@@ -12,6 +12,7 @@ import UIKit
 enum FlowIdentifier: String {
     case main
     case createWallet
+    case mainTabbar
     case wallet
     case setting
 }

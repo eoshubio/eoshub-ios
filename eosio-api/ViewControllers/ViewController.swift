@@ -54,7 +54,7 @@ class ViewController: UIViewController {
     }
 
     func createAccount(name: String) {
-        RxEOSAPI.createAccount(name: name, authorization: Authorization.eosio)
+        RxEOSAPI.createAccount(name: name, authorization: Authorization.eoshub)
             .subscribe(onNext: { (json) in
                 print(json)
                 self.testDebugView?.text = "\(json)"

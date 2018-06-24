@@ -9,7 +9,7 @@
 import Foundation
 
 struct Authorization: JSONOutput {
-    static let eosio = Authorization(actor: "eosio", permission: .active)
+    static let eoshub = Authorization(actor: EOSHub.account, permission: .active)
     
     let actor: String
     let permission: Permission

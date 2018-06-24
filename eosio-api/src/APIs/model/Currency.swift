@@ -9,6 +9,7 @@
 import Foundation
 
 struct Currency {
+    let quantity: Double
     let balance: String
     let symbol: String
     let currency: String
@@ -18,9 +19,10 @@ struct Currency {
         if comp.count != 2 {
             return nil
         } else {
-            self.currency = currency
-            self.balance = comp.first!
+            self.quantity = Double(comp.first!)!
+            self.balance = String(format: "%.4f", quantity)
             self.symbol = comp.last!
+            self.currency = balance + " " + symbol
         }
     }
 
