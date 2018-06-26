@@ -20,8 +20,6 @@ class WalletViewController: UIViewController {
     @IBOutlet fileprivate weak var btnReceive: UIButton?
     @IBOutlet fileprivate weak var btnSetting: UIButton?
     
-    var flowEventDelegate: WalletFlowEventDelegate?
-    
     fileprivate var walletViews: [WalletView] = []
     
     private var isInitialized = false
@@ -67,6 +65,7 @@ class WalletViewController: UIViewController {
             })
             .disposed(by: bag)
         
+        //TODO 0 EOS일때 "0.0000 EOS"를 return 하도록 변경
         WalletManager.shared.balance
             .subscribe(onNext: { [weak self](currency) in
                 guard let eosCurrency = currency.first else { return }
@@ -86,8 +85,12 @@ class WalletViewController: UIViewController {
 
     
     fileprivate func goToSetting() {
-        guard let nc = navigationController else { return }
-        flowEventDelegate?.goToSetting(nc: nc)
+        guard let tc = tabBarController as? MainTabBarViewController else { return }
+        
+        guard let nc = tc.navigationController else { return }
+        
+        tc.flowDelegate?.goToSetting(nc: nc)
+        
     }
     
 }

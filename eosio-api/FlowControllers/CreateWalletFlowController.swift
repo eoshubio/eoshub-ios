@@ -28,8 +28,11 @@ class CreateWalletFlowController: FlowController, CreateWalletFlowEventDelegate 
     
     func goToWallet(nc: UINavigationController) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
-        let fc = WalletFlowController(configure: config)
+        let fc = MainTabBarFlowController(configure: config)
         fc.start()
+//        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+//        let fc = WalletFlowController(configure: config)
+//        fc.start()
     }
 }
 

@@ -27,7 +27,6 @@ class MainFlowController: FlowController {
         
         show(viewController: nc, animated: false) {
             if WalletManager.shared.getWallet() != nil {
-                //tabbar
                 let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
                 let fc = MainTabBarFlowController(configure: config)
                 fc.start()

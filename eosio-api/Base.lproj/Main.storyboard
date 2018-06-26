@@ -94,6 +94,88 @@
             </objects>
             <point key="canvasLocation" x="-210.40000000000001" y="457.38916256157637"/>
         </scene>
+        <!--View Controller-->
+        <scene sceneID="OFK-nA-Nzb">
+            <objects>
+                <viewController id="pOM-wT-CBK" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="C1l-sP-0MB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="152-4J-Svn"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="airdrop" id="yXS-MM-lko"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="37P-N1-Nrt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="782" y="1230"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="buY-38-YuK">
+            <objects>
+                <viewController id="dRt-cN-DMI" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="92X-Yk-7ug">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WUT-9y-0DS">
+                                <rect key="frame" x="0.0" y="144" width="375" height="585"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Ee1-sp-IJI" firstAttribute="bottom" secondItem="WUT-9y-0DS" secondAttribute="bottom" id="MBp-dp-slZ"/>
+                            <constraint firstItem="WUT-9y-0DS" firstAttribute="leading" secondItem="Ee1-sp-IJI" secondAttribute="leading" id="dk4-uf-lnR"/>
+                            <constraint firstItem="WUT-9y-0DS" firstAttribute="top" secondItem="Ee1-sp-IJI" secondAttribute="top" constant="100" id="kja-rf-W0n"/>
+                            <constraint firstItem="Ee1-sp-IJI" firstAttribute="trailing" secondItem="WUT-9y-0DS" secondAttribute="trailing" id="yql-sK-wrc"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Ee1-sp-IJI"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="vote" id="tqo-hU-28Q"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fjk-kK-cMo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-178" y="1974"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="AiH-og-z6G">
+            <objects>
+                <viewController id="Rf0-Uc-UHa" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Sac-b0-JD6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="ecB-4X-EKj"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="ico" id="k78-al-SpO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WJN-5D-jfN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="769" y="1974"/>
+        </scene>
+        <!--Main Tab Bar View Controller-->
+        <scene sceneID="Qx4-Nu-UQi">
+            <objects>
+                <tabBarController storyboardIdentifier="MainTabBarViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mhU-2S-L5P" customClass="MainTabBarViewController" customModule="eosio_api" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" itemPositioning="fill" id="5WF-o3-tSf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="selectedImageTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="gCi-vn-FUu" kind="relationship" relationship="viewControllers" id="MOh-Wx-2gh"/>
+                        <segue destination="pOM-wT-CBK" kind="relationship" relationship="viewControllers" id="f5l-yd-jvu"/>
+                        <segue destination="Rf0-Uc-UHa" kind="relationship" relationship="viewControllers" id="UJp-5o-hh6"/>
+                        <segue destination="dRt-cN-DMI" kind="relationship" relationship="viewControllers" id="080-Lc-cML"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sF2-gW-WQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-178" y="1230"/>
+        </scene>
         <!--Wallet View Controller-->
         <scene sceneID="gni-LX-f0a">
             <objects>
@@ -161,6 +243,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mY8-VP-BjA"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="" image="wallet" id="D4A-6V-xXv"/>
                     <connections>
                         <outlet property="balance" destination="L5Y-og-2gk" id="MAq-1T-PQq"/>
                         <outlet property="btnAccount" destination="jwS-zz-ODA" id="gMl-6j-rnt"/>
@@ -264,6 +347,10 @@
         </scene>
     </scenes>
     <resources>
+        <image name="airdrop" width="32" height="32"/>
+        <image name="ico" width="32" height="32"/>
         <image name="settings" width="64" height="64"/>
+        <image name="vote" width="32" height="32"/>
+        <image name="wallet" width="32" height="32"/>
     </resources>
 </document>

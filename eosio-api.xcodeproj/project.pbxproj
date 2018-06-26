@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C05C88D20DF68E00052CEE4 /* Contract+Args.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C05C88C20DF68E00052CEE4 /* Contract+Args.swift */; };
+		2C05C88F20DFDC8B0052CEE4 /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C05C88E20DFDC8B0052CEE4 /* AccountManager.swift */; };
 		2C0B5FEC20D2916A00F16A9D /* JSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B5FEB20D2916A00F16A9D /* JSON.swift */; };
 		2C0B5FF020D291BD00F16A9D /* EOSHost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B5FED20D291BD00F16A9D /* EOSHost.swift */; };
 		2C0B5FF120D291BD00F16A9D /* RxAPIRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0B5FEE20D291BD00F16A9D /* RxAPIRequests.swift */; };
@@ -50,6 +52,11 @@
 		2CCC41EF20D149DB00A671A9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2CCC41EE20D149DB00A671A9 /* Assets.xcassets */; };
 		2CCC41F220D149DB00A671A9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CCC41F020D149DB00A671A9 /* LaunchScreen.storyboard */; };
 		2CCC41FD20D149DB00A671A9 /* eosio_apiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCC41FC20D149DB00A671A9 /* eosio_apiTests.swift */; };
+		2CFBF33A20DBD36B0004CD7C /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBF33920DBD36B0004CD7C /* MainTabBarViewController.swift */; };
+		2CFBF33C20DBD3E30004CD7C /* MainTabBarFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBF33B20DBD3E30004CD7C /* MainTabBarFlowController.swift */; };
+		2CFBF33E20DBD78E0004CD7C /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBF33D20DBD78E0004CD7C /* VoteViewController.swift */; };
+		2CFBF34020DBD8030004CD7C /* BpListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFBF33F20DBD8030004CD7C /* BpListCell.swift */; };
+		2CFBF34220DBD85F0004CD7C /* BpListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CFBF34120DBD85F0004CD7C /* BpListCell.xib */; };
 		A59302ACED796A019A5098FA /* Pods_eosio_apiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B874C7849B314D2DCEB1726B /* Pods_eosio_apiTests.framework */; };
 		BF5B77B8763343B5C3B42832 /* Pods_eosio_api.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67C014B7CA9527702588557B /* Pods_eosio_api.framework */; };
 /* End PBXBuildFile section */
@@ -65,6 +72,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C05C88C20DF68E00052CEE4 /* Contract+Args.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Contract+Args.swift"; sourceTree = "<group>"; };
+		2C05C88E20DFDC8B0052CEE4 /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		2C0B5FEB20D2916A00F16A9D /* JSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSON.swift; sourceTree = "<group>"; };
 		2C0B5FED20D291BD00F16A9D /* EOSHost.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EOSHost.swift; sourceTree = "<group>"; };
 		2C0B5FEE20D291BD00F16A9D /* RxAPIRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxAPIRequests.swift; sourceTree = "<group>"; };
@@ -112,6 +121,11 @@
 		2CCC41F820D149DB00A671A9 /* eosio-apiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "eosio-apiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CCC41FC20D149DB00A671A9 /* eosio_apiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eosio_apiTests.swift; sourceTree = "<group>"; };
 		2CCC41FE20D149DB00A671A9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CFBF33920DBD36B0004CD7C /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		2CFBF33B20DBD3E30004CD7C /* MainTabBarFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarFlowController.swift; sourceTree = "<group>"; };
+		2CFBF33D20DBD78E0004CD7C /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
+		2CFBF33F20DBD8030004CD7C /* BpListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BpListCell.swift; sourceTree = "<group>"; };
+		2CFBF34120DBD85F0004CD7C /* BpListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BpListCell.xib; sourceTree = "<group>"; };
 		41BD664B4DA499AD750E47FE /* Pods-eosio-apiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eosio-apiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eosio-apiTests/Pods-eosio-apiTests.debug.xcconfig"; sourceTree = "<group>"; };
 		67C014B7CA9527702588557B /* Pods_eosio_api.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eosio_api.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		92E0DA78DF1D8785ECACE181 /* Pods-eosio-api.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eosio-api.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eosio-api/Pods-eosio-api.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				2C314E9220D63969009B5866 /* WalletManager.swift */,
+				2C05C88E20DFDC8B0052CEE4 /* AccountManager.swift */,
 			);
 			path = manager;
 			sourceTree = "<group>";
@@ -182,6 +197,8 @@
 				2C314EAD20D68CCE009B5866 /* CreateWalletViewController.swift */,
 				2C314EAF20D68CE4009B5866 /* WalletViewController.swift */,
 				2C314ED020D6BE74009B5866 /* SettingViewController.swift */,
+				2CFBF33920DBD36B0004CD7C /* MainTabBarViewController.swift */,
+				2CFBF33D20DBD78E0004CD7C /* VoteViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -203,6 +220,7 @@
 				2C314EBD20D69DE9009B5866 /* CreateWalletFlowController.swift */,
 				2C314ECC20D6B361009B5866 /* WalletFlowController.swift */,
 				2C314ED220D6C118009B5866 /* SettingFlowController.swift */,
+				2CFBF33B20DBD3E30004CD7C /* MainTabBarFlowController.swift */,
 			);
 			name = FlowControllers;
 			path = "eosio-api/FlowControllers";
@@ -212,6 +230,8 @@
 			isa = PBXGroup;
 			children = (
 				2C314EC820D6AD3A009B5866 /* GradientView.swift */,
+				2CFBF33F20DBD8030004CD7C /* BpListCell.swift */,
+				2CFBF34120DBD85F0004CD7C /* BpListCell.xib */,
 				2C314EC420D6A65F009B5866 /* WalletView.swift */,
 				2C314EC620D6A6C3009B5866 /* WalletView.xib */,
 			);
@@ -224,6 +244,7 @@
 				2C314E9020D63710009B5866 /* Wallet.swift */,
 				2C314EB620D6991C009B5866 /* Key.swift */,
 				2C314E9C20D63E65009B5866 /* Contract.swift */,
+				2C05C88C20DF68E00052CEE4 /* Contract+Args.swift */,
 				2C314E9E20D63F3B009B5866 /* Action.swift */,
 				2C314EA620D64DEE009B5866 /* Authority.swift */,
 				2C314E9A20D63E32009B5866 /* Permission.swift */,
@@ -400,6 +421,7 @@
 				2CCC41EF20D149DB00A671A9 /* Assets.xcassets in Resources */,
 				2CCC41ED20D149DA00A671A9 /* Main.storyboard in Resources */,
 				2C314EC720D6A6C3009B5866 /* WalletView.xib in Resources */,
+				2CFBF34220DBD85F0004CD7C /* BpListCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,9 +508,12 @@
 				2C314EC520D6A65F009B5866 /* WalletView.swift in Sources */,
 				2C314EC220D6A44B009B5866 /* Observable+extension.swift in Sources */,
 				2C314EAE20D68CCE009B5866 /* CreateWalletViewController.swift in Sources */,
+				2CFBF33A20DBD36B0004CD7C /* MainTabBarViewController.swift in Sources */,
+				2CFBF34020DBD8030004CD7C /* BpListCell.swift in Sources */,
 				2C314E9120D63710009B5866 /* Wallet.swift in Sources */,
 				2C314E8F20D63627009B5866 /* EOSIOConfig.swift in Sources */,
 				2C314EB020D68CE4009B5866 /* WalletViewController.swift in Sources */,
+				2CFBF33E20DBD78E0004CD7C /* VoteViewController.swift in Sources */,
 				2C7C70F220D4BEB600891BAD /* EOSErrorType.swift in Sources */,
 				2C314EBA20D69AC8009B5866 /* FlowController.swift in Sources */,
 				2C0B5FF120D291BD00F16A9D /* RxAPIRequests.swift in Sources */,
@@ -501,6 +526,8 @@
 				2C314ECF20D6B3EC009B5866 /* FlowEventDelegate.swift in Sources */,
 				2C314ED120D6BE74009B5866 /* SettingViewController.swift in Sources */,
 				2C314E9D20D63E65009B5866 /* Contract.swift in Sources */,
+				2C05C88D20DF68E00052CEE4 /* Contract+Args.swift in Sources */,
+				2C05C88F20DFDC8B0052CEE4 /* AccountManager.swift in Sources */,
 				2C0B5FF220D291BD00F16A9D /* EOSAPI.swift in Sources */,
 				2C314E9F20D63F3B009B5866 /* Action.swift in Sources */,
 				2C314EA920D656EF009B5866 /* SignedTransaction.swift in Sources */,
@@ -519,6 +546,7 @@
 				2C314EA120D64174009B5866 /* Block.swift in Sources */,
 				2C314EC020D69FAC009B5866 /* MainFlowController.swift in Sources */,
 				2C7C70F520D4DE2E00891BAD /* EOSResponseModel.swift in Sources */,
+				2CFBF33C20DBD3E30004CD7C /* MainTabBarFlowController.swift in Sources */,
 				2C314E9B20D63E32009B5866 /* Permission.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
