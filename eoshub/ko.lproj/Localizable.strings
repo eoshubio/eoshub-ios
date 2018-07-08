@@ -1,0 +1,7 @@
+/* 설정 */
+"setting.title" = "설정";
+"setting.security" = "보안";
+"setting.app" = "앱";
+"setting.wallet" = "지갑";
+"setting.logout" = "로그아웃";
+
