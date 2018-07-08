@@ -34,7 +34,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="d_login" translatesAutoresizingMaskIntoConstraints="NO" id="i0n-A4-k8f">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgPurple" translatesAutoresizingMaskIntoConstraints="NO" id="i0n-A4-k8f">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZtH-Xb-fCQ">
@@ -74,7 +74,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="d_term" translatesAutoresizingMaskIntoConstraints="NO" id="kvI-fA-vqV">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgGrady" translatesAutoresizingMaskIntoConstraints="NO" id="kvI-fA-vqV">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="425"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="425" id="3Uy-4v-hDT"/>
@@ -243,7 +243,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="d_login" width="1106" height="1950"/>
-        <image name="d_term" width="744" height="856"/>
+        <image name="bgGrady" width="750" height="1334"/>
+        <image name="bgPurple" width="750" height="1334"/>
     </resources>
 </document>
