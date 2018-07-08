@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-
-enum Permission: String {
-    case owner, active
+class Permission: EOSName {
+    static let owner = Permission("owner")
+    static let active = Permission("active")
 }

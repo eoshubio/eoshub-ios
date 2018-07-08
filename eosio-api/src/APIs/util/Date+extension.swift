@@ -22,10 +22,12 @@ extension Date {
     }
     
     static func UTCToDate(date:String) -> Date? {
+        let src = date.components(separatedBy: ".").first ?? date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS"
+        dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss"
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-        let dt = dateFormatter.date(from: date)
+        let dt = dateFormatter.date(from: src)
+        
         return dt
     }
     

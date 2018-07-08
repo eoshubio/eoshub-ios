@@ -14,7 +14,7 @@ import RxSwift
 class Wallet: DBObject {
   
     @objc dynamic var name: String = ""
-    //TODO: encyrpt wallet password
+    //TODO: encyrpt wallet password, save to keychain
     @objc dynamic var password: String = ""
     
     @objc dynamic var publicKey: String = ""

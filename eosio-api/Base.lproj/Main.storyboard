@@ -110,10 +110,10 @@
             </objects>
             <point key="canvasLocation" x="782" y="1230"/>
         </scene>
-        <!--View Controller-->
+        <!--Vote View Controller-->
         <scene sceneID="buY-38-YuK">
             <objects>
-                <viewController id="dRt-cN-DMI" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="VoteViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="dRt-cN-DMI" customClass="VoteViewController" customModule="eosio_api" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="92X-Yk-7ug">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -225,11 +225,18 @@
                                 </constraints>
                                 <state key="normal" image="settings"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="20" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Zs-LA-22w">
+                                <rect key="frame" x="25" y="311" width="325" height="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.90588235294117647" green="0.90588235294117647" blue="0.90588235294117647" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="gbo-ms-zfp" firstAttribute="centerY" secondItem="y9v-st-QCL" secondAttribute="centerY" id="0lI-gb-dj3"/>
                             <constraint firstItem="a8N-48-XJc" firstAttribute="leading" secondItem="mY8-VP-BjA" secondAttribute="leading" constant="25" id="3pr-N8-iZR"/>
+                            <constraint firstItem="9Zs-LA-22w" firstAttribute="top" secondItem="L5Y-og-2gk" secondAttribute="bottom" constant="15" id="5Bl-ny-QFB"/>
                             <constraint firstItem="mY8-VP-BjA" firstAttribute="trailing" secondItem="jwS-zz-ODA" secondAttribute="trailing" constant="25" id="9Wj-eE-rvc"/>
                             <constraint firstItem="mY8-VP-BjA" firstAttribute="trailing" secondItem="gbo-ms-zfp" secondAttribute="trailing" constant="25" id="AI5-Ci-xps"/>
                             <constraint firstItem="y9v-st-QCL" firstAttribute="top" secondItem="mY8-VP-BjA" secondAttribute="top" constant="25" id="Hj0-0c-pCZ"/>
@@ -238,6 +245,8 @@
                             <constraint firstItem="mY8-VP-BjA" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="y9v-st-QCL" secondAttribute="trailing" constant="25" id="Pmk-xr-J4P"/>
                             <constraint firstItem="mY8-VP-BjA" firstAttribute="trailing" secondItem="a8N-48-XJc" secondAttribute="trailing" constant="25" id="V2m-ig-nBa"/>
                             <constraint firstItem="a8N-48-XJc" firstAttribute="top" secondItem="jwS-zz-ODA" secondAttribute="bottom" constant="5" id="bUS-yR-fKS"/>
+                            <constraint firstItem="mY8-VP-BjA" firstAttribute="trailing" secondItem="9Zs-LA-22w" secondAttribute="trailing" constant="25" id="hUJ-na-Pdy"/>
+                            <constraint firstItem="9Zs-LA-22w" firstAttribute="leading" secondItem="mY8-VP-BjA" secondAttribute="leading" constant="25" id="nYS-Gb-0ja"/>
                             <constraint firstItem="mY8-VP-BjA" firstAttribute="trailing" secondItem="L5Y-og-2gk" secondAttribute="trailing" constant="25" id="ynd-lT-5za"/>
                             <constraint firstItem="L5Y-og-2gk" firstAttribute="top" secondItem="a8N-48-XJc" secondAttribute="bottom" constant="25" id="zUJ-co-g6t"/>
                         </constraints>
@@ -249,6 +258,7 @@
                         <outlet property="btnAccount" destination="jwS-zz-ODA" id="gMl-6j-rnt"/>
                         <outlet property="btnKey" destination="a8N-48-XJc" id="vNu-jt-3Vx"/>
                         <outlet property="btnSetting" destination="gbo-ms-zfp" id="vRA-3w-SIN"/>
+                        <outlet property="lbDebug" destination="9Zs-LA-22w" id="Ywq-kf-eir"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y4V-2D-8Z3" userLabel="First Responder" sceneMemberID="firstResponder"/>

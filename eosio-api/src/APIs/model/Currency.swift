@@ -27,3 +27,7 @@ struct Currency {
     }
 
 }
+
+extension Currency {
+    static let zeroEOS = Currency(currency: "0.0000 EOS")!
+}

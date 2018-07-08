@@ -146,24 +146,41 @@ struct RxEOSAPI {
                         return Observable.just((blockInfo: data.blockInfo, block: data.block, actions: data.actions, keys: keys))
                     })
             })
-            .flatMap { (data) -> Observable<JSON> in
+            .flatMap { (data) -> Observable<SignedTransaction> in
                 //5. sign transaction
                 let trx = Transaction(block: data.block, actions: data.actions).json
                 let input: [Any] = [trx, data.keys, data.blockInfo.chainId] //transaction, keys, chainid
-                return RxEOSAPI.signTransaction(array: input)
+                
+                let signTrx = SignedTransaction(json: trx)!
+                    //sign
+                LocalWallet.shared.sign(txn: signTrx, priKey: "5KCFf2amNPEHvbzkrs2EoNKgMFFe1qPzKfaiuzAWAdPE2b8Kcgb", cid: data.blockInfo.chainId)
+
+                
+                return Observable.just(signTrx)
+                
+//                return RxEOSAPI.signTransaction(array: input)
+//                    .flatMap({ (json) -> Observable<SignedTransaction> in
+//                        guard let trx = SignedTransaction(json: json) else { return Observable.error(EOSErrorType.invalidFormat) }
+//                        print("===========================================================")
+//                        print("[local ]: \(signTrx.signatures)")
+//                        print("[remote]: \(trx.signatures)")
+//                        print("===========================================================")
+//                        return Observable.just(trx)
+//                    })
+
             }
-            .flatMap { (json) -> Observable<JSON> in
+            .flatMap { (trx) -> Observable<JSON> in
                 //6. push transaction
-                guard let input = SignedTransaction(json: json) else { return Observable.error(EOSErrorType.invalidFormat) }
-                print(input)
-                return RxEOSAPI.pushTransaction(json: input.json)
+//                guard let input = SignedTransaction(json: json) else { return Observable.error(EOSErrorType.invalidFormat) }
+                let packedTransaction = PackedTransaction(signTxn: trx)
+                return RxEOSAPI.pushTransaction(json: packedTransaction.json)
         }
     }
     
     static func makeAction(contract: Contract) -> Observable<Action> {
         return RxEOSAPI.jsonToBin(json: contract.json)
             .flatMap { (binary) -> Observable<Action> in
-                let action = Action(account: contract.code, name: contract.action, authorization: contract.authorization, data: binary.bin)
+                let action = Action(account: contract.code, action: contract.action, authorization: contract.authorization, binary: binary.bin)
                 return Observable.just(action)
             }
     }
@@ -208,12 +225,13 @@ extension RxEOSAPI {
         
     }
     
-    //MARK: get account
+    //MARK: Get account
     static func getAccount(name: String) -> Observable<JSON> {
-        return Observable.empty()
+        return EOSAPI.Chain.get_account
+                .responseJSON(method: .post, parameter: ["account_name": name], encoding: JSONEncoding.default)
     }
     
-    //MARK: transfer currency
+    //MARK: Transfer currency
     static func sendCurrency(from: String, to: String, quantity: Currency, memo: String = "") -> Observable<JSON> {
         
         guard let wallet = WalletManager.shared.getWallet() else { return Observable.error(EOSErrorType.walletIsNotExist)}
@@ -237,7 +255,19 @@ extension RxEOSAPI {
     //MARK: Delegate Bandwidth
 //   get_currency_stats -> abi_json_to_bin -> get_info -> get_public_keys
     
-    
+    //MARK: Get Producer
+    static func getProducers(limit: Int) -> Observable<BlockProducers> {
+        let params: JSON = ["limit": limit, "lower_bound": "", "json": "true"]
+        return EOSAPI.Chain.get_producers
+                .responseJSON(method: .post, parameter: params, encoding: JSONEncoding.default)
+                .flatMap({ (json) -> Observable<BlockProducers> in
+                    if let result = BlockProducers(json: json) {
+                        return Observable.just(result)
+                    } else {
+                        return Observable.error(EOSErrorType.emptyData)
+                    }
+                })
+    }
     
 }
 

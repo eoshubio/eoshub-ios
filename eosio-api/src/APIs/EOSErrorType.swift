@@ -15,6 +15,7 @@ enum EOSErrorType: Error {
     case emptyResponse
     case invalidFormat
     case walletIsNotExist
+    case sigFailed
 }
 
 

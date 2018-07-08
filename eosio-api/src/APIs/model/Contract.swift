@@ -45,7 +45,7 @@ extension Contract {
                                        Args.transfer.to: to,
                                        Args.transfer.quantity: quantity.currency,
                                        Args.transfer.memo: memo],
-                                authorization: Authorization(actor: from, permission: .owner))
+                                authorization: Authorization(actor: from, permission: .active))
         return contract
     }
     

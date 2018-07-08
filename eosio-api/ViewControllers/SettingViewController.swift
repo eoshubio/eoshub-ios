@@ -43,7 +43,7 @@ class SettingViewController: UIViewController {
 class SettingData: NSObject, UITableViewDataSource, UITableViewDelegate {
     private let bag = DisposeBag()
     
-    let data: [SettingItem] = [.airDropEOS, .deleteDB]
+    let data: [SettingItem] = [.airDropEOS, .deleteDB, .signTest]
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return data.count
@@ -76,6 +76,8 @@ class SettingData: NSObject, UITableViewDataSource, UITableViewDelegate {
         case .deleteDB:
             DB.shared.deleteAll()
             exit(0)
+        case .signTest:
+            break
         }
         
     }
@@ -96,6 +98,7 @@ class SettingData: NSObject, UITableViewDataSource, UITableViewDelegate {
 enum SettingItem {
     case airDropEOS
     case deleteDB
+    case signTest
     
     var title: String {
         switch self {
@@ -103,6 +106,8 @@ enum SettingItem {
             return "테스트용 EOS 받기"
         case .deleteDB:
             return "DB 날리고 종료하기"
+        case .signTest:
+            return "서명 테스트하기"
         }
     }
 }

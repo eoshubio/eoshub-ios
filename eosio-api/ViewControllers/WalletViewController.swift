@@ -19,6 +19,7 @@ class WalletViewController: UIViewController {
     @IBOutlet fileprivate weak var btnSend: UIButton?
     @IBOutlet fileprivate weak var btnReceive: UIButton?
     @IBOutlet fileprivate weak var btnSetting: UIButton?
+    @IBOutlet fileprivate weak var lbDebug: UILabel?
     
     fileprivate var walletViews: [WalletView] = []
     
@@ -29,6 +30,8 @@ class WalletViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        
+        AccountManager.shared.refreshAccountInfo()
         
         if isInitialized == false {
             isInitialized = true
@@ -42,6 +45,7 @@ class WalletViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupUI()
         bindActions()
     }
@@ -66,12 +70,27 @@ class WalletViewController: UIViewController {
             .disposed(by: bag)
         
         //TODO 0 EOS일때 "0.0000 EOS"를 return 하도록 변경
-        WalletManager.shared.balance
-            .subscribe(onNext: { [weak self](currency) in
-                guard let eosCurrency = currency.first else { return }
-                self?.balance?.text = eosCurrency.currency
+//        WalletManager.shared.balance
+//            .subscribe(onNext: { [weak self](currency) in
+//                guard let eosCurrency = currency.first else { return }
+//                self?.balance?.text = eosCurrency.currency
+//            })
+//            .disposed(by: bag)
+        
+        AccountManager.shared.accountInfo
+            .subscribe(onNext: { [weak self ](account) in
+                if let account = account {
+                    
+                    self?.lbDebug?.text = "\(account)"
+                    
+                    self?.balance?.text = account.liquidBalance.currency
+                    
+                } else {
+                    self?.balance?.text = Currency.zeroEOS.currency
+                }
             })
             .disposed(by: bag)
+        
     }
     
     private func addWalletUI(wallet: Wallet) {

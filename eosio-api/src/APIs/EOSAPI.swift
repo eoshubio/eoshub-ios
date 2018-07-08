@@ -15,15 +15,19 @@ struct EOSAPI {
     public enum Chain: String {
         case get_info
         case get_block
+        case get_block_header_state
         case get_account
+        case get_abi
         case get_code
         case get_table_rows
         case get_currency_balance
         case abi_json_to_bin
         case abi_bin_to_json
+        case get_required_keys
+        case get_producers
+        case push_block
         case push_transaction
         case push_transactions
-        case get_required_keys
     }
     
     public enum Wallet: String {

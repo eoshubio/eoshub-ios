@@ -11,7 +11,7 @@ target 'eosio-api' do
   pod 'RxCocoa'
   pod 'Realm'
   pod 'RealmSwift'
-  
+  pod 'EllipticCurveKeyPair'
   target 'eosio-apiTests' do
     inherit! :search_paths
     # Pods for testing

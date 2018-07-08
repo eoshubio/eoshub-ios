@@ -39,19 +39,17 @@ struct BlockInfo: JSONInitializable {
     }
     
 }
-    
-    
-/*
-{"expiration":"2018-06-17T03:14:35",
- "ref_block_num":18378,
- "ref_block_prefix":2290226662,
- "max_net_usage_words":0,
- "max_cpu_usage_ms":0,
- "delay_sec":0,
- "context_free_actions":[],
- "actions":[{"account":"eosio","name":"newaccount","authorization":[{"actor":"eosio","permission":"active"}],"data":"0000000000ea30550082ca54aa3b9d82000000000201000001000000000201000001"}],
- "transaction_extensions":[],
- "signatures":["SIG_K1_KapiPjqhwRxi9MCPHohEGERfeCNwrgUGbui5TxWBYX1QZcxtDuaxgeP1p3tp8pUWi5gvpp9kaJLW6ib9tzRTibgx84ah2x"],
- "context_free_data":[]}
-*/
 
+struct BlockProducers: JSONInitializable {
+    let produces: [BlockProducer]
+    let totalVoteWeight: Currency
+    
+    init?(json: JSON) {
+        
+        guard let response = json.arrayJson(for: "rows") else { return nil }
+        produces = response.compactMap(BlockProducer.init)
+        let voteString = json.string(for: "total_producer_vote_weight") ?? "0.0000"
+        totalVoteWeight = Currency(currency: voteString) ?? .zeroEOS
+    }
+    
+}
