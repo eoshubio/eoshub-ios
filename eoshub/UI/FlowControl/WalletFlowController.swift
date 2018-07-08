@@ -19,11 +19,16 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
     }
     
     func show(animated: Bool) {
-        guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WalletViewController") as? WalletViewController else { preconditionFailure() }
-        vc.flowDelegate = self
+        var vc: WalletViewController?
+        if case FlowType.tab = configure.flowType {
+            vc = (configure.container as? TabBarViewController)?.viewControllers.filter({ $0 is WalletViewController }).first as? WalletViewController
+        } else {
+            vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "WalletViewController") as? WalletViewController
+        }
+        
+        vc?.flowDelegate = self
         show(viewController: vc, animated: animated) {
-            //remove other viewControllers in navigation controller
-            vc.navigationController?.viewControllers = [vc]
+            
         }
     }
     

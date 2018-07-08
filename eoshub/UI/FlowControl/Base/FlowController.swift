@@ -11,10 +11,14 @@ import UIKit
 
 enum FlowIdentifier: String {
     case main
+    case mainTab
     case createWallet
     case login
     case term
     case wallet
+    case vote
+    case airdrop
+    case ico
     case setting
     
     case pop
@@ -41,7 +45,7 @@ extension FlowController {
         }
     }
     
-    func show(viewController vc: UIViewController, animated: Bool, completion: (() -> Void)?) {
+    func show(viewController vc: UIViewController?, animated: Bool, completion: (() -> Void)?) {
         let flowType = configure.flowType
         let stack = history.map { $0.rawValue }.joined(separator: "-")
         print(stack)
@@ -59,11 +63,16 @@ extension FlowController {
             }
             vc.present(vc, animated: animated, completion: completion)
         case .navigation:
-            guard let nc = configure.container as? UINavigationController else {
+            guard let nc = configure.container as? UINavigationController, let vc = vc else {
                 preconditionFailure("\(configure.container) is not UINavigationController")
             }
             nc.pushViewController(vc, animated: animated)
             completion?()
+        case .tab(let idx):
+            guard let tc = configure.container as? TabBarViewController else {
+                preconditionFailure("\(configure.container) is not TabBarViewController")
+            }
+            tc.showViewController(at: idx, animated: animated, completion: completion)
         }
     }
 }

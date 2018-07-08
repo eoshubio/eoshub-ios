@@ -19,7 +19,7 @@ class TermFlowController: FlowController, TermFlowEventDelegate {
     }
     
     func show(animated: Bool) {
-        guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "TermViewController") as? TermViewController else { preconditionFailure() }
+        guard let vc = UIStoryboard(name: "Intro", bundle: nil).instantiateViewController(withIdentifier: "TermViewController") as? TermViewController else { preconditionFailure() }
         vc.flowDelegate = self
         show(viewController: vc, animated: animated) {
 

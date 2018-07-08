@@ -10,15 +10,24 @@ import Foundation
 import UIKit
 
 enum Color {
-    case basePurple
-    case baseGray
+    case basePurple, baseGray
+    case darkGray, gray, lightGray
+    case lightPurple
     
     var uiColor: UIColor {
         switch self {
         case .basePurple:
-            return UIColor.colorUInt8(r: 93, g: 40, b: 187)
+            return UIColor.colorUInt8(r: 83, g: 32, b: 173)
+        case .darkGray:
+            return UIColor(white: 61/255.0, alpha: 1.0)
+        case .gray:
+            return UIColor(white: 121/255.0, alpha: 1.0)
+        case .lightGray:
+            return UIColor(white: 163/255.0, alpha: 1.0)
         case .baseGray:
             return UIColor(white: 238/255.0, alpha: 1.0)
+        case .lightPurple:
+            return UIColor.colorUInt8(r: 115, g: 52, b: 225)
         }
     }
 }

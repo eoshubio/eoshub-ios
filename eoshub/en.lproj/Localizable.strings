@@ -6,6 +6,12 @@
 "login.kakao" = "Login with Kakao";
 "login.google" = "Login with Google";
 
+/* 약관 */
+"term.title" = "EOSHub is\na mobile cold wallet\nthat can store\n'EOS ans EOS based token'\nSafely";
+"term.goPrivacy" = "Privacy policy";
+"term.privacyDesc" = "By clicking the Start button, you agree to the terms of use and policies.";
+"term.start" = "Start";
+
 
 /* 설정 */
 "setting.title" = "Settings";

@@ -19,7 +19,7 @@ class LoginFlowController: FlowController, LoginFlowEventDelegate {
     }
     
     func show(animated: Bool) {
-        guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { preconditionFailure() }
+        guard let vc = UIStoryboard(name: "Intro", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { preconditionFailure() }
         vc.flowDelegate = self
         show(viewController: vc, animated: animated) {
             

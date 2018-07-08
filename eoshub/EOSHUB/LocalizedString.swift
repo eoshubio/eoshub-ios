@@ -20,6 +20,13 @@ struct LocalizedString {
         static let google = NSLocalizedString("login.google", comment: "")
     }
     
+    struct Term {
+        static let title = NSLocalizedString("term.title", comment: "")
+        static let goPrivacy = NSLocalizedString("term.goPrivacy", comment: "")
+        static let privacyDesc = NSLocalizedString("term.privacyDesc", comment: "")
+        static let start = NSLocalizedString("term.start", comment: "")
+    }
+    
     struct Setting {
         static let title = NSLocalizedString("setting.title", comment: "Settings")
         static let security = NSLocalizedString("setting.security", comment: "Security")

@@ -1,0 +1,73 @@
+//
+//  MainTabBarFlowController.swift
+//  eoshub
+//
+//  Created by kein on 2018. 7. 8..
+//  Copyright © 2018년 EOS Hub. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class MainTabFlowController: FlowController, MainTabFlowEventDelegate {
+    var configure: FlowConfigure
+    
+    var id: FlowIdentifier { return .mainTab }
+    
+    var subFlows: [FlowIdentifier] = [.wallet, .vote, .airdrop]
+    
+    required init(configure: FlowConfigure) {
+        self.configure = configure
+    }
+    
+    func show(animated: Bool) {
+        let storyBoard = UIStoryboard(name: "Wallet", bundle: nil)
+        guard let vc = storyBoard.instantiateViewController(withIdentifier: "MainTabViewController") as? MainTabViewController else { preconditionFailure() }
+        vc.flowDelegate = self
+        
+        vc.viewControllers = subFlows.compactMap { (flow) -> UIViewController? in
+            switch flow {
+            case .wallet:
+                let vc = storyBoard.instantiateViewController(withIdentifier: "WalletViewController")
+                return vc
+            case .vote:
+                let vc = storyBoard.instantiateViewController(withIdentifier: "VoteViewController")
+                return vc
+            case .airdrop:
+                let vc = storyBoard.instantiateViewController(withIdentifier: "AirdropViewController")
+                return vc
+            default:
+                return nil
+            }
+        }
+        
+        show(viewController: vc, animated: animated) {
+            
+        }
+    }
+    
+    
+    //MARK: MainTabFlowEventDelegate
+    func go(from tc: TabBarViewController, to tab: MainMenu) {
+        let config = FlowConfigure(container: tc, parent: self, flowType: .tab(tab.id))
+        switch tab {
+        case .wallet:
+            let fc = WalletFlowController(configure: config)
+            fc.start(animated: true)
+        case .vote:
+            let fc = VoteFlowController(configure: config)
+            fc.start(animated: true)
+        case .airdrop:
+            let fc = AirdropFlowController(configure: config)
+            fc.start(animated: true)
+        default:
+            break
+        }
+    }
+}
+
+protocol MainTabFlowEventDelegate: FlowEventDelegate {
+    
+    func go(from tc: TabBarViewController, to tab: MainMenu)
+    
+}

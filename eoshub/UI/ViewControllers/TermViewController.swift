@@ -11,9 +11,11 @@ import UIKit
 import RxSwift
 
 class TermViewController: BaseViewController {
-    @IBOutlet fileprivate var btnStart: UIButton!
+    
+    @IBOutlet fileprivate var lbTitle: UILabel!
     @IBOutlet fileprivate var btnPrivacy: UIButton!
     @IBOutlet fileprivate var lbPrivacyDesc: UILabel!
+    @IBOutlet fileprivate var btnStart: UIButton!
     
     var flowDelegate: TermFlowEventDelegate?
     
@@ -24,7 +26,9 @@ class TermViewController: BaseViewController {
     }
     
     private func setupUI() {
-        
+        lbTitle.text = LocalizedString.Term.title
+        btnPrivacy.setTitle(LocalizedString.Term.goPrivacy, for: .normal)
+        btnStart.setTitle(LocalizedString.Term.start, for: .normal)
     }
     
     private func bindActions() {

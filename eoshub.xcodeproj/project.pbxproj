@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
-		2CE110AE20F1C31000B93BEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Main.storyboard */; };
+		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
 		2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */; };
 		2CE110BE20F1C31400B93BEB /* eoshubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110BD20F1C31400B93BEB /* eoshubTests.swift */; };
 		2CE110D320F1C4E700B93BEB /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110CF20F1C4E700B93BEB /* FlowController.swift */; };
@@ -41,6 +41,20 @@
 		2CE1110E20F1FACD00B93BEB /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1110D20F1FACD00B93BEB /* LocalizedString.swift */; };
 		2CE1111020F2118900B93BEB /* LoginButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1110F20F2118900B93BEB /* LoginButton.xib */; };
 		2CE1111320F218C700B93BEB /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1111220F218C700B93BEB /* LoginType.swift */; };
+		2CE1111520F2395800B93BEB /* Wallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1111420F2395800B93BEB /* Wallet.storyboard */; };
+		2CE1111720F23BF600B93BEB /* ExtendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1111620F23BF600B93BEB /* ExtendButton.swift */; };
+		2CE1111920F23C1700B93BEB /* BounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1111820F23C1700B93BEB /* BounceButton.swift */; };
+		2CE1111B20F23C7400B93BEB /* CGSize+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1111A20F23C7400B93BEB /* CGSize+extension.swift */; };
+		2CE1111D20F23D3800B93BEB /* Dimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1111C20F23D3800B93BEB /* Dimension.swift */; };
+		2CE1112020F2403100B93BEB /* MenuTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1111F20F2403100B93BEB /* MenuTabBar.swift */; };
+		2CE1112220F242E500B93BEB /* Font.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1112120F242E500B93BEB /* Font.swift */; };
+		2CE1112420F24CF200B93BEB /* MainTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1112320F24CF200B93BEB /* MainTabViewController.swift */; };
+		2CE1112620F2504000B93BEB /* MainTabFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1112520F2504000B93BEB /* MainTabFlowController.swift */; };
+		2CE1112920F252B500B93BEB /* TabBarViewConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1112820F252B500B93BEB /* TabBarViewConroller.swift */; };
+		2CE1112C20F263B100B93BEB /* VoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1112B20F263B100B93BEB /* VoteViewController.swift */; };
+		2CE1112E20F2680100B93BEB /* VoteFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1112D20F2680100B93BEB /* VoteFlowController.swift */; };
+		2CE1113020F26BA300B93BEB /* AirdropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1112F20F26BA300B93BEB /* AirdropViewController.swift */; };
+		2CE1113220F26BD700B93BEB /* AirdropFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1113120F26BD700B93BEB /* AirdropFlowController.swift */; };
 		B52C07F61076004528A3A4FE /* Pods_eoshubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED6084D9ED0A15CBAE17906 /* Pods_eoshubTests.framework */; };
 		DAE53D72D1E6BAA58F35A061 /* Pods_eoshub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC2CBA2696CDF2187FE8A20 /* Pods_eoshub.framework */; };
 /* End PBXBuildFile section */
@@ -58,7 +72,7 @@
 /* Begin PBXFileReference section */
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE110A820F1C31000B93BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2CE110AD20F1C31000B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2CE110AD20F1C31000B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Intro.storyboard; sourceTree = "<group>"; };
 		2CE110B220F1C31300B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CE110B420F1C31300B93BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CE110B920F1C31300B93BEB /* eoshubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eoshubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +109,20 @@
 		2CE1110D20F1FACD00B93BEB /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		2CE1110F20F2118900B93BEB /* LoginButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginButton.xib; sourceTree = "<group>"; };
 		2CE1111220F218C700B93BEB /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
+		2CE1111420F2395800B93BEB /* Wallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wallet.storyboard; sourceTree = "<group>"; };
+		2CE1111620F23BF600B93BEB /* ExtendButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendButton.swift; sourceTree = "<group>"; };
+		2CE1111820F23C1700B93BEB /* BounceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceButton.swift; sourceTree = "<group>"; };
+		2CE1111A20F23C7400B93BEB /* CGSize+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+extension.swift"; sourceTree = "<group>"; };
+		2CE1111C20F23D3800B93BEB /* Dimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dimension.swift; sourceTree = "<group>"; };
+		2CE1111F20F2403100B93BEB /* MenuTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuTabBar.swift; sourceTree = "<group>"; };
+		2CE1112120F242E500B93BEB /* Font.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Font.swift; sourceTree = "<group>"; };
+		2CE1112320F24CF200B93BEB /* MainTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabViewController.swift; sourceTree = "<group>"; };
+		2CE1112520F2504000B93BEB /* MainTabFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabFlowController.swift; sourceTree = "<group>"; };
+		2CE1112820F252B500B93BEB /* TabBarViewConroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewConroller.swift; sourceTree = "<group>"; };
+		2CE1112B20F263B100B93BEB /* VoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteViewController.swift; sourceTree = "<group>"; };
+		2CE1112D20F2680100B93BEB /* VoteFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteFlowController.swift; sourceTree = "<group>"; };
+		2CE1112F20F26BA300B93BEB /* AirdropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirdropViewController.swift; sourceTree = "<group>"; };
+		2CE1113120F26BD700B93BEB /* AirdropFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirdropFlowController.swift; sourceTree = "<group>"; };
 		2FC2CBA2696CDF2187FE8A20 /* Pods_eoshub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eoshub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B4AA61F57302C0EB3DA6AA /* Pods-eoshubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-eoshubTests/Pods-eoshubTests.release.xcconfig"; sourceTree = "<group>"; };
 		59AB798F947DAD2F27645CE8 /* Pods-eoshubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eoshubTests/Pods-eoshubTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -154,7 +182,8 @@
 				2CE110CC20F1C49300B93BEB /* Manager */,
 				2CE110CB20F1C48200B93BEB /* Utils */,
 				2CE110A820F1C31000B93BEB /* AppDelegate.swift */,
-				2CE110AC20F1C31000B93BEB /* Main.storyboard */,
+				2CE110AC20F1C31000B93BEB /* Intro.storyboard */,
+				2CE1111420F2395800B93BEB /* Wallet.storyboard */,
 				2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */,
 				2CE1110B20F1FA6600B93BEB /* Localizable.strings */,
 				2CE110B420F1C31300B93BEB /* Info.plist */,
@@ -200,6 +229,8 @@
 			isa = PBXGroup;
 			children = (
 				2CE110F920F1EBE600B93BEB /* UIView+extension.swift */,
+				2CE1111C20F23D3800B93BEB /* Dimension.swift */,
+				2CE1111A20F23C7400B93BEB /* CGSize+extension.swift */,
 				2CE110E420F1C9B300B93BEB /* Character+extension.swift */,
 				2CE110E120F1C9B200B93BEB /* Date+extension.swift */,
 				2CE110E220F1C9B200B93BEB /* DBObject.swift */,
@@ -208,6 +239,7 @@
 				2CE110E320F1C9B300B93BEB /* Observable+extension.swift */,
 				2CE110DE20F1C9B200B93BEB /* String+extension.swift */,
 				2CE110DC20F1C96B00B93BEB /* JSON.swift */,
+				2CE1112120F242E500B93BEB /* Font.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -231,13 +263,14 @@
 		2CE110CE20F1C4CE00B93BEB /* FlowControl */ = {
 			isa = PBXGroup;
 			children = (
-				2CE110D120F1C4E700B93BEB /* FlowConfigure.swift */,
-				2CE110CF20F1C4E700B93BEB /* FlowController.swift */,
-				2CE110D220F1C4E700B93BEB /* FlowEventDelegate.swift */,
+				2CE1112720F2510100B93BEB /* Base */,
 				2CE110D020F1C4E700B93BEB /* MainFlowController.swift */,
+				2CE1112520F2504000B93BEB /* MainTabFlowController.swift */,
 				2CE110EE20F1C9D600B93BEB /* LoginFlowController.swift */,
 				2CE110F620F1E00D00B93BEB /* TermFlowController.swift */,
 				2CE1110120F1EE9C00B93BEB /* WalletFlowController.swift */,
+				2CE1112D20F2680100B93BEB /* VoteFlowController.swift */,
+				2CE1113120F26BD700B93BEB /* AirdropFlowController.swift */,
 				2CE1110520F1F76200B93BEB /* SettingFlowController.swift */,
 			);
 			path = FlowControl;
@@ -246,11 +279,14 @@
 		2CE110D720F1C50100B93BEB /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				2CE110F220F1DAF700B93BEB /* BaseViewController.swift */,
+				2CE1112A20F25B0B00B93BEB /* Base */,
 				2CE110D820F1C52900B93BEB /* LoginViewController.swift */,
 				2CE110F420F1DCEC00B93BEB /* TermViewController.swift */,
 				2CE110FF20F1EDB000B93BEB /* WalletViewController.swift */,
 				2CE1110320F1F30200B93BEB /* SettingViewController.swift */,
+				2CE1112320F24CF200B93BEB /* MainTabViewController.swift */,
+				2CE1112B20F263B100B93BEB /* VoteViewController.swift */,
+				2CE1112F20F26BA300B93BEB /* AirdropViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -258,7 +294,8 @@
 		2CE110F820F1EBD400B93BEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				2CE110FB20F1EC8600B93BEB /* RoundedButton.swift */,
+				2CE1111E20F23F2400B93BEB /* Base */,
+				2CE1111F20F2403100B93BEB /* MenuTabBar.swift */,
 				2CE110FD20F1ED6500B93BEB /* LoginButton.swift */,
 				2CE1110F20F2118900B93BEB /* LoginButton.xib */,
 			);
@@ -271,6 +308,35 @@
 				2CE1111220F218C700B93BEB /* LoginType.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		2CE1111E20F23F2400B93BEB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2CE1111820F23C1700B93BEB /* BounceButton.swift */,
+				2CE110FB20F1EC8600B93BEB /* RoundedButton.swift */,
+				2CE1111620F23BF600B93BEB /* ExtendButton.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		2CE1112720F2510100B93BEB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2CE110D120F1C4E700B93BEB /* FlowConfigure.swift */,
+				2CE110CF20F1C4E700B93BEB /* FlowController.swift */,
+				2CE110D220F1C4E700B93BEB /* FlowEventDelegate.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		2CE1112A20F25B0B00B93BEB /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2CE110F220F1DAF700B93BEB /* BaseViewController.swift */,
+				2CE1112820F252B500B93BEB /* TabBarViewConroller.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		384033B70FDA1B380FF439BC /* Pods */ = {
@@ -382,7 +448,8 @@
 				2CE1111020F2118900B93BEB /* LoginButton.xib in Resources */,
 				2CE1110920F1FA6600B93BEB /* Localizable.strings in Resources */,
 				2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */,
-				2CE110AE20F1C31000B93BEB /* Main.storyboard in Resources */,
+				2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */,
+				2CE1111520F2395800B93BEB /* Wallet.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,24 +537,37 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CE110E520F1C9B300B93BEB /* String+extension.swift in Sources */,
+				2CE1113220F26BD700B93BEB /* AirdropFlowController.swift in Sources */,
 				2CE110D920F1C52900B93BEB /* LoginViewController.swift in Sources */,
+				2CE1112920F252B500B93BEB /* TabBarViewConroller.swift in Sources */,
 				2CE1110620F1F76200B93BEB /* SettingFlowController.swift in Sources */,
+				2CE1112020F2403100B93BEB /* MenuTabBar.swift in Sources */,
 				2CE1110220F1EE9C00B93BEB /* WalletFlowController.swift in Sources */,
+				2CE1112420F24CF200B93BEB /* MainTabViewController.swift in Sources */,
 				2CE110DD20F1C96B00B93BEB /* JSON.swift in Sources */,
 				2CE110EB20F1C9B300B93BEB /* Character+extension.swift in Sources */,
 				2CE110FC20F1EC8600B93BEB /* RoundedButton.swift in Sources */,
 				2CE110FA20F1EBE600B93BEB /* UIView+extension.swift in Sources */,
+				2CE1111720F23BF600B93BEB /* ExtendButton.swift in Sources */,
 				2CE110E720F1C9B300B93BEB /* DispatchQueue.swift in Sources */,
 				2CE1110020F1EDB000B93BEB /* WalletViewController.swift in Sources */,
+				2CE1113020F26BA300B93BEB /* AirdropViewController.swift in Sources */,
+				2CE1112220F242E500B93BEB /* Font.swift in Sources */,
+				2CE1111920F23C1700B93BEB /* BounceButton.swift in Sources */,
+				2CE1112C20F263B100B93BEB /* VoteViewController.swift in Sources */,
 				2CE110F120F1D65400B93BEB /* Color.swift in Sources */,
 				2CE1110420F1F30200B93BEB /* SettingViewController.swift in Sources */,
 				2CE110F720F1E00D00B93BEB /* TermFlowController.swift in Sources */,
 				2CE110F520F1DCEC00B93BEB /* TermViewController.swift in Sources */,
+				2CE1111D20F23D3800B93BEB /* Dimension.swift in Sources */,
 				2CE110EA20F1C9B300B93BEB /* Observable+extension.swift in Sources */,
 				2CE110FE20F1ED6500B93BEB /* LoginButton.swift in Sources */,
+				2CE1112620F2504000B93BEB /* MainTabFlowController.swift in Sources */,
 				2CE110F320F1DAF700B93BEB /* BaseViewController.swift in Sources */,
+				2CE1111B20F23C7400B93BEB /* CGSize+extension.swift in Sources */,
 				2CE1110E20F1FACD00B93BEB /* LocalizedString.swift in Sources */,
 				2CE110D520F1C4E700B93BEB /* FlowConfigure.swift in Sources */,
+				2CE1112E20F2680100B93BEB /* VoteFlowController.swift in Sources */,
 				2CE110D420F1C4E700B93BEB /* MainFlowController.swift in Sources */,
 				2CE110E920F1C9B300B93BEB /* DBObject.swift in Sources */,
 				2CE1111320F218C700B93BEB /* LoginType.swift in Sources */,
@@ -519,12 +599,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		2CE110AC20F1C31000B93BEB /* Main.storyboard */ = {
+		2CE110AC20F1C31000B93BEB /* Intro.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				2CE110AD20F1C31000B93BEB /* Base */,
 			);
-			name = Main.storyboard;
+			name = Intro.storyboard;
 			sourceTree = "<group>";
 		};
 		2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */ = {

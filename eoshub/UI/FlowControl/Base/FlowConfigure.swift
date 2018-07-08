@@ -13,6 +13,7 @@ enum FlowType {
     case window
     case navigation
     case modal
+    case tab(Int)
 }
 
 

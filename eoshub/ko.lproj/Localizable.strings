@@ -6,6 +6,12 @@
 "login.kakao" = "카카오계정으로 로그인하기";
 "login.google" = "구글계정으로 로그인하기";
 
+/* 약관 */
+"term.title" = "이오스허브는 EOS와 EOS기반 토큰들을\n가장 안전하게 보관할 수 있는 모바일\n콜드 월렛 입니다";
+"term.goPrivacy" = "개인정보 보호정책";
+"term.privacyDesc" = "시작하기 버튼을 누르시면 회원약관, 정책에 동의됩니다.";
+"term.start" = "시작하기";
+
 /* 설정 */
 "setting.title" = "설정";
 "setting.security" = "보안";

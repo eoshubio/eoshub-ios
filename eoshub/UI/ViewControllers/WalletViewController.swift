@@ -30,12 +30,19 @@ class WalletViewController: BaseViewController {
         super.viewDidLoad()
         setupUI()
         bindActions()
-    }
-    
-    private func setupUI() {
         
     }
     
+    private func setupUI() {
+        btnProfile.setCornerRadius(radius: btnProfile.bounds.height * 0.5)
+        btnProfile.imageView?.contentMode = .scaleAspectFill
+        btnProfile.layer.shadowColor = UIColor.black.cgColor
+        btnProfile.layer.shadowOffset = .zero
+        btnProfile.layer.shadowRadius = 1.0
+        
+    }
+    
+   
     private func bindActions() {
         btnSetting.rx.singleTap
             .bind { [weak self](_) in

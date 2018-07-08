@@ -27,8 +27,11 @@ class MainFlowController: FlowController {
         
         show(viewController: nc, animated: animated) {
             let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
-            let fc = LoginFlowController(configure: config)
+//            let fc = LoginFlowController(configure: config)
+            let fc = MainTabFlowController(configure: config)
             fc.start(animated: false)
+            
+            
             
 //            if WalletManager.shared.getWallet() != nil {
 //                let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
