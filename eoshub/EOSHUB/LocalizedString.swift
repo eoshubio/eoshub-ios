@@ -10,6 +10,15 @@ import Foundation
 
 
 struct LocalizedString {
+    struct Intro {
+        static let title = NSLocalizedString("intro.title", comment: "")
+    }
+    
+    struct Login {
+        static let facebook = NSLocalizedString("login.facebook", comment: "")
+        static let kakao = NSLocalizedString("login.kakao", comment: "")
+        static let google = NSLocalizedString("login.google", comment: "")
+    }
     
     struct Setting {
         static let title = NSLocalizedString("setting.title", comment: "Settings")

@@ -14,10 +14,12 @@ import RxCocoa
 class LoginViewController: BaseViewController {
     
     var flowDelegate: LoginFlowEventDelegate?
+    @IBOutlet fileprivate weak var lbTitle: UILabel!
+//    @IBOutlet fileprivate weak var containerLoginButtons: UIView!
     
-    @IBOutlet fileprivate weak var containerLoginButtons: UIView!
+    @IBOutlet fileprivate weak var stackLoginButtons: UIStackView!
     
-    fileprivate var loginButtons: [UIButton] = []
+    fileprivate var loginButtons: [LoginButton] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -36,11 +38,30 @@ class LoginViewController: BaseViewController {
     
     //MARK: setup
     private func setupUI() {
-        view.backgroundColor = Color.basePurple.uiColor
+        lbTitle.text = LocalizedString.Intro.title
+        
+        //TODO: Check that the app is installed.
+        var availableLoginTypes: [LoginType] = [.facebook, .google]
+        
+        if Locale.current.regionCode == "KR" {
+            availableLoginTypes = [.facebook, .kakao, .google]
+        }
+        
+        stackLoginButtons.spacing = 10
+        
+        
+        availableLoginTypes.forEach { (type) in
+            let loginButton = LoginButton(frame: CGRect(x: 0, y: 0, width: stackLoginButtons.bounds.width, height: 44))
+            loginButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
+            loginButton.configure(type: type)
+            stackLoginButtons.addArrangedSubview(loginButton)
+            loginButtons.append(loginButton)
+        }
+        
         //dummy
-        let btnLoginWithDummy = UIButton(frame: containerLoginButtons.bounds)
-        containerLoginButtons.addSubview(btnLoginWithDummy)
-        loginButtons.append(btnLoginWithDummy)
+//        let btnLoginWithDummy = LoginButton(frame: CGRect(x: 0, y: 0, width: containerLoginButtons.bounds.width, height: 44))
+//        containerLoginButtons.addSubview(btnLoginWithDummy)
+//        loginButtons.append(btnLoginWithDummy)
     }
     
     private func bindActions() {

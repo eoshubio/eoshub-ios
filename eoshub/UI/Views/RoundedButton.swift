@@ -17,16 +17,39 @@ class RoundedButton: UIButton {
         }
     }
     
+    override var isHighlighted: Bool {
+        didSet {
+            if isHighlighted {
+                highlightedView?.alpha = 1.0
+            } else {
+                highlightedView?.alpha = 0
+            }
+        }
+    }
+    
+    
+    private var highlightedView: UIView?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
+        setupUI()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+        setupUI()
     }
     
     private func setupUI() {
         relayout()
+        
+        highlightedView = UIView(frame: bounds)
+        highlightedView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        highlightedView?.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        highlightedView?.isUserInteractionEnabled = false
+        addSubview(highlightedView!)
+        
+        highlightedView?.alpha = 0
     }
     
     private func relayout() {

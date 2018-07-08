@@ -1,3 +1,11 @@
+/* 인트로 */
+"intro.title" = "Keep your\nEOS\nto The\nSafest wallet";
+
+/* 로그인 */
+"login.facebook" = "페이스북으로 로그인하기";
+"login.kakao" = "카카오계정으로 로그인하기";
+"login.google" = "구글계정으로 로그인하기";
+
 /* 설정 */
 "setting.title" = "설정";
 "setting.security" = "보안";
