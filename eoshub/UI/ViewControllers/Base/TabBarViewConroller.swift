@@ -13,7 +13,11 @@ class TabBarViewController: BaseViewController {
     var viewControllers: [UIViewController] = [] {
         didSet {
             contentView.subviews.forEach { $0.removeFromSuperview() }
-            viewControllers.forEach { contentView.addSubview($0.view) }
+            childViewControllers.forEach { $0.removeFromParentViewController()}
+            viewControllers.forEach { vc in
+                contentView.addSubview(vc.view)
+                addChildViewController(vc)
+            }
         }
     }
 

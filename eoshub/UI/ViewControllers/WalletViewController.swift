@@ -69,7 +69,7 @@ class WalletViewController: BaseViewController {
     private func bindActions() {
         btnSetting.rx.singleTap
             .bind { [weak self](_) in
-                guard let nc = self?.navigationController else { return }
+                guard let nc = self?.parent?.navigationController else { return }
                 self?.flowDelegate?.goToSetting(from: nc)
             }
             .disposed(by: bag)
