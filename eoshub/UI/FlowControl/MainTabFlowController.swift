@@ -41,25 +41,25 @@ class MainTabFlowController: FlowController, MainTabFlowEventDelegate {
             }
         }
         
-        show(viewController: vc, animated: animated) {
-            
+        show(viewController: vc, animated: animated) { [weak self] in
+            self?.go(from: vc, to: .wallet, animated: false)
         }
     }
     
     
     //MARK: MainTabFlowEventDelegate
-    func go(from tc: TabBarViewController, to tab: MainMenu) {
+    func go(from tc: TabBarViewController, to tab: MainMenu, animated: Bool) {
         let config = FlowConfigure(container: tc, parent: self, flowType: .tab(tab.id))
         switch tab {
         case .wallet:
             let fc = WalletFlowController(configure: config)
-            fc.start(animated: true)
+            fc.start(animated: animated)
         case .vote:
             let fc = VoteFlowController(configure: config)
-            fc.start(animated: true)
+            fc.start(animated: animated)
         case .airdrop:
             let fc = AirdropFlowController(configure: config)
-            fc.start(animated: true)
+            fc.start(animated: animated)
         default:
             break
         }
@@ -68,6 +68,6 @@ class MainTabFlowController: FlowController, MainTabFlowEventDelegate {
 
 protocol MainTabFlowEventDelegate: FlowEventDelegate {
     
-    func go(from tc: TabBarViewController, to tab: MainMenu)
+    func go(from tc: TabBarViewController, to tab: MainMenu, animated: Bool)
     
 }

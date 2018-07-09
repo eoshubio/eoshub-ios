@@ -29,7 +29,6 @@ class TabBarViewController: BaseViewController {
         super.viewWillAppear(animated)
         view.setNeedsLayout()
         view.layoutIfNeeded()
-        relayoutSubViewControllers()
         
     }
     
@@ -47,6 +46,11 @@ class TabBarViewController: BaseViewController {
         menuContainer.addSubview(menus)
         
         menuTabBar = menus
+    }
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        relayoutSubViewControllers()
     }
     
     fileprivate func relayoutSubViewControllers() {

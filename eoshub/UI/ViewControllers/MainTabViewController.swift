@@ -27,7 +27,7 @@ class MainTabViewController: TabBarViewController {
         menuTabBar.selected
             .bind { [weak self](menu) in
                 guard let strongSelf = self, let menu = menu as? MainMenu else { return }
-                strongSelf.flowDelegate?.go(from: strongSelf, to: menu)
+                strongSelf.flowDelegate?.go(from: strongSelf, to: menu, animated: true)
             }
             .disposed(by: bag)
     }

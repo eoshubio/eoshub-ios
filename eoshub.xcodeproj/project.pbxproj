@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C2ACFC120F3AEED00C637D8 /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2ACFC020F3AEED00C637D8 /* TestCell.xib */; };
+		2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFC220F3B86600C637D8 /* Double+extension.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
 		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
 		2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */; };
@@ -55,6 +57,14 @@
 		2CE1112E20F2680100B93BEB /* VoteFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1112D20F2680100B93BEB /* VoteFlowController.swift */; };
 		2CE1113020F26BA300B93BEB /* AirdropViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1112F20F26BA300B93BEB /* AirdropViewController.swift */; };
 		2CE1113220F26BD700B93BEB /* AirdropFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1113120F26BD700B93BEB /* AirdropFlowController.swift */; };
+		2CE1113420F26D8000B93BEB /* WalletAddCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1113320F26D8000B93BEB /* WalletAddCell.swift */; };
+		2CE1113620F26DBB00B93BEB /* WalletAddCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1113520F26DBB00B93BEB /* WalletAddCell.xib */; };
+		2CE1113820F26DF000B93BEB /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1113720F26DF000B93BEB /* RoundedView.swift */; };
+		2CE1113A20F27BE000B93BEB /* WalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1113920F27BE000B93BEB /* WalletCell.swift */; };
+		2CE1113C20F27C1E00B93BEB /* WalletCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1113B20F27C1E00B93BEB /* WalletCell.xib */; };
+		2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954520F3914600DC173F /* MultiProgressBar.swift */; };
+		2CFE954820F3930200DC173F /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954720F3930200DC173F /* CellType.swift */; };
+		2CFE954A20F3947300DC173F /* EOSWalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954920F3947300DC173F /* EOSWalletViewModel.swift */; };
 		B52C07F61076004528A3A4FE /* Pods_eoshubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED6084D9ED0A15CBAE17906 /* Pods_eoshubTests.framework */; };
 		DAE53D72D1E6BAA58F35A061 /* Pods_eoshub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC2CBA2696CDF2187FE8A20 /* Pods_eoshub.framework */; };
 /* End PBXBuildFile section */
@@ -70,6 +80,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C2ACFC020F3AEED00C637D8 /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
+		2C2ACFC220F3B86600C637D8 /* Double+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+extension.swift"; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE110A820F1C31000B93BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CE110AD20F1C31000B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Intro.storyboard; sourceTree = "<group>"; };
@@ -123,6 +135,14 @@
 		2CE1112D20F2680100B93BEB /* VoteFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteFlowController.swift; sourceTree = "<group>"; };
 		2CE1112F20F26BA300B93BEB /* AirdropViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirdropViewController.swift; sourceTree = "<group>"; };
 		2CE1113120F26BD700B93BEB /* AirdropFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirdropFlowController.swift; sourceTree = "<group>"; };
+		2CE1113320F26D8000B93BEB /* WalletAddCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletAddCell.swift; sourceTree = "<group>"; };
+		2CE1113520F26DBB00B93BEB /* WalletAddCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletAddCell.xib; sourceTree = "<group>"; };
+		2CE1113720F26DF000B93BEB /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
+		2CE1113920F27BE000B93BEB /* WalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCell.swift; sourceTree = "<group>"; };
+		2CE1113B20F27C1E00B93BEB /* WalletCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletCell.xib; sourceTree = "<group>"; };
+		2CFE954520F3914600DC173F /* MultiProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiProgressBar.swift; sourceTree = "<group>"; };
+		2CFE954720F3930200DC173F /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
+		2CFE954920F3947300DC173F /* EOSWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSWalletViewModel.swift; sourceTree = "<group>"; };
 		2FC2CBA2696CDF2187FE8A20 /* Pods_eoshub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eoshub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		36B4AA61F57302C0EB3DA6AA /* Pods-eoshubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-eoshubTests/Pods-eoshubTests.release.xcconfig"; sourceTree = "<group>"; };
 		59AB798F947DAD2F27645CE8 /* Pods-eoshubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eoshubTests/Pods-eoshubTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -204,6 +224,8 @@
 		2CE110C820F1C44400B93BEB /* EOSIO */ = {
 			isa = PBXGroup;
 			children = (
+				2CFE954C20F394BD00DC173F /* Wallet */,
+				2CFE954B20F394B100DC173F /* Chain */,
 			);
 			path = EOSIO;
 			sourceTree = "<group>";
@@ -240,6 +262,7 @@
 				2CE110DE20F1C9B200B93BEB /* String+extension.swift */,
 				2CE110DC20F1C96B00B93BEB /* JSON.swift */,
 				2CE1112120F242E500B93BEB /* Font.swift */,
+				2C2ACFC220F3B86600C637D8 /* Double+extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -296,6 +319,12 @@
 			children = (
 				2CE1111E20F23F2400B93BEB /* Base */,
 				2CE1111F20F2403100B93BEB /* MenuTabBar.swift */,
+				2CFE954520F3914600DC173F /* MultiProgressBar.swift */,
+				2C2ACFC020F3AEED00C637D8 /* TestCell.xib */,
+				2CE1113920F27BE000B93BEB /* WalletCell.swift */,
+				2CE1113B20F27C1E00B93BEB /* WalletCell.xib */,
+				2CE1113320F26D8000B93BEB /* WalletAddCell.swift */,
+				2CE1113520F26DBB00B93BEB /* WalletAddCell.xib */,
 				2CE110FD20F1ED6500B93BEB /* LoginButton.swift */,
 				2CE1110F20F2118900B93BEB /* LoginButton.xib */,
 			);
@@ -306,6 +335,7 @@
 			isa = PBXGroup;
 			children = (
 				2CE1111220F218C700B93BEB /* LoginType.swift */,
+				2CFE954920F3947300DC173F /* EOSWalletViewModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -315,7 +345,9 @@
 			children = (
 				2CE1111820F23C1700B93BEB /* BounceButton.swift */,
 				2CE110FB20F1EC8600B93BEB /* RoundedButton.swift */,
+				2CE1113720F26DF000B93BEB /* RoundedView.swift */,
 				2CE1111620F23BF600B93BEB /* ExtendButton.swift */,
+				2CFE954720F3930200DC173F /* CellType.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -337,6 +369,20 @@
 				2CE1112820F252B500B93BEB /* TabBarViewConroller.swift */,
 			);
 			path = Base;
+			sourceTree = "<group>";
+		};
+		2CFE954B20F394B100DC173F /* Chain */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Chain;
+			sourceTree = "<group>";
+		};
+		2CFE954C20F394BD00DC173F /* Wallet */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Wallet;
 			sourceTree = "<group>";
 		};
 		384033B70FDA1B380FF439BC /* Pods */ = {
@@ -444,9 +490,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CE1113C20F27C1E00B93BEB /* WalletCell.xib in Resources */,
 				2CE110DB20F1C8AC00B93BEB /* Images.xcassets in Resources */,
 				2CE1111020F2118900B93BEB /* LoginButton.xib in Resources */,
 				2CE1110920F1FA6600B93BEB /* Localizable.strings in Resources */,
+				2CE1113620F26DBB00B93BEB /* WalletAddCell.xib in Resources */,
+				2C2ACFC120F3AEED00C637D8 /* TestCell.xib in Resources */,
 				2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */,
 				2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */,
 				2CE1111520F2395800B93BEB /* Wallet.storyboard in Resources */,
@@ -540,18 +589,23 @@
 				2CE1113220F26BD700B93BEB /* AirdropFlowController.swift in Sources */,
 				2CE110D920F1C52900B93BEB /* LoginViewController.swift in Sources */,
 				2CE1112920F252B500B93BEB /* TabBarViewConroller.swift in Sources */,
+				2CE1113A20F27BE000B93BEB /* WalletCell.swift in Sources */,
 				2CE1110620F1F76200B93BEB /* SettingFlowController.swift in Sources */,
 				2CE1112020F2403100B93BEB /* MenuTabBar.swift in Sources */,
+				2CE1113420F26D8000B93BEB /* WalletAddCell.swift in Sources */,
 				2CE1110220F1EE9C00B93BEB /* WalletFlowController.swift in Sources */,
 				2CE1112420F24CF200B93BEB /* MainTabViewController.swift in Sources */,
 				2CE110DD20F1C96B00B93BEB /* JSON.swift in Sources */,
 				2CE110EB20F1C9B300B93BEB /* Character+extension.swift in Sources */,
+				2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */,
 				2CE110FC20F1EC8600B93BEB /* RoundedButton.swift in Sources */,
 				2CE110FA20F1EBE600B93BEB /* UIView+extension.swift in Sources */,
 				2CE1111720F23BF600B93BEB /* ExtendButton.swift in Sources */,
 				2CE110E720F1C9B300B93BEB /* DispatchQueue.swift in Sources */,
 				2CE1110020F1EDB000B93BEB /* WalletViewController.swift in Sources */,
+				2CFE954A20F3947300DC173F /* EOSWalletViewModel.swift in Sources */,
 				2CE1113020F26BA300B93BEB /* AirdropViewController.swift in Sources */,
+				2CFE954820F3930200DC173F /* CellType.swift in Sources */,
 				2CE1112220F242E500B93BEB /* Font.swift in Sources */,
 				2CE1111920F23C1700B93BEB /* BounceButton.swift in Sources */,
 				2CE1112C20F263B100B93BEB /* VoteViewController.swift in Sources */,
@@ -567,6 +621,8 @@
 				2CE1111B20F23C7400B93BEB /* CGSize+extension.swift in Sources */,
 				2CE1110E20F1FACD00B93BEB /* LocalizedString.swift in Sources */,
 				2CE110D520F1C4E700B93BEB /* FlowConfigure.swift in Sources */,
+				2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */,
+				2CE1113820F26DF000B93BEB /* RoundedView.swift in Sources */,
 				2CE1112E20F2680100B93BEB /* VoteFlowController.swift in Sources */,
 				2CE110D420F1C4E700B93BEB /* MainFlowController.swift in Sources */,
 				2CE110E920F1C9B300B93BEB /* DBObject.swift in Sources */,

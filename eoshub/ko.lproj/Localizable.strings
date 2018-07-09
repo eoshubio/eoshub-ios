@@ -19,3 +19,9 @@
 "setting.wallet" = "지갑";
 "setting.logout" = "로그아웃";
 
+/* 지갑 */
+"wallet.send" = "보내기";
+"wallet.receive" = "받기";
+"wallet.available" = "사용가능";
+"wallet.staked" = "할당됨";
+"wallet.refunding" = "반환중";

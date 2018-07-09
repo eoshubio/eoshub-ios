@@ -1,32 +1,21 @@
 //
-//  RoundedButton.swift
+//  RoundedView.swift
 //  eoshub
 //
-//  Created by kein on 2018. 7. 8..
+//  Created by kein on 2018. 7. 9..
 //  Copyright © 2018년 EOS Hub. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class RoundedButton: UIButton {
+class RoundedView: UIView {
     
-    @IBInspectable var radius: CGFloat = 6.0 {
+    @IBInspectable var radius: CGFloat = 3.0 {
         didSet {
             relayout()
         }
     }
-    
-    override var isHighlighted: Bool {
-        didSet {
-            if isHighlighted {
-                highlightedView?.alpha = 1.0
-            } else {
-                highlightedView?.alpha = 0
-            }
-        }
-    }
-    
     
     private var highlightedView: UIView?
     

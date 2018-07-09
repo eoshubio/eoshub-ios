@@ -20,3 +20,9 @@
 "setting.wallet" = "Wallet";
 "setting.logout" = "Logout";
 
+/* 지갑 */
+"wallet.send" = "Send";
+"wallet.receive" = "Receive";
+"wallet.available" = "Available";
+"wallet.staked" = "Staked";
+"wallet.refunding" = "Refunding";

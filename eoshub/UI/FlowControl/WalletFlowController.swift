@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 
+
+
 class WalletFlowController: FlowController, WalletFlowEventDelegate {
     var configure: FlowConfigure
     
@@ -26,6 +28,17 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
             vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "WalletViewController") as? WalletViewController
         }
         
+        //Test
+        let dummyEOSModel = EOSWalletViewModel(account: "eoshubalpha1",
+                                               totalEOS: 100000.2423,
+                                               estimatedPrice: "102,342,342,424 KRW",
+                                               stakedEOS: 23423.02324123,
+                                               refundingEOS: 45323,
+                                               refundingRemainTime: "2일 23시간 23분",
+                                               showSendButton: true)
+        
+        
+        vc?.configure(data: [dummyEOSModel, WalletAddCellType.add])
         vc?.flowDelegate = self
         show(viewController: vc, animated: animated) {
             

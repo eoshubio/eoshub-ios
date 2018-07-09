@@ -53,26 +53,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="lDw-j7-i6w">
-                                <rect key="frame" x="0.0" y="164" width="375" height="550"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xFp-JL-jQa">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Cn3-TI-UQ8">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="P9z-gm-mOJ">
                                 <rect key="frame" x="0.0" y="714" width="375" height="98"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -111,23 +91,30 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FAs-OS-sZB">
+                                <rect key="frame" x="10" y="174" width="355" height="540"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <sections/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" red="0.29803921570000003" green="0.16078431369999999" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="fkE-c3-m6q" firstAttribute="trailing" secondItem="P9z-gm-mOJ" secondAttribute="trailing" id="4EZ-rU-uyL"/>
                             <constraint firstItem="fkE-c3-m6q" firstAttribute="trailing" secondItem="I5F-SI-S9r" secondAttribute="trailing" constant="30" id="58f-rT-RvC"/>
                             <constraint firstItem="fkE-c3-m6q" firstAttribute="bottom" secondItem="P9z-gm-mOJ" secondAttribute="top" constant="64" id="9fN-UT-NqV"/>
+                            <constraint firstItem="fkE-c3-m6q" firstAttribute="trailing" secondItem="FAs-OS-sZB" secondAttribute="trailing" constant="10" id="B2r-Ma-kmD"/>
                             <constraint firstItem="eZN-E2-KgO" firstAttribute="top" secondItem="fkE-c3-m6q" secondAttribute="top" constant="50" id="FqX-XX-472"/>
+                            <constraint firstItem="P9z-gm-mOJ" firstAttribute="top" secondItem="FAs-OS-sZB" secondAttribute="bottom" id="Gp6-Jy-dzy"/>
                             <constraint firstItem="eZN-E2-KgO" firstAttribute="centerY" secondItem="gam-Rk-hxW" secondAttribute="centerY" id="HCm-kc-GGt"/>
-                            <constraint firstItem="P9z-gm-mOJ" firstAttribute="top" secondItem="lDw-j7-i6w" secondAttribute="bottom" id="NOY-c0-tJj"/>
-                            <constraint firstItem="lDw-j7-i6w" firstAttribute="leading" secondItem="fkE-c3-m6q" secondAttribute="leading" id="ONQ-Ew-32D"/>
                             <constraint firstAttribute="bottom" secondItem="P9z-gm-mOJ" secondAttribute="bottom" id="Rra-8v-MTL"/>
                             <constraint firstItem="I5F-SI-S9r" firstAttribute="centerY" secondItem="eZN-E2-KgO" secondAttribute="centerY" id="XN2-2b-t5t"/>
                             <constraint firstItem="eZN-E2-KgO" firstAttribute="centerX" secondItem="Pwx-Tv-sdU" secondAttribute="centerX" id="YNq-vm-Ua2"/>
-                            <constraint firstItem="lDw-j7-i6w" firstAttribute="top" secondItem="fkE-c3-m6q" secondAttribute="top" constant="120" id="aAU-go-Z6y"/>
                             <constraint firstItem="gam-Rk-hxW" firstAttribute="leading" secondItem="fkE-c3-m6q" secondAttribute="leading" constant="30" id="c7F-Pg-sYY"/>
                             <constraint firstItem="P9z-gm-mOJ" firstAttribute="leading" secondItem="fkE-c3-m6q" secondAttribute="leading" id="ibc-iz-VaL"/>
-                            <constraint firstItem="lDw-j7-i6w" firstAttribute="trailing" secondItem="fkE-c3-m6q" secondAttribute="trailing" id="qYU-Ex-3xt"/>
+                            <constraint firstItem="FAs-OS-sZB" firstAttribute="top" secondItem="fkE-c3-m6q" secondAttribute="top" constant="130" id="uhO-ym-fuP"/>
+                            <constraint firstItem="FAs-OS-sZB" firstAttribute="leading" secondItem="fkE-c3-m6q" secondAttribute="leading" constant="10" id="uuR-VZ-4YF"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="fkE-c3-m6q"/>
                     </view>
@@ -136,7 +123,7 @@
                         <outlet property="btnNotice" destination="gam-Rk-hxW" id="ubx-Pw-hEl"/>
                         <outlet property="btnProfile" destination="eZN-E2-KgO" id="e5U-sb-coK"/>
                         <outlet property="btnSetting" destination="I5F-SI-S9r" id="IDs-HS-RWj"/>
-                        <outlet property="walletList" destination="lDw-j7-i6w" id="VoU-mI-Xfw"/>
+                        <outlet property="walletList" destination="FAs-OS-sZB" id="fZe-NC-T7V"/>
                         <segue destination="5fn-Lf-goR" kind="show" id="hjA-bh-CmQ"/>
                     </connections>
                 </viewController>

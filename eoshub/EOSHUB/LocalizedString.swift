@@ -28,12 +28,19 @@ struct LocalizedString {
     }
     
     struct Setting {
-        static let title = NSLocalizedString("setting.title", comment: "Settings")
-        static let security = NSLocalizedString("setting.security", comment: "Security")
-        static let app = NSLocalizedString("setting.app", comment: "App")
-        static let wallet = NSLocalizedString("setting.wallet", comment: "Wallet")
-        static let logout = NSLocalizedString("setting.logout", comment: "Logout")
-        
+        static let title = NSLocalizedString("setting.title", comment: "")
+        static let security = NSLocalizedString("setting.security", comment: "")
+        static let app = NSLocalizedString("setting.app", comment: "")
+        static let wallet = NSLocalizedString("setting.wallet", comment: "")
+        static let logout = NSLocalizedString("setting.logout", comment: "")
+    }
+    
+    struct Wallet {
+        static let send = NSLocalizedString("wallet.send", comment: "")
+        static let receive = NSLocalizedString("wallet.receive", comment: "")
+        static let available = NSLocalizedString("wallet.available", comment: "")
+        static let staked = NSLocalizedString("wallet.staked", comment: "")
+        static let refunding = NSLocalizedString("wallet.refunding", comment: "")
     }
     
 }
