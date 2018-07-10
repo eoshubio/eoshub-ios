@@ -25,3 +25,13 @@
 "wallet.available" = "사용가능";
 "wallet.staked" = "할당됨";
 "wallet.refunding" = "반환중";
+
+"wallet.import.title" = "기존계정 저장하기";
+"wallet.import.account" = "EOS 계정";
+"wallet.import.priKey" = "프라이빗 키";
+"wallet.import.store" = "프라이빗키 저장하기";
+"wallet.import.findAccount" = "EOS 계정이름을 모르시면, 여기를 터치";
+"wallet.import.clickHere" = "여기를 터치";
+
+/* 일반 */
+"common.paste" = "붙여넣기";

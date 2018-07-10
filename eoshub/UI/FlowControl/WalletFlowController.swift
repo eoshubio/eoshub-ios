@@ -38,7 +38,8 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
                                                showSendButton: true)
         
         
-        vc?.configure(data: [dummyEOSModel, WalletAddCellType.add])
+//        vc?.configure(data: [dummyEOSModel, WalletAddCellType.add])
+        vc?.configure(data: [WalletAddCellType.guide])
         vc?.flowDelegate = self
         show(viewController: vc, animated: animated) {
             

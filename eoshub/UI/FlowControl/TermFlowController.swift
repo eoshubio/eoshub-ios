@@ -27,16 +27,22 @@ class TermFlowController: FlowController, TermFlowEventDelegate {
     }
     
     //MARK: TermFlowEventDelegate
-    func goToWallet(from nc: UINavigationController) {
+    func goToCreate(from nc: UINavigationController) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
-        let fc = WalletFlowController(configure: config)
+        let fc = CreateFlowController(configure: config)
+        fc.items = [.create, .privateKey]
         fc.start(animated: true)
     }
+//    func goToWallet(from nc: UINavigationController) {
+//        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+//        let fc = WalletFlowController(configure: config)
+//        fc.start(animated: true)
+//    }
 }
 
 protocol TermFlowEventDelegate: FlowEventDelegate {
-
-    func goToWallet(from nc: UINavigationController)
+    func goToCreate(from nc: UINavigationController)
+//    func goToWallet(from nc: UINavigationController)
 }
 
 

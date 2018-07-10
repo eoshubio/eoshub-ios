@@ -12,6 +12,9 @@ import UIKit
 enum FlowIdentifier: String {
     case main
     case mainTab
+    case create
+    case importPri
+    case importPub
     case createWallet
     case login
     case term

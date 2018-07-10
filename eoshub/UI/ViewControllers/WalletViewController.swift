@@ -63,6 +63,8 @@ class WalletViewController: BaseViewController {
         
         walletList.register(UINib(nibName: "WalletCell", bundle: nil), forCellReuseIdentifier: "WalletCell")
         
+        walletList.register(UINib(nibName: "WalletGuideCell", bundle: nil), forCellReuseIdentifier: "WalletGuideCell")
+        
     }
     
    
@@ -102,8 +104,8 @@ extension WalletViewController: UITableViewDataSource {
             cell.configure(viewModel: item)
             cell.selectionStyle = .none
             return cell
-        } else if item is WalletAddCellType{
-            cell.selectionStyle = .none
+        } else {
+            cell.selectionStyle = .gray
         }
         
         return cell
@@ -125,5 +127,20 @@ extension WalletViewController: UITableViewDelegate {
         let v = UIView()
         v.backgroundColor = UIColor.clear
         return v
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: false)
+        
+        let item = items[indexPath.section]
+        
+        if item is EOSWalletViewModel {
+            //go to wallet detail
+        } else if item is WalletAddCellType {
+            //go to create wallet
+        }
+        
+        
     }
 }

@@ -8,10 +8,18 @@
 
 import Foundation
 
+//MARK: Unicode conversion
 extension String {
     
     var unicode: UInt32 {
         let scalars = unicodeScalars
         return scalars[scalars.startIndex].value
+    }
+}
+
+//MARK: Range
+extension StringProtocol where Index == String.Index {
+    func nsRange(from range: Range<Index>) -> NSRange {
+        return NSRange(range, in: self)
     }
 }

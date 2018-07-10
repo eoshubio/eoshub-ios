@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -135,11 +134,12 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Flg-cT-hkD" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
-                                        <rect key="frame" x="15" y="266" width="345" height="44"/>
+                                        <rect key="frame" x="15" y="246" width="345" height="44"/>
                                         <color key="backgroundColor" red="0.41960784313725491" green="0.24313725490196078" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="44" id="Jd1-NJ-rJW"/>
                                         </constraints>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                                         <state key="normal" title="시작하기"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QW-6u-Pzs">
@@ -186,7 +186,7 @@
                             <constraint firstAttribute="bottom" secondItem="kvI-fA-vqV" secondAttribute="bottom" id="sPh-d8-n5R"/>
                             <constraint firstAttribute="trailing" secondItem="kvI-fA-vqV" secondAttribute="trailing" id="tpd-0m-P8v"/>
                             <constraint firstItem="yZu-C3-9Pw" firstAttribute="bottom" secondItem="MKj-bE-FIa" secondAttribute="top" constant="310" id="vAq-j8-Vqj"/>
-                            <constraint firstItem="Flg-cT-hkD" firstAttribute="bottom" secondItem="yZu-C3-9Pw" secondAttribute="bottom" id="zhy-2V-bDJ"/>
+                            <constraint firstItem="Flg-cT-hkD" firstAttribute="bottom" secondItem="yZu-C3-9Pw" secondAttribute="bottom" constant="-20" id="zhy-2V-bDJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="yZu-C3-9Pw"/>
                     </view>

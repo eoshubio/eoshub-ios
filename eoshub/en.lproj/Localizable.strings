@@ -26,3 +26,14 @@
 "wallet.available" = "Available";
 "wallet.staked" = "Staked";
 "wallet.refunding" = "Refunding";
+
+
+"wallet.import.title" = "Import EOS Account";
+"wallet.import.account" = "EOS Account name";
+"wallet.import.priKey" = "Private key";
+"wallet.import.store" = "Store private key";
+"wallet.import.findAccount" = "If you don't know your EOS account, Please Touch Here";
+"wallet.import.clickHere" = "Please Touch Here";
+
+/* 일반 */
+"common.paste" = "Paste";

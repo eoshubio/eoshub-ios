@@ -32,9 +32,15 @@ class WalletAddCell: UITableViewCell {
 
 
 enum WalletAddCellType: CellType {
-    case add
+    case add, guide
     
     var nibName: String {
-        return "WalletAddCell"
+        switch self {
+        case .add:
+            return "WalletAddCell"
+        case .guide:
+            return "WalletGuideCell"
+        }
+        
     }
 }
