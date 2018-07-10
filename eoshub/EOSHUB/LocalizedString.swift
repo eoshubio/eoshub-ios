@@ -73,6 +73,8 @@ struct LocalizedString {
     struct Common {
         static let paste = NSLocalizedString("common.paste", comment: "")
         static let copy = NSLocalizedString("common.copy", comment: "")
+        static let apply = NSLocalizedString("common.apply", comment: "")
+        static let cancel = NSLocalizedString("common.cancel", comment: "")
     }
     
     

@@ -30,6 +30,8 @@
 		2C2ACFF720F49F5100C637D8 /* FaceIdInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFF620F49F5100C637D8 /* FaceIdInputView.swift */; };
 		2C2ACFF920F4A3DE00C637D8 /* ConfirmPinFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFF820F4A3DE00C637D8 /* ConfirmPinFlowController.swift */; };
 		2C2ACFFB20F4A3E800C637D8 /* ValidationPinFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFFA20F4A3E800C637D8 /* ValidationPinFlowController.swift */; };
+		2C2ACFFD20F4B9A900C637D8 /* PurpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFFC20F4B9A900C637D8 /* PurpleButton.swift */; };
+		2C2ACFFF20F4E51700C637D8 /* BPCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFFE20F4E51700C637D8 /* BPCell.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
 		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
 		2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */; };
@@ -64,7 +66,7 @@
 		2CE1110E20F1FACD00B93BEB /* LocalizedString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1110D20F1FACD00B93BEB /* LocalizedString.swift */; };
 		2CE1111020F2118900B93BEB /* LoginButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1110F20F2118900B93BEB /* LoginButton.xib */; };
 		2CE1111320F218C700B93BEB /* LoginType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1111220F218C700B93BEB /* LoginType.swift */; };
-		2CE1111520F2395800B93BEB /* Wallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1111420F2395800B93BEB /* Wallet.storyboard */; };
+		2CE1111520F2395800B93BEB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1111420F2395800B93BEB /* Main.storyboard */; };
 		2CE1111720F23BF600B93BEB /* ExtendButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1111620F23BF600B93BEB /* ExtendButton.swift */; };
 		2CE1111920F23C1700B93BEB /* BounceButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1111820F23C1700B93BEB /* BounceButton.swift */; };
 		2CE1111B20F23C7400B93BEB /* CGSize+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1111A20F23C7400B93BEB /* CGSize+extension.swift */; };
@@ -124,6 +126,8 @@
 		2C2ACFF620F49F5100C637D8 /* FaceIdInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIdInputView.swift; sourceTree = "<group>"; };
 		2C2ACFF820F4A3DE00C637D8 /* ConfirmPinFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPinFlowController.swift; sourceTree = "<group>"; };
 		2C2ACFFA20F4A3E800C637D8 /* ValidationPinFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationPinFlowController.swift; sourceTree = "<group>"; };
+		2C2ACFFC20F4B9A900C637D8 /* PurpleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleButton.swift; sourceTree = "<group>"; };
+		2C2ACFFE20F4E51700C637D8 /* BPCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPCell.swift; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE110A820F1C31000B93BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CE110AD20F1C31000B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Intro.storyboard; sourceTree = "<group>"; };
@@ -163,7 +167,7 @@
 		2CE1110D20F1FACD00B93BEB /* LocalizedString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedString.swift; sourceTree = "<group>"; };
 		2CE1110F20F2118900B93BEB /* LoginButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginButton.xib; sourceTree = "<group>"; };
 		2CE1111220F218C700B93BEB /* LoginType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginType.swift; sourceTree = "<group>"; };
-		2CE1111420F2395800B93BEB /* Wallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wallet.storyboard; sourceTree = "<group>"; };
+		2CE1111420F2395800B93BEB /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		2CE1111620F23BF600B93BEB /* ExtendButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtendButton.swift; sourceTree = "<group>"; };
 		2CE1111820F23C1700B93BEB /* BounceButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BounceButton.swift; sourceTree = "<group>"; };
 		2CE1111A20F23C7400B93BEB /* CGSize+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+extension.swift"; sourceTree = "<group>"; };
@@ -245,7 +249,7 @@
 				2CE110CB20F1C48200B93BEB /* Utils */,
 				2CE110A820F1C31000B93BEB /* AppDelegate.swift */,
 				2CE110AC20F1C31000B93BEB /* Intro.storyboard */,
-				2CE1111420F2395800B93BEB /* Wallet.storyboard */,
+				2CE1111420F2395800B93BEB /* Main.storyboard */,
 				2C2ACFCC20F3CE9800C637D8 /* Create.storyboard */,
 				2C2ACFE020F4758900C637D8 /* Auth.storyboard */,
 				2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */,
@@ -375,6 +379,7 @@
 				2CE1111E20F23F2400B93BEB /* Base */,
 				2CE1111F20F2403100B93BEB /* MenuTabBar.swift */,
 				2CFE954520F3914600DC173F /* MultiProgressBar.swift */,
+				2C2ACFFE20F4E51700C637D8 /* BPCell.swift */,
 				2C2ACFF620F49F5100C637D8 /* FaceIdInputView.swift */,
 				2C2ACFF420F49DCA00C637D8 /* FaceIdInputView.xib */,
 				2C2ACFC020F3AEED00C637D8 /* TestCell.xib */,
@@ -409,6 +414,7 @@
 				2CFE954720F3930200DC173F /* CellType.swift */,
 				2C2ACFD220F43EE500C637D8 /* WhiteTextField.swift */,
 				2C2ACFD820F4524A00C637D8 /* GrayButton.swift */,
+				2C2ACFFC20F4B9A900C637D8 /* PurpleButton.swift */,
 				2C2ACFE220F476F900C637D8 /* PincodeView.swift */,
 			);
 			path = Base;
@@ -564,7 +570,7 @@
 				2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */,
 				2C2ACFCD20F3CE9800C637D8 /* Create.storyboard in Resources */,
 				2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */,
-				2CE1111520F2395800B93BEB /* Wallet.storyboard in Resources */,
+				2CE1111520F2395800B93BEB /* Main.storyboard in Resources */,
 				2C2ACFC920F3CB0700C637D8 /* WalletGuideCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -669,6 +675,7 @@
 				2C2ACFD520F4427F00C637D8 /* ImportViewController.swift in Sources */,
 				2C2ACFDF20F46B3300C637D8 /* FindFlowController.swift in Sources */,
 				2C2ACFE320F476F900C637D8 /* PincodeView.swift in Sources */,
+				2C2ACFFD20F4B9A900C637D8 /* PurpleButton.swift in Sources */,
 				2C2ACFD320F43EE500C637D8 /* WhiteTextField.swift in Sources */,
 				2CE110FC20F1EC8600B93BEB /* RoundedButton.swift in Sources */,
 				2CE110FA20F1EBE600B93BEB /* UIView+extension.swift in Sources */,
@@ -714,6 +721,7 @@
 				2C2ACFF720F49F5100C637D8 /* FaceIdInputView.swift in Sources */,
 				2CE110E820F1C9B300B93BEB /* Date+extension.swift in Sources */,
 				2CE110EF20F1C9D600B93BEB /* LoginFlowController.swift in Sources */,
+				2C2ACFFF20F4E51700C637D8 /* BPCell.swift in Sources */,
 				2CE110E620F1C9B300B93BEB /* Hex.swift in Sources */,
 				2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */,
 				2CE110D320F1C4E700B93BEB /* FlowController.swift in Sources */,

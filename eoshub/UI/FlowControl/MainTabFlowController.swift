@@ -16,12 +16,13 @@ class MainTabFlowController: FlowController, MainTabFlowEventDelegate {
     
     var subFlows: [FlowIdentifier] = [.wallet, .vote, .airdrop]
     
+//    var subFlows: [FlowIdentifier] = [.vote]
     required init(configure: FlowConfigure) {
         self.configure = configure
     }
     
     func show(animated: Bool) {
-        let storyBoard = UIStoryboard(name: "Wallet", bundle: nil)
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
         guard let vc = storyBoard.instantiateViewController(withIdentifier: "MainTabViewController") as? MainTabViewController else { preconditionFailure() }
         vc.flowDelegate = self
         

@@ -43,6 +43,8 @@
 /* 일반 */
 "common.paste" = "Paste";
 "common.copy" = "Copy";
+"common.apply" = "Apply";
+"common.cancel" = "Cancel";
 
 /* PIN */
 "secure.pin.create" = "Create PIN Code";

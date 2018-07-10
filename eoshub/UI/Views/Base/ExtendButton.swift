@@ -5,7 +5,7 @@ import UIKit
 
 
 
-class ExtendButton: RoundedButton {
+class ExtendButton: UIButton {
     
     let minimumTouchPx: CGFloat = 44.0
     var touchMargin = CGSize.zero

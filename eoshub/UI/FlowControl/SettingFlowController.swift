@@ -19,7 +19,7 @@ class SettingFlowController: FlowController, SettingFlowEventDelegate {
     }
     
     func show(animated: Bool) {
-        guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else { preconditionFailure() }
+        guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else { preconditionFailure() }
         vc.flowDelegate = self
         show(viewController: vc, animated: animated) {
             

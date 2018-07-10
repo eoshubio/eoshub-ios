@@ -23,8 +23,16 @@ class VoteFlowController: FlowController {
         if case FlowType.tab = configure.flowType {
             vc = (configure.container as? TabBarViewController)?.viewControllers.filter({ $0 is VoteViewController }).first as? VoteViewController
         } else {
-            vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "VoteViewController") as? VoteViewController
+            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VoteViewController") as? VoteViewController
         }
+        
+        //Make Dummy
+        var bps: [DummyBPModel] = []
+        for i in 0...400 {
+            let bp = DummyBPModel(index: i)
+            bps.append(bp)
+        }
+        vc?.configure(viewModel: bps)
         
         show(viewController: vc, animated: animated) {
             
@@ -33,3 +41,23 @@ class VoteFlowController: FlowController {
     
 }
 
+
+class DummyBPModel: BPCellViewModel {
+    let index: Int
+    
+    var rank: Int {
+        return index + 1
+    }
+    
+    var selected: Bool = false
+    
+    var name: String { return "eoshubbp\(index)" }
+    
+    var url: String { return "https://eos-hob.io" }
+    
+    var votedPercent: Double = 2.809
+    
+    init(index: Int) {
+        self.index = index
+    }
+}

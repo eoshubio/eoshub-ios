@@ -23,7 +23,7 @@ class AirdropFlowController: FlowController {
         if case FlowType.tab = configure.flowType {
             vc = (configure.container as? TabBarViewController)?.viewControllers.filter({ $0 is AirdropViewController }).first as? AirdropViewController
         } else {
-            vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "AirdropViewController") as? AirdropViewController
+            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "AirdropViewController") as? AirdropViewController
         }
         
         show(viewController: vc, animated: animated) {

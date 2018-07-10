@@ -15,8 +15,8 @@ class TabBarViewController: BaseViewController {
             contentView.subviews.forEach { $0.removeFromSuperview() }
             childViewControllers.forEach { $0.removeFromParentViewController()}
             viewControllers.forEach { vc in
-                contentView.addSubview(vc.view)
                 addChildViewController(vc)
+                contentView.addSubview(vc.view)
             }
         }
     }
@@ -27,7 +27,7 @@ class TabBarViewController: BaseViewController {
     
     weak var menuTabBar: MenuTabBar!
     
-    var currentMenu: Menu?
+    var currentMenuIdx: Int = 0
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -59,30 +59,31 @@ class TabBarViewController: BaseViewController {
     
     fileprivate func relayoutSubViewControllers() {
         contentView.frame.origin.y = view.safeAreaInsets.top
-        contentView.frame.origin.x = CGFloat(viewControllers.count) * view.bounds.width
-        contentView.frame.size.width = view.bounds.width
-        contentView.frame.size.height = view.bounds.height - view.safeAreaInsets.bottom - view.safeAreaInsets.top
+//        contentView.frame.origin.x = 0
+        contentView.frame.size.width = view.bounds.width * CGFloat(viewControllers.count)
+        contentView.frame.size.height = view.bounds.height - view.safeAreaInsets.bottom - view.safeAreaInsets.top - menuTabBar.bounds.height
         
         for i in 0..<viewControllers.count {
             let v = viewControllers[i].view!
-            v.frame = CGRect(x: CGFloat(i) * view.bounds.width, y: 0, width: view.bounds.width, height: view.bounds.height)
+            v.frame = CGRect(x: CGFloat(i) * view.bounds.width, y: 0, width: view.bounds.width, height: contentView.bounds.height)
         }
         
-        let idx = currentMenu?.id ?? 0
+        let idx = currentMenuIdx
         
         showViewController(at: idx, animated: false, completion: nil)
     }
     
     func showViewController(at idx: Int, animated: Bool, completion: (()->Void)?) {
-        let centerX = view.bounds.width * (0.5 - CGFloat(idx))
+        currentMenuIdx = idx
+        let x = view.bounds.width * CGFloat(idx)
         if animated {
             UIView.animate(withDuration: 0.25, animations: {
-                self.contentView.center.x = centerX
+                self.contentView.frame.origin.x = -x
             }) { (_) in
                 completion?()
             }
         } else {
-            contentView.center.x = centerX
+            contentView.frame.origin.x = -x
         }
         
     }
