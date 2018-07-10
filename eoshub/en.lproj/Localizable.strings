@@ -43,3 +43,10 @@
 /* 일반 */
 "common.paste" = "Paste";
 "common.copy" = "Copy";
+
+/* PIN */
+"secure.pin.create" = "Create PIN Code";
+"secure.pin.confirm" = "Confirm PIN Code";
+"secure.pin.validation" = "PIN Code";
+"secure.pin.useFaceID" = "Login with FaceID (Recommended)";
+"secure.pin.useTouchID" = "Login with TouchID (Recommended)";

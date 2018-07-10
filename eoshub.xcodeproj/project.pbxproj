@@ -21,6 +21,15 @@
 		2C2ACFDB20F4607700C637D8 /* FindAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFDA20F4607700C637D8 /* FindAccountViewController.swift */; };
 		2C2ACFDD20F4608800C637D8 /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFDC20F4608800C637D8 /* TextInputViewController.swift */; };
 		2C2ACFDF20F46B3300C637D8 /* FindFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFDE20F46B3300C637D8 /* FindFlowController.swift */; };
+		2C2ACFE120F4758900C637D8 /* Auth.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2ACFE020F4758900C637D8 /* Auth.storyboard */; };
+		2C2ACFE320F476F900C637D8 /* PincodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFE220F476F900C637D8 /* PincodeView.swift */; };
+		2C2ACFE520F47C1900C637D8 /* PinCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFE420F47C1900C637D8 /* PinCodeViewController.swift */; };
+		2C2ACFE720F47CA200C637D8 /* CreatePinFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFE620F47CA200C637D8 /* CreatePinFlowController.swift */; };
+		2C2ACFED20F48E1D00C637D8 /* UIButton+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFEC20F48E1D00C637D8 /* UIButton+extension.swift */; };
+		2C2ACFF520F49DCA00C637D8 /* FaceIdInputView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2ACFF420F49DCA00C637D8 /* FaceIdInputView.xib */; };
+		2C2ACFF720F49F5100C637D8 /* FaceIdInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFF620F49F5100C637D8 /* FaceIdInputView.swift */; };
+		2C2ACFF920F4A3DE00C637D8 /* ConfirmPinFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFF820F4A3DE00C637D8 /* ConfirmPinFlowController.swift */; };
+		2C2ACFFB20F4A3E800C637D8 /* ValidationPinFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFFA20F4A3E800C637D8 /* ValidationPinFlowController.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
 		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
 		2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */; };
@@ -106,6 +115,15 @@
 		2C2ACFDA20F4607700C637D8 /* FindAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccountViewController.swift; sourceTree = "<group>"; };
 		2C2ACFDC20F4608800C637D8 /* TextInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewController.swift; sourceTree = "<group>"; };
 		2C2ACFDE20F46B3300C637D8 /* FindFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFlowController.swift; sourceTree = "<group>"; };
+		2C2ACFE020F4758900C637D8 /* Auth.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Auth.storyboard; sourceTree = "<group>"; };
+		2C2ACFE220F476F900C637D8 /* PincodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PincodeView.swift; sourceTree = "<group>"; };
+		2C2ACFE420F47C1900C637D8 /* PinCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinCodeViewController.swift; sourceTree = "<group>"; };
+		2C2ACFE620F47CA200C637D8 /* CreatePinFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePinFlowController.swift; sourceTree = "<group>"; };
+		2C2ACFEC20F48E1D00C637D8 /* UIButton+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+extension.swift"; sourceTree = "<group>"; };
+		2C2ACFF420F49DCA00C637D8 /* FaceIdInputView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FaceIdInputView.xib; sourceTree = "<group>"; };
+		2C2ACFF620F49F5100C637D8 /* FaceIdInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceIdInputView.swift; sourceTree = "<group>"; };
+		2C2ACFF820F4A3DE00C637D8 /* ConfirmPinFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPinFlowController.swift; sourceTree = "<group>"; };
+		2C2ACFFA20F4A3E800C637D8 /* ValidationPinFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationPinFlowController.swift; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE110A820F1C31000B93BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CE110AD20F1C31000B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Intro.storyboard; sourceTree = "<group>"; };
@@ -229,6 +247,7 @@
 				2CE110AC20F1C31000B93BEB /* Intro.storyboard */,
 				2CE1111420F2395800B93BEB /* Wallet.storyboard */,
 				2C2ACFCC20F3CE9800C637D8 /* Create.storyboard */,
+				2C2ACFE020F4758900C637D8 /* Auth.storyboard */,
 				2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */,
 				2CE1110B20F1FA6600B93BEB /* Localizable.strings */,
 				2CE110B420F1C31300B93BEB /* Info.plist */,
@@ -288,6 +307,7 @@
 				2CE110DC20F1C96B00B93BEB /* JSON.swift */,
 				2CE1112120F242E500B93BEB /* Font.swift */,
 				2C2ACFC220F3B86600C637D8 /* Double+extension.swift */,
+				2C2ACFEC20F48E1D00C637D8 /* UIButton+extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -323,6 +343,9 @@
 				2C2ACFD020F3DD1800C637D8 /* CreateFlowController.swift */,
 				2C2ACFD620F442E400C637D8 /* ImportFlowController.swift */,
 				2C2ACFDE20F46B3300C637D8 /* FindFlowController.swift */,
+				2C2ACFE620F47CA200C637D8 /* CreatePinFlowController.swift */,
+				2C2ACFF820F4A3DE00C637D8 /* ConfirmPinFlowController.swift */,
+				2C2ACFFA20F4A3E800C637D8 /* ValidationPinFlowController.swift */,
 			);
 			path = FlowControl;
 			sourceTree = "<group>";
@@ -341,6 +364,7 @@
 				2C2ACFCE20F3D8EB00C637D8 /* CreateViewController.swift */,
 				2C2ACFD420F4427F00C637D8 /* ImportViewController.swift */,
 				2C2ACFDA20F4607700C637D8 /* FindAccountViewController.swift */,
+				2C2ACFE420F47C1900C637D8 /* PinCodeViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -351,6 +375,8 @@
 				2CE1111E20F23F2400B93BEB /* Base */,
 				2CE1111F20F2403100B93BEB /* MenuTabBar.swift */,
 				2CFE954520F3914600DC173F /* MultiProgressBar.swift */,
+				2C2ACFF620F49F5100C637D8 /* FaceIdInputView.swift */,
+				2C2ACFF420F49DCA00C637D8 /* FaceIdInputView.xib */,
 				2C2ACFC020F3AEED00C637D8 /* TestCell.xib */,
 				2CE1113920F27BE000B93BEB /* WalletCell.swift */,
 				2CE1113B20F27C1E00B93BEB /* WalletCell.xib */,
@@ -383,6 +409,7 @@
 				2CFE954720F3930200DC173F /* CellType.swift */,
 				2C2ACFD220F43EE500C637D8 /* WhiteTextField.swift */,
 				2C2ACFD820F4524A00C637D8 /* GrayButton.swift */,
+				2C2ACFE220F476F900C637D8 /* PincodeView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -530,7 +557,9 @@
 				2CE110DB20F1C8AC00B93BEB /* Images.xcassets in Resources */,
 				2CE1111020F2118900B93BEB /* LoginButton.xib in Resources */,
 				2CE1110920F1FA6600B93BEB /* Localizable.strings in Resources */,
+				2C2ACFF520F49DCA00C637D8 /* FaceIdInputView.xib in Resources */,
 				2CE1113620F26DBB00B93BEB /* WalletAddCell.xib in Resources */,
+				2C2ACFE120F4758900C637D8 /* Auth.storyboard in Resources */,
 				2C2ACFC120F3AEED00C637D8 /* TestCell.xib in Resources */,
 				2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */,
 				2C2ACFCD20F3CE9800C637D8 /* Create.storyboard in Resources */,
@@ -626,6 +655,7 @@
 				2CE110E520F1C9B300B93BEB /* String+extension.swift in Sources */,
 				2CE1113220F26BD700B93BEB /* AirdropFlowController.swift in Sources */,
 				2CE110D920F1C52900B93BEB /* LoginViewController.swift in Sources */,
+				2C2ACFE520F47C1900C637D8 /* PinCodeViewController.swift in Sources */,
 				2CE1112920F252B500B93BEB /* TabBarViewConroller.swift in Sources */,
 				2CE1113A20F27BE000B93BEB /* WalletCell.swift in Sources */,
 				2CE1110620F1F76200B93BEB /* SettingFlowController.swift in Sources */,
@@ -638,11 +668,13 @@
 				2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */,
 				2C2ACFD520F4427F00C637D8 /* ImportViewController.swift in Sources */,
 				2C2ACFDF20F46B3300C637D8 /* FindFlowController.swift in Sources */,
+				2C2ACFE320F476F900C637D8 /* PincodeView.swift in Sources */,
 				2C2ACFD320F43EE500C637D8 /* WhiteTextField.swift in Sources */,
 				2CE110FC20F1EC8600B93BEB /* RoundedButton.swift in Sources */,
 				2CE110FA20F1EBE600B93BEB /* UIView+extension.swift in Sources */,
 				2CE1111720F23BF600B93BEB /* ExtendButton.swift in Sources */,
 				2CE110E720F1C9B300B93BEB /* DispatchQueue.swift in Sources */,
+				2C2ACFFB20F4A3E800C637D8 /* ValidationPinFlowController.swift in Sources */,
 				2CE1110020F1EDB000B93BEB /* WalletViewController.swift in Sources */,
 				2CFE954A20F3947300DC173F /* EOSWalletViewModel.swift in Sources */,
 				2CE1113020F26BA300B93BEB /* AirdropViewController.swift in Sources */,
@@ -663,11 +695,14 @@
 				2CE1112620F2504000B93BEB /* MainTabFlowController.swift in Sources */,
 				2CE110F320F1DAF700B93BEB /* BaseViewController.swift in Sources */,
 				2CE1111B20F23C7400B93BEB /* CGSize+extension.swift in Sources */,
+				2C2ACFF920F4A3DE00C637D8 /* ConfirmPinFlowController.swift in Sources */,
 				2C2ACFDB20F4607700C637D8 /* FindAccountViewController.swift in Sources */,
 				2C2ACFDD20F4608800C637D8 /* TextInputViewController.swift in Sources */,
 				2CE1110E20F1FACD00B93BEB /* LocalizedString.swift in Sources */,
+				2C2ACFED20F48E1D00C637D8 /* UIButton+extension.swift in Sources */,
 				2CE110D520F1C4E700B93BEB /* FlowConfigure.swift in Sources */,
 				2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */,
+				2C2ACFE720F47CA200C637D8 /* CreatePinFlowController.swift in Sources */,
 				2CE1113820F26DF000B93BEB /* RoundedView.swift in Sources */,
 				2CE1112E20F2680100B93BEB /* VoteFlowController.swift in Sources */,
 				2CE110D420F1C4E700B93BEB /* MainFlowController.swift in Sources */,
@@ -676,6 +711,7 @@
 				2CE1111320F218C700B93BEB /* LoginType.swift in Sources */,
 				2C2ACFCB20F3CBB600C637D8 /* WalletGuideCell.swift in Sources */,
 				2CE110D620F1C4E700B93BEB /* FlowEventDelegate.swift in Sources */,
+				2C2ACFF720F49F5100C637D8 /* FaceIdInputView.swift in Sources */,
 				2CE110E820F1C9B300B93BEB /* Date+extension.swift in Sources */,
 				2CE110EF20F1C9D600B93BEB /* LoginFlowController.swift in Sources */,
 				2CE110E620F1C9B300B93BEB /* Hex.swift in Sources */,

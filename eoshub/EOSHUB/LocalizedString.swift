@@ -60,9 +60,20 @@ struct LocalizedString {
         }
     }
     
+    struct Secure {
+        struct Pin {
+            static let create = NSLocalizedString("secure.pin.create", comment: "")
+            static let confirm = NSLocalizedString("secure.pin.confirm", comment: "")
+            static let validation = NSLocalizedString("secure.pin.validation", comment: "")
+            static let useFaceId = NSLocalizedString("secure.pin.useFaceID", comment: "")
+            static let useTouchId = NSLocalizedString("secure.pin.useTouchID", comment: "")
+        }
+    }
+    
     struct Common {
         static let paste = NSLocalizedString("common.paste", comment: "")
         static let copy = NSLocalizedString("common.copy", comment: "")
     }
+    
     
 }

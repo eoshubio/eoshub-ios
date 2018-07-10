@@ -143,7 +143,7 @@
                                         <state key="normal" title="시작하기"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QW-6u-Pzs">
-                                        <rect key="frame" x="130.33333333333334" y="125" width="115" height="36"/>
+                                        <rect key="frame" x="130.66666666666666" y="125" width="115" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="5Db-8s-3cV"/>
                                         </constraints>

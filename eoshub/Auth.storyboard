@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nGZ-vk-nhI">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Pin Code View Controller-->
+        <scene sceneID="PSm-Ff-A3Z">
+            <objects>
+                <viewController storyboardIdentifier="PinCodeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nGZ-vk-nhI" customClass="PinCodeViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X25-gU-4B5">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgGrady" translatesAutoresizingMaskIntoConstraints="NO" id="S7d-1y-xxV">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="2A2-X9-JEB">
+                                <rect key="frame" x="152.66666666666666" y="124" width="70" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="5ky-YL-Hry"/>
+                                    <constraint firstAttribute="height" constant="70" id="Ur9-8z-FVa"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create PIN Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6f8-El-DRx">
+                                <rect key="frame" x="119" y="209" width="137" height="24"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <color key="textColor" red="0.29803921570000003" green="0.16078431369999999" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWW-wC-sTf" customClass="PinCodeView" customModule="eoshub" customModuleProvider="target">
+                                <rect key="frame" x="122.66666666666669" y="294" width="130" height="13"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="13" id="aSB-II-h3k"/>
+                                    <constraint firstAttribute="width" constant="130" id="cny-WY-xWe"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="S7d-1y-xxV" secondAttribute="trailing" id="IIp-hp-48n"/>
+                            <constraint firstItem="eWW-wC-sTf" firstAttribute="centerX" secondItem="X25-gU-4B5" secondAttribute="centerX" id="L8o-dK-8pP"/>
+                            <constraint firstItem="2A2-X9-JEB" firstAttribute="centerX" secondItem="X25-gU-4B5" secondAttribute="centerX" id="UJP-Pa-RKp"/>
+                            <constraint firstItem="2A2-X9-JEB" firstAttribute="top" secondItem="dMI-MI-VIf" secondAttribute="top" constant="80" id="cHp-UO-J3k"/>
+                            <constraint firstItem="6f8-El-DRx" firstAttribute="centerX" secondItem="X25-gU-4B5" secondAttribute="centerX" id="gG1-Yn-1ZS"/>
+                            <constraint firstItem="6f8-El-DRx" firstAttribute="top" secondItem="2A2-X9-JEB" secondAttribute="bottom" constant="15" id="iLC-t5-TJi"/>
+                            <constraint firstItem="S7d-1y-xxV" firstAttribute="leading" secondItem="X25-gU-4B5" secondAttribute="leading" id="iR2-iE-8Jl"/>
+                            <constraint firstAttribute="bottom" secondItem="S7d-1y-xxV" secondAttribute="bottom" id="ode-Ww-cTA"/>
+                            <constraint firstItem="eWW-wC-sTf" firstAttribute="top" secondItem="6f8-El-DRx" secondAttribute="bottom" constant="61" id="yvb-mQ-nKe"/>
+                            <constraint firstItem="S7d-1y-xxV" firstAttribute="top" secondItem="X25-gU-4B5" secondAttribute="top" id="znP-br-xgZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="dMI-MI-VIf"/>
+                    </view>
+                    <connections>
+                        <outlet property="lbTitle" destination="6f8-El-DRx" id="c6o-y2-ZTP"/>
+                        <outlet property="pinView" destination="eWW-wC-sTf" id="PSa-dP-06s"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="d1g-eV-AXC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-618" y="250"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="bgGrady" width="750" height="1334"/>
+        <image name="logo" width="145" height="119"/>
+    </resources>
+</document>

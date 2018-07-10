@@ -40,3 +40,10 @@
 /* 일반 */
 "common.paste" = "붙여넣기";
 "common.copy" = "복사하기";
+
+/* PIN */
+"secure.pin.create" = "비밀번호 생성";
+"secure.pin.confirm" = "비밀번호 확인";
+"secure.pin.validation" = "비밀번호";
+"secure.pin.useFaceID" = "로그인 시 FaceID 사용 (추천)";
+"secure.pin.useTouchID" = "로그인 시 TouchID 사용 (추천)";

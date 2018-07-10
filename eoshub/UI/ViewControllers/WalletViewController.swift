@@ -56,9 +56,7 @@ class WalletViewController: BaseViewController {
         walletList.delegate = self
         walletList.rowHeight = UITableViewAutomaticDimension
         walletList.estimatedRowHeight = 60
-        
-//        walletList.contentInset = UIEdgeInsetsMake(0, 10, 0, 10)
-        
+    
         walletList.register(UINib(nibName: "WalletAddCell", bundle: nil), forCellReuseIdentifier: "WalletAddCell")
         
         walletList.register(UINib(nibName: "WalletCell", bundle: nil), forCellReuseIdentifier: "WalletCell")
