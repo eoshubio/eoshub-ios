@@ -15,6 +15,7 @@ enum FlowIdentifier: String {
     case create
     case importPri
     case importPub
+    case findAccount
     case createWallet
     case login
     case term

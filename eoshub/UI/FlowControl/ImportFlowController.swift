@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class ImportFlowController: FlowController {
+class ImportFlowController: FlowController, ImportFlowEventDelegate {
         var configure: FlowConfigure
         
         var id: FlowIdentifier { return .importPri }
@@ -21,12 +21,20 @@ class ImportFlowController: FlowController {
     
         func show(animated: Bool) {
             guard let vc = UIStoryboard(name: "Create", bundle: nil).instantiateViewController(withIdentifier: "ImportViewController") as? ImportViewController else { preconditionFailure() }
-//            vc.flowDelegate = self
+            vc.flowDelegate = self
             show(viewController: vc, animated: animated) {
                 
             }
         }
         
-
+    func goFindAccount(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = FindFlowController(configure: config)
+        fc.start(animated: true)
+    }
 }
 
+
+protocol ImportFlowEventDelegate: FlowEventDelegate {
+    func goFindAccount(from nc: UINavigationController)
+}

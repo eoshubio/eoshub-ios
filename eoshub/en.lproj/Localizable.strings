@@ -35,5 +35,11 @@
 "wallet.import.findAccount" = "If you don't know your EOS account, Please Touch Here";
 "wallet.import.clickHere" = "Please Touch Here";
 
+"wallet.find.title" = "Find EOS account";
+"wallet.find.pubKey" = "Public Key";
+"wallet.find.search" = "Search";
+
+
 /* 일반 */
 "common.paste" = "Paste";
+"common.copy" = "Copy";

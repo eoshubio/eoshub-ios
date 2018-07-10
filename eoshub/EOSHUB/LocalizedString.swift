@@ -42,18 +42,27 @@ struct LocalizedString {
         static let staked = NSLocalizedString("wallet.staked", comment: "")
         static let refunding = NSLocalizedString("wallet.refunding", comment: "")
         
+        static let priKey = NSLocalizedString("wallet.import.priKey", comment: "")
+        static let pubKey = NSLocalizedString("wallet.find.pubKey", comment: "")
+        
         struct Import {
             static let title = NSLocalizedString("wallet.import.title", comment: "")
             static let account = NSLocalizedString("wallet.import.account", comment: "")
-            static let priKey = NSLocalizedString("wallet.import.priKey", comment: "")
             static let store = NSLocalizedString("wallet.import.store", comment: "")
             static let findAccount = NSLocalizedString("wallet.import.findAccount", comment: "")
             static let clickHere = NSLocalizedString("wallet.import.clickHere", comment: "")
         }
+        
+        struct Find {
+            static let title = NSLocalizedString("wallet.find.title", comment: "")
+            static let search = NSLocalizedString("wallet.find.search", comment: "")
+            
+        }
     }
     
     struct Common {
-         static let paste = NSLocalizedString("common.paste", comment: "")
+        static let paste = NSLocalizedString("common.paste", comment: "")
+        static let copy = NSLocalizedString("common.copy", comment: "")
     }
     
 }

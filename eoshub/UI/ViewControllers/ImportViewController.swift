@@ -9,7 +9,10 @@
 import Foundation
 import UIKit
 
-class ImportViewController: BaseViewController {
+class ImportViewController: TextInputViewController {
+    
+    var flowDelegate: ImportFlowEventDelegate?
+    
     @IBOutlet fileprivate weak var lbTitle: UILabel!
     @IBOutlet fileprivate weak var txtAccount: UITextField!
     @IBOutlet fileprivate weak var txtPriKey: UITextField!
@@ -17,19 +20,19 @@ class ImportViewController: BaseViewController {
     @IBOutlet fileprivate weak var btnImport: UIButton!
     @IBOutlet fileprivate weak var btnFindAccount: UIButton!
     
-    @IBOutlet fileprivate weak var contentsScrollView: UIScrollView!
-    
-    var activeField: UITextField?
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showNavigationBar(with: .darkGray)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bindActions()
     }
     
     private func setupUI() {
         lbTitle.text = LocalizedString.Wallet.Import.title
-        txtAccount.placeholder = LocalizedString.Wallet.Import.account
-        txtPriKey.placeholder = LocalizedString.Wallet.Import.priKey
         btnPaste.setTitle(LocalizedString.Common.paste, for: .normal)
         btnImport.setTitle(LocalizedString.Wallet.Import.store, for: .normal)
         
@@ -49,48 +52,21 @@ class ImportViewController: BaseViewController {
         btnFindAccount.setAttributedTitle(txtFindAccount, for: .normal)
         
         
-        
-        
-        
+        txtAccount.placeholder = LocalizedString.Wallet.Import.account
+        txtPriKey.placeholder = LocalizedString.Wallet.priKey
         txtAccount.delegate = self
         txtPriKey.delegate = self
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+  
         
     }
     
-}
-
-extension ImportViewController: UITextFieldDelegate {
-    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
-        activeField = textField
-        return true
+    private func bindActions() {
+        btnFindAccount.rx.singleTap
+            .bind { [weak self] in
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goFindAccount(from: nc)
+            }
+        .disposed(by: bag)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        activeField?.resignFirstResponder()
-        activeField = nil
-        return true
-    }
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        guard let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
-        
-        var inset = contentsScrollView.contentInset
-        inset.bottom = keyboardSize.height - view.safeAreaInsets.bottom
-        contentsScrollView.contentInset = inset
-        
-        guard let currentField = activeField else { return }
-        let absoluteFrame = currentField.convert(currentField.frame, to: view)
-        if absoluteFrame.maxY > (view.bounds.height - keyboardSize.height) {
-            contentsScrollView.contentOffset.y = keyboardSize.height
-        }
-        
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        contentsScrollView.contentInset = .zero
-    }
 }

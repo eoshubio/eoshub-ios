@@ -18,6 +18,9 @@
 		2C2ACFD520F4427F00C637D8 /* ImportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFD420F4427F00C637D8 /* ImportViewController.swift */; };
 		2C2ACFD720F442E400C637D8 /* ImportFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFD620F442E400C637D8 /* ImportFlowController.swift */; };
 		2C2ACFD920F4524A00C637D8 /* GrayButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFD820F4524A00C637D8 /* GrayButton.swift */; };
+		2C2ACFDB20F4607700C637D8 /* FindAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFDA20F4607700C637D8 /* FindAccountViewController.swift */; };
+		2C2ACFDD20F4608800C637D8 /* TextInputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFDC20F4608800C637D8 /* TextInputViewController.swift */; };
+		2C2ACFDF20F46B3300C637D8 /* FindFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFDE20F46B3300C637D8 /* FindFlowController.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
 		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
 		2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */; };
@@ -100,6 +103,9 @@
 		2C2ACFD420F4427F00C637D8 /* ImportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportViewController.swift; sourceTree = "<group>"; };
 		2C2ACFD620F442E400C637D8 /* ImportFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportFlowController.swift; sourceTree = "<group>"; };
 		2C2ACFD820F4524A00C637D8 /* GrayButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrayButton.swift; sourceTree = "<group>"; };
+		2C2ACFDA20F4607700C637D8 /* FindAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindAccountViewController.swift; sourceTree = "<group>"; };
+		2C2ACFDC20F4608800C637D8 /* TextInputViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputViewController.swift; sourceTree = "<group>"; };
+		2C2ACFDE20F46B3300C637D8 /* FindFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindFlowController.swift; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE110A820F1C31000B93BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CE110AD20F1C31000B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Intro.storyboard; sourceTree = "<group>"; };
@@ -316,6 +322,7 @@
 				2CE1110520F1F76200B93BEB /* SettingFlowController.swift */,
 				2C2ACFD020F3DD1800C637D8 /* CreateFlowController.swift */,
 				2C2ACFD620F442E400C637D8 /* ImportFlowController.swift */,
+				2C2ACFDE20F46B3300C637D8 /* FindFlowController.swift */,
 			);
 			path = FlowControl;
 			sourceTree = "<group>";
@@ -333,6 +340,7 @@
 				2CE1112F20F26BA300B93BEB /* AirdropViewController.swift */,
 				2C2ACFCE20F3D8EB00C637D8 /* CreateViewController.swift */,
 				2C2ACFD420F4427F00C637D8 /* ImportViewController.swift */,
+				2C2ACFDA20F4607700C637D8 /* FindAccountViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -394,6 +402,7 @@
 			children = (
 				2CE110F220F1DAF700B93BEB /* BaseViewController.swift */,
 				2CE1112820F252B500B93BEB /* TabBarViewConroller.swift */,
+				2C2ACFDC20F4608800C637D8 /* TextInputViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -628,6 +637,7 @@
 				2CE110EB20F1C9B300B93BEB /* Character+extension.swift in Sources */,
 				2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */,
 				2C2ACFD520F4427F00C637D8 /* ImportViewController.swift in Sources */,
+				2C2ACFDF20F46B3300C637D8 /* FindFlowController.swift in Sources */,
 				2C2ACFD320F43EE500C637D8 /* WhiteTextField.swift in Sources */,
 				2CE110FC20F1EC8600B93BEB /* RoundedButton.swift in Sources */,
 				2CE110FA20F1EBE600B93BEB /* UIView+extension.swift in Sources */,
@@ -653,6 +663,8 @@
 				2CE1112620F2504000B93BEB /* MainTabFlowController.swift in Sources */,
 				2CE110F320F1DAF700B93BEB /* BaseViewController.swift in Sources */,
 				2CE1111B20F23C7400B93BEB /* CGSize+extension.swift in Sources */,
+				2C2ACFDB20F4607700C637D8 /* FindAccountViewController.swift in Sources */,
+				2C2ACFDD20F4608800C637D8 /* TextInputViewController.swift in Sources */,
 				2CE1110E20F1FACD00B93BEB /* LocalizedString.swift in Sources */,
 				2CE110D520F1C4E700B93BEB /* FlowConfigure.swift in Sources */,
 				2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */,
