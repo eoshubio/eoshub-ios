@@ -136,8 +136,8 @@ extension WalletViewController: UITableViewDelegate {
             //go to wallet detail
         } else if item is WalletAddCellType {
             //go to create wallet
+            guard let nc = parent?.navigationController else { return }
+            flowDelegate?.goToCreate(from: nc)
         }
-        
-        
     }
 }

@@ -35,7 +35,7 @@ class TermViewController: BaseViewController {
         btnStart.rx.singleTap
             .bind { [weak self](_) in
                 guard let nc = self?.navigationController else { return }
-                self?.flowDelegate?.goToCreate(from: nc)
+                self?.flowDelegate?.goToMain(from: nc)
             }
             .disposed(by: bag)
     }

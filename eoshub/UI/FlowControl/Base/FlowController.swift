@@ -65,10 +65,10 @@ extension FlowController {
             window.makeKeyAndVisible()
             completion?()
         case .modal:
-            guard let vc = configure.container as? UIViewController else {
+            guard let parent = configure.container as? UIViewController else {
                 preconditionFailure("\(configure.container) is not UIViewController")
             }
-            vc.present(vc, animated: animated, completion: completion)
+            parent.present(vc!, animated: animated, completion: completion)
         case .navigation:
             guard let nc = configure.container as? UINavigationController, let vc = vc else {
                 preconditionFailure("\(configure.container) is not UINavigationController")

@@ -67,12 +67,22 @@ class LoginViewController: BaseViewController {
     private func bindActions() {
         loginButtons.forEach { (button) in
             button.rx.singleTap
-                .bind(onNext: { [weak self](_) in
-                    guard let nc = self?.navigationController else { return }
-                    self?.flowDelegate?.goToTerm(from: nc)
+                .bind(onNext: { [unowned self](_) in
+                    guard let nc = self.navigationController else { return }
+                    if self.isEOSHubUser() == true {
+                        self.flowDelegate?.goToMain(from: nc)
+                    } else {
+                        self.flowDelegate?.goToTerm(from: nc)
+                    }
+                    
                 })
                 .disposed(by: bag)
         }
+    }
+    
+    //TODO: 회원가입 여부 판단.
+    private func isEOSHubUser() -> Bool {
+        return false
     }
     
     

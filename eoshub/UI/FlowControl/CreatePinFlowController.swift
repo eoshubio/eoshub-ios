@@ -20,10 +20,14 @@ class CreatePinFlowController: FlowController, CreatePinFlowDelegate {
     }
     
     func show(animated: Bool) {
+        
         guard let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "PinCodeViewController") as? PinCodeViewController else { preconditionFailure() }
         vc.flowDelegate = self
         vc.configure(mode: .create)
-        show(viewController: vc, animated: animated) {
+        
+        let nc = UINavigationController(rootViewController: vc)
+        
+        show(viewController: nc, animated: animated) {
             
         }
     }

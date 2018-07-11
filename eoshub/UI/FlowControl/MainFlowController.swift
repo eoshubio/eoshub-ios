@@ -27,23 +27,27 @@ class MainFlowController: FlowController {
         
         show(viewController: nc, animated: animated) {
             let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
-//            let fc = LoginFlowController(configure: config)
-//            let fc = CreatePinFlowController(configure: config)
-            let fc = MainTabFlowController(configure: config)
-            fc.start(animated: false)
+            
+            if self.checkValidLoginToken() {
+                //1. Go To MainTab
+                let fc = MainTabFlowController(configure: config)
+                fc.start(animated: false)
+            } else {
+                //2. Go To Login
+                let fc = LoginFlowController(configure: config)
+                fc.start(animated: false)
+            }
             
             
             
-//            if WalletManager.shared.getWallet() != nil {
-//                let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
-//                let fc = MainTabBarFlowController(configure: config)
-//                fc.start()
-//            } else {
-//                //create wallet view
-//                let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
-//                let fc = CreateWalletFlowController(configure: config)
-//                fc.start()
-//            }
+
         }
     }
+    
+    //TODO: Login 토큰 존재 여부 판단.
+    private func checkValidLoginToken() -> Bool {
+        
+        return false
+    }
+    
 }

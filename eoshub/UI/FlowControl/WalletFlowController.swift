@@ -29,13 +29,13 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
         }
         
         //Test
-        let dummyEOSModel = EOSWalletViewModel(account: "eoshubalpha1",
-                                               totalEOS: 100000.2423,
-                                               estimatedPrice: "102,342,342,424 KRW",
-                                               stakedEOS: 23423.02324123,
-                                               refundingEOS: 45323,
-                                               refundingRemainTime: "2일 23시간 23분",
-                                               showSendButton: true)
+//        let dummyEOSModel = EOSWalletViewModel(account: "eoshubalpha1",
+//                                               totalEOS: 100000.2423,
+//                                               estimatedPrice: "102,342,342,424 KRW",
+//                                               stakedEOS: 23423.02324123,
+//                                               refundingEOS: 45323,
+//                                               refundingRemainTime: "2일 23시간 23분",
+//                                               showSendButton: true)
         
         
 //        vc?.configure(data: [dummyEOSModel, WalletAddCellType.add])
@@ -57,10 +57,18 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
     func goToWalletDetail(from nc: UINavigationController) {
         
     }
+    
+    func goToCreate(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .modal)
+        let fc = CreateFlowController(configure: config)
+        fc.configure(items: [.create, .privateKey, .publicKey])
+        fc.start(animated: true)
+    }
 }
 
 protocol WalletFlowEventDelegate: FlowEventDelegate {
     
     func goToSetting(from nc: UINavigationController)
     func goToWalletDetail(from nc: UINavigationController)
+    func goToCreate(from nc: UINavigationController)
 }

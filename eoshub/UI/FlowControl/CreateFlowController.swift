@@ -20,11 +20,19 @@ class CreateFlowController: FlowController, CreateFlowEventDelegate {
     
     var items: [CreateViewCellType] = []
     
+    func configure(items: [CreateViewCellType]) {
+        self.items = items
+    }
+    
     func show(animated: Bool) {
+        
         guard let vc = UIStoryboard(name: "Create", bundle: nil).instantiateViewController(withIdentifier: "CreateViewController") as? CreateViewController else { preconditionFailure() }
         vc.flowDelegate = self
         vc.configure(items: items)
-        show(viewController: vc, animated: animated) {
+        
+        let nc = UINavigationController(rootViewController: vc)
+        
+        show(viewController: nc, animated: animated) {
             
         }
     }

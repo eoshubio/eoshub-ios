@@ -32,9 +32,17 @@ class ImportFlowController: FlowController, ImportFlowEventDelegate {
         let fc = FindFlowController(configure: config)
         fc.start(animated: true)
     }
+    
+    func goToCreatePin(from nc: UINavigationController) {
+        
+        let config = FlowConfigure(container: nc, parent: self, flowType: .modal)
+        let fc = CreatePinFlowController(configure: config)
+        fc.start(animated: true)
+    }
 }
 
 
 protocol ImportFlowEventDelegate: FlowEventDelegate {
     func goFindAccount(from nc: UINavigationController)
+    func goToCreatePin(from nc: UINavigationController)
 }

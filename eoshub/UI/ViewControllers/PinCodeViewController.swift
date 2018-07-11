@@ -83,10 +83,15 @@ class PinCodeViewController: BaseViewController {
         case .create:
             //go To confirm
             guard let nc = navigationController, let delegate = flowDelegate as? CreatePinFlowController else { return }
-            delegate.goToConfirm(from: nc, with: pin)
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                delegate.goToConfirm(from: nc, with: pin)
+            }
         case .confirm(let prvPin):
             if prvPin == pin {
                 //go to wallet
+                //dismiss
+                guard let nc = navigationController, let delegate = flowDelegate as? ConfirmFlowEventDelegate else { return }
+                delegate.confirmed(from: nc)
             } else {
                 //failed
                 failAnimation()
@@ -123,3 +128,5 @@ extension PinCodeViewController {
         return .default
     }
 }
+
+

@@ -15,6 +15,7 @@ class CreateViewController: BaseViewController {
     var flowDelegate: CreateFlowEventDelegate?
     
     @IBOutlet fileprivate var tableView: UITableView!
+    @IBOutlet fileprivate var btnClose: UIButton!
     
     fileprivate var createAccount = PublishSubject<Void>()
     fileprivate var importPriAccount = PublishSubject<Void>()
@@ -57,11 +58,22 @@ class CreateViewController: BaseViewController {
                 self?.flowDelegate?.goImportPublicKey(from: nc)
             }
             .disposed(by: bag)
+        
+        btnClose.rx.tap
+            .bind { [weak self] in
+                self?.flowDelegate?.finish(viewControllerToFinish: self!, animated: true, completion: nil)
+            }
+            .disposed(by: bag)
     }
     
     func configure(items: [CreateViewCellType]) {
         self.items = items
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
+    
 }
 
 extension CreateViewController: UITableViewDataSource {

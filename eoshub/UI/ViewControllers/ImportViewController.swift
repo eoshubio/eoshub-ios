@@ -67,6 +67,23 @@ class ImportViewController: TextInputViewController {
                 self?.flowDelegate?.goFindAccount(from: nc)
             }
         .disposed(by: bag)
+        
+        btnImport.rx.singleTap
+            .bind { [weak self] in
+                self?.handleImportKey()
+            }
+            .disposed(by: bag)
+    }
+    
+    fileprivate func handleImportKey() {
+        guard let nc = navigationController else { return }
+        flowDelegate?.goToCreatePin(from: nc)
     }
     
 }
+
+
+
+
+
+

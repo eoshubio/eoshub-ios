@@ -34,15 +34,16 @@ class LoginFlowController: FlowController, LoginFlowEventDelegate {
         fc.start(animated: true)
     }
     
-    func goToWallet(from nc: UINavigationController) {
-        
-        
+    func goToMain(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = MainTabFlowController(configure: config)
+        fc.start(animated: true)
     }
 }
 
 protocol LoginFlowEventDelegate: FlowEventDelegate {
     
     func goToTerm(from nc: UINavigationController)
-    func goToWallet(from nc: UINavigationController)
+    func goToMain(from nc: UINavigationController)
     
 }

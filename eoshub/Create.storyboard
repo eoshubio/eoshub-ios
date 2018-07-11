@@ -21,7 +21,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoBlackL" translatesAutoresizingMaskIntoConstraints="NO" id="tAR-Yk-yaZ">
-                                <rect key="frame" x="30" y="74" width="120" height="64"/>
+                                <rect key="frame" x="20" y="64" width="120" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="120" id="6sP-Li-KIy"/>
                                     <constraint firstAttribute="height" constant="64" id="9CE-5m-Fzf"/>
@@ -35,18 +35,18 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vhf-0r-54U">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="768"/>
+                                <rect key="frame" x="0.0" y="143" width="375" height="625"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CreateAccountCell" rowHeight="400" id="WkW-wj-snS" customClass="CreateAccountCell" customModule="eoshub" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="400"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CreateAccountCell" rowHeight="300" id="WkW-wj-snS" customClass="CreateAccountCell" customModule="eoshub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="300"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WkW-wj-snS" id="Clx-Pv-byc">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="399.66666666666669"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="299.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9nb-Kc-vf8">
-                                                    <rect key="frame" x="0.0" y="70" width="375" height="329.66666666666669"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="299.66666666666669"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mask" translatesAutoresizingMaskIntoConstraints="NO" id="79T-tJ-HAM">
                                                             <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
@@ -62,13 +62,13 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="새로운 EOS 계정을 생성하시려면 다음 버튼을 누르세요. EOS 계정을 생성할때에 CPU/Network 와 RAM 자원을 할당 해야해서 약 n EOS가 소모됩니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pcJ-t8-DUe">
-                                                            <rect key="frame" x="20" y="154" width="335" height="91.666666666666686"/>
+                                                            <rect key="frame" x="20" y="154" width="335" height="61.666666666666657"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                                             <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XvP-X8-XVN" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
-                                                            <rect key="frame" x="20" y="265.66666666666669" width="335" height="44"/>
+                                                            <rect key="frame" x="20" y="235.66666666666663" width="335" height="44"/>
                                                             <color key="backgroundColor" red="0.41960784309999999" green="0.24313725489999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="44" id="7dH-Eh-S5r"/>
@@ -95,7 +95,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="9nb-Kc-vf8" secondAttribute="trailing" id="6z1-qM-Ovr"/>
-                                                <constraint firstItem="9nb-Kc-vf8" firstAttribute="top" secondItem="Clx-Pv-byc" secondAttribute="top" constant="70" id="B29-Xz-jva"/>
+                                                <constraint firstItem="9nb-Kc-vf8" firstAttribute="top" secondItem="Clx-Pv-byc" secondAttribute="top" id="B29-Xz-jva"/>
                                                 <constraint firstAttribute="bottom" secondItem="9nb-Kc-vf8" secondAttribute="bottom" id="FP6-0U-kcb"/>
                                                 <constraint firstItem="9nb-Kc-vf8" firstAttribute="leading" secondItem="Clx-Pv-byc" secondAttribute="leading" id="zTA-AK-UqB"/>
                                             </constraints>
@@ -106,7 +106,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImportAccountCell" rowHeight="240" id="8Ba-ed-tuf" customClass="ImportAccountCell" customModule="eoshub" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="428" width="375" height="240"/>
+                                        <rect key="frame" x="0.0" y="328" width="375" height="240"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Ba-ed-tuf" id="kvr-E2-c4g">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="239.66666666666666"/>
@@ -156,7 +156,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImportPubAccountCell" rowHeight="200" id="YO1-MU-xr0" customClass="ImportPubAccountCell" customModule="eoshub" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="668" width="375" height="200"/>
+                                        <rect key="frame" x="0.0" y="568" width="375" height="200"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YO1-MU-xr0" id="PrG-t1-Dzq">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="199.66666666666666"/>
@@ -208,33 +208,44 @@
                                 </prototypes>
                                 <sections/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A9K-gG-sA9" customClass="ExtendButton" customModule="eoshub" customModuleProvider="target">
+                                <rect key="frame" x="325" y="64" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="Gqj-8c-tke"/>
+                                    <constraint firstAttribute="height" constant="30" id="Wlh-Gl-CTJ"/>
+                                </constraints>
+                                <state key="normal" image="close"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Vhf-0r-54U" firstAttribute="top" secondItem="6sY-Cz-OVZ" secondAttribute="top" id="9Rg-Io-xGt"/>
                             <constraint firstAttribute="bottom" secondItem="Vwd-5C-gmB" secondAttribute="bottom" id="Cqx-3R-etk"/>
                             <constraint firstItem="Vhf-0r-54U" firstAttribute="leading" secondItem="6sY-Cz-OVZ" secondAttribute="leading" id="FRo-Sl-Ehg"/>
                             <constraint firstItem="Vwd-5C-gmB" firstAttribute="leading" secondItem="6sY-Cz-OVZ" secondAttribute="leading" id="Jnq-9t-6z3"/>
                             <constraint firstItem="qlq-kG-5KH" firstAttribute="bottom" secondItem="Vhf-0r-54U" secondAttribute="bottom" constant="10" id="LBA-cm-SRY"/>
                             <constraint firstItem="ooe-ys-fTp" firstAttribute="leading" secondItem="6sY-Cz-OVZ" secondAttribute="leading" id="MtC-Mh-ns2"/>
                             <constraint firstAttribute="trailing" secondItem="Vwd-5C-gmB" secondAttribute="trailing" id="QoM-mg-4Zo"/>
-                            <constraint firstItem="tAR-Yk-yaZ" firstAttribute="leading" secondItem="qlq-kG-5KH" secondAttribute="leading" constant="30" id="VRB-70-KJm"/>
+                            <constraint firstItem="A9K-gG-sA9" firstAttribute="top" secondItem="qlq-kG-5KH" secondAttribute="top" constant="20" id="S6s-s2-EiG"/>
+                            <constraint firstItem="tAR-Yk-yaZ" firstAttribute="leading" secondItem="qlq-kG-5KH" secondAttribute="leading" constant="20" id="VRB-70-KJm"/>
                             <constraint firstAttribute="trailing" secondItem="Vhf-0r-54U" secondAttribute="trailing" id="W4o-ya-wwq"/>
+                            <constraint firstItem="Vhf-0r-54U" firstAttribute="top" secondItem="tAR-Yk-yaZ" secondAttribute="bottom" constant="15" id="YzY-wt-aYT"/>
                             <constraint firstItem="Vwd-5C-gmB" firstAttribute="top" secondItem="6sY-Cz-OVZ" secondAttribute="top" id="glL-pl-D1X"/>
                             <constraint firstAttribute="bottom" secondItem="ooe-ys-fTp" secondAttribute="bottom" id="jjo-oI-4ez"/>
-                            <constraint firstItem="tAR-Yk-yaZ" firstAttribute="top" secondItem="qlq-kG-5KH" secondAttribute="top" constant="30" id="rqB-o4-nDo"/>
+                            <constraint firstItem="qlq-kG-5KH" firstAttribute="trailing" secondItem="A9K-gG-sA9" secondAttribute="trailing" constant="20" id="lDa-ol-QWM"/>
+                            <constraint firstItem="tAR-Yk-yaZ" firstAttribute="top" secondItem="qlq-kG-5KH" secondAttribute="top" constant="20" id="rqB-o4-nDo"/>
                             <constraint firstAttribute="trailing" secondItem="ooe-ys-fTp" secondAttribute="trailing" id="vVi-e8-4ee"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qlq-kG-5KH"/>
                     </view>
                     <connections>
+                        <outlet property="btnClose" destination="A9K-gG-sA9" id="DC9-f1-Nf7"/>
                         <outlet property="tableView" destination="Vhf-0r-54U" id="YK5-vJ-FYV"/>
                         <segue destination="pag-lM-XCT" kind="show" id="GDU-9K-zDA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zor-F0-WZi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="78" y="-1044"/>
+            <point key="canvasLocation" x="77.599999999999994" y="-1044.0886699507389"/>
         </scene>
         <!--Import View Controller-->
         <scene sceneID="IMV-Cb-NV9">
@@ -598,6 +609,7 @@
     </scenes>
     <resources>
         <image name="bgGrady" width="750" height="1334"/>
+        <image name="close" width="40" height="40"/>
         <image name="logoBlackL" width="282" height="138"/>
         <image name="mask" width="749" height="604"/>
     </resources>
