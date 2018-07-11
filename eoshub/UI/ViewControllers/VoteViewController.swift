@@ -29,6 +29,7 @@ class VoteViewController: BaseViewController {
     fileprivate var btnApply: UIButton? = nil
     
     fileprivate let maxVoteCount = 30
+    fileprivate let menuControlHeight: CGFloat = 90
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -74,9 +75,9 @@ class VoteViewController: BaseViewController {
     private func addApplySectionIfNeeded() {
         if applyControlContainer != nil { return }
         
-        guard let tc = parent as? MainTabViewController else { return }
-
-        let applyView = UIView(frame: CGRect(x: 0, y: -10, width: view.bounds.width, height: 80))
+        guard let window = UIApplication.shared.keyWindow else { return }
+        
+        let applyView = UIView(frame: CGRect(x: 0, y: window.bounds.height, width: view.bounds.width, height: menuControlHeight))
         applyView.backgroundColor = .white
         
         let hline = UIView(frame: CGRect(x: 0, y: 0, width: applyView.bounds.width, height: 1))
@@ -100,7 +101,7 @@ class VoteViewController: BaseViewController {
         cancelButton.addTarget(self, action: #selector(self.onVoteCancelled), for: .touchUpInside)
         applyView.addSubview(cancelButton)
 
-        tc.menuContainer.addSubview(applyView)
+        window.addSubview(applyView)
         
         applyControlContainer = applyView
         btnApply = applyButton
@@ -109,7 +110,11 @@ class VoteViewController: BaseViewController {
     }
     
     fileprivate func updateApplyButton() {
-        applyControlContainer?.alpha = 1
+        guard let window = UIApplication.shared.keyWindow else { return }
+        UIView.animate(withDuration: 0.25) {
+            self.applyControlContainer?.frame.origin.y = window.bounds.height - self.menuControlHeight
+        }
+        
         let text = LocalizedString.Common.apply + " (\(selectedBps.count)/\(maxVoteCount))"
         btnApply?.setTitle(text, for: .normal)
     }
@@ -125,7 +130,10 @@ class VoteViewController: BaseViewController {
     }
     
     fileprivate func dismissApplyView() {
-        applyControlContainer?.alpha = 0
+        guard let window = UIApplication.shared.keyWindow else { return }
+        UIView.animate(withDuration: 0.25) { [weak self] in
+            self?.applyControlContainer?.frame.origin.y = window.bounds.height
+        }
 //        applyControlContainer?.removeFromSuperview()
 //        applyControlContainer = nil
 //        btnApply = nil

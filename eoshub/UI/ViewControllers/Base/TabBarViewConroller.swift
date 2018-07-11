@@ -59,9 +59,8 @@ class TabBarViewController: BaseViewController {
     
     fileprivate func relayoutSubViewControllers() {
         contentView.frame.origin.y = view.safeAreaInsets.top
-//        contentView.frame.origin.x = 0
         contentView.frame.size.width = view.bounds.width * CGFloat(viewControllers.count)
-        contentView.frame.size.height = view.bounds.height - view.safeAreaInsets.bottom - view.safeAreaInsets.top - menuTabBar.bounds.height
+        contentView.frame.size.height = view.bounds.height - view.safeAreaInsets.bottom - view.safeAreaInsets.top - 50
         
         for i in 0..<viewControllers.count {
             let v = viewControllers[i].view!
