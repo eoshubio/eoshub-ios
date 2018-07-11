@@ -37,11 +37,8 @@
 "wallet.find.pubKey" = "퍼블릭 키";
 "wallet.find.search" = "조회하기";
 
-/* 일반 */
-"common.paste" = "붙여넣기";
-"common.copy" = "복사하기";
-"common.apply" = "적용하기";
-"common.cancel" = "취소하기";
+"wallet.first.greeting" = "처음이신가요?";
+"wallet.first.guide" = "첫번째 EOS 지갑을 만들어 보세요!";
 
 /* PIN */
 "secure.pin.create" = "비밀번호 생성";
@@ -49,3 +46,10 @@
 "secure.pin.validation" = "비밀번호";
 "secure.pin.useFaceID" = "로그인 시 FaceID 사용 (추천)";
 "secure.pin.useTouchID" = "로그인 시 TouchID 사용 (추천)";
+
+
+/* 일반 */
+"common.paste" = "붙여넣기";
+"common.copy" = "복사하기";
+"common.apply" = "적용하기";
+"common.cancel" = "취소하기";

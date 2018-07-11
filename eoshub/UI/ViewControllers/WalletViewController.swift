@@ -66,6 +66,22 @@ class WalletViewController: BaseViewController {
     
    
     private func bindActions() {
+        AccountManager.shared.accountInfoRefreshed
+            .subscribe(onNext: { [weak self](_) in
+                let dummyEOSModel = EOSWalletViewModel(account: "eoshubalpha1",
+                                                       totalEOS: 100000.2423,
+                                                       estimatedPrice: "102,342,342,424 KRW",
+                                                       stakedEOS: 23423.02324123,
+                                                       refundingEOS: 45323,
+                                                       refundingRemainTime: "2일 23시간 23분",
+                                                       showSendButton: true)
+                self?.items = [dummyEOSModel, WalletAddCellType.add]
+                self?.walletList.reloadData()
+            })
+            .disposed(by: bag)
+        
+        
+        
         btnSetting.rx.singleTap
             .bind { [weak self](_) in
                 guard let nc = self?.parent?.navigationController else { return }

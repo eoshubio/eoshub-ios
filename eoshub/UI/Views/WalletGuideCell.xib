@@ -10,64 +10,72 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="WalletGuideCell" rowHeight="128" id="qoN-LP-CBj" customClass="WalletGuideCell" customModule="eoshub" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Sly-1x-aCq" customClass="WalletGuideCell" customModule="eoshub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="242"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qoN-LP-CBj" id="GvP-Z9-lUf">
-                <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Sly-1x-aCq" id="qUt-ch-Bv9">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="241.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7uh-WH-fi8" customClass="RoundedView" customModule="eoshub" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="127.5"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addwallet" translatesAutoresizingMaskIntoConstraints="NO" id="9ew-nF-5Zm">
-                                <rect key="frame" x="157.5" y="68.5" width="60" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="8Jp-nl-Mr6"/>
-                                    <constraint firstAttribute="height" constant="40" id="leP-f5-4MK"/>
-                                </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="첫번째 EOS 지갑을 추가하려면, 이 버튼을 누르세요" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LMM-Bf-Myg">
-                                <rect key="frame" x="37.5" y="20" width="300" height="28.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="28" id="eOI-Hk-G0S"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
-                                <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nDX-9R-1xD" customClass="RoundedView" customModule="eoshub" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="241.5"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="9ew-nF-5Zm" firstAttribute="top" secondItem="LMM-Bf-Myg" secondAttribute="bottom" constant="20" id="0Y9-qs-32Y"/>
-                            <constraint firstItem="LMM-Bf-Myg" firstAttribute="top" secondItem="7uh-WH-fi8" secondAttribute="top" constant="20" id="3SO-TO-LVn"/>
-                            <constraint firstItem="LMM-Bf-Myg" firstAttribute="centerX" secondItem="7uh-WH-fi8" secondAttribute="centerX" id="LNH-2a-w6m"/>
-                            <constraint firstItem="9ew-nF-5Zm" firstAttribute="centerX" secondItem="7uh-WH-fi8" secondAttribute="centerX" id="Q7p-bH-A9R"/>
-                            <constraint firstAttribute="bottom" secondItem="9ew-nF-5Zm" secondAttribute="bottom" constant="19" id="nfW-JP-nut"/>
-                        </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="radius">
                                 <real key="value" value="5"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="eoswallet" translatesAutoresizingMaskIntoConstraints="NO" id="QIz-jL-NqH">
+                        <rect key="frame" x="112.5" y="56.5" width="150" height="72"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="72" id="FmH-kG-PSU"/>
+                            <constraint firstAttribute="width" constant="150" id="UGG-Sb-7L3"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Greeting!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BhJ-XP-nUe">
+                        <rect key="frame" x="160" y="161.5" width="54" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="zeA-AE-fqb"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="13"/>
+                        <color key="textColor" red="0.47450980392156861" green="0.47450980392156861" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your first EOS wallet!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6v-Q5-7I7">
+                        <rect key="frame" x="98.5" y="181.5" width="178" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="22" id="PrF-WH-O96"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                        <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="7uh-WH-fi8" secondAttribute="trailing" id="5yi-iC-2Ol"/>
-                    <constraint firstItem="7uh-WH-fi8" firstAttribute="leading" secondItem="GvP-Z9-lUf" secondAttribute="leading" id="bgv-Nz-MgY"/>
-                    <constraint firstItem="7uh-WH-fi8" firstAttribute="top" secondItem="GvP-Z9-lUf" secondAttribute="top" id="g9O-05-sQT"/>
-                    <constraint firstAttribute="bottom" secondItem="7uh-WH-fi8" secondAttribute="bottom" id="yZn-RW-7Kj"/>
+                    <constraint firstItem="nDX-9R-1xD" firstAttribute="leading" secondItem="qUt-ch-Bv9" secondAttribute="leading" id="1yd-P2-9oo"/>
+                    <constraint firstAttribute="bottom" secondItem="nDX-9R-1xD" secondAttribute="bottom" id="5Zf-25-yB3"/>
+                    <constraint firstItem="BhJ-XP-nUe" firstAttribute="centerX" secondItem="qUt-ch-Bv9" secondAttribute="centerX" id="75s-iE-Qhm"/>
+                    <constraint firstItem="L6v-Q5-7I7" firstAttribute="top" secondItem="BhJ-XP-nUe" secondAttribute="bottom" id="MwG-ZD-zDC"/>
+                    <constraint firstAttribute="bottom" secondItem="L6v-Q5-7I7" secondAttribute="bottom" priority="750" constant="55" id="OAn-Qy-EHb"/>
+                    <constraint firstItem="L6v-Q5-7I7" firstAttribute="centerX" secondItem="qUt-ch-Bv9" secondAttribute="centerX" id="SfJ-Ka-gnh"/>
+                    <constraint firstItem="QIz-jL-NqH" firstAttribute="centerX" secondItem="qUt-ch-Bv9" secondAttribute="centerX" id="bPm-bR-Ja2"/>
+                    <constraint firstItem="QIz-jL-NqH" firstAttribute="top" secondItem="qUt-ch-Bv9" secondAttribute="top" constant="56" id="e00-7V-Z4M"/>
+                    <constraint firstItem="BhJ-XP-nUe" firstAttribute="top" secondItem="QIz-jL-NqH" secondAttribute="bottom" constant="33" id="hfh-T9-07A"/>
+                    <constraint firstItem="nDX-9R-1xD" firstAttribute="top" secondItem="qUt-ch-Bv9" secondAttribute="top" id="kQV-hA-O5z"/>
+                    <constraint firstAttribute="trailing" secondItem="nDX-9R-1xD" secondAttribute="trailing" id="lop-Em-gcb"/>
                 </constraints>
             </tableViewCellContentView>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="guide" destination="LMM-Bf-Myg" id="Plm-JP-uut"/>
+                <outlet property="greeting" destination="BhJ-XP-nUe" id="eqN-Dp-uVG"/>
+                <outlet property="guide" destination="L6v-Q5-7I7" id="67T-Xi-Va3"/>
             </connections>
-            <point key="canvasLocation" x="-153.5" y="-43"/>
+            <point key="canvasLocation" x="-53.5" y="97"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="addwallet" width="120" height="80"/>
+        <image name="eoswallet" width="300" height="143"/>
     </resources>
 </document>

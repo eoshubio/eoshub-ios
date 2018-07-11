@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 
 class WalletGuideCell: UITableViewCell {
+    @IBOutlet fileprivate weak var greeting: UILabel!
     @IBOutlet fileprivate weak var guide: UILabel!
     
     
@@ -19,7 +20,8 @@ class WalletGuideCell: UITableViewCell {
     }
     
     private func setupUI() {
-        guide.text = "첫번째 EOS 지갑을 추가하려면, 이 버튼을 누르세요."
+        greeting.text = LocalizedString.Wallet.First.greeting
+        guide.text = LocalizedString.Wallet.First.guide
     }
 }
 

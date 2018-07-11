@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2C2ACFC120F3AEED00C637D8 /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2ACFC020F3AEED00C637D8 /* TestCell.xib */; };
 		2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFC220F3B86600C637D8 /* Double+extension.swift */; };
-		2C2ACFC920F3CB0700C637D8 /* WalletGuideCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2ACFC820F3CB0700C637D8 /* WalletGuideCell.xib */; };
 		2C2ACFCB20F3CBB600C637D8 /* WalletGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFCA20F3CBB600C637D8 /* WalletGuideCell.swift */; };
 		2C2ACFCD20F3CE9800C637D8 /* Create.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2C2ACFCC20F3CE9800C637D8 /* Create.storyboard */; };
 		2C2ACFCF20F3D8EB00C637D8 /* CreateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFCE20F3D8EB00C637D8 /* CreateViewController.swift */; };
@@ -85,6 +84,8 @@
 		2CE1113820F26DF000B93BEB /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1113720F26DF000B93BEB /* RoundedView.swift */; };
 		2CE1113A20F27BE000B93BEB /* WalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1113920F27BE000B93BEB /* WalletCell.swift */; };
 		2CE1113C20F27C1E00B93BEB /* WalletCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1113B20F27C1E00B93BEB /* WalletCell.xib */; };
+		2CEC2D4420F63BFF00AF5E9B /* WalletGuideCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CEC2D4320F63BFF00AF5E9B /* WalletGuideCell.xib */; };
+		2CEC2D4620F6423000AF5E9B /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC2D4520F6423000AF5E9B /* AccountManager.swift */; };
 		2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954520F3914600DC173F /* MultiProgressBar.swift */; };
 		2CFE954820F3930200DC173F /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954720F3930200DC173F /* CellType.swift */; };
 		2CFE954A20F3947300DC173F /* EOSWalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954920F3947300DC173F /* EOSWalletViewModel.swift */; };
@@ -105,7 +106,6 @@
 /* Begin PBXFileReference section */
 		2C2ACFC020F3AEED00C637D8 /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
 		2C2ACFC220F3B86600C637D8 /* Double+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+extension.swift"; sourceTree = "<group>"; };
-		2C2ACFC820F3CB0700C637D8 /* WalletGuideCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletGuideCell.xib; sourceTree = "<group>"; };
 		2C2ACFCA20F3CBB600C637D8 /* WalletGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletGuideCell.swift; sourceTree = "<group>"; };
 		2C2ACFCC20F3CE9800C637D8 /* Create.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Create.storyboard; sourceTree = "<group>"; };
 		2C2ACFCE20F3D8EB00C637D8 /* CreateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +186,8 @@
 		2CE1113720F26DF000B93BEB /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		2CE1113920F27BE000B93BEB /* WalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCell.swift; sourceTree = "<group>"; };
 		2CE1113B20F27C1E00B93BEB /* WalletCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletCell.xib; sourceTree = "<group>"; };
+		2CEC2D4320F63BFF00AF5E9B /* WalletGuideCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletGuideCell.xib; sourceTree = "<group>"; };
+		2CEC2D4520F6423000AF5E9B /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		2CFE954520F3914600DC173F /* MultiProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiProgressBar.swift; sourceTree = "<group>"; };
 		2CFE954720F3930200DC173F /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
 		2CFE954920F3947300DC173F /* EOSWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSWalletViewModel.swift; sourceTree = "<group>"; };
@@ -319,6 +321,7 @@
 		2CE110CC20F1C49300B93BEB /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				2CEC2D4520F6423000AF5E9B /* AccountManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -389,7 +392,7 @@
 				2CE1113320F26D8000B93BEB /* WalletAddCell.swift */,
 				2CE1113520F26DBB00B93BEB /* WalletAddCell.xib */,
 				2C2ACFCA20F3CBB600C637D8 /* WalletGuideCell.swift */,
-				2C2ACFC820F3CB0700C637D8 /* WalletGuideCell.xib */,
+				2CEC2D4320F63BFF00AF5E9B /* WalletGuideCell.xib */,
 				2CE110FD20F1ED6500B93BEB /* LoginButton.swift */,
 				2CE1110F20F2118900B93BEB /* LoginButton.xib */,
 			);
@@ -565,13 +568,13 @@
 				2CE1110920F1FA6600B93BEB /* Localizable.strings in Resources */,
 				2C2ACFF520F49DCA00C637D8 /* FaceIdInputView.xib in Resources */,
 				2CE1113620F26DBB00B93BEB /* WalletAddCell.xib in Resources */,
+				2CEC2D4420F63BFF00AF5E9B /* WalletGuideCell.xib in Resources */,
 				2C2ACFE120F4758900C637D8 /* Auth.storyboard in Resources */,
 				2C2ACFC120F3AEED00C637D8 /* TestCell.xib in Resources */,
 				2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */,
 				2C2ACFCD20F3CE9800C637D8 /* Create.storyboard in Resources */,
 				2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */,
 				2CE1111520F2395800B93BEB /* Main.storyboard in Resources */,
-				2C2ACFC920F3CB0700C637D8 /* WalletGuideCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -689,6 +692,7 @@
 				2CE1112220F242E500B93BEB /* Font.swift in Sources */,
 				2CE1111920F23C1700B93BEB /* BounceButton.swift in Sources */,
 				2CE1112C20F263B100B93BEB /* VoteViewController.swift in Sources */,
+				2CEC2D4620F6423000AF5E9B /* AccountManager.swift in Sources */,
 				2CE110F120F1D65400B93BEB /* Color.swift in Sources */,
 				2CE1110420F1F30200B93BEB /* SettingViewController.swift in Sources */,
 				2CE110F720F1E00D00B93BEB /* TermFlowController.swift in Sources */,

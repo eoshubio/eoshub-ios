@@ -39,12 +39,9 @@
 "wallet.find.pubKey" = "Public Key";
 "wallet.find.search" = "Search";
 
+"wallet.first.greeting" = "Greeting!";
+"wallet.first.guide" = "Create your first EOS Wallet!";
 
-/* 일반 */
-"common.paste" = "Paste";
-"common.copy" = "Copy";
-"common.apply" = "Apply";
-"common.cancel" = "Cancel";
 
 /* PIN */
 "secure.pin.create" = "Create PIN Code";
@@ -52,3 +49,9 @@
 "secure.pin.validation" = "PIN Code";
 "secure.pin.useFaceID" = "Login with FaceID (Recommended)";
 "secure.pin.useTouchID" = "Login with TouchID (Recommended)";
+
+/* 일반 */
+"common.paste" = "Paste";
+"common.copy" = "Copy";
+"common.apply" = "Apply";
+"common.cancel" = "Cancel";

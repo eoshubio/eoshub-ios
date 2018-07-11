@@ -58,6 +58,11 @@ struct LocalizedString {
             static let search = NSLocalizedString("wallet.find.search", comment: "")
             
         }
+        
+        struct First {
+            static let greeting = NSLocalizedString("wallet.first.greeting", comment: "")
+            static let guide = NSLocalizedString("wallet.first.guide", comment: "")
+        }
     }
     
     struct Secure {

@@ -76,8 +76,10 @@ class ImportViewController: TextInputViewController {
     }
     
     fileprivate func handleImportKey() {
+        AccountManager.shared.accountInfoRefreshed.onNext(())
+        
         guard let nc = navigationController else { return }
-        flowDelegate?.goToCreatePin(from: nc)
+        flowDelegate?.returnToMain(from: nc)
     }
     
 }
