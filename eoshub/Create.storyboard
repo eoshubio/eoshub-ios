@@ -214,7 +214,7 @@
                                     <constraint firstAttribute="width" constant="30" id="Gqj-8c-tke"/>
                                     <constraint firstAttribute="height" constant="30" id="Wlh-Gl-CTJ"/>
                                 </constraints>
-                                <state key="normal" image="close"/>
+                                <state key="normal" image="closeBig"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -609,7 +609,7 @@
     </scenes>
     <resources>
         <image name="bgGrady" width="750" height="1334"/>
-        <image name="close" width="40" height="40"/>
+        <image name="closeBig" width="21" height="21"/>
         <image name="logoBlackL" width="282" height="138"/>
         <image name="mask" width="749" height="604"/>
     </resources>
