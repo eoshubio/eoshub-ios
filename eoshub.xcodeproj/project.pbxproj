@@ -86,6 +86,10 @@
 		2CE1113C20F27C1E00B93BEB /* WalletCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1113B20F27C1E00B93BEB /* WalletCell.xib */; };
 		2CEC2D4420F63BFF00AF5E9B /* WalletGuideCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CEC2D4320F63BFF00AF5E9B /* WalletGuideCell.xib */; };
 		2CEC2D4620F6423000AF5E9B /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC2D4520F6423000AF5E9B /* AccountManager.swift */; };
+		2CEC2D4820F647A500AF5E9B /* Wallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CEC2D4720F647A500AF5E9B /* Wallet.storyboard */; };
+		2CEC2D4A20F65C3000AF5E9B /* WalletDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC2D4920F65C3000AF5E9B /* WalletDetailViewController.swift */; };
+		2CEC2D4C20F65D1500AF5E9B /* StakeProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC2D4B20F65D1500AF5E9B /* StakeProgressBar.swift */; };
+		2CEC2D4E20F65D8600AF5E9B /* WalletDetailFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC2D4D20F65D8600AF5E9B /* WalletDetailFlowController.swift */; };
 		2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954520F3914600DC173F /* MultiProgressBar.swift */; };
 		2CFE954820F3930200DC173F /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954720F3930200DC173F /* CellType.swift */; };
 		2CFE954A20F3947300DC173F /* EOSWalletViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954920F3947300DC173F /* EOSWalletViewModel.swift */; };
@@ -188,6 +192,10 @@
 		2CE1113B20F27C1E00B93BEB /* WalletCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletCell.xib; sourceTree = "<group>"; };
 		2CEC2D4320F63BFF00AF5E9B /* WalletGuideCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletGuideCell.xib; sourceTree = "<group>"; };
 		2CEC2D4520F6423000AF5E9B /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
+		2CEC2D4720F647A500AF5E9B /* Wallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wallet.storyboard; sourceTree = "<group>"; };
+		2CEC2D4920F65C3000AF5E9B /* WalletDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDetailViewController.swift; sourceTree = "<group>"; };
+		2CEC2D4B20F65D1500AF5E9B /* StakeProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StakeProgressBar.swift; sourceTree = "<group>"; };
+		2CEC2D4D20F65D8600AF5E9B /* WalletDetailFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletDetailFlowController.swift; sourceTree = "<group>"; };
 		2CFE954520F3914600DC173F /* MultiProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiProgressBar.swift; sourceTree = "<group>"; };
 		2CFE954720F3930200DC173F /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
 		2CFE954920F3947300DC173F /* EOSWalletViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSWalletViewModel.swift; sourceTree = "<group>"; };
@@ -252,6 +260,7 @@
 				2CE110A820F1C31000B93BEB /* AppDelegate.swift */,
 				2CE110AC20F1C31000B93BEB /* Intro.storyboard */,
 				2CE1111420F2395800B93BEB /* Main.storyboard */,
+				2CEC2D4720F647A500AF5E9B /* Wallet.storyboard */,
 				2C2ACFCC20F3CE9800C637D8 /* Create.storyboard */,
 				2C2ACFE020F4758900C637D8 /* Auth.storyboard */,
 				2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */,
@@ -344,6 +353,7 @@
 				2CE110EE20F1C9D600B93BEB /* LoginFlowController.swift */,
 				2CE110F620F1E00D00B93BEB /* TermFlowController.swift */,
 				2CE1110120F1EE9C00B93BEB /* WalletFlowController.swift */,
+				2CEC2D4D20F65D8600AF5E9B /* WalletDetailFlowController.swift */,
 				2CE1112D20F2680100B93BEB /* VoteFlowController.swift */,
 				2CE1113120F26BD700B93BEB /* AirdropFlowController.swift */,
 				2CE1110520F1F76200B93BEB /* SettingFlowController.swift */,
@@ -364,6 +374,7 @@
 				2CE110D820F1C52900B93BEB /* LoginViewController.swift */,
 				2CE110F420F1DCEC00B93BEB /* TermViewController.swift */,
 				2CE110FF20F1EDB000B93BEB /* WalletViewController.swift */,
+				2CEC2D4920F65C3000AF5E9B /* WalletDetailViewController.swift */,
 				2CE1110320F1F30200B93BEB /* SettingViewController.swift */,
 				2CE1112320F24CF200B93BEB /* MainTabViewController.swift */,
 				2CE1112B20F263B100B93BEB /* VoteViewController.swift */,
@@ -382,6 +393,7 @@
 				2CE1111E20F23F2400B93BEB /* Base */,
 				2CE1111F20F2403100B93BEB /* MenuTabBar.swift */,
 				2CFE954520F3914600DC173F /* MultiProgressBar.swift */,
+				2CEC2D4B20F65D1500AF5E9B /* StakeProgressBar.swift */,
 				2C2ACFE220F476F900C637D8 /* PincodeView.swift */,
 				2C2ACFFE20F4E51700C637D8 /* BPCell.swift */,
 				2C2ACFF620F49F5100C637D8 /* FaceIdInputView.swift */,
@@ -563,6 +575,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2CE1113C20F27C1E00B93BEB /* WalletCell.xib in Resources */,
+				2CEC2D4820F647A500AF5E9B /* Wallet.storyboard in Resources */,
 				2CE110DB20F1C8AC00B93BEB /* Images.xcassets in Resources */,
 				2CE1111020F2118900B93BEB /* LoginButton.xib in Resources */,
 				2CE1110920F1FA6600B93BEB /* Localizable.strings in Resources */,
@@ -666,6 +679,7 @@
 				2CE110D920F1C52900B93BEB /* LoginViewController.swift in Sources */,
 				2C2ACFE520F47C1900C637D8 /* PinCodeViewController.swift in Sources */,
 				2CE1112920F252B500B93BEB /* TabBarViewConroller.swift in Sources */,
+				2CEC2D4E20F65D8600AF5E9B /* WalletDetailFlowController.swift in Sources */,
 				2CE1113A20F27BE000B93BEB /* WalletCell.swift in Sources */,
 				2CE1110620F1F76200B93BEB /* SettingFlowController.swift in Sources */,
 				2CE1112020F2403100B93BEB /* MenuTabBar.swift in Sources */,
@@ -692,6 +706,7 @@
 				2CE1112220F242E500B93BEB /* Font.swift in Sources */,
 				2CE1111920F23C1700B93BEB /* BounceButton.swift in Sources */,
 				2CE1112C20F263B100B93BEB /* VoteViewController.swift in Sources */,
+				2CEC2D4A20F65C3000AF5E9B /* WalletDetailViewController.swift in Sources */,
 				2CEC2D4620F6423000AF5E9B /* AccountManager.swift in Sources */,
 				2CE110F120F1D65400B93BEB /* Color.swift in Sources */,
 				2CE1110420F1F30200B93BEB /* SettingViewController.swift in Sources */,
@@ -717,6 +732,7 @@
 				2CE1113820F26DF000B93BEB /* RoundedView.swift in Sources */,
 				2CE1112E20F2680100B93BEB /* VoteFlowController.swift in Sources */,
 				2CE110D420F1C4E700B93BEB /* MainFlowController.swift in Sources */,
+				2CEC2D4C20F65D1500AF5E9B /* StakeProgressBar.swift in Sources */,
 				2C2ACFCF20F3D8EB00C637D8 /* CreateViewController.swift in Sources */,
 				2CE110E920F1C9B300B93BEB /* DBObject.swift in Sources */,
 				2CE1111320F218C700B93BEB /* LoginType.swift in Sources */,

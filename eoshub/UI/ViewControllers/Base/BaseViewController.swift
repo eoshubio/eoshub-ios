@@ -39,8 +39,21 @@ class BaseViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true        
         navigationController?.navigationBar.tintColor = tintColor.uiColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: tintColor.uiColor]
+        
         
         navigationController?.navigationBar.prefersLargeTitles = largeTitle
+        switch tintColor {
+        case .white:
+            navigationController?.navigationBar.barStyle = .black
+        case .basePurple:
+            navigationController?.navigationBar.barStyle = .default
+        default:
+            break
+        }
+        
+        
+
     }
     
 }

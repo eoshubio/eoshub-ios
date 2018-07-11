@@ -44,24 +44,11 @@ class MainTabFlowController: FlowController, MainTabFlowEventDelegate {
         
         show(viewController: vc, animated: animated) { [unowned self] in
             self.go(from: vc, to: .wallet, animated: false)
-            
-            let config = FlowConfigure(container: self.configure.container, parent: self, flowType: .modal)
-            if self.isCreatedPin() == false {
-                let fc = CreatePinFlowController(configure: config)
-                fc.start(animated: true)
-            } else {
-                //TODO: 비밀번호 확인 절차 진행 
-            }
         }
         
         
     }
-    
-    //TODO: 비밀번호가 설정되어 있는가?
-    func isCreatedPin() -> Bool {
-        return false
-    }
-    
+     
     
     //MARK: MainTabFlowEventDelegate
     func go(from tc: TabBarViewController, to tab: MainMenu, animated: Bool) {
@@ -80,10 +67,16 @@ class MainTabFlowController: FlowController, MainTabFlowEventDelegate {
             break
         }
     }
+    
+    func cratePin(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .modal)
+        let fc = CreatePinFlowController(configure: config)
+        fc.start(animated: true)
+    }
 }
 
 protocol MainTabFlowEventDelegate: FlowEventDelegate {
     
     func go(from tc: TabBarViewController, to tab: MainMenu, animated: Bool)
-    
+    func cratePin(from nc: UINavigationController)
 }

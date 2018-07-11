@@ -35,15 +35,18 @@ class ConfirmPinFlowController: FlowController, ConfirmFlowEventDelegate {
     }
     
     func confirmed(from nc: UINavigationController) {
+        AccountManager.shared.needPinConfirm = false
+        AccountManager.shared.pinConfirmed.onNext(())
+        
         finish(viewControllerToFinish: nc, animated: true, completion: nil)
 //        guard let rootNC = nc.presentingViewController as? UINavigationController else { return }
 //        let config = FlowConfigure(container: rootNC, parent: nil, flowType: .navigation)
 //        let fc = MainTabFlowController(configure: config)
 //        fc.start(animated: false)
-//        
-//        
+//
+//
 //        nc.dismiss(animated: true) {
-//            
+//
 //        }
     }
 }

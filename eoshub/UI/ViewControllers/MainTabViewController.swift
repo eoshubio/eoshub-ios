@@ -13,8 +13,15 @@ class MainTabViewController: TabBarViewController {
   
     var flowDelegate: MainTabFlowEventDelegate?
     
+    let accountMgr = AccountManager.shared
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if accountMgr.needPinConfirm {
+            view.isUserInteractionEnabled = false
+            checkPin()
+        }
     }
     
     override func viewDidLoad() {
@@ -34,6 +41,12 @@ class MainTabViewController: TabBarViewController {
                 strongSelf.flowDelegate?.go(from: strongSelf, to: menu, animated: true)
             }
             .disposed(by: bag)
+        
+        AccountManager.shared.pinConfirmed
+            .subscribe(onNext:{ [weak self](_) in
+                self?.view.isUserInteractionEnabled = true
+            })
+            .disposed(by: bag)
     }
     
     private func setupMenus() {
@@ -41,5 +54,17 @@ class MainTabViewController: TabBarViewController {
         menuTabBar.selectMenu(menu: MainMenu.wallet)
     }
     
+    private func checkPin() {
+        guard let nc = navigationController else { return }
+        if self.isCreatedPin() == false {
+           flowDelegate?.cratePin(from: nc)
+        } else {
+            //TODO: 비밀번호 확인 절차 진행
+        }
+    }
     
+    //TODO: 비밀번호가 설정되어 있는가?
+    private func isCreatedPin() -> Bool {
+        return false
+    }
 }

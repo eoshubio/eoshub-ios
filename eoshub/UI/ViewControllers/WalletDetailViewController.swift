@@ -1,17 +1,17 @@
 //
-//  WalletCell.swift
+//  WalletDetailViewController.swift
 //  eoshub
 //
-//  Created by kein on 2018. 7. 9..
+//  Created by kein on 2018. 7. 12..
 //  Copyright © 2018년 EOS Hub. All rights reserved.
 //
 
 import Foundation
 import UIKit
-import RxSwift
 
-class WalletCell: UITableViewCell {
-    
+class WalletDetailViewController: BaseViewController {
+    var flowDelegate: WalletDetailFlowEventDelegate?
+    //--account
     @IBOutlet fileprivate weak var account: UILabel!
     
     @IBOutlet fileprivate weak var total: UILabel!
@@ -35,43 +35,48 @@ class WalletCell: UITableViewCell {
     @IBOutlet fileprivate weak var remainTimeView: UIView!
     
     @IBOutlet fileprivate weak var remainTime: UILabel!
+    //--account.e
+    @IBOutlet fileprivate weak var resourceView: UIView!
+    @IBOutlet fileprivate weak var resCPU: UILabel!
+    @IBOutlet fileprivate weak var resCPUEOS: UILabel!
+    @IBOutlet fileprivate weak var resNet: UILabel!
+    @IBOutlet fileprivate weak var resNetEOS: UILabel!
     
-    @IBOutlet fileprivate weak var layoutContainerY: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var ramView: UIView!
+    @IBOutlet fileprivate weak var resRam: UILabel!
     
-    @IBOutlet fileprivate weak var buttonContainer: UIView!
+    @IBOutlet fileprivate weak var btnDelegate: UIButton!
+    @IBOutlet fileprivate weak var btnUndelegate: UIButton!
+
+    @IBOutlet fileprivate weak var btnBuyRam: UIButton!
+    @IBOutlet fileprivate weak var btnSellRam: UIButton!
     
-    @IBOutlet fileprivate weak var btnSend: UIButton!
+    private var accountInfo: EOSWalletViewModel!
     
-    @IBOutlet fileprivate weak var btnReceive: UIButton!
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        showNavigationBar(with: .white)
+    }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
+    override func viewDidLoad() {
+        super.viewDidLoad()
         setupUI()
     }
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-    }
-    
     private func setupUI() {
-        remainTimeView.layer.cornerRadius = remainTimeView.bounds.height * 0.5
-        remainTimeView.layer.masksToBounds = true
-        remainTimeView.layer.borderWidth = 1.0
-        remainTimeView.layer.borderColor = Color.red.uiColor.cgColor
+        title = accountInfo.account
         
-        lbAvailable.text = LocalizedString.Wallet.available
-        lbStake.text = LocalizedString.Wallet.staked
-        lbRefunding.text = LocalizedString.Wallet.refunding
-        btnSend.setTitle(LocalizedString.Wallet.send, for: .normal)
-        btnReceive.setTitle(LocalizedString.Wallet.receive, for: .normal)
+        resourceView.layer.borderColor = Color.seperator.cgColor
+        resourceView.layer.borderWidth = 1
         
-        let eosStates: [EOSState] = [.available, .staked, .refunding]
+        ramView.layer.borderColor = Color.seperator.cgColor
+        ramView.layer.borderWidth = 1
         
-        progress.configure(items: eosStates)
+        updateAccount(with: accountInfo)
     }
     
-    
-    func configure(viewModel: EOSWalletViewModel) {
+    fileprivate func updateAccount(with viewModel: EOSWalletViewModel) {
         account.text = viewModel.account
         total.text = viewModel.totalEOS.dot4String
         estimatedPrice.text = "= " + viewModel.estimatedPrice
@@ -80,18 +85,23 @@ class WalletCell: UITableViewCell {
         refundingEOS.text = viewModel.refundingEOS.dot4String
         remainTime.text = viewModel.refundingRemainTime
         
-        if viewModel.showSendButton == false {
-            buttonContainer.isHidden = true
-            layoutContainerY.constant = -buttonContainer.bounds.height
-            layoutIfNeeded()
-        }
         
         let staked = EOSAmount(id: EOSState.staked.id, value: viewModel.stakedEOS.f)
         let refunding = EOSAmount(id: EOSState.refunding.id, value: viewModel.refundingEOS.f)
         let available = EOSAmount(id: EOSState.available.id, value: viewModel.availableEOS.f)
         
         progress.setProgressValues(values: [available, staked, refunding])
-        
     }
+    
+    func configure(viewModel: EOSWalletViewModel) {
+        accountInfo = viewModel
+    }
+    
+}
 
+
+extension WalletDetailViewController {
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
 }

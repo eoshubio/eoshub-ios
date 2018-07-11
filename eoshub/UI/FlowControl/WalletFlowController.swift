@@ -47,8 +47,11 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
         fc.start(animated: true)
     }
     
-    func goToWalletDetail(from nc: UINavigationController) {
-        
+    func goToWalletDetail(from nc: UINavigationController, with account: EOSWalletViewModel) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = WalletDetailFlowController(configure: config)
+        fc.configure(account: account)
+        fc.start(animated: true)
     }
     
     func goToCreate(from nc: UINavigationController) {
@@ -62,6 +65,6 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
 protocol WalletFlowEventDelegate: FlowEventDelegate {
     
     func goToSetting(from nc: UINavigationController)
-    func goToWalletDetail(from nc: UINavigationController)
+    func goToWalletDetail(from nc: UINavigationController, with account: EOSWalletViewModel)
     func goToCreate(from nc: UINavigationController)
 }

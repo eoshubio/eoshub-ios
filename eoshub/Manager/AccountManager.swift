@@ -14,5 +14,8 @@ class AccountManager {
     
     let accountInfoRefreshed = PublishSubject<Void>()
     
+    let pinConfirmed = PublishSubject<Void>()
+    
+    var needPinConfirm: Bool = true
     
 }

@@ -27,7 +27,8 @@ class GrayButton: RoundedButton {
         layer.borderWidth = 1
         backgroundColor = Color.baseGray.uiColor
         
-        titleLabel?.font = Font.appleSDGothicNeo(.regular).uiFont(12)
+        let fontHeight = titleLabel?.font.pointSize ?? 12
+        titleLabel?.font = Font.appleSDGothicNeo(.regular).uiFont(fontHeight)
         setTitleColor(Color.gray.uiColor, for: .normal)
         
     }

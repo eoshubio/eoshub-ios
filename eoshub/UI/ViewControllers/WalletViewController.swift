@@ -145,14 +145,15 @@ extension WalletViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: false)
+        guard let nc = parent?.navigationController else { return }
         
         let item = items[indexPath.section]
-        
-        if item is EOSWalletViewModel {
+        if let item = item as? EOSWalletViewModel {
             //go to wallet detail
+            flowDelegate?.goToWalletDetail(from: nc, with: item)
         } else if item is WalletAddCellType {
             //go to create wallet
-            guard let nc = parent?.navigationController else { return }
+            
             flowDelegate?.goToCreate(from: nc)
         }
     }

@@ -31,10 +31,11 @@ class CreateViewController: BaseViewController {
     
     private func setupUI() {
         tableView.dataSource = self
+        tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
         tableView.allowsSelection = false
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, 150, 0)
+//        tableView.contentInset = UIEdgeInsetsMake(0, 0, 150, 0)
     }
     
     private func bindActions() {
@@ -76,14 +77,18 @@ class CreateViewController: BaseViewController {
     
 }
 
-extension CreateViewController: UITableViewDataSource {
+extension CreateViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return items.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let item = items[indexPath.row]
+        let item = items[indexPath.section]
         
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: item.nibName) as? CreateViewCell else { preconditionFailure() }
@@ -98,6 +103,16 @@ extension CreateViewController: UITableViewDataSource {
         }
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 10
+    }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let v = UIView()
+        v.backgroundColor = UIColor.clear
+        return v
     }
 }
 

@@ -26,7 +26,9 @@ class PurpleButton: RoundedButton {
         layer.borderColor = Color.lightPurple.cgColor
         layer.borderWidth = 1
         
-        titleLabel?.font = Font.appleSDGothicNeo(.regular).uiFont(12)
+        
+        let fontHeight = titleLabel?.font.pointSize ?? 12
+        titleLabel?.font = Font.appleSDGothicNeo(.regular).uiFont(fontHeight)
         setTitleColor(Color.lightPurple.uiColor, for: .normal)
         
     }
