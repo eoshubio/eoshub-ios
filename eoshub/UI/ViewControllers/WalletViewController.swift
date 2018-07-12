@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 
 class WalletViewController: BaseViewController {
@@ -23,6 +24,9 @@ class WalletViewController: BaseViewController {
     @IBOutlet fileprivate var botContainer: UIView!
     
     fileprivate var items: [CellType] = []
+    
+    fileprivate var rx_send = PublishSubject<EOSWalletViewModel>()
+    fileprivate var rx_receive = PublishSubject<EOSWalletViewModel>()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -88,6 +92,19 @@ class WalletViewController: BaseViewController {
                 self?.flowDelegate?.goToSetting(from: nc)
             }
             .disposed(by: bag)
+        
+        rx_send
+            .subscribe(onNext: { [weak self](account) in
+                guard let nc = self?.parent?.navigationController else { return }
+                self?.flowDelegate?.goToSend(from: nc, with: account)
+            })
+            .disposed(by: bag)
+        
+        rx_receive
+            .subscribe(onNext: { (account) in
+                
+            })
+            .disposed(by: bag)
     }
     
     
@@ -114,7 +131,7 @@ extension WalletViewController: UITableViewDataSource {
         
         if item is EOSWalletViewModel {
             guard let cell = cell as? WalletCell, let item = item as? EOSWalletViewModel else { preconditionFailure() }
-            cell.configure(viewModel: item)
+            cell.configure(viewModel: item, sendObserver: rx_send, receiveObserver: rx_receive)
             cell.selectionStyle = .none
             return cell
         } else {

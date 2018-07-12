@@ -30,8 +30,8 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
         
         //Test
         
-        
 //        vc?.configure(data: [dummyEOSModel, WalletAddCellType.add])
+        //TODO: 저장되어 있는 Wallet 을 불러옴.
         vc?.configure(data: [WalletAddCellType.guide, WalletAddCellType.add])
         vc?.flowDelegate = self
         show(viewController: vc, animated: animated) {
@@ -60,11 +60,19 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
         fc.configure(items: [.create, .privateKey, .publicKey])
         fc.start(animated: true)
     }
+    
+    func goToSend(from nc: UINavigationController, with account: EOSWalletViewModel) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = SendCurrencyFlowController(configure: config)
+        fc.configure(account: account)
+        fc.start(animated: true)
+    }
 }
 
 protocol WalletFlowEventDelegate: FlowEventDelegate {
     
     func goToSetting(from nc: UINavigationController)
     func goToWalletDetail(from nc: UINavigationController, with account: EOSWalletViewModel)
+    func goToSend(from nc: UINavigationController, with account: EOSWalletViewModel)
     func goToCreate(from nc: UINavigationController)
 }

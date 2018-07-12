@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C279B7320F783DF00D2F6C4 /* SendCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279B7220F783DF00D2F6C4 /* SendCurrencyViewController.swift */; };
+		2C279B7520F7844300D2F6C4 /* SendCurrencyFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279B7420F7844300D2F6C4 /* SendCurrencyFlowController.swift */; };
 		2C2ACFC120F3AEED00C637D8 /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2ACFC020F3AEED00C637D8 /* TestCell.xib */; };
 		2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFC220F3B86600C637D8 /* Double+extension.swift */; };
 		2C2ACFCB20F3CBB600C637D8 /* WalletGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFCA20F3CBB600C637D8 /* WalletGuideCell.swift */; };
@@ -108,6 +110,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C279B7220F783DF00D2F6C4 /* SendCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCurrencyViewController.swift; sourceTree = "<group>"; };
+		2C279B7420F7844300D2F6C4 /* SendCurrencyFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCurrencyFlowController.swift; sourceTree = "<group>"; };
 		2C2ACFC020F3AEED00C637D8 /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
 		2C2ACFC220F3B86600C637D8 /* Double+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+extension.swift"; sourceTree = "<group>"; };
 		2C2ACFCA20F3CBB600C637D8 /* WalletGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletGuideCell.swift; sourceTree = "<group>"; };
@@ -354,6 +358,7 @@
 				2CE110F620F1E00D00B93BEB /* TermFlowController.swift */,
 				2CE1110120F1EE9C00B93BEB /* WalletFlowController.swift */,
 				2CEC2D4D20F65D8600AF5E9B /* WalletDetailFlowController.swift */,
+				2C279B7420F7844300D2F6C4 /* SendCurrencyFlowController.swift */,
 				2CE1112D20F2680100B93BEB /* VoteFlowController.swift */,
 				2CE1113120F26BD700B93BEB /* AirdropFlowController.swift */,
 				2CE1110520F1F76200B93BEB /* SettingFlowController.swift */,
@@ -375,6 +380,7 @@
 				2CE110F420F1DCEC00B93BEB /* TermViewController.swift */,
 				2CE110FF20F1EDB000B93BEB /* WalletViewController.swift */,
 				2CEC2D4920F65C3000AF5E9B /* WalletDetailViewController.swift */,
+				2C279B7220F783DF00D2F6C4 /* SendCurrencyViewController.swift */,
 				2CE1110320F1F30200B93BEB /* SettingViewController.swift */,
 				2CE1112320F24CF200B93BEB /* MainTabViewController.swift */,
 				2CE1112B20F263B100B93BEB /* VoteViewController.swift */,
@@ -680,6 +686,7 @@
 				2C2ACFE520F47C1900C637D8 /* PinCodeViewController.swift in Sources */,
 				2CE1112920F252B500B93BEB /* TabBarViewConroller.swift in Sources */,
 				2CEC2D4E20F65D8600AF5E9B /* WalletDetailFlowController.swift in Sources */,
+				2C279B7320F783DF00D2F6C4 /* SendCurrencyViewController.swift in Sources */,
 				2CE1113A20F27BE000B93BEB /* WalletCell.swift in Sources */,
 				2CE1110620F1F76200B93BEB /* SettingFlowController.swift in Sources */,
 				2CE1112020F2403100B93BEB /* MenuTabBar.swift in Sources */,
@@ -720,6 +727,7 @@
 				2CE110FE20F1ED6500B93BEB /* LoginButton.swift in Sources */,
 				2CE1112620F2504000B93BEB /* MainTabFlowController.swift in Sources */,
 				2CE110F320F1DAF700B93BEB /* BaseViewController.swift in Sources */,
+				2C279B7520F7844300D2F6C4 /* SendCurrencyFlowController.swift in Sources */,
 				2CE1111B20F23C7400B93BEB /* CGSize+extension.swift in Sources */,
 				2C2ACFF920F4A3DE00C637D8 /* ConfirmPinFlowController.swift in Sources */,
 				2C2ACFDB20F4607700C637D8 /* FindAccountViewController.swift in Sources */,

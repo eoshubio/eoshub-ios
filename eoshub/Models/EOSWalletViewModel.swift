@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import RxSwift
 
 
 
@@ -21,7 +21,6 @@ struct EOSWalletViewModel {
     var availableEOS: Double {
         return totalEOS - stakedEOS - refundingEOS
     }
-    
     
     let refundingRemainTime: String
     

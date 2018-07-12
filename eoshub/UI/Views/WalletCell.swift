@@ -44,6 +44,8 @@ class WalletCell: UITableViewCell {
     
     @IBOutlet fileprivate weak var btnReceive: UIButton!
     
+    private var bag: DisposeBag? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
@@ -51,6 +53,12 @@ class WalletCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        bag = nil
+    }
+    
+    deinit {
+        bag = nil
+        NSLog("deinit")
     }
     
     private func setupUI() {
@@ -71,7 +79,12 @@ class WalletCell: UITableViewCell {
     }
     
     
-    func configure(viewModel: EOSWalletViewModel) {
+    func configure(viewModel: EOSWalletViewModel,
+                   sendObserver: PublishSubject<EOSWalletViewModel>,
+                   receiveObserver: PublishSubject<EOSWalletViewModel>) {
+        
+        let bag = DisposeBag()
+        
         account.text = viewModel.account
         total.text = viewModel.totalEOS.dot4String
         estimatedPrice.text = "= " + viewModel.estimatedPrice
@@ -91,6 +104,20 @@ class WalletCell: UITableViewCell {
         let available = EOSAmount(id: EOSState.available.id, value: viewModel.availableEOS.f)
         
         progress.setProgressValues(values: [available, staked, refunding])
+        
+        btnSend.rx.singleTap
+            .bind {
+                sendObserver.onNext(viewModel)
+            }
+            .disposed(by: bag)
+        
+        btnReceive.rx.singleTap
+            .bind {
+                receiveObserver.onNext(viewModel)
+            }
+            .disposed(by: bag)
+        
+        self.bag = bag
         
     }
 

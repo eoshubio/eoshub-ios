@@ -42,6 +42,14 @@
 "wallet.first.greeting" = "Greeting!";
 "wallet.first.guide" = "Create your first EOS Wallet!";
 
+"wallet.transfer.availableEOS" = "Available EOS";
+"wallet.transfer.sendTo" = "Send to";
+"wallet.transfer.accountPlaceholder" = "Account or Address";
+"wallet.transfer.memo" = "Memo";
+"wallet.transfer.memoDesc" = "(Required by the exchange or just memo)";
+"wallet.transfer.quantity" = "Quantity";
+"wallet.transfer.transfer" = "Transfer";
+"wallet.transfer.history" = "Transaction history";
 
 /* PIN */
 "secure.pin.create" = "Create PIN Code";

@@ -12,7 +12,7 @@ import UIKit
 
 class TextInputViewController: BaseViewController {
     
-    @IBOutlet fileprivate weak var contentsScrollView: UIScrollView!
+    @IBOutlet weak var contentsScrollView: UIScrollView!
     
     var activeField: UITextField?
     

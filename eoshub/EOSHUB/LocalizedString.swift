@@ -63,6 +63,18 @@ struct LocalizedString {
             static let greeting = NSLocalizedString("wallet.first.greeting", comment: "")
             static let guide = NSLocalizedString("wallet.first.guide", comment: "")
         }
+
+        struct Transfer {
+            static let availableEOS = NSLocalizedString("wallet.transfer.availableEOS", comment: "")
+            static let sendTo = NSLocalizedString("wallet.transfer.sendTo", comment: "")
+            static let accountPlaceholder = NSLocalizedString("wallet.transfer.accountPlaceholder", comment: "")
+            static let memo = NSLocalizedString("wallet.transfer.memo", comment: "")
+            static let memoDesc = NSLocalizedString("wallet.transfer.memoDesc", comment: "")
+            static let quantity = NSLocalizedString("wallet.transfer.quantity", comment: "")
+            static let transfer = NSLocalizedString("wallet.transfer.transfer", comment: "")
+            static let history = NSLocalizedString("wallet.transfer.history", comment: "")
+            
+        }
     }
     
     struct Secure {
