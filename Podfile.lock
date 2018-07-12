@@ -2,6 +2,7 @@ PODS:
   - Alamofire (4.7.2)
   - EllipticCurveKeyPair (1.0.2)
   - Eureka (4.1.1)
+  - QRCode (2.0)
   - Realm (3.7.1):
     - Realm/Headers (= 3.7.1)
   - Realm/Headers (3.7.1)
@@ -15,6 +16,7 @@ DEPENDENCIES:
   - Alamofire
   - EllipticCurveKeyPair
   - Eureka
+  - QRCode
   - Realm
   - RealmSwift
   - RxCocoa
@@ -25,6 +27,7 @@ SPEC REPOS:
     - Alamofire
     - EllipticCurveKeyPair
     - Eureka
+    - QRCode
     - Realm
     - RealmSwift
     - RxCocoa
@@ -34,11 +37,12 @@ SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
   EllipticCurveKeyPair: 80c2effda68925851c12562dcfc3fe94489b5eba
   Eureka: b88fb930e42c79f8c03c373d0fcdc28c1d6c50ed
+  QRCode: f98a1886c8f37523704a7512a4c0cd45b34c18a4
   Realm: 906be37d52f17f25484ac01643a7f26a9d3bfbd5
   RealmSwift: 1c2b6bae3dc55bb87e080ffa96537d71442f6dce
   RxCocoa: 0b54909c902e1e581212a03e690bbd94032d8baa
   RxSwift: 99e10317ddfcc7fbe01356aafd118fde4a0be104
 
-PODFILE CHECKSUM: a2cdb40b5cbac0f93a13ed584304a66c9318723e
+PODFILE CHECKSUM: ca6ff0f85d3568592e79ac2d75f5da193455e73d
 
 COCOAPODS: 1.5.3

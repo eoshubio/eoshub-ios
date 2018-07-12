@@ -11,9 +11,11 @@ import UIKit
 
 class SendCurrencyViewController: TextInputViewController {
     
+    var flowDelegate: SendFlowEventDelegate?
+    
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet fileprivate weak var btnSend: UIButton!
-    @IBOutlet fileprivate weak var btnReceive: UIButton!
+    @IBOutlet fileprivate weak var btnHistory: UIButton!
     
     var account: EOSWalletViewModel!
     
@@ -34,6 +36,19 @@ class SendCurrencyViewController: TextInputViewController {
         tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
+        
+        
+        btnSend.setTitle(LocalizedString.Wallet.Transfer.transfer, for: .normal)
+        btnHistory.setTitle(LocalizedString.Wallet.Transfer.history, for: .normal)
+    }
+    
+    private func bindActions() {
+        btnHistory.rx.singleTap
+            .bind { [weak self] in
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goToTx(from: nc)
+            }
+            .disposed(by: bag)
     }
     
     func configure(account: EOSWalletViewModel) {
@@ -79,7 +94,7 @@ class SendMyAccountCell: UITableViewCell {
     
     func configure(account: EOSWalletViewModel) {
         lbAccount.text = account.account
-        lbAddress.text = "EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV"
+        lbAddress.text = account.pubKey
         lbBalance.text = account.availableEOS.dot4String
     }
     
@@ -96,8 +111,6 @@ class SendInputFormCell: UITableViewCell {
     @IBOutlet fileprivate weak var txtMemo: UITextField!
     @IBOutlet fileprivate weak var lbQuantity: UILabel!
     @IBOutlet fileprivate weak var txtQuantity: UITextField!
-    @IBOutlet fileprivate weak var btnTransfer: UIButton!
-    @IBOutlet fileprivate weak var btnHistory: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -111,8 +124,6 @@ class SendInputFormCell: UITableViewCell {
         txtMemo.placeholder = LocalizedString.Wallet.Transfer.memo
         
         btnPaste.setTitle(LocalizedString.Common.paste, for: .normal)
-        btnTransfer.setTitle(LocalizedString.Wallet.Transfer.transfer, for: .normal)
-        btnHistory.setTitle(LocalizedString.Wallet.Transfer.history, for: .normal)
         
         clearForm()
     }

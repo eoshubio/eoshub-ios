@@ -14,6 +14,7 @@ target 'eoshub' do
   pod 'RealmSwift'
   pod 'EllipticCurveKeyPair'
   pod 'Eureka'
+  pod 'QRCode'
   target 'eoshubTests' do
     inherit! :search_paths
     # Pods for testing

@@ -42,8 +42,8 @@ struct LocalizedString {
         static let staked = NSLocalizedString("wallet.staked", comment: "")
         static let refunding = NSLocalizedString("wallet.refunding", comment: "")
         
-        static let priKey = NSLocalizedString("wallet.import.priKey", comment: "")
-        static let pubKey = NSLocalizedString("wallet.find.pubKey", comment: "")
+        static let priKey = NSLocalizedString("wallet.priKey", comment: "")
+        static let pubKey = NSLocalizedString("wallet.pubKey", comment: "")
         
         struct Import {
             static let title = NSLocalizedString("wallet.import.title", comment: "")
@@ -73,6 +73,7 @@ struct LocalizedString {
             static let quantity = NSLocalizedString("wallet.transfer.quantity", comment: "")
             static let transfer = NSLocalizedString("wallet.transfer.transfer", comment: "")
             static let history = NSLocalizedString("wallet.transfer.history", comment: "")
+            static let account = NSLocalizedString("wallet.transfer.account", comment: "")
             
         }
     }
@@ -86,12 +87,25 @@ struct LocalizedString {
             static let useTouchId = NSLocalizedString("secure.pin.useTouchID", comment: "")
         }
     }
+
+    struct Tx {
+        static let title = NSLocalizedString("tx.title", comment: "")
+        static let sended = NSLocalizedString("tx.sended", comment: "")
+        static let received = NSLocalizedString("tx.received", comment: "")
+        static let id = NSLocalizedString("tx.id", comment: "")
+        static let state = NSLocalizedString("tx.state", comment: "")
+        static let complete = NSLocalizedString("tx.complete", comment: "")
+        static let failed = NSLocalizedString("tx.failed", comment: "")
+        static let transfer = NSLocalizedString("tx.transfer", comment: "")
+        
+    }
     
     struct Common {
         static let paste = NSLocalizedString("common.paste", comment: "")
         static let copy = NSLocalizedString("common.copy", comment: "")
         static let apply = NSLocalizedString("common.apply", comment: "")
         static let cancel = NSLocalizedString("common.cancel", comment: "")
+        static let share = NSLocalizedString("common.share", comment: "")
     }
     
     

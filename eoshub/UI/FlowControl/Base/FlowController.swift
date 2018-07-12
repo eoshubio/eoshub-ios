@@ -24,6 +24,8 @@ enum FlowIdentifier: String {
     case term
     case wallet
     case send
+    case receive
+    case tx
     case vote
     case airdrop
     case ico

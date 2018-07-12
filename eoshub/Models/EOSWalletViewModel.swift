@@ -13,7 +13,7 @@ import RxSwift
 
 struct EOSWalletViewModel {
     let account: String
-
+    let pubKey: String
     let totalEOS: Double
     let estimatedPrice: String
     let stakedEOS: Double

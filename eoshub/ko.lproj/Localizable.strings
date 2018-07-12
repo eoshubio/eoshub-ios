@@ -25,16 +25,16 @@
 "wallet.available" = "사용가능";
 "wallet.staked" = "할당됨";
 "wallet.refunding" = "반환중";
+"wallet.pubKey" = "퍼블릭 키";
+"wallet.priKey" = "프라이빗 키";
 
 "wallet.import.title" = "기존계정 가져오기";
 "wallet.import.account" = "EOS 계정";
-"wallet.import.priKey" = "프라이빗 키";
 "wallet.import.store" = "프라이빗키 저장하기";
 "wallet.import.findAccount" = "EOS 계정이름을 모르시면, 여기를 터치";
 "wallet.import.clickHere" = "여기를 터치";
 
 "wallet.find.title" = "EOS 계정 조회하기";
-"wallet.find.pubKey" = "퍼블릭 키";
 "wallet.find.search" = "조회하기";
 
 "wallet.first.greeting" = "처음이신가요?";
@@ -47,8 +47,19 @@
 "wallet.transfer.memoDesc" = "(거래소로 송금시 정확히 입력하세요)";
 "wallet.transfer.quantity" = "수량";
 "wallet.transfer.transfer" = "전송하기";
-"wallet.transfer.history" = "이체이력";
+"wallet.transfer.history" = "이체 이력";
+"wallet.transfer.account" = "나의 EOS 계정";
 
+
+/* 트렌젝션 */
+"tx.title" = "이체 내역";
+"tx.sended" = "보냄";
+"tx.received" = "받음";
+"tx.id" = "거래 ID";
+"tx.state" = "상태";
+"tx.complete" = "완료";
+"tx.failed" = "실패";
+"tx.transfer" = "전송중";
 
 /* PIN */
 "secure.pin.create" = "비밀번호 생성";
@@ -63,3 +74,5 @@
 "common.copy" = "복사하기";
 "common.apply" = "적용하기";
 "common.cancel" = "취소하기";
+"common.share" = "공유하기";
+

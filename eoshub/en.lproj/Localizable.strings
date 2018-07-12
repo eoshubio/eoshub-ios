@@ -26,17 +26,16 @@
 "wallet.available" = "Available";
 "wallet.staked" = "Staked";
 "wallet.refunding" = "Refunding";
-
+"wallet.pubKey" = "Public Key";
+"wallet.priKey" = "Private key";
 
 "wallet.import.title" = "Import EOS Account";
 "wallet.import.account" = "EOS Account name";
-"wallet.import.priKey" = "Private key";
 "wallet.import.store" = "Store private key";
 "wallet.import.findAccount" = "If you don't know your EOS account, Please Touch Here";
 "wallet.import.clickHere" = "Please Touch Here";
 
 "wallet.find.title" = "Find EOS account";
-"wallet.find.pubKey" = "Public Key";
 "wallet.find.search" = "Search";
 
 "wallet.first.greeting" = "Greeting!";
@@ -50,6 +49,17 @@
 "wallet.transfer.quantity" = "Quantity";
 "wallet.transfer.transfer" = "Transfer";
 "wallet.transfer.history" = "Transaction history";
+"wallet.transfer.account" = "My EOS account";
+
+/* 트렌젝션 */
+"tx.title" = "Transaction";
+"tx.sended" = "Sended";
+"tx.received" = "Received";
+"tx.id" = "Tx ID";
+"tx.state" = "State";
+"tx.complete" = "Completed";
+"tx.failed" = "Failed";
+"tx.transfer" = "Transfer";
 
 /* PIN */
 "secure.pin.create" = "Create PIN Code";
@@ -63,3 +73,4 @@
 "common.copy" = "Copy";
 "common.apply" = "Apply";
 "common.cancel" = "Cancel";
+"common.share" = "Share";

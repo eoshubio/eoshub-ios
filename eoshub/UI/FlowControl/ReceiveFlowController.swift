@@ -1,18 +1,18 @@
 //
-//  SendCurrencyFlowController.swift
+//  ReceiveFlowController.swift
 //  eoshub
 //
-//  Created by kein on 2018. 7. 12..
+//  Created by kein on 2018. 7. 13..
 //  Copyright © 2018년 EOS Hub. All rights reserved.
 //
 
 import Foundation
 import UIKit
 
-class SendCurrencyFlowController: FlowController, SendFlowEventDelegate {
+class ReceiveFlowController: FlowController, ReceiveEventDelegate {
     var configure: FlowConfigure
     
-    var id: FlowIdentifier { return .send }
+    var id: FlowIdentifier { return .receive }
     
     var account: EOSWalletViewModel!
     
@@ -27,7 +27,7 @@ class SendCurrencyFlowController: FlowController, SendFlowEventDelegate {
     
     func show(animated: Bool) {
         
-        guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "SendCurrencyViewController") as? SendCurrencyViewController else { return }
+        guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "ReceiveViewController") as? ReceiveViewController else { return }
         vc.flowDelegate = self
         vc.configure(account: account)
         show(viewController: vc, animated: animated) {
@@ -43,7 +43,8 @@ class SendCurrencyFlowController: FlowController, SendFlowEventDelegate {
     
 }
 
-
-protocol SendFlowEventDelegate: FlowEventDelegate {
+protocol ReceiveEventDelegate: FlowEventDelegate {
     func goToTx(from nc: UINavigationController)
 }
+
+

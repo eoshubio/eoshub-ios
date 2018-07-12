@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		2C279B7320F783DF00D2F6C4 /* SendCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279B7220F783DF00D2F6C4 /* SendCurrencyViewController.swift */; };
 		2C279B7520F7844300D2F6C4 /* SendCurrencyFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279B7420F7844300D2F6C4 /* SendCurrencyFlowController.swift */; };
+		2C279B7720F7A29A00D2F6C4 /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279B7620F7A29A00D2F6C4 /* ReceiveViewController.swift */; };
+		2C279B7920F7A4A100D2F6C4 /* ReceiveFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279B7820F7A4A100D2F6C4 /* ReceiveFlowController.swift */; };
+		2C279B7B20F7AEAC00D2F6C4 /* TxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279B7A20F7AEAC00D2F6C4 /* TxViewController.swift */; };
+		2C279B7D20F7AEDD00D2F6C4 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279B7C20F7AEDD00D2F6C4 /* BaseTableViewController.swift */; };
+		2C279B7F20F7B53200D2F6C4 /* TxFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279B7E20F7B53200D2F6C4 /* TxFlowController.swift */; };
 		2C2ACFC120F3AEED00C637D8 /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2ACFC020F3AEED00C637D8 /* TestCell.xib */; };
 		2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFC220F3B86600C637D8 /* Double+extension.swift */; };
 		2C2ACFCB20F3CBB600C637D8 /* WalletGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFCA20F3CBB600C637D8 /* WalletGuideCell.swift */; };
@@ -112,6 +117,11 @@
 /* Begin PBXFileReference section */
 		2C279B7220F783DF00D2F6C4 /* SendCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCurrencyViewController.swift; sourceTree = "<group>"; };
 		2C279B7420F7844300D2F6C4 /* SendCurrencyFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCurrencyFlowController.swift; sourceTree = "<group>"; };
+		2C279B7620F7A29A00D2F6C4 /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
+		2C279B7820F7A4A100D2F6C4 /* ReceiveFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveFlowController.swift; sourceTree = "<group>"; };
+		2C279B7A20F7AEAC00D2F6C4 /* TxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxViewController.swift; sourceTree = "<group>"; };
+		2C279B7C20F7AEDD00D2F6C4 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		2C279B7E20F7B53200D2F6C4 /* TxFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxFlowController.swift; sourceTree = "<group>"; };
 		2C2ACFC020F3AEED00C637D8 /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
 		2C2ACFC220F3B86600C637D8 /* Double+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+extension.swift"; sourceTree = "<group>"; };
 		2C2ACFCA20F3CBB600C637D8 /* WalletGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletGuideCell.swift; sourceTree = "<group>"; };
@@ -359,6 +369,8 @@
 				2CE1110120F1EE9C00B93BEB /* WalletFlowController.swift */,
 				2CEC2D4D20F65D8600AF5E9B /* WalletDetailFlowController.swift */,
 				2C279B7420F7844300D2F6C4 /* SendCurrencyFlowController.swift */,
+				2C279B7820F7A4A100D2F6C4 /* ReceiveFlowController.swift */,
+				2C279B7E20F7B53200D2F6C4 /* TxFlowController.swift */,
 				2CE1112D20F2680100B93BEB /* VoteFlowController.swift */,
 				2CE1113120F26BD700B93BEB /* AirdropFlowController.swift */,
 				2CE1110520F1F76200B93BEB /* SettingFlowController.swift */,
@@ -381,6 +393,8 @@
 				2CE110FF20F1EDB000B93BEB /* WalletViewController.swift */,
 				2CEC2D4920F65C3000AF5E9B /* WalletDetailViewController.swift */,
 				2C279B7220F783DF00D2F6C4 /* SendCurrencyViewController.swift */,
+				2C279B7620F7A29A00D2F6C4 /* ReceiveViewController.swift */,
+				2C279B7A20F7AEAC00D2F6C4 /* TxViewController.swift */,
 				2CE1110320F1F30200B93BEB /* SettingViewController.swift */,
 				2CE1112320F24CF200B93BEB /* MainTabViewController.swift */,
 				2CE1112B20F263B100B93BEB /* VoteViewController.swift */,
@@ -455,6 +469,7 @@
 			isa = PBXGroup;
 			children = (
 				2CE110F220F1DAF700B93BEB /* BaseViewController.swift */,
+				2C279B7C20F7AEDD00D2F6C4 /* BaseTableViewController.swift */,
 				2CE1112820F252B500B93BEB /* TabBarViewConroller.swift */,
 				2C2ACFDC20F4608800C637D8 /* TextInputViewController.swift */,
 			);
@@ -617,6 +632,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/EllipticCurveKeyPair/EllipticCurveKeyPair.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/QRCode/QRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
@@ -627,6 +643,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EllipticCurveKeyPair.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
@@ -698,17 +715,20 @@
 				2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */,
 				2C2ACFD520F4427F00C637D8 /* ImportViewController.swift in Sources */,
 				2C2ACFDF20F46B3300C637D8 /* FindFlowController.swift in Sources */,
+				2C279B7920F7A4A100D2F6C4 /* ReceiveFlowController.swift in Sources */,
 				2C2ACFE320F476F900C637D8 /* PincodeView.swift in Sources */,
 				2C2ACFFD20F4B9A900C637D8 /* PurpleButton.swift in Sources */,
 				2C2ACFD320F43EE500C637D8 /* WhiteTextField.swift in Sources */,
 				2CE110FC20F1EC8600B93BEB /* RoundedButton.swift in Sources */,
 				2CE110FA20F1EBE600B93BEB /* UIView+extension.swift in Sources */,
+				2C279B7B20F7AEAC00D2F6C4 /* TxViewController.swift in Sources */,
 				2CE1111720F23BF600B93BEB /* ExtendButton.swift in Sources */,
 				2CE110E720F1C9B300B93BEB /* DispatchQueue.swift in Sources */,
 				2C2ACFFB20F4A3E800C637D8 /* ValidationPinFlowController.swift in Sources */,
 				2CE1110020F1EDB000B93BEB /* WalletViewController.swift in Sources */,
 				2CFE954A20F3947300DC173F /* EOSWalletViewModel.swift in Sources */,
 				2CE1113020F26BA300B93BEB /* AirdropViewController.swift in Sources */,
+				2C279B7D20F7AEDD00D2F6C4 /* BaseTableViewController.swift in Sources */,
 				2CFE954820F3930200DC173F /* CellType.swift in Sources */,
 				2CE1112220F242E500B93BEB /* Font.swift in Sources */,
 				2CE1111920F23C1700B93BEB /* BounceButton.swift in Sources */,
@@ -734,6 +754,7 @@
 				2C2ACFDD20F4608800C637D8 /* TextInputViewController.swift in Sources */,
 				2CE1110E20F1FACD00B93BEB /* LocalizedString.swift in Sources */,
 				2C2ACFED20F48E1D00C637D8 /* UIButton+extension.swift in Sources */,
+				2C279B7720F7A29A00D2F6C4 /* ReceiveViewController.swift in Sources */,
 				2CE110D520F1C4E700B93BEB /* FlowConfigure.swift in Sources */,
 				2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */,
 				2C2ACFE720F47CA200C637D8 /* CreatePinFlowController.swift in Sources */,
@@ -745,6 +766,7 @@
 				2CE110E920F1C9B300B93BEB /* DBObject.swift in Sources */,
 				2CE1111320F218C700B93BEB /* LoginType.swift in Sources */,
 				2C2ACFCB20F3CBB600C637D8 /* WalletGuideCell.swift in Sources */,
+				2C279B7F20F7B53200D2F6C4 /* TxFlowController.swift in Sources */,
 				2CE110D620F1C4E700B93BEB /* FlowEventDelegate.swift in Sources */,
 				2C2ACFF720F49F5100C637D8 /* FaceIdInputView.swift in Sources */,
 				2CE110E820F1C9B300B93BEB /* Date+extension.swift in Sources */,

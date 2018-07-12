@@ -73,6 +73,7 @@ class WalletViewController: BaseViewController {
         AccountManager.shared.accountInfoRefreshed
             .subscribe(onNext: { [weak self](_) in
                 let dummyEOSModel = EOSWalletViewModel(account: "eoshubalpha1",
+                                                       pubKey: "EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
                                                        totalEOS: 100000.2423,
                                                        estimatedPrice: "102,342,342,424 KRW",
                                                        stakedEOS: 23423.02324123,
@@ -101,8 +102,9 @@ class WalletViewController: BaseViewController {
             .disposed(by: bag)
         
         rx_receive
-            .subscribe(onNext: { (account) in
-                
+            .subscribe(onNext: { [weak self](account) in
+                guard let nc = self?.parent?.navigationController else { return }
+                self?.flowDelegate?.goToReceive(from: nc, with: account)
             })
             .disposed(by: bag)
     }
