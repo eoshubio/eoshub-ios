@@ -53,8 +53,8 @@
 
 /* 트렌젝션 */
 "tx.title" = "Transaction";
-"tx.sended" = "Sended";
-"tx.received" = "Received";
+"tx.sended" = "Out";
+"tx.received" = "In";
 "tx.id" = "Tx ID";
 "tx.state" = "State";
 "tx.complete" = "Completed";

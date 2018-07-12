@@ -571,25 +571,16 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eosioaccount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6BH-cS-oop">
-                                                    <rect key="frame" x="146.33333333333334" y="29" width="83" height="18"/>
+                                                    <rect key="frame" x="29.999999999999993" y="29" width="88.333333333333314" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="br1-16-R7Z"/>
                                                     </constraints>
-                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="15"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Abr-uU-DEV">
-                                                    <rect key="frame" x="30" y="62" width="315" height="20"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="20" id="9Yu-1K-rvY"/>
-                                                    </constraints>
-                                                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="10"/>
-                                                    <color key="textColor" red="0.73725490196078436" green="0.58431372549019611" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Available EOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="204-hQ-zqd">
-                                                    <rect key="frame" x="30" y="97" width="80" height="25"/>
+                                                    <rect key="frame" x="30" y="62" width="80" height="25"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="25" id="781-33-a2F"/>
                                                     </constraints>
@@ -598,13 +589,13 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Oz-Q6-FXA">
-                                                    <rect key="frame" x="249" y="98" width="70" height="24"/>
+                                                    <rect key="frame" x="249" y="63" width="70" height="24"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jcd-qj-Afx">
-                                                    <rect key="frame" x="324" y="102" width="21" height="15"/>
+                                                    <rect key="frame" x="324" y="67" width="21" height="15"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -612,24 +603,20 @@
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="Abr-uU-DEV" firstAttribute="leading" secondItem="oby-CA-1ER" secondAttribute="leading" constant="30" id="88E-R7-hCM"/>
                                                 <constraint firstItem="jcd-qj-Afx" firstAttribute="leading" secondItem="4Oz-Q6-FXA" secondAttribute="trailing" constant="5" id="H4n-dG-hAG"/>
                                                 <constraint firstItem="4Oz-Q6-FXA" firstAttribute="centerY" secondItem="204-hQ-zqd" secondAttribute="centerY" id="IcJ-7z-qbo"/>
                                                 <constraint firstItem="6BH-cS-oop" firstAttribute="top" secondItem="oby-CA-1ER" secondAttribute="topMargin" constant="18" id="JyX-wZ-dAN"/>
                                                 <constraint firstItem="204-hQ-zqd" firstAttribute="leading" secondItem="oby-CA-1ER" secondAttribute="leading" constant="30" id="Pa0-PI-h7c"/>
-                                                <constraint firstItem="6BH-cS-oop" firstAttribute="centerX" secondItem="oby-CA-1ER" secondAttribute="centerX" id="Y6X-ci-6aK"/>
+                                                <constraint firstItem="6BH-cS-oop" firstAttribute="leading" secondItem="oby-CA-1ER" secondAttribute="leading" constant="30" id="QJ5-c1-eZO"/>
+                                                <constraint firstItem="204-hQ-zqd" firstAttribute="top" secondItem="6BH-cS-oop" secondAttribute="bottom" constant="15" id="T4W-9r-iQy"/>
                                                 <constraint firstItem="jcd-qj-Afx" firstAttribute="bottom" secondItem="4Oz-Q6-FXA" secondAttribute="bottom" constant="-5" id="ZaW-gI-hwN"/>
-                                                <constraint firstItem="204-hQ-zqd" firstAttribute="top" secondItem="Abr-uU-DEV" secondAttribute="bottom" constant="15" id="a39-I7-iio"/>
-                                                <constraint firstItem="Abr-uU-DEV" firstAttribute="top" secondItem="6BH-cS-oop" secondAttribute="bottom" constant="15" id="q4G-Uw-neI"/>
                                                 <constraint firstAttribute="trailing" secondItem="jcd-qj-Afx" secondAttribute="trailing" constant="30" id="shU-Xx-Xae"/>
                                                 <constraint firstAttribute="bottom" secondItem="204-hQ-zqd" secondAttribute="bottom" priority="750" constant="15" id="vyl-NF-dmR"/>
-                                                <constraint firstAttribute="trailing" secondItem="Abr-uU-DEV" secondAttribute="trailing" constant="30" id="yvb-ny-jyG"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <connections>
                                             <outlet property="lbAccount" destination="6BH-cS-oop" id="BMx-0S-5O6"/>
-                                            <outlet property="lbAddress" destination="Abr-uU-DEV" id="LAl-CF-cVS"/>
                                             <outlet property="lbAvailable" destination="204-hQ-zqd" id="rCi-om-zSO"/>
                                             <outlet property="lbBalance" destination="4Oz-Q6-FXA" id="bYu-Z5-rVS"/>
                                         </connections>

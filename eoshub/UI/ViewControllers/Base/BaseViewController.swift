@@ -46,7 +46,7 @@ class BaseViewController: UIViewController {
         switch tintColor {
         case .white:
             navigationController?.navigationBar.barStyle = .black
-        case .basePurple:
+        case .basePurple, .darkGray:
             navigationController?.navigationBar.barStyle = .default
         default:
             break

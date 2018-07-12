@@ -66,12 +66,16 @@ class TxCell: UITableViewCell {
         btnTxId.titleLabel?.numberOfLines = 2
         btnTxId.titleLabel?.textAlignment = .right
         
+        
         //test
         lbInOut.text = LocalizedString.Tx.sended
         lbQuantity.text = "24153.3453"
         lbSymbol.text = "EOS"
         lbTxDate.text = "18.07.10 23:12:03"
-        btnTxId.setTitle("ef2c84969b827ce59ee1274199a390f2b34660d894219e27e03454f6e3511da7", for: .normal)
+//        btnTxId.setTitle("ef2c84969b827ce59ee1274199a390f2b34660d894219e27e03454f6e3511da7", for: .normal)
+        
+        let dummyTx = NSAttributedString(string: "ef2c84969b827ce59ee1274199a390f2b34660d894219e27e03454f6e3511da7", attributes: [NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle])
+        btnTxId.setAttributedTitle(dummyTx, for: .normal)
         
     }
     

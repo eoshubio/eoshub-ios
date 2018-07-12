@@ -82,7 +82,6 @@ extension SendCurrencyViewController: UITableViewDataSource, UITableViewDelegate
 
 class SendMyAccountCell: UITableViewCell {
     @IBOutlet fileprivate weak var lbAccount: UILabel!
-    @IBOutlet fileprivate weak var lbAddress: UILabel!
     @IBOutlet fileprivate weak var lbAvailable: UILabel!
     @IBOutlet fileprivate weak var lbBalance: UILabel!
     
@@ -94,7 +93,6 @@ class SendMyAccountCell: UITableViewCell {
     
     func configure(account: EOSWalletViewModel) {
         lbAccount.text = account.account
-        lbAddress.text = account.pubKey
         lbBalance.text = account.availableEOS.dot4String
     }
     
