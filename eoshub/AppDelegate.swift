@@ -17,6 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        //set default host
+        EOSHost.shared.host = "https://eos-hub.io:8443"
+        
         //Start Flow
         window = UIWindow(frame : UIScreen.main.bounds)
         let config = FlowConfigure(container: window!, parent: nil, flowType: .window)
