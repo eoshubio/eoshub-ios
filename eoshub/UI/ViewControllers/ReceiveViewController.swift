@@ -16,6 +16,7 @@ class ReceiveViewController: BaseViewController {
     
     @IBOutlet fileprivate weak var qrcode: UIImageView!
     @IBOutlet fileprivate weak var btnShareContainer: UIView!
+    @IBOutlet fileprivate weak var lbShare: UILabel!
     @IBOutlet fileprivate weak var btnShare: UIButton!
     @IBOutlet fileprivate weak var lbAccountTitle: UILabel!
     @IBOutlet fileprivate weak var lbAccount: UILabel!
@@ -44,8 +45,8 @@ class ReceiveViewController: BaseViewController {
         lbAccount.text = account.account
         lbPubKeyTitle.text = LocalizedString.Wallet.pubKey
         lbPubKey.text = account.pubKey
+        lbShare.text = LocalizedString.Common.share
         
-        btnShare.setTitle(LocalizedString.Common.share, for: .normal)
         btnHistory.setTitle(LocalizedString.Wallet.Transfer.history, for: .normal)
         
         btnShareContainer.layer.borderColor = Color.white.cgColor

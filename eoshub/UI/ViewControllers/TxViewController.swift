@@ -74,7 +74,7 @@ class TxCell: UITableViewCell {
         lbTxDate.text = "18.07.10 23:12:03"
 //        btnTxId.setTitle("ef2c84969b827ce59ee1274199a390f2b34660d894219e27e03454f6e3511da7", for: .normal)
         
-        let dummyTx = NSAttributedString(string: "ef2c84969b827ce59ee1274199a390f2b34660d894219e27e03454f6e3511da7", attributes: [NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle])
+        let dummyTx = NSAttributedString(string: "ef2c84969b827ce59ee1274199a390f2b34660d894219e27e03454f6e3511da7", attributes: [NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue])
         btnTxId.setAttributedTitle(dummyTx, for: .normal)
         
     }

@@ -1226,6 +1226,7 @@ HuGYqET5GDW5CV</string>
                         <outlet property="lbAccountTitle" destination="Yyc-xn-WyH" id="D9t-rJ-JcX"/>
                         <outlet property="lbPubKey" destination="UcA-1j-4bT" id="AXa-OL-pJq"/>
                         <outlet property="lbPubKeyTitle" destination="jih-I9-6dK" id="T4v-k8-ncB"/>
+                        <outlet property="lbShare" destination="GRi-Z6-k2Y" id="l9C-BQ-f5Q"/>
                         <outlet property="qrcode" destination="99A-uE-M5n" id="sC9-js-Yk8"/>
                     </connections>
                 </viewController>
