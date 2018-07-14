@@ -42,7 +42,7 @@
 
 "wallet.transfer.availableEOS" = "전송가능한 EOS";
 "wallet.transfer.sendTo" = "EOS 받는 주소";
-"wallet.transfer.accountPlaceholder" = "계정 또는 퍼블릭키";
+"wallet.transfer.accountPlaceholder" = "%@ 를 보낼 계정을 입력하세요"; //symbol
 "wallet.transfer.memo" = "메모";
 "wallet.transfer.memoDesc" = "(거래소로 송금시 정확히 입력하세요)";
 "wallet.transfer.quantity" = "수량";

@@ -18,4 +18,8 @@ class AccountManager {
     
     var needPinConfirm: Bool = true
     
+    func refresh() {
+        accountInfoRefreshed.onNext(())
+    }
+    
 }

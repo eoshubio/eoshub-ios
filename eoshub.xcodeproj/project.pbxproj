@@ -58,6 +58,7 @@
 		2C279BF020F8E90100D2F6C4 /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BEF20F8E90100D2F6C4 /* Security.swift */; };
 		2C279BF220F8EB3E00D2F6C4 /* ValidatePinFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BF120F8EB3E00D2F6C4 /* ValidatePinFlowController.swift */; };
 		2C279BF420F8F86500D2F6C4 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BF320F8F86500D2F6C4 /* DebugLog.swift */; };
+		2C279BF620F9C66500D2F6C4 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BF520F9C66500D2F6C4 /* Wallet.swift */; };
 		2C2ACFC120F3AEED00C637D8 /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2ACFC020F3AEED00C637D8 /* TestCell.xib */; };
 		2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFC220F3B86600C637D8 /* Double+extension.swift */; };
 		2C2ACFCB20F3CBB600C637D8 /* WalletGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFCA20F3CBB600C637D8 /* WalletGuideCell.swift */; };
@@ -223,6 +224,7 @@
 		2C279BEF20F8E90100D2F6C4 /* Security.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
 		2C279BF120F8EB3E00D2F6C4 /* ValidatePinFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatePinFlowController.swift; sourceTree = "<group>"; };
 		2C279BF320F8F86500D2F6C4 /* DebugLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugLog.swift; sourceTree = "<group>"; };
+		2C279BF520F9C66500D2F6C4 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
 		2C2ACFC020F3AEED00C637D8 /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
 		2C2ACFC220F3B86600C637D8 /* Double+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+extension.swift"; sourceTree = "<group>"; };
 		2C2ACFCA20F3CBB600C637D8 /* WalletGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletGuideCell.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 			children = (
 				2C279BB320F8C42700D2F6C4 /* Crypto.h */,
 				2C279BAA20F8C42600D2F6C4 /* Crypto.m */,
+				2C279BF520F9C66500D2F6C4 /* Wallet.swift */,
 			);
 			path = Sig;
 			sourceTree = "<group>";
@@ -901,6 +904,7 @@
 				2CE110E520F1C9B300B93BEB /* String+extension.swift in Sources */,
 				2CE1113220F26BD700B93BEB /* AirdropFlowController.swift in Sources */,
 				2CE110D920F1C52900B93BEB /* LoginViewController.swift in Sources */,
+				2C279BF620F9C66500D2F6C4 /* Wallet.swift in Sources */,
 				2C279BD420F8C5A300D2F6C4 /* BlockProducer.swift in Sources */,
 				2C2ACFE520F47C1900C637D8 /* PinCodeViewController.swift in Sources */,
 				2C279BB520F8C42700D2F6C4 /* EOS_Key_Encode.m in Sources */,
@@ -1192,6 +1196,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MY5T2D475Y;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = eoshub/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1204,6 +1209,7 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = arm64;
 			};
 			name = Debug;
 		};
@@ -1215,6 +1221,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MY5T2D475Y;
+				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = eoshub/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1226,6 +1233,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "eoshub/eoshub-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = arm64;
 			};
 			name = Release;
 		};

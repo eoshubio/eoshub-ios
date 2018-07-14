@@ -13,6 +13,9 @@ struct Currency {
     let balance: String
     let symbol: String
     let currency: String
+    var prettyFormated: String {
+        return balance + " " + symbol
+    }
     
     init?(currency: String) {
         let comp = currency.components(separatedBy: " ")
@@ -22,7 +25,7 @@ struct Currency {
             self.quantity = Double(comp.first!)!
             self.balance = String(format: "%.4f", quantity)
             self.symbol = comp.last!
-            self.currency = balance + " " + symbol
+            self.currency = currency
         }
     }
 

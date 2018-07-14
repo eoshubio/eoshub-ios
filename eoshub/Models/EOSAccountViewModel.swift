@@ -83,7 +83,6 @@ protocol EOSAccountViewModel {
     var availableEOS: Double { get }
     var refundingRemainTime: TimeInterval { get }
     var ownerMode: Bool { get set }
-    
 }
 
 extension EOSAccountViewModel {

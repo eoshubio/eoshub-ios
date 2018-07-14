@@ -8,12 +8,14 @@
 
 import Foundation
 import UIKit
-
+import RxSwift
 
 class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
     var configure: FlowConfigure
     
     var id: FlowIdentifier { return .validatePin }
+    
+    var validated = PublishSubject<Bool>()
     
     required init(configure: FlowConfigure) {
         self.configure = configure
@@ -36,6 +38,8 @@ class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
     func validated(from nc: UINavigationController) {
         AccountManager.shared.needPinConfirm = false
         AccountManager.shared.pinValidated.onNext(())
+        
+        validated.onNext(true)
         
         finish(viewControllerToFinish: nc, animated: true, completion: nil)
     }

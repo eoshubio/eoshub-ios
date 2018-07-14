@@ -41,7 +41,7 @@ class WalletViewController: BaseViewController {
         super.viewDidLoad()
         setupUI()
         bindActions()
-        start()
+        reload()
         
     }
     
@@ -69,7 +69,7 @@ class WalletViewController: BaseViewController {
         
     }
     
-    private func start() {
+    private func reload() {
         items = [WalletAddCellType.add]
         if eoshubAccounts.count == 0 {
             items.insert(WalletAddCellType.guide, at: 0)
@@ -84,25 +84,13 @@ class WalletViewController: BaseViewController {
                 })
                 .disposed(by: bag)
         }
-        
-        
     }
     
    
     private func bindActions() {
         AccountManager.shared.accountInfoRefreshed
             .subscribe(onNext: { [weak self](_) in
-                self?.loadAccounts()
-//                let dummyEOSModel = EOSAccountViewModel(account: "eoshubalpha1",
-//                                                       pubKey: "EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
-//                                                       totalEOS: 100000.2423,
-//                                                       estimatedPrice: "102,342,342,424 KRW",
-//                                                       stakedEOS: 23423.02324123,
-//                                                       refundingEOS: 45323,
-//                                                       refundingRemainTime: "2일 23시간 23분",
-//                                                       showSendButton: true)
-//                self?.items = [dummyEOSModel, WalletAddCellType.add]
-                self?.walletList.reloadData()
+                self?.reload()
             })
             .disposed(by: bag)
         
@@ -118,7 +106,7 @@ class WalletViewController: BaseViewController {
         rx_send
             .subscribe(onNext: { [weak self](account) in
                 guard let nc = self?.parent?.navigationController else { return }
-                self?.flowDelegate?.goToSend(from: nc, with: account)
+                self?.flowDelegate?.goToSend(from: nc, with: account, symbol: "EOS")
             })
             .disposed(by: bag)
         
@@ -140,26 +128,6 @@ class WalletViewController: BaseViewController {
                             return Observable.just(info)
                         })
                 }
-      
-//        let getAccounts = eoshubAccounts.map { (account) -> Observable<AccountInfo> in
-//                return RxEOSAPI.getAccount(name: account.account)
-//                        .flatMap({ [weak self](account) ->  Observable<AccountInfo> in
-//                            let owner = self?.eoshubAccounts.filter("account = '\(account.name)'").first?.owner ?? false
-//                            let info = AccountInfo(with: account, isOwner: owner)
-//                            return Observable.just(info)
-//                        })
-//        }
-//
-//        return Observable.concat(getAccounts)
-        
-        
-        
-//        return Observable.concat(getAccounts)
-//                .flatMap { [weak self](account) -> Observable<AccountInfo> in
-//                    let owner = self?.eoshubAccounts.filter("account = '\(account.name)'").first?.owner ?? false
-//                    let info = AccountInfo(with: account, isOwner: owner)
-//                    return Observable.just(info)
-//                }
     }
     
     
@@ -200,9 +168,6 @@ extension WalletViewController: UITableViewDataSource {
 
 
 extension WalletViewController: UITableViewDelegate {
-//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        return UITableViewAutomaticDimension
-//    }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10

@@ -56,10 +56,10 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
         fc.start(animated: true)
     }
     
-    func goToSend(from nc: UINavigationController, with account: EOSAccountViewModel) {
+    func goToSend(from nc: UINavigationController, with account: EOSAccountViewModel, symbol: String) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = SendCurrencyFlowController(configure: config)
-        fc.configure(account: account)
+        fc.configure(account: account, symbol: symbol)
         fc.start(animated: true)
     }
     
@@ -75,7 +75,7 @@ protocol WalletFlowEventDelegate: FlowEventDelegate {
     
     func goToSetting(from nc: UINavigationController)
     func goToWalletDetail(from nc: UINavigationController, with account: EOSAccountViewModel)
-    func goToSend(from nc: UINavigationController, with account: EOSAccountViewModel)
+    func goToSend(from nc: UINavigationController, with account: EOSAccountViewModel, symbol: String)
     func goToReceive(from nc: UINavigationController, with account: EOSAccountViewModel)
     func goToCreate(from nc: UINavigationController)
 }

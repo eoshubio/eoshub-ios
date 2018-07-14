@@ -24,8 +24,7 @@ class PackedTransaction: JSONOutput {
     
     init(signTxn: SignedTransaction) {
         signatures = signTxn.signatures
-//        let digest = LocalWallet.shared.digest(txn: signTxn)
-        packedTrx = "" //digest.hex
+        packedTrx = signTxn.digest().hex
     }
     
     

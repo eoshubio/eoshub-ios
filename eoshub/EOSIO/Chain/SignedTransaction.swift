@@ -28,4 +28,18 @@ class SignedTransaction: Transaction {
         super.init(json: json)
         signatures = json.arrayString(for: "signatures") ?? []
     }
+    
+    func digest(cid: String? = nil, capacity: Int = 512) -> [UInt8] {
+        let pack = Pack(with: capacity)
+        if let cid = cid {
+            pack.put(bytes: cid.hexToBytes)
+        }
+        
+        serialize(pack: pack)
+        
+        let emptySha = [UInt8](repeating: 0x00, count: 32)
+        pack.put(bytes: emptySha)
+        
+        return pack.packedBytes
+    }
 }

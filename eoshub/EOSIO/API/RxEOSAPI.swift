@@ -125,7 +125,7 @@ struct RxEOSAPI {
 //    }
     
     //MARK: Contract
-    static func pushContract(contracts: [Contract]) -> Observable<JSON> {
+    static func pushContract(contracts: [Contract], wallet: Wallet) -> Observable<JSON> {
         
         //1. unlock wallet
         return RxEOSAPI.getInfo()
@@ -148,14 +148,15 @@ struct RxEOSAPI {
                 let trx = Transaction(block: data.block, actions: data.actions).json
                 
                 let signTrx = SignedTransaction(json: trx)!
-                    //sign
-//                LocalWallet.shared.sign(txn: signTrx, priKey: "5KCFf2amNPEHvbzkrs2EoNKgMFFe1qPzKfaiuzAWAdPE2b8Kcgb", cid: data.blockInfo.chainId)
-
+                
+                //sign
+                wallet.sign(txn: signTrx, cid: data.blockInfo.chainId)
                 
                 return Observable.just(signTrx)
 
             }
             .flatMap { (trx) -> Observable<JSON> in
+                Log.d(trx)
                 //6. push transaction
 //                guard let input = SignedTransaction(json: json) else { return Observable.error(EOSErrorType.invalidFormat) }
                 let packedTransaction = PackedTransaction(signTxn: trx)
@@ -225,15 +226,15 @@ extension RxEOSAPI {
     }
     
     //MARK: Transfer currency
-//    static func sendCurrency(from: String, to: String, quantity: Currency, memo: String = "") -> Observable<JSON> {
+    static func sendCurrency(from: String, to: String, quantity: Currency, memo: String = "", wallet: Wallet) -> Observable<JSON> {
+      
+        let contract = Contract.transfer(from: from, to: to, quantity: quantity)
+
+        return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+        
+    }
     
-//        guard let wallet = WalletManager.shared.getWallet() else { return Observable.error(EOSErrorType.walletIsNotExist)}
-        
-//        let contract = Contract.transfer(from: from, to: to, quantity: quantity)
-//
-//        return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
-        
-//    }
+    
     //MARK: Get Currency
     static func getCurrencyBalance(name: String, symbol: String) -> Observable<[Currency]> {
         let input = ["account": name, "symbol": symbol, "code": "eosio.token"]

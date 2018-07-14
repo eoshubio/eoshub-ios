@@ -57,3 +57,15 @@ class BaseViewController: UIViewController {
     }
     
 }
+
+
+extension BaseViewController {
+    //Validate PIN
+    func authentication(showAt vc: UIViewController) -> Observable<Bool> {
+        let config = FlowConfigure(container: vc, parent: nil, flowType: .modal)
+        let fc = ValidatePinFlowController(configure: config)
+        fc.start(animated: true)
+        
+        return fc.validated.asObservable()
+    }
+}

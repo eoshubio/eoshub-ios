@@ -15,13 +15,15 @@ class SendCurrencyFlowController: FlowController, SendFlowEventDelegate {
     var id: FlowIdentifier { return .send }
     
     var account: EOSAccountViewModel!
+    var symbol: String!
     
     required init(configure: FlowConfigure) {
         self.configure = configure
     }
     
-    func configure(account: EOSAccountViewModel) {
+    func configure(account: EOSAccountViewModel, symbol: String) {
         self.account = account
+        self.symbol = symbol
     }
     
     
@@ -29,7 +31,7 @@ class SendCurrencyFlowController: FlowController, SendFlowEventDelegate {
         
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "SendCurrencyViewController") as? SendCurrencyViewController else { return }
         vc.flowDelegate = self
-        vc.configure(account: account)
+        vc.configure(account: account, symbol: symbol)
         show(viewController: vc, animated: animated) {
             
         }
