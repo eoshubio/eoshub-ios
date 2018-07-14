@@ -73,10 +73,17 @@ class MainTabFlowController: FlowController, MainTabFlowEventDelegate {
         let fc = CreatePinFlowController(configure: config)
         fc.start(animated: true)
     }
+    
+    func validatePin(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .modal)
+        let fc = ValidatePinFlowController(configure: config)
+        fc.start(animated: true)
+    }
 }
 
 protocol MainTabFlowEventDelegate: FlowEventDelegate {
     
     func go(from tc: TabBarViewController, to tab: MainMenu, animated: Bool)
     func cratePin(from nc: UINavigationController)
+    func validatePin(from nc: UINavigationController)
 }

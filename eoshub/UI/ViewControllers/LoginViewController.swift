@@ -57,11 +57,6 @@ class LoginViewController: BaseViewController {
             stackLoginButtons.addArrangedSubview(loginButton)
             loginButtons.append(loginButton)
         }
-        
-        //dummy
-//        let btnLoginWithDummy = LoginButton(frame: CGRect(x: 0, y: 0, width: containerLoginButtons.bounds.width, height: 44))
-//        containerLoginButtons.addSubview(btnLoginWithDummy)
-//        loginButtons.append(btnLoginWithDummy)
     }
     
     private func bindActions() {
@@ -69,7 +64,8 @@ class LoginViewController: BaseViewController {
             button.rx.singleTap
                 .bind(onNext: { [unowned self](_) in
                     guard let nc = self.navigationController else { return }
-                    if self.isEOSHubUser() == true {
+                    
+                    if self.isEOSHubUser(from: button.type) == true {
                         self.flowDelegate?.goToMain(from: nc)
                     } else {
                         self.flowDelegate?.goToTerm(from: nc)
@@ -80,8 +76,11 @@ class LoginViewController: BaseViewController {
         }
     }
     
-    //TODO: 회원가입 여부 판단.
-    private func isEOSHubUser() -> Bool {
+    //TODO: Change user key to LoginType.rawValue + 3rd party user id
+    private func isEOSHubUser(from loginTypeId: LoginType) -> Bool {
+        if DB.shared.getUser(from: loginTypeId) != nil {
+            return true
+        }
         return false
     }
     

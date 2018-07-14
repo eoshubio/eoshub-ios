@@ -21,6 +21,12 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func dateToTime() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd HH:mm"
+        return dateFormatter.string(from: self)
+    }
+    
     static func UTCToDate(date:String) -> Date? {
         let src = date.components(separatedBy: ".").first ?? date
         let dateFormatter = DateFormatter()

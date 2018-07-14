@@ -51,7 +51,7 @@ class WalletDetailViewController: BaseViewController {
     @IBOutlet fileprivate weak var btnBuyRam: UIButton!
     @IBOutlet fileprivate weak var btnSellRam: UIButton!
     
-    private var accountInfo: EOSWalletViewModel!
+    private var accountInfo: EOSAccountViewModel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -76,14 +76,14 @@ class WalletDetailViewController: BaseViewController {
         updateAccount(with: accountInfo)
     }
     
-    fileprivate func updateAccount(with viewModel: EOSWalletViewModel) {
+    fileprivate func updateAccount(with viewModel: EOSAccountViewModel) {
         account.text = viewModel.account
         total.text = viewModel.totalEOS.dot4String
         estimatedPrice.text = "= " + viewModel.estimatedPrice
         availableEOS.text = viewModel.availableEOS.dot4String
         stakedEOS.text = viewModel.stakedEOS.dot4String
         refundingEOS.text = viewModel.refundingEOS.dot4String
-        remainTime.text = viewModel.refundingRemainTime
+        remainTime.text = viewModel.refundingDateString
         
         
         let staked = EOSAmount(id: EOSState.staked.id, value: viewModel.stakedEOS.f)
@@ -93,7 +93,7 @@ class WalletDetailViewController: BaseViewController {
         progress.setProgressValues(values: [available, staked, refunding])
     }
     
-    func configure(viewModel: EOSWalletViewModel) {
+    func configure(viewModel: EOSAccountViewModel) {
         accountInfo = viewModel
     }
     

@@ -10,11 +10,21 @@ import Foundation
 import RealmSwift
 import Realm
 
-class Key: DBObject {
+struct Key: JSONInitializable, JSONOutput {
+    let key: String
+    var weight = 1
     
-    convenience init(value: String) {
-        self.init()
-        id = value
+    var json: JSON {
+        return ["key": key, "weight": weight]
+    }
+    
+    init?(json: JSON) {
+        key = json.string(for: "key") ?? ""
+        weight = json.integer(for: "weight") ?? weight
+    }
+    
+    init(key: String) {
+        self.key = key
     }
     
 }

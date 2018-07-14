@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-enum LoginType {
+enum LoginType: String {
     case facebook, google, kakao
     
     var title: String {

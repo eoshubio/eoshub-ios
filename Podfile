@@ -13,6 +13,7 @@ target 'eoshub' do
   pod 'Realm'
   pod 'RealmSwift'
   pod 'EllipticCurveKeyPair'
+  pod 'KeychainSwift', '~> 11.0'
   pod 'Eureka'
   pod 'QRCode'
   target 'eoshubTests' do

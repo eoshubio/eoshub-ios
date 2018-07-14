@@ -42,7 +42,7 @@ class MainTabViewController: TabBarViewController {
             }
             .disposed(by: bag)
         
-        AccountManager.shared.pinConfirmed
+        AccountManager.shared.pinValidated
             .subscribe(onNext:{ [weak self](_) in
                 self?.view.isUserInteractionEnabled = true
             })
@@ -59,12 +59,11 @@ class MainTabViewController: TabBarViewController {
         if self.isCreatedPin() == false {
            flowDelegate?.cratePin(from: nc)
         } else {
-            //TODO: 비밀번호 확인 절차 진행
+           flowDelegate?.validatePin(from: nc)
         }
     }
     
-    //TODO: 비밀번호가 설정되어 있는가?
     private func isCreatedPin() -> Bool {
-        return false
+        return Security.shared.hasPin()
     }
 }

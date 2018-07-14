@@ -29,6 +29,13 @@ struct EOSAPI {
         case push_transaction
         case push_transactions
     }
+    
+    public enum History: String {
+        case get_action
+        case get_transaction
+        case get_key_accounts
+        case get_controlled_accounts
+    }
 
     //Removed, Use only mobile cold wallet for maximize security
 //    public enum Wallet: String {
@@ -50,6 +57,12 @@ struct EOSAPI {
 extension EOSAPI.Chain {
     var url: String {
         return  EOSHost.shared.url + "/chain/" +  rawValue
+    }
+}
+
+extension EOSAPI.History {
+    var url: String {
+        return EOSHost.shared.url + "/history/" + rawValue
     }
 }
 

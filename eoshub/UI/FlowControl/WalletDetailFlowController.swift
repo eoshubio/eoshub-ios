@@ -14,13 +14,13 @@ class WalletDetailFlowController: FlowController, WalletDetailFlowEventDelegate 
     
     var id: FlowIdentifier { return .wallet }
     
-    var account: EOSWalletViewModel!
+    var account: EOSAccountViewModel!
     
     required init(configure: FlowConfigure) {
         self.configure = configure
     }
     
-    func configure(account: EOSWalletViewModel) {
+    func configure(account: EOSAccountViewModel) {
         self.account = account
     }
     

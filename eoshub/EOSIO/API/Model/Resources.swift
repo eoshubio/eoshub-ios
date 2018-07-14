@@ -13,6 +13,10 @@ struct Resources: JSONInitializable {
     let cpuWeight: Currency
     let ramBytes: Int64
     
+    var staked: Double {
+        return netWeight.quantity + cpuWeight.quantity
+    }
+    
     init?(json: JSON) {
         guard let net = json["net_weight"] as? String, let netWeight = Currency(currency: net) else { return nil }
         guard let cpu = json["cpu_weight"] as? String, let cpuWeight = Currency(currency: cpu) else { return nil }

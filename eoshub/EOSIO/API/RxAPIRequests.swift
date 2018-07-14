@@ -124,9 +124,9 @@ extension EOSAPI.Chain: RxAPIRequest {
     
 }
 
-//extension EOSAPI.Wallet: RxAPIRequest {
-//    
-//}
+extension EOSAPI.History: RxAPIRequest {
+
+}
 
 
 struct StringEncoding: ParameterEncoding {

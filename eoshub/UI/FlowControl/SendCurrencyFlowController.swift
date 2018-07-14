@@ -14,13 +14,13 @@ class SendCurrencyFlowController: FlowController, SendFlowEventDelegate {
     
     var id: FlowIdentifier { return .send }
     
-    var account: EOSWalletViewModel!
+    var account: EOSAccountViewModel!
     
     required init(configure: FlowConfigure) {
         self.configure = configure
     }
     
-    func configure(account: EOSWalletViewModel) {
+    func configure(account: EOSAccountViewModel) {
         self.account = account
     }
     

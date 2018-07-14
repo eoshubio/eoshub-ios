@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //set default host
         EOSHost.shared.host = "https://eos-hub.io:8443"
         
+        DB.shared
+        
         //Start Flow
         window = UIWindow(frame : UIScreen.main.bounds)
         let config = FlowConfigure(container: window!, parent: nil, flowType: .window)

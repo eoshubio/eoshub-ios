@@ -98,7 +98,16 @@ class PinCodeViewController: BaseViewController {
             }
         case .validation:
             //go to previous view
-            break
+            
+            if Security.shared.validatePin(pin: pin) {
+                //dismiss validation
+                //go to wallet
+                //dismiss
+                guard let nc = navigationController, let delegate = flowDelegate as? ValidatePinFlowDelegate else { return }
+                delegate.validated(from: nc)
+            } else {
+                failAnimation()
+            }
         }
     }
     

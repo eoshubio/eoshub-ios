@@ -46,7 +46,9 @@ class MainFlowController: FlowController {
     
     //TODO: Login 토큰 존재 여부 판단.
     private func checkValidLoginToken() -> Bool {
-        
+        if DB.shared.getUser(from: .kakao) != nil {
+            return true
+        }
         return false
     }
     

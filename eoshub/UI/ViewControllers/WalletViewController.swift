@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import RealmSwift
 
 
 class WalletViewController: BaseViewController {
@@ -25,8 +26,12 @@ class WalletViewController: BaseViewController {
     
     fileprivate var items: [CellType] = []
     
-    fileprivate var rx_send = PublishSubject<EOSWalletViewModel>()
-    fileprivate var rx_receive = PublishSubject<EOSWalletViewModel>()
+    fileprivate var rx_send = PublishSubject<EOSAccountViewModel>()
+    fileprivate var rx_receive = PublishSubject<EOSAccountViewModel>()
+    
+    lazy var eoshubAccounts: Results<EHAccount> = {
+        return DB.shared.getAccounts().sorted(byKeyPath: "created", ascending: false)
+    }()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -36,12 +41,8 @@ class WalletViewController: BaseViewController {
         super.viewDidLoad()
         setupUI()
         bindActions()
+        start()
         
-    }
-    
-    func configure(data: [CellType]) {
-        items = data
-        walletList.reloadData()
     }
     
     private func setupUI() {
@@ -68,19 +69,39 @@ class WalletViewController: BaseViewController {
         
     }
     
+    private func start() {
+        items = [WalletAddCellType.add]
+        if eoshubAccounts.count == 0 {
+            items.insert(WalletAddCellType.guide, at: 0)
+        } else {
+            loadAccounts()
+                .subscribe(onNext: { [weak self](info) in
+                    self?.items.insert(info, at: 0)
+                }, onError: { (error) in
+                    Log.e(error)
+                }, onCompleted: { [weak self] in
+                    self?.walletList.reloadData()
+                })
+                .disposed(by: bag)
+        }
+        
+        
+    }
+    
    
     private func bindActions() {
         AccountManager.shared.accountInfoRefreshed
             .subscribe(onNext: { [weak self](_) in
-                let dummyEOSModel = EOSWalletViewModel(account: "eoshubalpha1",
-                                                       pubKey: "EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
-                                                       totalEOS: 100000.2423,
-                                                       estimatedPrice: "102,342,342,424 KRW",
-                                                       stakedEOS: 23423.02324123,
-                                                       refundingEOS: 45323,
-                                                       refundingRemainTime: "2일 23시간 23분",
-                                                       showSendButton: true)
-                self?.items = [dummyEOSModel, WalletAddCellType.add]
+                self?.loadAccounts()
+//                let dummyEOSModel = EOSAccountViewModel(account: "eoshubalpha1",
+//                                                       pubKey: "EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV",
+//                                                       totalEOS: 100000.2423,
+//                                                       estimatedPrice: "102,342,342,424 KRW",
+//                                                       stakedEOS: 23423.02324123,
+//                                                       refundingEOS: 45323,
+//                                                       refundingRemainTime: "2일 23시간 23분",
+//                                                       showSendButton: true)
+//                self?.items = [dummyEOSModel, WalletAddCellType.add]
                 self?.walletList.reloadData()
             })
             .disposed(by: bag)
@@ -109,6 +130,38 @@ class WalletViewController: BaseViewController {
             .disposed(by: bag)
     }
     
+    private func loadAccounts() -> Observable<AccountInfo> {
+        return Observable.from(Array(eoshubAccounts))
+                .concatMap { (account) -> Observable<AccountInfo> in
+                    return RxEOSAPI.getAccount(name: account.account)
+                        .flatMap({ [weak self](account) ->  Observable<AccountInfo> in
+                            let owner = self?.eoshubAccounts.filter("account = '\(account.name)'").first?.owner ?? false
+                            let info = AccountInfo(with: account, isOwner: owner)
+                            return Observable.just(info)
+                        })
+                }
+      
+//        let getAccounts = eoshubAccounts.map { (account) -> Observable<AccountInfo> in
+//                return RxEOSAPI.getAccount(name: account.account)
+//                        .flatMap({ [weak self](account) ->  Observable<AccountInfo> in
+//                            let owner = self?.eoshubAccounts.filter("account = '\(account.name)'").first?.owner ?? false
+//                            let info = AccountInfo(with: account, isOwner: owner)
+//                            return Observable.just(info)
+//                        })
+//        }
+//
+//        return Observable.concat(getAccounts)
+        
+        
+        
+//        return Observable.concat(getAccounts)
+//                .flatMap { [weak self](account) -> Observable<AccountInfo> in
+//                    let owner = self?.eoshubAccounts.filter("account = '\(account.name)'").first?.owner ?? false
+//                    let info = AccountInfo(with: account, isOwner: owner)
+//                    return Observable.just(info)
+//                }
+    }
+    
     
 }
 
@@ -131,8 +184,8 @@ extension WalletViewController: UITableViewDataSource {
             preconditionFailure()
         }
         
-        if item is EOSWalletViewModel {
-            guard let cell = cell as? WalletCell, let item = item as? EOSWalletViewModel else { preconditionFailure() }
+        if item is EOSAccountViewModel {
+            guard let cell = cell as? WalletCell, let item = item as? EOSAccountViewModel else { preconditionFailure() }
             cell.configure(viewModel: item, sendObserver: rx_send, receiveObserver: rx_receive)
             cell.selectionStyle = .none
             return cell
@@ -167,7 +220,7 @@ extension WalletViewController: UITableViewDelegate {
         guard let nc = parent?.navigationController else { return }
         
         let item = items[indexPath.section]
-        if let item = item as? EOSWalletViewModel {
+        if let item = item as? EOSAccountViewModel {
             //go to wallet detail
             flowDelegate?.goToWalletDetail(from: nc, with: item)
         } else if item is WalletAddCellType {

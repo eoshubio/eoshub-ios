@@ -17,7 +17,7 @@ class SendCurrencyViewController: TextInputViewController {
     @IBOutlet fileprivate weak var btnSend: UIButton!
     @IBOutlet fileprivate weak var btnHistory: UIButton!
     
-    var account: EOSWalletViewModel!
+    var account: EOSAccountViewModel!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -51,7 +51,7 @@ class SendCurrencyViewController: TextInputViewController {
             .disposed(by: bag)
     }
     
-    func configure(account: EOSWalletViewModel) {
+    func configure(account: EOSAccountViewModel) {
         self.account = account
     }
     
@@ -91,7 +91,7 @@ class SendMyAccountCell: UITableViewCell {
     }
     
     
-    func configure(account: EOSWalletViewModel) {
+    func configure(account: EOSAccountViewModel) {
         lbAccount.text = account.account
         lbBalance.text = account.availableEOS.dot4String
     }

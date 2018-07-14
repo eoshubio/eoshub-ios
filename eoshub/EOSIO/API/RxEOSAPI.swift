@@ -53,6 +53,20 @@ struct RxEOSAPI {
         
     }
     
+    //MARK: History
+    static func getAccountFromPubKey(pubKey: String) -> Observable<String> {
+        return EOSAPI.History.get_key_accounts
+            .responseJSON(method: .post, parameter: ["public_key": pubKey], encoding: JSONEncoding.default)
+            .flatMap({ (json) -> Observable<String> in
+                if let accountName = json.arrayString(for: "account_names")?.first {
+                    return Observable.just(accountName)
+                } else {
+                    return Observable.error(EOSErrorType.emptyData)
+                }
+            })
+    }
+    
+    
     //MARK: Wallet
     
 //    static func walletCreate(name: String) -> Observable<Wallet> {
@@ -111,7 +125,7 @@ struct RxEOSAPI {
 //    }
     
     //MARK: Contract
-    static func pushContract(contracts: [Contract], wallet: Wallet) -> Observable<JSON> {
+    static func pushContract(contracts: [Contract]) -> Observable<JSON> {
         
         //1. unlock wallet
         return RxEOSAPI.getInfo()
@@ -168,7 +182,7 @@ struct RxEOSAPI {
 
 extension RxEOSAPI {
     //MARK: Create Wallet & Account
-    static func createAccount(name: String, authorization: Authorization) -> Observable<Wallet> {
+    static func createAccount(name: String, authorization: Authorization) -> Observable<Void> {
         //1. create wallet
         
 //        return walletCreate(name: name)
@@ -198,9 +212,16 @@ extension RxEOSAPI {
     }
     
     //MARK: Get account
-    static func getAccount(name: String) -> Observable<JSON> {
+    static func getAccount(name: String) -> Observable<Account> {
         return EOSAPI.Chain.get_account
                 .responseJSON(method: .post, parameter: ["account_name": name], encoding: JSONEncoding.default)
+                .flatMap({ (json) -> Observable<Account> in
+                    if let account = Account(json: json) {
+                        return Observable.just(account)
+                    } else {
+                        return Observable.error(EOSErrorType.emptyData)
+                    }
+                })
     }
     
     //MARK: Transfer currency

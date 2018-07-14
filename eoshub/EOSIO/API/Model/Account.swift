@@ -20,6 +20,7 @@ struct Account: JSONInitializable {
     let netLimit: Bandwidth //20 bytes
     let cpuLimit: Bandwidth //3 us
     let ramUsage: Int64
+    let permissions: [Authority]
     let resources: Resources
     
     init?(json: JSON) {
@@ -47,6 +48,8 @@ struct Account: JSONInitializable {
         }
         
         self.ramUsage = json.integer64(for: "ram_usage") ?? 0
+        
+        self.permissions = json.arrayJson(for: "permissions")?.compactMap(Authority.init) ?? []
         
         if let resJSON = json.json(for: "total_resources"), let res = Resources(json: resJSON) {
             self.resources = res

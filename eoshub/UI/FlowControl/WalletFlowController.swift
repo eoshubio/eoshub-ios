@@ -28,11 +28,6 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
             vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WalletViewController") as? WalletViewController
         }
         
-        //Test
-        
-//        vc?.configure(data: [dummyEOSModel, WalletAddCellType.add])
-        //TODO: 저장되어 있는 Wallet 을 불러옴.
-        vc?.configure(data: [WalletAddCellType.guide, WalletAddCellType.add])
         vc?.flowDelegate = self
         show(viewController: vc, animated: animated) {
             
@@ -47,7 +42,7 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
         fc.start(animated: true)
     }
     
-    func goToWalletDetail(from nc: UINavigationController, with account: EOSWalletViewModel) {
+    func goToWalletDetail(from nc: UINavigationController, with account: EOSAccountViewModel) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = WalletDetailFlowController(configure: config)
         fc.configure(account: account)
@@ -61,14 +56,14 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
         fc.start(animated: true)
     }
     
-    func goToSend(from nc: UINavigationController, with account: EOSWalletViewModel) {
+    func goToSend(from nc: UINavigationController, with account: EOSAccountViewModel) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = SendCurrencyFlowController(configure: config)
         fc.configure(account: account)
         fc.start(animated: true)
     }
     
-    func goToReceive(from nc: UINavigationController, with account: EOSWalletViewModel) {
+    func goToReceive(from nc: UINavigationController, with account: EOSAccountViewModel) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = ReceiveFlowController(configure: config)
         fc.configure(account: account)
@@ -79,8 +74,8 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
 protocol WalletFlowEventDelegate: FlowEventDelegate {
     
     func goToSetting(from nc: UINavigationController)
-    func goToWalletDetail(from nc: UINavigationController, with account: EOSWalletViewModel)
-    func goToSend(from nc: UINavigationController, with account: EOSWalletViewModel)
-    func goToReceive(from nc: UINavigationController, with account: EOSWalletViewModel)
+    func goToWalletDetail(from nc: UINavigationController, with account: EOSAccountViewModel)
+    func goToSend(from nc: UINavigationController, with account: EOSAccountViewModel)
+    func goToReceive(from nc: UINavigationController, with account: EOSAccountViewModel)
     func goToCreate(from nc: UINavigationController)
 }

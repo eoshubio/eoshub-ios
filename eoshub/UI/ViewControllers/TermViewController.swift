@@ -34,11 +34,21 @@ class TermViewController: BaseViewController {
     private func bindActions() {
         btnStart.rx.singleTap
             .bind { [weak self](_) in
-                guard let nc = self?.navigationController else { return }
-                self?.flowDelegate?.goToMain(from: nc)
+                self?.signin()
             }
             .disposed(by: bag)
     }
+    
+    private func signin() {
+        let newUser = EHUser(id: "1", loginType: .kakao)
+        DB.shared.addUser(user: newUser)
+        
+        guard let nc = navigationController else { return }
+        flowDelegate?.goToMain(from: nc)
+    }
+    
+    
+    
 }
 
 

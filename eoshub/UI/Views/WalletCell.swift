@@ -79,21 +79,21 @@ class WalletCell: UITableViewCell {
     }
     
     
-    func configure(viewModel: EOSWalletViewModel,
-                   sendObserver: PublishSubject<EOSWalletViewModel>,
-                   receiveObserver: PublishSubject<EOSWalletViewModel>) {
+    func configure(viewModel: EOSAccountViewModel,
+                   sendObserver: PublishSubject<EOSAccountViewModel>,
+                   receiveObserver: PublishSubject<EOSAccountViewModel>) {
         
         let bag = DisposeBag()
         
         account.text = viewModel.account
         total.text = viewModel.totalEOS.dot4String
-        estimatedPrice.text = "= " + viewModel.estimatedPrice
+        estimatedPrice.text = viewModel.estimatedPrice
         availableEOS.text = viewModel.availableEOS.dot4String
         stakedEOS.text = viewModel.stakedEOS.dot4String
         refundingEOS.text = viewModel.refundingEOS.dot4String
-        remainTime.text = viewModel.refundingRemainTime
+        remainTime.text =   Date(timeIntervalSinceNow: viewModel.refundingRemainTime).dateToTime()
         
-        if viewModel.showSendButton == false {
+        if viewModel.ownerMode == false {
             buttonContainer.isHidden = true
             layoutContainerY.constant = -buttonContainer.bounds.height
             layoutIfNeeded()
