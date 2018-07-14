@@ -63,6 +63,11 @@
 		2C279BFF20F9D3D000D2F6C4 /* BPInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BFE20F9D3D000D2F6C4 /* BPInfo.swift */; };
 		2C279C0120FA0B7100D2F6C4 /* VoterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279C0020FA0B7100D2F6C4 /* VoterInfo.swift */; };
 		2C279C0320FA0E3000D2F6C4 /* RealmString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279C0220FA0E3000D2F6C4 /* RealmString.swift */; };
+		2C279C0520FA43F700D2F6C4 /* TokenManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279C0420FA43F700D2F6C4 /* TokenManager.swift */; };
+		2C279C0720FA444700D2F6C4 /* TokenInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279C0620FA444700D2F6C4 /* TokenInfo.swift */; };
+		2C279C0A20FA452F00D2F6C4 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279C0920FA452F00D2F6C4 /* Config.swift */; };
+		2C279C0C20FA5F1700D2F6C4 /* TokenCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279C0B20FA5F1700D2F6C4 /* TokenCell.swift */; };
+		2C279C0E20FA5FA800D2F6C4 /* TokenCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C279C0D20FA5FA800D2F6C4 /* TokenCell.xib */; };
 		2C2ACFC120F3AEED00C637D8 /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2ACFC020F3AEED00C637D8 /* TestCell.xib */; };
 		2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFC220F3B86600C637D8 /* Double+extension.swift */; };
 		2C2ACFCB20F3CBB600C637D8 /* WalletGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFCA20F3CBB600C637D8 /* WalletGuideCell.swift */; };
@@ -233,6 +238,11 @@
 		2C279BFE20F9D3D000D2F6C4 /* BPInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPInfo.swift; sourceTree = "<group>"; };
 		2C279C0020FA0B7100D2F6C4 /* VoterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoterInfo.swift; sourceTree = "<group>"; };
 		2C279C0220FA0E3000D2F6C4 /* RealmString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmString.swift; sourceTree = "<group>"; };
+		2C279C0420FA43F700D2F6C4 /* TokenManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenManager.swift; sourceTree = "<group>"; };
+		2C279C0620FA444700D2F6C4 /* TokenInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenInfo.swift; sourceTree = "<group>"; };
+		2C279C0920FA452F00D2F6C4 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		2C279C0B20FA5F1700D2F6C4 /* TokenCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenCell.swift; sourceTree = "<group>"; };
+		2C279C0D20FA5FA800D2F6C4 /* TokenCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TokenCell.xib; sourceTree = "<group>"; };
 		2C2ACFC020F3AEED00C637D8 /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
 		2C2ACFC220F3B86600C637D8 /* Double+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+extension.swift"; sourceTree = "<group>"; };
 		2C2ACFCA20F3CBB600C637D8 /* WalletGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletGuideCell.swift; sourceTree = "<group>"; };
@@ -431,6 +441,14 @@
 			path = 3rdparty;
 			sourceTree = "<group>";
 		};
+		2C279C0820FA452900D2F6C4 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				2C279C0920FA452F00D2F6C4 /* Config.swift */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		2CE1109C20F1C31000B93BEB = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +472,7 @@
 		2CE110A720F1C31000B93BEB /* eoshub */ = {
 			isa = PBXGroup;
 			children = (
+				2C279C0820FA452900D2F6C4 /* Config */,
 				2CE110C820F1C44400B93BEB /* EOSIO */,
 				2CE110CD20F1C4A900B93BEB /* EOSHUB */,
 				2CE110C920F1C47800B93BEB /* Network */,
@@ -541,6 +560,7 @@
 			isa = PBXGroup;
 			children = (
 				2CEC2D4520F6423000AF5E9B /* AccountManager.swift */,
+				2C279C0420FA43F700D2F6C4 /* TokenManager.swift */,
 				2C279BE320F8D83800D2F6C4 /* WalletManager.swift */,
 				2C279BEB20F8DECF00D2F6C4 /* DB.swift */,
 				2C279BEF20F8E90100D2F6C4 /* Security.swift */,
@@ -616,6 +636,8 @@
 				2C2ACFE220F476F900C637D8 /* PincodeView.swift */,
 				2C2ACFFE20F4E51700C637D8 /* BPCell.swift */,
 				2C2ACFF620F49F5100C637D8 /* FaceIdInputView.swift */,
+				2C279C0B20FA5F1700D2F6C4 /* TokenCell.swift */,
+				2C279C0D20FA5FA800D2F6C4 /* TokenCell.xib */,
 				2C2ACFF420F49DCA00C637D8 /* FaceIdInputView.xib */,
 				2C2ACFC020F3AEED00C637D8 /* TestCell.xib */,
 				2CE1113920F27BE000B93BEB /* WalletCell.swift */,
@@ -636,6 +658,7 @@
 				2CE1111220F218C700B93BEB /* LoginType.swift */,
 				2C279BFC20F9D39600D2F6C4 /* AccountInfo.swift */,
 				2C279BFE20F9D3D000D2F6C4 /* BPInfo.swift */,
+				2C279C0620FA444700D2F6C4 /* TokenInfo.swift */,
 				2CFE954920F3947300DC173F /* EOSAccountViewModel.swift */,
 			);
 			path = Models;
@@ -821,6 +844,7 @@
 				2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */,
 				2C2ACFCD20F3CE9800C637D8 /* Create.storyboard in Resources */,
 				2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */,
+				2C279C0E20FA5FA800D2F6C4 /* TokenCell.xib in Resources */,
 				2CE1111520F2395800B93BEB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -917,12 +941,14 @@
 				2CE1113220F26BD700B93BEB /* AirdropFlowController.swift in Sources */,
 				2CE110D920F1C52900B93BEB /* LoginViewController.swift in Sources */,
 				2C279BF620F9C66500D2F6C4 /* Wallet.swift in Sources */,
+				2C279C0C20FA5F1700D2F6C4 /* TokenCell.swift in Sources */,
 				2C279BD420F8C5A300D2F6C4 /* BlockProducer.swift in Sources */,
 				2C2ACFE520F47C1900C637D8 /* PinCodeViewController.swift in Sources */,
 				2C279BB520F8C42700D2F6C4 /* EOS_Key_Encode.m in Sources */,
 				2CE1112920F252B500B93BEB /* TabBarViewConroller.swift in Sources */,
 				2CEC2D4E20F65D8600AF5E9B /* WalletDetailFlowController.swift in Sources */,
 				2C279B7320F783DF00D2F6C4 /* SendCurrencyViewController.swift in Sources */,
+				2C279C0A20FA452F00D2F6C4 /* Config.swift in Sources */,
 				2C279BFD20F9D39600D2F6C4 /* AccountInfo.swift in Sources */,
 				2CE1113A20F27BE000B93BEB /* WalletCell.swift in Sources */,
 				2CE1110620F1F76200B93BEB /* SettingFlowController.swift in Sources */,
@@ -933,6 +959,7 @@
 				2CE110DD20F1C96B00B93BEB /* JSON.swift in Sources */,
 				2CE110EB20F1C9B300B93BEB /* Character+extension.swift in Sources */,
 				2C279C0120FA0B7100D2F6C4 /* VoterInfo.swift in Sources */,
+				2C279C0520FA43F700D2F6C4 /* TokenManager.swift in Sources */,
 				2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */,
 				2C2ACFD520F4427F00C637D8 /* ImportViewController.swift in Sources */,
 				2C279B8F20F8C30700D2F6C4 /* SignedTransaction.swift in Sources */,
@@ -1030,6 +1057,7 @@
 				2C279B8B20F8C30700D2F6C4 /* TransactionHeader.swift in Sources */,
 				2CE110E820F1C9B300B93BEB /* Date+extension.swift in Sources */,
 				2CE110EF20F1C9D600B93BEB /* LoginFlowController.swift in Sources */,
+				2C279C0720FA444700D2F6C4 /* TokenInfo.swift in Sources */,
 				2C279BC320F8C58100D2F6C4 /* EOSAPI.swift in Sources */,
 				2C279BF020F8E90100D2F6C4 /* Security.swift in Sources */,
 				2C2ACFFF20F4E51700C637D8 /* BPCell.swift in Sources */,

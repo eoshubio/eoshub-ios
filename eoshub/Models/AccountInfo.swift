@@ -38,8 +38,21 @@ class AccountInfo: DBObject, EOSAccountViewModel {
         }
     }
     
+    //tokens
+    let _tokens = List<RealmString>()
+    
+    var tokens: [Currency] {
+        get {
+            return _tokens.map { $0.stringValue }.compactMap(Currency.init)
+        }
+        set {
+            _tokens.removeAll()
+            _tokens.append(objectsIn: newValue.map({ RealmString(value: $0.currency) }))
+        }
+    }
+    
     override static func ignoredProperties() -> [String] {
-        return ["votedProducers"]
+        return ["votedProducers", "tokens"]
     }
     
     convenience init(with eosioAccount: Account, isOwner: Bool) {
@@ -53,6 +66,14 @@ class AccountInfo: DBObject, EOSAccountViewModel {
         if let producers = eosioAccount.voterInfo?.producers {
             votedProducers = producers
         }
+    }
+    
+    func addToken(currency: Currency) {
+        _tokens.append(RealmString(value: currency.currency))
+    }
+    
+    func addTokens(currency: [Currency]) {
+        tokens = currency
     }
     
 }

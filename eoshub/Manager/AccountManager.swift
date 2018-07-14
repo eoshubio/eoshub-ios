@@ -31,17 +31,11 @@ class AccountManager {
         accountInfoRefreshed.onNext(())
     }
     
-    func loadAccounts() -> Observable<AccountInfo> {
+    func loadAccounts() -> Observable<Void> {
         infos.removeAll()
         return Observable.from(Array(eoshubAccounts))
-            .concatMap { (account) -> Observable<AccountInfo> in
-                return RxEOSAPI.getAccount(name: account.account)
-                    .flatMap({ [weak self](account) ->  Observable<AccountInfo> in
-                        let owner = self?.eoshubAccounts.filter("account = '\(account.name)'").first?.owner ?? false
-                        let info = AccountInfo(with: account, isOwner: owner)
-                        self?.infos.append(info)
-                        return Observable.just(info)
-                    })
+            .concatMap { [unowned self](account) -> Observable<Void> in
+                return self.getAccountInfo(account: account)
                     .do(onCompleted: { [weak self] in
                         
                         //Refresh main account
@@ -54,6 +48,26 @@ class AccountManager {
                         self?.refreshUI()
                     })
         }
+    }
+    
+    private func getAccountInfo(account: EHAccount) -> Observable<Void> {
+        
+        let knownTokens = TokenManager.shared.knownTokens
+        
+        return RxEOSAPI.getAccount(name: account.account)
+            .flatMap({ [weak self](account) ->  Observable<AccountInfo> in
+                let owner = self?.eoshubAccounts.filter("account = '\(account.name)'").first?.owner ?? false
+                let info = AccountInfo(with: account, isOwner: owner)
+                self?.infos.append(info)
+                return Observable.just(info)
+            })
+            .flatMap { (info) -> Observable<Void> in
+                return RxEOSAPI.getTokens(account: account, tokenInfos: knownTokens)
+                    .flatMap({ (tokenBalances) -> Observable<Void> in
+                        info.addTokens(currency: tokenBalances)
+                        return Observable.just(())
+                    })
+            }
     }
     
 }

@@ -24,7 +24,7 @@ class WalletViewController: BaseViewController {
     
     @IBOutlet fileprivate var botContainer: UIView!
     
-    fileprivate var items: [CellType] = []
+    fileprivate var items: [[CellType]] = []
     
     fileprivate var rx_send = PublishSubject<EOSAccountViewModel>()
     fileprivate var rx_receive = PublishSubject<EOSAccountViewModel>()
@@ -68,19 +68,26 @@ class WalletViewController: BaseViewController {
         
         walletList.register(UINib(nibName: "WalletCell", bundle: nil), forCellReuseIdentifier: "WalletCell")
         
+        walletList.register(UINib(nibName: "TokenCell", bundle: nil), forCellReuseIdentifier: "TokenCell")
+        
         walletList.register(UINib(nibName: "WalletGuideCell", bundle: nil), forCellReuseIdentifier: "WalletGuideCell")
         
     }
     
     private func reloadUI() {
-        items = [WalletAddCellType.add]
+        items.removeAll()
         
         if eoshubAccounts.count == 0 {
-            items.insert(WalletAddCellType.guide, at: 0)
+            items.append([WalletAddCellType.guide])
+            items.append([WalletAddCellType.add])
         } else {
-            let accountInfos: [AccountInfo] = AccountManager.shared.infos
-            
-            items.insert(contentsOf: accountInfos, at: 0)
+            AccountManager.shared.infos
+                .forEach { (info) in
+                    let tokenCellInfos = info.tokens.map(TokenCellInfo.init).filter({$0.currency.quantity > 0})
+                    let sectionItem: [CellType] = [info] + tokenCellInfos
+                    items.append(sectionItem)
+                }
+            items.append([WalletAddCellType.add])
             
             walletList.reloadData()
         }
@@ -133,12 +140,12 @@ extension WalletViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return items[section].count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let item = items[indexPath.section]
+        let item = items[indexPath.section][indexPath.row]
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: item.nibName) else {
             preconditionFailure()
@@ -147,6 +154,11 @@ extension WalletViewController: UITableViewDataSource {
         if item is EOSAccountViewModel {
             guard let cell = cell as? WalletCell, let item = item as? EOSAccountViewModel else { preconditionFailure() }
             cell.configure(viewModel: item, sendObserver: rx_send, receiveObserver: rx_receive)
+            cell.selectionStyle = .none
+            return cell
+        } else if item is TokenCellInfo {
+            guard let cell = cell as? TokenCell, let item = item as? TokenCellInfo else { preconditionFailure() }
+            cell.configure(currency: item.currency)
             cell.selectionStyle = .none
             return cell
         } else {
@@ -162,7 +174,7 @@ extension WalletViewController: UITableViewDataSource {
 extension WalletViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 10
+        return 20
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
@@ -176,7 +188,7 @@ extension WalletViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: false)
         guard let nc = parent?.navigationController else { return }
         
-        let item = items[indexPath.section]
+        let item = items[indexPath.section][indexPath.row]
         if let item = item as? EOSAccountViewModel {
             //go to wallet detail
             flowDelegate?.goToWalletDetail(from: nc, with: item)

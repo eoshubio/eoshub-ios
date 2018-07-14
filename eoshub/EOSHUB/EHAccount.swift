@@ -23,6 +23,21 @@ class EHAccount: DBObject {
     
     @objc dynamic var owner: Bool = true
     
+    var _tokens = List<RealmString>()
+    
+    var tokenSymbols: [String] {
+        get {
+            return _tokens.map { $0.stringValue }
+        }
+        set {
+            _tokens.removeAll()
+            _tokens.append(objectsIn: newValue.map({ RealmString(value: $0) }))
+        }
+    }
+    
+    override static func ignoredProperties() -> [String] {
+        return ["tokenSymbols"]
+    }
     
     convenience init(account: String, publicKey: String, owner: Bool) {
         self.init()
@@ -31,6 +46,15 @@ class EHAccount: DBObject {
         self.publicKey = publicKey
         self.owner = owner
         created = Date().timeIntervalSince1970
+        
+        //Add known token
+        _tokens.append(RealmString(value: TokenInfo.pandora.symbol))
+        _tokens.append(RealmString(value: "NOVA"))
+        
+    }
+    
+    func addPreferToken(symbol: String) {
+        _tokens.append(RealmString(value: symbol))
     }
     
 }

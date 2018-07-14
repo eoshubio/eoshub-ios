@@ -221,7 +221,7 @@ class VoteViewController: BaseViewController {
                 
                 return RxEOSAPI.voteBPs(voter: voter, producers: bps, wallet: wallet)
             }
-            .flatMap({ (_) -> Observable<AccountInfo> in
+            .flatMap({ (_) -> Observable<Void> in
                 return AccountManager.shared.loadAccounts()
             })
             .subscribe(onNext: { (_) in

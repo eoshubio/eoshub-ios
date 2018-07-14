@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class ImportViewController: TextInputViewController {
     
@@ -83,16 +84,17 @@ class ImportViewController: TextInputViewController {
         //TODO: Check network is available
         if true {
             RxEOSAPI.getAccountFromPubKey(pubKey: pubKey)
-                .subscribe(onNext: { [weak self] (accountName) in
-                    //2. save account with public Key
+                .flatMap({ (accountName) -> Observable<Void> in
                     let account = EHAccount(account: accountName, publicKey: pubKey, owner: true)
                     DB.shared.addAccount(account: account)
                     
-                    //3. save private to Key chain
                     //TODO: Encryption pub/pri both
+                    //2. save account with public Key
                     Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
                     
-                    AccountManager.shared.accountInfoRefreshed.onNext(())
+                    return AccountManager.shared.loadAccounts()
+                })
+                .subscribe(onNext: { [weak self] (_) in
                     
                     guard let nc = self?.navigationController else { return }
                     
