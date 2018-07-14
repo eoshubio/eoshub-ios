@@ -22,6 +22,7 @@ struct Account: JSONInitializable {
     let ramUsage: Int64
     let permissions: [Authority]
     let resources: Resources
+    var voterInfo: VoterInfo? = nil
     
     init?(json: JSON) {
         guard let accountName = json.string(for: "account_name") else { return nil }
@@ -55,6 +56,10 @@ struct Account: JSONInitializable {
             self.resources = res
         } else {
             self.resources = .zero
+        }
+        
+        if let voterInfoJSON = json.json(for: "voter_info") {
+            self.voterInfo = VoterInfo(json: voterInfoJSON)
         }
     }
     

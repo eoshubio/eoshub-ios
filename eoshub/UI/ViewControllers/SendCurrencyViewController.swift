@@ -82,9 +82,11 @@ class SendCurrencyViewController: TextInputViewController {
                                              memo: strongSelf.sendForm.memo.value,
                                              wallet: wallet)
             }
-            .subscribe(onNext: { (json) in
-                Log.i(json)
-                AccountManager.shared.refresh()
+            .flatMap({ (_) -> Observable<AccountInfo> in
+                return AccountManager.shared.loadAccounts()
+            })
+            .subscribe(onNext: { (_) in
+                
             }, onError: { (error) in
                 Log.e(error)
             }, onCompleted: {

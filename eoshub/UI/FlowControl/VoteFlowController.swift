@@ -26,38 +26,11 @@ class VoteFlowController: FlowController {
             vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VoteViewController") as? VoteViewController
         }
         
-        //Make Dummy
-        var bps: [DummyBPModel] = []
-        for i in 0...400 {
-            let bp = DummyBPModel(index: i)
-            bps.append(bp)
-        }
-        vc?.configure(viewModel: bps)
+        vc?.reload()
         
         show(viewController: vc, animated: animated) {
             
         }
     }
-    
 }
 
-
-class DummyBPModel: BPCellViewModel {
-    let index: Int
-    
-    var rank: Int {
-        return index + 1
-    }
-    
-    var selected: Bool = false
-    
-    var name: String { return "eoshubbp\(index)" }
-    
-    var url: String { return "https://eos-hob.io" }
-    
-    var votedPercent: Double = 2.809
-    
-    init(index: Int) {
-        self.index = index
-    }
-}

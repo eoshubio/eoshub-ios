@@ -356,7 +356,9 @@
                     </view>
                     <connections>
                         <outlet property="bpList" destination="6Uf-q3-WHX" id="qqv-Gd-WNh"/>
+                        <outlet property="btnChangeAccount" destination="2Ic-uU-IZn" id="Qmj-lH-Rmc"/>
                         <outlet property="btnChangeStake" destination="ybb-ld-z02" id="WdU-Ly-1sG"/>
+                        <outlet property="lbAccountName" destination="McP-Lt-rB6" id="qrd-DR-nTE"/>
                         <outlet property="lbStakedEOS" destination="dbc-6D-fCh" id="Nj9-E2-jJt"/>
                         <outlet property="lbStakedEOSTitle" destination="BBV-vY-AmK" id="Mvs-kd-LMk"/>
                         <outlet property="naviBar" destination="dPV-Vx-Mv6" id="Bkl-Hx-cLa"/>

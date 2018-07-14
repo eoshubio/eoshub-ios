@@ -41,15 +41,23 @@ struct BlockInfo: JSONInitializable {
 }
 
 struct BlockProducers: JSONInitializable {
-    let produces: [BlockProducer]
-    let totalVoteWeight: Currency
+    var produces: [BlockProducer] = []
+    let totalVoteWeight: Double
     
     init?(json: JSON) {
         
         guard let response = json.arrayJson(for: "rows") else { return nil }
-        produces = response.compactMap(BlockProducer.init)
-        let voteString = json.string(for: "total_producer_vote_weight") ?? "0.0000"
-        totalVoteWeight = Currency(currency: voteString) ?? .zeroEOS
+        let weightString = json.string(for: "total_producer_vote_weight") ?? "0"
+        let weight = Double(weightString) ?? 0
+        totalVoteWeight = weight
+        
+        var idx = -1
+        
+        produces = response.compactMap({ (json) -> BlockProducer? in
+                            idx += 1
+                            return BlockProducer(json: json, total: weight, index: idx)
+                        })
+        
     }
     
 }

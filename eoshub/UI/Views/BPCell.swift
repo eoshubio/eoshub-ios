@@ -31,12 +31,12 @@ class BPCell: UITableViewCell {
     
     func configure(viewModel: BPCellViewModel) {
         setSelected(viewModel.selected, animated: false)
-        lbIndex.text = "\(viewModel.rank)"
+        lbIndex.text = "\(viewModel.index + 1)"
         lbAccountBP.text = viewModel.name
         btnLink.setTitle(viewModel.url, for: .normal)
-        lbVotedPercentage.text = String(format: "%.03f %%", viewModel.votedPercent)
+        lbVotedPercentage.text = String(format: "%.03f %%", viewModel.votesRatio * 100)
         
-        if viewModel.index > 21 {
+        if viewModel.index >= 21 {
             backgroundColor = Color.baseGray.uiColor
         } else {
             backgroundColor = Color.white.uiColor
@@ -46,10 +46,10 @@ class BPCell: UITableViewCell {
 
 
 protocol BPCellViewModel {
-    var selected: Bool { get set }
     var index: Int { get }
-    var rank: Int { get }
+    var selected: Bool { get set }
     var name: String { get }
     var url: String { get }
-    var votedPercent: Double { get set }
+    var votesRatio: Double { get set }
+    var isActive: Bool { get }
 }

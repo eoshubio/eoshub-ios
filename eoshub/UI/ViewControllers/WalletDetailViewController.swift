@@ -79,7 +79,7 @@ class WalletDetailViewController: BaseViewController {
     fileprivate func updateAccount(with viewModel: EOSAccountViewModel) {
         account.text = viewModel.account
         total.text = viewModel.totalEOS.dot4String
-        estimatedPrice.text = "= " + viewModel.estimatedPrice
+        estimatedPrice.text = ""
         availableEOS.text = viewModel.availableEOS.dot4String
         stakedEOS.text = viewModel.stakedEOS.dot4String
         refundingEOS.text = viewModel.refundingEOS.dot4String

@@ -30,7 +30,7 @@ class WalletViewController: BaseViewController {
     fileprivate var rx_receive = PublishSubject<EOSAccountViewModel>()
     
     lazy var eoshubAccounts: Results<EHAccount> = {
-        return DB.shared.getAccounts().sorted(byKeyPath: "created", ascending: false)
+        return DB.shared.getAccounts().sorted(byKeyPath: "created", ascending: true)
     }()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,9 +39,10 @@ class WalletViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         setupUI()
         bindActions()
-        reload()
+        reloadUI()
         
     }
     
@@ -51,6 +52,8 @@ class WalletViewController: BaseViewController {
         btnProfile.layer.shadowColor = UIColor.black.cgColor
         btnProfile.layer.shadowOffset = .zero
         btnProfile.layer.shadowRadius = 1.0
+        
+        walletList.contentInset = UIEdgeInsetsMake(0, 0, 100, 0)
         
         setupTableView()
     }
@@ -69,20 +72,17 @@ class WalletViewController: BaseViewController {
         
     }
     
-    private func reload() {
+    private func reloadUI() {
         items = [WalletAddCellType.add]
+        
         if eoshubAccounts.count == 0 {
             items.insert(WalletAddCellType.guide, at: 0)
         } else {
-            loadAccounts()
-                .subscribe(onNext: { [weak self](info) in
-                    self?.items.insert(info, at: 0)
-                }, onError: { (error) in
-                    Log.e(error)
-                }, onCompleted: { [weak self] in
-                    self?.walletList.reloadData()
-                })
-                .disposed(by: bag)
+            let accountInfos: [AccountInfo] = AccountManager.shared.infos
+            
+            items.insert(contentsOf: accountInfos, at: 0)
+            
+            walletList.reloadData()
         }
     }
     
@@ -90,7 +90,7 @@ class WalletViewController: BaseViewController {
     private func bindActions() {
         AccountManager.shared.accountInfoRefreshed
             .subscribe(onNext: { [weak self](_) in
-                self?.reload()
+                self?.reloadUI()
             })
             .disposed(by: bag)
         
@@ -116,20 +116,12 @@ class WalletViewController: BaseViewController {
                 self?.flowDelegate?.goToReceive(from: nc, with: account)
             })
             .disposed(by: bag)
+        
+        AccountManager.shared.loadAccounts()
+            .subscribe()
+            .disposed(by: bag)
+        
     }
-    
-    private func loadAccounts() -> Observable<AccountInfo> {
-        return Observable.from(Array(eoshubAccounts))
-                .concatMap { (account) -> Observable<AccountInfo> in
-                    return RxEOSAPI.getAccount(name: account.account)
-                        .flatMap({ [weak self](account) ->  Observable<AccountInfo> in
-                            let owner = self?.eoshubAccounts.filter("account = '\(account.name)'").first?.owner ?? false
-                            let info = AccountInfo(with: account, isOwner: owner)
-                            return Observable.just(info)
-                        })
-                }
-    }
-    
     
 }
 

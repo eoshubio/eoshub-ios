@@ -234,6 +234,11 @@ extension RxEOSAPI {
         
     }
     
+    //MARK: vote bp
+    static func voteBPs(voter: String, producers: [String], wallet: Wallet) -> Observable<JSON> {
+        let contract = Contract.voteProducer(voter: voter, producers: producers)
+        return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+    }
     
     //MARK: Get Currency
     static func getCurrencyBalance(name: String, symbol: String) -> Observable<[Currency]> {

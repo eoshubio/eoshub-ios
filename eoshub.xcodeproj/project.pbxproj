@@ -59,6 +59,10 @@
 		2C279BF220F8EB3E00D2F6C4 /* ValidatePinFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BF120F8EB3E00D2F6C4 /* ValidatePinFlowController.swift */; };
 		2C279BF420F8F86500D2F6C4 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BF320F8F86500D2F6C4 /* DebugLog.swift */; };
 		2C279BF620F9C66500D2F6C4 /* Wallet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BF520F9C66500D2F6C4 /* Wallet.swift */; };
+		2C279BFD20F9D39600D2F6C4 /* AccountInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BFC20F9D39600D2F6C4 /* AccountInfo.swift */; };
+		2C279BFF20F9D3D000D2F6C4 /* BPInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BFE20F9D3D000D2F6C4 /* BPInfo.swift */; };
+		2C279C0120FA0B7100D2F6C4 /* VoterInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279C0020FA0B7100D2F6C4 /* VoterInfo.swift */; };
+		2C279C0320FA0E3000D2F6C4 /* RealmString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279C0220FA0E3000D2F6C4 /* RealmString.swift */; };
 		2C2ACFC120F3AEED00C637D8 /* TestCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C2ACFC020F3AEED00C637D8 /* TestCell.xib */; };
 		2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFC220F3B86600C637D8 /* Double+extension.swift */; };
 		2C2ACFCB20F3CBB600C637D8 /* WalletGuideCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFCA20F3CBB600C637D8 /* WalletGuideCell.swift */; };
@@ -225,6 +229,10 @@
 		2C279BF120F8EB3E00D2F6C4 /* ValidatePinFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatePinFlowController.swift; sourceTree = "<group>"; };
 		2C279BF320F8F86500D2F6C4 /* DebugLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugLog.swift; sourceTree = "<group>"; };
 		2C279BF520F9C66500D2F6C4 /* Wallet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wallet.swift; sourceTree = "<group>"; };
+		2C279BFC20F9D39600D2F6C4 /* AccountInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountInfo.swift; sourceTree = "<group>"; };
+		2C279BFE20F9D3D000D2F6C4 /* BPInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPInfo.swift; sourceTree = "<group>"; };
+		2C279C0020FA0B7100D2F6C4 /* VoterInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoterInfo.swift; sourceTree = "<group>"; };
+		2C279C0220FA0E3000D2F6C4 /* RealmString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmString.swift; sourceTree = "<group>"; };
 		2C2ACFC020F3AEED00C637D8 /* TestCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TestCell.xib; sourceTree = "<group>"; };
 		2C2ACFC220F3B86600C637D8 /* Double+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+extension.swift"; sourceTree = "<group>"; };
 		2C2ACFCA20F3CBB600C637D8 /* WalletGuideCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletGuideCell.swift; sourceTree = "<group>"; };
@@ -390,6 +398,7 @@
 			isa = PBXGroup;
 			children = (
 				2C279BCF20F8C5A200D2F6C4 /* Account.swift */,
+				2C279C0020FA0B7100D2F6C4 /* VoterInfo.swift */,
 				2C279BC920F8C5A100D2F6C4 /* Bandwidth.swift */,
 				2C279BCA20F8C5A200D2F6C4 /* Resources.swift */,
 				2C279BC820F8C5A100D2F6C4 /* BlockProducer.swift */,
@@ -523,6 +532,7 @@
 				2CE1112120F242E500B93BEB /* Font.swift */,
 				2C2ACFC220F3B86600C637D8 /* Double+extension.swift */,
 				2C2ACFEC20F48E1D00C637D8 /* UIButton+extension.swift */,
+				2C279C0220FA0E3000D2F6C4 /* RealmString.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -624,6 +634,8 @@
 			isa = PBXGroup;
 			children = (
 				2CE1111220F218C700B93BEB /* LoginType.swift */,
+				2C279BFC20F9D39600D2F6C4 /* AccountInfo.swift */,
+				2C279BFE20F9D3D000D2F6C4 /* BPInfo.swift */,
 				2CFE954920F3947300DC173F /* EOSAccountViewModel.swift */,
 			);
 			path = Models;
@@ -911,6 +923,7 @@
 				2CE1112920F252B500B93BEB /* TabBarViewConroller.swift in Sources */,
 				2CEC2D4E20F65D8600AF5E9B /* WalletDetailFlowController.swift in Sources */,
 				2C279B7320F783DF00D2F6C4 /* SendCurrencyViewController.swift in Sources */,
+				2C279BFD20F9D39600D2F6C4 /* AccountInfo.swift in Sources */,
 				2CE1113A20F27BE000B93BEB /* WalletCell.swift in Sources */,
 				2CE1110620F1F76200B93BEB /* SettingFlowController.swift in Sources */,
 				2CE1112020F2403100B93BEB /* MenuTabBar.swift in Sources */,
@@ -919,6 +932,7 @@
 				2CE1112420F24CF200B93BEB /* MainTabViewController.swift in Sources */,
 				2CE110DD20F1C96B00B93BEB /* JSON.swift in Sources */,
 				2CE110EB20F1C9B300B93BEB /* Character+extension.swift in Sources */,
+				2C279C0120FA0B7100D2F6C4 /* VoterInfo.swift in Sources */,
 				2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */,
 				2C2ACFD520F4427F00C637D8 /* ImportViewController.swift in Sources */,
 				2C279B8F20F8C30700D2F6C4 /* SignedTransaction.swift in Sources */,
@@ -960,6 +974,7 @@
 				2CEC2D4620F6423000AF5E9B /* AccountManager.swift in Sources */,
 				2CE110F120F1D65400B93BEB /* Color.swift in Sources */,
 				2CE1110420F1F30200B93BEB /* SettingViewController.swift in Sources */,
+				2C279BFF20F9D3D000D2F6C4 /* BPInfo.swift in Sources */,
 				2CE110F720F1E00D00B93BEB /* TermFlowController.swift in Sources */,
 				2CE110F520F1DCEC00B93BEB /* TermViewController.swift in Sources */,
 				2C2ACFD720F442E400C637D8 /* ImportFlowController.swift in Sources */,
@@ -993,6 +1008,7 @@
 				2C279B7720F7A29A00D2F6C4 /* ReceiveViewController.swift in Sources */,
 				2CE110D520F1C4E700B93BEB /* FlowConfigure.swift in Sources */,
 				2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */,
+				2C279C0320FA0E3000D2F6C4 /* RealmString.swift in Sources */,
 				2C279BB820F8C42700D2F6C4 /* Sha.m in Sources */,
 				2C2ACFE720F47CA200C637D8 /* CreatePinFlowController.swift in Sources */,
 				2CE1113820F26DF000B93BEB /* RoundedView.swift in Sources */,

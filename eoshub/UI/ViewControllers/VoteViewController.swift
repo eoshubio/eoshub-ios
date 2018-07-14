@@ -8,17 +8,25 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class VoteViewController: BaseViewController {
+    private let maxBPList = 400
     
     @IBOutlet fileprivate weak var naviBar: UINavigationBar!
+    @IBOutlet fileprivate weak var lbAccountName: UILabel!
     @IBOutlet fileprivate weak var lbStakedEOSTitle: UILabel!
     @IBOutlet fileprivate weak var lbStakedEOS: UILabel!
     @IBOutlet fileprivate weak var btnChangeStake: UIButton!
+    @IBOutlet fileprivate weak var btnChangeAccount: UIButton!
     @IBOutlet fileprivate weak var bpList: UITableView!
+    
     fileprivate weak var btnApplyItem: UIBarButtonItem!
     fileprivate weak var btnVotedBPs: UIBarButtonItem!
     
+    fileprivate var selectedAccount: AccountInfo? {
+        return AccountManager.shared.mainAccount
+    }
     fileprivate var items: [BPCellViewModel] = []
     fileprivate var prvVotedBps: [BPCellViewModel] = []
     fileprivate var selectedBps: [BPCellViewModel] {
@@ -28,7 +36,8 @@ class VoteViewController: BaseViewController {
     fileprivate var applyControlContainer: UIView? = nil
     fileprivate var btnApply: UIButton? = nil
     
-    fileprivate let maxVoteCount = 30
+    fileprivate let maxVoteCount = 19 //for JungleNet
+    
     fileprivate let menuControlHeight: CGFloat = 90
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +48,7 @@ class VoteViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bindActions()
     }
     
     private func setupUI() {
@@ -62,14 +72,93 @@ class VoteViewController: BaseViewController {
         
     }
     
-    func configure(viewModel: [BPCellViewModel]) {
-        items = viewModel
-        prvVotedBps = items.filter { $0.selected }
-                        .sorted(by: { (lhs, rhs) -> Bool in
-                            return lhs.index < rhs.index
-                        })
+    private func bindActions() {
+        btnChangeAccount.rx.tap
+            .subscribe(onNext: { [weak self](_) in
+                self?.handleChangeAccount()
+            })
+            .disposed(by: bag)
         
-        bpList.reloadData()
+        AccountManager.shared.accountInfoRefreshed
+            .subscribe(onNext: { [weak self](_) in
+                if let selectedAccount = self?.selectedAccount {
+                    self?.layoutVoterInfo(account: selectedAccount)
+                }
+            })
+            .disposed(by: bag)
+    }
+    
+    func reload() {
+        loadMainAccount()
+        loadBPList()
+    }
+    
+    fileprivate func loadMainAccount() {
+        let mgr = AccountManager.shared
+        if let mainAccount = mgr.mainAccount ?? mgr.infos.first {
+            configure(account: mainAccount)
+        }
+        
+        btnChangeAccount.isHidden =  AccountManager.shared.infos.count <= 1
+    }
+    
+    fileprivate func loadBPList() {
+        RxEOSAPI.getProducers(limit: maxBPList)
+            .subscribe(onNext: { [weak self](bps) in
+                Log.i(bps)
+                self?.items = bps.produces.compactMap(BPInfo.init)
+                self?.bpList.reloadData()
+                //get votes info
+                if let selectedAccount = self?.selectedAccount {
+                    self?.layoutVoterInfo(account: selectedAccount)
+                }
+            }, onError: { (error) in
+                
+            }, onCompleted: {
+                
+            })
+            .disposed(by: bag)
+    }
+    
+    
+    fileprivate func configure(account: AccountInfo) {
+        AccountManager.shared.mainAccount = account
+        
+        layoutVoterInfo(account: account)
+    }
+    
+    fileprivate func layoutVoterInfo(account: AccountInfo) {
+        
+        lbAccountName.text = account.account
+        lbStakedEOS.text = account.stakedEOS.dot4String
+        
+        let bps = account.votedProducers
+        var bpMap: [String: Bool] = [:]
+        bps.forEach({bpMap[$0] = true})
+        
+        items.forEach { (bp) in
+            var bp = bp
+            if bpMap[bp.name] == true {
+                bp.selected = true
+            } else {
+                bp.selected = false
+            }
+        }
+        applySelection()
+    }
+    
+    fileprivate func handleChangeAccount() {
+        let alert = UIAlertController(title: "change account", message: "투표에 참여할 계정을 골라주세요.", preferredStyle: .actionSheet)
+        
+        AccountManager.shared.infos.forEach { (info) in
+            
+            alert.addAction(UIAlertAction(title: info.account, style: .default, handler: { [weak self](_) in
+                AccountManager.shared.mainAccount = info
+                self?.configure(account: info)
+            }))
+        }
+        alert.addAction(UIAlertAction(title: LocalizedString.Common.cancel, style: .destructive, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
     
     private func addApplySectionIfNeeded() {
@@ -120,6 +209,31 @@ class VoteViewController: BaseViewController {
     }
     
     @objc fileprivate func onVoteApplyClicked() {
+        //1. get voter
+        guard let selectedAccount = selectedAccount else { return }
+        let voter = selectedAccount.account
+        let bps = selectedBps.map({$0.name}).sorted()
+    
+        authentication(showAt: self)
+            .flatMap {(validated) -> Observable<JSON> in
+                
+                let wallet = Wallet(key: selectedAccount.pubKey)
+                
+                return RxEOSAPI.voteBPs(voter: voter, producers: bps, wallet: wallet)
+            }
+            .flatMap({ (_) -> Observable<AccountInfo> in
+                return AccountManager.shared.loadAccounts()
+            })
+            .subscribe(onNext: { (_) in
+                
+            }, onError: { (error) in
+                Log.e(error)
+            }, onCompleted: {
+                
+            })
+            .disposed(by: bag)
+        
+        
         applySelection()
         dismissApplyView()
     }
