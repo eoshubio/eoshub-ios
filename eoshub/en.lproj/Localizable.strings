@@ -51,6 +51,12 @@
 "wallet.transfer.history" = "Transaction history";
 "wallet.transfer.account" = "My EOS account";
 
+/* 투표 */
+"vote.stakedEOS" = "Staked EOS";
+"vote.changeStake" = "Change Stake";
+"vote.selectAccountTitle" = "Change account";
+"vote.selectAccount" = "Select an account to participate in the vote.";
+
 /* 트렌젝션 */
 "tx.title" = "Transaction";
 "tx.sended" = "Out";

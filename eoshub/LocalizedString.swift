@@ -78,6 +78,13 @@ struct LocalizedString {
         }
     }
     
+    struct Vote {
+        static let staked = NSLocalizedString("vote.stakedEOS", comment: "")
+        static let changeStake = NSLocalizedString("vote.changeStake", comment: "")
+        static let changeAccount = NSLocalizedString("vote.selectAccountTitle", comment: "")
+        static let selectAccount = NSLocalizedString("vote.selectAccount", comment: "")
+    }
+    
     struct Secure {
         struct Pin {
             static let create = NSLocalizedString("secure.pin.create", comment: "")

@@ -52,6 +52,9 @@ class VoteViewController: BaseViewController {
     }
     
     private func setupUI() {
+        lbStakedEOSTitle.text = LocalizedString.Vote.staked
+        btnChangeStake.setTitle(LocalizedString.Vote.changeStake, for: .normal)
+        
         naviBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         naviBar.shadowImage = UIImage()
         naviBar.isTranslucent = true
@@ -148,7 +151,7 @@ class VoteViewController: BaseViewController {
     }
     
     fileprivate func handleChangeAccount() {
-        let alert = UIAlertController(title: "change account", message: "투표에 참여할 계정을 골라주세요.", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: LocalizedString.Vote.changeAccount, message: LocalizedString.Vote.selectAccount, preferredStyle: .actionSheet)
         
         AccountManager.shared.infos.forEach { (info) in
             
@@ -157,7 +160,7 @@ class VoteViewController: BaseViewController {
                 self?.configure(account: info)
             }))
         }
-        alert.addAction(UIAlertAction(title: LocalizedString.Common.cancel, style: .destructive, handler: nil))
+        alert.addAction(UIAlertAction(title: LocalizedString.Common.cancel, style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
     }
     

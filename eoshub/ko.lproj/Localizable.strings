@@ -50,6 +50,13 @@
 "wallet.transfer.history" = "이체 이력";
 "wallet.transfer.account" = "나의 EOS 계정";
 
+/* 투표 */
+"vote.stakedEOS" = "할당된 EOS";
+"vote.changeStake" = "EOS 할당/반환하기";
+"vote.selectAccountTitle" = "계정 변경";
+"vote.selectAccount" = "투표에 참여할 계정을 골라주세요.";
+
+
 
 /* 트렌젝션 */
 "tx.title" = "이체 내역";
