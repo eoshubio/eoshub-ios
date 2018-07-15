@@ -284,7 +284,20 @@ extension RxEOSAPI {
     }
     
     //MARK: Delegate Bandwidth
-//   get_currency_stats -> abi_json_to_bin -> get_info -> get_public_keys
+    static func delegatebw(account: String, cpu: Currency, net: Currency, wallet: Wallet) -> Observable<JSON> {
+        
+        let contract = Contract.delegateBW(from: account, receiver: account, cpu: cpu, net: net)
+        return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+        
+    }
+    
+    static func undelegatebw(account: String, cpu: Currency, net: Currency, wallet: Wallet) -> Observable<JSON> {
+        
+        let contract = Contract.undelegateBW(from: account, receiver: account, cpu: cpu, net: net)
+        return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+        
+    }
+    
     
     //MARK: Get Producer
     static func getProducers(limit: Int) -> Observable<BlockProducers> {

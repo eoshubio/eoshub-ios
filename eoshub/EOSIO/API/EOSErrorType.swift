@@ -20,6 +20,7 @@ enum EOSErrorType: Error {
     case invalidState
     case unknownContract
     case contractNotFound
+    case authenticationFailed
 }
 
 

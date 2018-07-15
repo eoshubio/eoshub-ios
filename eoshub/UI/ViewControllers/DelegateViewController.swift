@@ -8,12 +8,15 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class DelegateViewController: BaseViewController {
     
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet fileprivate weak var btnStake: UIButton!
     @IBOutlet fileprivate weak var btnHistory: UIButton!
+    
+    fileprivate let inputForm = DelegateInputForm()
     
     fileprivate var account: AccountInfo!
     
@@ -31,6 +34,7 @@ class DelegateViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bindActions()
     }
     
     
@@ -41,12 +45,40 @@ class DelegateViewController: BaseViewController {
     private func setupUI() {
         tableView.dataSource = self
         tableView.dataSource = self
-//        tableView.delegate = self
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 150
         
         btnStake.setTitle(LocalizedString.Wallet.Delegate.delegate, for: .normal)
         btnHistory.setTitle(LocalizedString.Wallet.Delegate.history, for: .normal)
+    }
+    
+    private func bindActions() {
+        
+        btnStake.rx.singleTap
+            .bind { [weak self] in
+                self?.delegatebw()
+            }
+            .disposed(by: bag)
+        
+    }
+    
+    private func delegatebw() {
+        
+        let cpu = Currency(balance: inputForm.cpu.value, symbol: .eos)
+        let net = Currency(balance: inputForm.net.value, symbol: .eos)
+        let accountName = account.account
+        unlockWallet(pinTarget: self, pubKey: account.pubKey)
+            .flatMap { (wallet) -> Observable<JSON> in
+                return RxEOSAPI.delegatebw(account: accountName, cpu: cpu, net: net, wallet: wallet)
+            }
+            .flatMap { (_) -> Observable<Void> in
+                return AccountManager.shared.loadAccounts()
+            }
+            .subscribe(onError: { (error) in
+                Log.e(error)
+            })
+            .disposed(by: bag)
+        
     }
     
 }
@@ -67,7 +99,7 @@ extension DelegateViewController: UITableViewDataSource {
         } else {
             cellId = "DelegateInputFormCell"
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? DelegateInputFormCell else { preconditionFailure() }
-            cell.configure(account: account)
+            cell.configure(account: account, inputForm: inputForm)
             return cell
         }
     }
@@ -82,6 +114,8 @@ class DelegateInputFormCell: UITableViewCell {
     @IBOutlet fileprivate weak var lbCpuQuantity: UILabel!
     @IBOutlet fileprivate weak var lbNetQuantity: UILabel!
     
+    private var bag: DisposeBag? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
@@ -95,13 +129,34 @@ class DelegateInputFormCell: UITableViewCell {
         txtNetQuantity.addDoneButtonToKeyboard(myAction: #selector(self.txtNetQuantity.resignFirstResponder))
     }
     
-    func configure(account: AccountInfo) {
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bag = nil
+    }
+    
+    func configure(account: AccountInfo, inputForm: DelegateInputForm) {
         cpuStaked.text = account.cpuStakedEOS.dot4String
         netStaked.text = account.netStakedEOS.dot4String
         
+        let bag = DisposeBag()
+        txtCpuQuantity.rx.text.orEmpty
+            .subscribe(onNext: { (text) in
+                inputForm.cpu.value = Double(text) ?? 0
+            })
+            .disposed(by: bag)
         
+        txtNetQuantity.rx.text.orEmpty
+            .subscribe(onNext: { (text) in
+                inputForm.net.value = Double(text) ?? 0
+            })
+            .disposed(by: bag)
         
+        self.bag = bag
     }
-    
-    
+}
+
+
+struct DelegateInputForm {
+    let cpu = Variable<Double>(0)
+    let net = Variable<Double>(0)
 }
