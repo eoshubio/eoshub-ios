@@ -8,10 +8,12 @@
 
 import Foundation
 
+typealias Symbol = String
+
 struct Currency {
     let quantity: Double
     let balance: String
-    let symbol: String
+    let symbol: Symbol
     let currency: String
     
     init?(currency: String) {
@@ -24,6 +26,13 @@ struct Currency {
             self.symbol = comp.last!
             self.currency = balance + " " + symbol
         }
+    }
+    
+    init(balance: Double, symbol: String) {
+        self.quantity = balance
+        self.balance = balance.dot4String
+        self.symbol = symbol
+        self.currency = self.balance + " " + symbol
     }
 
 }

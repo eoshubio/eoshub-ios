@@ -18,6 +18,8 @@ enum EOSErrorType: Error {
     case sigFailed
     case hasNotValidKey
     case invalidState
+    case unknownContract
+    case contractNotFound
 }
 
 

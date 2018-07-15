@@ -55,7 +55,7 @@ struct RxEOSAPI {
             .responseArray(method: .post, parameter: params, encoding: JSONEncoding.default)
             .flatMap({ (resArray) -> Observable<Currency> in
                 if let currencyArray = resArray as? [String] {
-                    if let result = currencyArray.compactMap({ Currency(currency: $0)}).first {
+                    if let result = currencyArray.compactMap({ Currency(currency: $0 )}).first {
                         return Observable.just(result)
                     } else {
                         return Observable.just(Currency(currency: "0.0000 " + symbol)!)
@@ -249,7 +249,9 @@ extension RxEOSAPI {
     //MARK: Transfer currency
     static func sendCurrency(from: String, to: String, quantity: Currency, memo: String = "", wallet: Wallet) -> Observable<JSON> {
       
-        let contract = Contract.transfer(from: from, to: to, quantity: quantity)
+        guard let code = TokenManager.getContract(for: quantity.symbol) else { return Observable.error(EOSErrorType.contractNotFound )}
+        
+        let contract = Contract.transfer(code: code, from: from, to: to, quantity: quantity)
 
         return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
         

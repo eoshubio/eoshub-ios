@@ -83,8 +83,11 @@ class WalletViewController: BaseViewController {
         } else {
             AccountManager.shared.infos
                 .forEach { (info) in
-                    let tokenCellInfos = info.tokens.map(TokenCellInfo.init).filter({$0.currency.quantity > 0})
-                    let sectionItem: [CellType] = [info] + tokenCellInfos
+                    let TokenBalanceInfos = info.tokens
+                        .map { TokenBalanceInfo(currency: $0, owner: info) }
+                        .filter({$0.currency.quantity > 0})
+                    
+                    let sectionItem: [CellType] = [info] + TokenBalanceInfos
                     items.append(sectionItem)
                 }
             items.append([WalletAddCellType.add])
@@ -102,7 +105,6 @@ class WalletViewController: BaseViewController {
             .disposed(by: bag)
         
         
-        
         btnSetting.rx.singleTap
             .bind { [weak self](_) in
                 guard let nc = self?.parent?.navigationController else { return }
@@ -112,14 +114,14 @@ class WalletViewController: BaseViewController {
         
         rx_send
             .subscribe(onNext: { [weak self](account) in
-                guard let nc = self?.parent?.navigationController else { return }
-                self?.flowDelegate?.goToSend(from: nc, with: account, symbol: "EOS")
+                guard let nc = self?.parent?.navigationController, let account = account as? AccountInfo else { return }
+                self?.flowDelegate?.goToSend(from: nc, with: account)
             })
             .disposed(by: bag)
         
         rx_receive
             .subscribe(onNext: { [weak self](account) in
-                guard let nc = self?.parent?.navigationController else { return }
+                guard let nc = self?.parent?.navigationController, let account = account as? AccountInfo else { return }
                 self?.flowDelegate?.goToReceive(from: nc, with: account)
             })
             .disposed(by: bag)
@@ -156,8 +158,8 @@ extension WalletViewController: UITableViewDataSource {
             cell.configure(viewModel: item, sendObserver: rx_send, receiveObserver: rx_receive)
             cell.selectionStyle = .none
             return cell
-        } else if item is TokenCellInfo {
-            guard let cell = cell as? TokenCell, let item = item as? TokenCellInfo else { preconditionFailure() }
+        } else if item is TokenBalanceInfo {
+            guard let cell = cell as? TokenCell, let item = item as? TokenBalanceInfo else { preconditionFailure() }
             cell.configure(currency: item.currency)
             cell.selectionStyle = .none
             return cell
@@ -192,6 +194,10 @@ extension WalletViewController: UITableViewDelegate {
         if let item = item as? EOSAccountViewModel {
             //go to wallet detail
             flowDelegate?.goToWalletDetail(from: nc, with: item)
+        } else if let item = item as? TokenBalanceInfo {
+            
+          flowDelegate?.goToTokenDetail(from: nc, with: item)
+            
         } else if item is WalletAddCellType {
             //go to create wallet
             

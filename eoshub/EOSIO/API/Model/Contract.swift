@@ -38,8 +38,8 @@ extension Contract {
         return contract
     }
     
-    static func transfer(from: String, to: String, quantity: Currency, memo: String = "") -> Contract {
-        let contract = Contract(code: "eosio.token",
+    static func transfer(code: String = "eosio.token", from: String, to: String, quantity: Currency, memo: String = "") -> Contract {
+        let contract = Contract(code: code,
                                 action: "transfer",
                                 args: [Args.transfer.from: from,
                                        Args.transfer.to: to,

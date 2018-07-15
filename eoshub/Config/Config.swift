@@ -17,7 +17,14 @@ struct Config {
     static let mode = ChainMode.junglenet
 
     
-    
+    static var eosInfo: TokenInfo {
+        switch mode {
+        case .junglenet:
+            return TokenInfo(contract: "eosio.token", symbol: "EOS", name: "EOS")
+        default:
+            preconditionFailure()
+        }
+    }
     
     static var pandoraInfo: TokenInfo {
         switch mode {

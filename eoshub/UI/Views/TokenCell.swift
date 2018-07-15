@@ -22,11 +22,13 @@ class TokenCell: UITableViewCell {
 }
 
 
-struct TokenCellInfo: CellType {
+struct TokenBalanceInfo: CellType {
     var nibName: String {
         return "TokenCell"
     }
     
     let currency: Currency
+    
+    let owner: AccountInfo
     
 }

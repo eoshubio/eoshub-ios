@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k50-6H-zGX" customClass="RoundedView" customModule="eoshub" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="10" width="375" height="50"/>
+                        <rect key="frame" x="20" y="10" width="355" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iGo-lT-h75">
                                 <rect key="frame" x="15" y="16.5" width="48" height="17"/>
@@ -33,14 +33,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="celldetail" translatesAutoresizingMaskIntoConstraints="NO" id="oPL-iP-MdC">
-                                <rect key="frame" x="345" y="15" width="20" height="20"/>
+                                <rect key="frame" x="325" y="15" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="diZ-BW-Bmz"/>
                                     <constraint firstAttribute="width" constant="20" id="oR8-K8-4Mk"/>
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yS3-Sr-APb">
-                                <rect key="frame" x="300" y="12.5" width="25" height="25"/>
+                                <rect key="frame" x="280" y="12.5" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="YmR-Ki-NXk"/>
                                     <constraint firstAttribute="width" constant="25" id="egq-MM-cg1"/>
@@ -69,7 +69,7 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstItem="k50-6H-zGX" firstAttribute="top" secondItem="4pY-Pr-uWP" secondAttribute="top" constant="10" id="TbY-Nd-LZQ"/>
-                    <constraint firstItem="k50-6H-zGX" firstAttribute="leading" secondItem="4pY-Pr-uWP" secondAttribute="leading" id="x3N-KQ-UHA"/>
+                    <constraint firstItem="k50-6H-zGX" firstAttribute="leading" secondItem="4pY-Pr-uWP" secondAttribute="leading" constant="20" id="x3N-KQ-UHA"/>
                     <constraint firstAttribute="bottom" secondItem="k50-6H-zGX" secondAttribute="bottom" priority="750" id="zku-9g-0Kp"/>
                     <constraint firstAttribute="trailing" secondItem="k50-6H-zGX" secondAttribute="trailing" id="zzx-kI-r8l"/>
                 </constraints>

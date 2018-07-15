@@ -17,6 +17,7 @@ class AccountInfo: DBObject, EOSAccountViewModel {
     var totalEOS: Double {
         return availableEOS + stakedEOS
     }
+    
     @objc dynamic var availableEOS: Double = 0
     @objc dynamic var stakedEOS: Double = 0
     

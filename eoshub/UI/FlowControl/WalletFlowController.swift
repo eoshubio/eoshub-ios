@@ -56,10 +56,11 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
         fc.start(animated: true)
     }
     
-    func goToSend(from nc: UINavigationController, with account: EOSAccountViewModel, symbol: String) {
+    func goToSend(from nc: UINavigationController, with account: AccountInfo) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = SendCurrencyFlowController(configure: config)
-        fc.configure(account: account, symbol: symbol)
+        let balance = Currency(balance: account.availableEOS, symbol: "EOS")
+        fc.configure(account: account, balance: balance)
         fc.start(animated: true)
     }
     
@@ -69,13 +70,21 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
         fc.configure(account: account)
         fc.start(animated: true)
     }
+    
+    func goToTokenDetail(from nc: UINavigationController, with tokenBalance: TokenBalanceInfo) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = TokenDetailFlowController(configure: config)
+        fc.configure(tokenBalance: tokenBalance)
+        fc.start(animated: true)
+    }
 }
 
 protocol WalletFlowEventDelegate: FlowEventDelegate {
     
     func goToSetting(from nc: UINavigationController)
     func goToWalletDetail(from nc: UINavigationController, with account: EOSAccountViewModel)
-    func goToSend(from nc: UINavigationController, with account: EOSAccountViewModel, symbol: String)
+    func goToSend(from nc: UINavigationController, with account: AccountInfo)
     func goToReceive(from nc: UINavigationController, with account: EOSAccountViewModel)
     func goToCreate(from nc: UINavigationController)
+    func goToTokenDetail(from nc: UINavigationController, with tokenBalance: TokenBalanceInfo)
 }

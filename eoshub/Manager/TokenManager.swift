@@ -13,6 +13,14 @@ import RxSwift
 class TokenManager {
     static let shared = TokenManager()
     
+    //TODO: Download from server
+    private static var contractMap: [Symbol: String] = ["EOS": Config.eosInfo.contract,
+                                                        "PDR": Config.pandoraInfo.contract,
+                                                        "NOVA": Config.pandoraInfo.contract]
+    
+    static func getContract(for symbol: Symbol) -> String? {
+        return contractMap[symbol]
+    }
     
     //TODO: Save/Load with Realm
     var knownTokens: [TokenInfo] = [.pandora, TokenInfo(contract: "eoshubtokenz", symbol: "NOVA", name: "novashock")]

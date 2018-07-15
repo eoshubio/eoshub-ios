@@ -41,7 +41,7 @@
 "wallet.first.greeting" = "Greeting!";
 "wallet.first.guide" = "Create your first EOS Wallet!";
 
-"wallet.transfer.availableEOS" = "Available EOS";
+"wallet.transfer.available" = "Available ";
 "wallet.transfer.sendTo" = "Send to";
 "wallet.transfer.accountPlaceholder" = "Enter an account to send %@"; //symbol
 "wallet.transfer.memo" = "Memo";

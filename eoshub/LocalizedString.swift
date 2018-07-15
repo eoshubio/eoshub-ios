@@ -65,7 +65,7 @@ struct LocalizedString {
         }
 
         struct Transfer {
-            static let availableEOS = NSLocalizedString("wallet.transfer.availableEOS", comment: "")
+            static let available = NSLocalizedString("wallet.transfer.available", comment: "")
             static let sendTo = NSLocalizedString("wallet.transfer.sendTo", comment: "")
             static let accountPlaceholder = NSLocalizedString("wallet.transfer.accountPlaceholder", comment: "")
             static let memo = NSLocalizedString("wallet.transfer.memo", comment: "")

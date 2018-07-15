@@ -18,8 +18,8 @@ class SendCurrencyViewController: TextInputViewController {
     @IBOutlet fileprivate weak var btnSend: UIButton!
     @IBOutlet fileprivate weak var btnHistory: UIButton!
     
-    var account: EOSAccountViewModel!
-    var symbol: String!
+    var account: AccountInfo!
+    var balance: Currency!
     
     let sendForm = SendForm()
     
@@ -62,9 +62,9 @@ class SendCurrencyViewController: TextInputViewController {
             .disposed(by: bag)
     }
     
-    func configure(account: EOSAccountViewModel, symbol: String) {
+    func configure(account: AccountInfo, balance: Currency) {
         self.account = account
-        self.symbol = symbol
+        self.balance = balance
     }
     
     func transfer() {
@@ -78,7 +78,7 @@ class SendCurrencyViewController: TextInputViewController {
                 
                 return RxEOSAPI.sendCurrency(from: strongSelf.account.account,
                                              to: strongSelf.sendForm.account.value,
-                                             quantity: strongSelf.sendForm.quantityCurrency(symbol: strongSelf.symbol),
+                                             quantity: strongSelf.sendForm.quantityCurrency(symbol: strongSelf.balance.symbol),
                                              memo: strongSelf.sendForm.memo.value,
                                              wallet: wallet)
             }
@@ -107,13 +107,13 @@ extension SendCurrencyViewController: UITableViewDataSource, UITableViewDelegate
         if indexPath.row == 0 {
             cellId = "SendMyAccountCell"
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? SendMyAccountCell else { preconditionFailure() }
-            cell.configure(account: account, symbol: symbol)
+            cell.configure(account: account, balance: balance)
             return cell
             
         } else {
             cellId = "SendInputFormCell"
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? SendInputFormCell else { preconditionFailure() }
-            cell.configure(form: sendForm, symbol: symbol)
+            cell.configure(form: sendForm, symbol: balance.symbol)
             return cell
         }
     }
@@ -129,14 +129,15 @@ class SendMyAccountCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        lbAvailable.text = LocalizedString.Wallet.Transfer.availableEOS
+        
     }
     
     
-    func configure(account: EOSAccountViewModel, symbol: String) {
+    func configure(account: EOSAccountViewModel, balance: Currency) {
+        lbAvailable.text = LocalizedString.Wallet.Transfer.available + balance.symbol
         lbAccount.text = account.account
-        lbBalance.text = account.availableEOS.dot4String
-        lbSymbol.text = symbol
+        lbBalance.text = balance.balance
+        lbSymbol.text = balance.symbol
     }
     
 }
@@ -151,6 +152,7 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet fileprivate weak var txtMemo: UITextField!
     @IBOutlet fileprivate weak var lbQuantity: UILabel!
     @IBOutlet fileprivate weak var txtQuantity: UITextField!
+    @IBOutlet fileprivate weak var lbSymbol: UILabel!
     
     var bag: DisposeBag? = nil
     
@@ -179,6 +181,8 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
     func configure(form: SendForm, symbol: String) {
         let placeHolder = String(format: LocalizedString.Wallet.Transfer.accountPlaceholder, symbol)
         txtAcount.placeholder = placeHolder
+        lbSymbol.text = symbol
+        
         let bag = DisposeBag()
         txtAcount.rx.text
             .subscribe( { (text) in
