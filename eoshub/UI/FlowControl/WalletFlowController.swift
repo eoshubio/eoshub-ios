@@ -67,7 +67,7 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
     func goToReceive(from nc: UINavigationController, with account: AccountInfo) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = ReceiveFlowController(configure: config)
-        fc.configure(account: account)
+        fc.configure(account: account, symbol: .eos)
         fc.start(animated: true)
     }
     

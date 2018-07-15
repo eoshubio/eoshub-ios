@@ -15,13 +15,15 @@ class ReceiveFlowController: FlowController, ReceiveEventDelegate {
     var id: FlowIdentifier { return .receive }
     
     var account: AccountInfo!
+    var symbol: Symbol!
     
     required init(configure: FlowConfigure) {
         self.configure = configure
     }
     
-    func configure(account: AccountInfo) {
+    func configure(account: AccountInfo, symbol: Symbol) {
         self.account = account
+        self.symbol = symbol
     }
     
     
@@ -38,6 +40,7 @@ class ReceiveFlowController: FlowController, ReceiveEventDelegate {
     func goToTx(from nc: UINavigationController) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = TxFlowController(configure: config)
+        fc.configure(account: account, filter: [symbol])
         fc.start(animated: true)
     }
     

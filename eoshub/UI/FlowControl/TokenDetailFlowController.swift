@@ -47,7 +47,7 @@ class TokenDetailFlowController: FlowController, TokenDetailFlowEventDelegate {
     func goToReceive(from nc: UINavigationController, with tokenInfo: TokenBalanceInfo) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = ReceiveFlowController(configure: config)
-        fc.configure(account: tokenInfo.owner)
+        fc.configure(account: tokenInfo.owner, symbol: tokenBalance.currency.symbol)
         fc.start(animated: true)
     }
     
