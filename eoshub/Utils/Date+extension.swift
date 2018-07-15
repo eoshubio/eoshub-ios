@@ -27,12 +27,6 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
-    func dateToTime() -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd HH:mm"
-        return dateFormatter.string(from: self)
-    }
-    
     static func UTCToDate(date:String) -> Date? {
         let src = date.components(separatedBy: ".").first ?? date
         let dateFormatter = DateFormatter()
@@ -43,4 +37,34 @@ extension Date {
         return dt
     }
     
+}
+
+extension TimeInterval {
+    private var milliseconds: Int {
+        return Int((truncatingRemainder(dividingBy: 1)) * 1000)
+    }
+    
+    private var seconds: Int {
+        return Int(self) % 60
+    }
+    
+    private var minutes: Int {
+        return (Int(self) / 60 ) % 60
+    }
+    
+    private var hours: Int {
+        return (Int(self) / 3600)
+    }
+    
+    var stringTime: String {
+        if hours != 0 {
+            return "\(hours):\(minutes):\(seconds)"
+        } else if minutes != 0 {
+            return "\(minutes):\(seconds)"
+        } else if milliseconds != 0 {
+            return "\(seconds):\(milliseconds)"
+        } else {
+            return "\(seconds)"
+        }
+    }
 }

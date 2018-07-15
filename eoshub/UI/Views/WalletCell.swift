@@ -79,9 +79,9 @@ class WalletCell: UITableViewCell {
     }
     
     
-    func configure(viewModel: EOSAccountViewModel,
-                   sendObserver: PublishSubject<EOSAccountViewModel>,
-                   receiveObserver: PublishSubject<EOSAccountViewModel>) {
+    func configure(viewModel: AccountInfo,
+                   sendObserver: PublishSubject<AccountInfo>,
+                   receiveObserver: PublishSubject<AccountInfo>) {
         
         let bag = DisposeBag()
         
@@ -90,8 +90,6 @@ class WalletCell: UITableViewCell {
         estimatedPrice.text = ""
         availableEOS.text = viewModel.availableEOS.dot4String
         stakedEOS.text = viewModel.stakedEOS.dot4String
-        refundingEOS.text = viewModel.refundingEOS.dot4String
-        remainTime.text =   Date(timeIntervalSinceNow: viewModel.refundingRemainTime).dateToTime()
         
         if viewModel.ownerMode == false {
             buttonContainer.isHidden = true
@@ -116,6 +114,28 @@ class WalletCell: UITableViewCell {
                 receiveObserver.onNext(viewModel)
             }
             .disposed(by: bag)
+        
+        //refund
+        remainTimeView.isHidden = (viewModel.refundingEOS == 0)
+        if viewModel.refundRequestTime > 0 {
+            refundingEOS.text = viewModel.refundingEOS.dot4String
+            
+            let remain = viewModel.refundingTime - Date().timeIntervalSince1970
+            remainTime.text = remain.stringTime
+            
+            let _ = Observable<Int>
+                .interval(1, scheduler: MainScheduler.instance)
+                .subscribe(onNext: { [weak self] (_) in
+                    let remain = viewModel.refundingTime - Date().timeIntervalSince1970
+                    self?.remainTime.text = remain.stringTime
+                })
+                .disposed(by: bag)
+            
+        }
+        
+        
+        
+        
         
         self.bag = bag
         

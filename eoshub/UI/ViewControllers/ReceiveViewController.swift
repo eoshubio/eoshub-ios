@@ -26,7 +26,7 @@ class ReceiveViewController: BaseViewController {
     @IBOutlet fileprivate weak var btnCopyPubKey: UIButton!
     @IBOutlet fileprivate weak var btnHistory: UIButton!
     
-    var account: EOSAccountViewModel!
+    var account: AccountInfo!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -77,7 +77,7 @@ class ReceiveViewController: BaseViewController {
             .disposed(by: bag)
     }
     
-    func configure(account: EOSAccountViewModel) {
+    func configure(account: AccountInfo) {
         self.account = account
     }
     

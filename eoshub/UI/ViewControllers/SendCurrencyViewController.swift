@@ -137,7 +137,7 @@ class SendMyAccountCell: UITableViewCell {
     }
     
     
-    func configure(account: EOSAccountViewModel, balance: Currency) {
+    func configure(account: AccountInfo, balance: Currency) {
         lbAvailable.text = LocalizedString.Wallet.Transfer.available + balance.symbol
         lbAccount.text = account.account
         lbBalance.text = balance.balance

@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class WalletDetailViewController: BaseViewController {
     var flowDelegate: WalletDetailFlowEventDelegate?
@@ -51,7 +52,7 @@ class WalletDetailViewController: BaseViewController {
     @IBOutlet fileprivate weak var btnBuyRam: UIButton!
     @IBOutlet fileprivate weak var btnSellRam: UIButton!
     
-    private var accountInfo: EOSAccountViewModel!
+    private var accountInfo: AccountInfo!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -67,23 +68,30 @@ class WalletDetailViewController: BaseViewController {
     private func setupUI() {
         title = accountInfo.account
         
+        remainTimeView.layer.cornerRadius = remainTimeView.bounds.height * 0.5
+        remainTimeView.layer.masksToBounds = true
+        remainTimeView.layer.borderWidth = 1.0
+        remainTimeView.layer.borderColor = Color.red.uiColor.cgColor
+        
         resourceView.layer.borderColor = Color.seperator.cgColor
         resourceView.layer.borderWidth = 1
         
         ramView.layer.borderColor = Color.seperator.cgColor
         ramView.layer.borderWidth = 1
         
+        lbAvailable.text = LocalizedString.Wallet.available
+        lbStake.text = LocalizedString.Wallet.staked
+        lbRefunding.text = LocalizedString.Wallet.refunding
+        
         updateAccount(with: accountInfo)
     }
     
-    fileprivate func updateAccount(with viewModel: EOSAccountViewModel) {
+    fileprivate func updateAccount(with viewModel: AccountInfo) {
         account.text = viewModel.account
         total.text = viewModel.totalEOS.dot4String
         estimatedPrice.text = ""
         availableEOS.text = viewModel.availableEOS.dot4String
         stakedEOS.text = viewModel.stakedEOS.dot4String
-        refundingEOS.text = viewModel.refundingEOS.dot4String
-        remainTime.text = viewModel.refundingDateString
         
         let eosStates: [EOSState] = [.available, .staked, .refunding]
         progress.configure(items: eosStates)
@@ -93,9 +101,30 @@ class WalletDetailViewController: BaseViewController {
         let available = EOSAmount(id: EOSState.available.id, value: viewModel.availableEOS.f)
         
         progress.setProgressValues(values: [available, staked, refunding])
+        
+        //refund
+        remainTimeView.isHidden = (viewModel.refundingEOS == 0)
+        
+        refundingEOS.text = viewModel.refundingEOS.dot4String
+        if viewModel.refundRequestTime > 0 {
+            refundingEOS.text = viewModel.refundingEOS.dot4String
+            
+            let remain = viewModel.refundingTime - Date().timeIntervalSince1970
+            remainTime.text = remain.stringTime
+            
+            let _ = Observable<Int>
+                .interval(1, scheduler: MainScheduler.instance)
+                .subscribe(onNext: { [weak self] (_) in
+                    let remain = viewModel.refundingTime - Date().timeIntervalSince1970
+                    self?.remainTime.text = remain.stringTime
+                })
+                .disposed(by: bag)
+            
+        }
+        
     }
     
-    func configure(viewModel: EOSAccountViewModel) {
+    func configure(viewModel: AccountInfo) {
         accountInfo = viewModel
     }
     

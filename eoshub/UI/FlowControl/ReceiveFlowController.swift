@@ -14,13 +14,13 @@ class ReceiveFlowController: FlowController, ReceiveEventDelegate {
     
     var id: FlowIdentifier { return .receive }
     
-    var account: EOSAccountViewModel!
+    var account: AccountInfo!
     
     required init(configure: FlowConfigure) {
         self.configure = configure
     }
     
-    func configure(account: EOSAccountViewModel) {
+    func configure(account: AccountInfo) {
         self.account = account
     }
     

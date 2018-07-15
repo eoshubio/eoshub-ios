@@ -18,15 +18,9 @@ protocol EOSAccountViewModel {
     var stakedEOS: Double { get }
     var refundingEOS: Double { get }
     var availableEOS: Double { get }
-    var refundingRemainTime: TimeInterval { get }
+    var refundRequestTime: TimeInterval { get }
     var ownerMode: Bool { get set }
 }
 
-extension EOSAccountViewModel {
-    var refundingDateString: String {
-        return Date(timeIntervalSinceNow: refundingRemainTime).dateToTime()
-    }
-    
-}
 
 

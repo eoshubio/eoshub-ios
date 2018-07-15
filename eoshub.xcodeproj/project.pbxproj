@@ -95,6 +95,7 @@
 		2C770C8F20FAF1F5007F71C4 /* TokenDetailFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C8E20FAF1F5007F71C4 /* TokenDetailFlowController.swift */; };
 		2C770C9120FB2628007F71C4 /* Tx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C9020FB2628007F71C4 /* Tx.swift */; };
 		2C770C9320FB30AD007F71C4 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C9220FB30AD007F71C4 /* Symbol.swift */; };
+		2C770C9520FB436F007F71C4 /* RefundInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C9420FB436F007F71C4 /* RefundInfo.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
 		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
 		2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */; };
@@ -274,6 +275,7 @@
 		2C770C8E20FAF1F5007F71C4 /* TokenDetailFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetailFlowController.swift; sourceTree = "<group>"; };
 		2C770C9020FB2628007F71C4 /* Tx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tx.swift; sourceTree = "<group>"; };
 		2C770C9220FB30AD007F71C4 /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
+		2C770C9420FB436F007F71C4 /* RefundInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundInfo.swift; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE110A820F1C31000B93BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CE110AD20F1C31000B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Intro.storyboard; sourceTree = "<group>"; };
@@ -417,6 +419,7 @@
 			children = (
 				2C279BCF20F8C5A200D2F6C4 /* Account.swift */,
 				2C279C0020FA0B7100D2F6C4 /* VoterInfo.swift */,
+				2C770C9420FB436F007F71C4 /* RefundInfo.swift */,
 				2C279BC920F8C5A100D2F6C4 /* Bandwidth.swift */,
 				2C279BCA20F8C5A200D2F6C4 /* Resources.swift */,
 				2C279BC820F8C5A100D2F6C4 /* BlockProducer.swift */,
@@ -1028,6 +1031,7 @@
 				2CE110EA20F1C9B300B93BEB /* Observable+extension.swift in Sources */,
 				2C279BA520F8C3CB00D2F6C4 /* rmd160.c in Sources */,
 				2C279BB720F8C42700D2F6C4 /* Sha256.m in Sources */,
+				2C770C9520FB436F007F71C4 /* RefundInfo.swift in Sources */,
 				2CE110FE20F1ED6500B93BEB /* LoginButton.swift in Sources */,
 				2C279BD720F8C5A300D2F6C4 /* Key.swift in Sources */,
 				2CE1112620F2504000B93BEB /* MainTabFlowController.swift in Sources */,

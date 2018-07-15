@@ -26,8 +26,8 @@ class WalletViewController: BaseViewController {
     
     fileprivate var items: [[CellType]] = []
     
-    fileprivate var rx_send = PublishSubject<EOSAccountViewModel>()
-    fileprivate var rx_receive = PublishSubject<EOSAccountViewModel>()
+    fileprivate var rx_send = PublishSubject<AccountInfo>()
+    fileprivate var rx_receive = PublishSubject<AccountInfo>()
     
     lazy var eoshubAccounts: Results<EHAccount> = {
         return DB.shared.getAccounts().sorted(byKeyPath: "created", ascending: true)
@@ -153,8 +153,8 @@ extension WalletViewController: UITableViewDataSource {
             preconditionFailure()
         }
         
-        if item is EOSAccountViewModel {
-            guard let cell = cell as? WalletCell, let item = item as? EOSAccountViewModel else { preconditionFailure() }
+        if item is AccountInfo {
+            guard let cell = cell as? WalletCell, let item = item as? AccountInfo else { preconditionFailure() }
             cell.configure(viewModel: item, sendObserver: rx_send, receiveObserver: rx_receive)
             cell.selectionStyle = .none
             return cell
@@ -191,7 +191,7 @@ extension WalletViewController: UITableViewDelegate {
         guard let nc = parent?.navigationController else { return }
         
         let item = items[indexPath.section][indexPath.row]
-        if let item = item as? EOSAccountViewModel {
+        if let item = item as? AccountInfo {
             //go to wallet detail
             flowDelegate?.goToWalletDetail(from: nc, with: item)
         } else if let item = item as? TokenBalanceInfo {

@@ -21,9 +21,10 @@ class AccountInfo: DBObject, EOSAccountViewModel {
     @objc dynamic var availableEOS: Double = 0
     @objc dynamic var stakedEOS: Double = 0
     
-    //TODO: implement
     @objc dynamic var refundingEOS: Double = 0
-    @objc dynamic var refundingRemainTime: TimeInterval = 0
+    @objc dynamic var refundRequestTime: TimeInterval = 0
+    @objc dynamic var refundingTime: TimeInterval = 0
+    
     @objc dynamic var ownerMode: Bool = false
     
     //votes info
@@ -67,6 +68,14 @@ class AccountInfo: DBObject, EOSAccountViewModel {
         if let producers = eosioAccount.voterInfo?.producers {
             votedProducers = producers
         }
+        
+        refundingEOS = eosioAccount.refundInfo?.totalAmount ?? 0
+        
+        if let requestTime = eosioAccount.refundInfo?.requestedTime {
+            refundRequestTime = requestTime
+            refundingTime = requestTime + 72 * 60 * 60//72hour
+        }
+        
     }
     
     func addToken(currency: Currency) {
