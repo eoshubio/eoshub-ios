@@ -2490,16 +2490,44 @@ HuGYqET5GDW5CV</string>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="paT-tu-n7L">
+                                                    <rect key="frame" x="299" y="92.666666666666671" width="13" height="24"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bytes" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tsK-bt-e5g">
+                                                    <rect key="frame" x="317" y="96.666666666666671" width="28" height="15"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="lightTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Used RAM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pMH-1N-DGl">
+                                                    <rect key="frame" x="29.999999999999996" y="92" width="60.666666666666657" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="25" id="XS6-AF-dUH"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                    <color key="textColor" white="1" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
+                                                <constraint firstItem="tsK-bt-e5g" firstAttribute="trailing" secondItem="LAD-P9-K4L" secondAttribute="trailing" id="5gn-ov-zC0"/>
                                                 <constraint firstItem="L2a-Rr-bDa" firstAttribute="leading" secondItem="awz-05-2M0" secondAttribute="leading" constant="30" id="6VD-WS-pCf"/>
                                                 <constraint firstItem="xo4-7z-xbr" firstAttribute="top" secondItem="L2a-Rr-bDa" secondAttribute="bottom" constant="15" id="8EX-IN-YUu"/>
                                                 <constraint firstItem="yHN-Rs-bde" firstAttribute="centerY" secondItem="xo4-7z-xbr" secondAttribute="centerY" id="GxB-HE-2gQ"/>
+                                                <constraint firstItem="paT-tu-n7L" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pMH-1N-DGl" secondAttribute="trailing" constant="15" id="HYr-Vl-l16"/>
+                                                <constraint firstItem="pMH-1N-DGl" firstAttribute="leading" secondItem="xo4-7z-xbr" secondAttribute="leading" id="ITa-dd-NRb"/>
+                                                <constraint firstItem="pMH-1N-DGl" firstAttribute="top" secondItem="xo4-7z-xbr" secondAttribute="bottom" constant="5" id="L3t-wB-Kbi"/>
                                                 <constraint firstItem="yHN-Rs-bde" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="xo4-7z-xbr" secondAttribute="trailing" constant="15" id="Py3-5c-Sfp"/>
+                                                <constraint firstItem="tsK-bt-e5g" firstAttribute="bottom" secondItem="paT-tu-n7L" secondAttribute="bottom" constant="-5" id="Qlh-Vq-HOr"/>
                                                 <constraint firstItem="LAD-P9-K4L" firstAttribute="bottom" secondItem="yHN-Rs-bde" secondAttribute="bottom" constant="-5" id="UYy-5o-NmG"/>
-                                                <constraint firstAttribute="bottom" secondItem="xo4-7z-xbr" secondAttribute="bottom" priority="750" constant="15" id="fay-IZ-ekz"/>
+                                                <constraint firstItem="paT-tu-n7L" firstAttribute="centerY" secondItem="pMH-1N-DGl" secondAttribute="centerY" id="aBW-1R-2YS"/>
                                                 <constraint firstItem="LAD-P9-K4L" firstAttribute="leading" secondItem="yHN-Rs-bde" secondAttribute="trailing" constant="5" id="hpc-ud-6JQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="pMH-1N-DGl" secondAttribute="bottom" priority="750" constant="15" id="mNA-sW-hRw"/>
+                                                <constraint firstItem="tsK-bt-e5g" firstAttribute="leading" secondItem="paT-tu-n7L" secondAttribute="trailing" constant="5" id="oj0-kz-fZW"/>
                                                 <constraint firstItem="xo4-7z-xbr" firstAttribute="leading" secondItem="awz-05-2M0" secondAttribute="leading" constant="30" id="okT-p1-2vZ"/>
                                                 <constraint firstItem="L2a-Rr-bDa" firstAttribute="top" secondItem="awz-05-2M0" secondAttribute="topMargin" constant="18" id="qQA-dl-dmB"/>
                                                 <constraint firstAttribute="trailing" secondItem="LAD-P9-K4L" secondAttribute="trailing" constant="30" id="vVn-Oh-w2o"/>
@@ -2511,6 +2539,8 @@ HuGYqET5GDW5CV</string>
                                             <outlet property="lbAvailable" destination="xo4-7z-xbr" id="hVd-Nj-s51"/>
                                             <outlet property="lbBalance" destination="yHN-Rs-bde" id="o63-jp-nPj"/>
                                             <outlet property="lbSymbol" destination="LAD-P9-K4L" id="YbJ-bK-SmT"/>
+                                            <outlet property="lbUsed" destination="pMH-1N-DGl" id="Kg5-ON-gqs"/>
+                                            <outlet property="lbUsedBalance" destination="paT-tu-n7L" id="jl1-fj-tpu"/>
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RamInputFormCell" rowHeight="400" id="JmZ-vW-HW2" customClass="RamInputFormCell" customModule="eoshub" customModuleProvider="target">

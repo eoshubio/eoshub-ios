@@ -88,6 +88,7 @@ struct LocalizedString {
             static let buyram = NSLocalizedString("wallet.ram.buyram", comment: "")
             static let sellram = NSLocalizedString("wallet.ram.sellram", comment: "")
             static let history = NSLocalizedString("wallet.ram.history", comment: "")
+            static let used = NSLocalizedString("wallet.ram.used", comment: "")
         }
     }
     

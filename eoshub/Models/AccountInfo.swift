@@ -23,6 +23,7 @@ class AccountInfo: DBObject, EOSAccountViewModel {
     @objc dynamic var cpuStakedEOS: Double = 0
     @objc dynamic var netStakedEOS: Double = 0
     @objc dynamic var ramBytes: Int64 = 0
+    @objc dynamic var usedRam: Int64 = 0
     
     @objc dynamic var refundingEOS: Double = 0
     @objc dynamic var refundRequestTime: TimeInterval = 0
@@ -56,8 +57,12 @@ class AccountInfo: DBObject, EOSAccountViewModel {
         }
     }
     
+    var availableRamBytes: Int64 {
+        return ramBytes - usedRam
+    }
+
     override static func ignoredProperties() -> [String] {
-        return ["votedProducers", "tokens"]
+        return ["votedProducers", "tokens", "availableRamBytes"]
     }
     
     convenience init(with eosioAccount: Account, isOwner: Bool) {
@@ -84,6 +89,8 @@ class AccountInfo: DBObject, EOSAccountViewModel {
         netStakedEOS = eosioAccount.resources.netWeight.quantity
         
         ramBytes = eosioAccount.resources.ramBytes
+        
+        usedRam = eosioAccount.ramUsage
         
     }
     

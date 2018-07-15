@@ -58,6 +58,7 @@
 "wallet.ram.buyram" = "Buy ram";
 "wallet.ram.sellram" = "Sell ram";
 "wallet.ram.history" = "Trading record";
+"wallet.ram.used" = "Used RAM";
 
 /* 투표 */
 "vote.stakedEOS" = "Staked EOS";

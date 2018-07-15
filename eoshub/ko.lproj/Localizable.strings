@@ -57,6 +57,7 @@
 "wallet.ram.buyram" = "램 구매";
 "wallet.ram.sellram" = "램 판매";
 "wallet.ram.history" = "매매 내역";
+"wallet.ram.used" = "할당된 RAM";
 
 /* 투표 */
 "vote.stakedEOS" = "할당된 EOS";

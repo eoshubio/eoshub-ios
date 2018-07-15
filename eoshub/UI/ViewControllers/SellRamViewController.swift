@@ -103,6 +103,8 @@ class SellRamAccountCell: UITableViewCell {
     @IBOutlet fileprivate weak var lbAvailable: UILabel!
     @IBOutlet fileprivate weak var lbBalance: UILabel!
     @IBOutlet fileprivate weak var lbSymbol: UILabel!
+    @IBOutlet fileprivate weak var lbUsed: UILabel!
+    @IBOutlet fileprivate weak var lbUsedBalance: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -112,8 +114,10 @@ class SellRamAccountCell: UITableViewCell {
     
     func configure(account: AccountInfo) {
         lbAvailable.text = LocalizedString.Wallet.Transfer.available + "Ram"
+        lbUsed.text = LocalizedString.Wallet.Ram.used
         lbAccount.text = account.account
-        lbBalance.text = account.ramBytes.prettyPrinted
+        lbBalance.text = account.availableRamBytes.prettyPrinted
+        lbUsedBalance.text = account.usedRam.prettyPrinted
         lbSymbol.text = "Bytes"
     }
     
