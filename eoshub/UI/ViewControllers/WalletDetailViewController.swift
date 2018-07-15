@@ -39,9 +39,7 @@ class WalletDetailViewController: BaseViewController {
     //--account.e
     @IBOutlet fileprivate weak var resourceView: UIView!
     @IBOutlet fileprivate weak var resCPU: UILabel!
-    @IBOutlet fileprivate weak var resCPUEOS: UILabel!
     @IBOutlet fileprivate weak var resNet: UILabel!
-    @IBOutlet fileprivate weak var resNetEOS: UILabel!
     
     @IBOutlet fileprivate weak var ramView: UIView!
     @IBOutlet fileprivate weak var resRam: UILabel!
@@ -63,6 +61,7 @@ class WalletDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
+        bindActions()
     }
     
     private func setupUI() {
@@ -83,8 +82,30 @@ class WalletDetailViewController: BaseViewController {
         lbStake.text = LocalizedString.Wallet.staked
         lbRefunding.text = LocalizedString.Wallet.refunding
         
+        btnDelegate.setTitle(LocalizedString.Wallet.Delegate.delegate, for: .normal)
+        btnUndelegate.setTitle(LocalizedString.Wallet.Delegate.undelegate, for: .normal)
+        btnBuyRam.setTitle(LocalizedString.Wallet.Ram.buyram, for: .normal)
+        btnSellRam.setTitle(LocalizedString.Wallet.Ram.sellram, for: .normal)
+        
         updateAccount(with: accountInfo)
     }
+    
+    private func bindActions() {
+        btnDelegate.rx.singleTap
+            .bind { [weak self] in
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goToDelegateBW(from: nc)
+            }
+            .disposed(by: bag)
+        
+        btnUndelegate.rx.singleTap
+            .bind { [weak self] in
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goToUndelegateBW(from: nc)
+            }
+            .disposed(by: bag)
+    }
+    
     
     fileprivate func updateAccount(with viewModel: AccountInfo) {
         account.text = viewModel.account
@@ -101,6 +122,11 @@ class WalletDetailViewController: BaseViewController {
         let available = EOSAmount(id: EOSState.available.id, value: viewModel.availableEOS.f)
         
         progress.setProgressValues(values: [available, staked, refunding])
+        
+        //resources
+        resCPU.text = viewModel.cpuStakedEOS.dot4String + " " + .eos
+        resNet.text = viewModel.netStakedEOS.dot4String + " " + .eos
+        
         
         //refund
         remainTimeView.isHidden = (viewModel.refundingEOS == 0)

@@ -51,6 +51,14 @@
 "wallet.transfer.history" = "Transaction history";
 "wallet.transfer.account" = "My EOS account";
 
+"wallet.delegate.stakedEOS" = "Staked EOS";
+"wallet.delegate.delegate" = "Delegate";
+"wallet.delegate.undelegate" = "Undelegate";
+"wallet.delegate.history" = "Delegate record";
+"wallet.ram.buyram" = "Buy ram";
+"wallet.ram.sellram" = "Sell ram";
+"wallet.ram.history" = "Trading record";
+
 /* 투표 */
 "vote.stakedEOS" = "Staked EOS";
 "vote.changeStake" = "Change Stake";
@@ -80,3 +88,4 @@
 "common.apply" = "Apply";
 "common.cancel" = "Cancel";
 "common.share" = "Share";
+"common.done" = "Done";

@@ -21,7 +21,7 @@ class SendCurrencyViewController: TextInputViewController {
     var account: AccountInfo!
     var balance: Currency!
     
-    let sendForm = SendForm()
+    fileprivate let sendForm = SendForm()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -167,11 +167,12 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
         lbMemoDesc.text = LocalizedString.Wallet.Transfer.memoDesc
         lbQuantity.text = LocalizedString.Wallet.Transfer.quantity
         
+        
         txtAcount.delegate = self
         txtMemo.placeholder = LocalizedString.Wallet.Transfer.memo
         txtMemo.delegate = self
         txtQuantity.delegate = self
-        
+        txtQuantity.addDoneButtonToKeyboard(myAction: #selector(self.txtQuantity.resignFirstResponder))
         btnPaste.setTitle(LocalizedString.Common.paste, for: .normal)
         
         clearForm()
@@ -182,7 +183,7 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
         bag = nil
     }
     
-    func configure(form: SendForm, symbol: String) {
+    fileprivate func configure(form: SendForm, symbol: String) {
         let placeHolder = String(format: LocalizedString.Wallet.Transfer.accountPlaceholder, symbol)
         txtAcount.placeholder = placeHolder
         lbSymbol.text = symbol
@@ -232,7 +233,7 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
     }
 }
 
-struct SendForm {
+fileprivate struct SendForm {
     let quantity = Variable<Double>(0)
     let account = Variable<String>("")
     let memo = Variable<String>("")

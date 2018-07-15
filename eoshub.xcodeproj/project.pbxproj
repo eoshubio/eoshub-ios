@@ -97,6 +97,11 @@
 		2C770C9320FB30AD007F71C4 /* Symbol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C9220FB30AD007F71C4 /* Symbol.swift */; };
 		2C770C9520FB436F007F71C4 /* RefundInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C9420FB436F007F71C4 /* RefundInfo.swift */; };
 		2C770C9720FB6E94007F71C4 /* RoundedShadowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C9620FB6E94007F71C4 /* RoundedShadowButton.swift */; };
+		2C770C9920FB77F4007F71C4 /* DelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C9820FB77F4007F71C4 /* DelegateViewController.swift */; };
+		2C770C9B20FB7CBD007F71C4 /* DelegateFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C9A20FB7CBD007F71C4 /* DelegateFlowController.swift */; };
+		2C770C9D20FB85DB007F71C4 /* UITextField+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C9C20FB85DB007F71C4 /* UITextField+extension.swift */; };
+		2C770C9F20FB8BBE007F71C4 /* UndelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C9E20FB8BBE007F71C4 /* UndelegateViewController.swift */; };
+		2C770CA120FB8E0F007F71C4 /* UndelegateFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA020FB8E0F007F71C4 /* UndelegateFlowController.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
 		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
 		2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */; };
@@ -278,6 +283,11 @@
 		2C770C9220FB30AD007F71C4 /* Symbol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Symbol.swift; sourceTree = "<group>"; };
 		2C770C9420FB436F007F71C4 /* RefundInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefundInfo.swift; sourceTree = "<group>"; };
 		2C770C9620FB6E94007F71C4 /* RoundedShadowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedShadowButton.swift; sourceTree = "<group>"; };
+		2C770C9820FB77F4007F71C4 /* DelegateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateViewController.swift; sourceTree = "<group>"; };
+		2C770C9A20FB7CBD007F71C4 /* DelegateFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegateFlowController.swift; sourceTree = "<group>"; };
+		2C770C9C20FB85DB007F71C4 /* UITextField+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+extension.swift"; sourceTree = "<group>"; };
+		2C770C9E20FB8BBE007F71C4 /* UndelegateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndelegateViewController.swift; sourceTree = "<group>"; };
+		2C770CA020FB8E0F007F71C4 /* UndelegateFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndelegateFlowController.swift; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE110A820F1C31000B93BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CE110AD20F1C31000B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Intro.storyboard; sourceTree = "<group>"; };
@@ -567,6 +577,7 @@
 				2C2ACFC220F3B86600C637D8 /* Double+extension.swift */,
 				2C2ACFEC20F48E1D00C637D8 /* UIButton+extension.swift */,
 				2C279C0220FA0E3000D2F6C4 /* RealmString.swift */,
+				2C770C9C20FB85DB007F71C4 /* UITextField+extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -602,6 +613,8 @@
 				2CE110F620F1E00D00B93BEB /* TermFlowController.swift */,
 				2CE1110120F1EE9C00B93BEB /* WalletFlowController.swift */,
 				2CEC2D4D20F65D8600AF5E9B /* WalletDetailFlowController.swift */,
+				2C770C9A20FB7CBD007F71C4 /* DelegateFlowController.swift */,
+				2C770CA020FB8E0F007F71C4 /* UndelegateFlowController.swift */,
 				2C770C8E20FAF1F5007F71C4 /* TokenDetailFlowController.swift */,
 				2C279B7420F7844300D2F6C4 /* SendCurrencyFlowController.swift */,
 				2C279B7820F7A4A100D2F6C4 /* ReceiveFlowController.swift */,
@@ -628,6 +641,8 @@
 				2CE1112320F24CF200B93BEB /* MainTabViewController.swift */,
 				2CE110FF20F1EDB000B93BEB /* WalletViewController.swift */,
 				2CEC2D4920F65C3000AF5E9B /* WalletDetailViewController.swift */,
+				2C770C9820FB77F4007F71C4 /* DelegateViewController.swift */,
+				2C770C9E20FB8BBE007F71C4 /* UndelegateViewController.swift */,
 				2C770C8C20FAECA8007F71C4 /* TokenDetailViewController.swift */,
 				2C279B7220F783DF00D2F6C4 /* SendCurrencyViewController.swift */,
 				2C279B7620F7A29A00D2F6C4 /* ReceiveViewController.swift */,
@@ -980,6 +995,7 @@
 				2C279C0120FA0B7100D2F6C4 /* VoterInfo.swift in Sources */,
 				2C279C0520FA43F700D2F6C4 /* TokenManager.swift in Sources */,
 				2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */,
+				2C770C9920FB77F4007F71C4 /* DelegateViewController.swift in Sources */,
 				2C2ACFD520F4427F00C637D8 /* ImportViewController.swift in Sources */,
 				2C279B8F20F8C30700D2F6C4 /* SignedTransaction.swift in Sources */,
 				2C279BC520F8C58100D2F6C4 /* EOSHost.swift in Sources */,
@@ -1002,6 +1018,7 @@
 				2C770C9120FB2628007F71C4 /* Tx.swift in Sources */,
 				2CE1110020F1EDB000B93BEB /* WalletViewController.swift in Sources */,
 				2CFE954A20F3947300DC173F /* EOSAccountViewModel.swift in Sources */,
+				2C770C9D20FB85DB007F71C4 /* UITextField+extension.swift in Sources */,
 				2CE1113020F26BA300B93BEB /* AirdropViewController.swift in Sources */,
 				2C279BA820F8C3CB00D2F6C4 /* base58.c in Sources */,
 				2C279B7D20F7AEDD00D2F6C4 /* BaseTableViewController.swift in Sources */,
@@ -1019,6 +1036,7 @@
 				2C279BEA20F8DDE700D2F6C4 /* EHUser.swift in Sources */,
 				2CEC2D4A20F65C3000AF5E9B /* WalletDetailViewController.swift in Sources */,
 				2C279B9320F8C30700D2F6C4 /* PackedTransaction.swift in Sources */,
+				2C770C9B20FB7CBD007F71C4 /* DelegateFlowController.swift in Sources */,
 				2CEC2D4620F6423000AF5E9B /* AccountManager.swift in Sources */,
 				2C770C9320FB30AD007F71C4 /* Symbol.swift in Sources */,
 				2CE110F120F1D65400B93BEB /* Color.swift in Sources */,
@@ -1031,6 +1049,7 @@
 				2CE1111D20F23D3800B93BEB /* Dimension.swift in Sources */,
 				2C2ACFD120F3DD1800C637D8 /* CreateFlowController.swift in Sources */,
 				2C2ACFD920F4524A00C637D8 /* GrayButton.swift in Sources */,
+				2C770CA120FB8E0F007F71C4 /* UndelegateFlowController.swift in Sources */,
 				2C279B9120F8C30700D2F6C4 /* Permission.swift in Sources */,
 				2CE110EA20F1C9B300B93BEB /* Observable+extension.swift in Sources */,
 				2C279BA520F8C3CB00D2F6C4 /* rmd160.c in Sources */,
@@ -1053,6 +1072,7 @@
 				2C279B8C20F8C30700D2F6C4 /* Action.swift in Sources */,
 				2C279BDC20F8C5A300D2F6C4 /* Block.swift in Sources */,
 				2C2ACFDB20F4607700C637D8 /* FindAccountViewController.swift in Sources */,
+				2C770C9F20FB8BBE007F71C4 /* UndelegateViewController.swift in Sources */,
 				2C2ACFDD20F4608800C637D8 /* TextInputViewController.swift in Sources */,
 				2CE1110E20F1FACD00B93BEB /* LocalizedString.swift in Sources */,
 				2C2ACFED20F48E1D00C637D8 /* UIButton+extension.swift in Sources */,

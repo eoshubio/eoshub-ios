@@ -12,7 +12,7 @@ import UIKit
 class WalletDetailFlowController: FlowController, WalletDetailFlowEventDelegate {
     var configure: FlowConfigure
     
-    var id: FlowIdentifier { return .wallet }
+    var id: FlowIdentifier { return .walletDetail }
     
     var account: AccountInfo!
     
@@ -37,10 +37,23 @@ class WalletDetailFlowController: FlowController, WalletDetailFlowEventDelegate 
     
     
     //MARK: WalletDetailFlowEventDelegate
+    func goToDelegateBW(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = DelegateFlowController(configure: config)
+        fc.configure(account: account)
+        fc.start(animated: true)
+    }
     
+    func goToUndelegateBW(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = UndelegateFlowController(configure: config)
+        fc.configure(account: account)
+        fc.start(animated: true)
+    }
 }
 
 protocol WalletDetailFlowEventDelegate: FlowEventDelegate {
-    
+    func goToDelegateBW(from nc: UINavigationController)
+    func goToUndelegateBW(from nc: UINavigationController)
 }
 

@@ -20,6 +20,9 @@ class AccountInfo: DBObject, EOSAccountViewModel {
     
     @objc dynamic var availableEOS: Double = 0
     @objc dynamic var stakedEOS: Double = 0
+    @objc dynamic var cpuStakedEOS: Double = 0
+    @objc dynamic var netStakedEOS: Double = 0
+    @objc dynamic var ramBytes: Int64 = 0
     
     @objc dynamic var refundingEOS: Double = 0
     @objc dynamic var refundRequestTime: TimeInterval = 0
@@ -75,6 +78,12 @@ class AccountInfo: DBObject, EOSAccountViewModel {
             refundRequestTime = requestTime
             refundingTime = requestTime + 72 * 60 * 60//72hour
         }
+        
+        cpuStakedEOS = eosioAccount.resources.cpuWeight.quantity
+        
+        netStakedEOS = eosioAccount.resources.netWeight.quantity
+        
+        ramBytes = eosioAccount.resources.ramBytes
         
     }
     

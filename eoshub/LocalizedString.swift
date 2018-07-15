@@ -76,6 +76,19 @@ struct LocalizedString {
             static let account = NSLocalizedString("wallet.transfer.account", comment: "")
             
         }
+  
+        struct Delegate {
+            static let stakedEOS = NSLocalizedString("wallet.delegate.stakedEOS", comment: "")
+            static let delegate = NSLocalizedString("wallet.delegate.delegate", comment: "")
+            static let undelegate = NSLocalizedString("wallet.delegate.undelegate", comment: "")
+            static let history = NSLocalizedString("wallet.delegate.history", comment: "")
+        }
+        
+        struct Ram {
+            static let buyram = NSLocalizedString("wallet.ram.buyram", comment: "")
+            static let sellram = NSLocalizedString("wallet.ram.sellram", comment: "")
+            static let history = NSLocalizedString("wallet.ram.history", comment: "")
+        }
     }
     
     struct Vote {
@@ -113,6 +126,7 @@ struct LocalizedString {
         static let apply = NSLocalizedString("common.apply", comment: "")
         static let cancel = NSLocalizedString("common.cancel", comment: "")
         static let share = NSLocalizedString("common.share", comment: "")
+        static let done = NSLocalizedString("common.done", comment: "")
     }
     
     

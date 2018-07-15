@@ -23,6 +23,11 @@ enum FlowIdentifier: String {
     case login
     case term
     case wallet
+    case walletDetail
+    case delegatebw
+    case undelegatebw
+    case buyram
+    case sellram
     case send
     case receive
     case tx

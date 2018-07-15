@@ -50,6 +50,14 @@
 "wallet.transfer.history" = "이체 이력";
 "wallet.transfer.account" = "나의 EOS 계정";
 
+"wallet.delegate.stakedEOS" = "할당된 EOS";
+"wallet.delegate.delegate" = "위임 하기";
+"wallet.delegate.undelegate" = "위임 해제";
+"wallet.delegate.history" = "위임 내역";
+"wallet.ram.buyram" = "램 구매";
+"wallet.ram.sellram" = "램 판매";
+"wallet.ram.history" = "매매 내역";
+
 /* 투표 */
 "vote.stakedEOS" = "할당된 EOS";
 "vote.changeStake" = "EOS 할당/반환하기";
@@ -82,4 +90,4 @@
 "common.apply" = "적용하기";
 "common.cancel" = "취소하기";
 "common.share" = "공유하기";
-
+"common.done" = "완료";
