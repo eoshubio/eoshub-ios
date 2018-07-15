@@ -31,7 +31,7 @@ struct EOSAPI {
     }
     
     public enum History: String {
-        case get_action
+        case get_actions
         case get_transaction
         case get_key_accounts
         case get_controlled_accounts

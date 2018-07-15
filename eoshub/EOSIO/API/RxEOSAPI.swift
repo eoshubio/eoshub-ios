@@ -85,6 +85,15 @@ struct RxEOSAPI {
             })
     }
     
+    static func getActions(accountName: String) -> Observable<JSON> {
+
+        let params: JSON = ["account_name": accountName, "pos": -1, "offset": -20]
+        
+        return EOSAPI.History.get_actions
+                    .responseJSON(method: .post, parameter: params, encoding: JSONEncoding.default)
+        
+        
+    }
     
     //MARK: Wallet
     
@@ -251,7 +260,7 @@ extension RxEOSAPI {
       
         guard let code = TokenManager.getContract(for: quantity.symbol) else { return Observable.error(EOSErrorType.contractNotFound )}
         
-        let contract = Contract.transfer(code: code, from: from, to: to, quantity: quantity)
+        let contract = Contract.transfer(code: code, from: from, to: to, quantity: quantity, memo: memo)
 
         return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
         
@@ -302,6 +311,17 @@ extension RxEOSAPI {
         }
         
         return Observable.zip(rxGetTokens)
+    }
+    
+    //MARK: Transaction History
+    static func getTxHistory(account: String)  -> Observable<[Tx]> {
+        return getActions(accountName: account)
+            .flatMap { (json) -> Observable<[Tx]> in
+                guard let actions = json.arrayJson(for: "actions") else { return Observable.error(EOSErrorType.emptyData) }
+                let txs = actions.compactMap(Tx.init)
+                let txSet = Set(txs)
+                return Observable.just(Array(txSet))
+            }
     }
 }
 

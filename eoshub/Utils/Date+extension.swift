@@ -21,6 +21,12 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
+    func dataToLocalTime() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YY.MM.dd HH:mm:ss"
+        return dateFormatter.string(from: self)
+    }
+    
     func dateToTime() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd HH:mm"

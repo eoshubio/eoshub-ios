@@ -37,9 +37,10 @@ class SendCurrencyFlowController: FlowController, SendFlowEventDelegate {
         }
     }
     
-    func goToTx(from nc: UINavigationController) {
+    func goToTx(from nc: UINavigationController, account: AccountInfo, filter: [Symbol]) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = TxFlowController(configure: config)
+        fc.configure(account: account, filter: filter)
         fc.start(animated: true)
     }
     
@@ -47,5 +48,5 @@ class SendCurrencyFlowController: FlowController, SendFlowEventDelegate {
 
 
 protocol SendFlowEventDelegate: FlowEventDelegate {
-    func goToTx(from nc: UINavigationController)
+    func goToTx(from nc: UINavigationController, account: AccountInfo, filter: [Symbol])
 }

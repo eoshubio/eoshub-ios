@@ -50,8 +50,7 @@ class SendCurrencyViewController: TextInputViewController {
     private func bindActions() {
         btnHistory.rx.singleTap
             .bind { [weak self] in
-                guard let nc = self?.navigationController else { return }
-                self?.flowDelegate?.goToTx(from: nc)
+                self?.goToTxHistory()
             }
             .disposed(by: bag)
         
@@ -67,7 +66,12 @@ class SendCurrencyViewController: TextInputViewController {
         self.balance = balance
     }
     
-    func transfer() {
+    fileprivate func goToTxHistory() {
+        guard let nc = navigationController else { return }
+        flowDelegate?.goToTx(from: nc, account: account, filter: [balance.symbol])
+    }
+    
+    fileprivate func transfer() {
         //TODO: validation account
         //TODO: validate available EOS
         authentication(showAt: self)
