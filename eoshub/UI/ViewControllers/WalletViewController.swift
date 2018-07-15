@@ -22,7 +22,7 @@ class WalletViewController: BaseViewController {
     
     @IBOutlet fileprivate var walletList: UITableView!
     
-    @IBOutlet fileprivate var botContainer: UIView!
+    @IBOutlet fileprivate var btnRefresh: RoundedShadowButton!
     
     fileprivate var items: [[CellType]] = []
     
@@ -49,9 +49,6 @@ class WalletViewController: BaseViewController {
     private func setupUI() {
         btnProfile.setCornerRadius(radius: btnProfile.bounds.height * 0.5)
         btnProfile.imageView?.contentMode = .scaleAspectFill
-        btnProfile.layer.shadowColor = UIColor.black.cgColor
-        btnProfile.layer.shadowOffset = .zero
-        btnProfile.layer.shadowRadius = 1.0
         
         walletList.contentInset = UIEdgeInsetsMake(0, 0, 100, 0)
         
@@ -114,17 +111,25 @@ class WalletViewController: BaseViewController {
         
         rx_send
             .subscribe(onNext: { [weak self](account) in
-                guard let nc = self?.parent?.navigationController, let account = account as? AccountInfo else { return }
+                guard let nc = self?.parent?.navigationController else { return }
                 self?.flowDelegate?.goToSend(from: nc, with: account)
             })
             .disposed(by: bag)
         
         rx_receive
             .subscribe(onNext: { [weak self](account) in
-                guard let nc = self?.parent?.navigationController, let account = account as? AccountInfo else { return }
+                guard let nc = self?.parent?.navigationController else { return }
                 self?.flowDelegate?.goToReceive(from: nc, with: account)
             })
             .disposed(by: bag)
+        
+        btnRefresh.rx.singleTap
+            .flatMap({ (_) -> Observable<Void> in
+                return AccountManager.shared.loadAccounts()
+            })
+            .subscribe()
+            .disposed(by: bag)
+        
         
         AccountManager.shared.loadAccounts()
             .subscribe()

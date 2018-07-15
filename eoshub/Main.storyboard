@@ -74,7 +74,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZN-E2-KgO" customClass="BounceButton" customModule="eoshub" customModuleProvider="target">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eZN-E2-KgO" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
                                 <rect key="frame" x="180" y="50" width="54" height="54"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -92,6 +92,21 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <sections/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cTi-zZ-bPb" customClass="RoundedShadowButton" customModule="eoshub" customModuleProvider="target">
+                                <rect key="frame" x="343" y="650" width="56" height="56"/>
+                                <color key="backgroundColor" red="0.73725490199999999" green="0.40000000000000002" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="56" id="VPl-Bf-zgS"/>
+                                    <constraint firstAttribute="height" constant="56" id="z1H-at-gpJ"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                <state key="normal" image="refresh"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                        <real key="value" value="28"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -100,9 +115,11 @@
                             <constraint firstItem="FAs-OS-sZB" firstAttribute="top" secondItem="eZN-E2-KgO" secondAttribute="bottom" constant="49" id="FLq-aC-QfA"/>
                             <constraint firstItem="eZN-E2-KgO" firstAttribute="top" secondItem="Pwx-Tv-sdU" secondAttribute="top" constant="50" id="FqX-XX-472"/>
                             <constraint firstItem="eZN-E2-KgO" firstAttribute="centerY" secondItem="gam-Rk-hxW" secondAttribute="centerY" id="HCm-kc-GGt"/>
+                            <constraint firstItem="fkE-c3-m6q" firstAttribute="bottom" secondItem="cTi-zZ-bPb" secondAttribute="bottom" constant="30" id="WEK-Ig-rfh"/>
                             <constraint firstItem="I5F-SI-S9r" firstAttribute="centerY" secondItem="eZN-E2-KgO" secondAttribute="centerY" id="XN2-2b-t5t"/>
                             <constraint firstItem="eZN-E2-KgO" firstAttribute="centerX" secondItem="Pwx-Tv-sdU" secondAttribute="centerX" id="YNq-vm-Ua2"/>
                             <constraint firstItem="gam-Rk-hxW" firstAttribute="leading" secondItem="fkE-c3-m6q" secondAttribute="leading" constant="30" id="c7F-Pg-sYY"/>
+                            <constraint firstItem="fkE-c3-m6q" firstAttribute="trailing" secondItem="cTi-zZ-bPb" secondAttribute="trailing" constant="15" id="lB0-0P-JqH"/>
                             <constraint firstItem="fkE-c3-m6q" firstAttribute="bottom" secondItem="FAs-OS-sZB" secondAttribute="bottom" id="oxM-By-JQ7"/>
                             <constraint firstItem="FAs-OS-sZB" firstAttribute="leading" secondItem="fkE-c3-m6q" secondAttribute="leading" constant="10" id="uuR-VZ-4YF"/>
                         </constraints>
@@ -111,6 +128,7 @@
                     <connections>
                         <outlet property="btnNotice" destination="gam-Rk-hxW" id="ubx-Pw-hEl"/>
                         <outlet property="btnProfile" destination="eZN-E2-KgO" id="e5U-sb-coK"/>
+                        <outlet property="btnRefresh" destination="cTi-zZ-bPb" id="KuK-vi-PqI"/>
                         <outlet property="btnSetting" destination="I5F-SI-S9r" id="IDs-HS-RWj"/>
                         <outlet property="walletList" destination="FAs-OS-sZB" id="fZe-NC-T7V"/>
                         <segue destination="5fn-Lf-goR" kind="show" id="hjA-bh-CmQ"/>
@@ -390,6 +408,7 @@
         <image name="option" width="40" height="40"/>
         <image name="radioOffBig" width="70" height="70"/>
         <image name="radioOnBig" width="70" height="70"/>
+        <image name="refresh" width="52" height="52"/>
         <image name="setting" width="58" height="58"/>
     </resources>
 </document>
