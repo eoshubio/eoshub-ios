@@ -85,6 +85,8 @@ class WalletDetailViewController: BaseViewController {
         refundingEOS.text = viewModel.refundingEOS.dot4String
         remainTime.text = viewModel.refundingDateString
         
+        let eosStates: [EOSState] = [.available, .staked, .refunding]
+        progress.configure(items: eosStates)
         
         let staked = EOSAmount(id: EOSState.staked.id, value: viewModel.stakedEOS.f)
         let refunding = EOSAmount(id: EOSState.refunding.id, value: viewModel.refundingEOS.f)
