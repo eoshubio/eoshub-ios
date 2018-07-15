@@ -30,6 +30,7 @@ extension Contract {
         case payer
         case quant
         case bytes
+        case account
 
     }
     
@@ -52,6 +53,11 @@ extension Contract {
             static let payer = Key.payer.rawValue
             static let receiver = Key.receiver.rawValue
             static let quant = Key.quant.rawValue
+        }
+        
+        struct sellram {
+            static let account = Key.account.rawValue
+            static let bytes = Key.bytes.rawValue
         }
         
         struct buyrambytes {

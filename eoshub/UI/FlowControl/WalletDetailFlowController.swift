@@ -50,10 +50,26 @@ class WalletDetailFlowController: FlowController, WalletDetailFlowEventDelegate 
         fc.configure(account: account)
         fc.start(animated: true)
     }
+    
+    func goToBuyRam(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = BuyRamFlowController(configure: config)
+        fc.configure(account: account)
+        fc.start(animated: true)
+    }
+    
+    func goToSellRam(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = SellRamFlowController(configure: config)
+        fc.configure(account: account)
+        fc.start(animated: true)
+    }
 }
 
 protocol WalletDetailFlowEventDelegate: FlowEventDelegate {
     func goToDelegateBW(from nc: UINavigationController)
     func goToUndelegateBW(from nc: UINavigationController)
+    func goToBuyRam(from nc: UINavigationController)
+    func goToSellRam(from nc: UINavigationController)
 }
 

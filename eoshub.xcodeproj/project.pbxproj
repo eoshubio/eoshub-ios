@@ -102,6 +102,10 @@
 		2C770C9D20FB85DB007F71C4 /* UITextField+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C9C20FB85DB007F71C4 /* UITextField+extension.swift */; };
 		2C770C9F20FB8BBE007F71C4 /* UndelegateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C9E20FB8BBE007F71C4 /* UndelegateViewController.swift */; };
 		2C770CA120FB8E0F007F71C4 /* UndelegateFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA020FB8E0F007F71C4 /* UndelegateFlowController.swift */; };
+		2C770CA320FB9921007F71C4 /* BuyRamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA220FB9921007F71C4 /* BuyRamViewController.swift */; };
+		2C770CA520FB9B97007F71C4 /* BuyRamFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA420FB9B97007F71C4 /* BuyRamFlowController.swift */; };
+		2C770CA720FBA051007F71C4 /* SellRamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA620FBA051007F71C4 /* SellRamViewController.swift */; };
+		2C770CA920FBA2A9007F71C4 /* SellRamFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA820FBA2A9007F71C4 /* SellRamFlowController.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
 		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
 		2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */; };
@@ -288,6 +292,10 @@
 		2C770C9C20FB85DB007F71C4 /* UITextField+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+extension.swift"; sourceTree = "<group>"; };
 		2C770C9E20FB8BBE007F71C4 /* UndelegateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndelegateViewController.swift; sourceTree = "<group>"; };
 		2C770CA020FB8E0F007F71C4 /* UndelegateFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UndelegateFlowController.swift; sourceTree = "<group>"; };
+		2C770CA220FB9921007F71C4 /* BuyRamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyRamViewController.swift; sourceTree = "<group>"; };
+		2C770CA420FB9B97007F71C4 /* BuyRamFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyRamFlowController.swift; sourceTree = "<group>"; };
+		2C770CA620FBA051007F71C4 /* SellRamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellRamViewController.swift; sourceTree = "<group>"; };
+		2C770CA820FBA2A9007F71C4 /* SellRamFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellRamFlowController.swift; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE110A820F1C31000B93BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CE110AD20F1C31000B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Intro.storyboard; sourceTree = "<group>"; };
@@ -615,6 +623,8 @@
 				2CEC2D4D20F65D8600AF5E9B /* WalletDetailFlowController.swift */,
 				2C770C9A20FB7CBD007F71C4 /* DelegateFlowController.swift */,
 				2C770CA020FB8E0F007F71C4 /* UndelegateFlowController.swift */,
+				2C770CA420FB9B97007F71C4 /* BuyRamFlowController.swift */,
+				2C770CA820FBA2A9007F71C4 /* SellRamFlowController.swift */,
 				2C770C8E20FAF1F5007F71C4 /* TokenDetailFlowController.swift */,
 				2C279B7420F7844300D2F6C4 /* SendCurrencyFlowController.swift */,
 				2C279B7820F7A4A100D2F6C4 /* ReceiveFlowController.swift */,
@@ -643,6 +653,8 @@
 				2CEC2D4920F65C3000AF5E9B /* WalletDetailViewController.swift */,
 				2C770C9820FB77F4007F71C4 /* DelegateViewController.swift */,
 				2C770C9E20FB8BBE007F71C4 /* UndelegateViewController.swift */,
+				2C770CA220FB9921007F71C4 /* BuyRamViewController.swift */,
+				2C770CA620FBA051007F71C4 /* SellRamViewController.swift */,
 				2C770C8C20FAECA8007F71C4 /* TokenDetailViewController.swift */,
 				2C279B7220F783DF00D2F6C4 /* SendCurrencyViewController.swift */,
 				2C279B7620F7A29A00D2F6C4 /* ReceiveViewController.swift */,
@@ -986,6 +998,7 @@
 				2C279BFD20F9D39600D2F6C4 /* AccountInfo.swift in Sources */,
 				2CE1113A20F27BE000B93BEB /* WalletCell.swift in Sources */,
 				2CE1110620F1F76200B93BEB /* SettingFlowController.swift in Sources */,
+				2C770CA920FBA2A9007F71C4 /* SellRamFlowController.swift in Sources */,
 				2CE1112020F2403100B93BEB /* MenuTabBar.swift in Sources */,
 				2CE1113420F26D8000B93BEB /* WalletAddCell.swift in Sources */,
 				2CE1110220F1EE9C00B93BEB /* WalletFlowController.swift in Sources */,
@@ -1003,6 +1016,7 @@
 				2C279B7920F7A4A100D2F6C4 /* ReceiveFlowController.swift in Sources */,
 				2C770C9720FB6E94007F71C4 /* RoundedShadowButton.swift in Sources */,
 				2C279BB620F8C42700D2F6C4 /* EosPrivateKey.m in Sources */,
+				2C770CA320FB9921007F71C4 /* BuyRamViewController.swift in Sources */,
 				2C2ACFE320F476F900C637D8 /* PincodeView.swift in Sources */,
 				2C2ACFFD20F4B9A900C637D8 /* PurpleButton.swift in Sources */,
 				2C279BE820F8DD6A00D2F6C4 /* EHAccount.swift in Sources */,
@@ -1021,6 +1035,7 @@
 				2C770C9D20FB85DB007F71C4 /* UITextField+extension.swift in Sources */,
 				2CE1113020F26BA300B93BEB /* AirdropViewController.swift in Sources */,
 				2C279BA820F8C3CB00D2F6C4 /* base58.c in Sources */,
+				2C770CA720FBA051007F71C4 /* SellRamViewController.swift in Sources */,
 				2C279B7D20F7AEDD00D2F6C4 /* BaseTableViewController.swift in Sources */,
 				2C279BE420F8D83800D2F6C4 /* WalletManager.swift in Sources */,
 				2C279BF220F8EB3E00D2F6C4 /* ValidatePinFlowController.swift in Sources */,
@@ -1045,6 +1060,7 @@
 				2CE110F720F1E00D00B93BEB /* TermFlowController.swift in Sources */,
 				2CE110F520F1DCEC00B93BEB /* TermViewController.swift in Sources */,
 				2C2ACFD720F442E400C637D8 /* ImportFlowController.swift in Sources */,
+				2C770CA520FB9B97007F71C4 /* BuyRamFlowController.swift in Sources */,
 				2C279BEC20F8DECF00D2F6C4 /* DB.swift in Sources */,
 				2CE1111D20F23D3800B93BEB /* Dimension.swift in Sources */,
 				2C2ACFD120F3DD1800C637D8 /* CreateFlowController.swift in Sources */,

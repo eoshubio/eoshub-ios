@@ -1,8 +1,8 @@
 //
-//  DelegateViewController.swift
+//  BuyRamViewController.swift
 //  eoshub
 //
-//  Created by kein on 2018. 7. 15..
+//  Created by kein on 2018. 7. 16..
 //  Copyright © 2018년 EOS Hub. All rights reserved.
 //
 
@@ -10,20 +10,20 @@ import Foundation
 import UIKit
 import RxSwift
 
-class DelegateViewController: BaseViewController {
+class BuyRamViewController: BaseViewController {
     
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet fileprivate weak var btnStake: UIButton!
     @IBOutlet fileprivate weak var btnHistory: UIButton!
     
-    fileprivate let inputForm = DelegateInputForm()
+    fileprivate let inputForm = RamInputForm()
     
     fileprivate var account: AccountInfo!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showNavigationBar(with: .white)
-        title = LocalizedString.Wallet.Delegate.delegate        
+        title = LocalizedString.Wallet.Ram.buyram
     }
     
     override func viewDidLoad() {
@@ -42,28 +42,27 @@ class DelegateViewController: BaseViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 150
         
-        btnStake.setTitle(LocalizedString.Wallet.Delegate.delegate, for: .normal)
-        btnHistory.setTitle(LocalizedString.Wallet.Delegate.history, for: .normal)
+        btnStake.setTitle(LocalizedString.Wallet.Ram.buyram, for: .normal)
+        btnHistory.setTitle(LocalizedString.Wallet.Ram.history, for: .normal)
     }
     
     private func bindActions() {
         
         btnStake.rx.singleTap
             .bind { [weak self] in
-                self?.delegatebw()
+                self?.handleTransaction()
             }
             .disposed(by: bag)
         
     }
     
-    private func delegatebw() {
-        
-        let cpu = Currency(balance: inputForm.cpu.value, symbol: .eos)
-        let net = Currency(balance: inputForm.net.value, symbol: .eos)
+    private func handleTransaction() {
+
+        let quantity = Currency(balance: inputForm.quantity.value, symbol: .eos)
         let accountName = account.account
         unlockWallet(pinTarget: self, pubKey: account.pubKey)
             .flatMap { (wallet) -> Observable<JSON> in
-                return RxEOSAPI.delegatebw(account: accountName, cpu: cpu, net: net, wallet: wallet)
+                return RxEOSAPI.buyram(account: accountName, quantity: quantity, wallet: wallet)
             }
             .flatMap { (_) -> Observable<Void> in
                 return AccountManager.shared.loadAccounts()
@@ -72,12 +71,12 @@ class DelegateViewController: BaseViewController {
                 Log.e(error)
             })
             .disposed(by: bag)
-        
+
     }
     
 }
 
-extension DelegateViewController: UITableViewDataSource {
+extension BuyRamViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 2
     }
@@ -91,8 +90,8 @@ extension DelegateViewController: UITableViewDataSource {
             return cell
             
         } else {
-            cellId = "DelegateInputFormCell"
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? DelegateInputFormCell else { preconditionFailure() }
+            cellId = "RamInputFormCell"
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? RamInputFormCell else { preconditionFailure() }
             cell.configure(account: account, inputForm: inputForm)
             return cell
         }
@@ -100,13 +99,11 @@ extension DelegateViewController: UITableViewDataSource {
 }
 
 
-class DelegateInputFormCell: UITableViewCell {
-    @IBOutlet fileprivate weak var cpuStaked: UILabel!
-    @IBOutlet fileprivate weak var netStaked: UILabel!
-    @IBOutlet fileprivate weak var txtCpuQuantity: UITextField!
-    @IBOutlet fileprivate weak var txtNetQuantity: UITextField!
-    @IBOutlet fileprivate weak var lbCpuQuantity: UILabel!
-    @IBOutlet fileprivate weak var lbNetQuantity: UILabel!
+class RamInputFormCell: UITableViewCell {
+    @IBOutlet fileprivate weak var ramBytes: UILabel!
+    @IBOutlet fileprivate weak var txtQuantity: UITextField!
+    @IBOutlet fileprivate weak var lbQuantity: UILabel!
+    @IBOutlet fileprivate weak var lbWarning: UILabel!
     
     private var bag: DisposeBag? = nil
     
@@ -117,10 +114,8 @@ class DelegateInputFormCell: UITableViewCell {
     
     
     private func setupUI() {
-        lbCpuQuantity.text = LocalizedString.Wallet.Transfer.quantity
-        lbNetQuantity.text = LocalizedString.Wallet.Transfer.quantity
-        txtCpuQuantity.addDoneButtonToKeyboard(myAction: #selector(self.txtCpuQuantity.resignFirstResponder))
-        txtNetQuantity.addDoneButtonToKeyboard(myAction: #selector(self.txtNetQuantity.resignFirstResponder))
+        lbQuantity.text = LocalizedString.Wallet.Transfer.quantity
+        txtQuantity.addDoneButtonToKeyboard(myAction: #selector(self.txtQuantity.resignFirstResponder))
     }
     
     override func prepareForReuse() {
@@ -128,20 +123,13 @@ class DelegateInputFormCell: UITableViewCell {
         bag = nil
     }
     
-    func configure(account: AccountInfo, inputForm: DelegateInputForm) {
-        cpuStaked.text = account.cpuStakedEOS.dot4String
-        netStaked.text = account.netStakedEOS.dot4String
+    func configure(account: AccountInfo, inputForm: RamInputForm) {
+        ramBytes.text = account.ramBytes.prettyPrinted + " Bytes"
         
         let bag = DisposeBag()
-        txtCpuQuantity.rx.text.orEmpty
+        txtQuantity.rx.text.orEmpty
             .subscribe(onNext: { (text) in
-                inputForm.cpu.value = Double(text) ?? 0
-            })
-            .disposed(by: bag)
-        
-        txtNetQuantity.rx.text.orEmpty
-            .subscribe(onNext: { (text) in
-                inputForm.net.value = Double(text) ?? 0
+                inputForm.quantity.value = Double(text) ?? 0
             })
             .disposed(by: bag)
         
@@ -149,8 +137,6 @@ class DelegateInputFormCell: UITableViewCell {
     }
 }
 
-
-struct DelegateInputForm {
-    let cpu = Variable<Double>(0)
-    let net = Variable<Double>(0)
+struct RamInputForm {
+    let quantity = Variable<Double>(0)
 }

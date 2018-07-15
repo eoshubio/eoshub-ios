@@ -298,6 +298,16 @@ extension RxEOSAPI {
         
     }
     
+    //MARK: Ram
+    static func buyram(account: String, quantity: Currency, wallet: Wallet) -> Observable<JSON> {
+        let contract = Contract.buyram(payer: account, receiver: account, quant: quantity)
+        return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+    }
+    
+    static func sellram(account: String, bytes: Int64, wallet: Wallet) -> Observable<JSON> {
+        let contract = Contract.sellram(account: account, bytes: bytes)
+        return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+    }
     
     //MARK: Get Producer
     static func getProducers(limit: Int) -> Observable<BlockProducers> {

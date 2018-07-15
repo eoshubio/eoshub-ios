@@ -49,7 +49,7 @@ extension Contract {
         return contract
     }
     
-    static func buyram(payer: String/*eoshub*/, receiver: String, quant: Currency) -> Contract {
+    static func buyram(payer: String, receiver: String, quant: Currency) -> Contract {
         let contract = Contract(code: "eosio",
                                 action: "buyram",
                                 args: [Args.buyram.payer: payer,
@@ -58,6 +58,17 @@ extension Contract {
                                 authorization: Authorization(actor: payer, permission: .active))
         return contract
     }
+    
+    static func sellram(account: String, bytes: Int64) -> Contract {
+        let contract = Contract(code: "eosio",
+                                action: "sellram",
+                                args: [Args.sellram.account: account,
+                                       Args.sellram.bytes: bytes],
+                                authorization: Authorization(actor: account, permission: .active))
+        return contract
+    }
+    
+    
     
     static func buyramBytes(payer: String/*eoshub*/, receiver: String, bytes: Int64) -> Contract {
         let contract = Contract(code: "eosio",

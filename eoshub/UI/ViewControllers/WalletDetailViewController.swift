@@ -104,6 +104,20 @@ class WalletDetailViewController: BaseViewController {
                 self?.flowDelegate?.goToUndelegateBW(from: nc)
             }
             .disposed(by: bag)
+        
+        btnBuyRam.rx.singleTap
+            .bind { [weak self] in
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goToBuyRam(from: nc)
+            }
+            .disposed(by: bag)
+        
+        btnSellRam.rx.singleTap
+            .bind { [weak self] in
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goToSellRam(from: nc)
+            }
+            .disposed(by: bag)
     }
     
     
@@ -126,7 +140,7 @@ class WalletDetailViewController: BaseViewController {
         //resources
         resCPU.text = viewModel.cpuStakedEOS.dot4String + " " + .eos
         resNet.text = viewModel.netStakedEOS.dot4String + " " + .eos
-        
+        resRam.text = viewModel.ramBytes.prettyPrinted + " Bytes"
         
         //refund
         remainTimeView.isHidden = (viewModel.refundingEOS == 0)

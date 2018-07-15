@@ -75,3 +75,25 @@ extension String {
         return index(startIndex, offsetBy: offset)
     }
 }
+
+extension Int64 {
+    var prettyPrinted: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        let formattedNumber = numberFormatter.string(from: NSNumber(value: self))
+        return formattedNumber ?? "0"
+    }
+}
+
+extension Double {
+    var prettyPrinted: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = NumberFormatter.Style.decimal
+        let formattedNumber = numberFormatter.string(from: NSNumber(value: self))
+        return formattedNumber ?? "0"
+    }
+}
+
+
+
+
