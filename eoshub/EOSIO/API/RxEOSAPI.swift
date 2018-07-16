@@ -87,7 +87,7 @@ struct RxEOSAPI {
     
     static func getActions(accountName: String) -> Observable<JSON> {
 
-        let params: JSON = ["account_name": accountName, "pos": -1, "offset": -20]
+        let params: JSON = ["account_name": accountName, "pos": -1, "offset": -200]
         
         return EOSAPI.History.get_actions
                     .responseJSON(method: .post, parameter: params, encoding: JSONEncoding.default)
@@ -195,7 +195,7 @@ struct RxEOSAPI {
     static func makeAction(contract: Contract) -> Observable<Action> {
         return RxEOSAPI.jsonToBin(json: contract.json)
             .flatMap { (binary) -> Observable<Action> in
-                let action = Action(account: contract.code, action: contract.action, authorization: contract.authorization, binary: binary.bin)
+                let action = Action(account: contract.code, action: contract.action.rawValue, authorization: contract.authorization, binary: binary.bin)
                 return Observable.just(action)
             }
     }

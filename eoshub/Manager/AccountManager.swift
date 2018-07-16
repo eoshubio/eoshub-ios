@@ -23,7 +23,9 @@ class AccountManager {
     
     var mainAccount: AccountInfo? = nil // save to preference
     
-    var infos: [AccountInfo] = []
+    lazy var infos: Results<AccountInfo> = {
+       return DB.shared.getAccountInfos()
+    }()
     
     let accountInfoRefreshed = PublishSubject<Void>()
     
@@ -32,25 +34,25 @@ class AccountManager {
     }
     
     func loadAccounts() -> Observable<Void> {
-        infos.removeAll()
+        
+        var accountInfos: [AccountInfo] = []
+        
         return Observable.from(Array(eoshubAccounts))
-            .concatMap { [unowned self](account) -> Observable<Void> in
+            .concatMap { [unowned self](account) -> Observable<AccountInfo> in
                 return self.getAccountInfo(account: account)
-                    .do(onCompleted: { [weak self] in
-                        
-                        //Refresh main account
-                        self?.infos.forEach({ (info) in
-                            if info.account == self?.mainAccount?.account {
-                                self?.mainAccount = info
-                            }
-                        })
-                        
-                        self?.refreshUI()
-                    })
-        }
+            }
+            .do(onNext: { (info) in
+                accountInfos.append(info)
+            }, onError: { (error) in
+                Log.e(error)
+            }, onCompleted: {
+                DB.shared.addOrUpdateObjects(accountInfos)
+                self.refreshUI()
+            })
+            .flatMap({ _ in Observable.just(())})
     }
     
-    private func getAccountInfo(account: EHAccount) -> Observable<Void> {
+    private func getAccountInfo(account: EHAccount) -> Observable<AccountInfo> {
         
         let knownTokens = TokenManager.shared.knownTokens
         
@@ -58,15 +60,14 @@ class AccountManager {
             .flatMap({ [weak self](account) ->  Observable<AccountInfo> in
                 let owner = self?.eoshubAccounts.filter("account = '\(account.name)'").first?.owner ?? false
                 let info = AccountInfo(with: account, isOwner: owner)
-                self?.infos.append(info)
                 return Observable.just(info)
             })
-            .flatMap { (info) -> Observable<Void> in
+            .flatMap { (info) -> Observable<AccountInfo> in
                 return RxEOSAPI.getTokens(account: account, tokenInfos: knownTokens)
-                    .flatMap({ (tokenBalances) -> Observable<Void> in
-                        info.addTokens(currency: tokenBalances)
-                        return Observable.just(())
-                    })
+                        .flatMap({ (tokenBalances) -> Observable<AccountInfo> in
+                            info.addTokens(currency: tokenBalances)
+                            return Observable.just(info)
+                        })
             }
     }
     

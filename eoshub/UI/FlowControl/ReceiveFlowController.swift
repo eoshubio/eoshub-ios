@@ -40,7 +40,7 @@ class ReceiveFlowController: FlowController, ReceiveEventDelegate {
     func goToTx(from nc: UINavigationController) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = TxFlowController(configure: config)
-        fc.configure(account: account, filter: [symbol])
+        fc.configure(accountName: account.account, actions: [.transfer], filter: symbol)
         fc.start(animated: true)
     }
     

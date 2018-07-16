@@ -68,7 +68,7 @@ class SendCurrencyViewController: TextInputViewController {
     
     fileprivate func goToTxHistory() {
         guard let nc = navigationController else { return }
-        flowDelegate?.goToTx(from: nc, account: account, filter: [balance.symbol])
+        flowDelegate?.goToTx(from: nc, account: account, filter: balance.symbol)
     }
     
     fileprivate func transfer() {

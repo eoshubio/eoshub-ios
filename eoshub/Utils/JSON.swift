@@ -19,6 +19,27 @@ protocol JSONOutput {
 }
 
 extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
+    
+    static func createJSON(from jsonString: String) -> JSON? {
+        
+        if let data = jsonString.data(using: .utf8),
+            let decoded = try? JSONSerialization.jsonObject(with: data, options: []) as? JSON {
+                return decoded
+        }
+        return nil
+    }
+    
+    var stringValue: String? {
+        
+        if let jsonData =  try? JSONSerialization.data(withJSONObject: self, options: .prettyPrinted),
+            let string = String(data: jsonData, encoding: .utf8) {
+            return string
+        }
+        return nil
+    }
+}
+
+extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
     func parseValue<T>(for key: Key) -> T? {
         if let value = self[key] as? T {
             return value

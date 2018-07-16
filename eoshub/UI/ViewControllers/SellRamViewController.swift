@@ -12,6 +12,8 @@ import RxSwift
 
 class SellRamViewController: BaseViewController {
     
+    var flowDelegate: SellRamFlowEventDelegate?
+    
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet fileprivate weak var btnStake: UIButton!
     @IBOutlet fileprivate weak var btnHistory: UIButton!
@@ -54,6 +56,12 @@ class SellRamViewController: BaseViewController {
             }
             .disposed(by: bag)
         
+        btnHistory.rx.singleTap
+            .bind { [weak self] in
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goToTx(from: nc)
+            }
+            .disposed(by: bag)
     }
     
     private func handleTransaction() {

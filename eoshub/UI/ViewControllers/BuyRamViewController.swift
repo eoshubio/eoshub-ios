@@ -12,6 +12,8 @@ import RxSwift
 
 class BuyRamViewController: BaseViewController {
     
+    var flowDelegate: BuyRamFlowEventDelegate?
+    
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet fileprivate weak var btnStake: UIButton!
     @IBOutlet fileprivate weak var btnHistory: UIButton!
@@ -51,6 +53,13 @@ class BuyRamViewController: BaseViewController {
         btnStake.rx.singleTap
             .bind { [weak self] in
                 self?.handleTransaction()
+            }
+            .disposed(by: bag)
+        
+        btnHistory.rx.singleTap
+            .bind { [weak self] in
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goToTx(from: nc)
             }
             .disposed(by: bag)
         
@@ -116,6 +125,7 @@ class RamInputFormCell: UITableViewCell {
     private func setupUI() {
         lbQuantity.text = LocalizedString.Wallet.Transfer.quantity
         txtQuantity.addDoneButtonToKeyboard(myAction: #selector(self.txtQuantity.resignFirstResponder))
+        lbWarning.text = LocalizedString.Wallet.Ram.warning
     }
     
     override func prepareForReuse() {

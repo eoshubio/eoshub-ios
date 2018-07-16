@@ -34,7 +34,7 @@ extension Contract {
 
     }
     
-    struct Args {
+    class Args {
         struct newaccount {
             static let creator = Key.creator.rawValue
             static let name = Key.name.rawValue
@@ -87,5 +87,4 @@ extension Contract {
             static let producers = Key.producers.rawValue
         }
     }
-    
 }

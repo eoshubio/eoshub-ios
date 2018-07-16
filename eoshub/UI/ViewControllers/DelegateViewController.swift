@@ -12,6 +12,8 @@ import RxSwift
 
 class DelegateViewController: BaseViewController {
     
+    var flowDelegate: DelegateFlowEventDelegate?
+    
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet fileprivate weak var btnStake: UIButton!
     @IBOutlet fileprivate weak var btnHistory: UIButton!
@@ -53,6 +55,14 @@ class DelegateViewController: BaseViewController {
                 self?.delegatebw()
             }
             .disposed(by: bag)
+        
+        btnHistory.rx.singleTap
+            .bind { [weak self] in
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goToTx(from: nc)
+            }
+            .disposed(by: bag)
+        
         
     }
     

@@ -10,7 +10,7 @@ import Foundation
 import Realm
 import RealmSwift
 
-class AccountInfo: DBObject, EOSAccountViewModel {
+class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     
     @objc dynamic var account: String = ""
     @objc dynamic var pubKey: String = ""
@@ -92,6 +92,22 @@ class AccountInfo: DBObject, EOSAccountViewModel {
         
         usedRam = eosioAccount.ramUsage
         
+    }
+    
+    func mergeChanges(from newObject: AccountInfo) {
+        availableEOS = newObject.availableEOS
+        stakedEOS = newObject.stakedEOS
+        ownerMode = newObject.ownerMode
+        votedProducers = newObject.votedProducers
+        refundingEOS = newObject.refundingEOS
+        refundRequestTime = newObject.refundRequestTime
+        refundingTime = newObject.refundingTime
+        cpuStakedEOS = newObject.cpuStakedEOS
+        netStakedEOS = newObject.netStakedEOS
+        ramBytes = newObject.ramBytes
+        usedRam = newObject.usedRam
+        _tokens.removeAll()
+        _tokens.append(objectsIn: newObject._tokens)
     }
     
     func addToken(currency: Currency) {

@@ -91,6 +91,8 @@
 		2C2ACFF920F4A3DE00C637D8 /* ConfirmPinFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFF820F4A3DE00C637D8 /* ConfirmPinFlowController.swift */; };
 		2C2ACFFD20F4B9A900C637D8 /* PurpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFFC20F4B9A900C637D8 /* PurpleButton.swift */; };
 		2C2ACFFF20F4E51700C637D8 /* BPCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFFE20F4E51700C637D8 /* BPCell.swift */; };
+		2C3B17AB20FCC42C00E6BAAD /* Mergeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17AA20FCC42C00E6BAAD /* Mergeable.swift */; };
+		2C3B17AD20FCCC7000E6BAAD /* TxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17AC20FCCC7000E6BAAD /* TxManager.swift */; };
 		2C770C8D20FAECA8007F71C4 /* TokenDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C8C20FAECA8007F71C4 /* TokenDetailViewController.swift */; };
 		2C770C8F20FAF1F5007F71C4 /* TokenDetailFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C8E20FAF1F5007F71C4 /* TokenDetailFlowController.swift */; };
 		2C770C9120FB2628007F71C4 /* Tx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C9020FB2628007F71C4 /* Tx.swift */; };
@@ -281,6 +283,8 @@
 		2C2ACFF820F4A3DE00C637D8 /* ConfirmPinFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPinFlowController.swift; sourceTree = "<group>"; };
 		2C2ACFFC20F4B9A900C637D8 /* PurpleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleButton.swift; sourceTree = "<group>"; };
 		2C2ACFFE20F4E51700C637D8 /* BPCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPCell.swift; sourceTree = "<group>"; };
+		2C3B17AA20FCC42C00E6BAAD /* Mergeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mergeable.swift; sourceTree = "<group>"; };
+		2C3B17AC20FCCC7000E6BAAD /* TxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxManager.swift; sourceTree = "<group>"; };
 		2C770C8C20FAECA8007F71C4 /* TokenDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetailViewController.swift; sourceTree = "<group>"; };
 		2C770C8E20FAF1F5007F71C4 /* TokenDetailFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetailFlowController.swift; sourceTree = "<group>"; };
 		2C770C9020FB2628007F71C4 /* Tx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tx.swift; sourceTree = "<group>"; };
@@ -444,13 +448,13 @@
 				2C279BCA20F8C5A200D2F6C4 /* Resources.swift */,
 				2C279BC820F8C5A100D2F6C4 /* BlockProducer.swift */,
 				2C279BCB20F8C5A200D2F6C4 /* Key.swift */,
-				2C279BC720F8C5A100D2F6C4 /* Contract.swift */,
 				2C279BCC20F8C5A200D2F6C4 /* Contract+Args.swift */,
 				2C279BCD20F8C5A200D2F6C4 /* Authority.swift */,
 				2C279BD020F8C5A200D2F6C4 /* Block.swift */,
 				2C279BD120F8C5A200D2F6C4 /* Currency.swift */,
 				2C770C9220FB30AD007F71C4 /* Symbol.swift */,
 				2C279BCE20F8C5A200D2F6C4 /* EOSResponseModel.swift */,
+				2C279BC720F8C5A100D2F6C4 /* Contract.swift */,
 				2C770C9020FB2628007F71C4 /* Tx.swift */,
 			);
 			path = Model;
@@ -568,6 +572,7 @@
 		2CE110CB20F1C48200B93BEB /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				2C3B17AA20FCC42C00E6BAAD /* Mergeable.swift */,
 				2C279BF320F8F86500D2F6C4 /* DebugLog.swift */,
 				2CE110F020F1D65400B93BEB /* Color.swift */,
 				2CE110F920F1EBE600B93BEB /* UIView+extension.swift */,
@@ -594,6 +599,7 @@
 			isa = PBXGroup;
 			children = (
 				2CEC2D4520F6423000AF5E9B /* AccountManager.swift */,
+				2C3B17AC20FCCC7000E6BAAD /* TxManager.swift */,
 				2C279C0420FA43F700D2F6C4 /* TokenManager.swift */,
 				2C279BE320F8D83800D2F6C4 /* WalletManager.swift */,
 				2C279BEB20F8DECF00D2F6C4 /* DB.swift */,
@@ -1007,6 +1013,7 @@
 				2CE110EB20F1C9B300B93BEB /* Character+extension.swift in Sources */,
 				2C279C0120FA0B7100D2F6C4 /* VoterInfo.swift in Sources */,
 				2C279C0520FA43F700D2F6C4 /* TokenManager.swift in Sources */,
+				2C3B17AB20FCC42C00E6BAAD /* Mergeable.swift in Sources */,
 				2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */,
 				2C770C9920FB77F4007F71C4 /* DelegateViewController.swift in Sources */,
 				2C2ACFD520F4427F00C637D8 /* ImportViewController.swift in Sources */,
@@ -1102,6 +1109,7 @@
 				2CE1112E20F2680100B93BEB /* VoteFlowController.swift in Sources */,
 				2CE110D420F1C4E700B93BEB /* MainFlowController.swift in Sources */,
 				2C279BDA20F8C5A300D2F6C4 /* EOSResponseModel.swift in Sources */,
+				2C3B17AD20FCCC7000E6BAAD /* TxManager.swift in Sources */,
 				2CEC2D4C20F65D1500AF5E9B /* StakeProgressBar.swift in Sources */,
 				2C2ACFCF20F3D8EB00C637D8 /* CreateViewController.swift in Sources */,
 				2CE110E920F1C9B300B93BEB /* DBObject.swift in Sources */,

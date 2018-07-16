@@ -20,6 +20,8 @@ import RxSwift
 
 class UndelegateViewController: BaseViewController {
     
+    var flowDelegate: UndelegateFlowEventDelegate?
+    
     @IBOutlet fileprivate weak var tableView: UITableView!
     @IBOutlet fileprivate weak var btnStake: UIButton!
     @IBOutlet fileprivate weak var btnHistory: UIButton!
@@ -64,6 +66,12 @@ class UndelegateViewController: BaseViewController {
             }
             .disposed(by: bag)
         
+        btnHistory.rx.singleTap
+            .bind { [weak self] in
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goToTx(from: nc)
+            }
+            .disposed(by: bag)
     }
     
     private func undelegatebw() {

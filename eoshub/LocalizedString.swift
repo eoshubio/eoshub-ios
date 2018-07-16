@@ -82,13 +82,17 @@ struct LocalizedString {
             static let delegate = NSLocalizedString("wallet.delegate.delegate", comment: "")
             static let undelegate = NSLocalizedString("wallet.delegate.undelegate", comment: "")
             static let history = NSLocalizedString("wallet.delegate.history", comment: "")
+            static let delegateTitle = NSLocalizedString("wallet.delegate.delegateTitle", comment: "")
         }
         
         struct Ram {
             static let buyram = NSLocalizedString("wallet.ram.buyram", comment: "")
             static let sellram = NSLocalizedString("wallet.ram.sellram", comment: "")
+            static let buy = NSLocalizedString("wallet.ram.buy", comment: "")
+            static let sell = NSLocalizedString("wallet.ram.sell", comment: "")
             static let history = NSLocalizedString("wallet.ram.history", comment: "")
             static let used = NSLocalizedString("wallet.ram.used", comment: "")
+            static let warning = NSLocalizedString("wallet.ram.warning", comment: "")
         }
     }
     

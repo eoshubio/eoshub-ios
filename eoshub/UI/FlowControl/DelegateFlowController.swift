@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class DelegateFlowController: FlowController {
+class DelegateFlowController: FlowController, DelegateFlowEventDelegate {
     var configure: FlowConfigure
     
     var id: FlowIdentifier { return .delegatebw }
@@ -29,17 +29,25 @@ class DelegateFlowController: FlowController {
     func show(animated: Bool) {
         
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "DelegateViewController") as? DelegateViewController else { return }
-//        vc.flowDelegate = self
+        vc.flowDelegate = self
         vc.configure(account: account)
         show(viewController: vc, animated: animated) {
             
         }
     }
     
+    func goToTx(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = TxFlowController(configure: config)
+        
+        fc.configure(accountName: account.account, actions: [.delegatebw, .undelegatebw], filter: nil)
+        
+        fc.start(animated: true)
+    }
  
 }
 
-//protocol WalletDetailFlowEventDelegate: FlowEventDelegate {
-//
-//}
+protocol DelegateFlowEventDelegate: FlowEventDelegate {
+    func goToTx(from nc: UINavigationController)
+}
 

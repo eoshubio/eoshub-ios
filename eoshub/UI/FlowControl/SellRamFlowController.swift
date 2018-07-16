@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 
-class SellRamFlowController: FlowController {
+class SellRamFlowController: FlowController, SellRamFlowEventDelegate {
     var configure: FlowConfigure
     
     var id: FlowIdentifier { return .sellram }
@@ -29,12 +29,24 @@ class SellRamFlowController: FlowController {
     func show(animated: Bool) {
         
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "SellRamViewController") as? SellRamViewController else { return }
-        
+        vc.flowDelegate = self
         vc.configure(account: account)
         show(viewController: vc, animated: animated) {
             
         }
     }
     
-    
+    func goToTx(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = TxFlowController(configure: config)
+        
+        fc.configure(accountName: account.account, actions: [.buyram, .sellram], filter: nil)
+        
+        fc.start(animated: true)
+    }
 }
+
+protocol SellRamFlowEventDelegate: FlowEventDelegate {
+    func goToTx(from nc: UINavigationController)
+}
+

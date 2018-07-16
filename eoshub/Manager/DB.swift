@@ -64,6 +64,14 @@ class DB {
         return realm.objects(EHAccount.self)
     }
     
+    func getAccountInfos() -> Results<AccountInfo> {
+        return realm.objects(AccountInfo.self)
+    }
+    
+    func getTxs() -> Results<Tx> {
+        return realm.objects(Tx.self)
+    }
+    
 }
 
 //MARK: Utils
@@ -128,6 +136,26 @@ extension DB {
     }
     
     
+    func addOrUpdateObjects<Element: DBObject>(_ newObjects: [Element]) where Element: Mergeable {
+        safeWrite {
+            var newObjectsMap: [String: Element] = [:]
+            newObjects.forEach({ newObjectsMap[$0.id] = $0 })
+            
+            let oldObjects = realm.objects(Element.self)
+            
+            for oldObject in oldObjects {
+                guard let newObject = newObjectsMap[oldObject.id] else {
+                    continue
+                }
+                
+                newObjectsMap[oldObject.id] = nil
+                oldObject.mergeChanges(from: newObject)
+            }
+            
+            let brandNewObjects = newObjectsMap.values
+            realm.add(brandNewObjects, update: false)
+        }
+    }
     
     
     
