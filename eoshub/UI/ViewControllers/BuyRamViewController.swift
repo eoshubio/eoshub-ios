@@ -52,7 +52,7 @@ class BuyRamViewController: BaseViewController {
         
         btnStake.rx.singleTap
             .bind { [weak self] in
-                self?.handleTransaction()
+                self?.validate()
             }
             .disposed(by: bag)
         
@@ -71,16 +71,42 @@ class BuyRamViewController: BaseViewController {
         let accountName = account.account
         unlockWallet(pinTarget: self, pubKey: account.pubKey)
             .flatMap { (wallet) -> Observable<JSON> in
+                WaitingView.shared.start()
                 return RxEOSAPI.buyram(account: accountName, quantity: quantity, wallet: wallet)
             }
             .flatMap { (_) -> Observable<Void> in
                 return AccountManager.shared.loadAccounts()
             }
-            .subscribe(onError: { (error) in
+            .flatMap({ (_) -> Observable<Void> in
+                WaitingView.shared.stop()
+                //clear form
+                self.inputForm.clear()
+                //pop
+                return Popup.show(style: .success, description: LocalizedString.Tx.success)
+            })
+            .subscribe(onNext: { (_) in
+                self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
+            }, onError: { (error) in
                 Log.e(error)
+                WaitingView.shared.stop()
+                Popup.present(style: .failed, description: "\(error)")
             })
             .disposed(by: bag)
 
+    }
+    
+    private func validate() {
+        
+         let quantity = Currency(balance: inputForm.quantity.value, symbol: .eos)
+        
+        RamPopup.show(quantity: quantity.balance, symbol: quantity.symbol, buttonTitle: LocalizedString.Wallet.Ram.buyram)
+            .subscribe(onNext: { [weak self](apply) in
+                if apply {
+                    self?.handleTransaction()
+                }
+            })
+            .disposed(by: bag)
+        
     }
     
 }
@@ -149,4 +175,8 @@ class RamInputFormCell: UITableViewCell {
 
 struct RamInputForm {
     let quantity = Variable<Double>(0)
+    
+    func clear() {
+        quantity.value = 0
+    }
 }

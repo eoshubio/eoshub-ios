@@ -62,7 +62,7 @@ class UndelegateViewController: BaseViewController {
         
         btnStake.rx.singleTap
             .bind { [weak self] in
-                self?.undelegatebw()
+                self?.validate()
             }
             .disposed(by: bag)
         
@@ -81,16 +81,44 @@ class UndelegateViewController: BaseViewController {
         let accountName = account.account
         unlockWallet(pinTarget: self, pubKey: account.pubKey)
             .flatMap { (wallet) -> Observable<JSON> in
+                WaitingView.shared.start()
                 return RxEOSAPI.undelegatebw(account: accountName, cpu: cpu, net: net, wallet: wallet)
             }
             .flatMap { (_) -> Observable<Void> in
                 return AccountManager.shared.loadAccounts()
             }
-            .subscribe(onError: { (error) in
+            .flatMap({ (_) -> Observable<Void> in
+                WaitingView.shared.stop()
+                //clear form
+                self.inputForm.clear()
+                //pop
+                return Popup.show(style: .success, description: LocalizedString.Tx.success)
+            })
+            .subscribe(onNext: { (_) in
+                self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
+            }, onError: { (error) in
                 Log.e(error)
+                WaitingView.shared.stop()
+                Popup.present(style: .failed, description: "\(error)")
             })
             .disposed(by: bag)
         
+    }
+    
+    private func validate() {
+        let cpu = Currency(balance: inputForm.cpu.value, symbol: .eos)
+        let net = Currency(balance: inputForm.net.value, symbol: .eos)
+        
+        //check validate
+        
+        //confirm
+        DelegatePopup.show(cpu: cpu.quantity, net: net.quantity, buttonTitle: LocalizedString.Wallet.Delegate.undelegate)
+            .subscribe(onNext: { [weak self](apply) in
+                if apply {
+                    self?.undelegatebw()
+                }
+            })
+            .disposed(by: bag)
     }
     
 }

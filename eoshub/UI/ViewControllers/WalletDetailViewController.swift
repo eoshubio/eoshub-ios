@@ -118,6 +118,14 @@ class WalletDetailViewController: BaseViewController {
                 self?.flowDelegate?.goToSellRam(from: nc)
             }
             .disposed(by: bag)
+        
+        AccountManager.shared.accountInfoRefreshed
+            .subscribe(onNext: { [weak self](_) in
+                guard let account = self?.accountInfo else { return }
+                self?.updateAccount(with: account)
+            })
+            .disposed(by: bag)
+        
     }
     
     

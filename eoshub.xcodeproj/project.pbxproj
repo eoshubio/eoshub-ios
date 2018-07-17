@@ -10,6 +10,10 @@
 		2C1E3E9520FE14000009D2AF /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9420FE14000009D2AF /* WaitingView.swift */; };
 		2C1E3E9720FE18000009D2AF /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9620FE18000009D2AF /* Popup.swift */; };
 		2C1E3E9920FE18960009D2AF /* Popup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9820FE18960009D2AF /* Popup.xib */; };
+		2C1E3E9B20FE2BF50009D2AF /* DelegatePopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9A20FE2BF40009D2AF /* DelegatePopup.xib */; };
+		2C1E3E9D20FE2D810009D2AF /* DelegatePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9C20FE2D810009D2AF /* DelegatePopup.swift */; };
+		2C1E3E9F20FE37AB0009D2AF /* RamPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9E20FE37AB0009D2AF /* RamPopup.xib */; };
+		2C1E3EA120FE37B60009D2AF /* RamPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3EA020FE37B60009D2AF /* RamPopup.swift */; };
 		2C279B7320F783DF00D2F6C4 /* SendCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279B7220F783DF00D2F6C4 /* SendCurrencyViewController.swift */; };
 		2C279B7520F7844300D2F6C4 /* SendCurrencyFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279B7420F7844300D2F6C4 /* SendCurrencyFlowController.swift */; };
 		2C279B7720F7A29A00D2F6C4 /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279B7620F7A29A00D2F6C4 /* ReceiveViewController.swift */; };
@@ -193,6 +197,10 @@
 		2C1E3E9420FE14000009D2AF /* WaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingView.swift; sourceTree = "<group>"; };
 		2C1E3E9620FE18000009D2AF /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		2C1E3E9820FE18960009D2AF /* Popup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Popup.xib; sourceTree = "<group>"; };
+		2C1E3E9A20FE2BF40009D2AF /* DelegatePopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DelegatePopup.xib; sourceTree = "<group>"; };
+		2C1E3E9C20FE2D810009D2AF /* DelegatePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatePopup.swift; sourceTree = "<group>"; };
+		2C1E3E9E20FE37AB0009D2AF /* RamPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RamPopup.xib; sourceTree = "<group>"; };
+		2C1E3EA020FE37B60009D2AF /* RamPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamPopup.swift; sourceTree = "<group>"; };
 		2C279B7220F783DF00D2F6C4 /* SendCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCurrencyViewController.swift; sourceTree = "<group>"; };
 		2C279B7420F7844300D2F6C4 /* SendCurrencyFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCurrencyFlowController.swift; sourceTree = "<group>"; };
 		2C279B7620F7A29A00D2F6C4 /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
@@ -701,6 +709,10 @@
 				2C1E3E9820FE18960009D2AF /* Popup.xib */,
 				2C3B17B020FD023000E6BAAD /* TransferPopup.swift */,
 				2C3B17AE20FCFDF400E6BAAD /* TransferPopup.xib */,
+				2C1E3E9C20FE2D810009D2AF /* DelegatePopup.swift */,
+				2C1E3E9A20FE2BF40009D2AF /* DelegatePopup.xib */,
+				2C1E3EA020FE37B60009D2AF /* RamPopup.swift */,
+				2C1E3E9E20FE37AB0009D2AF /* RamPopup.xib */,
 				2C279C0B20FA5F1700D2F6C4 /* TokenCell.swift */,
 				2C279C0D20FA5FA800D2F6C4 /* TokenCell.xib */,
 				2C2ACFF420F49DCA00C637D8 /* FaceIdInputView.xib */,
@@ -906,6 +918,7 @@
 				2C2ACFF520F49DCA00C637D8 /* FaceIdInputView.xib in Resources */,
 				2CE1113620F26DBB00B93BEB /* WalletAddCell.xib in Resources */,
 				2CEC2D4420F63BFF00AF5E9B /* WalletGuideCell.xib in Resources */,
+				2C1E3E9B20FE2BF50009D2AF /* DelegatePopup.xib in Resources */,
 				2C2ACFE120F4758900C637D8 /* Auth.storyboard in Resources */,
 				2C2ACFC120F3AEED00C637D8 /* TestCell.xib in Resources */,
 				2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */,
@@ -914,6 +927,7 @@
 				2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */,
 				2C279C0E20FA5FA800D2F6C4 /* TokenCell.xib in Resources */,
 				2CE1111520F2395800B93BEB /* Main.storyboard in Resources */,
+				2C1E3E9F20FE37AB0009D2AF /* RamPopup.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1048,6 +1062,7 @@
 				2C2ACFD320F43EE500C637D8 /* WhiteTextField.swift in Sources */,
 				2CE110FC20F1EC8600B93BEB /* RoundedButton.swift in Sources */,
 				2CE110FA20F1EBE600B93BEB /* UIView+extension.swift in Sources */,
+				2C1E3E9D20FE2D810009D2AF /* DelegatePopup.swift in Sources */,
 				2C279BA620F8C3CB00D2F6C4 /* sha2.c in Sources */,
 				2C279B7B20F7AEAC00D2F6C4 /* TxViewController.swift in Sources */,
 				2C279B8D20F8C30700D2F6C4 /* Packable.swift in Sources */,
@@ -1112,6 +1127,7 @@
 				2C770C8D20FAECA8007F71C4 /* TokenDetailViewController.swift in Sources */,
 				2C279BD820F8C5A300D2F6C4 /* Contract+Args.swift in Sources */,
 				2C279BB420F8C42700D2F6C4 /* Crypto.m in Sources */,
+				2C1E3EA120FE37B60009D2AF /* RamPopup.swift in Sources */,
 				2C279B8C20F8C30700D2F6C4 /* Action.swift in Sources */,
 				2C279BDC20F8C5A300D2F6C4 /* Block.swift in Sources */,
 				2C2ACFDB20F4607700C637D8 /* FindAccountViewController.swift in Sources */,

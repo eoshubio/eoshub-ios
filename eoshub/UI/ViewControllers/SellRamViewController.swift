@@ -52,7 +52,7 @@ class SellRamViewController: BaseViewController {
         
         btnStake.rx.singleTap
             .bind { [weak self] in
-                self?.handleTransaction()
+                self?.validate()
             }
             .disposed(by: bag)
         
@@ -70,13 +70,39 @@ class SellRamViewController: BaseViewController {
         let accountName = account.account
         unlockWallet(pinTarget: self, pubKey: account.pubKey)
             .flatMap { (wallet) -> Observable<JSON> in
+                WaitingView.shared.start()
                 return RxEOSAPI.sellram(account: accountName, bytes: quantity, wallet: wallet)
             }
             .flatMap { (_) -> Observable<Void> in
                 return AccountManager.shared.loadAccounts()
             }
-            .subscribe(onError: { (error) in
+            .flatMap({ (_) -> Observable<Void> in
+                WaitingView.shared.stop()
+                //clear form
+                self.inputForm.clear()
+                //pop
+                return Popup.show(style: .success, description: LocalizedString.Tx.success)
+            })
+            .subscribe(onNext: { (_) in
+                self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
+            }, onError: { (error) in
                 Log.e(error)
+                WaitingView.shared.stop()
+                Popup.present(style: .failed, description: "\(error)")
+            })
+            .disposed(by: bag)
+        
+    }
+    
+    private func validate() {
+        
+        let quantity = Int64(inputForm.quantity.value)
+        
+        RamPopup.show(quantity: quantity.prettyPrinted, symbol: "Bytes", buttonTitle: LocalizedString.Wallet.Ram.sellram)
+            .subscribe(onNext: { [weak self](apply) in
+                if apply {
+                    self?.handleTransaction()
+                }
             })
             .disposed(by: bag)
         
