@@ -9,10 +9,18 @@
 import Foundation
 import UIKit
 import RxSwift
+import RealmSwift
 
 class TokenDetailViewController: BaseViewController {
     
     var flowDelegate: TokenDetailFlowEventDelegate?
+    
+    fileprivate lazy var items: Results<Tx> = {
+        var result = TxManager.shared.getTx(for: tokenInfo.owner.account)
+                                    .filter("data CONTAINS ' \(tokenInfo.currency.symbol)\"'")
+        return result
+    }()
+    
     
     @IBOutlet fileprivate weak var account: UILabel!
     @IBOutlet fileprivate weak var lbAvailable: UILabel!
@@ -54,6 +62,11 @@ class TokenDetailViewController: BaseViewController {
         btnSend.setTitle(LocalizedString.Wallet.send, for: .normal)
         
         btnReceive.setTitle(LocalizedString.Wallet.receive, for: .normal)
+        
+        tokenInfoView.dataSource = self
+        tokenInfoView.delegate = self
+        tokenInfoView.rowHeight = UITableViewAutomaticDimension
+        tokenInfoView.estimatedRowHeight = 100
     }
     
     private func bindActions() {
@@ -83,4 +96,20 @@ class TokenDetailViewController: BaseViewController {
         guard let nc = navigationController else { return }
         flowDelegate?.goToReceive(from: nc, with: tokenInfo)
     }
+}
+
+
+extension TokenDetailViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return items.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "TxCell", for: indexPath) as? TxCell else { preconditionFailure() }
+        let item = items[indexPath.row]
+        cell.selectionStyle = .none
+        cell.configure(myaccount: tokenInfo.owner.account, tx: item)
+        return cell
+    }
+    
 }

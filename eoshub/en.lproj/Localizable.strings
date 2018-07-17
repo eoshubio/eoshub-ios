@@ -64,7 +64,7 @@
 "wallet.ram.sell" = "Sell";
 "wallet.ram.history" = "Trading record";
 "wallet.ram.used" = "Used RAM";
-"wallet.ram.warning" = "이오스 램은 가격 변동이 있기 때문에 거래에 주의하시기 바랍니다. 램 거래에 따르는 위험을 충분히 숙지하신 후 진행하시기 바랍니다.";
+"wallet.ram.warning" = "Please be careful about the transaction because there is price fluctuation of EOS Ram. Please be sure to fully understand the risks involved in trading.";
 
 /* 투표 */
 "vote.stakedEOS" = "Staked EOS";

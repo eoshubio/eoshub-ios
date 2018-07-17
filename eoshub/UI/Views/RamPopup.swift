@@ -51,9 +51,9 @@ class RamPopup: UIView {
     
     func configureBuy(quantity: Double, ramPrice: Double, observer: AnyObserver<Bool>) {
           //buy
-        lbBytesTitle.text = "Bytes"
+        lbBytesTitle.text = "RAM"
         lbBytes.text = Int64(ramPrice * quantity).prettyPrinted
-        lbByteSymbol.text = "Bytes"
+        lbByteSymbol.text = "RAM"
         lbRamPrice.text = ramPrice.prettyPrinted
         
         btnApply.setTitle(LocalizedString.Wallet.Ram.buyram, for: .normal)
@@ -74,7 +74,7 @@ class RamPopup: UIView {
         btnApply.setTitle(LocalizedString.Wallet.Ram.sellram, for: .normal)
         
         lbQuantity.text = bytes.prettyPrinted
-        lbSymbol.text = "Bytes"
+        lbSymbol.text = "RAM"
         
         bindAction(observer: observer)
     }

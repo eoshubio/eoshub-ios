@@ -163,7 +163,7 @@ class RamInputFormCell: UITableViewCell {
     }
     
     func configure(account: AccountInfo, inputForm: RamInputForm) {
-        ramBytes.text = account.ramBytes.prettyPrinted + " Bytes"
+        ramBytes.text = account.ramBytes.prettyPrinted + " RAM"
         
         let bag = DisposeBag()
         txtQuantity.rx.text.orEmpty

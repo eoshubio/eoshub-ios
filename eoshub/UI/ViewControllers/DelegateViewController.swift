@@ -166,8 +166,8 @@ class DelegateInputFormCell: UITableViewCell {
     }
     
     func configure(account: AccountInfo, inputForm: DelegateInputForm) {
-        cpuStaked.text = account.cpuStakedEOS.dot4String
-        netStaked.text = account.netStakedEOS.dot4String
+        cpuStaked.text = account.cpuStakedEOS.dot4String + " EOS"
+        netStaked.text = account.netStakedEOS.dot4String + " EOS"
         
         let bag = DisposeBag()
         txtCpuQuantity.rx.text.orEmpty

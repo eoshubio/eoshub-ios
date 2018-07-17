@@ -127,7 +127,7 @@ class TxCell: UITableViewCell {
     
     func configure(myaccount: String, tx: Tx) {
         lbTxDate.text = Date(timeIntervalSince1970: tx.timeStamp).dataToLocalTime()
-        setTxId(id: tx.id)
+        setTxId(id: tx.txid)
         
         switch tx.action {
         case Contract.Action.transfer.rawValue:
@@ -201,7 +201,7 @@ class TxCell: UITableViewCell {
         
         if let bytes = data.integer64(for: Contract.Args.sellram.bytes) {
             lbQuantity.text = bytes.prettyPrinted
-            lbSymbol.text = "Bytes"
+            lbSymbol.text = "RAM"
         }
         
         lbMemo.isHidden = true

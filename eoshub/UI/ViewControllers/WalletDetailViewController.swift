@@ -54,7 +54,7 @@ class WalletDetailViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+//        title = accountInfo.account
         showNavigationBar(with: .white)
     }
     
@@ -65,7 +65,7 @@ class WalletDetailViewController: BaseViewController {
     }
     
     private func setupUI() {
-        title = accountInfo.account
+        
         
         remainTimeView.layer.cornerRadius = remainTimeView.bounds.height * 0.5
         remainTimeView.layer.masksToBounds = true
@@ -148,7 +148,7 @@ class WalletDetailViewController: BaseViewController {
         //resources
         resCPU.text = viewModel.cpuStakedEOS.dot4String + " " + .eos
         resNet.text = viewModel.netStakedEOS.dot4String + " " + .eos
-        resRam.text = viewModel.ramBytes.prettyPrinted + " Bytes"
+        resRam.text = viewModel.ramBytes.prettyPrinted + " RAM"
         
         //refund
         remainTimeView.isHidden = (viewModel.refundingEOS == 0)

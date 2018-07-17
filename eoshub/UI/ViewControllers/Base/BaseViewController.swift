@@ -18,6 +18,7 @@ class BaseViewController: UIViewController {
         
         super.viewWillAppear(animated)
         navigationController?.isNavigationBarHidden = true
+        
     }
     
     override func viewDidLoad() {
@@ -51,9 +52,6 @@ class BaseViewController: UIViewController {
         default:
             break
         }
-        
-        
-
     }
     
 }

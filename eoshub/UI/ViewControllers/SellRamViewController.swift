@@ -155,7 +155,7 @@ class SellRamAccountCell: UITableViewCell {
         lbAccount.text = account.account
         lbBalance.text = account.availableRamBytes.prettyPrinted
         lbUsedBalance.text = account.usedRam.prettyPrinted
-        lbSymbol.text = "Bytes"
+        lbSymbol.text = "RAM"
     }
     
 }

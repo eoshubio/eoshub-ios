@@ -103,7 +103,7 @@
         </view>
     </objects>
     <resources>
-        <image name="popup" width="662" height="393"/>
+        <image name="popup" width="650" height="381"/>
         <image name="popupCheck" width="100" height="100"/>
     </resources>
 </document>
