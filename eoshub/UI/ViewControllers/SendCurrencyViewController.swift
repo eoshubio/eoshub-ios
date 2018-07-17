@@ -96,6 +96,9 @@ class SendCurrencyViewController: TextInputViewController {
         //TODO: validate available EOS
         authentication(showAt: self)
             .flatMap { [weak self](validated) -> Observable<JSON> in
+                
+                WaitingView.shared.start()
+                
                 guard let strongSelf = self else { return  Observable.error(EOSErrorType.invalidState) }
                 
                 let wallet = Wallet(key: strongSelf.account.pubKey)
@@ -109,12 +112,19 @@ class SendCurrencyViewController: TextInputViewController {
             .flatMap({ (_) -> Observable<Void> in
                 return AccountManager.shared.loadAccounts()
             })
+            .flatMap({ (_) -> Observable<Void> in
+                WaitingView.shared.stop()
+                //clear form
+                self.sendForm.clear()
+                //pop
+                return Popup.show(style: .success, description: LocalizedString.Tx.success)
+            })
             .subscribe(onNext: { (_) in
-                
+                self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
             }, onError: { (error) in
                 Log.e(error)
-            }, onCompleted: {
-                
+                WaitingView.shared.stop()
+                Popup.present(style: .failed, description: "\(error)")
             })
             .disposed(by: bag)
         
@@ -261,6 +271,12 @@ fileprivate struct SendForm {
     func quantityCurrency(symbol: String) -> Currency {
         let currency = String(quantity.value) + " " + symbol
         return Currency(currency: currency)!
+    }
+    
+    func clear() {
+        quantity.value = 0
+        account.value = ""
+        memo.value = ""
     }
 }
 

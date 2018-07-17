@@ -81,6 +81,7 @@
 "tx.complete" = "Completed";
 "tx.failed" = "Failed";
 "tx.transfer" = "Transfer";
+"tx.success" = "The transaction was successfully transferred. Please wait for confirmation.";
 
 /* PIN */
 "secure.pin.create" = "Create PIN Code";

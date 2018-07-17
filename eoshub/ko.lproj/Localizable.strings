@@ -82,6 +82,7 @@
 "tx.complete" = "완료";
 "tx.failed" = "실패";
 "tx.transfer" = "전송중";
+"tx.success" = "트렌젝션이 성공적으로 전송되었습니다. 블록체인에 반영되기까지 약간의 시간이 소요됩니다.";
 
 /* PIN */
 "secure.pin.create" = "비밀번호 생성";

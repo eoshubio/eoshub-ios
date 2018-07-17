@@ -122,6 +122,7 @@ struct LocalizedString {
         static let complete = NSLocalizedString("tx.complete", comment: "")
         static let failed = NSLocalizedString("tx.failed", comment: "")
         static let transfer = NSLocalizedString("tx.transfer", comment: "")
+        static let success = NSLocalizedString("tx.success", comment: "")
         
     }
     
