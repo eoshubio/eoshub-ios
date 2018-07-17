@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class VoteFlowController: FlowController {
+class VoteFlowController: FlowController, VoteFlowEventDelegate {
     var configure: FlowConfigure
     
     var id: FlowIdentifier { return .vote }
@@ -25,12 +25,23 @@ class VoteFlowController: FlowController {
         } else {
             vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VoteViewController") as? VoteViewController
         }
-        
+        vc?.flowDelegate = self
         vc?.reload()
         
         show(viewController: vc, animated: animated) {
             
         }
     }
+    
+    func goToWalletDetail(from nc: UINavigationController, account: AccountInfo) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = WalletDetailFlowController(configure: config)
+        fc.configure(account: account)
+        fc.start(animated: true)
+    }
+}
+
+protocol VoteFlowEventDelegate: FlowEventDelegate {
+    func goToWalletDetail(from nc: UINavigationController, account: AccountInfo)
 }
 

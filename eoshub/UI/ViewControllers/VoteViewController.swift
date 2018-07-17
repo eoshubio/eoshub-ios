@@ -13,6 +13,8 @@ import RxSwift
 class VoteViewController: BaseViewController {
     private let maxBPList = 400
     
+    var flowDelegate: VoteFlowEventDelegate?
+    
     @IBOutlet fileprivate weak var naviBar: UINavigationBar!
     @IBOutlet fileprivate weak var lbAccountName: UILabel!
     @IBOutlet fileprivate weak var lbStakedEOSTitle: UILabel!
@@ -88,6 +90,13 @@ class VoteViewController: BaseViewController {
                     self?.layoutVoterInfo(account: selectedAccount)
                 }
             })
+            .disposed(by: bag)
+
+        btnChangeStake.rx.singleTap
+            .bind { [weak self] in
+                guard let nc = self?.navigationController, let account = self?.selectedAccount else { return }
+                self?.flowDelegate?.goToWalletDetail(from: nc, account: account)
+            }
             .disposed(by: bag)
     }
     
