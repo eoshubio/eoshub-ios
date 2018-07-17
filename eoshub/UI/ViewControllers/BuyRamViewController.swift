@@ -99,7 +99,10 @@ class BuyRamViewController: BaseViewController {
         
          let quantity = Currency(balance: inputForm.quantity.value, symbol: .eos)
         
-        RamPopup.show(quantity: quantity.balance, symbol: quantity.symbol, buttonTitle: LocalizedString.Wallet.Ram.buyram)
+        RxEOSAPI.getRamPrice()
+            .flatMap { (price) -> Observable<Bool> in
+                return RamPopup.showForBuyRam(quantity: quantity.quantity, ramPrice: price.ramPriceKB)
+            }
             .subscribe(onNext: { [weak self](apply) in
                 if apply {
                     self?.handleTransaction()

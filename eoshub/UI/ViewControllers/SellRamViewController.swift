@@ -98,7 +98,10 @@ class SellRamViewController: BaseViewController {
         
         let quantity = Int64(inputForm.quantity.value)
         
-        RamPopup.show(quantity: quantity.prettyPrinted, symbol: "Bytes", buttonTitle: LocalizedString.Wallet.Ram.sellram)
+        RxEOSAPI.getRamPrice()
+            .flatMap { (price) -> Observable<Bool> in
+                return RamPopup.showForSellRam(bytes: quantity, ramPrice: price.ramPriceKB)
+            }
             .subscribe(onNext: { [weak self](apply) in
                 if apply {
                     self?.handleTransaction()

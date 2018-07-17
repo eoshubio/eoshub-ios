@@ -16,6 +16,12 @@ class RamPopup: UIView {
     @IBOutlet fileprivate weak var bgView: UIView!
     @IBOutlet fileprivate weak var lbTitle: UILabel!
     
+    @IBOutlet fileprivate weak var lbBytesTitle: UILabel!
+    @IBOutlet fileprivate weak var lbBytes: UILabel!
+    @IBOutlet fileprivate weak var lbByteSymbol: UILabel!
+    @IBOutlet fileprivate weak var lbRamPrice: UILabel!
+    
+    //EOS or Bytes
     @IBOutlet fileprivate weak var lbQuantityTitle: UILabel!
     @IBOutlet fileprivate weak var lbQuantity: UILabel!
     @IBOutlet fileprivate weak var lbSymbol: UILabel!
@@ -43,14 +49,38 @@ class RamPopup: UIView {
         bag = nil
     }
     
-    func configure(quantity: String, symbol: String, buttonTitle: String,  observer: AnyObserver<Bool>) {
+    func configureBuy(quantity: Double, ramPrice: Double, observer: AnyObserver<Bool>) {
+          //buy
+        lbBytesTitle.text = "Bytes"
+        lbBytes.text = Int64(ramPrice * quantity).prettyPrinted
+        lbByteSymbol.text = "Bytes"
+        lbRamPrice.text = ramPrice.prettyPrinted
         
+        btnApply.setTitle(LocalizedString.Wallet.Ram.buyram, for: .normal)
+    
+        lbQuantity.text = quantity.dot4String
+        lbSymbol.text = .eos
+        
+        bindAction(observer: observer)
+    }
+    
+    func configureSell(bytes: Int64, ramPrice: Double, observer: AnyObserver<Bool>) {
+        //buy
+        lbBytesTitle.text = LocalizedString.Wallet.Transfer.quantity
+        lbBytes.text = (Double(bytes) / ramPrice).dot4String
+        lbByteSymbol.text = .eos
+        lbRamPrice.text = ramPrice.prettyPrinted
+        
+        btnApply.setTitle(LocalizedString.Wallet.Ram.sellram, for: .normal)
+        
+        lbQuantity.text = bytes.prettyPrinted
+        lbSymbol.text = "Bytes"
+        
+        bindAction(observer: observer)
+    }
+    
+    func bindAction(observer: AnyObserver<Bool>) {
         let bag = DisposeBag()
-        
-        lbQuantity.text = quantity
-        lbSymbol.text = symbol
-        btnApply.setTitle(buttonTitle, for: .normal)
-        
         btnApply.rx.singleTap
             .bind { [weak self] in
                 observer.onNext(true)
@@ -95,7 +125,7 @@ class RamPopup: UIView {
     }
     
     
-    static func show(quantity: String, symbol: String, buttonTitle: String) -> Observable<Bool> {
+    static func showForBuyRam(quantity: Double, ramPrice: Double) -> Observable<Bool> {
         
         return Observable<Bool>.create({ (observer) -> Disposable in
             
@@ -108,7 +138,7 @@ class RamPopup: UIView {
             popup.autoresizingMask = [.flexibleWidth, .flexibleHeight]
             window.addSubview(popup)
             
-            popup.configure(quantity: quantity, symbol: symbol, buttonTitle: buttonTitle, observer: observer)
+            popup.configureBuy(quantity: quantity, ramPrice: ramPrice, observer: observer)
             
             popup.presentAnimation()
             
@@ -116,7 +146,31 @@ class RamPopup: UIView {
                 
             }
         })
-        
     }
+    
+    static func showForSellRam(bytes: Int64, ramPrice: Double) -> Observable<Bool> {
+        
+        return Observable<Bool>.create({ (observer) -> Disposable in
+            
+            guard let popup = Bundle.main.loadNibNamed("RamPopup", owner: nil, options: nil)?.first as? RamPopup else {
+                preconditionFailure("TransferPopup View did not load")
+            }
+            
+            let window = UIApplication.shared.keyWindow!
+            popup.frame = window.bounds
+            popup.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+            window.addSubview(popup)
+            
+            popup.configureSell(bytes: bytes, ramPrice: ramPrice, observer: observer)
+            
+            popup.presentAnimation()
+            
+            return Disposables.create {
+                
+            }
+        })
+    }
+    
+    
 }
 

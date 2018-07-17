@@ -346,5 +346,31 @@ extension RxEOSAPI {
                 return Observable.just(Array(txSet))
             }
     }
+    
+    //MARK: Ram market
+    static func getRamPrice()  -> Observable<RamPrice> {
+        let params: JSON = ["json": true,
+                           "code": "eosio",
+                           "scope": "eosio",
+                           "table": "rammarket",
+                           "table_key": "",
+                           "lower_bound": "",
+                           "upper_bound": "",
+                           "limit": 10
+                           ]
+        return EOSAPI.Chain.get_table_rows
+                .responseJSON(method: .post, parameter: params, encoding: JSONEncoding.default)
+                .flatMap({ (json) -> Observable<RamPrice> in
+                    if let rows = json.arrayJson(for: "rows"),
+                        let price = rows.compactMap(RamPrice.init).first {
+                        return Observable.just(price)
+                    }
+                    return Observable.error(EOSErrorType.emptyData)
+                })
+        
+        
+        
+        
+    }
 }
 

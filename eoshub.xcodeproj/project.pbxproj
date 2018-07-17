@@ -14,6 +14,7 @@
 		2C1E3E9D20FE2D810009D2AF /* DelegatePopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9C20FE2D810009D2AF /* DelegatePopup.swift */; };
 		2C1E3E9F20FE37AB0009D2AF /* RamPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9E20FE37AB0009D2AF /* RamPopup.xib */; };
 		2C1E3EA120FE37B60009D2AF /* RamPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3EA020FE37B60009D2AF /* RamPopup.swift */; };
+		2C1E3EA320FE3E440009D2AF /* RamPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3EA220FE3E440009D2AF /* RamPrice.swift */; };
 		2C279B7320F783DF00D2F6C4 /* SendCurrencyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279B7220F783DF00D2F6C4 /* SendCurrencyViewController.swift */; };
 		2C279B7520F7844300D2F6C4 /* SendCurrencyFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279B7420F7844300D2F6C4 /* SendCurrencyFlowController.swift */; };
 		2C279B7720F7A29A00D2F6C4 /* ReceiveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279B7620F7A29A00D2F6C4 /* ReceiveViewController.swift */; };
@@ -201,6 +202,7 @@
 		2C1E3E9C20FE2D810009D2AF /* DelegatePopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DelegatePopup.swift; sourceTree = "<group>"; };
 		2C1E3E9E20FE37AB0009D2AF /* RamPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RamPopup.xib; sourceTree = "<group>"; };
 		2C1E3EA020FE37B60009D2AF /* RamPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamPopup.swift; sourceTree = "<group>"; };
+		2C1E3EA220FE3E440009D2AF /* RamPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RamPrice.swift; sourceTree = "<group>"; };
 		2C279B7220F783DF00D2F6C4 /* SendCurrencyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCurrencyViewController.swift; sourceTree = "<group>"; };
 		2C279B7420F7844300D2F6C4 /* SendCurrencyFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendCurrencyFlowController.swift; sourceTree = "<group>"; };
 		2C279B7620F7A29A00D2F6C4 /* ReceiveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveViewController.swift; sourceTree = "<group>"; };
@@ -474,6 +476,7 @@
 				2C279BCE20F8C5A200D2F6C4 /* EOSResponseModel.swift */,
 				2C279BC720F8C5A100D2F6C4 /* Contract.swift */,
 				2C770C9020FB2628007F71C4 /* Tx.swift */,
+				2C1E3EA220FE3E440009D2AF /* RamPrice.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1085,6 +1088,7 @@
 				2C279BC020F8C58100D2F6C4 /* EOSErrorType.swift in Sources */,
 				2CE1112220F242E500B93BEB /* Font.swift in Sources */,
 				2C279BA720F8C3CB00D2F6C4 /* uECC.c in Sources */,
+				2C1E3EA320FE3E440009D2AF /* RamPrice.swift in Sources */,
 				2CE1111920F23C1700B93BEB /* BounceButton.swift in Sources */,
 				2C279BDD20F8C5A300D2F6C4 /* Currency.swift in Sources */,
 				2CE1112C20F263B100B93BEB /* VoteViewController.swift in Sources */,
