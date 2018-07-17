@@ -50,6 +50,7 @@
 "wallet.transfer.transfer" = "Transfer";
 "wallet.transfer.history" = "Transaction history";
 "wallet.transfer.account" = "My EOS account";
+"wallet.transfer.popupTitle" = "Please check below exactly";
 
 "wallet.delegate.stakedEOS" = "Staked EOS";
 "wallet.delegate.delegate" = "Delegate";

@@ -49,6 +49,7 @@
 "wallet.transfer.transfer" = "전송하기";
 "wallet.transfer.history" = "이체 이력";
 "wallet.transfer.account" = "나의 EOS 계정";
+"wallet.transfer.popupTitle" = "아래 내용을 정확히 확인해주세요";
 
 "wallet.delegate.stakedEOS" = "할당된 EOS";
 "wallet.delegate.delegate" = "할당 하기";

@@ -74,7 +74,7 @@ struct LocalizedString {
             static let transfer = NSLocalizedString("wallet.transfer.transfer", comment: "")
             static let history = NSLocalizedString("wallet.transfer.history", comment: "")
             static let account = NSLocalizedString("wallet.transfer.account", comment: "")
-            
+            static let popupTitle = NSLocalizedString("wallet.transfer.popupTitle", comment: "")
         }
   
         struct Delegate {

@@ -56,7 +56,7 @@ class SendCurrencyViewController: TextInputViewController {
         
         btnSend.rx.singleTap
             .bind { [weak self] in
-                self?.transfer()
+                self?.validateInputForm()
             }
             .disposed(by: bag)
     }
@@ -69,6 +69,26 @@ class SendCurrencyViewController: TextInputViewController {
     fileprivate func goToTxHistory() {
         guard let nc = navigationController else { return }
         flowDelegate?.goToTx(from: nc, account: account, filter: balance.symbol)
+    }
+    
+    fileprivate func validateInputForm() {
+        confirmTransfer()
+    }
+    
+    fileprivate func confirmTransfer() {
+        
+        
+        TransferPopup.show(account: sendForm.account.value, memo: sendForm.memo.value,
+                           quantity: sendForm.quantity.value, symbol: balance.symbol)
+            .subscribe(onNext: { [weak self] (accept) in
+                if accept {
+                    self?.transfer()
+                }
+            }, onCompleted: {
+                
+            })
+            .disposed(by: bag)
+        
     }
     
     fileprivate func transfer() {
