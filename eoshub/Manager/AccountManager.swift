@@ -12,10 +12,6 @@ import RealmSwift
 
 class AccountManager {
     static let shared = AccountManager()
-      
-    let pinValidated = PublishSubject<Void>()
-    
-    var needPinConfirm: Bool = true
     
     lazy var eoshubAccounts: Results<EHAccount> = {
         return DB.shared.getAccounts().sorted(byKeyPath: "created", ascending: true)

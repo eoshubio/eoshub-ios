@@ -15,6 +15,7 @@ class PinCodeViewController: BaseViewController {
     
     @IBOutlet fileprivate weak var lbTitle: UILabel!
     @IBOutlet fileprivate weak var pinView: PinCodeView!
+    @IBOutlet fileprivate weak var btnClose: UIButton!
     
     enum Mode {
         case create
@@ -26,7 +27,7 @@ class PinCodeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showNavigationBar(with: .basePurple)
+//        showNavigationBar(with: .basePurple)
         pinView.clear()
         pinView.show()
     }
@@ -42,6 +43,7 @@ class PinCodeViewController: BaseViewController {
         case .create:
             lbTitle.text = LocalizedString.Secure.Pin.create
         case .confirm:
+            btnClose.isHidden = true
             lbTitle.text = LocalizedString.Secure.Pin.confirm
             addInputView()
         case .validation:
@@ -57,6 +59,15 @@ class PinCodeViewController: BaseViewController {
                 self?.handlePIN(pin: pin)
             })
             .disposed(by: bag)
+        
+        btnClose.rx.singleTap
+            .bind { [weak self] in
+                if let delegate = self?.flowDelegate as? ValidatePinFlowDelegate {
+                    guard let nc = self?.navigationController else { return }
+                    delegate.cancelled(from: nc)
+                }
+            }
+            .disposed(by: bag)
     }
     
     func configure(mode: Mode) {
@@ -64,18 +75,32 @@ class PinCodeViewController: BaseViewController {
     }
     
     fileprivate func addInputView() {
-        if let btnFaceId = Bundle.main.loadNibNamed("FaceIdInputView", owner: nil, options: nil)?.first as? FaceIdInputView {
-            btnFaceId.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-            btnFaceId.setDescription(text: LocalizedString.Secure.Pin.useFaceId)
-            btnFaceId.isSelected = true //default
-            pinView.addInputView(view: btnFaceId)
-            
-            btnFaceId.rx.tap
-                .bind {
-                    btnFaceId.isSelected = !btnFaceId.isSelected
+        
+        let type = Security.shared.biometryType()
+        
+        if type != .none {
+            if let btnFaceId = Bundle.main.loadNibNamed("FaceIdInputView", owner: nil, options: nil)?.first as? FaceIdInputView {
+                btnFaceId.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+                if type == .faceID {
+                    btnFaceId.setDescription(text: LocalizedString.Secure.Pin.useFaceId)
+                } else {
+                    btnFaceId.setDescription(text: LocalizedString.Secure.Pin.useTouchId)
                 }
-                .disposed(by: bag)
+                btnFaceId.isSelected = true //default
+                Security.shared.setEnableBioAuth(on: btnFaceId.isSelected)
+                pinView.addInputView(view: btnFaceId)
+                
+                btnFaceId.rx.tap
+                    .bind {
+                        btnFaceId.isSelected = !btnFaceId.isSelected
+                        Security.shared.setEnableBioAuth(on: btnFaceId.isSelected)
+                        
+                    }
+                    .disposed(by: bag)
+            }
         }
+        
+        
     }
     
     fileprivate func handlePIN(pin: String) {

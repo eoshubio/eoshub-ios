@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-
+import LocalAuthentication
 
 class ConfirmPinFlowController: FlowController, ConfirmFlowEventDelegate {
     var configure: FlowConfigure
@@ -38,13 +38,12 @@ class ConfirmPinFlowController: FlowController, ConfirmFlowEventDelegate {
         
         //Set PIN to keychain with Encryption
         Security.shared.setPin(pin: pin)
-        
-        AccountManager.shared.needPinConfirm = false
-        AccountManager.shared.pinValidated.onNext(())
-        
+  
+        Security.shared.needAuthentication = false
+        Security.shared.authorized.onNext(true)
         finish(viewControllerToFinish: nc, animated: true, completion: nil)
+        
     }
-
 }
 
 protocol ConfirmFlowEventDelegate: FlowEventDelegate {

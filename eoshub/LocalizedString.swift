@@ -111,6 +111,12 @@ struct LocalizedString {
             static let useFaceId = NSLocalizedString("secure.pin.useFaceID", comment: "")
             static let useTouchId = NSLocalizedString("secure.pin.useTouchID", comment: "")
         }
+        
+        struct Bio {
+            static let reason = NSLocalizedString("secure.bio.reason", comment: "")
+            static let faceID = NSLocalizedString("secure.bio.faceId", comment: "")
+            static let touchID = NSLocalizedString("secure.bio.touchId", comment: "")
+        }
     }
 
     struct Tx {

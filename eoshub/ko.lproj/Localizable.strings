@@ -90,7 +90,9 @@
 "secure.pin.validation" = "비밀번호 입력";
 "secure.pin.useFaceID" = "로그인 시 FaceID 사용 (추천)";
 "secure.pin.useTouchID" = "로그인 시 TouchID 사용 (추천)";
-
+"secure.bio.reason" = "본인인증과 EOS 트렌잭션 인증에 사용됩니다.";
+"secure.bio.faceId" = "얼굴을 인식시켜 주세요.";
+"secure.bio.touchId" = "Touch ID 로 본인 인증하기.";
 
 /* 일반 */
 "common.paste" = "붙여넣기";

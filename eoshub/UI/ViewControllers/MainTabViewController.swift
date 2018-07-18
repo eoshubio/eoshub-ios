@@ -18,7 +18,7 @@ class MainTabViewController: TabBarViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if accountMgr.needPinConfirm {
+        if Security.shared.needAuthentication {
             view.isUserInteractionEnabled = false
             checkPin()
         }
@@ -42,8 +42,13 @@ class MainTabViewController: TabBarViewController {
             }
             .disposed(by: bag)
         
-        AccountManager.shared.pinValidated
-            .subscribe(onNext:{ [weak self](_) in
+        Security.shared.authorized
+            .subscribe(onNext:{ [weak self](isAuthorized) in
+                if isAuthorized {
+                    //show wallet
+                } else {
+                    //lock wallet
+                }
                 self?.view.isUserInteractionEnabled = true
             })
             .disposed(by: bag)

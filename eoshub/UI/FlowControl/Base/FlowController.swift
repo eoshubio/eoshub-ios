@@ -19,6 +19,7 @@ enum FlowIdentifier: String {
     case createPin
     case confirmPin
     case validatePin
+    case touchID
     case createWallet
     case login
     case term

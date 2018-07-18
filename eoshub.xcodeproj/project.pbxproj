@@ -103,6 +103,7 @@
 		2C3B17AD20FCCC7000E6BAAD /* TxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17AC20FCCC7000E6BAAD /* TxManager.swift */; };
 		2C3B17AF20FCFDF400E6BAAD /* TransferPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B17AE20FCFDF400E6BAAD /* TransferPopup.xib */; };
 		2C3B17B120FD023000E6BAAD /* TransferPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17B020FD023000E6BAAD /* TransferPopup.swift */; };
+		2C755F1B20FF708600FD5FBF /* TouchIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C755F1A20FF708600FD5FBF /* TouchIdViewController.swift */; };
 		2C770C8D20FAECA8007F71C4 /* TokenDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C8C20FAECA8007F71C4 /* TokenDetailViewController.swift */; };
 		2C770C8F20FAF1F5007F71C4 /* TokenDetailFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C8E20FAF1F5007F71C4 /* TokenDetailFlowController.swift */; };
 		2C770C9120FB2628007F71C4 /* Tx.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C9020FB2628007F71C4 /* Tx.swift */; };
@@ -305,6 +306,7 @@
 		2C3B17AC20FCCC7000E6BAAD /* TxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxManager.swift; sourceTree = "<group>"; };
 		2C3B17AE20FCFDF400E6BAAD /* TransferPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferPopup.xib; sourceTree = "<group>"; };
 		2C3B17B020FD023000E6BAAD /* TransferPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferPopup.swift; sourceTree = "<group>"; };
+		2C755F1A20FF708600FD5FBF /* TouchIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIdViewController.swift; sourceTree = "<group>"; };
 		2C770C8C20FAECA8007F71C4 /* TokenDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetailViewController.swift; sourceTree = "<group>"; };
 		2C770C8E20FAF1F5007F71C4 /* TokenDetailFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetailFlowController.swift; sourceTree = "<group>"; };
 		2C770C9020FB2628007F71C4 /* Tx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tx.swift; sourceTree = "<group>"; };
@@ -693,6 +695,7 @@
 				2C2ACFD420F4427F00C637D8 /* ImportViewController.swift */,
 				2C2ACFDA20F4607700C637D8 /* FindAccountViewController.swift */,
 				2C2ACFE420F47C1900C637D8 /* PinCodeViewController.swift */,
+				2C755F1A20FF708600FD5FBF /* TouchIdViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1050,6 +1053,7 @@
 				2C279C0520FA43F700D2F6C4 /* TokenManager.swift in Sources */,
 				2C3B17AB20FCC42C00E6BAAD /* Mergeable.swift in Sources */,
 				2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */,
+				2C755F1B20FF708600FD5FBF /* TouchIdViewController.swift in Sources */,
 				2C770C9920FB77F4007F71C4 /* DelegateViewController.swift in Sources */,
 				2C2ACFD520F4427F00C637D8 /* ImportViewController.swift in Sources */,
 				2C279B8F20F8C30700D2F6C4 /* SignedTransaction.swift in Sources */,
@@ -1350,7 +1354,7 @@
 				DEVELOPMENT_TEAM = MY5T2D475Y;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = eoshub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1375,7 +1379,7 @@
 				DEVELOPMENT_TEAM = MY5T2D475Y;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = eoshub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

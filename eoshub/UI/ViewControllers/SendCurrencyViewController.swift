@@ -110,14 +110,14 @@ class SendCurrencyViewController: TextInputViewController {
                                              wallet: wallet)
             }
             .flatMap({ (_) -> Observable<Void> in
-                return AccountManager.shared.loadAccounts()
-            })
-            .flatMap({ (_) -> Observable<Void> in
                 WaitingView.shared.stop()
                 //clear form
                 self.sendForm.clear()
                 //pop
                 return Popup.show(style: .success, description: LocalizedString.Tx.success)
+            })
+            .flatMap({ (_) -> Observable<Void> in
+                return AccountManager.shared.loadAccounts()
             })
             .subscribe(onNext: { (_) in
                 self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)

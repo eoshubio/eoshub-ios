@@ -9,14 +9,32 @@
 import Foundation
 import KeychainSwift
 import EllipticCurveKeyPair
+import RxSwift
+import LocalAuthentication
 
 class Security {
     static let shared = Security()
+    
+    let authorized = PublishSubject<Bool>()
+    
+    var needAuthentication: Bool = true
+    
+    var enableBioAuth: Bool
+    
+    init() {
+        KeychainSwift().set(true, forKey: "eoshub.enableBioAuth")
+        enableBioAuth = KeychainSwift().getBool("eoshub.enableBioAuth") ?? false
+    }
     
     
     func setPin(pin: String) {
         //TODO: Encrypt Pin
         KeychainSwift().set(pin, forKey: "eoshub.gate")
+    }
+    
+    func setEnableBioAuth(on: Bool) {
+        enableBioAuth = on
+        KeychainSwift().set(on, forKey: "eoshub.enableBioAuth")
     }
     
     func validatePin(pin: String) -> Bool {
@@ -27,6 +45,15 @@ class Security {
     
     func hasPin() -> Bool {
         return KeychainSwift().get("eoshub.gate") != nil
+    }
+    
+    func biometryType() -> LABiometryType {
+        let context = LAContext()
+        
+        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil)  {
+            return context.biometryType
+        }
+        return .none
     }
     
     

@@ -73,9 +73,6 @@ class SellRamViewController: BaseViewController {
                 WaitingView.shared.start()
                 return RxEOSAPI.sellram(account: accountName, bytes: quantity, wallet: wallet)
             }
-            .flatMap { (_) -> Observable<Void> in
-                return AccountManager.shared.loadAccounts()
-            }
             .flatMap({ (_) -> Observable<Void> in
                 WaitingView.shared.stop()
                 //clear form
@@ -83,6 +80,9 @@ class SellRamViewController: BaseViewController {
                 //pop
                 return Popup.show(style: .success, description: LocalizedString.Tx.success)
             })
+            .flatMap { (_) -> Observable<Void> in
+                return AccountManager.shared.loadAccounts()
+            }
             .subscribe(onNext: { (_) in
                 self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
             }, onError: { (error) in

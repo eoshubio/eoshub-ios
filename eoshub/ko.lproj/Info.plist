@@ -42,6 +42,6 @@
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 	<key>NSFaceIDUsageDescription</key>
-	<string>It is used to verify identity and EOS transaction.</string>
+	<string>본인확인 및 EOS 의 트렌젝션 인증을 위해 사용됩니다.</string>
 </dict>
 </plist>

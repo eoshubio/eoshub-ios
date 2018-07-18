@@ -90,6 +90,10 @@
 "secure.pin.useFaceID" = "Login with FaceID (Recommended)";
 "secure.pin.useTouchID" = "Login with TouchID (Recommended)";
 
+"secure.bio.reason" = "It is used to verify identity and EOS transaction.";
+"secure.bio.faceId" = "Authenticate yourself with a Face ID";
+"secure.bio.touchId" = "Authenticate yourself with a Touch ID";
+
 /* 일반 */
 "common.paste" = "Paste";
 "common.copy" = "Copy";

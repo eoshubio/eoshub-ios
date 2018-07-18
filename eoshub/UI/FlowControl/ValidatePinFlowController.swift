@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import LocalAuthentication
 
 class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
     var configure: FlowConfigure
@@ -23,24 +24,39 @@ class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
     
     func show(animated: Bool) {
         
-        guard let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "PinCodeViewController") as? PinCodeViewController else { preconditionFailure() }
-        vc.flowDelegate = self
-        vc.configure(mode: .validation)
-        
-        let nc = UINavigationController(rootViewController: vc)
-        
-        show(viewController: nc, animated: animated) {
+        if Security.shared.enableBioAuth && Security.shared.biometryType() != .none {
+            guard let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "TouchIdViewController") as? TouchIdViewController else { preconditionFailure() }
+            vc.flowDelegate = self
+            let nc = UINavigationController(rootViewController: vc)
+            show(viewController: nc, animated: animated) {
+                
+            }
+        } else {
+            guard let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "PinCodeViewController") as? PinCodeViewController else { preconditionFailure() }
+            vc.flowDelegate = self
+            vc.configure(mode: .validation)
             
+            let nc = UINavigationController(rootViewController: vc)
+            
+            show(viewController: nc, animated: animated) {
+                
+            }
         }
+       
     }
     
     
     func validated(from nc: UINavigationController) {
-        AccountManager.shared.needPinConfirm = false
-        AccountManager.shared.pinValidated.onNext(())
-        
+        Security.shared.needAuthentication = false
+        Security.shared.authorized.onNext(true)
         validated.onNext(true)
+        finish(viewControllerToFinish: nc, animated: true, completion: nil)
         
+    }
+    
+    func cancelled(from nc: UINavigationController) {
+        Security.shared.authorized.onNext(false)
+        validated.onNext(false)
         finish(viewControllerToFinish: nc, animated: true, completion: nil)
     }
 }
@@ -48,5 +64,6 @@ class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
 protocol ValidatePinFlowDelegate: FlowEventDelegate {
     
     func validated(from nc: UINavigationController)
+    func cancelled(from nc: UINavigationController)
     
 }
