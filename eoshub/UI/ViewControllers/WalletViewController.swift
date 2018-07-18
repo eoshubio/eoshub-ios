@@ -24,10 +24,16 @@ class WalletViewController: BaseViewController {
     
     @IBOutlet fileprivate var btnRefresh: RoundedShadowButton!
     
+    @IBOutlet fileprivate var topBar: UIView!
+    
+    @IBOutlet fileprivate var topBarHeight: NSLayoutConstraint!
+    
     fileprivate var items: [[CellType]] = []
     
     fileprivate var rx_send = PublishSubject<AccountInfo>()
     fileprivate var rx_receive = PublishSubject<AccountInfo>()
+    
+    private var initialized = false
     
     lazy var eoshubAccounts: Results<EHAccount> = {
         return DB.shared.getAccounts().sorted(byKeyPath: "created", ascending: true)
@@ -35,22 +41,27 @@ class WalletViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        if initialized == false {
+            initialized = true
+            view.layoutIfNeeded()
+            setupUI()
+            bindActions()
+            reloadUI()
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupUI()
-        bindActions()
-        reloadUI()
+//        setupUI()
+//        bindActions()
+//        reloadUI()
         
     }
     
     private func setupUI() {
-        btnProfile.setCornerRadius(radius: btnProfile.bounds.height * 0.5)
-        btnProfile.imageView?.contentMode = .scaleAspectFill
-        
-        walletList.contentInset = UIEdgeInsetsMake(0, 0, 100, 0)
+       
+        walletList.contentInset = UIEdgeInsetsMake(Const.navBarHeightLargeState - Const.navBarHeightSmallState + 15, 0, 100, 0)
         
         setupTableView()
     }
@@ -209,4 +220,60 @@ extension WalletViewController: UITableViewDelegate {
             flowDelegate?.goToCreate(from: nc)
         }
     }
+}
+
+extension WalletViewController: UIScrollViewDelegate {
+    fileprivate struct Const {
+        /// Image height/width for Large NavBar state
+        static let imageSizeForLargeState: CGFloat = 54
+        /// Margin from right anchor of safe area to right anchor of Image
+        static let imageSideMargin: CGFloat = 24
+        /// Margin from bottom anchor of NavBar to bottom anchor of Image for Large NavBar state
+        static let imageBottomMarginForLargeState: CGFloat = 12
+        /// Margin from bottom anchor of NavBar to bottom anchor of Image for Small NavBar state
+        static let imageBottomMarginForSmallState: CGFloat = 6
+        /// Image height/width for Small NavBar state
+        static let imageSizeForSmallState: CGFloat = 40
+        /// Height of NavBar for Small state. Usually it's just 44
+        static let navBarHeightSmallState: CGFloat = 48
+        /// Height of NavBar for Large state. Usually it's just 96.5 but if you have a custom font for the title, please make sure to edit this value since it changes the height for Large state of NavBar
+        static let navBarHeightLargeState: CGFloat = 96.5
+    }
+    
+    private func moveAndResizeImage(for height: CGFloat) {
+        let coeff: CGFloat = {
+            let delta = height - Const.navBarHeightSmallState
+            let heightDifferenceBetweenStates = (Const.navBarHeightLargeState - Const.navBarHeightSmallState)
+            return delta / heightDifferenceBetweenStates
+        }()
+        
+        let factor = Const.imageSizeForSmallState / Const.imageSizeForLargeState
+        
+        let scale: CGFloat = {
+            let sizeAddendumFactor = coeff * (1.0 - factor)
+            return min(1.0, sizeAddendumFactor + factor)
+        }()
+        
+        topBarHeight.constant = height
+        topBar.superview?.layoutIfNeeded()
+        
+        // Value of difference between icons for large and small states
+//        let sizeDiff = Const.imageSizeForLargeState * (1.0 - factor) // 8.0
+        
+        btnProfile.transform = CGAffineTransform.identity
+            .scaledBy(x: scale, y: scale)
+        
+        
+        
+//            .translatedBy(x: xTranslation, y: yTranslation)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let offset = scrollView.contentOffset.y + scrollView.contentInset.top
+        
+        let height = min(max(Const.navBarHeightLargeState - offset, Const.navBarHeightSmallState), Const.navBarHeightLargeState )
+
+        moveAndResizeImage(for: height)
+    }
+    
 }

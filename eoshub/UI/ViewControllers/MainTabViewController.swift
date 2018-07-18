@@ -17,7 +17,7 @@ class MainTabViewController: TabBarViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+
         if Security.shared.needAuthentication {
             view.isUserInteractionEnabled = false
             checkPin()
@@ -55,7 +55,8 @@ class MainTabViewController: TabBarViewController {
     }
     
     private func setupMenus() {
-        menuTabBar.configure(menus: [MainMenu.wallet, MainMenu.vote, MainMenu.airdrop])
+//        menuTabBar.configure(menus: [MainMenu.wallet, MainMenu.vote, MainMenu.airdrop])
+        menuTabBar.configure(menus: [MainMenu.wallet])
         menuTabBar.selectMenu(menu: MainMenu.wallet)
     }
     
