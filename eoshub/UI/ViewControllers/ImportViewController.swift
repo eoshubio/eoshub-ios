@@ -15,7 +15,7 @@ class ImportViewController: TextInputViewController {
     var flowDelegate: ImportFlowEventDelegate?
     
     @IBOutlet fileprivate weak var lbTitle: UILabel!
-    @IBOutlet fileprivate weak var txtPriKey: UITextField!
+    @IBOutlet fileprivate weak var txtPriKey: WhiteTextField!
     @IBOutlet fileprivate weak var btnPaste: UIButton!
     @IBOutlet fileprivate weak var btnImport: UIButton!
     @IBOutlet fileprivate weak var btnFindAccount: UIButton!
@@ -54,6 +54,9 @@ class ImportViewController: TextInputViewController {
         txtPriKey.placeholder = LocalizedString.Wallet.priKey
         txtPriKey.delegate = self
         
+        txtPriKey.padding.right = btnPaste.bounds.width + 5
+        txtPriKey.isSecureTextEntry = true
+        
         
     }
     
@@ -73,12 +76,24 @@ class ImportViewController: TextInputViewController {
                 self?.handleImportKey()
             }
             .disposed(by: bag)
+        
+        btnPaste.rx.singleTap
+            .bind { [weak self] in
+                guard let pasted = UIPasteboard.general.string else { return }
+                self?.txtPriKey.text = pasted
+            }
+            .disposed(by: bag)
     }
     
     fileprivate func handleImportKey() {
         
         //1. get public key from private key
         guard let priKey = txtPriKey.text else { return }
+        
+        if EOS_Key_Encode.validateWif(priKey) == false {
+            //TODO: Error popup
+        }
+        
         guard let pubKey = EOS_Key_Encode.eos_publicKey_(with_wif: priKey) else { return }
         
         //TODO: Check network is available
