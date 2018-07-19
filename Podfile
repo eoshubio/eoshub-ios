@@ -12,7 +12,7 @@ target 'eoshub' do
   pod 'RxCocoa'
   pod 'Realm'
   pod 'RealmSwift'
-  pod 'EllipticCurveKeyPair'
+  pod 'RNCryptor', '~> 5.0'
   pod 'KeychainSwift', '~> 11.0'
   pod 'Eureka'
   pod 'QRCode'

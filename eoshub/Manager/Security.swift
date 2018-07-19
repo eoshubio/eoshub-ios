@@ -8,9 +8,9 @@
 
 import Foundation
 import KeychainSwift
-import EllipticCurveKeyPair
 import RxSwift
 import LocalAuthentication
+import RNCryptor
 
 class Security {
     static let shared = Security()
@@ -28,7 +28,6 @@ class Security {
     
     
     func setPin(pin: String) {
-        //TODO: Encrypt Pin
         KeychainSwift().set(pin, forKey: "eoshub.gate")
     }
     
@@ -38,7 +37,6 @@ class Security {
     }
     
     func validatePin(pin: String) -> Bool {
-        //TODO: Decrypt PIN
         let existPin = KeychainSwift().get("eoshub.gate")
         return existPin == pin
     }
@@ -72,12 +70,38 @@ class Security {
         }
     }
     
-    func setEncryptedKey(pub: String, pri: String) {
-        KeychainSwift().set(pri, forKey: pub)
+    func setEncryptedKey(pub: String, pri: String) -> Observable<Bool> {
+        guard let pin = KeychainSwift().get("eoshub.gate") else {
+            return Observable.error(EOSErrorType.cannotFoundPIN)
+        }
+        
+        guard let priData = pri.data(using: .utf8)
+            else { return Observable.error(EOSErrorType.invalidKeys) }
+        
+        let enPri = RNCryptor.encrypt(data: priData, withPassword: pin)
+        
+        let key = String(pub[3...])
+        
+        KeychainSwift().set(enPri, forKey: key)
+        
+        return Observable.just(true)
     }
     
     func getEncryptedPrivateKey(pub: String) -> String? {
-        return KeychainSwift().get(pub)
+        
+        guard let pin = KeychainSwift().get("eoshub.gate") else {
+            return nil
+        }
+        
+        let key = String(pub[3...])
+        
+        guard let encryptedPriData = KeychainSwift().getData(key) else { return nil }
+        
+        guard let priData = try? RNCryptor.decrypt(data: encryptedPriData, withPassword: pin) else { return nil }
+        
+        let priKey = String(data: priData, encoding: .utf8)
+        
+        return priKey
     }
     
 }

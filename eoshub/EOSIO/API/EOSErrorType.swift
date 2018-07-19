@@ -21,6 +21,8 @@ enum EOSErrorType: Error {
     case unknownContract
     case contractNotFound
     case authenticationFailed
+    case invalidKeys
+    case cannotFoundPIN
 }
 
 
