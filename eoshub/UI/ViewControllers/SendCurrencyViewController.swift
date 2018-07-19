@@ -261,6 +261,12 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
         }
         return true
     }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == txtQuantity {
+            Log.d(textField.text!)
+        }
+    }
 }
 
 fileprivate struct SendForm {
