@@ -55,8 +55,7 @@ class MainTabViewController: TabBarViewController {
     }
     
     private func setupMenus() {
-//        menuTabBar.configure(menus: [MainMenu.wallet, MainMenu.vote, MainMenu.airdrop])
-        menuTabBar.configure(menus: [MainMenu.wallet])
+        menuTabBar.configure(menus: [MainMenu.wallet, MainMenu.vote, MainMenu.airdrop])
         menuTabBar.selectMenu(menu: MainMenu.wallet)
     }
     

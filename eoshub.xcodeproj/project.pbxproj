@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C1D928E2100C7DC0009F5C4 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D928D2100C7DC0009F5C4 /* Validator.swift */; };
 		2C1E3E9520FE14000009D2AF /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9420FE14000009D2AF /* WaitingView.swift */; };
 		2C1E3E9720FE18000009D2AF /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9620FE18000009D2AF /* Popup.swift */; };
 		2C1E3E9920FE18960009D2AF /* Popup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9820FE18960009D2AF /* Popup.xib */; };
@@ -196,6 +197,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C1D928D2100C7DC0009F5C4 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		2C1E3E9420FE14000009D2AF /* WaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingView.swift; sourceTree = "<group>"; };
 		2C1E3E9620FE18000009D2AF /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
 		2C1E3E9820FE18960009D2AF /* Popup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = Popup.xib; sourceTree = "<group>"; };
@@ -743,6 +745,7 @@
 				2C279BFE20F9D3D000D2F6C4 /* BPInfo.swift */,
 				2C279C0620FA444700D2F6C4 /* TokenInfo.swift */,
 				2CFE954920F3947300DC173F /* EOSAccountViewModel.swift */,
+				2C1D928D2100C7DC0009F5C4 /* Validator.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1116,6 +1119,7 @@
 				2C2ACFD920F4524A00C637D8 /* GrayButton.swift in Sources */,
 				2C770CA120FB8E0F007F71C4 /* UndelegateFlowController.swift in Sources */,
 				2C279B9120F8C30700D2F6C4 /* Permission.swift in Sources */,
+				2C1D928E2100C7DC0009F5C4 /* Validator.swift in Sources */,
 				2CE110EA20F1C9B300B93BEB /* Observable+extension.swift in Sources */,
 				2C279BA520F8C3CB00D2F6C4 /* rmd160.c in Sources */,
 				2C279BB720F8C42700D2F6C4 /* Sha256.m in Sources */,
