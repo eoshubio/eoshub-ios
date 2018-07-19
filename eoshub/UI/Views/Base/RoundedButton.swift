@@ -27,6 +27,15 @@ class RoundedButton: UIButton {
         }
     }
     
+    override var isEnabled: Bool {
+        didSet {
+            if isEnabled {
+                alpha = 1.0
+            } else {
+                alpha = 0.5
+            }
+        }
+    }
     
     private var highlightedView: UIView?
     

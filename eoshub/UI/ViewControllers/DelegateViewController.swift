@@ -46,6 +46,7 @@ class DelegateViewController: BaseViewController {
         
         btnStake.setTitle(LocalizedString.Wallet.Delegate.delegate, for: .normal)
         btnHistory.setTitle(LocalizedString.Wallet.Delegate.history, for: .normal)
+        
     }
     
     private func bindActions() {
@@ -63,6 +64,19 @@ class DelegateViewController: BaseViewController {
             }
             .disposed(by: bag)
         
+        let account: AccountInfo = self.account
+        
+        Observable.combineLatest([inputForm.cpu.asObservable(),inputForm.net.asObservable()])
+            .flatMap { (values) -> Observable<Bool> in
+                let total = (values.first ?? 0) + (values.last ?? 0)
+                if total > 0 && total < account.stakedEOS {
+                    return Observable.just(true)
+                } else {
+                    return Observable.just(false)
+                }
+            }
+            .bind(to: btnStake.rx.isEnabled)
+            .disposed(by: bag)
         
     }
     
