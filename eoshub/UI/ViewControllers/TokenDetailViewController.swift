@@ -17,7 +17,7 @@ class TokenDetailViewController: BaseViewController {
     
     fileprivate lazy var items: Results<Tx> = {
         var result = TxManager.shared.getTx(for: tokenInfo.owner.account)
-                                    .filter("data CONTAINS ' \(tokenInfo.currency.symbol)\"'")
+                                    .filter("data CONTAINS ' \(tokenInfo.symbol)\"'")
         return result
     }()
     
@@ -47,17 +47,13 @@ class TokenDetailViewController: BaseViewController {
     private func setupUI() {
         let accountInfo = tokenInfo.owner
         
-        let balance = tokenInfo.currency
-        
-        title = balance.symbol
+        title = tokenInfo.symbol
         
         account.text = accountInfo.account
         
-        lbAvailable.text = LocalizedString.Wallet.Transfer.available + balance.symbol
+        lbAvailable.text = LocalizedString.Wallet.Transfer.available + tokenInfo.symbol
         
-        lbBalance.text = balance.balance
-        
-        lbSymbol.text = balance.symbol
+        lbSymbol.text = tokenInfo.symbol
         
         btnSend.setTitle(LocalizedString.Wallet.send, for: .normal)
         
@@ -67,6 +63,8 @@ class TokenDetailViewController: BaseViewController {
         tokenInfoView.delegate = self
         tokenInfoView.rowHeight = UITableViewAutomaticDimension
         tokenInfoView.estimatedRowHeight = 100
+        
+        updateInfo(tokenInfo: tokenInfo)
     }
     
     private func bindActions() {
@@ -81,10 +79,22 @@ class TokenDetailViewController: BaseViewController {
                 self?.goToReceive()
             }
             .disposed(by: bag)
+        
+        AccountManager.shared.accountInfoRefreshed
+            .subscribe(onNext: {[weak self](_) in
+                guard let `self` = self else { return }
+                //TODO: token symbol -> symbol + contract 로 바꿔야함. 같은 symbol 이 존재할 가능성이 있다.
+                self.updateInfo(tokenInfo: self.tokenInfo)
+            })
+            .disposed(by: bag)
     }
     
     func configure(tokenInfo: TokenBalanceInfo) {
         self.tokenInfo = tokenInfo
+    }
+    
+    func updateInfo(tokenInfo: TokenBalanceInfo) {
+        lbBalance.text = tokenInfo.balance
     }
     
     fileprivate func goToSend() {

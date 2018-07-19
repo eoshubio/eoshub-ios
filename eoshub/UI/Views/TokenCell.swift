@@ -27,8 +27,22 @@ struct TokenBalanceInfo: CellType {
         return "TokenCell"
     }
     
-    let currency: Currency
-    
     let owner: AccountInfo
+    
+    let symbol: Symbol
+    
+    var currency: Currency {
+        return owner.tokens.filter { $0.symbol == symbol }.first ?? Currency(balance: 0, symbol: symbol)
+    }
+    
+    var balance: String {
+        return currency.balance
+    }
+    
+    var quantity: Double {
+        //TODO: symbol -> symbol + contract
+        return currency.quantity
+        
+    }
     
 }

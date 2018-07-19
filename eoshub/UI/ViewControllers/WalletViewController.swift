@@ -92,8 +92,8 @@ class WalletViewController: BaseViewController {
             AccountManager.shared.infos
                 .forEach { (info) in
                     let TokenBalanceInfos = info.tokens
-                        .map { TokenBalanceInfo(currency: $0, owner: info) }
-                        .filter({$0.currency.quantity > 0})
+                        .map { TokenBalanceInfo(owner: info, symbol: $0.symbol) }
+                        .filter({$0.quantity > 0})
                     
                     let sectionItem: [CellType] = [info] + TokenBalanceInfos
                     items.append(sectionItem)
