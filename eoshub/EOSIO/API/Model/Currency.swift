@@ -21,8 +21,11 @@ struct Currency {
         if comp.count != 2 {
             return nil
         } else {
-            self.quantity = Double(comp.first!)!
-            self.balance = quantity.dot4String
+            
+            let balanceRaw = comp.first!
+            
+            self.quantity = Double(balanceRaw)!
+            self.balance = balanceRaw.dot4String
             self.symbol = comp.last!
             self.currency = balance + " " + symbol
         }

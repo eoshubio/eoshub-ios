@@ -46,13 +46,13 @@ class TransferPopup: UIView {
         bag = nil
     }
     
-    func configure(account: String, memo: String, quantity: Double, symbol: String, observer: AnyObserver<Bool>) {
+    func configure(account: String, memo: String, quantity: String, symbol: String, observer: AnyObserver<Bool>) {
         
         let bag = DisposeBag()
         
         lbAccount.text = account
         lbMemo.text = memo
-        lbQuantity.text = quantity.dot4String
+        lbQuantity.text = quantity
         lbSymbol.text = symbol
         
         btnApply.rx.singleTap
@@ -99,7 +99,7 @@ class TransferPopup: UIView {
     }
     
     
-    static func show(account: String, memo: String, quantity: Double, symbol: String) -> Observable<Bool> {
+    static func show(account: String, memo: String, quantity: String, symbol: String) -> Observable<Bool> {
         
         return Observable<Bool>.create({ (observer) -> Disposable in
             

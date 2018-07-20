@@ -103,6 +103,17 @@ extension String {
     var plainFormatted: String {
         return replacingOccurrences(of: ",", with: "")
     }
+    
+    var dot4String: String {
+        let comp = components(separatedBy: ".")
+        if comp.count == 2 {
+            let intPart = comp.first!
+            let dotPart = comp.last!.substring(precision: 4)
+            return intPart + "." + dotPart
+        } else {
+            return self
+        }
+    }
 }
 
 extension Int64 {

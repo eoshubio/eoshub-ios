@@ -79,7 +79,8 @@ class SendCurrencyViewController: TextInputViewController {
         
         
         TransferPopup.show(account: sendForm.account.value, memo: sendForm.memo.value,
-                           quantity: sendForm.quantity.value, symbol: balance.symbol)
+                           quantity: sendForm.quantity.value.dot4String,
+                           symbol: balance.symbol)
             .subscribe(onNext: { [weak self] (accept) in
                 if accept {
                     self?.transfer()
@@ -237,8 +238,8 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
    
         txtQuantity.rx.text
             .subscribe( { (text) in
-                if let input = text.element as? String, let quantity = Double(input) {
-                    form.quantity.value = quantity
+                if let input = text.element as? String {
+                    form.quantity.value = input.plainFormatted
                 }
             })
             .disposed(by: bag)
@@ -270,7 +271,7 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
 }
 
 fileprivate struct SendForm {
-    let quantity = Variable<Double>(0)
+    let quantity = Variable<String>("")
     let account = Variable<String>("")
     let memo = Variable<String>("")
     
@@ -280,7 +281,7 @@ fileprivate struct SendForm {
     }
     
     func clear() {
-        quantity.value = 0
+        quantity.value = ""
         account.value = ""
         memo.value = ""
     }
