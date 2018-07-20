@@ -74,6 +74,35 @@ extension String {
     func index(at offset: Int) -> String.Index {
         return index(startIndex, offsetBy: offset)
     }
+    
+   
+    
+}
+
+extension String {
+    
+    func substring(precision: Int) -> String {
+        
+        if count < precision {
+            return self
+        }
+        
+        return String(self[0...precision-1])
+    }
+    
+    
+    var decimalFormatted: String {
+        var result = self
+        for i in stride(from: count-3, to: 0, by: -3) {
+            result.insert(",", at: index(startIndex, offsetBy: i))
+        }
+        return result
+    }
+    
+    
+    var plainFormatted: String {
+        return replacingOccurrences(of: ",", with: "")
+    }
 }
 
 extension Int64 {

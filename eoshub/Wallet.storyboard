@@ -616,7 +616,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mmb-4T-fwH">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0000" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yV8-Zg-XKP">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0000" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yV8-Zg-XKP" customClass="FormattedNumberField" customModule="eoshub" customModuleProvider="target">
                                                             <rect key="frame" x="77.999999999999986" y="0.0" width="251.66666666666663" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="qCr-nT-4Mg"/>
@@ -1696,7 +1696,7 @@ HuGYqET5GDW5CV</string>
                                                             <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0000" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="d74-YD-ivZ">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0000" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="d74-YD-ivZ" customClass="FormattedNumberField" customModule="eoshub" customModuleProvider="target">
                                                             <rect key="frame" x="74.666666666666686" y="50" width="255" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="E9r-gU-Ghk"/>
@@ -1774,7 +1774,7 @@ HuGYqET5GDW5CV</string>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0000" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="c6G-TO-Qmh">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0000" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="c6G-TO-Qmh" customClass="FormattedNumberField" customModule="eoshub" customModuleProvider="target">
                                                             <rect key="frame" x="74.666666666666686" y="50" width="255" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="hw0-Vx-gTu"/>
@@ -2040,7 +2040,7 @@ HuGYqET5GDW5CV</string>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0000" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sti-Hy-ROx">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0000" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="sti-Hy-ROx" customClass="FormattedNumberField" customModule="eoshub" customModuleProvider="target">
                                                             <rect key="frame" x="74.666666666666686" y="50" width="255" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="S8g-bg-M8A"/>
@@ -2118,7 +2118,7 @@ HuGYqET5GDW5CV</string>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0000" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GGW-Ru-78y">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0000" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="GGW-Ru-78y" customClass="FormattedNumberField" customModule="eoshub" customModuleProvider="target">
                                                             <rect key="frame" x="74.666666666666686" y="50" width="255" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="KxE-hO-BHU"/>
@@ -2384,7 +2384,7 @@ HuGYqET5GDW5CV</string>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0000" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3SP-cR-t2B">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0000" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="3SP-cR-t2B" customClass="FormattedNumberField" customModule="eoshub" customModuleProvider="target">
                                                             <rect key="frame" x="74.666666666666686" y="50" width="255" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="qWr-xn-fJu"/>
@@ -2713,7 +2713,7 @@ HuGYqET5GDW5CV</string>
                                                             <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="k3v-gV-EQW">
+                                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="k3v-gV-EQW" customClass="FormattedNumberField" customModule="eoshub" customModuleProvider="target">
                                                             <rect key="frame" x="74.666666666666686" y="50" width="252" height="60"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="60" id="xzX-mD-W5s"/>
