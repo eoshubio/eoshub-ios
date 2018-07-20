@@ -164,10 +164,16 @@ class VoteViewController: BaseViewController {
         
         AccountManager.shared.infos.forEach { (info) in
             
-            alert.addAction(UIAlertAction(title: info.account, style: .default, handler: { [weak self](_) in
+            let action = UIAlertAction(title: info.account, style: .default, handler: { [weak self](_) in
                 AccountManager.shared.mainAccount = info
                 self?.configure(account: info)
-            }))
+            })
+            
+            if info == AccountManager.shared.mainAccount {
+                action.setValue(true, forKey: "checked")
+            }
+            
+            alert.addAction(action)
         }
         alert.addAction(UIAlertAction(title: LocalizedString.Common.cancel, style: .cancel, handler: nil))
         present(alert, animated: true, completion: nil)
