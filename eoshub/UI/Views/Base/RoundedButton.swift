@@ -32,7 +32,7 @@ class RoundedButton: UIButton {
             if isEnabled {
                 alpha = 1.0
             } else {
-                alpha = 0.5
+                alpha = 0.7
             }
         }
     }
