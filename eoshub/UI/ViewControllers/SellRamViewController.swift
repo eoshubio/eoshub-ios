@@ -22,6 +22,10 @@ class SellRamViewController: BaseViewController {
     
     fileprivate var account: AccountInfo!
     
+    deinit {
+        Log.d("deinit")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showNavigationBar(with: .white)
@@ -62,6 +66,11 @@ class SellRamViewController: BaseViewController {
                 self?.flowDelegate?.goToTx(from: nc)
             }
             .disposed(by: bag)
+        
+        inputForm.quantity.asObservable()
+            .flatMap(isValidInput(max: account.availableRamBytes))
+            .bind(to: btnStake.rx.isEnabled)
+            .disposed(by: bag)
     }
     
     private func handleTransaction() {
@@ -91,6 +100,18 @@ class SellRamViewController: BaseViewController {
                 Popup.present(style: .failed, description: "\(error)")
             })
             .disposed(by: bag)
+        
+    }
+    
+    private func isValidInput(max: Int64) -> (String) -> Observable<Bool> {
+        return { inputString in
+            let input = Int64(inputString) ?? 0
+            if input > 0 && input <= max {
+                return Observable.just(true)
+            } else {
+                return Observable.just(false)
+            }
+        }
         
     }
     

@@ -23,6 +23,10 @@ class SendCurrencyViewController: TextInputViewController {
     
     fileprivate let sendForm = SendForm()
     
+    deinit {
+        Log.d("deinit")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = LocalizedString.Wallet.send
@@ -59,6 +63,18 @@ class SendCurrencyViewController: TextInputViewController {
                 self?.validateInputForm()
             }
             .disposed(by: bag)
+
+        let quantityCheck = sendForm.quantity.asObservable()
+            .flatMap(isValidQuantity(max: balance.quantity))
+
+        let accountCheck = sendForm.account.asObservable()
+            .flatMap(isValidAccount)
+        
+        Observable.combineLatest([quantityCheck, accountCheck])
+                .flatMap(isValid)
+                .bind(to: btnSend.rx.isEnabled)
+                .disposed(by: bag)
+        
     }
     
     func configure(account: AccountInfo, balance: Currency) {
@@ -73,6 +89,33 @@ class SendCurrencyViewController: TextInputViewController {
     
     fileprivate func validateInputForm() {
         confirmTransfer()
+    }
+
+    private func isValidQuantity(max: Double) -> (String) -> Observable<Bool> {
+        return { inputString in
+            let input = Double(inputString) ?? 0
+            if input > 0 && input <= max {
+                return Observable.just(true)
+            } else {
+                return Observable.just(false)
+            }
+        }
+    }
+    
+    private func isValidAccount(accountName: String) -> Observable<Bool> {
+        let available = Validator.accountName(name: accountName)
+        return Observable.just(available)
+    }
+    
+    private func isValid(checklist: [Bool]) -> Observable<Bool> {
+        
+        for valid in checklist {
+            if valid == false {
+                return Observable.just(false)
+            }
+        }
+        
+        return Observable.just(true)
     }
     
     fileprivate func confirmTransfer() {

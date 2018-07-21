@@ -22,6 +22,10 @@ class BuyRamViewController: BaseViewController {
     
     fileprivate var account: AccountInfo!
     
+    deinit {
+        Log.d("deinit")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showNavigationBar(with: .white)
@@ -63,6 +67,11 @@ class BuyRamViewController: BaseViewController {
             }
             .disposed(by: bag)
         
+        inputForm.quantity.asObservable()
+            .flatMap(isValidInput(max: account.availableEOS))
+            .bind(to: btnStake.rx.isEnabled)
+            .disposed(by: bag)
+        
     }
     
     private func handleTransaction() {
@@ -93,6 +102,18 @@ class BuyRamViewController: BaseViewController {
             })
             .disposed(by: bag)
 
+    }
+    
+    private func isValidInput(max: Double) -> (String) -> Observable<Bool> {
+        return { inputString in
+            let input = Double(inputString) ?? 0
+            if input > 0 && input <= max {
+                return Observable.just(true)
+            } else {
+                return Observable.just(false)
+            }
+        }
+        
     }
     
     private func validate() {

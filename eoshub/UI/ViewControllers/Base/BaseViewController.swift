@@ -12,7 +12,7 @@ import RxSwift
 
 class BaseViewController: UIViewController {
     
-    let bag = DisposeBag()
+    var bag = DisposeBag()
     
     override func viewWillAppear(_ animated: Bool) {
         
@@ -20,6 +20,11 @@ class BaseViewController: UIViewController {
         navigationController?.isNavigationBarHidden = true
         
     }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()

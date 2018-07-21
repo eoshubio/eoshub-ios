@@ -22,6 +22,10 @@ class DelegateViewController: BaseViewController {
     
     fileprivate var account: AccountInfo!
     
+    deinit {
+        Log.d("deinit")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showNavigationBar(with: .white)
@@ -65,9 +69,12 @@ class DelegateViewController: BaseViewController {
             .disposed(by: bag)
         
         Observable.combineLatest([inputForm.cpu.asObservable(),inputForm.net.asObservable()])
-            .flatMap(isValidInput)
-            .bind(to: btnStake.rx.isEnabled)
-            .disposed(by: bag)
+                .flatMap(isValidInput(max: account.availableEOS))
+                .bind(to: btnStake.rx.isEnabled)
+                .disposed(by: bag)
+
+        
+//            .disposed(by: bag)
         
     }
     
@@ -118,16 +125,19 @@ class DelegateViewController: BaseViewController {
             .disposed(by: bag)
     }
     
-    private func isValidInput(inputs: [String]) -> Observable<Bool> {
-        let total = inputs
-                    .compactMap { Double($0) }
-                    .reduce(0.0) { $0 + $1 }
-        
-        if total > 0 && total < account.availableEOS {
-            return Observable.just(true)
-        } else {
-            return Observable.just(false)
+    private func isValidInput(max: Double) -> ([String]) -> Observable<Bool> {
+        return { inputs in
+            let total = inputs
+                .compactMap { Double($0) }
+                .reduce(0.0) { $0 + $1 }
+            
+            if total > 0 && total <= max {
+                return Observable.just(true)
+            } else {
+                return Observable.just(false)
+            }
         }
+        
     }
     
 }

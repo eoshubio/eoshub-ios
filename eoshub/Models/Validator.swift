@@ -11,6 +11,10 @@ import Foundation
 struct Validator {
     
     static func accountName(name: String) -> Bool {
+        if name.count == 0 {
+            return false
+        }
+        
         //for create account
         let validChars = Array(".12345abcdefghijklmnopqrstuvwxyz")
         

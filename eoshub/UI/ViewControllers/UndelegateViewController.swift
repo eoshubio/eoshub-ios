@@ -30,6 +30,10 @@ class UndelegateViewController: BaseViewController {
     
     fileprivate let inputForm = DelegateInputForm()
     
+    deinit {
+        Log.d("deinit")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showNavigationBar(with: .white)
@@ -74,7 +78,7 @@ class UndelegateViewController: BaseViewController {
             .disposed(by: bag)
         
         Observable.combineLatest([inputForm.cpu.asObservable(),inputForm.net.asObservable()])
-            .flatMap(isValidInput)
+            .flatMap(isValidInput(max: account.stakedEOS))
             .bind(to: btnStake.rx.isEnabled)
             .disposed(by: bag)
     }
@@ -126,17 +130,21 @@ class UndelegateViewController: BaseViewController {
             .disposed(by: bag)
     }
     
-    private func isValidInput(inputs: [String]) -> Observable<Bool> {
-        let total = inputs
-            .compactMap { Double($0) }
-            .reduce(0.0) { $0 + $1 }
-        
-        if total > 0 && total < account.stakedEOS {
-            return Observable.just(true)
-        } else {
-            return Observable.just(false)
+    private func isValidInput(max: Double) -> ([String]) -> Observable<Bool> {
+        return { inputs in
+            let total = inputs
+                .compactMap { Double($0) }
+                .reduce(0.0) { $0 + $1 }
+            
+            if total > 0 && total <= max {
+                return Observable.just(true)
+            } else {
+                return Observable.just(false)
+            }
         }
+        
     }
+    
 }
 
 extension UndelegateViewController: UITableViewDataSource {
