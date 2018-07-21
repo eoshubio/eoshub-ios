@@ -31,8 +31,15 @@ struct Currency {
         }
     }
     
-    init(balance: Double, symbol: String) {
+    init(balance: Double, symbol: Symbol) {
         self.quantity = balance
+        self.balance = balance.dot4String
+        self.symbol = symbol
+        self.currency = self.balance + " " + symbol
+    }
+    
+    init(balance: String, symbol: Symbol = .eos) {
+        self.quantity = Double(balance) ?? 0
         self.balance = balance.dot4String
         self.symbol = symbol
         self.currency = self.balance + " " + symbol

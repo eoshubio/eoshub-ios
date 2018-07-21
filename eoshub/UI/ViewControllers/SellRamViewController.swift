@@ -66,7 +66,7 @@ class SellRamViewController: BaseViewController {
     
     private func handleTransaction() {
         
-        let quantity = Int64(inputForm.quantity.value)
+        let quantity = Int64(inputForm.quantity.value) ?? 0
         let accountName = account.account
         unlockWallet(pinTarget: self, pubKey: account.pubKey)
             .flatMap { (wallet) -> Observable<JSON> in
@@ -96,7 +96,7 @@ class SellRamViewController: BaseViewController {
     
     private func validate() {
         
-        let quantity = Int64(inputForm.quantity.value)
+        let quantity = Int64(inputForm.quantity.value) ?? 0
         
         RxEOSAPI.getRamPrice()
             .flatMap { (price) -> Observable<Bool> in
@@ -128,7 +128,7 @@ extension SellRamViewController: UITableViewDataSource {
         } else {
             cellId = "RamInputFormCell"
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? RamInputFormCell else { preconditionFailure() }
-            cell.configure(account: account, inputForm: inputForm)
+            cell.configure(account: account, inputForm: inputForm, dotStyle: .none)
             return cell
         }
     }

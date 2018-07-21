@@ -72,6 +72,11 @@ class UndelegateViewController: BaseViewController {
                 self?.flowDelegate?.goToTx(from: nc)
             }
             .disposed(by: bag)
+        
+        Observable.combineLatest([inputForm.cpu.asObservable(),inputForm.net.asObservable()])
+            .flatMap(isValidInput)
+            .bind(to: btnStake.rx.isEnabled)
+            .disposed(by: bag)
     }
     
     private func undelegatebw() {
@@ -106,13 +111,13 @@ class UndelegateViewController: BaseViewController {
     }
     
     private func validate() {
-        let cpu = Currency(balance: inputForm.cpu.value, symbol: .eos)
-        let net = Currency(balance: inputForm.net.value, symbol: .eos)
+        let cpu = inputForm.cpu.value.dot4String
+        let net = inputForm.net.value.dot4String
         
         //check validate
         
         //confirm
-        DelegatePopup.show(cpu: cpu.quantity, net: net.quantity, buttonTitle: LocalizedString.Wallet.Delegate.undelegate)
+        DelegatePopup.show(cpu: cpu, net: net, buttonTitle: LocalizedString.Wallet.Delegate.undelegate)
             .subscribe(onNext: { [weak self](apply) in
                 if apply {
                     self?.undelegatebw()
@@ -121,6 +126,17 @@ class UndelegateViewController: BaseViewController {
             .disposed(by: bag)
     }
     
+    private func isValidInput(inputs: [String]) -> Observable<Bool> {
+        let total = inputs
+            .compactMap { Double($0) }
+            .reduce(0.0) { $0 + $1 }
+        
+        if total > 0 && total < account.stakedEOS {
+            return Observable.just(true)
+        } else {
+            return Observable.just(false)
+        }
+    }
 }
 
 extension UndelegateViewController: UITableViewDataSource {

@@ -139,7 +139,7 @@ extension BuyRamViewController: UITableViewDataSource {
 
 class RamInputFormCell: UITableViewCell {
     @IBOutlet fileprivate weak var ramBytes: UILabel!
-    @IBOutlet fileprivate weak var txtQuantity: UITextField!
+    @IBOutlet fileprivate weak var txtQuantity: FormattedNumberField!
     @IBOutlet fileprivate weak var lbQuantity: UILabel!
     @IBOutlet fileprivate weak var lbWarning: UILabel!
     
@@ -162,13 +162,14 @@ class RamInputFormCell: UITableViewCell {
         bag = nil
     }
     
-    func configure(account: AccountInfo, inputForm: RamInputForm) {
+    func configure(account: AccountInfo, inputForm: RamInputForm, dotStyle: FormattedNumberField.DotStyle = .dot4) {
         ramBytes.text = account.ramBytes.prettyPrinted + " RAM"
         
         let bag = DisposeBag()
+        txtQuantity.style = dotStyle
         txtQuantity.rx.text.orEmpty
             .subscribe(onNext: { (text) in
-                inputForm.quantity.value = Double(text) ?? 0
+                inputForm.quantity.value = text.plainFormatted
             })
             .disposed(by: bag)
         
@@ -177,9 +178,9 @@ class RamInputFormCell: UITableViewCell {
 }
 
 struct RamInputForm {
-    let quantity = Variable<Double>(0)
+    let quantity = Variable<String>("")
     
     func clear() {
-        quantity.value = 0
+        quantity.value = ""
     }
 }

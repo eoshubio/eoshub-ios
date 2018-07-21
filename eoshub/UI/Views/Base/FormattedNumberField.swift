@@ -39,8 +39,7 @@ class FormattedNumberField: UITextField {
     
     private func setupUI() {
         addTarget(self, action: #selector(self.textFieldEditingDidChanged(_:)), for: .editingChanged)
-        
-        
+        addTarget(self, action: #selector(self.textFieldEditingDidEnded(_:)), for: .editingDidEnd)
     }
     
     @objc fileprivate func textFieldEditingDidChanged(_ sender: Any) {
@@ -57,6 +56,17 @@ class FormattedNumberField: UITextField {
         text = result
     }
     
+    @objc fileprivate func textFieldEditingDidEnded(_ sender: Any) {
+        var result = text
+        switch style {
+        case .dot4:
+            result = text?.dot4String
+        default:
+            break
+        }
+        
+        text = result
+    }
 }
 
 

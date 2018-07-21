@@ -110,8 +110,10 @@ extension String {
             let intPart = comp.first!
             let dotPart = comp.last!.substring(precision: 4)
             return intPart + "." + dotPart
+        } else if count == 0 {
+            return "0.0000"            
         } else {
-            return self
+            return self + ".0000"
         }
     }
 }

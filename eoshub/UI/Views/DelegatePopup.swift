@@ -43,12 +43,12 @@ class DelegatePopup: UIView {
         bag = nil
     }
     
-    func configure(cpu: Double, net: Double, buttonTitle: String, observer: AnyObserver<Bool>) {
+    func configure(cpu: String, net: String, buttonTitle: String, observer: AnyObserver<Bool>) {
         
         let bag = DisposeBag()
         
-        lbCpuQuantity.text = cpu.dot4String
-        lbNetQuantity.text = net.dot4String
+        lbCpuQuantity.text = cpu
+        lbNetQuantity.text = net
         btnApply.setTitle(buttonTitle, for: .normal)
         
         btnApply.rx.singleTap
@@ -95,7 +95,7 @@ class DelegatePopup: UIView {
     }
     
     
-    static func show(cpu: Double, net: Double, buttonTitle: String) -> Observable<Bool> {
+    static func show(cpu: String, net: String, buttonTitle: String) -> Observable<Bool> {
         
         return Observable<Bool>.create({ (observer) -> Disposable in
             

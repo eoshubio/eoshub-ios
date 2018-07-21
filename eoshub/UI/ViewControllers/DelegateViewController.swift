@@ -64,25 +64,17 @@ class DelegateViewController: BaseViewController {
             }
             .disposed(by: bag)
         
-        let account: AccountInfo = self.account
-        
         Observable.combineLatest([inputForm.cpu.asObservable(),inputForm.net.asObservable()])
-            .flatMap { (values) -> Observable<Bool> in
-                let total = (values.first ?? 0) + (values.last ?? 0)
-                if total > 0 && total < account.stakedEOS {
-                    return Observable.just(true)
-                } else {
-                    return Observable.just(false)
-                }
-            }
+            .flatMap(isValidInput)
             .bind(to: btnStake.rx.isEnabled)
             .disposed(by: bag)
         
     }
     
     private func delegatebw() {
-        let cpu = Currency(balance: inputForm.cpu.value, symbol: .eos)
-        let net = Currency(balance: inputForm.net.value, symbol: .eos)
+        let cpu = Currency(balance: inputForm.cpu.value)
+        let net = Currency(balance: inputForm.net.value)
+        
         let accountName = account.account
         
         unlockWallet(pinTarget: self, pubKey: account.pubKey)
@@ -111,19 +103,31 @@ class DelegateViewController: BaseViewController {
     }
     
     private func validate() {
-        let cpu = Currency(balance: inputForm.cpu.value, symbol: .eos)
-        let net = Currency(balance: inputForm.net.value, symbol: .eos)
+        let cpu = inputForm.cpu.value.dot4String
+        let net = inputForm.net.value.dot4String
         
         //check validate
         
         //confirm
-        DelegatePopup.show(cpu: cpu.quantity, net: net.quantity, buttonTitle: LocalizedString.Wallet.Delegate.delegate)
+        DelegatePopup.show(cpu: cpu, net: net, buttonTitle: LocalizedString.Wallet.Delegate.delegate)
             .subscribe(onNext: { [weak self](apply) in
                 if apply {
                     self?.delegatebw()
                 }
             })
             .disposed(by: bag)
+    }
+    
+    private func isValidInput(inputs: [String]) -> Observable<Bool> {
+        let total = inputs
+                    .compactMap { Double($0) }
+                    .reduce(0.0) { $0 + $1 }
+        
+        if total > 0 && total < account.availableEOS {
+            return Observable.just(true)
+        } else {
+            return Observable.just(false)
+        }
     }
     
 }
@@ -186,13 +190,13 @@ class DelegateInputFormCell: UITableViewCell {
         let bag = DisposeBag()
         txtCpuQuantity.rx.text.orEmpty
             .subscribe(onNext: { (text) in
-                inputForm.cpu.value = Double(text) ?? 0
+                inputForm.cpu.value = text.plainFormatted
             })
             .disposed(by: bag)
         
         txtNetQuantity.rx.text.orEmpty
             .subscribe(onNext: { (text) in
-                inputForm.net.value = Double(text) ?? 0
+                inputForm.net.value = text.plainFormatted
             })
             .disposed(by: bag)
         
@@ -202,11 +206,11 @@ class DelegateInputFormCell: UITableViewCell {
 
 
 struct DelegateInputForm {
-    let cpu = Variable<Double>(0)
-    let net = Variable<Double>(0)
+    let cpu = Variable<String>("")
+    let net = Variable<String>("")
     
     func clear() {
-        cpu.value = 0
-        net.value = 0
+        cpu.value = ""
+        net.value = ""
     }
 }
