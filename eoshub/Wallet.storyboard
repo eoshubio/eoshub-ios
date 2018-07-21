@@ -499,7 +499,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="56L-Xb-hdw">
                                 <rect key="frame" x="0.0" y="640" width="375" height="138"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHM-E6-tQN" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fHM-E6-tQN" customClass="ActionButton" customModule="eoshub" customModuleProvider="target">
                                         <rect key="frame" x="15" y="22" width="345" height="45"/>
                                         <color key="backgroundColor" red="0.41960784313725491" green="0.24313725490196078" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1562,7 +1562,7 @@ HuGYqET5GDW5CV</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1af-nP-AiY">
                                 <rect key="frame" x="0.0" y="640" width="375" height="138"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2Q-2N-dUL" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="L2Q-2N-dUL" customClass="ActionButton" customModule="eoshub" customModuleProvider="target">
                                         <rect key="frame" x="15" y="22" width="345" height="45"/>
                                         <color key="backgroundColor" red="0.41960784309999999" green="0.24313725489999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -1906,7 +1906,7 @@ HuGYqET5GDW5CV</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vRY-fj-tbD">
                                 <rect key="frame" x="0.0" y="640" width="375" height="138"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Gu-Dc-VfI" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Gu-Dc-VfI" customClass="ActionButton" customModule="eoshub" customModuleProvider="target">
                                         <rect key="frame" x="15" y="22" width="345" height="45"/>
                                         <color key="backgroundColor" red="0.41960784309999999" green="0.24313725489999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -2250,7 +2250,7 @@ HuGYqET5GDW5CV</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nU5-I8-41E">
                                 <rect key="frame" x="0.0" y="640" width="375" height="138"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfA-lR-N2S" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wfA-lR-N2S" customClass="ActionButton" customModule="eoshub" customModuleProvider="target">
                                         <rect key="frame" x="15" y="22" width="345" height="45"/>
                                         <color key="backgroundColor" red="0.41960784309999999" green="0.24313725489999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
@@ -2549,7 +2549,7 @@ HuGYqET5GDW5CV</string>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zLu-nO-B1R">
                                 <rect key="frame" x="0.0" y="640" width="375" height="138"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EB9-oV-D44" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EB9-oV-D44" customClass="ActionButton" customModule="eoshub" customModuleProvider="target">
                                         <rect key="frame" x="15" y="22" width="345" height="45"/>
                                         <color key="backgroundColor" red="0.41960784309999999" green="0.24313725489999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
