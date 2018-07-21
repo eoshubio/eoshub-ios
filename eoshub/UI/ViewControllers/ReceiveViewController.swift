@@ -49,6 +49,9 @@ class ReceiveViewController: BaseViewController {
         
         btnHistory.setTitle(LocalizedString.Wallet.Transfer.history, for: .normal)
         
+        btnCopyAccount.setTitle(LocalizedString.Common.copy, for: .normal)
+        btnCopyPubKey.setTitle(LocalizedString.Common.copy, for: .normal)
+        
         btnShareContainer.layer.borderColor = Color.white.cgColor
         btnShareContainer.layer.borderWidth = 1
         
@@ -73,6 +76,21 @@ class ReceiveViewController: BaseViewController {
             .bind { [weak self] in
                 guard let nc = self?.navigationController else { return }
                 self?.flowDelegate?.goToTx(from: nc)
+            }
+            .disposed(by: bag)
+        
+        
+        btnCopyAccount.rx.tap
+            .bind { [weak self] in
+                guard let text = self?.account.account else { return }
+                UIPasteboard.general.string = text
+            }
+            .disposed(by: bag)
+        
+        btnCopyPubKey.rx.tap
+            .bind { [weak self] in
+                guard let text = self?.account.pubKey else { return }
+                UIPasteboard.general.string = text
             }
             .disposed(by: bag)
     }

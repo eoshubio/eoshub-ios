@@ -63,7 +63,7 @@ class SendCurrencyViewController: TextInputViewController {
                 self?.validateInputForm()
             }
             .disposed(by: bag)
-
+        
         let quantityCheck = sendForm.quantity.asObservable()
             .flatMap(isValidQuantity(max: balance.quantity))
 
@@ -228,6 +228,7 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
     @IBOutlet fileprivate weak var lbMemo: UILabel!
     @IBOutlet fileprivate weak var lbMemoDesc: UILabel!
     @IBOutlet fileprivate weak var txtMemo: UITextField!
+    @IBOutlet fileprivate weak var btnPasteMemo: UIButton!
     @IBOutlet fileprivate weak var lbQuantity: UILabel!
     @IBOutlet fileprivate weak var txtQuantity: UITextField!
     @IBOutlet fileprivate weak var lbSymbol: UILabel!
@@ -248,6 +249,8 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
         txtQuantity.delegate = self
         txtQuantity.addDoneButtonToKeyboard(myAction: #selector(self.txtQuantity.resignFirstResponder))
         btnPaste.setTitle(LocalizedString.Common.paste, for: .normal)
+        btnPasteMemo.setTitle(LocalizedString.Common.paste, for: .normal)
+        
         
         clearForm()
     }
@@ -285,6 +288,18 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
                     form.quantity.value = input.plainFormatted
                 }
             })
+            .disposed(by: bag)
+        
+        btnPaste.rx.tap
+            .bind { [weak self] in
+                self?.txtAcount.text = UIPasteboard.general.string
+            }
+            .disposed(by: bag)
+        
+        btnPasteMemo.rx.tap
+            .bind { [weak self] in
+                self?.txtMemo.text = UIPasteboard.general.string
+            }
             .disposed(by: bag)
         
         self.bag = bag
