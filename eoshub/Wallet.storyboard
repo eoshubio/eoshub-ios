@@ -1488,7 +1488,7 @@ HuGYqET5GDW5CV</string>
                                                             <constraint firstItem="GRi-Z6-k2Y" firstAttribute="centerY" secondItem="m7t-ay-t8S" secondAttribute="centerY" id="UFg-qH-GWp"/>
                                                         </constraints>
                                                     </view>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGu-a1-jKX">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LGu-a1-jKX" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
                                                         <rect key="frame" x="2" y="2" width="136" height="26"/>
                                                     </button>
                                                 </subviews>

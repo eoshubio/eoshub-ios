@@ -62,7 +62,7 @@ class ReceiveViewController: BaseViewController {
         
         
         
-        var qr = QRCode(account.pubKey)
+        var qr = QRCode(account.account)
         qr?.size = qrcode.bounds.size
         let qrImage = qr?.image
         qrcode.image = qrImage
@@ -93,12 +93,28 @@ class ReceiveViewController: BaseViewController {
                 UIPasteboard.general.string = text
             }
             .disposed(by: bag)
+        
+        btnShare.rx.tap
+            .bind { [weak self] in
+                guard let qrcodeImage = self?.qrcode.image else { return }
+                self?.shareImage(image: qrcodeImage)
+            }
+            .disposed(by: bag)
+        
+        
     }
     
     func configure(account: AccountInfo) {
         self.account = account
     }
     
-    
+    fileprivate func shareImage(image: UIImage) {
+        let imageToShare = [image]
+        let activityViewController = UIActivityViewController(activityItems: imageToShare, applicationActivities: nil)
+        activityViewController.popoverPresentationController?.sourceView = self.view // so that iPads won't crash
+        
+        // present the view controller
+        self.present(activityViewController, animated: true, completion: nil)
+    }
     
 }
