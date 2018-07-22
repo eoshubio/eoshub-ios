@@ -85,8 +85,8 @@ class UndelegateViewController: BaseViewController {
     
     private func undelegatebw() {
         
-        let cpu = Currency(balance: inputForm.cpu.value, symbol: .eos)
-        let net = Currency(balance: inputForm.net.value, symbol: .eos)
+        let cpu = Currency(balance: inputForm.cpu.value, token: .eos)
+        let net = Currency(balance: inputForm.net.value, token: .eos)
         let accountName = account.account
         unlockWallet(pinTarget: self, pubKey: account.pubKey)
             .flatMap { (wallet) -> Observable<JSON> in
@@ -156,7 +156,7 @@ extension UndelegateViewController: UITableViewDataSource {
         if indexPath.row == 0 {
             cellId = "UndelegateMyAccountCell"
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? UndelegateMyAccountCell else { preconditionFailure() }
-            let balance = Currency(balance: account.totalEOS, symbol: .eos)
+            let balance = Currency(balance: account.totalEOS, token: .eos)
             cell.configure(account: account, balance: balance)
             return cell
             

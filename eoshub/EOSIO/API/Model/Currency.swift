@@ -10,43 +10,104 @@ import Foundation
 
 typealias Symbol = String
 
-struct Currency {
-    let quantity: Double
-    let balance: String
+struct Token: Equatable {
     let symbol: Symbol
-    let currency: String
+    let contract: String
     
-    init?(currency: String) {
-        let comp = currency.components(separatedBy: " ")
+    var stringValue: String {
+        return symbol + "@" + contract
+    }
+    
+    init(symbol: Symbol, contract: String) {
+        self.symbol = symbol
+        self.contract = contract
+    }
+    
+    init?(with stringValue: String) {
+        let comp = stringValue.components(separatedBy: "@")
         if comp.count != 2 {
             return nil
         } else {
-            
-            let balanceRaw = comp.first!
-            
-            self.quantity = Double(balanceRaw)!
-            self.balance = balanceRaw.dot4String
-            self.symbol = comp.last!
-            self.currency = balance + " " + symbol
+            self.symbol = comp.first!
+            self.contract = comp.last!
+        }
+    }
+}
+
+extension Token {
+    static let eos = Config.eosInfo.token
+}
+
+struct Currency {
+    let quantity: Double
+    let balance: String
+    let token: Token
+    
+    var symbol: Symbol {
+        return token.symbol
+    }
+    
+    var stringValue: String {
+        return balance + " " + token.symbol
+    }
+    
+    //balance + symbol + @contract
+    var rawValue: String { //for save to db
+        return balance + " " + token.stringValue
+    }
+    
+    
+    init(balance: Double, token: Token = .eos) {
+        self.quantity = balance
+        self.balance = balance.dot4String
+        self.token = token
+        
+    }
+    
+    init(balance: String, token: Token = .eos) {
+        self.quantity = Double(balance) ?? 0
+        self.balance = balance.dot4String
+        self.token = token
+    }
+    
+    init?(eosCurrency: String) {
+        let comp = eosCurrency.components(separatedBy: " ")
+        if comp.count == 2 {
+            let balance = comp.first!
+            self.quantity = Double(balance) ?? 0
+            self.balance = balance.dot4String
+            self.token = .eos
+        } else {
+            return nil
         }
     }
     
-    init(balance: Double, symbol: Symbol) {
-        self.quantity = balance
-        self.balance = balance.dot4String
-        self.symbol = symbol
-        self.currency = self.balance + " " + symbol
+    //cf) rawValue: "1.0000 EOS@eosio.token"
+    static func create(rawValue: String) -> Currency? {
+        let comp = rawValue.components(separatedBy: " ")
+        if comp.count == 2, let token = Token(with: comp.last!) {
+            let currency = Currency(balance: comp.first!, token: token)
+            return currency
+        }
+        return nil
     }
     
-    init(balance: String, symbol: Symbol = .eos) {
-        self.quantity = Double(balance) ?? 0
-        self.balance = balance.dot4String
-        self.symbol = symbol
-        self.currency = self.balance + " " + symbol
+    //cf) stringValue: "1.0000 EOS", contract: "eosio.token"
+    static func create(stringValue: String, contract: String) -> Currency? {
+        let comp = stringValue.components(separatedBy: " ")
+        if comp.count == 2 {
+            let token = Token(symbol: comp.last!, contract: contract)
+            let currency = Currency(balance: comp.first!, token: token)
+            return currency
+        }
+        return nil
     }
-
+    
 }
 
 extension Currency {
-    static let zeroEOS = Currency(currency: "0.0000 EOS")!
+    static let zeroEOS = Currency(balance: 0, token: .eos)
 }
+
+
+

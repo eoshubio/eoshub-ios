@@ -76,7 +76,7 @@ class BuyRamViewController: BaseViewController {
     
     private func handleTransaction() {
 
-        let quantity = Currency(balance: inputForm.quantity.value, symbol: .eos)
+        let quantity = Currency(balance: inputForm.quantity.value, token: .eos)
         let accountName = account.account
         unlockWallet(pinTarget: self, pubKey: account.pubKey)
             .flatMap { (wallet) -> Observable<JSON> in
@@ -118,7 +118,7 @@ class BuyRamViewController: BaseViewController {
     
     private func validate() {
         
-         let quantity = Currency(balance: inputForm.quantity.value, symbol: .eos)
+         let quantity = Currency(balance: inputForm.quantity.value, token: .eos)
         
         RxEOSAPI.getRamPrice()
             .flatMap { (price) -> Observable<Bool> in
@@ -144,7 +144,7 @@ extension BuyRamViewController: UITableViewDataSource {
         if indexPath.row == 0 {
             cellId = "MyAccountCell"
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? SendMyAccountCell else { preconditionFailure() }
-            let balance = Currency(balance: account.totalEOS, symbol: .eos)
+            let balance = Currency(balance: account.totalEOS, token: .eos)
             cell.configure(account: account, balance: balance)
             return cell
             

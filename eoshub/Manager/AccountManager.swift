@@ -48,9 +48,21 @@ class AccountManager {
             .flatMap({ _ in Observable.just(())})
     }
     
-    private func getAccountInfo(account: EHAccount) -> Observable<AccountInfo> {
+    func loadAccount(account: EHAccount) -> Observable<Void> {
+        return getAccountInfo(account: account, isFirstTime: true)
+                .do(onNext: { (info) in
+                    DB.shared.addOrUpdateObjects([info] as [AccountInfo])
+                }, onError: { (error) in
+                    Log.e(error)
+                }, onCompleted: {
+                    self.refreshUI()
+                })
+                .flatMap({ _ in Observable.just(())})
+    }
+    
+    private func getAccountInfo(account: EHAccount, isFirstTime: Bool = false) -> Observable<AccountInfo> {
         
-        let knownTokens = TokenManager.shared.knownTokens
+        let preferTokens = isFirstTime ? TokenManager.shared.knownTokens.map({ $0.token }) : account.tokens
         
         return RxEOSAPI.getAccount(name: account.account)
             .flatMap({ [weak self](account) ->  Observable<AccountInfo> in
@@ -59,9 +71,18 @@ class AccountManager {
                 return Observable.just(info)
             })
             .flatMap { (info) -> Observable<AccountInfo> in
-                return RxEOSAPI.getTokens(account: account, tokenInfos: knownTokens)
+                return RxEOSAPI.getTokens(account: account, tokens: preferTokens)
                         .flatMap({ (tokenBalances) -> Observable<AccountInfo> in
-                            info.addTokens(currency: tokenBalances)
+                            
+                            if isFirstTime {
+                                let havingToken = tokenBalances.filter { $0.quantity > 0 }
+                                info.addTokens(currency: havingToken)
+                                let tokens = havingToken.map { $0.token }
+                                account.addPreferTokens(tokens: tokens)
+                            } else {
+                                info.addTokens(currency: tokenBalances)
+                            }
+                            
                             return Observable.just(info)
                         })
             }

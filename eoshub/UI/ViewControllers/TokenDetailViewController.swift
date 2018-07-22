@@ -17,7 +17,7 @@ class TokenDetailViewController: BaseViewController {
     
     fileprivate lazy var items: Results<Tx> = {
         var result = TxManager.shared.getTx(for: tokenInfo.owner.account)
-                                    .filter("data CONTAINS ' \(tokenInfo.symbol)\"'")
+                                    .filter("contract = '\(tokenInfo.token.contract)' AND data CONTAINS ' \(tokenInfo.token.symbol)\"'")
         return result
     }()
     
@@ -47,13 +47,13 @@ class TokenDetailViewController: BaseViewController {
     private func setupUI() {
         let accountInfo = tokenInfo.owner
         
-        title = tokenInfo.symbol
+        title = tokenInfo.token.stringValue
         
         account.text = accountInfo.account
         
-        lbAvailable.text = LocalizedString.Wallet.Transfer.available + tokenInfo.symbol
+        lbAvailable.text = LocalizedString.Wallet.Transfer.available + tokenInfo.token.symbol
         
-        lbSymbol.text = tokenInfo.symbol
+        lbSymbol.text = tokenInfo.token.symbol
         
         btnSend.setTitle(LocalizedString.Wallet.send, for: .normal)
         
@@ -83,7 +83,6 @@ class TokenDetailViewController: BaseViewController {
         AccountManager.shared.accountInfoRefreshed
             .subscribe(onNext: {[weak self](_) in
                 guard let `self` = self else { return }
-                //TODO: token symbol -> symbol + contract 로 바꿔야함. 같은 symbol 이 존재할 가능성이 있다.
                 self.updateInfo(tokenInfo: self.tokenInfo)
             })
             .disposed(by: bag)

@@ -19,11 +19,13 @@ struct RefundInfo: JSONInitializable {
     init?(json: JSON) {
         guard let cpuAmount = json.string(for: "cpu_amount"),
                 let netAmount = json.string(for: "net_amount"),
+                let cpuEOS = Currency(eosCurrency: cpuAmount),
+                let netEOS = Currency(eosCurrency: netAmount),
                 let date = json.string(for: "request_time"),
                 let requestTime = Date.UTCToDate(date: date)?.timeIntervalSince1970 else { return nil }
         
-        cpuAmountEOS = Currency(currency: cpuAmount)!.quantity
-        netAmountEOS = Currency(currency: netAmount)!.quantity
+        cpuAmountEOS = cpuEOS.quantity
+        netAmountEOS = netEOS.quantity
         requestedTime = requestTime
         
     }

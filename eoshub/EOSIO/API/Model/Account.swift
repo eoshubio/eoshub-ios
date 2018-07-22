@@ -28,8 +28,8 @@ struct Account: JSONInitializable {
     init?(json: JSON) {
         guard let accountName = json.string(for: "account_name") else { return nil }
         name = accountName
-        if let balance = json.string(for: "core_liquid_balance"), let currency = Currency(currency: balance) {
-            liquidBalance = currency
+        if let balance = json.string(for: "core_liquid_balance"), let liquidEOS = Currency(eosCurrency: balance) {
+            liquidBalance = liquidEOS
         } else {
             liquidBalance = Currency.zeroEOS
         }
@@ -72,5 +72,4 @@ struct Account: JSONInitializable {
 
 //TODO: 아래 내용 처리
 //"self_delegated_bandwidth": null,
-//"refund_request": null,
-//"voter_info": null
+

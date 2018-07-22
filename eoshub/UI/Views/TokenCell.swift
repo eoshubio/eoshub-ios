@@ -29,10 +29,10 @@ struct TokenBalanceInfo: CellType {
     
     let owner: AccountInfo
     
-    let symbol: Symbol
+    let token: Token
     
     var currency: Currency {
-        return owner.tokens.filter { $0.symbol == symbol }.first ?? Currency(balance: 0, symbol: symbol)
+        return owner.tokens.filter { $0.token == token }.first ?? Currency(balance: 0, token: token)
     }
     
     var balance: String {
@@ -40,7 +40,6 @@ struct TokenBalanceInfo: CellType {
     }
     
     var quantity: Double {
-        //TODO: symbol -> symbol + contract
         return currency.quantity
         
     }

@@ -20,11 +20,8 @@ class Tx: DBObject, JSONInitializable, Mergeable {
     @objc dynamic var txid: String = ""
     @objc dynamic var hashId: String = ""
     @objc dynamic var action: String = ""
-//    @objc dynamic var from: String = ""
-//    @objc dynamic var to: String = ""
-//    @objc dynamic var quantity: Double = 0
-//    @objc dynamic var symbol: Symbol = .eos
-//    @objc dynamic var memo: String = ""
+    @objc dynamic var contract: String = ""
+
     @objc dynamic var timeStamp: TimeInterval = 0
     @objc dynamic var data: String = ""
     
@@ -41,12 +38,15 @@ class Tx: DBObject, JSONInitializable, Mergeable {
         
         guard let act = action.json(for: "act") else { return nil }
         guard let actionName = act.string(for: "name") else { return nil }
+        guard let contract = act.string(for: "account") else { return nil }
         
         self.id = actionName + txid
         
         guard let data = act.json(for: "data") else { return nil }
         
         self.action = actionName
+        
+        self.contract = contract
         
         self.data = data.stringValue ?? ""
         

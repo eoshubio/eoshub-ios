@@ -40,7 +40,7 @@ extension Contract {
                                 action: .transfer,
                                 args: [Args.transfer.from: from,
                                        Args.transfer.to: to,
-                                       Args.transfer.quantity: quantity.currency,
+                                       Args.transfer.quantity: quantity.stringValue,
                                        Args.transfer.memo: memo],
                                 authorization: Authorization(actor: from, permission: .active))
         return contract
@@ -51,7 +51,7 @@ extension Contract {
                                 action: .buyram,
                                 args: [Args.buyram.payer: payer,
                                        Args.buyram.receiver: receiver,
-                                       Args.buyram.quant: quant.currency],
+                                       Args.buyram.quant: quant.stringValue],
                                 authorization: Authorization(actor: payer, permission: .active))
         return contract
     }
@@ -82,8 +82,8 @@ extension Contract {
                                 action: .delegatebw,
                                 args: [Args.delegatebw.from: from,
                                        Args.delegatebw.receiver: receiver,
-                                       Args.delegatebw.stake_cpu_quantity: cpu.currency,
-                                       Args.delegatebw.stake_net_quantity: net.currency,
+                                       Args.delegatebw.stake_cpu_quantity: cpu.stringValue,
+                                       Args.delegatebw.stake_net_quantity: net.stringValue,
                                        Args.delegatebw.transfer : false],
                                 authorization: Authorization(actor: from, permission: .active))
         return contract
@@ -94,8 +94,8 @@ extension Contract {
                                 action: .undelegatebw,
                                 args: [Args.undelegatebw.from: from,
                                        Args.undelegatebw.receiver: receiver,
-                                       Args.undelegatebw.unstake_cpu_quantity: cpu.currency,
-                                       Args.undelegatebw.unstake_net_quantity: net.currency],
+                                       Args.undelegatebw.unstake_cpu_quantity: cpu.stringValue,
+                                       Args.undelegatebw.unstake_net_quantity: net.stringValue],
                                 authorization: Authorization(actor: from, permission: .active))
         return contract
     }

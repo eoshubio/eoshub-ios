@@ -49,11 +49,11 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     
     var tokens: [Currency] {
         get {
-            return _tokens.map { $0.stringValue }.compactMap(Currency.init)
+            return _tokens.map { $0.stringValue }.compactMap(Currency.create)
         }
         set {
             _tokens.removeAll()
-            _tokens.append(objectsIn: newValue.map({ RealmString(value: $0.currency) }))
+            _tokens.append(objectsIn: newValue.map({ RealmString(value: $0.rawValue) }))
         }
     }
     
@@ -111,7 +111,7 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     }
     
     func addToken(currency: Currency) {
-        _tokens.append(RealmString(value: currency.currency))
+        _tokens.append(RealmString(value: currency.rawValue))
     }
     
     func addTokens(currency: [Currency]) {

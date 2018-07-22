@@ -25,13 +25,13 @@ class EHAccount: DBObject {
     
     var _tokens = List<RealmString>()
     
-    var tokenSymbols: [String] {
+    var tokens: [Token] {
         get {
-            return _tokens.map { $0.stringValue }
+            return _tokens.compactMap { Token(with: $0.stringValue) }
         }
         set {
             _tokens.removeAll()
-            _tokens.append(objectsIn: newValue.map({ RealmString(value: $0) }))
+            _tokens.append(objectsIn: newValue.map({ RealmString(value: $0.stringValue) }))
         }
     }
     
@@ -46,15 +46,15 @@ class EHAccount: DBObject {
         self.publicKey = publicKey
         self.owner = owner
         created = Date().timeIntervalSince1970
-        
-        //Add known token
-        _tokens.append(RealmString(value: TokenInfo.pandora.symbol))
-        _tokens.append(RealmString(value: "NOVA"))
-        
+ 
     }
     
-    func addPreferToken(symbol: String) {
-        _tokens.append(RealmString(value: symbol))
+    func addPreferToken(token: Token) {
+        _tokens.append(RealmString(value: token.stringValue))
+    }
+    
+    func addPreferTokens(tokens: [Token]) {
+        self.tokens = tokens
     }
     
 }

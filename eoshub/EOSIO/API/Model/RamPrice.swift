@@ -34,10 +34,10 @@ struct RamPrice: JSONInitializable {
             let quoteBalance = quote.string(for: "balance"),
             let quoteWeight = quote.string(for: "weight") else { return nil }
         
-        self.supply = Currency(currency: supply)!
+        self.supply = Currency(eosCurrency: supply) ?? .zeroEOS
         self.baseBalance = Double(Int64(parsedBalance)!)
         self.baseWeight = Double(baseWeight)!
-        self.quoteBalance = Currency(currency: quoteBalance)!
+        self.quoteBalance = Currency(eosCurrency: quoteBalance) ?? .zeroEOS
         self.quoteWeight = Double(quoteWeight)!
         
     }

@@ -59,7 +59,7 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
     func goToSend(from nc: UINavigationController, with account: AccountInfo) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = SendCurrencyFlowController(configure: config)
-        let balance = Currency(balance: account.availableEOS, symbol: "EOS")
+        let balance = Currency(balance: account.availableEOS, token: .eos)
         fc.configure(account: account, balance: balance)
         fc.start(animated: true)
     }

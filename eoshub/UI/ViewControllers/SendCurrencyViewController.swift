@@ -149,7 +149,7 @@ class SendCurrencyViewController: TextInputViewController {
                 
                 return RxEOSAPI.sendCurrency(from: strongSelf.account.account,
                                              to: strongSelf.sendForm.account.value,
-                                             quantity: strongSelf.sendForm.quantityCurrency(symbol: strongSelf.balance.symbol),
+                                             quantity: strongSelf.sendForm.quantityCurrency(token: strongSelf.balance.token),
                                              memo: strongSelf.sendForm.memo.value,
                                              wallet: wallet)
             }
@@ -333,9 +333,8 @@ fileprivate struct SendForm {
     let account = Variable<String>("")
     let memo = Variable<String>("")
     
-    func quantityCurrency(symbol: String) -> Currency {
-        let currency = String(quantity.value) + " " + symbol
-        return Currency(currency: currency)!
+    func quantityCurrency(token: Token) -> Currency {
+        return Currency(balance: quantity.value, token: token)
     }
     
     func clear() {

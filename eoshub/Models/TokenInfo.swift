@@ -14,6 +14,15 @@ class TokenInfo: DBObject {
     @objc dynamic var symbol: String = ""
     @objc dynamic var name: String = ""
     
+    
+    var token: Token {
+        return Token(symbol: symbol, contract: contract)
+    }
+    
+    override static func ignoredProperties() -> [String] {
+        return ["token"]
+    }
+    
     convenience init(contract: String, symbol: String, name: String?) {
         self.init()
         self.id = symbol
@@ -25,7 +34,5 @@ class TokenInfo: DBObject {
 }
 
 extension TokenInfo {
-    static let pandora = Config.pandoraInfo
-    
-    
+    static let pandora = Config.pandoraInfo  
 }

@@ -50,15 +50,16 @@ struct RxEOSAPI {
     static func getBalance(account: String, contract: String, symbol: String) -> Observable<Currency> {
         
         let params = ["account": account, "code": contract, "symbol": symbol]
+        let token = Token(symbol: symbol, contract: contract)
         
         return EOSAPI.Chain.get_currency_balance
             .responseArray(method: .post, parameter: params, encoding: JSONEncoding.default)
             .flatMap({ (resArray) -> Observable<Currency> in
                 if let currencyArray = resArray as? [String] {
-                    if let result = currencyArray.compactMap({ Currency(currency: $0 )}).first {
+                    if let result = currencyArray.compactMap({ Currency.create(stringValue: $0, contract: contract) }).first {
                         return Observable.just(result)
                     } else {
-                        return Observable.just(Currency(currency: "0.0000 " + symbol)!)
+                        return Observable.just(Currency(balance: 0, token: token))
                     }
                 } else {
                     return Observable.error(EOSErrorType.emptyData)
@@ -258,7 +259,7 @@ extension RxEOSAPI {
     //MARK: Transfer currency
     static func sendCurrency(from: String, to: String, quantity: Currency, memo: String = "", wallet: Wallet) -> Observable<JSON> {
       
-        guard let code = TokenManager.getContract(for: quantity.symbol) else { return Observable.error(EOSErrorType.contractNotFound )}
+        let code = quantity.token.contract
         
         let contract = Contract.transfer(code: code, from: from, to: to, quantity: quantity, memo: memo)
 
@@ -324,13 +325,10 @@ extension RxEOSAPI {
     }
     
     //MARK: Tokens
-    static func getTokens(account: EHAccount, tokenInfos: [TokenInfo]) -> Observable<[Currency]> {
-        var tokenInfoHashMap: [String: String] = [:]
-        tokenInfos.forEach({ tokenInfoHashMap[$0.symbol] = $0.contract })
+    static func getTokens(account: EHAccount, tokens: [Token]) -> Observable<[Currency]> {
         
-        let rxGetTokens = account.tokenSymbols.map { (symbol) -> Observable<Currency> in
-            guard let contract = tokenInfoHashMap[symbol] else { return Observable.error(EOSErrorType.emptyData) }
-            return RxEOSAPI.getBalance(account: account.account, contract: contract, symbol: symbol)
+        let rxGetTokens = tokens.map { (preferToken) -> Observable<Currency> in
+            return RxEOSAPI.getBalance(account: account.account, contract: preferToken.contract, symbol: preferToken.symbol)
         }
         
         return Observable.zip(rxGetTokens)

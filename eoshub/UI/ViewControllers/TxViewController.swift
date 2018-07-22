@@ -131,7 +131,7 @@ class TxCell: UITableViewCell {
         
         switch tx.action {
         case Contract.Action.transfer.rawValue:
-            fillTansferData(with: tx.data, myaccount: myaccount)
+            fillTansferData(with: tx.data, myaccount: myaccount, contract: tx.contract)
         case Contract.Action.buyram.rawValue:
             fillBuyRamData(with: tx.data, myaccount: myaccount)
         case Contract.Action.sellram.rawValue:
@@ -145,14 +145,14 @@ class TxCell: UITableViewCell {
         }
     }
     
-    private func fillTansferData(with dataString: String, myaccount: String) {
+    private func fillTansferData(with dataString: String, myaccount: String, contract: String) {
         
         guard let data = JSON.createJSON(from: dataString) else { return }
         
         guard let from = data.string(for: Contract.Args.transfer.from),
             let to = data.string(for: Contract.Args.transfer.to),
             let currencyString = data.string(for: Contract.Args.transfer.quantity),
-            let currency = Currency(currency: currencyString),
+            let currency = Currency.create(stringValue: currencyString, contract: contract),
             let memo = data.string(for: Contract.Args.transfer.memo) else { return }
 
         let outBound: Bool = from == myaccount
@@ -182,7 +182,7 @@ class TxCell: UITableViewCell {
         lbInOut.textColor = Color.blue.uiColor
         lbRelatedAccount.text = ""
 
-        if let quant = data.string(for: Contract.Args.buyram.quant), let currency = Currency(currency: quant) {
+        if let quant = data.string(for: Contract.Args.buyram.quant), let currency = Currency(eosCurrency: quant) {
             lbQuantity.text = currency.balance
             lbSymbol.text = currency.symbol
         }

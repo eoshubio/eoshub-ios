@@ -18,12 +18,12 @@ struct Resources: JSONInitializable {
     }
     
     init?(json: JSON) {
-        guard let net = json["net_weight"] as? String, let netWeight = Currency(currency: net) else { return nil }
-        guard let cpu = json["cpu_weight"] as? String, let cpuWeight = Currency(currency: cpu) else { return nil }
+        guard let net = json["net_weight"] as? String else { return nil }
+        guard let cpu = json["cpu_weight"] as? String else { return nil }
         guard let ram = json["ram_bytes"] as? Int64 else { return nil }
         
-        self.netWeight = netWeight
-        self.cpuWeight = cpuWeight
+        self.netWeight = Currency(eosCurrency: net) ?? .zeroEOS
+        self.cpuWeight = Currency(eosCurrency: cpu) ?? .zeroEOS
         self.ramBytes = ram
     }
     

@@ -99,17 +99,20 @@ class ImportViewController: TextInputViewController {
         //TODO: Check network is available
         if true {
             RxEOSAPI.getAccountFromPubKey(pubKey: pubKey)
-                .flatMap({ (accountName) -> Observable<Void> in
+                .flatMap({ (accountName) -> Observable<EHAccount> in
                     let account = EHAccount(account: accountName, publicKey: pubKey, owner: true)
-                    DB.shared.addAccount(account: account)
                     
-                    //TODO: Encryption pub/pri both
                     //2. save account with public Key
-                    Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
+                    _ = Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
                     
-                    return AccountManager.shared.loadAccounts()
-                })
-                .subscribe(onNext: { [weak self] (_) in
+                    return AccountManager.shared.loadAccount(account: account)
+                            .flatMap({ (_) -> Observable<EHAccount> in
+                                return Observable.just(account)
+                            })
+                 })
+                .subscribe(onNext: { [weak self] (account) in
+                    
+                    DB.shared.addAccount(account: account)
                     
                     guard let nc = self?.navigationController else { return }
                     
