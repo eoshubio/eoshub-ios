@@ -20,6 +20,8 @@ class BuyRamViewController: BaseViewController {
     
     fileprivate let inputForm = RamInputForm()
     
+    fileprivate var rx_isEnabled = Variable<Bool>(false)
+    
     fileprivate var account: AccountInfo!
     
     deinit {
@@ -69,7 +71,18 @@ class BuyRamViewController: BaseViewController {
         
         inputForm.quantity.asObservable()
             .flatMap(isValidInput(max: account.availableEOS))
+            .bind(to: rx_isEnabled)
+            .disposed(by: bag)
+        
+        rx_isEnabled
+            .asObservable()
             .bind(to: btnStake.rx.isEnabled)
+            .disposed(by: bag)
+        
+        inputForm.transaction
+            .bind { [weak self] in
+                self?.validate()
+            }
             .disposed(by: bag)
         
     }
@@ -151,14 +164,15 @@ extension BuyRamViewController: UITableViewDataSource {
         } else {
             cellId = "RamInputFormCell"
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? RamInputFormCell else { preconditionFailure() }
-            cell.configure(account: account, inputForm: inputForm)
+            cell.configure(account: account, inputForm: inputForm, dotStyle: .dot4,
+                           title: LocalizedString.Wallet.Ram.buyram, available: rx_isEnabled.asObservable())
             return cell
         }
     }
 }
 
 
-class RamInputFormCell: UITableViewCell {
+class RamInputFormCell: TransactionInputFormCell {
     @IBOutlet fileprivate weak var ramBytes: UILabel!
     @IBOutlet fileprivate weak var txtQuantity: FormattedNumberField!
     @IBOutlet fileprivate weak var lbQuantity: UILabel!
@@ -183,7 +197,8 @@ class RamInputFormCell: UITableViewCell {
         bag = nil
     }
     
-    func configure(account: AccountInfo, inputForm: RamInputForm, dotStyle: FormattedNumberField.DotStyle = .dot4) {
+    func configure(account: AccountInfo, inputForm: RamInputForm, dotStyle: FormattedNumberField.DotStyle = .dot4,
+                   title: String, available: Observable<Bool>) {
         ramBytes.text = account.availableRamBytes.prettyPrinted + " RAM"
         
         let bag = DisposeBag()
@@ -194,12 +209,17 @@ class RamInputFormCell: UITableViewCell {
             })
             .disposed(by: bag)
         
+        txtQuantity.inputAccessoryView = makeTransactionButtonToKeyboard(title: title,
+                                                                         form: inputForm, bag: bag, available: available)
+        
         self.bag = bag
     }
 }
 
-struct RamInputForm {
+struct RamInputForm: TransactionForm {
     let quantity = Variable<String>("")
+    
+    let transaction = PublishSubject<Void>()
     
     func clear() {
         quantity.value = ""

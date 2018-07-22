@@ -20,6 +20,8 @@ class DelegateViewController: BaseViewController {
     
     fileprivate let inputForm = DelegateInputForm()
     
+    fileprivate var rx_isEnabled = Variable<Bool>(false)
+    
     fileprivate var account: AccountInfo!
     
     deinit {
@@ -70,11 +72,19 @@ class DelegateViewController: BaseViewController {
         
         Observable.combineLatest([inputForm.cpu.asObservable(),inputForm.net.asObservable()])
                 .flatMap(isValidInput(max: account.availableEOS))
-                .bind(to: btnStake.rx.isEnabled)
+                .bind(to: rx_isEnabled)
                 .disposed(by: bag)
 
         
-//            .disposed(by: bag)
+        rx_isEnabled.asObservable()
+                .bind(to: btnStake.rx.isEnabled)
+                .disposed(by: bag)
+        
+        inputForm.transaction
+            .bind { [weak self](_) in
+                self?.validate()
+            }
+            .disposed(by: bag)
         
     }
     
@@ -158,14 +168,15 @@ extension DelegateViewController: UITableViewDataSource {
         } else {
             cellId = "DelegateInputFormCell"
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? DelegateInputFormCell else { preconditionFailure() }
-            cell.configure(account: account, inputForm: inputForm)
+            cell.configure(account: account, inputForm: inputForm, title: LocalizedString.Wallet.Delegate.delegate,
+                           available: rx_isEnabled.asObservable())
             return cell
         }
     }
 }
 
 
-class DelegateInputFormCell: UITableViewCell {
+class DelegateInputFormCell: TransactionInputFormCell {
     @IBOutlet fileprivate weak var cpuStaked: UILabel!
     @IBOutlet fileprivate weak var netStaked: UILabel!
     @IBOutlet fileprivate weak var txtCpuQuantity: UITextField!
@@ -193,7 +204,7 @@ class DelegateInputFormCell: UITableViewCell {
         bag = nil
     }
     
-    func configure(account: AccountInfo, inputForm: DelegateInputForm) {
+    func configure(account: AccountInfo, inputForm: DelegateInputForm, title: String, available: Observable<Bool>) {
         cpuStaked.text = account.cpuStakedEOS.dot4String + " EOS"
         netStaked.text = account.netStakedEOS.dot4String + " EOS"
         
@@ -210,14 +221,27 @@ class DelegateInputFormCell: UITableViewCell {
             })
             .disposed(by: bag)
         
+        txtCpuQuantity.inputAccessoryView = makeTransactionButtonToKeyboard(title: title,
+                                                                            form: inputForm, bag: bag,
+                                                                            available: available)
+        
+        txtNetQuantity.inputAccessoryView = makeTransactionButtonToKeyboard(title: title,
+                                                                            form: inputForm, bag: bag,
+                                                                            available: available)
+        
+        
         self.bag = bag
     }
+    
+    
 }
 
 
-struct DelegateInputForm {
+struct DelegateInputForm: TransactionForm {
     let cpu = Variable<String>("")
     let net = Variable<String>("")
+    
+    var transaction = PublishSubject<Void>()
     
     func clear() {
         cpu.value = ""

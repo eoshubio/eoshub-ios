@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import RxCocoa
 
 class SendCurrencyViewController: TextInputViewController {
     
@@ -20,6 +21,8 @@ class SendCurrencyViewController: TextInputViewController {
     
     var account: AccountInfo!
     var balance: Currency!
+    
+    fileprivate var rx_isEnabled = Variable<Bool>(false)
     
     fileprivate let sendForm = SendForm()
     
@@ -64,16 +67,28 @@ class SendCurrencyViewController: TextInputViewController {
             }
             .disposed(by: bag)
         
+   
         let quantityCheck = sendForm.quantity.asObservable()
             .flatMap(isValidQuantity(max: balance.quantity))
 
         let accountCheck = sendForm.account.asObservable()
-            .flatMap(isValidAccount)
+            .flatMap(isValidAccount())
         
         Observable.combineLatest([quantityCheck, accountCheck])
-                .flatMap(isValid)
+                .flatMap(isValid())
+                .bind(to: rx_isEnabled)
+                .disposed(by: bag)
+
+        rx_isEnabled.asObservable()
                 .bind(to: btnSend.rx.isEnabled)
                 .disposed(by: bag)
+
+        sendForm.transaction
+                .bind { [weak self](_) in
+                    self?.validateInputForm()
+                }
+                .disposed(by: bag)
+        
         
     }
     
@@ -102,20 +117,23 @@ class SendCurrencyViewController: TextInputViewController {
         }
     }
     
-    private func isValidAccount(accountName: String) -> Observable<Bool> {
-        let available = Validator.accountName(name: accountName)
-        return Observable.just(available)
+    private func isValidAccount() -> (String) -> Observable<Bool> {
+        return { accountName in
+            let available = Validator.accountName(name: accountName)
+            return Observable.just(available)
+        }
     }
     
-    private func isValid(checklist: [Bool]) -> Observable<Bool> {
-        
-        for valid in checklist {
-            if valid == false {
-                return Observable.just(false)
+    private func isValid() -> ([Bool]) -> Observable<Bool> {
+        return { checklist in
+            for valid in checklist {
+                if valid == false {
+                    return Observable.just(false)
+                }
             }
+            
+            return Observable.just(true)
         }
-        
-        return Observable.just(true)
     }
     
     fileprivate func confirmTransfer() {
@@ -191,7 +209,7 @@ extension SendCurrencyViewController: UITableViewDataSource, UITableViewDelegate
         } else {
             cellId = "SendInputFormCell"
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? SendInputFormCell else { preconditionFailure() }
-            cell.configure(form: sendForm, symbol: balance.symbol)
+            cell.configure(form: sendForm, symbol: balance.symbol, available: rx_isEnabled.asObservable())
             return cell
         }
     }
@@ -220,7 +238,7 @@ class SendMyAccountCell: UITableViewCell {
     
 }
 
-class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
+class SendInputFormCell: TransactionInputFormCell, UITextFieldDelegate {
     @IBOutlet fileprivate weak var lbSendTo: UILabel!
     @IBOutlet fileprivate weak var btnPaste: UIButton!
     @IBOutlet fileprivate weak var btnQRCode: UIButton!
@@ -251,7 +269,6 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
         btnPaste.setTitle(LocalizedString.Common.paste, for: .normal)
         btnPasteMemo.setTitle(LocalizedString.Common.paste, for: .normal)
         
-        
         clearForm()
     }
     
@@ -260,7 +277,7 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
         bag = nil
     }
     
-    fileprivate func configure(form: SendForm, symbol: String) {
+    fileprivate func configure(form: SendForm, symbol: String, available: Observable<Bool>) {
         let placeHolder = String(format: LocalizedString.Wallet.Transfer.accountPlaceholder, symbol)
         txtAcount.placeholder = placeHolder
         lbSymbol.text = symbol
@@ -302,6 +319,12 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
             }
             .disposed(by: bag)
         
+     
+        txtAcount.inputAccessoryView = makeTransactionButtonToKeyboard(title: LocalizedString.Wallet.Transfer.transfer,
+                                                                       form: form, bag: bag, available: available)
+        txtMemo.inputAccessoryView = makeTransactionButtonToKeyboard(title: LocalizedString.Wallet.Transfer.transfer,
+                                                                     form: form, bag: bag, available: available)
+        
         self.bag = bag
     }
     
@@ -315,6 +338,7 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
         switch textField {
         case txtAcount:
             txtMemo.becomeFirstResponder()
+            return false
         default:
             break//endEditing(true)
         }
@@ -326,12 +350,16 @@ class SendInputFormCell: UITableViewCell, UITextFieldDelegate {
             Log.d(textField.text!)
         }
     }
+    
+    
 }
 
-fileprivate struct SendForm {
+fileprivate struct SendForm: TransactionForm {
     let quantity = Variable<String>("")
     let account = Variable<String>("")
     let memo = Variable<String>("")
+
+    let transaction = PublishSubject<Void>()
     
     func quantityCurrency(token: Token) -> Currency {
         return Currency(balance: quantity.value, token: token)

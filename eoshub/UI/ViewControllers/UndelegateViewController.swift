@@ -30,6 +30,8 @@ class UndelegateViewController: BaseViewController {
     
     fileprivate let inputForm = DelegateInputForm()
     
+    fileprivate let rx_isEnabled = Variable<Bool>(false)
+    
     deinit {
         Log.d("deinit")
     }
@@ -79,7 +81,17 @@ class UndelegateViewController: BaseViewController {
         
         Observable.combineLatest([inputForm.cpu.asObservable(),inputForm.net.asObservable()])
             .flatMap(isValidInput(max: account.stakedEOS))
+            .bind(to: rx_isEnabled)
+            .disposed(by: bag)
+        
+        rx_isEnabled.asObservable()
             .bind(to: btnStake.rx.isEnabled)
+            .disposed(by: bag)
+        
+        inputForm.transaction
+            .bind { [weak self](_) in
+                self?.validate()
+            }
             .disposed(by: bag)
     }
     
@@ -163,7 +175,9 @@ extension UndelegateViewController: UITableViewDataSource {
         } else {
             cellId = "DelegateInputFormCell"
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? DelegateInputFormCell else { preconditionFailure() }
-            cell.configure(account: account, inputForm: inputForm)
+            cell.configure(account: account, inputForm: inputForm,
+                           title: LocalizedString.Wallet.Delegate.undelegate,
+                           available: rx_isEnabled.asObservable())
             return cell
         }
     }

@@ -20,6 +20,8 @@ class SellRamViewController: BaseViewController {
     
     fileprivate let inputForm = RamInputForm()
     
+    fileprivate var rx_isEnabled = Variable<Bool>(false)
+    
     fileprivate var account: AccountInfo!
     
     deinit {
@@ -69,7 +71,18 @@ class SellRamViewController: BaseViewController {
         
         inputForm.quantity.asObservable()
             .flatMap(isValidInput(max: account.availableRamBytes))
+            .bind(to: rx_isEnabled)
+            .disposed(by: bag)
+        
+        rx_isEnabled
+            .asObservable()
             .bind(to: btnStake.rx.isEnabled)
+            .disposed(by: bag)
+        
+        inputForm.transaction
+            .bind { [weak self] in
+                self?.validate()
+            }
             .disposed(by: bag)
     }
     
@@ -149,7 +162,8 @@ extension SellRamViewController: UITableViewDataSource {
         } else {
             cellId = "RamInputFormCell"
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? RamInputFormCell else { preconditionFailure() }
-            cell.configure(account: account, inputForm: inputForm, dotStyle: .none)
+            cell.configure(account: account, inputForm: inputForm, dotStyle: .none,
+                           title: LocalizedString.Wallet.Ram.sellram, available: rx_isEnabled.asObservable())
             return cell
         }
     }

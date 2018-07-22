@@ -32,6 +32,7 @@ class ActionButton: RoundedButton {
     }
     
     private func setupUI() {
+        backgroundColor = Color.lightPurple.uiColor
         setTitleColor(.white, for: .normal)
         
     }

@@ -122,6 +122,7 @@
 		2C770CA920FBA2A9007F71C4 /* SellRamFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA820FBA2A9007F71C4 /* SellRamFlowController.swift */; };
 		2CB6B7EB21038F700048601A /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EA21038F700048601A /* ActionButton.swift */; };
 		2CB6B7ED210391A40048601A /* AccountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EC210391A40048601A /* AccountTextField.swift */; };
+		2CB6B7EF210483560048601A /* TransactionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EE210483560048601A /* TransactionForm.swift */; };
 		2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
 		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
@@ -329,6 +330,7 @@
 		2C770CA820FBA2A9007F71C4 /* SellRamFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellRamFlowController.swift; sourceTree = "<group>"; };
 		2CB6B7EA21038F700048601A /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		2CB6B7EC210391A40048601A /* AccountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTextField.swift; sourceTree = "<group>"; };
+		2CB6B7EE210483560048601A /* TransactionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionForm.swift; sourceTree = "<group>"; };
 		2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedNumberField.swift; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE110A820F1C31000B93BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -752,6 +754,7 @@
 				2C279C0620FA444700D2F6C4 /* TokenInfo.swift */,
 				2CFE954920F3947300DC173F /* EOSAccountViewModel.swift */,
 				2C1D928D2100C7DC0009F5C4 /* Validator.swift */,
+				2CB6B7EE210483560048601A /* TransactionForm.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1181,6 +1184,7 @@
 				2C279BA420F8C3CB00D2F6C4 /* sha3.c in Sources */,
 				2C2ACFF720F49F5100C637D8 /* FaceIdInputView.swift in Sources */,
 				2C279BD320F8C5A300D2F6C4 /* Contract.swift in Sources */,
+				2CB6B7EF210483560048601A /* TransactionForm.swift in Sources */,
 				2C279B8B20F8C30700D2F6C4 /* TransactionHeader.swift in Sources */,
 				2CE110E820F1C9B300B93BEB /* Date+extension.swift in Sources */,
 				2CE110EF20F1C9D600B93BEB /* LoginFlowController.swift in Sources */,
