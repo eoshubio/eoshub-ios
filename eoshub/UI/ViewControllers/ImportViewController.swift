@@ -82,10 +82,12 @@ class ImportViewController: TextInputViewController {
             .disposed(by: bag)
         
         btnPaste.rx.singleTap
-            .bind { [weak self] in
-                guard let pasted = UIPasteboard.general.string else { return }
+            .flatMap({ [weak self] (_) -> Observable<Bool> in
+                guard let pasted = UIPasteboard.general.string else { return Observable.just(false) }
                 self?.txtPriKey.text = pasted
-            }
+                return Observable.just(EOS_Key_Encode.validateWif(pasted))
+            })
+            .bind(to: btnImport.rx.isEnabled)
             .disposed(by: bag)
         
         txtPriKey.rx.text.orEmpty
@@ -112,7 +114,17 @@ class ImportViewController: TextInputViewController {
         if true {
             RxEOSAPI.getAccountFromPubKey(pubKey: pubKey)
                 .flatMap({ (accountName) -> Observable<EHAccount> in
-                    let account = EHAccount(account: accountName, publicKey: pubKey, owner: true)
+                    var account: EHAccount
+                    
+                    if let existAccount = AccountManager.shared.getAccount(accountName: accountName) {
+                        if existAccount.owner {
+                            return Observable.error(EOSErrorType.existAccount)
+                        } else {
+                            account = existAccount
+                        }
+                    } else {
+                        account = EHAccount(account: accountName, publicKey: pubKey, owner: true)
+                    }
                     
                     //2. save account with public Key
                     _ = Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
@@ -124,14 +136,16 @@ class ImportViewController: TextInputViewController {
                  })
                 .subscribe(onNext: { [weak self] (account) in
                     
-                    DB.shared.addAccount(account: account)
+                    DB.shared.addOrUpdateObjects([account] as [EHAccount])
                     
                     guard let nc = self?.navigationController else { return }
                     
                     self?.flowDelegate?.returnToMain(from: nc)
                     
-                    }, onError: { (error) in
+                    }, onError: { [weak self] (error) in
                         print(error)
+                        Popup.present(style: Popup.Style.failed, description: "\(error)")
+                        self?.view.endEditing(true)
                 })
                 .disposed(by: bag)
         }

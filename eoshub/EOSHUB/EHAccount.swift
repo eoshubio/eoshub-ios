@@ -13,7 +13,7 @@ import Realm
 import RealmSwift
 import RxSwift
 
-class EHAccount: DBObject {
+class EHAccount: DBObject, Mergeable {
     
     @objc dynamic var account: String = ""
     
@@ -23,7 +23,7 @@ class EHAccount: DBObject {
     
     @objc dynamic var owner: Bool = true
     
-    var _tokens = List<RealmString>()
+    fileprivate var _tokens = List<RealmString>()
     
     var tokens: [Token] {
         get {
@@ -57,5 +57,14 @@ class EHAccount: DBObject {
         self.tokens = tokens
     }
     
+    func mergeChanges(from newObject: EHAccount) {
+        account = newObject.account
+        publicKey = newObject.publicKey
+        created = newObject.created
+        owner = newObject.owner
+        _tokens = newObject._tokens
+        
+        
+    }
 }
 

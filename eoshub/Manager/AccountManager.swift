@@ -60,6 +60,16 @@ class AccountManager {
                 .flatMap({ _ in Observable.just(())})
     }
     
+    func getAccount(accountName: String) -> EHAccount? {
+        if let found = eoshubAccounts.filter("account = '\(accountName)'").first {
+            return found
+        } else {
+            return nil
+        }
+        
+        
+    }
+    
     private func getAccountInfo(account: EHAccount, isFirstTime: Bool = false) -> Observable<AccountInfo> {
         
         let preferTokens = isFirstTime ? TokenManager.shared.knownTokens.map({ $0.token }) : account.tokens

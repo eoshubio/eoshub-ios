@@ -23,6 +23,7 @@ enum EOSErrorType: Error {
     case authenticationFailed
     case invalidKeys
     case cannotFoundPIN
+    case existAccount
 }
 
 
