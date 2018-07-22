@@ -31,6 +31,7 @@ enum FlowIdentifier: String {
     case sellram
     case send
     case receive
+    case qrcode
     case tx
     case vote
     case airdrop

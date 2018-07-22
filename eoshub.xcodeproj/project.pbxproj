@@ -125,6 +125,8 @@
 		2CB6B7EF210483560048601A /* TransactionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EE210483560048601A /* TransactionForm.swift */; };
 		2CB6B7F12104AD020048601A /* PreferAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7F02104AD020048601A /* PreferAccountViewController.swift */; };
 		2CB6B7F32104AE970048601A /* PreferAccountFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7F22104AE970048601A /* PreferAccountFlowController.swift */; };
+		2CB6B7F52104C7850048601A /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7F42104C7850048601A /* QRScannerViewController.swift */; };
+		2CB6B7F72104C8560048601A /* QRScannerFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7F62104C8560048601A /* QRScannerFlowController.swift */; };
 		2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
 		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
@@ -335,6 +337,8 @@
 		2CB6B7EE210483560048601A /* TransactionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionForm.swift; sourceTree = "<group>"; };
 		2CB6B7F02104AD020048601A /* PreferAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferAccountViewController.swift; sourceTree = "<group>"; };
 		2CB6B7F22104AE970048601A /* PreferAccountFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferAccountFlowController.swift; sourceTree = "<group>"; };
+		2CB6B7F42104C7850048601A /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
+		2CB6B7F62104C8560048601A /* QRScannerFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerFlowController.swift; sourceTree = "<group>"; };
 		2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedNumberField.swift; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE110A820F1C31000B93BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -671,6 +675,7 @@
 				2C770C8E20FAF1F5007F71C4 /* TokenDetailFlowController.swift */,
 				2C279B7420F7844300D2F6C4 /* SendCurrencyFlowController.swift */,
 				2C279B7820F7A4A100D2F6C4 /* ReceiveFlowController.swift */,
+				2CB6B7F62104C8560048601A /* QRScannerFlowController.swift */,
 				2C279B7E20F7B53200D2F6C4 /* TxFlowController.swift */,
 				2CE1112D20F2680100B93BEB /* VoteFlowController.swift */,
 				2CE1113120F26BD700B93BEB /* AirdropFlowController.swift */,
@@ -712,6 +717,7 @@
 				2C2ACFDA20F4607700C637D8 /* FindAccountViewController.swift */,
 				2C2ACFE420F47C1900C637D8 /* PinCodeViewController.swift */,
 				2C755F1A20FF708600FD5FBF /* TouchIdViewController.swift */,
+				2CB6B7F42104C7850048601A /* QRScannerViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1069,6 +1075,7 @@
 				2CE1112420F24CF200B93BEB /* MainTabViewController.swift in Sources */,
 				2CE110DD20F1C96B00B93BEB /* JSON.swift in Sources */,
 				2C3B17B120FD023000E6BAAD /* TransferPopup.swift in Sources */,
+				2CB6B7F72104C8560048601A /* QRScannerFlowController.swift in Sources */,
 				2CE110EB20F1C9B300B93BEB /* Character+extension.swift in Sources */,
 				2C279C0120FA0B7100D2F6C4 /* VoterInfo.swift in Sources */,
 				2C279C0520FA43F700D2F6C4 /* TokenManager.swift in Sources */,
@@ -1149,6 +1156,7 @@
 				2CE1112620F2504000B93BEB /* MainTabFlowController.swift in Sources */,
 				2C1E3E9520FE14000009D2AF /* WaitingView.swift in Sources */,
 				2CE110F320F1DAF700B93BEB /* BaseViewController.swift in Sources */,
+				2CB6B7F52104C7850048601A /* QRScannerViewController.swift in Sources */,
 				2C279BD520F8C5A300D2F6C4 /* Bandwidth.swift in Sources */,
 				2C279BDB20F8C5A300D2F6C4 /* Account.swift in Sources */,
 				2C279BC220F8C58100D2F6C4 /* RxEOSAPI.swift in Sources */,

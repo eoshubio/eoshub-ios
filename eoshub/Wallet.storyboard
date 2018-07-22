@@ -1122,7 +1122,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0I-SD-SWl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-516" y="1031.5270935960591"/>
+            <point key="canvasLocation" x="-1294" y="1032"/>
         </scene>
         <!--Tx View Controller-->
         <scene sceneID="CVk-Os-d7g">
@@ -1278,7 +1278,50 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YTa-ew-ijm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="281" y="1032"/>
+            <point key="canvasLocation" x="-516" y="1032"/>
+        </scene>
+        <!--Scanner View Controller-->
+        <scene sceneID="6v3-xa-VC2">
+            <objects>
+                <viewController storyboardIdentifier="QRScannerViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="n6l-Ry-twJ" customClass="QRScannerViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BlU-Ay-kUl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="03B-3v-uwL" customClass="RoundedView" customModule="eoshub" customModuleProvider="target">
+                                <rect key="frame" x="67" y="236" width="240" height="240"/>
+                                <color key="backgroundColor" white="0.67000000000000004" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="A9o-Ih-xaz"/>
+                                    <constraint firstAttribute="height" constant="240" id="Pm7-tg-OBJ"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QOZ-kB-hwT" customClass="ExtendButton" customModule="eoshub" customModuleProvider="target">
+                                <rect key="frame" x="315" y="74" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="ked-KA-Tht"/>
+                                    <constraint firstAttribute="height" constant="30" id="vqU-Z7-Ear"/>
+                                </constraints>
+                                <state key="normal" image="close"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="03B-3v-uwL" firstAttribute="centerY" secondItem="BlU-Ay-kUl" secondAttribute="centerY" constant="-50" id="5AE-wc-g1g"/>
+                            <constraint firstItem="QOZ-kB-hwT" firstAttribute="top" secondItem="BZt-Hx-3MU" secondAttribute="top" constant="30" id="TIP-I2-VBw"/>
+                            <constraint firstItem="03B-3v-uwL" firstAttribute="centerX" secondItem="BlU-Ay-kUl" secondAttribute="centerX" id="Z9X-LT-1jS"/>
+                            <constraint firstItem="BZt-Hx-3MU" firstAttribute="trailing" secondItem="QOZ-kB-hwT" secondAttribute="trailing" constant="30" id="zVB-uL-bBt"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="BZt-Hx-3MU"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnClose" destination="QOZ-kB-hwT" id="WQ1-Ok-Wpe"/>
+                        <outlet property="qrView" destination="03B-3v-uwL" id="L4m-HF-kUM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="leh-I1-EhF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="280.80000000000001" y="1031.5270935960591"/>
         </scene>
         <!--Receive View Controller-->
         <scene sceneID="cAA-5Z-Ic7">
@@ -2858,6 +2901,7 @@ HuGYqET5GDW5CV</string>
         </scene>
     </scenes>
     <resources>
+        <image name="close" width="40" height="40"/>
         <image name="cpu" width="40" height="40"/>
         <image name="logo" width="145" height="119"/>
         <image name="network" width="40" height="40"/>

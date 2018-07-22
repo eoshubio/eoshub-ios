@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import RxSwift
 
 class SendCurrencyFlowController: FlowController, SendFlowEventDelegate {
     var configure: FlowConfigure
@@ -44,9 +45,17 @@ class SendCurrencyFlowController: FlowController, SendFlowEventDelegate {
         fc.start(animated: true)
     }
     
+    
+    func goToQRScanner(from nc: UINavigationController)  -> Observable<String?> {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .modal)
+        let fc = QRScannerFlowController(configure: config)
+        fc.start(animated: true)
+        return fc.resultQRCode
+    }
 }
 
 
 protocol SendFlowEventDelegate: FlowEventDelegate {
     func goToTx(from nc: UINavigationController, account: AccountInfo, filter: Symbol?)
+    func goToQRScanner(from nc: UINavigationController) -> Observable<String?>
 }

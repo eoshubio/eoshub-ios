@@ -89,6 +89,18 @@ class SendCurrencyViewController: TextInputViewController {
                 }
                 .disposed(by: bag)
         
+        sendForm.qrscan
+            .flatMap({ [weak self] (_) -> Observable<String?> in
+                guard let nc = self?.navigationController else { return Observable.just(nil) }
+                guard let result = self?.flowDelegate?.goToQRScanner(from: nc) else { return Observable.just(nil) }
+                return result
+            })
+            .bind { [weak self] (accountName) in
+                if let accountName = accountName {
+                    self?.sendForm.account.value = accountName
+                }
+            }
+            .disposed(by: bag)
         
     }
     
@@ -319,11 +331,18 @@ class SendInputFormCell: TransactionInputFormCell, UITextFieldDelegate {
             }
             .disposed(by: bag)
         
+        btnQRCode.rx.singleTap
+            .bind(to: form.qrscan)
+            .disposed(by: bag)
      
         txtAcount.inputAccessoryView = makeTransactionButtonToKeyboard(title: LocalizedString.Wallet.Transfer.transfer,
                                                                        form: form, bag: bag, available: available)
         txtMemo.inputAccessoryView = makeTransactionButtonToKeyboard(title: LocalizedString.Wallet.Transfer.transfer,
                                                                      form: form, bag: bag, available: available)
+        
+        form.account.asObservable()
+            .bind(to: txtAcount.rx.text)
+            .disposed(by: bag)
         
         self.bag = bag
     }
@@ -360,6 +379,7 @@ fileprivate struct SendForm: TransactionForm {
     let memo = Variable<String>("")
 
     let transaction = PublishSubject<Void>()
+    let qrscan = PublishSubject<Void>()
     
     func quantityCurrency(token: Token) -> Currency {
         return Currency(balance: quantity.value, token: token)

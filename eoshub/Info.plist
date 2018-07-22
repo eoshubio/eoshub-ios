@@ -43,5 +43,7 @@
 	</array>
 	<key>NSFaceIDUsageDescription</key>
 	<string>It is used to verify identity and EOS transaction.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>It it used to scan QR code.</string>
 </dict>
 </plist>
