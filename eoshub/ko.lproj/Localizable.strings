@@ -37,6 +37,10 @@
 "wallet.find.title" = "EOS 계정 조회하기";
 "wallet.find.search" = "조회하기";
 
+"wallet.interest.title" = "관심 계정 추가하기";
+"wallet.interest.account" = "추가할 EOS 계정을 입력해 주세요.";
+"wallet.interest.store" = "추가 하기";
+
 "wallet.first.greeting" = "처음이신가요?";
 "wallet.first.guide" = "첫번째 EOS 지갑을 만들어 보세요!";
 

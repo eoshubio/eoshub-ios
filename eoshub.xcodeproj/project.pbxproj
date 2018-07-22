@@ -123,6 +123,8 @@
 		2CB6B7EB21038F700048601A /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EA21038F700048601A /* ActionButton.swift */; };
 		2CB6B7ED210391A40048601A /* AccountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EC210391A40048601A /* AccountTextField.swift */; };
 		2CB6B7EF210483560048601A /* TransactionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EE210483560048601A /* TransactionForm.swift */; };
+		2CB6B7F12104AD020048601A /* PreferAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7F02104AD020048601A /* PreferAccountViewController.swift */; };
+		2CB6B7F32104AE970048601A /* PreferAccountFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7F22104AE970048601A /* PreferAccountFlowController.swift */; };
 		2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
 		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
@@ -331,6 +333,8 @@
 		2CB6B7EA21038F700048601A /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		2CB6B7EC210391A40048601A /* AccountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTextField.swift; sourceTree = "<group>"; };
 		2CB6B7EE210483560048601A /* TransactionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionForm.swift; sourceTree = "<group>"; };
+		2CB6B7F02104AD020048601A /* PreferAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferAccountViewController.swift; sourceTree = "<group>"; };
+		2CB6B7F22104AE970048601A /* PreferAccountFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferAccountFlowController.swift; sourceTree = "<group>"; };
 		2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedNumberField.swift; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE110A820F1C31000B93BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -673,6 +677,7 @@
 				2CE1110520F1F76200B93BEB /* SettingFlowController.swift */,
 				2C2ACFD020F3DD1800C637D8 /* CreateFlowController.swift */,
 				2C2ACFD620F442E400C637D8 /* ImportFlowController.swift */,
+				2CB6B7F22104AE970048601A /* PreferAccountFlowController.swift */,
 				2C2ACFDE20F46B3300C637D8 /* FindFlowController.swift */,
 				2C2ACFE620F47CA200C637D8 /* CreatePinFlowController.swift */,
 				2C2ACFF820F4A3DE00C637D8 /* ConfirmPinFlowController.swift */,
@@ -703,6 +708,7 @@
 				2CE1112F20F26BA300B93BEB /* AirdropViewController.swift */,
 				2C2ACFCE20F3D8EB00C637D8 /* CreateViewController.swift */,
 				2C2ACFD420F4427F00C637D8 /* ImportViewController.swift */,
+				2CB6B7F02104AD020048601A /* PreferAccountViewController.swift */,
 				2C2ACFDA20F4607700C637D8 /* FindAccountViewController.swift */,
 				2C2ACFE420F47C1900C637D8 /* PinCodeViewController.swift */,
 				2C755F1A20FF708600FD5FBF /* TouchIdViewController.swift */,
@@ -1075,8 +1081,10 @@
 				2C279BC520F8C58100D2F6C4 /* EOSHost.swift in Sources */,
 				2C2ACFDF20F46B3300C637D8 /* FindFlowController.swift in Sources */,
 				2C279B7920F7A4A100D2F6C4 /* ReceiveFlowController.swift in Sources */,
+				2CB6B7F12104AD020048601A /* PreferAccountViewController.swift in Sources */,
 				2C770C9720FB6E94007F71C4 /* RoundedShadowButton.swift in Sources */,
 				2C279BB620F8C42700D2F6C4 /* EosPrivateKey.m in Sources */,
+				2CB6B7F32104AE970048601A /* PreferAccountFlowController.swift in Sources */,
 				2C770CA320FB9921007F71C4 /* BuyRamViewController.swift in Sources */,
 				2C2ACFE320F476F900C637D8 /* PincodeView.swift in Sources */,
 				2C2ACFFD20F4B9A900C637D8 /* PurpleButton.swift in Sources */,

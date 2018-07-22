@@ -38,6 +38,10 @@
 "wallet.find.title" = "Find EOS account";
 "wallet.find.search" = "Search";
 
+"wallet.interest.title" = "Add interest account";
+"wallet.interest.account" = "Please enter an EOS account to add";
+"wallet.interest.store" = "Add";
+
 "wallet.first.greeting" = "Greeting!";
 "wallet.first.guide" = "Create your first EOS Wallet!";
 

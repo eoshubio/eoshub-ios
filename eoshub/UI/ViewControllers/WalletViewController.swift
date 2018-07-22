@@ -207,7 +207,7 @@ extension WalletViewController: UITableViewDelegate {
         guard let nc = parent?.navigationController else { return }
         
         let item = items[indexPath.section][indexPath.row]
-        if let item = item as? AccountInfo {
+        if let item = item as? AccountInfo, item.ownerMode == true {
             //go to wallet detail
             flowDelegate?.goToWalletDetail(from: nc, with: item)
         } else if let item = item as? TokenBalanceInfo {

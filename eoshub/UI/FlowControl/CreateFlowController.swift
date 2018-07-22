@@ -49,7 +49,9 @@ class CreateFlowController: FlowController, CreateFlowEventDelegate {
     }
     
     func goImportPublicKey(from nc: UINavigationController) {
-        
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = PreferAccountFlowController(configure: config)
+        fc.start(animated: true)
     }
 }
 

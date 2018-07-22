@@ -47,7 +47,7 @@ extension TextInputViewController: UITextFieldDelegate {
         guard let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue else { return }
         
         var inset = contentsScrollView.contentInset
-        inset.bottom = keyboardSize.height - view.safeAreaInsets.bottom
+        inset.bottom = keyboardSize.height + view.safeAreaInsets.bottom
         contentsScrollView.contentInset = inset
         
         guard let currentField = activeField else { return }

@@ -20,6 +20,10 @@ class ImportViewController: TextInputViewController {
     @IBOutlet fileprivate weak var btnImport: UIButton!
     @IBOutlet fileprivate weak var btnFindAccount: UIButton!
     
+    deinit {
+        Log.d("deinit")
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showNavigationBar(with: .darkGray)
@@ -55,7 +59,7 @@ class ImportViewController: TextInputViewController {
         txtPriKey.delegate = self
         
         txtPriKey.padding.right = btnPaste.bounds.width + 5
-        txtPriKey.isSecureTextEntry = true
+        
         
         
     }
@@ -83,6 +87,14 @@ class ImportViewController: TextInputViewController {
                 self?.txtPriKey.text = pasted
             }
             .disposed(by: bag)
+        
+        txtPriKey.rx.text.orEmpty
+            .flatMap { (priKey) -> Observable<Bool> in
+                return Observable.just(EOS_Key_Encode.validateWif(priKey))
+            }
+            .bind(to: btnImport.rx.isEnabled)
+            .disposed(by: bag)
+        
     }
     
     fileprivate func handleImportKey() {

@@ -86,6 +86,17 @@ struct RxEOSAPI {
             })
     }
     
+    static func getPubKeyFromAccount(account: String) -> Observable<String> {
+        return getAccount(name: account)
+            .flatMap({ (ac) -> Observable<String> in
+                if let activePubKey = ac.permissions.last?.keys.last {
+                    return Observable.just(activePubKey.key)
+                } else {
+                    return Observable.error(EOSErrorType.emptyData)
+                }
+            })
+    }
+    
     static func getActions(accountName: String) -> Observable<JSON> {
 
         let params: JSON = ["account_name": accountName, "pos": -1, "offset": -200]

@@ -162,7 +162,9 @@ class VoteViewController: BaseViewController {
     fileprivate func handleChangeAccount() {
         let alert = UIAlertController(title: LocalizedString.Vote.changeAccount, message: LocalizedString.Vote.selectAccount, preferredStyle: .actionSheet)
         
-        AccountManager.shared.infos.forEach { (info) in
+        AccountManager.shared.infos
+            .filter("ownerMode = true")
+            .forEach { (info) in
             
             let action = UIAlertAction(title: info.account, style: .default, handler: { [weak self](_) in
                 AccountManager.shared.mainAccount = info
