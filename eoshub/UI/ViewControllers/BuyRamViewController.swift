@@ -184,7 +184,7 @@ class RamInputFormCell: UITableViewCell {
     }
     
     func configure(account: AccountInfo, inputForm: RamInputForm, dotStyle: FormattedNumberField.DotStyle = .dot4) {
-        ramBytes.text = account.ramBytes.prettyPrinted + " RAM"
+        ramBytes.text = account.availableRamBytes.prettyPrinted + " RAM"
         
         let bag = DisposeBag()
         txtQuantity.style = dotStyle
