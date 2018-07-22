@@ -53,6 +53,7 @@ class WalletViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        _ = ExchangeManager.shared
 //        setupUI()
 //        bindActions()
 //        reloadUI()

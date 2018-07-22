@@ -87,7 +87,7 @@ class WalletCell: UITableViewCell {
         
         account.text = viewModel.account
         total.text = viewModel.totalEOS.dot4String
-        estimatedPrice.text = ""
+        
         availableEOS.text = viewModel.availableEOS.dot4String
         stakedEOS.text = viewModel.stakedEOS.dot4String
         
@@ -133,7 +133,19 @@ class WalletCell: UITableViewCell {
             
         }
         
+        //estimatedPrice
         
+        ExchangeManager.shared.lastPrice
+            .asObservable()
+            .observeOn(MainScheduler.asyncInstance)
+            .subscribe(onNext: { [weak self](price) in
+                if let estimatedString = price?.estimatedPrice(eosQuantity: viewModel.totalEOS) {
+                    self?.estimatedPrice.text = "≈ " + estimatedString
+                } else {
+                    self?.estimatedPrice.text = nil
+                }
+            })
+            .disposed(by: bag)
         
         
         

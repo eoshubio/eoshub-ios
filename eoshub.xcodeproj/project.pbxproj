@@ -127,6 +127,9 @@
 		2CB6B7F32104AE970048601A /* PreferAccountFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7F22104AE970048601A /* PreferAccountFlowController.swift */; };
 		2CB6B7F52104C7850048601A /* QRScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7F42104C7850048601A /* QRScannerViewController.swift */; };
 		2CB6B7F72104C8560048601A /* QRScannerFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7F62104C8560048601A /* QRScannerFlowController.swift */; };
+		2CB6B7F92104D75D0048601A /* ExchangeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7F82104D75D0048601A /* ExchangeAPI.swift */; };
+		2CB6B7FB2104DA230048601A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7FA2104DA230048601A /* NetworkError.swift */; };
+		2CB6B7FD2104DBAD0048601A /* ExchangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */; };
 		2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
 		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
@@ -339,6 +342,9 @@
 		2CB6B7F22104AE970048601A /* PreferAccountFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreferAccountFlowController.swift; sourceTree = "<group>"; };
 		2CB6B7F42104C7850048601A /* QRScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerViewController.swift; sourceTree = "<group>"; };
 		2CB6B7F62104C8560048601A /* QRScannerFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScannerFlowController.swift; sourceTree = "<group>"; };
+		2CB6B7F82104D75D0048601A /* ExchangeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeAPI.swift; sourceTree = "<group>"; };
+		2CB6B7FA2104DA230048601A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeManager.swift; sourceTree = "<group>"; };
 		2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedNumberField.swift; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE110A820F1C31000B93BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -596,6 +602,8 @@
 		2CE110C920F1C47800B93BEB /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2CB6B7F82104D75D0048601A /* ExchangeAPI.swift */,
+				2CB6B7FA2104DA230048601A /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -645,6 +653,7 @@
 				2C279BE320F8D83800D2F6C4 /* WalletManager.swift */,
 				2C279BEB20F8DECF00D2F6C4 /* DB.swift */,
 				2C279BEF20F8E90100D2F6C4 /* Security.swift */,
+				2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1060,6 +1069,7 @@
 				2C279BD420F8C5A300D2F6C4 /* BlockProducer.swift in Sources */,
 				2C2ACFE520F47C1900C637D8 /* PinCodeViewController.swift in Sources */,
 				2C279BB520F8C42700D2F6C4 /* EOS_Key_Encode.m in Sources */,
+				2CB6B7FB2104DA230048601A /* NetworkError.swift in Sources */,
 				2CE1112920F252B500B93BEB /* TabBarViewConroller.swift in Sources */,
 				2C770C8F20FAF1F5007F71C4 /* TokenDetailFlowController.swift in Sources */,
 				2CEC2D4E20F65D8600AF5E9B /* WalletDetailFlowController.swift in Sources */,
@@ -1118,10 +1128,12 @@
 				2C279BF220F8EB3E00D2F6C4 /* ValidatePinFlowController.swift in Sources */,
 				2CFE954820F3930200DC173F /* CellType.swift in Sources */,
 				2C279BE120F8C68700D2F6C4 /* NSObject+Extension.m in Sources */,
+				2CB6B7FD2104DBAD0048601A /* ExchangeManager.swift in Sources */,
 				2C279B8E20F8C30700D2F6C4 /* EOSName.swift in Sources */,
 				2C279BC020F8C58100D2F6C4 /* EOSErrorType.swift in Sources */,
 				2CE1112220F242E500B93BEB /* Font.swift in Sources */,
 				2C279BA720F8C3CB00D2F6C4 /* uECC.c in Sources */,
+				2CB6B7F92104D75D0048601A /* ExchangeAPI.swift in Sources */,
 				2C1E3EA320FE3E440009D2AF /* RamPrice.swift in Sources */,
 				2CE1111920F23C1700B93BEB /* BounceButton.swift in Sources */,
 				2C279BDD20F8C5A300D2F6C4 /* Currency.swift in Sources */,
