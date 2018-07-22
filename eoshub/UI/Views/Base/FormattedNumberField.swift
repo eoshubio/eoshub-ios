@@ -45,9 +45,15 @@ class FormattedNumberField: UITextField {
     @objc fileprivate func textFieldEditingDidChanged(_ sender: Any) {
         guard let input = text?.replacingOccurrences(of: ",", with: "") else { return }
         
+     
+        
         let components = input.components(separatedBy: ".")
         
-        var result = (components.first ?? "0").decimalFormatted
+        var result = Int64(components.first ?? "0")?.prettyPrinted ?? ""
+        
+        if input.hasPrefix(".") == true {
+            result = "0"
+        } 
         
         if components.count == 2, let dotPart = components.last, style != .none  {
             result = result + "." + dotPart.substring(precision: style.precision)
@@ -58,9 +64,10 @@ class FormattedNumberField: UITextField {
     
     @objc fileprivate func textFieldEditingDidEnded(_ sender: Any) {
         var result = text
+        
         switch style {
         case .dot4:
-            result = text?.dot4String
+            result = result?.dot4String
         default:
             break
         }
