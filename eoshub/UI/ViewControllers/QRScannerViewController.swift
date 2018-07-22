@@ -105,16 +105,21 @@ class QRScannerViewController: BaseViewController, AVCaptureMetadataOutputObject
     }
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        captureSession.stopRunning()
         
-        if let metadataObject = metadataObjects.first {
+        
+        if let metadataObject = metadataObjects.first,
+            metadataObject.type == .qr,
+            let qrObject = previewLayer.transformedMetadataObject(for: metadataObject),
+            qrView.frame.contains(qrObject.bounds) {
+            
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
+            captureSession.stopRunning()
             impact.impactOccurred()
             found(code: stringValue)
+            dismiss(animated: true)
         }
         
-        dismiss(animated: true)
     }
     
     fileprivate func found(code: String) {
