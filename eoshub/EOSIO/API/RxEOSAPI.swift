@@ -310,6 +310,12 @@ extension RxEOSAPI {
         
     }
     
+    //MARK: Refund
+    static func refund(owner: String, wallet: Wallet) -> Observable<JSON> {
+        let contract = Contract.refund(owner: owner)
+        return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+    }
+    
     //MARK: Ram
     static func buyram(account: String, quantity: Currency, wallet: Wallet) -> Observable<JSON> {
         let contract = Contract.buyram(payer: account, receiver: account, quant: quantity)
@@ -377,9 +383,9 @@ extension RxEOSAPI {
                     return Observable.error(EOSErrorType.emptyData)
                 })
         
-        
-        
-        
     }
+    
+    
+    
 }
 

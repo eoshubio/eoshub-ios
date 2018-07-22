@@ -86,5 +86,9 @@ extension Contract {
             static let proxy = Key.proxy.rawValue
             static let producers = Key.producers.rawValue
         }
+        
+        struct refund {
+            static let owner = Key.owner.rawValue
+        }
     }
 }

@@ -80,6 +80,19 @@ class AccountManager {
                 let info = AccountInfo(with: account, isOwner: owner)
                 return Observable.just(info)
             })
+            .flatMap({ (info) -> Observable<AccountInfo> in
+                //Refund unstaked EOS if needed
+                if info.ownerMode && info.refundingTime > 0 && info.refundingEOS > 0{
+                    let wallet = Wallet(account: account)
+                    return RxEOSAPI.refund(owner: info.account, wallet: wallet).catchErrorJustReturn([:])
+                                    .flatMap({ (json) -> Observable<AccountInfo> in
+                                        Log.i(json)
+                                        return Observable.just(info)
+                                    })
+                } else {
+                    return Observable.just(info)
+                }
+            })
             .flatMap { (info) -> Observable<AccountInfo> in
                 return RxEOSAPI.getTokens(account: account, tokens: preferTokens)
                         .flatMap({ (tokenBalances) -> Observable<AccountInfo> in

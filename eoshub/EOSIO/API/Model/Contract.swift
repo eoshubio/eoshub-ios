@@ -110,13 +110,19 @@ extension Contract {
         return contract
     }
     
-    
+    static func refund(owner: String) -> Contract {
+        let contract = Contract(code: "eosio",
+                                action: .refund, args: [Args.refund.owner: owner],
+                                authorization: Authorization(actor: owner, permission: .active))
+        return contract
+    }
 }
 
 extension Contract {
     enum Action: String {
         case newaccount, transfer, buyram, sellram, delegatebw, undelegatebw, voteproducer
         case buyrambytes
+        case refund
     }
 }
 
