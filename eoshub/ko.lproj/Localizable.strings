@@ -19,6 +19,20 @@
 "setting.wallet" = "지갑";
 "setting.logout" = "로그아웃";
 
+"setting.security.changePin" = "비밀번호 변경";
+
+"setting.host.title" = "API 호스트";
+"setting.host.success" = "성공적으로 변경되었습니다.";
+"setting.host.failed" = "변경하려는 API host 에 접근할 수 없습니다.";
+
+"setting.wallet.showDetail" = "상세 정보 표시하기";
+"setting.wallet.hideTokens" = "토큰 감추기";
+
+"setting.app.version" = "버전";
+"setting.app.license" = "오픈소스 라이센스";
+"setting.app.term" = "약관 및 정책";
+"setting.app.telegram" = "텔레그램";
+
 /* 지갑 */
 "wallet.send" = "보내기";
 "wallet.receive" = "받기";
@@ -92,11 +106,14 @@
 "secure.pin.create" = "비밀번호 생성";
 "secure.pin.confirm" = "비밀번호 확인";
 "secure.pin.validation" = "비밀번호 입력";
+"secure.pin.change" = "비밀번호 변경";
 "secure.pin.useFaceID" = "로그인 시 FaceID 사용 (추천)";
 "secure.pin.useTouchID" = "로그인 시 TouchID 사용 (추천)";
 "secure.bio.reason" = "본인인증과 EOS 트렌잭션 인증에 사용됩니다.";
 "secure.bio.faceId" = "얼굴을 인식시켜 주세요.";
 "secure.bio.touchId" = "Touch ID 로 본인 인증하기.";
+
+
 
 /* 일반 */
 "common.paste" = "붙여넣기";

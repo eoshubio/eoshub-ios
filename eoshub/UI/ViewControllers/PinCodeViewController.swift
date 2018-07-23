@@ -21,6 +21,7 @@ class PinCodeViewController: BaseViewController {
         case create
         case confirm(String)
         case validation
+        case change
     }
     
     var mode: Mode!
@@ -48,6 +49,8 @@ class PinCodeViewController: BaseViewController {
             addInputView()
         case .validation:
             lbTitle.text = LocalizedString.Secure.Pin.validation
+        case .change:
+            lbTitle.text = LocalizedString.Secure.Pin.change
         }
         
         pinView.show()
@@ -133,7 +136,18 @@ class PinCodeViewController: BaseViewController {
             } else {
                 failAnimation()
             }
+        case .change:
+            if Security.shared.validatePin(pin: pin) {
+                //dismiss validation
+                //go to wallet
+                //dismiss
+                guard let nc = navigationController, let delegate = flowDelegate as? ChangePinFlowEventDelegate else { return }
+                delegate.goToCreate(from: nc)
+            } else {
+                failAnimation()
+            }
         }
+        
     }
     
     fileprivate func failAnimation() {

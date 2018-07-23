@@ -35,8 +35,16 @@ class SettingFlowController: FlowController, SettingFlowEventDelegate {
     func goToWalletDetail(from nc: UINavigationController) {
         
     }
+    
+    func goToChangePin(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .modal)
+        let fc = ChangePinFlowController(configure: config)
+        fc.start(animated: true)
+    }
+    
+    
 }
 
 protocol SettingFlowEventDelegate: FlowEventDelegate {
-    
+    func goToChangePin(from nc: UINavigationController)
 }

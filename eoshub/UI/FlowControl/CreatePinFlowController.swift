@@ -25,11 +25,19 @@ class CreatePinFlowController: FlowController, CreatePinFlowDelegate {
         vc.flowDelegate = self
         vc.configure(mode: .create)
         
-        let nc = UINavigationController(rootViewController: vc)
-        
-        show(viewController: nc, animated: animated) {
-            
+        if case FlowType.navigation = configure.flowType {
+            //navigation
+            show(viewController: vc, animated: animated) {
+                
+            }
+        } else {
+            //modal
+            let nc = UINavigationController(rootViewController: vc)
+            show(viewController: nc, animated: animated) {
+                
+            }
         }
+        
     }
     
     func goToConfirm(from nc: UINavigationController, with pin: String) {

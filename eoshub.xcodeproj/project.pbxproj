@@ -100,6 +100,8 @@
 		2C2ACFF920F4A3DE00C637D8 /* ConfirmPinFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFF820F4A3DE00C637D8 /* ConfirmPinFlowController.swift */; };
 		2C2ACFFD20F4B9A900C637D8 /* PurpleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFFC20F4B9A900C637D8 /* PurpleButton.swift */; };
 		2C2ACFFF20F4E51700C637D8 /* BPCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFFE20F4E51700C637D8 /* BPCell.swift */; };
+		2C31F7F6210612CE0025D18A /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31F7F5210612CE0025D18A /* Preferences.swift */; };
+		2C31F7F821061F3C0025D18A /* ChangePinFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31F7F721061F3C0025D18A /* ChangePinFlowController.swift */; };
 		2C3B17AB20FCC42C00E6BAAD /* Mergeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17AA20FCC42C00E6BAAD /* Mergeable.swift */; };
 		2C3B17AD20FCCC7000E6BAAD /* TxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17AC20FCCC7000E6BAAD /* TxManager.swift */; };
 		2C3B17AF20FCFDF400E6BAAD /* TransferPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B17AE20FCFDF400E6BAAD /* TransferPopup.xib */; };
@@ -315,6 +317,8 @@
 		2C2ACFF820F4A3DE00C637D8 /* ConfirmPinFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmPinFlowController.swift; sourceTree = "<group>"; };
 		2C2ACFFC20F4B9A900C637D8 /* PurpleButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurpleButton.swift; sourceTree = "<group>"; };
 		2C2ACFFE20F4E51700C637D8 /* BPCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPCell.swift; sourceTree = "<group>"; };
+		2C31F7F5210612CE0025D18A /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
+		2C31F7F721061F3C0025D18A /* ChangePinFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePinFlowController.swift; sourceTree = "<group>"; };
 		2C3B17AA20FCC42C00E6BAAD /* Mergeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mergeable.swift; sourceTree = "<group>"; };
 		2C3B17AC20FCCC7000E6BAAD /* TxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxManager.swift; sourceTree = "<group>"; };
 		2C3B17AE20FCFDF400E6BAAD /* TransferPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferPopup.xib; sourceTree = "<group>"; };
@@ -654,6 +658,7 @@
 				2C279BEB20F8DECF00D2F6C4 /* DB.swift */,
 				2C279BEF20F8E90100D2F6C4 /* Security.swift */,
 				2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */,
+				2C31F7F5210612CE0025D18A /* Preferences.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -696,6 +701,7 @@
 				2C2ACFE620F47CA200C637D8 /* CreatePinFlowController.swift */,
 				2C2ACFF820F4A3DE00C637D8 /* ConfirmPinFlowController.swift */,
 				2C279BF120F8EB3E00D2F6C4 /* ValidatePinFlowController.swift */,
+				2C31F7F721061F3C0025D18A /* ChangePinFlowController.swift */,
 			);
 			path = FlowControl;
 			sourceTree = "<group>";
@@ -1093,6 +1099,7 @@
 				2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */,
 				2C755F1B20FF708600FD5FBF /* TouchIdViewController.swift in Sources */,
 				2C770C9920FB77F4007F71C4 /* DelegateViewController.swift in Sources */,
+				2C31F7F821061F3C0025D18A /* ChangePinFlowController.swift in Sources */,
 				2C2ACFD520F4427F00C637D8 /* ImportViewController.swift in Sources */,
 				2C279B8F20F8C30700D2F6C4 /* SignedTransaction.swift in Sources */,
 				2C279BC520F8C58100D2F6C4 /* EOSHost.swift in Sources */,
@@ -1199,6 +1206,7 @@
 				2CE1112E20F2680100B93BEB /* VoteFlowController.swift in Sources */,
 				2CE110D420F1C4E700B93BEB /* MainFlowController.swift in Sources */,
 				2C279BDA20F8C5A300D2F6C4 /* EOSResponseModel.swift in Sources */,
+				2C31F7F6210612CE0025D18A /* Preferences.swift in Sources */,
 				2C3B17AD20FCCC7000E6BAAD /* TxManager.swift in Sources */,
 				2CEC2D4C20F65D1500AF5E9B /* StakeProgressBar.swift in Sources */,
 				2C2ACFCF20F3D8EB00C637D8 /* CreateViewController.swift in Sources */,

@@ -17,6 +17,15 @@ struct Config {
     static let mode = ChainMode.junglenet
 
     
+    static var host: String {
+        switch mode {
+        case .junglenet:
+            return "https://eos-hub.io:8443"
+        default:
+            preconditionFailure()
+        }
+    }
+    
     static var eosInfo: TokenInfo {
         switch mode {
         case .junglenet:
@@ -33,5 +42,10 @@ struct Config {
         default:
             preconditionFailure("Not implemented")
         }
+    }
+    
+    static var versionString: String {
+        let shortVersion = (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "0"
+        return shortVersion
     }
 }

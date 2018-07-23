@@ -12,11 +12,10 @@ open class EOSHost {
     
     static let shared = EOSHost()
     
-    var host: String?
+    var host: String = Preferences.shared.preferHost
     var version: String = "v1"
     
     var url: String {
-        guard let host = host else { preconditionFailure("Please set host address!") }
         return host + "/" + version
     }
 }

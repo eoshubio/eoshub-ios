@@ -33,6 +33,29 @@ struct LocalizedString {
         static let app = NSLocalizedString("setting.app", comment: "")
         static let wallet = NSLocalizedString("setting.wallet", comment: "")
         static let logout = NSLocalizedString("setting.logout", comment: "")
+        
+        struct Security {
+            static let changePIN = NSLocalizedString("setting.security.changePin", comment: "")
+        }
+        
+        struct Host {
+            static let title = NSLocalizedString("setting.host.title", comment: "")
+            static let success = NSLocalizedString("setting.host.success", comment: "")
+            static let failed = NSLocalizedString("setting.host.failed", comment: "")
+        }
+        
+        struct Wallet {
+            static let showDetail = NSLocalizedString("setting.wallet.showDetail", comment: "")
+            static let hideTokens = NSLocalizedString("setting.wallet.hideTokens", comment: "")
+        }
+        
+        struct App {
+            static let version = NSLocalizedString("setting.app.version", comment: "")
+            static let license = NSLocalizedString("setting.app.license", comment: "")
+            static let term = NSLocalizedString("setting.app.term", comment: "")
+            static let telegram = NSLocalizedString("setting.app.telegram", comment: "")
+        }
+        
     }
     
     struct Wallet {
@@ -114,6 +137,7 @@ struct LocalizedString {
             static let create = NSLocalizedString("secure.pin.create", comment: "")
             static let confirm = NSLocalizedString("secure.pin.confirm", comment: "")
             static let validation = NSLocalizedString("secure.pin.validation", comment: "")
+            static let change = NSLocalizedString("secure.pin.change", comment: "")
             static let useFaceId = NSLocalizedString("secure.pin.useFaceID", comment: "")
             static let useTouchId = NSLocalizedString("secure.pin.useTouchID", comment: "")
         }
@@ -137,6 +161,7 @@ struct LocalizedString {
         static let success = NSLocalizedString("tx.success", comment: "")
         
     }
+    
     
     struct Common {
         static let paste = NSLocalizedString("common.paste", comment: "")
