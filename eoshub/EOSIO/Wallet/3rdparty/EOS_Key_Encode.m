@@ -26,7 +26,7 @@
  */
 + (BOOL)validateWif:(NSString *)wif{
     if (!(wif.length > 0)) {
-        NSLog(@"parameter wif can't be nil!");
+//        NSLog(@"parameter wif can't be nil!");
         return NO;
     }
     const char *b58 = [wif UTF8String];

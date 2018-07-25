@@ -79,14 +79,14 @@ class PreferAccountViewController: TextInputViewController {
             .flatMap({ (pubKey) -> Observable<EHAccount> in
                 let account = EHAccount(account: accountName, publicKey: pubKey, owner: false)
               
+                DB.shared.addOrUpdateObjects([account] as [EHAccount])
+                
                 return AccountManager.shared.loadAccount(account: account)
                     .flatMap({ (_) -> Observable<EHAccount> in
                         return Observable.just(account)
                     })
             })
             .subscribe(onNext: { [weak self] (account) in
-                
-                DB.shared.addAccount(account: account)
                 
                 guard let nc = self?.navigationController else { return }
                 

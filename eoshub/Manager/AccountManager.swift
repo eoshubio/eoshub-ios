@@ -101,7 +101,9 @@ class AccountManager {
                                 let havingToken = tokenBalances.filter { $0.quantity > 0 }
                                 info.addTokens(currency: havingToken)
                                 let tokens = havingToken.map { $0.token }
-                                account.addPreferTokens(tokens: tokens)
+                                DB.shared.safeWrite {
+                                    account.addPreferTokens(tokens: tokens)
+                                }
                             } else {
                                 info.addTokens(currency: tokenBalances)
                             }

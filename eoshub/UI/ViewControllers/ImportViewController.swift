@@ -104,10 +104,6 @@ class ImportViewController: TextInputViewController {
         //1. get public key from private key
         guard let priKey = txtPriKey.text else { return }
         
-        if EOS_Key_Encode.validateWif(priKey) == false {
-            //TODO: Error popup
-        }
-        
         guard let pubKey = EOS_Key_Encode.eos_publicKey_(with_wif: priKey) else { return }
         
         //TODO: Check network is available
@@ -120,7 +116,7 @@ class ImportViewController: TextInputViewController {
                         if existAccount.owner {
                             return Observable.error(EOSErrorType.existAccount)
                         } else {
-                            account = existAccount
+                            account = EHAccount(account: accountName, publicKey: pubKey, owner: true)
                         }
                     } else {
                         account = EHAccount(account: accountName, publicKey: pubKey, owner: true)
@@ -129,6 +125,8 @@ class ImportViewController: TextInputViewController {
                     //2. save account with public Key
                     _ = Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
                     
+                    DB.shared.addOrUpdateObjects([account] as [EHAccount]) 
+                    
                     return AccountManager.shared.loadAccount(account: account)
                             .flatMap({ (_) -> Observable<EHAccount> in
                                 return Observable.just(account)
@@ -136,7 +134,9 @@ class ImportViewController: TextInputViewController {
                  })
                 .subscribe(onNext: { [weak self] (account) in
                     
-                    DB.shared.addOrUpdateObjects([account] as [EHAccount])
+                    
+                    
+                    AccountManager.shared.refreshUI()
                     
                     guard let nc = self?.navigationController else { return }
                     

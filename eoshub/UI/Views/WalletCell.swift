@@ -94,8 +94,11 @@ class WalletCell: UITableViewCell {
         if viewModel.ownerMode == false {
             buttonContainer.isHidden = true
             layoutContainerY.constant = -buttonContainer.bounds.height
-            layoutIfNeeded()
+        } else {
+            buttonContainer.isHidden = false
+            layoutContainerY.constant = 0
         }
+        layoutIfNeeded()
         
         let staked = EOSAmount(id: EOSState.staked.id, value: viewModel.stakedEOS.f)
         let refunding = EOSAmount(id: EOSState.refunding.id, value: viewModel.refundingEOS.f)
