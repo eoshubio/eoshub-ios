@@ -27,7 +27,7 @@ struct Contract: JSONOutput {
 
 extension Contract {
     static func newAccount(name: String, owner: Authority, active: Authority, authorization: Authorization) -> Contract {
-        let agrs: JSON = [Args.newaccount.creator: authorization.actor,
+        let agrs: JSON = [Args.newaccount.creator: authorization.actor.value,
                           Args.newaccount.name: name,
                           Args.newaccount.owner: owner.json,
                           Args.newaccount.active: active.json ]
