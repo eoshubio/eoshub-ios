@@ -120,13 +120,6 @@ extension RxAPIRequest {
 
 
 
-extension EOSAPI.Chain: RxAPIRequest {
-    
-}
-
-extension EOSAPI.History: RxAPIRequest {
-
-}
 
 
 struct StringEncoding: ParameterEncoding {

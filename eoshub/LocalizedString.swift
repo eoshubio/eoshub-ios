@@ -125,6 +125,25 @@ struct LocalizedString {
         }
     }
     
+    struct Token {
+        
+        /* 토큰 */
+        static let add = NSLocalizedString("token.add", comment: "")
+        static let added = NSLocalizedString("token.added", comment: "")
+        static let howToAdd = NSLocalizedString("token.howToAdd", comment: "")
+        
+        struct Add {
+            static let title = NSLocalizedString("token.add.title", comment: "")
+            static let contract = NSLocalizedString("token.add.contract", comment: "")
+            static let contractEx = NSLocalizedString("token.add.contractEx", comment: "")
+            static let symbol = NSLocalizedString("token.add.symbol", comment: "")
+            static let symbolEx = NSLocalizedString("token.add.symbolEx", comment: "")
+            static let add = NSLocalizedString("token.add.add", comment: "")
+        }
+       
+        
+    }
+    
     struct Vote {
         static let staked = NSLocalizedString("vote.stakedEOS", comment: "")
         static let changeStake = NSLocalizedString("vote.changeStake", comment: "")
@@ -170,6 +189,8 @@ struct LocalizedString {
         static let cancel = NSLocalizedString("common.cancel", comment: "")
         static let share = NSLocalizedString("common.share", comment: "")
         static let done = NSLocalizedString("common.done", comment: "")
+        static let edit = NSLocalizedString("common.edit", comment: "")
+        static let cancelShort = NSLocalizedString("common.cancelShort", comment: "")
     }
     
     

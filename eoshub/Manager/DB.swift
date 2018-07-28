@@ -72,6 +72,9 @@ class DB {
         return realm.objects(Tx.self)
     }
     
+    func getTokens() -> Results<TokenInfo> {
+        return realm.objects(TokenInfo.self)
+    }
 }
 
 //MARK: Utils

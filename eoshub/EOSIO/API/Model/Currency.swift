@@ -36,6 +36,7 @@ struct Token: Equatable {
 
 extension Token {
     static let eos = Config.eosInfo.token
+    static let pandora = Config.pandoraInfo.token
 }
 
 struct Currency {

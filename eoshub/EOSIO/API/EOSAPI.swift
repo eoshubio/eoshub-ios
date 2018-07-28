@@ -54,13 +54,13 @@ struct EOSAPI {
 //    }
 }
 
-extension EOSAPI.Chain {
+extension EOSAPI.Chain: RxAPIRequest {
     var url: String {
         return  EOSHost.shared.url + "/chain/" +  rawValue
     }
 }
 
-extension EOSAPI.History {
+extension EOSAPI.History: RxAPIRequest {
     var url: String {
         return EOSHost.shared.url + "/history/" + rawValue
     }

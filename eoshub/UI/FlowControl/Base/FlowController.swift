@@ -38,6 +38,7 @@ enum FlowIdentifier: String {
     case airdrop
     case ico
     case setting
+    case addToken
     
     case pop
     case dismiss

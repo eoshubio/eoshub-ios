@@ -84,6 +84,17 @@
 "wallet.ram.used" = "Used RAM";
 "wallet.ram.warning" = "Please be careful about the transaction because there is price fluctuation of EOS Ram. Please be sure to fully understand the risks involved in trading.";
 
+/* 토큰 */
+"token.add" = "Add Token";
+"token.added" = "Tokens added to wallet";
+"token.howToAdd" = "To add a token to your wallet, press the + button.";
+"token.add.title" = "To add a token manually, enter the contract and the symbol.";
+"token.add.contract" = "Contract";
+"token.add.contractEx" = "ex) eosio.token";
+"token.add.symbol" = "Symbol";
+"token.add.symbolEx" = "ex) EOS";
+"token.add.add" = "Add token";
+
 /* 투표 */
 "vote.stakedEOS" = "Staked EOS";
 "vote.changeStake" = "Change Stake";
@@ -121,3 +132,5 @@
 "common.cancel" = "Cancel";
 "common.share" = "Share";
 "common.done" = "Done";
+"common.edit" = "Edit";
+"common.cancelShort" = "Cancel";

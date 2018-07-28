@@ -122,6 +122,12 @@
 		2C770CA520FB9B97007F71C4 /* BuyRamFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA420FB9B97007F71C4 /* BuyRamFlowController.swift */; };
 		2C770CA720FBA051007F71C4 /* SellRamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA620FBA051007F71C4 /* SellRamViewController.swift */; };
 		2C770CA920FBA2A9007F71C4 /* SellRamFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA820FBA2A9007F71C4 /* SellRamFlowController.swift */; };
+		2CA5D1862109FA08006C928B /* TokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D1852109FA08006C928B /* TokenViewController.swift */; };
+		2CA5D1882109FAD5006C928B /* TokenAddFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */; };
+		2CA5D18A210A22B2006C928B /* EOSHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D189210A22B2006C928B /* EOSHubAPI.swift */; };
+		2CA5D18C210B5B4E006C928B /* TokenAddPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA5D18B210B5B4E006C928B /* TokenAddPopup.xib */; };
+		2CA5D18E210B5B58006C928B /* TokenAddPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D18D210B5B58006C928B /* TokenAddPopup.swift */; };
+		2CA5D190210B715E006C928B /* EOSHubError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D18F210B715E006C928B /* EOSHubError.swift */; };
 		2CB6B7EB21038F700048601A /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EA21038F700048601A /* ActionButton.swift */; };
 		2CB6B7ED210391A40048601A /* AccountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EC210391A40048601A /* AccountTextField.swift */; };
 		2CB6B7EF210483560048601A /* TransactionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EE210483560048601A /* TransactionForm.swift */; };
@@ -339,6 +345,12 @@
 		2C770CA420FB9B97007F71C4 /* BuyRamFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyRamFlowController.swift; sourceTree = "<group>"; };
 		2C770CA620FBA051007F71C4 /* SellRamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellRamViewController.swift; sourceTree = "<group>"; };
 		2C770CA820FBA2A9007F71C4 /* SellRamFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellRamFlowController.swift; sourceTree = "<group>"; };
+		2CA5D1852109FA08006C928B /* TokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewController.swift; sourceTree = "<group>"; };
+		2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAddFlowController.swift; sourceTree = "<group>"; };
+		2CA5D189210A22B2006C928B /* EOSHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSHubAPI.swift; sourceTree = "<group>"; };
+		2CA5D18B210B5B4E006C928B /* TokenAddPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TokenAddPopup.xib; sourceTree = "<group>"; };
+		2CA5D18D210B5B58006C928B /* TokenAddPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAddPopup.swift; sourceTree = "<group>"; };
+		2CA5D18F210B715E006C928B /* EOSHubError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSHubError.swift; sourceTree = "<group>"; };
 		2CB6B7EA21038F700048601A /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		2CB6B7EC210391A40048601A /* AccountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTextField.swift; sourceTree = "<group>"; };
 		2CB6B7EE210483560048601A /* TransactionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionForm.swift; sourceTree = "<group>"; };
@@ -606,6 +618,7 @@
 		2CE110C920F1C47800B93BEB /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2CA5D189210A22B2006C928B /* EOSHubAPI.swift */,
 				2CB6B7F82104D75D0048601A /* ExchangeAPI.swift */,
 				2CB6B7FA2104DA230048601A /* NetworkError.swift */,
 			);
@@ -668,6 +681,7 @@
 			children = (
 				2C279BE920F8DDE700D2F6C4 /* EHUser.swift */,
 				2C279BE720F8DD6A00D2F6C4 /* EHAccount.swift */,
+				2CA5D18F210B715E006C928B /* EOSHubError.swift */,
 			);
 			path = EOSHUB;
 			sourceTree = "<group>";
@@ -702,6 +716,7 @@
 				2C2ACFF820F4A3DE00C637D8 /* ConfirmPinFlowController.swift */,
 				2C279BF120F8EB3E00D2F6C4 /* ValidatePinFlowController.swift */,
 				2C31F7F721061F3C0025D18A /* ChangePinFlowController.swift */,
+				2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */,
 			);
 			path = FlowControl;
 			sourceTree = "<group>";
@@ -733,6 +748,7 @@
 				2C2ACFE420F47C1900C637D8 /* PinCodeViewController.swift */,
 				2C755F1A20FF708600FD5FBF /* TouchIdViewController.swift */,
 				2CB6B7F42104C7850048601A /* QRScannerViewController.swift */,
+				2CA5D1852109FA08006C928B /* TokenViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -750,6 +766,8 @@
 				2C1E3E9420FE14000009D2AF /* WaitingView.swift */,
 				2C1E3E9620FE18000009D2AF /* Popup.swift */,
 				2C1E3E9820FE18960009D2AF /* Popup.xib */,
+				2CA5D18D210B5B58006C928B /* TokenAddPopup.swift */,
+				2CA5D18B210B5B4E006C928B /* TokenAddPopup.xib */,
 				2C3B17B020FD023000E6BAAD /* TransferPopup.swift */,
 				2C3B17AE20FCFDF400E6BAAD /* TransferPopup.xib */,
 				2C1E3E9C20FE2D810009D2AF /* DelegatePopup.swift */,
@@ -961,6 +979,7 @@
 				2CEC2D4820F647A500AF5E9B /* Wallet.storyboard in Resources */,
 				2C1E3E9920FE18960009D2AF /* Popup.xib in Resources */,
 				2CE110DB20F1C8AC00B93BEB /* Images.xcassets in Resources */,
+				2CA5D18C210B5B4E006C928B /* TokenAddPopup.xib in Resources */,
 				2CE1111020F2118900B93BEB /* LoginButton.xib in Resources */,
 				2CE1110920F1FA6600B93BEB /* Localizable.strings in Resources */,
 				2C2ACFF520F49DCA00C637D8 /* FaceIdInputView.xib in Resources */,
@@ -1135,6 +1154,7 @@
 				2C279BF220F8EB3E00D2F6C4 /* ValidatePinFlowController.swift in Sources */,
 				2CFE954820F3930200DC173F /* CellType.swift in Sources */,
 				2C279BE120F8C68700D2F6C4 /* NSObject+Extension.m in Sources */,
+				2CA5D1862109FA08006C928B /* TokenViewController.swift in Sources */,
 				2CB6B7FD2104DBAD0048601A /* ExchangeManager.swift in Sources */,
 				2C279B8E20F8C30700D2F6C4 /* EOSName.swift in Sources */,
 				2C279BC020F8C58100D2F6C4 /* EOSErrorType.swift in Sources */,
@@ -1150,6 +1170,7 @@
 				2C279B9320F8C30700D2F6C4 /* PackedTransaction.swift in Sources */,
 				2C1E3E9720FE18000009D2AF /* Popup.swift in Sources */,
 				2C770C9B20FB7CBD007F71C4 /* DelegateFlowController.swift in Sources */,
+				2CA5D1882109FAD5006C928B /* TokenAddFlowController.swift in Sources */,
 				2CEC2D4620F6423000AF5E9B /* AccountManager.swift in Sources */,
 				2C770C9320FB30AD007F71C4 /* Symbol.swift in Sources */,
 				2CE110F120F1D65400B93BEB /* Color.swift in Sources */,
@@ -1176,6 +1197,7 @@
 				2C1E3E9520FE14000009D2AF /* WaitingView.swift in Sources */,
 				2CE110F320F1DAF700B93BEB /* BaseViewController.swift in Sources */,
 				2CB6B7F52104C7850048601A /* QRScannerViewController.swift in Sources */,
+				2CA5D190210B715E006C928B /* EOSHubError.swift in Sources */,
 				2C279BD520F8C5A300D2F6C4 /* Bandwidth.swift in Sources */,
 				2C279BDB20F8C5A300D2F6C4 /* Account.swift in Sources */,
 				2C279BC220F8C58100D2F6C4 /* RxEOSAPI.swift in Sources */,
@@ -1196,6 +1218,7 @@
 				2CE1110E20F1FACD00B93BEB /* LocalizedString.swift in Sources */,
 				2C2ACFED20F48E1D00C637D8 /* UIButton+extension.swift in Sources */,
 				2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */,
+				2CA5D18E210B5B58006C928B /* TokenAddPopup.swift in Sources */,
 				2C279B7720F7A29A00D2F6C4 /* ReceiveViewController.swift in Sources */,
 				2CE110D520F1C4E700B93BEB /* FlowConfigure.swift in Sources */,
 				2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */,
@@ -1233,6 +1256,7 @@
 				2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */,
 				2C279BD920F8C5A300D2F6C4 /* Authority.swift in Sources */,
 				2C279BD620F8C5A300D2F6C4 /* Resources.swift in Sources */,
+				2CA5D18A210A22B2006C928B /* EOSHubAPI.swift in Sources */,
 				2CE110D320F1C4E700B93BEB /* FlowController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

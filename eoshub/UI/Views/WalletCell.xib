@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -322,6 +323,7 @@
             <connections>
                 <outlet property="account" destination="0Bp-ip-anu" id="LSv-sq-ae1"/>
                 <outlet property="availableEOS" destination="FFs-cP-Jqe" id="gAc-pP-2Uw"/>
+                <outlet property="btnMenu" destination="qwm-YX-u4M" id="Yzv-zJ-aMu"/>
                 <outlet property="btnReceive" destination="3l1-if-9W8" id="9G0-Qr-Iwa"/>
                 <outlet property="btnSend" destination="bUo-uN-7Cw" id="ZIu-Gd-Ofi"/>
                 <outlet property="buttonContainer" destination="aAt-mb-Lxs" id="w47-RW-Lnh"/>

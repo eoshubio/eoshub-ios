@@ -11,7 +11,6 @@ import UIKit
 import RxSwift
 
 class WalletCell: UITableViewCell {
-    
     @IBOutlet fileprivate weak var account: UILabel!
     
     @IBOutlet fileprivate weak var total: UILabel!
@@ -43,6 +42,8 @@ class WalletCell: UITableViewCell {
     @IBOutlet fileprivate weak var btnSend: UIButton!
     
     @IBOutlet fileprivate weak var btnReceive: UIButton!
+    
+    @IBOutlet fileprivate weak var btnMenu: UIButton!
     
     private var bag: DisposeBag? = nil
     
@@ -81,7 +82,8 @@ class WalletCell: UITableViewCell {
     
     func configure(viewModel: AccountInfo,
                    sendObserver: PublishSubject<AccountInfo>,
-                   receiveObserver: PublishSubject<AccountInfo>) {
+                   receiveObserver: PublishSubject<AccountInfo>,
+                   menuObserver: PublishSubject<AccountInfo>) {
         
         let bag = DisposeBag()
         
@@ -115,6 +117,12 @@ class WalletCell: UITableViewCell {
         btnReceive.rx.singleTap
             .bind {
                 receiveObserver.onNext(viewModel)
+            }
+            .disposed(by: bag)
+        
+        btnMenu.rx.singleTap
+            .bind {
+                menuObserver.onNext(viewModel)
             }
             .disposed(by: bag)
         

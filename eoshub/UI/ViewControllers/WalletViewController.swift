@@ -32,6 +32,7 @@ class WalletViewController: BaseViewController {
     
     fileprivate var rx_send = PublishSubject<AccountInfo>()
     fileprivate var rx_receive = PublishSubject<AccountInfo>()
+    fileprivate var rx_menuClicked = PublishSubject<AccountInfo>()
     
     private var initialized = false
     
@@ -54,10 +55,6 @@ class WalletViewController: BaseViewController {
         super.viewDidLoad()
         
         _ = ExchangeManager.shared
-//        setupUI()
-//        bindActions()
-//        reloadUI()
-        
     }
     
     private func setupUI() {
@@ -135,6 +132,12 @@ class WalletViewController: BaseViewController {
             })
             .disposed(by: bag)
         
+        rx_menuClicked
+            .subscribe(onNext: { [weak self] (account) in
+                self?.openMenu(account: account)
+            })
+            .disposed(by: bag)
+        
         btnRefresh.rx.singleTap
             .flatMap({ (_) -> Observable<Void> in
                 return AccountManager.shared.loadAccounts()
@@ -146,6 +149,25 @@ class WalletViewController: BaseViewController {
         AccountManager.shared.loadAccounts()
             .subscribe()
             .disposed(by: bag)
+        
+    }
+    
+    fileprivate func openMenu(account: AccountInfo) {
+        let sheet = UIAlertController(title: account.account, message: "", preferredStyle: .actionSheet)
+        
+        let delete = UIAlertAction(title: "Delete Wallet", style: .destructive) { (_) in
+            //confirm Delete
+        }
+        
+        sheet.addAction(delete)
+        sheet.addAction(UIAlertAction(title: LocalizedString.Common.cancel, style: .cancel, handler: nil))
+        
+        present(sheet, animated: true, completion: nil)
+    }
+    
+    fileprivate func showConfirmPopup(account: String) {
+        
+        
         
     }
     
@@ -172,7 +194,7 @@ extension WalletViewController: UITableViewDataSource {
         
         if item is AccountInfo {
             guard let cell = cell as? WalletCell, let item = item as? AccountInfo else { preconditionFailure() }
-            cell.configure(viewModel: item, sendObserver: rx_send, receiveObserver: rx_receive)
+            cell.configure(viewModel: item, sendObserver: rx_send, receiveObserver: rx_receive, menuObserver: rx_menuClicked)
             cell.selectionStyle = .none
             return cell
         } else if item is TokenBalanceInfo {

@@ -83,6 +83,17 @@
 "wallet.ram.used" = "할당된 RAM";
 "wallet.ram.warning" = "이오스 램은 가격 변동이 있기 때문에 거래에 주의하시기 바랍니다. 램 거래에 따르는 위험을 충분히 숙지하신 후 진행하시기 바랍니다.";
 
+/* 토큰 */
+"token.add" = "토큰 추가";
+"token.added" = "지갑에 추가된 토큰";
+"token.howToAdd" = "토큰을 지갑에 추가하려면 + 버튼을 누르세요.";
+"token.add.title" = "토큰을 직접 추가하려면 컨트렉트와 심볼을 입력해주세요.";
+"token.add.contract" = "컨트렉트";
+"token.add.contractEx" = "ex) eosio.token";
+"token.add.symbol" = "심볼";
+"token.add.symbolEx" = "ex) EOS";
+"token.add.add" = "추가하기";
+
 /* 투표 */
 "vote.stakedEOS" = "할당된 EOS";
 "vote.changeStake" = "EOS 할당/반환하기";
@@ -122,3 +133,5 @@
 "common.cancel" = "취소하기";
 "common.share" = "공유하기";
 "common.done" = "완료";
+"common.edit" = "편집";
+"common.cancelShort" = "취소";

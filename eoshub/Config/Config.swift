@@ -16,11 +16,13 @@ struct Config {
     
     static let mode = ChainMode.junglenet
 
+    static var eoshubHost = "https://eos-hub.io"
     
     static var host: String {
         switch mode {
         case .junglenet:
-            return "https://eos-hub.io:8443"
+            return "https://ban-api.baishancloud.com:3852"
+//            return "https://eos-hub.io:8443"
         default:
             preconditionFailure()
         }

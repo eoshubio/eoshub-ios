@@ -19,6 +19,9 @@ class MainFlowController: FlowController {
     }
     
     func show(animated: Bool) {
+        //TODO: Load App configs
+        TokenManager.shared.load()
+        
         let nc = UINavigationController()
         
         let frame = UIScreen.main.bounds
