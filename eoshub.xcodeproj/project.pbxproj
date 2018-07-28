@@ -128,6 +128,10 @@
 		2CA5D18C210B5B4E006C928B /* TokenAddPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA5D18B210B5B4E006C928B /* TokenAddPopup.xib */; };
 		2CA5D18E210B5B58006C928B /* TokenAddPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D18D210B5B58006C928B /* TokenAddPopup.swift */; };
 		2CA5D190210B715E006C928B /* EOSHubError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D18F210B715E006C928B /* EOSHubError.swift */; };
+		2CA5D192210C468A006C928B /* LicenseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D191210C468A006C928B /* LicenseViewController.swift */; };
+		2CA5D194210C481C006C928B /* LicenseFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D193210C481C006C928B /* LicenseFlowController.swift */; };
+		2CA5D196210C4E46006C928B /* Range+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D195210C4E46006C928B /* Range+extension.swift */; };
+		2CA5D199210C53D6006C928B /* LicenseDescriptions.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA5D198210C53D6006C928B /* LicenseDescriptions.json */; };
 		2CB6B7EB21038F700048601A /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EA21038F700048601A /* ActionButton.swift */; };
 		2CB6B7ED210391A40048601A /* AccountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EC210391A40048601A /* AccountTextField.swift */; };
 		2CB6B7EF210483560048601A /* TransactionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EE210483560048601A /* TransactionForm.swift */; };
@@ -351,6 +355,10 @@
 		2CA5D18B210B5B4E006C928B /* TokenAddPopup.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TokenAddPopup.xib; sourceTree = "<group>"; };
 		2CA5D18D210B5B58006C928B /* TokenAddPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAddPopup.swift; sourceTree = "<group>"; };
 		2CA5D18F210B715E006C928B /* EOSHubError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSHubError.swift; sourceTree = "<group>"; };
+		2CA5D191210C468A006C928B /* LicenseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseViewController.swift; sourceTree = "<group>"; };
+		2CA5D193210C481C006C928B /* LicenseFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseFlowController.swift; sourceTree = "<group>"; };
+		2CA5D195210C4E46006C928B /* Range+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Range+extension.swift"; sourceTree = "<group>"; };
+		2CA5D198210C53D6006C928B /* LicenseDescriptions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LicenseDescriptions.json; sourceTree = "<group>"; };
 		2CB6B7EA21038F700048601A /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		2CB6B7EC210391A40048601A /* AccountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTextField.swift; sourceTree = "<group>"; };
 		2CB6B7EE210483560048601A /* TransactionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionForm.swift; sourceTree = "<group>"; };
@@ -549,6 +557,14 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		2CA5D197210C52A9006C928B /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				2CA5D198210C53D6006C928B /* LicenseDescriptions.json */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
 		2CE1109C20F1C31000B93BEB = {
 			isa = PBXGroup;
 			children = (
@@ -591,6 +607,7 @@
 				2CE1110D20F1FACD00B93BEB /* LocalizedString.swift */,
 				2CE1110B20F1FA6600B93BEB /* Localizable.strings */,
 				2CE110B420F1C31300B93BEB /* Info.plist */,
+				2CA5D197210C52A9006C928B /* assets */,
 				2CE110DA20F1C8AC00B93BEB /* Images.xcassets */,
 			);
 			path = eoshub;
@@ -657,6 +674,7 @@
 				2C2ACFEC20F48E1D00C637D8 /* UIButton+extension.swift */,
 				2C279C0220FA0E3000D2F6C4 /* RealmString.swift */,
 				2C770C9C20FB85DB007F71C4 /* UITextField+extension.swift */,
+				2CA5D195210C4E46006C928B /* Range+extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -708,6 +726,7 @@
 				2CE1112D20F2680100B93BEB /* VoteFlowController.swift */,
 				2CE1113120F26BD700B93BEB /* AirdropFlowController.swift */,
 				2CE1110520F1F76200B93BEB /* SettingFlowController.swift */,
+				2CA5D193210C481C006C928B /* LicenseFlowController.swift */,
 				2C2ACFD020F3DD1800C637D8 /* CreateFlowController.swift */,
 				2C2ACFD620F442E400C637D8 /* ImportFlowController.swift */,
 				2CB6B7F22104AE970048601A /* PreferAccountFlowController.swift */,
@@ -739,6 +758,7 @@
 				2C279B7620F7A29A00D2F6C4 /* ReceiveViewController.swift */,
 				2C279B7A20F7AEAC00D2F6C4 /* TxViewController.swift */,
 				2CE1110320F1F30200B93BEB /* SettingViewController.swift */,
+				2CA5D191210C468A006C928B /* LicenseViewController.swift */,
 				2CE1112B20F263B100B93BEB /* VoteViewController.swift */,
 				2CE1112F20F26BA300B93BEB /* AirdropViewController.swift */,
 				2C2ACFCE20F3D8EB00C637D8 /* CreateViewController.swift */,
@@ -978,6 +998,7 @@
 				2CE1113C20F27C1E00B93BEB /* WalletCell.xib in Resources */,
 				2CEC2D4820F647A500AF5E9B /* Wallet.storyboard in Resources */,
 				2C1E3E9920FE18960009D2AF /* Popup.xib in Resources */,
+				2CA5D199210C53D6006C928B /* LicenseDescriptions.json in Resources */,
 				2CE110DB20F1C8AC00B93BEB /* Images.xcassets in Resources */,
 				2CA5D18C210B5B4E006C928B /* TokenAddPopup.xib in Resources */,
 				2CE1111020F2118900B93BEB /* LoginButton.xib in Resources */,
@@ -1101,6 +1122,7 @@
 				2C279B7320F783DF00D2F6C4 /* SendCurrencyViewController.swift in Sources */,
 				2C279C0A20FA452F00D2F6C4 /* Config.swift in Sources */,
 				2C279BFD20F9D39600D2F6C4 /* AccountInfo.swift in Sources */,
+				2CA5D192210C468A006C928B /* LicenseViewController.swift in Sources */,
 				2CE1113A20F27BE000B93BEB /* WalletCell.swift in Sources */,
 				2CE1110620F1F76200B93BEB /* SettingFlowController.swift in Sources */,
 				2C770CA920FBA2A9007F71C4 /* SellRamFlowController.swift in Sources */,
@@ -1117,6 +1139,7 @@
 				2C3B17AB20FCC42C00E6BAAD /* Mergeable.swift in Sources */,
 				2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */,
 				2C755F1B20FF708600FD5FBF /* TouchIdViewController.swift in Sources */,
+				2CA5D194210C481C006C928B /* LicenseFlowController.swift in Sources */,
 				2C770C9920FB77F4007F71C4 /* DelegateViewController.swift in Sources */,
 				2C31F7F821061F3C0025D18A /* ChangePinFlowController.swift in Sources */,
 				2C2ACFD520F4427F00C637D8 /* ImportViewController.swift in Sources */,
@@ -1200,6 +1223,7 @@
 				2CA5D190210B715E006C928B /* EOSHubError.swift in Sources */,
 				2C279BD520F8C5A300D2F6C4 /* Bandwidth.swift in Sources */,
 				2C279BDB20F8C5A300D2F6C4 /* Account.swift in Sources */,
+				2CA5D196210C4E46006C928B /* Range+extension.swift in Sources */,
 				2C279BC220F8C58100D2F6C4 /* RxEOSAPI.swift in Sources */,
 				2C279B9220F8C30700D2F6C4 /* Transaction.swift in Sources */,
 				2C279B7520F7844300D2F6C4 /* SendCurrencyFlowController.swift in Sources */,

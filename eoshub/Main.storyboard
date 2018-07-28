@@ -409,10 +409,28 @@
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Ho0-Y4-Z64"/>
                     </view>
+                    <connections>
+                        <segue destination="zmH-14-zvh" kind="show" id="txM-nd-fRq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EuW-1H-dtS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1038" y="221"/>
+        </scene>
+        <!--License View Controller-->
+        <scene sceneID="mmQ-Fa-xuc">
+            <objects>
+                <viewController storyboardIdentifier="LicenseViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zmH-14-zvh" customClass="LicenseViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iqE-ut-mTE">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="wQI-Fq-0bT"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hUT-hk-qWd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1870" y="221"/>
         </scene>
     </scenes>
     <resources>

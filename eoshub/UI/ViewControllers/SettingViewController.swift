@@ -20,14 +20,12 @@ class SettingViewController: FormViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: animated)
-//        navigationController?.view.backgroundColor = UIColor.clear
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
-        navigationController?.navigationBar.tintColor = Color.darkGray.uiColor
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Color.darkGray.uiColor]
-        
+        navigationController?.navigationBar.tintColor = Color.basePurple.uiColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Color.basePurple.uiColor]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: Color.basePurple.uiColor]
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.barStyle = .default
         title = LocalizedString.Setting.title
@@ -39,6 +37,30 @@ class SettingViewController: FormViewController {
         super.viewDidLoad()
         setupUI()
     }
+    
+    private func setupUI() {
+        form +++ securitySettings()
+        form +++ EOSSettings()
+        form +++ walletSettings()
+        form +++ appSettings()
+        form
+            
+            +++ Section("")
+            <<< LabelRow(){
+                $0.title = LocalizedString.Setting.logout
+                $0.cellStyle = .default
+                }.cellUpdate({ (cell, row) in
+                    cell.textLabel?.textAlignment = .center
+                    cell.textLabel?.textColor = .red
+                    cell.selectionStyle = .gray
+                }).onCellSelection({ (_, row) in
+                    print("logout")
+                    row.deselect()
+                })
+        
+        
+    }
+    
     
     private func securitySettings() -> Section{
         
@@ -96,8 +118,10 @@ class SettingViewController: FormViewController {
         let host =  PushRow<String>() {
             $0.title = LocalizedString.Setting.Host.title
             //TODO: get from server
-            $0.options = ["https://eos-hub.io:8443","https://eos.greymass.com", "https://api.cypherglass.com", "https://publicapi-mainnet.eosauthority.com", "https://mainnet.eoscanada.com"]
-            $0.value = "https://eos.greymass.com"
+//            $0.options = ["https://eos-hub.io:8443","https://eos.greymass.com", "https://api.cypherglass.com", "https://publicapi-mainnet.eosauthority.com", "https://mainnet.eoscanada.com"]
+            $0.options = ["https://eos-hub.io:8443"]
+            $0.value = Preferences.shared.preferHost
+            
             }.cellUpdate { (cell, row) in
                 cell.textLabel?.textColor = Color.darkGray.uiColor
                 cell.height = { 50 }
@@ -171,14 +195,29 @@ class SettingViewController: FormViewController {
                 cell.isUserInteractionEnabled = false
         }
         
+        let github = LabelRow() {
+            $0.title = "Github"
+            $0.value = "https://github.com/eoshubio/eoshub-ios"
+            $0.cellStyle = .value1
+            }.cellUpdate { (cell, row) in
+                cell.textLabel?.textColor = Color.darkGray.uiColor
+                cell.detailTextLabel?.textColor = Color.blue.uiColor
+                cell.detailTextLabel?.font = Font.appleSDGothicNeo(.regular).uiFont(14)
+                cell.height = { 50 }
+            }.onCellSelection({ [weak self](_, row) in
+                self?.goToURL(urlString: row.value!)
+                row.deselect()
+            })
+        
         let openSource = LabelRow() {
             $0.title = LocalizedString.Setting.App.license
             $0.cellStyle = .default
             }.cellUpdate { (cell, row) in
                 cell.textLabel?.textColor = Color.darkGray.uiColor
                 cell.height = { 50 }
-            }.onCellSelection({ (_, row) in
-                print("clicked")
+            }.onCellSelection({ [weak self](_, row) in
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goToLicense(from: nc)
                 row.deselect()
             })
         
@@ -189,7 +228,6 @@ class SettingViewController: FormViewController {
                 cell.textLabel?.textColor = Color.darkGray.uiColor
                 cell.height = { 50 }
             }.onCellSelection({ (_, row) in
-                print("clicked")
                 row.deselect()
             })
         
@@ -199,39 +237,27 @@ class SettingViewController: FormViewController {
             $0.cellStyle = .value1
             }.cellUpdate { (cell, row) in
                 cell.textLabel?.textColor = Color.darkGray.uiColor
+                cell.detailTextLabel?.textColor = Color.blue.uiColor
                 cell.height = { 50 }
             }.onCellSelection({ (_, row) in
-                print("clicked")
                 row.deselect()
             })
         
-        section += [version, openSource, term, telegram]
+        section += [version, github, openSource, term, telegram]
         
         return section
     }
     
     
     
-    private func setupUI() {
-        form +++ securitySettings()
-        form +++ EOSSettings()
-        form +++ walletSettings()
-        form +++ appSettings()
-        form
-           
-            +++ Section("")
-            <<< LabelRow(){
-                $0.title = LocalizedString.Setting.logout
-                $0.cellStyle = .default
-                }.cellUpdate({ (cell, row) in
-                    cell.textLabel?.textAlignment = .center
-                    cell.textLabel?.textColor = .red
-                    cell.selectionStyle = .gray
-                }).onCellSelection({ (_, row) in
-                    print("logout")
-                    row.deselect()
-                })
-        
-        
+    
+}
+
+extension SettingViewController {
+    func goToURL(urlString: String) {
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        UIApplication.shared.open(url, options: [:], completionHandler: nil)
     }
 }

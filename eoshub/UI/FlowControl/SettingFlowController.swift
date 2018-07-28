@@ -28,12 +28,10 @@ class SettingFlowController: FlowController, SettingFlowEventDelegate {
     
     
     //MARK: SettingFlowEventDelegate
-    func goToSetting(from nc: UINavigationController) {
-        
-    }
-    
-    func goToWalletDetail(from nc: UINavigationController) {
-        
+    func goToLicense(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = LicenseFlowController(configure: config)
+        fc.start(animated: true)
     }
     
     func goToChangePin(from nc: UINavigationController) {
@@ -47,4 +45,5 @@ class SettingFlowController: FlowController, SettingFlowEventDelegate {
 
 protocol SettingFlowEventDelegate: FlowEventDelegate {
     func goToChangePin(from nc: UINavigationController)
+    func goToLicense(from nc: UINavigationController)
 }
