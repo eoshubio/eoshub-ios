@@ -18,7 +18,7 @@ class ImportViewController: TextInputViewController {
     @IBOutlet fileprivate weak var txtPriKey: WhiteTextField!
     @IBOutlet fileprivate weak var btnPaste: UIButton!
     @IBOutlet fileprivate weak var btnImport: UIButton!
-    @IBOutlet fileprivate weak var btnFindAccount: UIButton!
+//    @IBOutlet fileprivate weak var btnFindAccount: UIButton!
     
     deinit {
         Log.d("deinit")
@@ -53,7 +53,7 @@ class ImportViewController: TextInputViewController {
         }
         
         
-        btnFindAccount.setAttributedTitle(txtFindAccount, for: .normal)
+//        btnFindAccount.setAttributedTitle(txtFindAccount, for: .normal)
         
         txtPriKey.placeholder = LocalizedString.Wallet.priKey
         txtPriKey.delegate = self
@@ -68,12 +68,12 @@ class ImportViewController: TextInputViewController {
         
         
         
-        btnFindAccount.rx.singleTap
-            .bind { [weak self] in
-                guard let nc = self?.navigationController else { return }
-                self?.flowDelegate?.goFindAccount(from: nc)
-            }
-        .disposed(by: bag)
+//        btnFindAccount.rx.singleTap
+//            .bind { [weak self] in
+//                guard let nc = self?.navigationController else { return }
+//                self?.flowDelegate?.goFindAccount(from: nc)
+//            }
+//        .disposed(by: bag)
         
         btnImport.rx.singleTap
             .bind { [weak self] in

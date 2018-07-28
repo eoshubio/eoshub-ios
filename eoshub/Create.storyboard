@@ -39,7 +39,7 @@
                                 <rect key="frame" x="0.0" y="154" width="375" height="614"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CreateAccountCell" rowHeight="180" id="WkW-wj-snS" customClass="CreateAccountCell" customModule="eoshub" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CreateAccountCell" rowHeight="180" id="WkW-wj-snS" customClass="CreateAccountCell" customModule="eoshub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WkW-wj-snS" id="Clx-Pv-byc">
@@ -101,7 +101,7 @@
                                             <outlet property="btnCreate" destination="XvP-X8-XVN" id="Y29-5s-t2O"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImportAccountCell" rowHeight="180" id="8Ba-ed-tuf" customClass="ImportAccountCell" customModule="eoshub" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImportAccountCell" rowHeight="180" id="8Ba-ed-tuf" customClass="ImportAccountCell" customModule="eoshub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="208" width="375" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8Ba-ed-tuf" id="kvr-E2-c4g">
@@ -156,7 +156,7 @@
                                             <outlet property="btnImport" destination="Oe2-53-ZIA" id="StI-bJ-tqs"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImportPubAccountCell" rowHeight="180" id="YO1-MU-xr0" customClass="ImportPubAccountCell" customModule="eoshub" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImportPubAccountCell" rowHeight="180" id="YO1-MU-xr0" customClass="ImportPubAccountCell" customModule="eoshub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="388" width="375" height="180"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YO1-MU-xr0" id="PrG-t1-Dzq">
@@ -286,7 +286,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4l-II-kFW">
-                                                <rect key="frame" x="0.0" y="477" width="375" height="257"/>
+                                                <rect key="frame" x="0.0" y="537" width="375" height="197"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Import Key to Wallet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSM-jU-WE6">
                                                         <rect key="frame" x="98.333333333333314" y="35" width="178" height="24"/>
@@ -306,13 +306,6 @@
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                                                         <state key="normal" title="Import private key"/>
                                                     </button>
-                                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="My2-5R-1pl" userLabel="hline">
-                                                        <rect key="frame" x="0.0" y="206" width="375" height="1"/>
-                                                        <color key="backgroundColor" red="0.79607843137254897" green="0.79607843137254897" blue="0.79607843137254897" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="1" id="Ihx-78-4C1"/>
-                                                        </constraints>
-                                                    </view>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="private key " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4I8-ff-ekL" customClass="WhiteTextField" customModule="eoshub" customModuleProvider="target">
                                                         <rect key="frame" x="15" y="84" width="345" height="44"/>
                                                         <constraints>
@@ -320,7 +313,7 @@
                                                         </constraints>
                                                         <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="12"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8C-92-Deh" customClass="GrayButton" customModule="eoshub" customModuleProvider="target">
                                                         <rect key="frame" x="295" y="91.666666666666629" width="60" height="30"/>
@@ -333,42 +326,20 @@
                                                             <color key="titleColor" red="0.47450980392156861" green="0.47450980392156861" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </state>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HXs-7N-nMA">
-                                                        <rect key="frame" x="20" y="207" width="335" height="50"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="50" id="hPt-hR-h3Z"/>
-                                                        </constraints>
-                                                        <state key="normal">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="If you don't know your account name, Please Touch here">
-                                                                    <attributes>
-                                                                        <color key="NSColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                                        <font key="NSFont" size="12" name="AppleSDGothicNeo-Regular"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
-                                                        </state>
-                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="trailing" secondItem="4I8-ff-ekL" secondAttribute="trailing" constant="15" id="25d-YS-cJ7"/>
                                                     <constraint firstItem="M8C-92-Deh" firstAttribute="centerY" secondItem="4I8-ff-ekL" secondAttribute="centerY" id="3ZI-Ja-67L"/>
-                                                    <constraint firstItem="HXs-7N-nMA" firstAttribute="leading" secondItem="W4l-II-kFW" secondAttribute="leading" constant="20" id="5nh-WK-E1v"/>
                                                     <constraint firstItem="4I8-ff-ekL" firstAttribute="leading" secondItem="W4l-II-kFW" secondAttribute="leading" constant="15" id="6XD-FU-ZZz"/>
-                                                    <constraint firstAttribute="trailing" secondItem="My2-5R-1pl" secondAttribute="trailing" id="8L7-qS-yvm"/>
                                                     <constraint firstAttribute="trailing" secondItem="rNw-5E-1bR" secondAttribute="trailing" constant="20" id="8Qf-AR-coi"/>
                                                     <constraint firstItem="4I8-ff-ekL" firstAttribute="top" secondItem="uSM-jU-WE6" secondAttribute="bottom" constant="25" id="MCt-u3-e4P"/>
                                                     <constraint firstItem="uSM-jU-WE6" firstAttribute="top" secondItem="W4l-II-kFW" secondAttribute="top" constant="35" id="MDH-8g-L9z"/>
-                                                    <constraint firstAttribute="bottom" secondItem="HXs-7N-nMA" secondAttribute="bottom" id="SYv-Og-Ndf"/>
-                                                    <constraint firstItem="HXs-7N-nMA" firstAttribute="top" secondItem="My2-5R-1pl" secondAttribute="bottom" id="dGq-ri-WEe"/>
+                                                    <constraint firstAttribute="bottom" secondItem="rNw-5E-1bR" secondAttribute="bottom" constant="15" id="XG4-Au-KCO"/>
                                                     <constraint firstItem="rNw-5E-1bR" firstAttribute="top" secondItem="4I8-ff-ekL" secondAttribute="bottom" constant="10" id="dtV-wp-zc1"/>
                                                     <constraint firstItem="M8C-92-Deh" firstAttribute="trailing" secondItem="4I8-ff-ekL" secondAttribute="trailing" constant="-5" id="jA8-3n-XpF"/>
-                                                    <constraint firstItem="My2-5R-1pl" firstAttribute="leading" secondItem="W4l-II-kFW" secondAttribute="leading" id="sWI-w2-Izf"/>
                                                     <constraint firstItem="rNw-5E-1bR" firstAttribute="leading" secondItem="W4l-II-kFW" secondAttribute="leading" constant="20" id="t8F-t1-mio"/>
-                                                    <constraint firstItem="My2-5R-1pl" firstAttribute="top" secondItem="rNw-5E-1bR" secondAttribute="bottom" constant="24" id="xvE-G8-Wsr"/>
                                                     <constraint firstItem="uSM-jU-WE6" firstAttribute="centerX" secondItem="W4l-II-kFW" secondAttribute="centerX" id="zAB-FH-Wgj"/>
-                                                    <constraint firstAttribute="trailing" secondItem="HXs-7N-nMA" secondAttribute="trailing" constant="20" id="zwd-cg-n4S"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -409,7 +380,6 @@
                         <viewLayoutGuide key="safeArea" id="W4E-Nc-zWc"/>
                     </view>
                     <connections>
-                        <outlet property="btnFindAccount" destination="HXs-7N-nMA" id="DAl-XH-NQc"/>
                         <outlet property="btnImport" destination="rNw-5E-1bR" id="mMj-9f-fWe"/>
                         <outlet property="btnPaste" destination="M8C-92-Deh" id="hst-NJ-EXO"/>
                         <outlet property="contentsScrollView" destination="zfd-yl-xWv" id="bgg-AI-Ka6"/>
@@ -482,16 +452,16 @@
                                                         </constraints>
                                                         <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="12"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="name"/>
                                                     </textField>
                                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fjJ-o8-VH5">
                                                         <rect key="frame" x="15" y="133" width="345" height="44"/>
                                                         <subviews>
-                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hde-er-U1g" customClass="WhiteTextField" customModule="eoshub" customModuleProvider="target">
+                                                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Account name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hde-er-U1g" customClass="WhiteAccountTextField" customModule="eoshub" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="345" height="44"/>
                                                                 <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="12"/>
-                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="nickname"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no" textContentType="nickname"/>
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aEw-9V-Cln" customClass="GrayButton" customModule="eoshub" customModuleProvider="target">
                                                                 <rect key="frame" x="280" y="7" width="60" height="30"/>
@@ -659,7 +629,7 @@
                                                         </constraints>
                                                         <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="12"/>
-                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wn0-pk-lRu" customClass="GrayButton" customModule="eoshub" customModuleProvider="target">
                                                         <rect key="frame" x="295" y="91.666666666666629" width="60" height="30"/>
