@@ -72,7 +72,8 @@ class SettingViewController: FormViewController {
             }.cellUpdate({ (cell, row) in
                 cell.selectionStyle = .gray
                 cell.textLabel?.textColor = Color.darkGray.uiColor
-                cell.height = { 54 }
+                cell.height = { 50 }
+                cell.accessoryType = .disclosureIndicator
             }).onCellSelection({ [weak self] (_, row) in
                 row.deselect()
                 guard let nc = self?.navigationController else { return }
@@ -215,6 +216,7 @@ class SettingViewController: FormViewController {
             }.cellUpdate { (cell, row) in
                 cell.textLabel?.textColor = Color.darkGray.uiColor
                 cell.height = { 50 }
+                cell.accessoryType = .disclosureIndicator
             }.onCellSelection({ [weak self](_, row) in
                 guard let nc = self?.navigationController else { return }
                 self?.flowDelegate?.goToLicense(from: nc)
