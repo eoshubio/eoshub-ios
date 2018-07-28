@@ -138,7 +138,7 @@ extension License {
         let link = "https://github.com/OracleChain/chainkit"
         let description = "Copyright (c) OracleChain\nGNU/LGPL Version 3"
         
-        return License(title: "Eureka", link: link, description: description)
+        return License(title: "Chainkit", link: link, description: description)
     }
     
     static var Eureka: License {
