@@ -25,10 +25,19 @@ class TokenViewController: BaseTableViewController {
     
     fileprivate var filter: String?
     
+    deinit {
+        Log.d("deinit")
+        if let account = account {
+            AccountManager.shared.doLoadAccount(account: account)
+        }
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+//        super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
-        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.view.backgroundColor = UIColor.lightGray
+//        navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = Color.basePurple.uiColor
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Color.basePurple.uiColor]
@@ -53,6 +62,7 @@ class TokenViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.clipsToBounds = true
         loadTokenData()
         
     }
@@ -63,10 +73,32 @@ class TokenViewController: BaseTableViewController {
     
     @objc fileprivate func add() {
         TokenAddPopup.show()
-            .subscribe(onNext: { (info) in
-                Log.i(info.id)
+            .flatMap({ (tokenInfo) -> Observable<(tokenInfo: TokenInfo, exist: Bool)> in
+                return RxEOSAPI.getExistCurrencyStats(token: tokenInfo.token)
+                    .flatMap({ (exist) -> Observable<(tokenInfo: TokenInfo, exist: Bool)> in
+                        return Observable.just((tokenInfo: tokenInfo, exist: exist ))
+                    })
+            })
+            .subscribe(onNext: { [weak self](result) in
+                if result.exist {
+                    let text = LocalizedString.Token.Add.success + "\n" + result.tokenInfo.token.stringValue
+                    Popup.present(style: .success, description: text)
+                    //try to add token
+                    DB.shared.safeWrite {
+                        self?.account?.addPreferToken(token: result.tokenInfo.token)
+                    }
+                    DB.shared.addOrUpdateObjects([result.tokenInfo] as [TokenInfo])
+                    
+                    self?.loadTokenData()
+                } else {
+                    let text = LocalizedString.Token.Add.failed + "\n" + result.tokenInfo.token.stringValue
+                    Popup.present(style: .failed, description: text)
+                }
                 
-                
+            }, onError: { (error) in
+                let text = "\(error)"
+                Popup.present(style: .failed, description: text)
+                Log.e(error)
             })
             .disposed(by: bag)
         
@@ -78,9 +110,19 @@ class TokenViewController: BaseTableViewController {
         
         let list = knownTokens
         
+        var map = [String: TokenInfo]()
+        list.forEach({ (info) in
+            map[info.id] = info
+        })
+        
+        func getTokenInfo(from token: Token) -> TokenInfo {
+            let info = map[token.stringValue] ?? TokenInfo(contract: token.contract, symbol: token.symbol, name: nil)
+            return info
+        }
+        
         let hasTokens = account?.tokens ?? []
         
-        let addedTokens = Array(list.filter("id IN %@", hasTokens.map({$0.stringValue})))
+        let addedTokens = hasTokens.compactMap(getTokenInfo)
         tokens.append(addedTokens)
         
         let notAddedTokens = list.filter("NOT id IN %@",addedTokens.map({$0.id}))
