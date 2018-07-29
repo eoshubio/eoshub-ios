@@ -16,7 +16,8 @@ import RxCocoa
 extension ObservableType {
     
     var skipDoubleTap: Observable<E> {
-        return debounce(0.3, scheduler: MainScheduler.instance)
+//        return debounce(0.3, scheduler: MainScheduler.instance)
+        return throttle(0.3, scheduler: MainScheduler.instance)
     }
 }
 
