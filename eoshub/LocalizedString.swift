@@ -148,6 +148,9 @@ struct LocalizedString {
             static let symbol = NSLocalizedString("token.add.symbol", comment: "")
             static let symbolEx = NSLocalizedString("token.add.symbolEx", comment: "")
             static let add = NSLocalizedString("token.add.add", comment: "")
+            
+            static let success = NSLocalizedString("token.add.success", comment: "")
+            static let failed = NSLocalizedString("token.add.failed", comment: "")
         }
        
         

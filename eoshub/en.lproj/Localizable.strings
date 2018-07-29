@@ -100,6 +100,8 @@
 "token.add.symbol" = "Symbol";
 "token.add.symbolEx" = "ex) EOS";
 "token.add.add" = "Add token";
+"token.add.success" = "Successfully added.";
+"token.add.failed" = "Token does not exist";
 
 /* 투표 */
 "vote.stakedEOS" = "Staked EOS";

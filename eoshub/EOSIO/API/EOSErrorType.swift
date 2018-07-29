@@ -40,10 +40,10 @@ enum EOSResponseError: Error, JSONInitializable {
     
     
     
-    case walletAlreadyUnlocked(String?)
-    case unsatisfiedAuthorization(String?)
-    case messageException(String?)
-    case unknownError(String?)
+    case walletAlreadyUnlocked(String)
+    case unsatisfiedAuthorization(String)
+    case messageException(String)
+    case unknownError(String)
     
     init?(json: JSON) {
         guard let error = json["error"] as? JSON, let code = error["code"] as? Int else { return nil }
@@ -51,21 +51,27 @@ enum EOSResponseError: Error, JSONInitializable {
         let errorCode = Code(rawValue: code) ?? Code.unknownError
         
         if EOSResponseError.notError.contains(errorCode) {
-            NSLog("Nor error: \(errorCode)")
+            NSLog("Not error: \(errorCode)")
             return nil
         }
         
-        let message = json["message"] as? String
+        let message = json.string(for: "message")
+        
+        let detailMessgae = json.json(for: "error")?.arrayJson(for: "details")?.first?.string(for: "message")
+        
+        let errorMessage = detailMessgae ?? message ?? "\(code)"
+    
         
         switch errorCode {
         case .messageException:
-            self = .messageException(message)
+            self = .messageException(errorMessage)
         case .walletAlreadyUnlocked:
-            self = .walletAlreadyUnlocked(message)
+            self = .walletAlreadyUnlocked(errorMessage)
         case .unAuthorized:
-            self = .unsatisfiedAuthorization(message)
+            self = .unsatisfiedAuthorization(errorMessage)
         case .unknownError:
-            self = .unknownError(message)
+            self = .unknownError(errorMessage)
         }
     }
+    
 }

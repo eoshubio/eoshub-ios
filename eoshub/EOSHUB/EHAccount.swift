@@ -50,14 +50,17 @@ class EHAccount: DBObject, Mergeable {
     }
     
     func addPreferToken(token: Token) {
-        _tokens.append(RealmString(value: token.stringValue))
+        if tokens.contains(token) == false {
+            _tokens.append(RealmString(value: token.stringValue))
+        }
     }
     
     func setPreferTokens(tokens: [Token]) {
-        self.tokens = tokens
+        self.tokens = tokens.unique
     }
     
     func removePreferToken(token: Token) {
+        
         if let idx = tokens.index(of: token) {
             _tokens.remove(at: idx)
         }

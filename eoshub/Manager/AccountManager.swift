@@ -13,15 +13,17 @@ import RealmSwift
 class AccountManager {
     static let shared = AccountManager()
     
-    lazy var eoshubAccounts: Results<EHAccount> = {
+    private let bag = DisposeBag()
+    
+    var eoshubAccounts: Results<EHAccount> {
         return DB.shared.getAccounts().sorted(byKeyPath: "created", ascending: true)
-    }()
+    }
     
     var mainAccount: AccountInfo? = nil // save to preference
     
-    lazy var infos: Results<AccountInfo> = {
+    var infos: Results<AccountInfo> {
        return DB.shared.getAccountInfos()
-    }()
+    }
     
     let accountInfoRefreshed = PublishSubject<Void>()
     
@@ -46,6 +48,14 @@ class AccountManager {
                 self.refreshUI()
             })
             .flatMap({ _ in Observable.just(())})
+    }
+    
+    func doLoadAccount(account: EHAccount) {
+        loadAccounts()
+            .subscribe(onCompleted: {
+        
+            })
+            .disposed(by: bag)
     }
     
     func loadAccount(account: EHAccount) -> Observable<Void> {

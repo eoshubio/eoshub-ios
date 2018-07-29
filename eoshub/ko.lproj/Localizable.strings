@@ -99,6 +99,8 @@
 "token.add.symbol" = "심볼";
 "token.add.symbolEx" = "ex) EOS";
 "token.add.add" = "추가하기";
+"token.add.success" = "성공적으로 추가 되었습니다.";
+"token.add.failed" = "토큰이 존재하지 않습니다.";
 
 /* 투표 */
 "vote.stakedEOS" = "할당된 EOS";

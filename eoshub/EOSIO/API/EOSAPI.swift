@@ -20,6 +20,7 @@ struct EOSAPI {
         case get_abi
         case get_code
         case get_table_rows
+        case get_currency_stats
         case get_currency_balance
         case abi_json_to_bin
         case abi_bin_to_json

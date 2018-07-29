@@ -67,6 +67,17 @@ struct RxEOSAPI {
             })
     }
     
+    static func getExistCurrencyStats(token: Token) -> Observable<Bool> {
+        return EOSAPI.Chain.get_currency_stats
+                .responseJSON(method: .post,
+                          parameter: ["code": token.contract, "symbol": token.symbol],
+                          encoding: JSONEncoding.default)
+                .flatMap({ (json) -> Observable<Bool> in
+                    return Observable.just(json.count > 0)
+                })
+        
+    }
+    
     static func pushTransaction(json: JSON) -> Observable<JSON> {
         return EOSAPI.Chain.push_transaction
             .responseJSON(method: .post, parameter: json, encoding: JSONEncoding.default)
@@ -385,6 +396,19 @@ extension RxEOSAPI {
         
     }
     
+    //MARK: ABI
+    static func getContractInfo(code: String) -> Observable<ABI> {
+        return EOSAPI.Chain.get_abi
+            .responseJSON(method: .post, parameter: ["account_name": code], encoding: JSONEncoding.default)
+            .flatMap { (json) -> Observable<ABI> in
+                if let abi = ABI(json: json) {
+                    return Observable.just(abi)
+                } else {
+                    return Observable.error(EOSErrorType.emptyData)
+                }
+            }
+            
+    }
     
     
 }

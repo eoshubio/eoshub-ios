@@ -14,15 +14,16 @@ enum ChainMode {
 
 struct Config {
     
-    static let mode = ChainMode.junglenet
+    static let mode = ChainMode.mainnet
 
     static var eoshubHost = "https://eos-hub.io"
     
     static var host: String {
         switch mode {
         case .junglenet:
-            return "https://ban-api.baishancloud.com:3852"
-//            return "https://eos-hub.io:8443"
+            return "https://eos-hub.io:8443"
+        case .mainnet:
+            return "https://api.main-net.eosnodeone.io"
         default:
             preconditionFailure()
         }
@@ -31,6 +32,8 @@ struct Config {
     static var eosInfo: TokenInfo {
         switch mode {
         case .junglenet:
+            return TokenInfo(contract: "eosio.token", symbol: "EOS", name: "EOS")
+        case .mainnet:
             return TokenInfo(contract: "eosio.token", symbol: "EOS", name: "EOS")
         default:
             preconditionFailure()
@@ -41,6 +44,8 @@ struct Config {
         switch mode {
         case .junglenet:
             return TokenInfo(contract: "eoshubtokenz", symbol: "PDR", name: "Pandora")
+        case .mainnet:
+            return TokenInfo(contract: "eoshubtokenz", symbol: "PDR", name: "Pandora")//TODO: issue pandora
         default:
             preconditionFailure("Not implemented")
         }

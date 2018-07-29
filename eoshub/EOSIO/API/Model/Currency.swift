@@ -10,7 +10,7 @@ import Foundation
 
 typealias Symbol = String
 
-struct Token: Equatable {
+struct Token: Equatable, Hashable {
     let symbol: Symbol
     let contract: String
     

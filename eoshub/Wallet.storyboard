@@ -1327,7 +1327,7 @@
         <scene sceneID="ij8-aA-j5x">
             <objects>
                 <tableViewController storyboardIdentifier="TokenViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lhZ-SX-twM" customClass="TokenViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="xQw-B3-Aus">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" allowsSelectionDuringEditing="YES" rowHeight="-1" estimatedRowHeight="65" sectionHeaderHeight="28" sectionFooterHeight="28" id="xQw-B3-Aus">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1368,7 +1368,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Mk-qe-y0n" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1209" y="1049"/>
+            <point key="canvasLocation" x="1071" y="1044"/>
         </scene>
         <!--Receive View Controller-->
         <scene sceneID="cAA-5Z-Ic7">

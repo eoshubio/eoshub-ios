@@ -143,6 +143,8 @@
 		2CB6B7FB2104DA230048601A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7FA2104DA230048601A /* NetworkError.swift */; };
 		2CB6B7FD2104DBAD0048601A /* ExchangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */; };
 		2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */; };
+		2CCA34A6210DA2A30024BB5D /* ABI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA34A5210DA2A30024BB5D /* ABI.swift */; };
+		2CCA34A8210DD9550024BB5D /* Array+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA34A7210DD9550024BB5D /* Array+extension.swift */; };
 		2CDF5917210C7077003D866C /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF5916210C7077003D866C /* AuthViewController.swift */; };
 		2CDF5919210CDF3F003D866C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF5918210CDF3F003D866C /* UserManager.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
@@ -372,6 +374,8 @@
 		2CB6B7FA2104DA230048601A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeManager.swift; sourceTree = "<group>"; };
 		2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedNumberField.swift; sourceTree = "<group>"; };
+		2CCA34A5210DA2A30024BB5D /* ABI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABI.swift; sourceTree = "<group>"; };
+		2CCA34A7210DD9550024BB5D /* Array+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+extension.swift"; sourceTree = "<group>"; };
 		2CDF5916210C7077003D866C /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		2CDF5918210CDF3F003D866C /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -529,6 +533,7 @@
 				2C770C9220FB30AD007F71C4 /* Symbol.swift */,
 				2C279BCE20F8C5A200D2F6C4 /* EOSResponseModel.swift */,
 				2C279BC720F8C5A100D2F6C4 /* Contract.swift */,
+				2CCA34A5210DA2A30024BB5D /* ABI.swift */,
 				2C770C9020FB2628007F71C4 /* Tx.swift */,
 				2C1E3EA220FE3E440009D2AF /* RamPrice.swift */,
 			);
@@ -680,6 +685,7 @@
 				2C279C0220FA0E3000D2F6C4 /* RealmString.swift */,
 				2C770C9C20FB85DB007F71C4 /* UITextField+extension.swift */,
 				2CA5D195210C4E46006C928B /* Range+extension.swift */,
+				2CCA34A7210DD9550024BB5D /* Array+extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1280,6 +1286,7 @@
 				2C279BDB20F8C5A300D2F6C4 /* Account.swift in Sources */,
 				2CA5D196210C4E46006C928B /* Range+extension.swift in Sources */,
 				2C279BC220F8C58100D2F6C4 /* RxEOSAPI.swift in Sources */,
+				2CCA34A6210DA2A30024BB5D /* ABI.swift in Sources */,
 				2C279B9220F8C30700D2F6C4 /* Transaction.swift in Sources */,
 				2C279B7520F7844300D2F6C4 /* SendCurrencyFlowController.swift in Sources */,
 				2CE1111B20F23C7400B93BEB /* CGSize+extension.swift in Sources */,
@@ -1324,6 +1331,7 @@
 				2C279BD320F8C5A300D2F6C4 /* Contract.swift in Sources */,
 				2CB6B7EF210483560048601A /* TransactionForm.swift in Sources */,
 				2C279B8B20F8C30700D2F6C4 /* TransactionHeader.swift in Sources */,
+				2CCA34A8210DD9550024BB5D /* Array+extension.swift in Sources */,
 				2CE110E820F1C9B300B93BEB /* Date+extension.swift in Sources */,
 				2CE110EF20F1C9D600B93BEB /* LoginFlowController.swift in Sources */,
 				2C279C0720FA444700D2F6C4 /* TokenInfo.swift in Sources */,
