@@ -14,15 +14,21 @@ class TokenAddFlowController: FlowController, FlowEventDelegate {
     
     var id: FlowIdentifier { return .addToken }
     
+    var account: EHAccount!
+    
     required init(configure: FlowConfigure) {
         self.configure = configure
+    }
+    
+    func configure(account: EHAccount) {
+        self.account = account
     }
     
     func show(animated: Bool) {
         
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "TokenViewController") as? TokenViewController else { preconditionFailure() }
         vc.flowDelegate = self
-    
+        vc.configure(account: account)
         
         show(viewController: vc, animated: animated) {
             

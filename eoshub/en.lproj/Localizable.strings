@@ -86,6 +86,10 @@
 "wallet.ram.used" = "Used RAM";
 "wallet.ram.warning" = "Please be careful about the transaction because there is price fluctuation of EOS Ram. Please be sure to fully understand the risks involved in trading.";
 
+"wallet.option.addToken" = "Add Token";
+"wallet.option.delete" = "Delete wallet";
+"wallet.option.deleteWarning" = "This will only be removed from the EOSHub app.";
+
 /* 토큰 */
 "token.add" = "Add Token";
 "token.added" = "Tokens added to wallet";

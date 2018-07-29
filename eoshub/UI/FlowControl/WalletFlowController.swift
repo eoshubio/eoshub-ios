@@ -77,6 +77,13 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
         fc.configure(tokenBalance: tokenBalance)
         fc.start(animated: true)
     }
+    
+    func goToAddToken(from nc: UINavigationController, with account: EHAccount) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = TokenAddFlowController(configure: config)
+        fc.configure(account: account)
+        fc.start(animated: true)
+    }
 }
 
 protocol WalletFlowEventDelegate: FlowEventDelegate {
@@ -87,4 +94,5 @@ protocol WalletFlowEventDelegate: FlowEventDelegate {
     func goToReceive(from nc: UINavigationController, with account: AccountInfo)
     func goToCreate(from nc: UINavigationController)
     func goToTokenDetail(from nc: UINavigationController, with tokenBalance: TokenBalanceInfo)
+    func goToAddToken(from nc: UINavigationController, with account: EHAccount)
 }

@@ -9,8 +9,8 @@
 import Foundation
 import FirebaseAuth
 
-class AuthManager {
-    static let shared = AuthManager()
+class UserManager {
+    static let shared = UserManager()
     
     var profileURL: URL? {
         return Auth.auth().currentUser?.urlForProfileImageFor(imageResolution: .highres)

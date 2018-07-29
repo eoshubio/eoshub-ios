@@ -102,7 +102,7 @@ class AccountManager {
                                 info.addTokens(currency: havingToken)
                                 let tokens = havingToken.map { $0.token }
                                 DB.shared.safeWrite {
-                                    account.addPreferTokens(tokens: tokens)
+                                    account.setPreferTokens(tokens: tokens)
                                 }
                             } else {
                                 info.addTokens(currency: tokenBalances)

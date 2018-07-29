@@ -59,7 +59,7 @@ class WalletViewController: BaseViewController {
     
     private func setupUI() {
         
-        let profileURL = AuthManager.shared.profileURL
+        let profileURL = UserManager.shared.profileURL
         
         btnProfile.sd_setImage(with: profileURL, for: .normal, completed: nil)
        
@@ -159,11 +159,24 @@ class WalletViewController: BaseViewController {
     fileprivate func openMenu(account: AccountInfo) {
         let sheet = UIAlertController(title: account.account, message: "", preferredStyle: .actionSheet)
         
-        let delete = UIAlertAction(title: "Delete Wallet", style: .destructive) { (_) in
-            //confirm Delete
+        let addToken = UIAlertAction(title: LocalizedString.Wallet.Option.addToken, style: .default) { [weak self](_) in
+            guard let ehaccount = AccountManager.shared.getAccount(accountName: account.account),
+                let nc = self?.navigationController else { return }
+            
+            self?.flowDelegate?.goToAddToken(from: nc, with: ehaccount)
+        }
+        sheet.addAction(addToken)
+        
+        if account.ownerMode == false {
+            let delete = UIAlertAction(title: LocalizedString.Wallet.Option.delete, style: .destructive) { (_) in
+                //confirm Delete
+            }
+            
+            sheet.addAction(delete)
         }
         
-        sheet.addAction(delete)
+        
+        
         sheet.addAction(UIAlertAction(title: LocalizedString.Common.cancel, style: .cancel, handler: nil))
         
         present(sheet, animated: true, completion: nil)

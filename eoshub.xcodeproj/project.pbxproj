@@ -144,7 +144,7 @@
 		2CB6B7FD2104DBAD0048601A /* ExchangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */; };
 		2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */; };
 		2CDF5917210C7077003D866C /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF5916210C7077003D866C /* AuthViewController.swift */; };
-		2CDF5919210CDF3F003D866C /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF5918210CDF3F003D866C /* AuthManager.swift */; };
+		2CDF5919210CDF3F003D866C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF5918210CDF3F003D866C /* UserManager.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
 		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
 		2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */; };
@@ -373,7 +373,7 @@
 		2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeManager.swift; sourceTree = "<group>"; };
 		2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedNumberField.swift; sourceTree = "<group>"; };
 		2CDF5916210C7077003D866C /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
-		2CDF5918210CDF3F003D866C /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
+		2CDF5918210CDF3F003D866C /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE110A820F1C31000B93BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CE110AD20F1C31000B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Intro.storyboard; sourceTree = "<group>"; };
@@ -695,7 +695,7 @@
 				2C279BEF20F8E90100D2F6C4 /* Security.swift */,
 				2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */,
 				2C31F7F5210612CE0025D18A /* Preferences.swift */,
-				2CDF5918210CDF3F003D866C /* AuthManager.swift */,
+				2CDF5918210CDF3F003D866C /* UserManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1331,7 +1331,7 @@
 				2C279BC320F8C58100D2F6C4 /* EOSAPI.swift in Sources */,
 				2C279BF020F8E90100D2F6C4 /* Security.swift in Sources */,
 				2CDF5917210C7077003D866C /* AuthViewController.swift in Sources */,
-				2CDF5919210CDF3F003D866C /* AuthManager.swift in Sources */,
+				2CDF5919210CDF3F003D866C /* UserManager.swift in Sources */,
 				2C2ACFFF20F4E51700C637D8 /* BPCell.swift in Sources */,
 				2CE110E620F1C9B300B93BEB /* Hex.swift in Sources */,
 				2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */,

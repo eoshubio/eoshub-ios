@@ -125,6 +125,13 @@ struct LocalizedString {
             static let used = NSLocalizedString("wallet.ram.used", comment: "")
             static let warning = NSLocalizedString("wallet.ram.warning", comment: "")
         }
+        
+        struct Option {
+            static let addToken = NSLocalizedString("wallet.option.addToken", comment: "")
+            static let delete = NSLocalizedString("wallet.option.delete", comment: "")
+            static let deleteWarning = NSLocalizedString("wallet.option.deleteWarning", comment: "")
+            
+        }
     }
     
     struct Token {

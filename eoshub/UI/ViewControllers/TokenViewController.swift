@@ -15,15 +15,21 @@ class TokenViewController: BaseTableViewController {
     
     var flowDelegate: FlowEventDelegate?
     
-    let knownTokens = TokenManager.shared.knownTokens
+    fileprivate let knownTokens = TokenManager.shared.knownTokens
     
-    var tokens: [[TokenInfo]] = []
+    fileprivate var tokens: [[TokenInfo]] = []
+    
+    fileprivate var visibleTokens: [[TokenInfo]] = []
+    
+    fileprivate var account: EHAccount?
+    
+    fileprivate var filter: String?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
         navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.isTranslucent = false
         navigationController?.navigationBar.tintColor = Color.basePurple.uiColor
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Color.basePurple.uiColor]
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: Color.basePurple.uiColor]
@@ -47,8 +53,12 @@ class TokenViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadData()
+        loadTokenData()
         
+    }
+    
+    func configure(account: EHAccount) {
+        self.account = account
     }
     
     @objc fileprivate func add() {
@@ -62,17 +72,13 @@ class TokenViewController: BaseTableViewController {
         
     }
     
-    func loadData(filter: String? = nil) {
-        
-        var list = knownTokens
-        
-        if let filter = filter, filter.count > 0 {
-            list = list.filter("id CONTAINS '\(filter)'")
-        }
+    func loadTokenData() {
         
         tokens.removeAll()
-        //TODO: 1. 가지고있는 토큰을 첫번째 section 에 insert
-        let hasTokens = [Token.eos, Token.pandora]
+        
+        let list = knownTokens
+        
+        let hasTokens = account?.tokens ?? []
         
         let addedTokens = Array(list.filter("id IN %@", hasTokens.map({$0.stringValue})))
         tokens.append(addedTokens)
@@ -80,17 +86,37 @@ class TokenViewController: BaseTableViewController {
         let notAddedTokens = list.filter("NOT id IN %@",addedTokens.map({$0.id}))
         tokens.append(Array(notAddedTokens))
         
+        reloadTokenData()
+    }
+    
+    func reloadTokenData(filter: String? = nil) {
+        
+        visibleTokens.removeAll()
+        
+        if let filter = filter, filter.count > 0 {
+            tokens.forEach { (tokenSection) in
+                var filtered = tokenSection
+                
+                filtered = filtered.filter({$0.id.contains(filter)})
+                
+                visibleTokens.append(filtered)
+            }
+        } else {
+            visibleTokens = tokens
+        }
+        
         tableView.reloadData()
     }
     
 }
 
-extension TokenViewController: UISearchResultsUpdating {
+extension TokenViewController: UISearchResultsUpdating, UISearchBarDelegate {
     func updateSearchResults(for searchController: UISearchController) {
         searchController.searchBar.rx.text
             .debounce(0.3, scheduler: MainScheduler.instance)
             .bind { [weak self](text) in
-                self?.loadData(filter: text)
+                self?.filter = text
+                self?.reloadTokenData(filter: text)
             }
             .disposed(by: bag)
         
@@ -100,15 +126,15 @@ extension TokenViewController: UISearchResultsUpdating {
 
 extension TokenViewController {
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return tokens.count
+        return visibleTokens.count
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return tokens[section].count
+        return visibleTokens[section].count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TokenAddCell", for: indexPath) as? TokenAddCell else { preconditionFailure() }
-        let token = tokens[indexPath.section][indexPath.row]
+        let token = visibleTokens[indexPath.section][indexPath.row]
         cell.configure(token: token.token, added: indexPath.section == 0)
         return cell
     }
@@ -119,13 +145,57 @@ extension TokenViewController {
     }
     
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        return indexPath.section == 0
+        return indexPath.section == 0 && (filter == nil || filter?.count == 0)
     }
     
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         let token = tokens[sourceIndexPath.section][sourceIndexPath.row]
+        
         tokens[sourceIndexPath.section].remove(at: sourceIndexPath.row)
+        
         tokens[destinationIndexPath.section].insert(token, at: destinationIndexPath.row)
+        
+        DB.shared.safeWrite {
+            if let addedToken = tokens.first?.map({$0.token}) {
+                account?.setPreferTokens(tokens: addedToken)
+            }
+        }
+        
+        reloadTokenData()
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.section == 1 {
+            
+            //clear searchbar
+            navigationItem.searchController?.searchBar.text = nil
+            filter = nil
+            
+            let addingToken = visibleTokens[indexPath.section][indexPath.row]
+            
+            if let index = tokens[1].index(of: addingToken) {
+                tokens[1].remove(at: index)
+            }
+            
+            tokens[0].append(addingToken)
+            
+            DB.shared.safeWrite {
+                account?.addPreferToken(token: addingToken.token)
+            }
+            reloadTokenData()
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let deleteToken = visibleTokens[indexPath.section][indexPath.row]
+            
+            DB.shared.safeWrite {
+                account?.removePreferToken(token: deleteToken.token)
+            }
+            
+            loadTokenData()
+        }
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -156,6 +226,7 @@ extension TokenViewController {
             btnEdit.setTitle(LocalizedString.Common.edit, for: .normal)
             btnEdit.setTitle(LocalizedString.Common.done, for: .selected)
             btnEdit.setTitleColor(Color.lightPurple.uiColor, for: .normal)
+            btnEdit.isSelected = tableView.isEditing
             btnEdit.addTarget(self, action: #selector(self.editAddedTokenSection(sender:)), for: .touchUpInside)
             header.addSubview(btnEdit)
             btnEdit.translatesAutoresizingMaskIntoConstraints = false
@@ -170,7 +241,6 @@ extension TokenViewController {
             title.text = LocalizedString.Token.howToAdd
         }
         
-        
         return header
     }
     
@@ -179,7 +249,7 @@ extension TokenViewController {
     }
     
     @objc func editAddedTokenSection(sender: UIButton) {
-        sender.isSelected = !sender.isSelected
+        sender.isSelected = !tableView.isEditing
         tableView.setEditing(sender.isSelected, animated: true)
     }
     
