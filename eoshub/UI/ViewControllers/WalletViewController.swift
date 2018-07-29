@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import RxSwift
 import RealmSwift
-
+import SDWebImage
 
 class WalletViewController: BaseViewController {
     
@@ -58,6 +58,10 @@ class WalletViewController: BaseViewController {
     }
     
     private func setupUI() {
+        
+        let profileURL = AuthManager.shared.profileURL
+        
+        btnProfile.sd_setImage(with: profileURL, for: .normal, completed: nil)
        
         walletList.contentInset = UIEdgeInsetsMake(Const.navBarHeightLargeState - Const.navBarHeightSmallState + 15, 0, 100, 0)
         

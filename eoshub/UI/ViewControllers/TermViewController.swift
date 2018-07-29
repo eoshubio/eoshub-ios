@@ -40,9 +40,6 @@ class TermViewController: BaseViewController {
     }
     
     private func signin() {
-        let newUser = EHUser(id: "1", loginType: .kakao)
-        DB.shared.addUser(user: newUser)
-        
         guard let nc = navigationController else { return }
         flowDelegate?.goToMain(from: nc)
     }

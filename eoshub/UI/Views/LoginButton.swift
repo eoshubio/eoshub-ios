@@ -42,7 +42,9 @@ class LoginButton: RoundedButton {
         self.type = type
         icon.image = type.icon
         titleView.text = type.title.capitalized
+        titleView.textColor = type.textColor
         _view.backgroundColor = type.bgColor
+        
     }
     
 }
@@ -56,6 +58,10 @@ extension LoginType {
             return UIImage(named: "google")
         case .kakao:
             return UIImage(named: "kakaotalk")
+        case .email:
+            return nil
+        case .none:
+            return nil
         }
     }
     
@@ -67,6 +73,25 @@ extension LoginType {
             return UIColor.colorUInt8(r: 255, g: 95, b: 84)
         case .kakao:
             return UIColor.colorUInt8(r: 255, g: 155, b: 0)
+        case .email:
+            return UIColor.colorUInt8(r: 255, g: 95, b: 84)
+        case .none:
+            return UIColor.clear
+        }
+    }
+    
+    var textColor: UIColor {
+        switch self {
+        case .facebook:
+            return UIColor.white
+        case .google:
+            return UIColor.white
+        case .kakao:
+            return UIColor.white
+        case .email:
+            return UIColor.white
+        case .none:
+            return UIColor.white
         }
     }
 }

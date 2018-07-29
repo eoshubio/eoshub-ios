@@ -12,10 +12,17 @@ target 'eoshub' do
   pod 'RxCocoa'
   pod 'Realm'
   pod 'RealmSwift'
+  pod 'SDWebImage', '~> 4.0'
   pod 'RNCryptor', '~> 5.0'
   pod 'KeychainSwift', '~> 11.0'
   pod 'Eureka'
   pod 'QRCode'
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Fabric', '~> 1.7.6'
+  pod 'Crashlytics', '~> 3.10.1'
+  pod 'FBSDKLoginKit'
+  pod 'GoogleSignIn'
   target 'eoshubTests' do
     inherit! :search_paths
     # Pods for testing

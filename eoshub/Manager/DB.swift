@@ -41,17 +41,7 @@ class DB {
         
     }
     
-    //MARK: EOSHub user
-    func addUser(user: EHUser) {
-        safeWrite {
-            realm.add(user)
-        }
-    }
-   
-    func getUser(from: LoginType) -> EHUser? {
-        return realm.objects(EHUser.self).filter("from = '\(from.rawValue)'").first
-    }
-    
+
     //MARK: EOS Account
     func addAccount(account: EHAccount) {
         //TODO: 중복검사

@@ -18,6 +18,8 @@ struct LocalizedString {
         static let facebook = NSLocalizedString("login.facebook", comment: "")
         static let kakao = NSLocalizedString("login.kakao", comment: "")
         static let google = NSLocalizedString("login.google", comment: "")
+        static let email = NSLocalizedString("login.email", comment: "")
+        static let none = NSLocalizedString("login.none", comment: "")
     }
     
     struct Term {

@@ -53,8 +53,17 @@ class SettingViewController: FormViewController {
                     cell.textLabel?.textAlignment = .center
                     cell.textLabel?.textColor = .red
                     cell.selectionStyle = .gray
-                }).onCellSelection({ (_, row) in
+                }).onCellSelection({ [weak self](_, row) in
                     print("logout")
+                    let firebaseAuth = Auth.auth()
+                    do {
+                        try firebaseAuth.signOut()
+                        if let vc = self {
+                            self?.flowDelegate?.goToRoot(viewControllerToFinish: vc, animated: true, completion: nil)
+                        }
+                    } catch let signOutError as NSError {
+                        Log.e("Error signing out: \(signOutError)")
+                    }
                     row.deselect()
                 })
         

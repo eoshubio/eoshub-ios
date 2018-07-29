@@ -12,6 +12,8 @@ import UIKit
 
 enum LoginType: String {
     case facebook, google, kakao
+    case email
+    case none
     
     var title: String {
         switch self {
@@ -21,6 +23,10 @@ enum LoginType: String {
             return LocalizedString.Login.google
         case .kakao:
             return LocalizedString.Login.kakao
+        case .email:
+            return LocalizedString.Login.email
+        case .none:
+            return LocalizedString.Login.none
         }
     }
     

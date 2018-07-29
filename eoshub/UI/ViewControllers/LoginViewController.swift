@@ -10,14 +10,17 @@ import Foundation
 import UIKit
 import RxSwift
 import RxCocoa
+import FirebaseAuth
 
-class LoginViewController: BaseViewController {
+class LoginViewController: AuthViewController {
     
     var flowDelegate: LoginFlowEventDelegate?
     @IBOutlet fileprivate weak var lbTitle: UILabel!
 //    @IBOutlet fileprivate weak var containerLoginButtons: UIView!
     
     @IBOutlet fileprivate weak var stackLoginButtons: UIStackView!
+    
+    @IBOutlet fileprivate weak var btnSkipLogin: UIButton?
     
     fileprivate var loginButtons: [LoginButton] = []
     
@@ -40,15 +43,9 @@ class LoginViewController: BaseViewController {
     private func setupUI() {
         lbTitle.text = LocalizedString.Intro.title
         
-        //TODO: Check that the app is installed.
-        var availableLoginTypes: [LoginType] = [.facebook, .google]
-        
-        if Locale.current.regionCode == "KR" {
-            availableLoginTypes = [.facebook, .kakao, .google]
-        }
+        let availableLoginTypes: [LoginType] = [.facebook, .google, .email]
         
         stackLoginButtons.spacing = 10
-        
         
         availableLoginTypes.forEach { (type) in
             let loginButton = LoginButton(frame: CGRect(x: 0, y: 0, width: stackLoginButtons.bounds.width, height: 44))
@@ -62,28 +59,45 @@ class LoginViewController: BaseViewController {
     private func bindActions() {
         loginButtons.forEach { (button) in
             button.rx.singleTap
-                .bind(onNext: { [unowned self](_) in
-                    guard let nc = self.navigationController else { return }
-                    
-                    if self.isEOSHubUser(from: button.type) == true {
-                        self.flowDelegate?.goToMain(from: nc)
-                    } else {
-                        self.flowDelegate?.goToTerm(from: nc)
-                    }
+                .bind(onNext: { [weak self](_) in
+                    self?.login(with: button.type)
                     
                 })
                 .disposed(by: bag)
         }
+        
+        btnSkipLogin?.rx.singleTap
+            .bind { [weak self] in
+                self?.login(with: .none)
+            }
+            .disposed(by: bag)
+    }
+
+    
+    override func login(with type: LoginType) {
+        super.login(with: type)
+//        WaitingView.shared.start()
     }
     
-    //TODO: Change user key to LoginType.rawValue + 3rd party user id
-    private func isEOSHubUser(from loginTypeId: LoginType) -> Bool {
-        if DB.shared.getUser(from: loginTypeId) != nil {
-            return true
+    override func loggedIn(user: AuthDataResult) {
+//        WaitingView.shared.stop()
+        guard let nc = self.navigationController else { return }
+        if user.additionalUserInfo?.isNewUser == true {
+            //sign-up
+            flowDelegate?.goToTerm(from: nc)
+        } else {
+            //log-in
+            flowDelegate?.goToMain(from: nc)
         }
-        return false
+        
     }
     
+    override func failToLogin(error: Error?) {
+        if let error = error {
+            Log.e(error)
+        }
+        WaitingView.shared.stop()
+    }
     
 }
 

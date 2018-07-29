@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import FirebaseAuth
 
 class MainFlowController: FlowController {
     var configure: FlowConfigure
@@ -32,9 +33,11 @@ class MainFlowController: FlowController {
             let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
             
             if self.checkValidLoginToken() {
-                //1. Go To MainTab
-                let fc = MainTabFlowController(configure: config)
+                let fc = LoginFlowController(configure: config)
                 fc.start(animated: false)
+                //1. Go To MainTab
+                let mainFc = MainTabFlowController(configure: config)
+                mainFc.start(animated: false)
             } else {
                 //2. Go To Login
                 let fc = LoginFlowController(configure: config)
@@ -47,12 +50,9 @@ class MainFlowController: FlowController {
         }
     }
     
-    //TODO: Login 토큰 존재 여부 판단.
+    
     private func checkValidLoginToken() -> Bool {
-        if DB.shared.getUser(from: .kakao) != nil {
-            return true
-        }
-        return false
+        return Auth.auth().currentUser != nil
     }
     
 }

@@ -62,7 +62,6 @@
 		2C279BE120F8C68700D2F6C4 /* NSObject+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BE020F8C68600D2F6C4 /* NSObject+Extension.m */; };
 		2C279BE420F8D83800D2F6C4 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BE320F8D83800D2F6C4 /* WalletManager.swift */; };
 		2C279BE820F8DD6A00D2F6C4 /* EHAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BE720F8DD6A00D2F6C4 /* EHAccount.swift */; };
-		2C279BEA20F8DDE700D2F6C4 /* EHUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BE920F8DDE700D2F6C4 /* EHUser.swift */; };
 		2C279BEC20F8DECF00D2F6C4 /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BEB20F8DECF00D2F6C4 /* DB.swift */; };
 		2C279BF020F8E90100D2F6C4 /* Security.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BEF20F8E90100D2F6C4 /* Security.swift */; };
 		2C279BF220F8EB3E00D2F6C4 /* ValidatePinFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BF120F8EB3E00D2F6C4 /* ValidatePinFlowController.swift */; };
@@ -132,6 +131,7 @@
 		2CA5D194210C481C006C928B /* LicenseFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D193210C481C006C928B /* LicenseFlowController.swift */; };
 		2CA5D196210C4E46006C928B /* Range+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D195210C4E46006C928B /* Range+extension.swift */; };
 		2CA5D199210C53D6006C928B /* LicenseDescriptions.json in Resources */ = {isa = PBXBuildFile; fileRef = 2CA5D198210C53D6006C928B /* LicenseDescriptions.json */; };
+		2CA5D19B210C6698006C928B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2CA5D19A210C6698006C928B /* GoogleService-Info.plist */; };
 		2CB6B7EB21038F700048601A /* ActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EA21038F700048601A /* ActionButton.swift */; };
 		2CB6B7ED210391A40048601A /* AccountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EC210391A40048601A /* AccountTextField.swift */; };
 		2CB6B7EF210483560048601A /* TransactionForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7EE210483560048601A /* TransactionForm.swift */; };
@@ -143,6 +143,8 @@
 		2CB6B7FB2104DA230048601A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7FA2104DA230048601A /* NetworkError.swift */; };
 		2CB6B7FD2104DBAD0048601A /* ExchangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */; };
 		2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */; };
+		2CDF5917210C7077003D866C /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF5916210C7077003D866C /* AuthViewController.swift */; };
+		2CDF5919210CDF3F003D866C /* AuthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF5918210CDF3F003D866C /* AuthManager.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
 		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
 		2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */; };
@@ -289,7 +291,6 @@
 		2C279BE020F8C68600D2F6C4 /* NSObject+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Extension.m"; sourceTree = "<group>"; };
 		2C279BE320F8D83800D2F6C4 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		2C279BE720F8DD6A00D2F6C4 /* EHAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EHAccount.swift; sourceTree = "<group>"; };
-		2C279BE920F8DDE700D2F6C4 /* EHUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EHUser.swift; sourceTree = "<group>"; };
 		2C279BEB20F8DECF00D2F6C4 /* DB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		2C279BEF20F8E90100D2F6C4 /* Security.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Security.swift; sourceTree = "<group>"; };
 		2C279BF120F8EB3E00D2F6C4 /* ValidatePinFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidatePinFlowController.swift; sourceTree = "<group>"; };
@@ -359,6 +360,7 @@
 		2CA5D193210C481C006C928B /* LicenseFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LicenseFlowController.swift; sourceTree = "<group>"; };
 		2CA5D195210C4E46006C928B /* Range+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Range+extension.swift"; sourceTree = "<group>"; };
 		2CA5D198210C53D6006C928B /* LicenseDescriptions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = LicenseDescriptions.json; sourceTree = "<group>"; };
+		2CA5D19A210C6698006C928B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2CB6B7EA21038F700048601A /* ActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionButton.swift; sourceTree = "<group>"; };
 		2CB6B7EC210391A40048601A /* AccountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTextField.swift; sourceTree = "<group>"; };
 		2CB6B7EE210483560048601A /* TransactionForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionForm.swift; sourceTree = "<group>"; };
@@ -370,6 +372,8 @@
 		2CB6B7FA2104DA230048601A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeManager.swift; sourceTree = "<group>"; };
 		2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedNumberField.swift; sourceTree = "<group>"; };
+		2CDF5916210C7077003D866C /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		2CDF5918210CDF3F003D866C /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE110A820F1C31000B93BEB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2CE110AD20F1C31000B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Intro.storyboard; sourceTree = "<group>"; };
@@ -607,6 +611,7 @@
 				2CE1110D20F1FACD00B93BEB /* LocalizedString.swift */,
 				2CE1110B20F1FA6600B93BEB /* Localizable.strings */,
 				2CE110B420F1C31300B93BEB /* Info.plist */,
+				2CA5D19A210C6698006C928B /* GoogleService-Info.plist */,
 				2CA5D197210C52A9006C928B /* assets */,
 				2CE110DA20F1C8AC00B93BEB /* Images.xcassets */,
 			);
@@ -690,6 +695,7 @@
 				2C279BEF20F8E90100D2F6C4 /* Security.swift */,
 				2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */,
 				2C31F7F5210612CE0025D18A /* Preferences.swift */,
+				2CDF5918210CDF3F003D866C /* AuthManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -697,7 +703,6 @@
 		2CE110CD20F1C4A900B93BEB /* EOSHUB */ = {
 			isa = PBXGroup;
 			children = (
-				2C279BE920F8DDE700D2F6C4 /* EHUser.swift */,
 				2C279BE720F8DD6A00D2F6C4 /* EHAccount.swift */,
 				2CA5D18F210B715E006C928B /* EOSHubError.swift */,
 			);
@@ -856,6 +861,7 @@
 		2CE1112A20F25B0B00B93BEB /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				2CDF5916210C7077003D866C /* AuthViewController.swift */,
 				2CE110F220F1DAF700B93BEB /* BaseViewController.swift */,
 				2C279B7C20F7AEDD00D2F6C4 /* BaseTableViewController.swift */,
 				2CE1112820F252B500B93BEB /* TabBarViewConroller.swift */,
@@ -921,6 +927,8 @@
 				2CE110A220F1C31000B93BEB /* Frameworks */,
 				2CE110A320F1C31000B93BEB /* Resources */,
 				270C1BFDBEBBC8F93F84CEE9 /* [CP] Embed Pods Frameworks */,
+				2CA5D19C210C683E006C928B /* ShellScript */,
+				C5423316859F3F1C2F08A6B5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1014,6 +1022,7 @@
 				2C2ACFCD20F3CE9800C637D8 /* Create.storyboard in Resources */,
 				2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */,
 				2C279C0E20FA5FA800D2F6C4 /* TokenCell.xib in Resources */,
+				2CA5D19B210C6698006C928B /* GoogleService-Info.plist in Resources */,
 				2CE1111520F2395800B93BEB /* Main.storyboard in Resources */,
 				2C1E3E9F20FE37AB0009D2AF /* RamPopup.xib in Resources */,
 			);
@@ -1037,7 +1046,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-eoshub/Pods-eoshub-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/Eureka/Eureka.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCode/QRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework",
@@ -1045,11 +1060,19 @@
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Eureka.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNCryptor.framework",
@@ -1057,11 +1080,26 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eoshub/Pods-eoshub-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		2CA5D19C210C683E006C928B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
 		};
 		7804F3E32A3531E11FB86824 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -1079,6 +1117,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C5423316859F3F1C2F08A6B5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-eoshub/Pods-eoshub-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eoshub/Pods-eoshub-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		D53B7E406781A5C2B8CC86E2 /* [CP] Check Pods Manifest.lock */ = {
@@ -1188,7 +1244,6 @@
 				2CE1111920F23C1700B93BEB /* BounceButton.swift in Sources */,
 				2C279BDD20F8C5A300D2F6C4 /* Currency.swift in Sources */,
 				2CE1112C20F263B100B93BEB /* VoteViewController.swift in Sources */,
-				2C279BEA20F8DDE700D2F6C4 /* EHUser.swift in Sources */,
 				2CEC2D4A20F65C3000AF5E9B /* WalletDetailViewController.swift in Sources */,
 				2C279B9320F8C30700D2F6C4 /* PackedTransaction.swift in Sources */,
 				2C1E3E9720FE18000009D2AF /* Popup.swift in Sources */,
@@ -1275,6 +1330,8 @@
 				2CB6B7ED210391A40048601A /* AccountTextField.swift in Sources */,
 				2C279BC320F8C58100D2F6C4 /* EOSAPI.swift in Sources */,
 				2C279BF020F8E90100D2F6C4 /* Security.swift in Sources */,
+				2CDF5917210C7077003D866C /* AuthViewController.swift in Sources */,
+				2CDF5919210CDF3F003D866C /* AuthManager.swift in Sources */,
 				2C2ACFFF20F4E51700C637D8 /* BPCell.swift in Sources */,
 				2CE110E620F1C9B300B93BEB /* Hex.swift in Sources */,
 				2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */,
@@ -1455,6 +1512,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = MY5T2D475Y;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = eoshub/Info.plist;
@@ -1463,7 +1521,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.peta-vision.eoshub";
+				PRODUCT_BUNDLE_IDENTIFIER = "eos-hub.io.eoshub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "eoshub/eoshub-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -1488,7 +1546,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.peta-vision.eoshub";
+				PRODUCT_BUNDLE_IDENTIFIER = "eos-hub.io.eoshub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "eoshub/eoshub-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
