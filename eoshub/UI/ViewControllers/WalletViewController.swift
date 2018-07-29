@@ -168,8 +168,8 @@ class WalletViewController: BaseViewController {
         sheet.addAction(addToken)
         
         if account.ownerMode == false {
-            let delete = UIAlertAction(title: LocalizedString.Wallet.Option.delete, style: .destructive) { (_) in
-                //confirm Delete
+            let delete = UIAlertAction(title: LocalizedString.Wallet.Option.delete, style: .destructive) { [weak self] (_) in
+                self?.deleteWallet(account: account.account)
             }
             
             sheet.addAction(delete)
@@ -182,10 +182,10 @@ class WalletViewController: BaseViewController {
         present(sheet, animated: true, completion: nil)
     }
     
-    fileprivate func showConfirmPopup(account: String) {
+    fileprivate func deleteWallet(account: String) {
+        DB.shared.deleteAccount(account: account)
         
-        
-        
+        AccountManager.shared.doLoadAccount()
     }
     
 }

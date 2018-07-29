@@ -50,6 +50,14 @@ class DB {
         }
     }
     
+    func deleteAccount(account: String) {
+        if let willDeleteAccount = getAccounts().filter("account = '\(account)'").first {
+            DB.shared.safeWrite {
+                realm.delete(willDeleteAccount)
+            }
+        }
+    }
+    
     func getAccounts() -> Results<EHAccount> {
         return realm.objects(EHAccount.self)
     }
@@ -150,9 +158,32 @@ extension DB {
         }
     }
     
-    
-    
-    
-    
-    
+    func syncObjects<Element: DBObject>(_ newObjects: [Element]) where Element: Mergeable {
+        safeWrite {
+            var newObjectsMap: [String: Element] = [:]
+            newObjects.forEach({ newObjectsMap[$0.id] = $0 })
+            
+            let oldObjects = realm.objects(Element.self)
+            
+            var deleteObjects: [Element] = []
+            
+            for oldObject in oldObjects {
+                guard let newObject = newObjectsMap[oldObject.id] else {
+                    deleteObjects.append(oldObject)
+                    continue
+                }
+                
+                newObjectsMap[oldObject.id] = nil
+                oldObject.mergeChanges(from: newObject)
+            }
+            
+            let brandNewObjects = newObjectsMap.values
+            realm.add(brandNewObjects, update: false)
+            realm.delete(deleteObjects)
+            
+        }
+        
+        
+        
+    }
 }

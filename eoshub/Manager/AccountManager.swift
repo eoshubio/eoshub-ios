@@ -44,16 +44,16 @@ class AccountManager {
             }, onError: { (error) in
                 Log.e(error)
             }, onCompleted: {
-                DB.shared.addOrUpdateObjects(accountInfos)
+                DB.shared.syncObjects(accountInfos)
                 self.refreshUI()
             })
             .flatMap({ _ in Observable.just(())})
     }
     
-    func doLoadAccount(account: EHAccount) {
+    func doLoadAccount() {
         loadAccounts()
-            .subscribe(onCompleted: {
-        
+            .subscribe(onDisposed: {
+                Log.d("disposed")
             })
             .disposed(by: bag)
     }

@@ -28,7 +28,7 @@ class TokenViewController: BaseTableViewController {
     deinit {
         Log.d("deinit")
         if let account = account {
-            AccountManager.shared.doLoadAccount(account: account)
+            AccountManager.shared.doLoadAccount()
         }
         
     }
