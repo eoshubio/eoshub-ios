@@ -44,6 +44,7 @@
 "wallet.refunding" = "Refunding";
 "wallet.pubKey" = "Public Key";
 "wallet.priKey" = "Private key";
+"wallet.resources" = "Resources";
 
 "wallet.import.title" = "Import EOS Account";
 "wallet.import.account" = "EOS Account name";

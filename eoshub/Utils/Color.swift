@@ -17,6 +17,7 @@ enum Color {
     case seperator
     case white
     case clear
+    case progressGreen, progressMagenta, progressOrange
     
     var uiColor: UIColor {
         switch self {
@@ -44,6 +45,12 @@ enum Color {
             return UIColor.white
         case .clear:
             return UIColor.clear
+        case .progressGreen:
+            return UIColor.colorUInt8(r: 93, g: 195, b: 189)
+        case .progressMagenta:
+            return UIColor.colorUInt8(r: 226, g: 89, b: 160)
+        case .progressOrange:
+            return UIColor.colorUInt8(r: 240, g: 151, b: 92)
         }
     }
     

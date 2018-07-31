@@ -19,21 +19,9 @@ class WalletCell: UITableViewCell {
     
     @IBOutlet fileprivate weak var progress: MultiProgressBar!
     
-    @IBOutlet fileprivate weak var lbAvailable: UILabel!
-    
     @IBOutlet fileprivate weak var availableEOS: UILabel!
     
-    @IBOutlet fileprivate weak var lbStake: UILabel!
-    
-    @IBOutlet fileprivate weak var stakedEOS: UILabel!
-    
-    @IBOutlet fileprivate weak var lbRefunding: UILabel!
-    
-    @IBOutlet fileprivate weak var refundingEOS: UILabel!
-    
-    @IBOutlet fileprivate weak var remainTimeView: UIView!
-    
-    @IBOutlet fileprivate weak var remainTime: UILabel!
+    @IBOutlet fileprivate weak var lbResources: UILabel!
     
     @IBOutlet fileprivate weak var layoutContainerY: NSLayoutConstraint!
     
@@ -63,14 +51,7 @@ class WalletCell: UITableViewCell {
     }
     
     private func setupUI() {
-        remainTimeView.layer.cornerRadius = remainTimeView.bounds.height * 0.5
-        remainTimeView.layer.masksToBounds = true
-        remainTimeView.layer.borderWidth = 1.0
-        remainTimeView.layer.borderColor = Color.red.uiColor.cgColor
         
-        lbAvailable.text = LocalizedString.Wallet.available
-        lbStake.text = LocalizedString.Wallet.staked
-        lbRefunding.text = LocalizedString.Wallet.refunding
         btnSend.setTitle(LocalizedString.Wallet.send, for: .normal)
         btnReceive.setTitle(LocalizedString.Wallet.receive, for: .normal)
         
@@ -90,8 +71,9 @@ class WalletCell: UITableViewCell {
         account.text = viewModel.account
         total.text = viewModel.totalEOS.dot4String
         
-        availableEOS.text = viewModel.availableEOS.dot4String
-        stakedEOS.text = viewModel.stakedEOS.dot4String
+        availableEOS.text =  "(\(viewModel.availableEOS.dot4String) EOS" + LocalizedString.Wallet.available + ")"
+        
+        lbResources.text = LocalizedString.Wallet.resources
         
         if viewModel.ownerMode == false {
             buttonContainer.isHidden = true
@@ -127,22 +109,22 @@ class WalletCell: UITableViewCell {
             .disposed(by: bag)
         
         //refund
-        remainTimeView.isHidden = (viewModel.refundingEOS == 0)
-        if viewModel.refundRequestTime > 0 {
-            refundingEOS.text = viewModel.refundingEOS.dot4String
-            
-            let remain = viewModel.refundingTime - Date().timeIntervalSince1970
-            remainTime.text = remain.stringTime
-            
-            let _ = Observable<Int>
-                .interval(1, scheduler: MainScheduler.instance)
-                .subscribe(onNext: { [weak self] (_) in
-                    let remain = viewModel.refundingTime - Date().timeIntervalSince1970
-                    self?.remainTime.text = remain.stringTime
-                })
-                .disposed(by: bag)
-            
-        }
+//        remainTimeView.isHidden = (viewModel.refundingEOS == 0)
+//        if viewModel.refundRequestTime > 0 {
+//            refundingEOS.text = viewModel.refundingEOS.dot4String
+//
+//            let remain = viewModel.refundingTime - Date().timeIntervalSince1970
+//            remainTime.text = remain.stringTime
+//
+//            let _ = Observable<Int>
+//                .interval(1, scheduler: MainScheduler.instance)
+//                .subscribe(onNext: { [weak self] (_) in
+//                    let remain = viewModel.refundingTime - Date().timeIntervalSince1970
+//                    self?.remainTime.text = remain.stringTime
+//                })
+//                .disposed(by: bag)
+//
+//        }
         
         //estimatedPrice
         

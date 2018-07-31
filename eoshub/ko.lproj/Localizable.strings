@@ -43,6 +43,7 @@
 "wallet.refunding" = "반환중";
 "wallet.pubKey" = "퍼블릭 키";
 "wallet.priKey" = "프라이빗 키";
+"wallet.resources" = "자원 관리";
 
 "wallet.import.title" = "기존계정 가져오기";
 "wallet.import.account" = "EOS 계정";

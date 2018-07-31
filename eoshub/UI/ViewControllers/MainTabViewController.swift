@@ -71,4 +71,8 @@ class MainTabViewController: TabBarViewController {
     private func isCreatedPin() -> Bool {
         return Security.shared.hasPin()
     }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
+    }
 }

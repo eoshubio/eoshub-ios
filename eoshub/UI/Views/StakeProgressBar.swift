@@ -19,11 +19,11 @@ enum EOSState: Int, ProgressItem {
     var fillColor: UIColor {
         switch self {
         case .staked:
-            return Color.blue.uiColor
+            return Color.progressMagenta.uiColor
         case .refunding:
-            return Color.red.uiColor
+            return Color.progressOrange.uiColor
         case .available:
-            return Color.green.uiColor
+            return Color.progressGreen.uiColor
         }
     }
 }

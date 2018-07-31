@@ -27,7 +27,7 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
         } else {
             vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WalletViewController") as? WalletViewController
         }
-        
+        vc?.show()
         vc?.flowDelegate = self
         show(viewController: vc, animated: animated) {
             

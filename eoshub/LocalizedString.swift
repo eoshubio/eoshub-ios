@@ -70,6 +70,8 @@ struct LocalizedString {
         static let priKey = NSLocalizedString("wallet.priKey", comment: "")
         static let pubKey = NSLocalizedString("wallet.pubKey", comment: "")
         
+        static let resources = NSLocalizedString("wallet.resources", comment: "")
+        
         struct Import {
             static let title = NSLocalizedString("wallet.import.title", comment: "")
             static let account = NSLocalizedString("wallet.import.account", comment: "")

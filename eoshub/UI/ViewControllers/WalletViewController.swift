@@ -22,7 +22,7 @@ class WalletViewController: BaseViewController {
     
     @IBOutlet fileprivate var walletList: UITableView!
     
-    @IBOutlet fileprivate var btnRefresh: RoundedShadowButton!
+//    @IBOutlet fileprivate var btnRefresh: RoundedShadowButton!
     
     @IBOutlet fileprivate var topBar: UIView!
     
@@ -57,13 +57,18 @@ class WalletViewController: BaseViewController {
         _ = ExchangeManager.shared
     }
     
+    func show() {
+       setNeedsStatusBarAppearanceUpdate()
+        
+    }
+    
     private func setupUI() {
         
         let profileURL = UserManager.shared.profileURL
         
         btnProfile.sd_setImage(with: profileURL, for: .normal, completed: nil)
        
-        walletList.contentInset = UIEdgeInsetsMake(Const.navBarHeightLargeState - Const.navBarHeightSmallState + 15, 0, 100, 0)
+        walletList.contentInset = UIEdgeInsetsMake(Const.navBarHeightLargeState - Const.navBarHeightSmallState, 0, 100, 0)
         
         setupTableView()
     }
@@ -142,12 +147,12 @@ class WalletViewController: BaseViewController {
             })
             .disposed(by: bag)
         
-        btnRefresh.rx.singleTap
-            .flatMap({ (_) -> Observable<Void> in
-                return AccountManager.shared.loadAccounts()
-            })
-            .subscribe()
-            .disposed(by: bag)
+//        btnRefresh.rx.singleTap
+//            .flatMap({ (_) -> Observable<Void> in
+//                return AccountManager.shared.loadAccounts()
+//            })
+//            .subscribe()
+//            .disposed(by: bag)
         
         
         AccountManager.shared.loadAccounts()

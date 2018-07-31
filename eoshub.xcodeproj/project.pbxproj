@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C02AE6821108FED00C6ECF3 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */; };
 		2C1D928E2100C7DC0009F5C4 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D928D2100C7DC0009F5C4 /* Validator.swift */; };
 		2C1E3E9520FE14000009D2AF /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9420FE14000009D2AF /* WaitingView.swift */; };
 		2C1E3E9720FE18000009D2AF /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9620FE18000009D2AF /* Popup.swift */; };
@@ -224,6 +225,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		2C1D928D2100C7DC0009F5C4 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		2C1E3E9420FE14000009D2AF /* WaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingView.swift; sourceTree = "<group>"; };
 		2C1E3E9620FE18000009D2AF /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
@@ -842,6 +844,7 @@
 				2CE110FB20F1EC8600B93BEB /* RoundedButton.swift */,
 				2C770C9620FB6E94007F71C4 /* RoundedShadowButton.swift */,
 				2CE1113720F26DF000B93BEB /* RoundedView.swift */,
+				2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */,
 				2CE1111620F23BF600B93BEB /* ExtendButton.swift */,
 				2CFE954720F3930200DC173F /* CellType.swift */,
 				2C2ACFD220F43EE500C637D8 /* WhiteTextField.swift */,
@@ -1272,6 +1275,7 @@
 				2C279B9120F8C30700D2F6C4 /* Permission.swift in Sources */,
 				2C1D928E2100C7DC0009F5C4 /* Validator.swift in Sources */,
 				2CE110EA20F1C9B300B93BEB /* Observable+extension.swift in Sources */,
+				2C02AE6821108FED00C6ECF3 /* RoundedShadowView.swift in Sources */,
 				2C279BA520F8C3CB00D2F6C4 /* rmd160.c in Sources */,
 				2C279BB720F8C42700D2F6C4 /* Sha256.m in Sources */,
 				2C770C9520FB436F007F71C4 /* RefundInfo.swift in Sources */,
@@ -1519,9 +1523,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Kyungho Sung (7LPVD36ZHG)";
+				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				DEVELOPMENT_TEAM = MY5T2D475Y;
+				DEVELOPMENT_TEAM = XYD35BDX65;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = eoshub/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -1531,6 +1536,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "eos-hub.io.eoshub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "e5eea59c-99f4-443f-a540-c114455c930d";
+				PROVISIONING_PROFILE_SPECIFIER = EOSHub_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "eoshub/eoshub-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
@@ -1545,8 +1552,9 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MY5T2D475Y;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = XYD35BDX65;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = eoshub/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
@@ -1556,6 +1564,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "eos-hub.io.eoshub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ded6a689-65ac-4cfe-a9ff-541f9f9b5f03";
+				PROVISIONING_PROFILE_SPECIFIER = EOSHub_store;
 				SWIFT_OBJC_BRIDGING_HEADER = "eoshub/eoshub-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
