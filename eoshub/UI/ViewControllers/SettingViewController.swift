@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Eureka
 import RxSwift
-
+import FirebaseAuth
 
 class SettingViewController: FormViewController {
     
@@ -128,8 +128,7 @@ class SettingViewController: FormViewController {
         let host =  PushRow<String>() {
             $0.title = LocalizedString.Setting.Host.title
             //TODO: get from server
-//            $0.options = ["https://eos-hub.io:8443","https://eos.greymass.com", "https://api.cypherglass.com", "https://publicapi-mainnet.eosauthority.com", "https://mainnet.eoscanada.com"]
-            $0.options = ["https://eos-hub.io:8443"]
+            $0.options = ["https://api.main-net.eosnodeone.io", "https://eos.greymass.com", "https://api.cypherglass.com", "https://publicapi-mainnet.eosauthority.com", "https://mainnet.eoscanada.com"]
             $0.value = Preferences.shared.preferHost
             
             }.cellUpdate { (cell, row) in
