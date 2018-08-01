@@ -74,7 +74,6 @@
                                             <constraint firstAttribute="width" constant="56" id="Fsk-8T-nbz"/>
                                             <constraint firstAttribute="height" constant="56" id="UHR-t6-JVa"/>
                                         </constraints>
-                                        <state key="normal" image="d_profile"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="radius">
                                                 <real key="value" value="28"/>
@@ -424,7 +423,6 @@
     </scenes>
     <resources>
         <image name="bgGrady" width="750" height="1334"/>
-        <image name="d_profile" width="400" height="400"/>
         <image name="notification" width="42" height="46"/>
         <image name="option" width="40" height="40"/>
         <image name="radioOffBig" width="70" height="70"/>

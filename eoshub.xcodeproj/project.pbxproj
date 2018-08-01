@@ -226,6 +226,7 @@
 
 /* Begin PBXFileReference section */
 		2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
+		2C02AE692110BA0500C6ECF3 /* eoshub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = eoshub.entitlements; sourceTree = "<group>"; };
 		2C1D928D2100C7DC0009F5C4 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		2C1E3E9420FE14000009D2AF /* WaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingView.swift; sourceTree = "<group>"; };
 		2C1E3E9620FE18000009D2AF /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
@@ -599,6 +600,7 @@
 		2CE110A720F1C31000B93BEB /* eoshub */ = {
 			isa = PBXGroup;
 			children = (
+				2C02AE692110BA0500C6ECF3 /* eoshub.entitlements */,
 				2C279C0820FA452900D2F6C4 /* Config */,
 				2CE110C820F1C44400B93BEB /* EOSIO */,
 				2CE110CD20F1C4A900B93BEB /* EOSHUB */,
@@ -980,6 +982,11 @@
 					2CE110A420F1C31000B93BEB = {
 						CreatedOnToolsVersion = 9.4;
 						LastSwiftMigration = 0940;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					2CE110B820F1C31300B93BEB = {
 						CreatedOnToolsVersion = 9.4;
@@ -1523,11 +1530,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = eoshub/eoshub.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Kyungho Sung (7LPVD36ZHG)";
 				CODE_SIGN_STYLE = Manual;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = XYD35BDX65;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = eoshub/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1552,10 +1560,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = eoshub/eoshub.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = XYD35BDX65;
-				ENABLE_BITCODE = NO;
+				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = eoshub/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = (
