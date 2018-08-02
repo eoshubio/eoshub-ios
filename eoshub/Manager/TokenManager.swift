@@ -41,8 +41,11 @@ class TokenManager {
         let data = json.json(for: "resultData")
         guard let list = data?.arrayJson(for: "tokenList") else { return }
         
-        var tokens: [TokenInfo] = list.compactMap(TokenInfo.create)
-        tokens.insert(contentsOf: [.pandora, TokenInfo(contract: "eoshubtokenz", symbol: "NOVA", name: "NovaShock")], at: 0) //TODO: uncomment
+        let tokens: [TokenInfo] = list.compactMap(TokenInfo.create)
+            .filter { (info) -> Bool in
+                //TODO: comment
+                return info.token.stringValue != "EOS@eosio.token"
+            }
         
         DB.shared.addOrUpdateObjects(tokens)
     }

@@ -13,6 +13,7 @@ typealias Symbol = String
 struct Token: Equatable, Hashable {
     let symbol: Symbol
     let contract: String
+    let decimal = 4
     
     var stringValue: String {
         return symbol + "@" + contract

@@ -355,6 +355,8 @@ extension RxEOSAPI {
     //MARK: Tokens
     static func getTokens(account: EHAccount, tokens: [Token]) -> Observable<[Currency]> {
         
+        if tokens.count == 0 { return Observable.just([]) }
+        
         let rxGetTokens = tokens.map { (preferToken) -> Observable<Currency> in
             return RxEOSAPI.getBalance(account: account.account, contract: preferToken.contract, symbol: preferToken.symbol)
         }
