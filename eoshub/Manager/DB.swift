@@ -30,7 +30,7 @@ class DB {
         let encryptedKeyData = Security.shared.getDBKeyData()
         
         //Encrypted Realm Config
-        var encryptionConfig = Realm.Configuration(encryptionKey: encryptedKeyData, readOnly: false, schemaVersion: 1)
+        var encryptionConfig = Realm.Configuration(encryptionKey: encryptedKeyData, readOnly: false, schemaVersion: 2, migrationBlock: DB.migrationBlock)
         
         encryptionConfig.fileURL = encryptionConfig.fileURL!
             .deletingLastPathComponent()

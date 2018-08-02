@@ -17,8 +17,6 @@ class WalletDetailViewController: BaseViewController {
     
     @IBOutlet fileprivate weak var total: UILabel!
     
-    @IBOutlet fileprivate weak var estimatedPrice: UILabel!
-    
     @IBOutlet fileprivate weak var progress: MultiProgressBar!
     
     @IBOutlet fileprivate weak var lbAvailable: UILabel!
@@ -37,12 +35,26 @@ class WalletDetailViewController: BaseViewController {
     
     @IBOutlet fileprivate weak var remainTime: UILabel!
     //--account.e
-    @IBOutlet fileprivate weak var resourceView: UIView!
-    @IBOutlet fileprivate weak var resCPU: UILabel!
-    @IBOutlet fileprivate weak var resNet: UILabel!
     
+    @IBOutlet fileprivate weak var scrollView: UIScrollView!
+    
+    
+    @IBOutlet fileprivate weak var resourceView: UIView!
+
+    @IBOutlet fileprivate weak var resCPU: UILabel!
+    @IBOutlet fileprivate weak var resUsedCPU: UILabel!
+    @IBOutlet fileprivate weak var resUsedCPUPercent: UILabel!
+    @IBOutlet fileprivate weak var progCPU: UIProgressView!
+    
+    @IBOutlet fileprivate weak var resNet: UILabel!
+    @IBOutlet fileprivate weak var resUsedNet: UILabel!
+    @IBOutlet fileprivate weak var resUsedNetPercent: UILabel!
+    @IBOutlet fileprivate weak var progNet: UIProgressView!
+
     @IBOutlet fileprivate weak var ramView: UIView!
     @IBOutlet fileprivate weak var resRam: UILabel!
+    @IBOutlet fileprivate weak var resUsedRamPercent: UILabel!
+    @IBOutlet fileprivate weak var progRam: UIProgressView!
     
     @IBOutlet fileprivate weak var btnDelegate: UIButton!
     @IBOutlet fileprivate weak var btnUndelegate: UIButton!
@@ -50,12 +62,16 @@ class WalletDetailViewController: BaseViewController {
     @IBOutlet fileprivate weak var btnBuyRam: UIButton!
     @IBOutlet fileprivate weak var btnSellRam: UIButton!
     
+    
+    
     private var accountInfo: AccountInfo!
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        title = accountInfo.account
-        showNavigationBar(with: .white)
+
+        showNavigationBar(with: .basePurple, animated: false, largeTitle: true)
+        
+        title = LocalizedString.Wallet.resources
     }
     
     override func viewDidLoad() {
@@ -66,17 +82,14 @@ class WalletDetailViewController: BaseViewController {
     
     private func setupUI() {
         
+        scrollView.delegate = self
         
         remainTimeView.layer.cornerRadius = remainTimeView.bounds.height * 0.5
         remainTimeView.layer.masksToBounds = true
         remainTimeView.layer.borderWidth = 1.0
         remainTimeView.layer.borderColor = Color.red.uiColor.cgColor
         
-        resourceView.layer.borderColor = Color.seperator.cgColor
-        resourceView.layer.borderWidth = 1
-        
-        ramView.layer.borderColor = Color.seperator.cgColor
-        ramView.layer.borderWidth = 1
+     
         
         lbAvailable.text = LocalizedString.Wallet.available
         lbStake.text = LocalizedString.Wallet.staked
@@ -132,7 +145,6 @@ class WalletDetailViewController: BaseViewController {
     fileprivate func updateAccount(with viewModel: AccountInfo) {
         account.text = viewModel.account
         total.text = viewModel.totalEOS.dot4String
-        estimatedPrice.text = ""
         availableEOS.text = viewModel.availableEOS.dot4String
         stakedEOS.text = viewModel.stakedEOS.dot4String
         
@@ -147,9 +159,39 @@ class WalletDetailViewController: BaseViewController {
         
         //resources
         resCPU.text = viewModel.cpuStakedEOS.dot4String + " " + .eos
-        resNet.text = viewModel.netStakedEOS.dot4String + " " + .eos
-        resRam.text = viewModel.ramBytes.prettyPrinted + " RAM"
+        resUsedCPU.text = "\(viewModel.usedCPU.prettyPrinted) / \(viewModel.maxCPU.prettyPrinted) us"
+        resUsedCPUPercent.text =  "( \(Int(viewModel.usedCPURatio * 100)) % )"
+        progCPU.setProgress(viewModel.usedCPURatio, animated: true)
+        if viewModel.maxCPU - viewModel.usedCPU < Config.limitResCPU {
+            progCPU.progressTintColor = Color.progressMagenta.uiColor
+            resUsedCPUPercent.textColor = Color.progressMagenta.uiColor
+        } else {
+            progCPU.progressTintColor = Color.progressGreen.uiColor
+            resUsedCPUPercent.textColor = Color.gray.uiColor
+        }
         
+        resNet.text = viewModel.netStakedEOS.dot4String + " " + .eos
+        resUsedNet.text = "\(viewModel.usedNet.prettyPrinted) / \(viewModel.maxNet.prettyPrinted) Bytes"
+        resUsedNetPercent.text =  "( \(Int(viewModel.usedNetRatio * 100)) % )"
+        progNet.setProgress(viewModel.usedNetRatio, animated: true)
+        if viewModel.maxNet - viewModel.usedNet < Config.limitResNet {
+            progNet.progressTintColor = Color.progressMagenta.uiColor
+            resUsedNetPercent.textColor = Color.progressMagenta.uiColor
+        } else {
+            progNet.progressTintColor = Color.progressGreen.uiColor
+            resUsedNetPercent.textColor = Color.gray.uiColor
+        }
+        
+        resRam.text = "\(viewModel.usedRam.prettyPrinted) / \(viewModel.maxRam.prettyPrinted) Bytes"
+        resUsedRamPercent.text = "( \(Int(viewModel.usedRAMRatio * 100)) % )"
+        progRam.setProgress(viewModel.usedRAMRatio, animated: true)
+        if viewModel.maxRam - viewModel.usedRam < Config.limitResRAM {
+            progRam.progressTintColor = Color.progressMagenta.uiColor
+            resUsedRamPercent.textColor = Color.progressMagenta.uiColor
+        } else {
+            progRam.progressTintColor = Color.progressGreen.uiColor
+            resUsedRamPercent.textColor = Color.gray.uiColor
+        }
         //refund
         remainTimeView.isHidden = (viewModel.refundingEOS == 0)
         
@@ -182,5 +224,21 @@ class WalletDetailViewController: BaseViewController {
 extension WalletDetailViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
+    }
+}
+
+extension WalletDetailViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y <= 0 {
+            self.navigationItem.largeTitleDisplayMode = .always
+        } else {
+            self.navigationItem.largeTitleDisplayMode = .never
+        }
+        self.navigationController?.navigationBar.setNeedsLayout()
+        self.view.setNeedsLayout()
+        UIView.animate(withDuration: 0.25, animations: {
+            self.navigationController?.navigationBar.layoutIfNeeded()
+            self.view.layoutIfNeeded()
+        })
     }
 }

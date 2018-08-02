@@ -15,7 +15,7 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     @objc dynamic var account: String = ""
     @objc dynamic var pubKey: String = ""
     var totalEOS: Double {
-        return availableEOS + stakedEOS
+        return availableEOS + stakedEOS + refundingEOS
     }
     
     @objc dynamic var availableEOS: Double = 0
@@ -23,7 +23,12 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     @objc dynamic var cpuStakedEOS: Double = 0
     @objc dynamic var netStakedEOS: Double = 0
     @objc dynamic var ramBytes: Int64 = 0
+    @objc dynamic var usedCPU: Int64 = 0
+    @objc dynamic var usedNet: Int64 = 0
     @objc dynamic var usedRam: Int64 = 0
+    @objc dynamic var maxCPU: Int64 = 0
+    @objc dynamic var maxNet: Int64 = 0
+    @objc dynamic var maxRam: Int64 = 0
     
     @objc dynamic var refundingEOS: Double = 0
     @objc dynamic var refundRequestTime: TimeInterval = 0
@@ -60,9 +65,21 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     var availableRamBytes: Int64 {
         return ramBytes - usedRam
     }
+    
+    var usedCPURatio: Float {
+        return Float(usedCPU) / Float(maxCPU)
+    }
+    
+    var usedNetRatio: Float {
+        return Float(usedNet) / Float(maxNet)
+    }
+    
+    var usedRAMRatio: Float {
+        return Float(usedRam) / Float(maxRam)
+    }
 
     override static func ignoredProperties() -> [String] {
-        return ["votedProducers", "tokens", "availableRamBytes"]
+        return ["votedProducers", "tokens", "availableRamBytes", "usedCPURatio", "usedNetRatio", "usedRAMRatio"]
     }
     
     convenience init(with eosioAccount: Account, isOwner: Bool) {
@@ -88,9 +105,16 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         
         netStakedEOS = eosioAccount.resources.netWeight.quantity
         
-        ramBytes = eosioAccount.resources.ramBytes
+        ramBytes = eosioAccount.ramQuota
+        
+        usedCPU = eosioAccount.cpuLimit.used
+        maxCPU = eosioAccount.cpuLimit.max
+        
+        usedNet = eosioAccount.netLimit.used
+        maxNet = eosioAccount.netLimit.max
         
         usedRam = eosioAccount.ramUsage
+        maxRam = eosioAccount.ramQuota
         
     }
     
@@ -105,7 +129,14 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         cpuStakedEOS = newObject.cpuStakedEOS
         netStakedEOS = newObject.netStakedEOS
         ramBytes = newObject.ramBytes
+        
+        usedCPU = newObject.usedCPU
+        maxCPU = newObject.maxCPU
+        usedNet = newObject.usedNet
+        maxNet = newObject.maxNet
         usedRam = newObject.usedRam
+        maxRam = newObject.maxRam
+        
         _tokens.removeAll()
         _tokens.append(objectsIn: newObject._tokens)
     }

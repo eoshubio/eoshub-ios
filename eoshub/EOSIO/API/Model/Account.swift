@@ -53,7 +53,7 @@ struct Account: JSONInitializable {
         
         self.permissions = json.arrayJson(for: "permissions")?.compactMap(Authority.init) ?? []
         
-        if let resJSON = json.json(for: "total_resources"), let res = Resources(json: resJSON) {
+        if let resJSON = json.json(for: "self_delegated_bandwidth"), let res = Resources(json: resJSON) {
             self.resources = res
         } else {
             self.resources = .zero

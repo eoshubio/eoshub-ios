@@ -55,4 +55,10 @@ struct Config {
         let shortVersion = (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "0"
         return shortVersion
     }
+    
+    //TODO: check it
+    static let limitResCPU: Int64 = 500
+    static let limitResNet: Int64 = 1000
+    static let limitResRAM: Int64 = 2000
+    
 }

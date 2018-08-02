@@ -11,7 +11,7 @@ import Foundation
 struct Resources: JSONInitializable {
     let netWeight: Currency
     let cpuWeight: Currency
-    let ramBytes: Int64
+    var ramBytes: Int64 = 0
     
     var staked: Double {
         return netWeight.quantity + cpuWeight.quantity
@@ -20,11 +20,14 @@ struct Resources: JSONInitializable {
     init?(json: JSON) {
         guard let net = json["net_weight"] as? String else { return nil }
         guard let cpu = json["cpu_weight"] as? String else { return nil }
-        guard let ram = json["ram_bytes"] as? Int64 else { return nil }
+        
         
         self.netWeight = Currency(eosCurrency: net) ?? .zeroEOS
         self.cpuWeight = Currency(eosCurrency: cpu) ?? .zeroEOS
-        self.ramBytes = ram
+        if let ram = json["ram_bytes"] as? Int64 {
+            self.ramBytes = ram
+        }
+        
     }
     
     init() {
