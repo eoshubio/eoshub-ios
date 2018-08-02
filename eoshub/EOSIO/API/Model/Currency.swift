@@ -68,7 +68,7 @@ struct Currency {
     
     init(balance: String, token: Token = .eos) {
         self.quantity = Double(balance) ?? 0
-        self.balance = balance.dot4String
+        self.balance = balance.fillZero(zeroCount: token.decimal)
         self.token = token
     }
     
@@ -77,7 +77,7 @@ struct Currency {
         if comp.count == 2 {
             let balance = comp.first!
             self.quantity = Double(balance) ?? 0
-            self.balance = balance.dot4String
+            self.balance = balance.fillZero()
             self.token = .eos
         } else {
             return nil

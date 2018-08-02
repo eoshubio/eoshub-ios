@@ -14,6 +14,10 @@ extension Double {
         return String(format: "%.04f", self)
     }
     
+    var dot2String: String {
+        return String(format: "%.04f", self)
+    }
+    
     var f: Float {
         return Float(self)
     }

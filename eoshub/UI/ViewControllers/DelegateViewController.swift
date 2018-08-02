@@ -120,8 +120,8 @@ class DelegateViewController: BaseViewController {
     }
     
     private func validate() {
-        let cpu = inputForm.cpu.value.dot4String
-        let net = inputForm.net.value.dot4String
+        let cpu = Currency(balance: inputForm.cpu.value).balance
+        let net = Currency(balance: inputForm.net.value).balance
         
         //check validate
         

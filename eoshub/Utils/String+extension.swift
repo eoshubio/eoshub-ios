@@ -91,6 +91,8 @@ extension String {
     }
     
     
+    
+    
     var decimalFormatted: String {
         var result = self
         for i in stride(from: count-3, to: 0, by: -3) {
@@ -114,6 +116,27 @@ extension String {
             return "0.0000"            
         } else {
             return self + ".0000"
+        }
+    }
+    
+    func fillZero(zeroCount: Int = 4) -> String {
+        
+        let postfix = [Character](repeating: Character("0"), count: zeroCount)
+        
+        let comp = components(separatedBy: ".")
+        if comp.count == 2 {
+            let intPart = comp.first!
+            var dotPart = comp.last!.substring(precision: zeroCount)
+            if dotPart.count < zeroCount {
+                for _ in 0..<(zeroCount - dotPart.count) {
+                    dotPart += "0"
+                }
+            }
+            return intPart + "." + dotPart
+        } else if count == 0 {
+            return "0." + postfix
+        } else {
+            return self + "." + postfix
         }
     }
 }
