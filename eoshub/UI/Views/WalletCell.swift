@@ -76,8 +76,9 @@ class WalletCell: UITableViewCell {
         lbResources.text = LocalizedString.Wallet.resources
         
         if viewModel.ownerMode == false {
+            let marginBottom: CGFloat = 15
             buttonContainer.isHidden = true
-            layoutContainerY.constant = -buttonContainer.bounds.height
+            layoutContainerY.constant = -buttonContainer.bounds.height + marginBottom
         } else {
             buttonContainer.isHidden = false
             layoutContainerY.constant = 0
