@@ -20,14 +20,21 @@ class SettingViewController: FormViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: false)
-        navigationController?.navigationBar.shadowImage = UIImage()
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+        
+        navigationController?.view.backgroundColor = UIColor.clear
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationController?.navigationBar.isTranslucent = true
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
         navigationController?.navigationBar.tintColor = Color.basePurple.uiColor
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Color.basePurple.uiColor]
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: Color.basePurple.uiColor]
+        
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         navigationController?.navigationBar.barStyle = .default
+        
         title = LocalizedString.Setting.title
         
     }
