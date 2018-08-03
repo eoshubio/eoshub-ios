@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="44" width="375" height="734"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oGA-Yc-xul" userLabel="Scroll contents">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="752"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="737"/>
                                         <subviews>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oN5-c4-Jod">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="263"/>
@@ -256,7 +256,7 @@
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sIi-HK-IA5" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="278" width="345" height="264"/>
+                                                <rect key="frame" x="15" y="263" width="345" height="264"/>
                                                 <subviews>
                                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cpu" translatesAutoresizingMaskIntoConstraints="NO" id="lH7-IV-bTb">
                                                         <rect key="frame" x="20" y="25" width="20" height="20"/>
@@ -409,7 +409,7 @@
                                                 </userDefinedRuntimeAttributes>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wyM-Yo-uOK" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                                <rect key="frame" x="15" y="557" width="345" height="175"/>
+                                                <rect key="frame" x="15" y="542" width="345" height="175"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ram" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SmS-cd-o9j">
                                                         <rect key="frame" x="51.999999999999993" y="25.333333333333371" width="29.666666666666664" height="19.333333333333329"/>
@@ -514,7 +514,7 @@
                                             <constraint firstItem="wyM-Yo-uOK" firstAttribute="leading" secondItem="oGA-Yc-xul" secondAttribute="leading" constant="15" id="jIv-xw-qh6"/>
                                             <constraint firstAttribute="trailing" secondItem="sIi-HK-IA5" secondAttribute="trailing" constant="15" id="m0W-hM-ltF"/>
                                             <constraint firstItem="wyM-Yo-uOK" firstAttribute="top" secondItem="sIi-HK-IA5" secondAttribute="bottom" constant="15" id="ngh-xk-ggb"/>
-                                            <constraint firstItem="sIi-HK-IA5" firstAttribute="top" secondItem="oN5-c4-Jod" secondAttribute="bottom" constant="15" id="u7I-ov-y6E"/>
+                                            <constraint firstItem="sIi-HK-IA5" firstAttribute="top" secondItem="oN5-c4-Jod" secondAttribute="bottom" id="u7I-ov-y6E"/>
                                         </constraints>
                                     </view>
                                 </subviews>
