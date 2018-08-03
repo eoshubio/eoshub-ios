@@ -74,14 +74,13 @@ class WalletCell: UITableViewCell {
         availableEOS.text =  "(\(viewModel.availableEOS.dot4String) EOS" + LocalizedString.Wallet.available + ")"
         
         lbResources.text = LocalizedString.Wallet.resources
-        
+        let marginBottom: CGFloat = 35
         if viewModel.ownerMode == false {
-            let marginBottom: CGFloat = 15
             buttonContainer.isHidden = true
             layoutContainerY.constant = -buttonContainer.bounds.height + marginBottom
         } else {
             buttonContainer.isHidden = false
-            layoutContainerY.constant = 0
+            layoutContainerY.constant = marginBottom
         }
         layoutIfNeeded()
         

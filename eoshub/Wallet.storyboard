@@ -550,6 +550,8 @@
                         <outlet property="btnDelegate" destination="M1v-vj-UZu" id="YUv-F4-urN"/>
                         <outlet property="btnSellRam" destination="FoD-Ba-4YT" id="dfs-aR-nTL"/>
                         <outlet property="btnUndelegate" destination="qRJ-gz-UVT" id="evS-Ji-o0c"/>
+                        <outlet property="layoutRAMY" destination="De1-Ot-6Yk" id="6i8-bt-LE5"/>
+                        <outlet property="layoutResY" destination="7Ye-H3-bkZ" id="Qrb-aV-xPl"/>
                         <outlet property="lbAvailable" destination="Tkq-S1-uYS" id="QAC-Vk-mgT"/>
                         <outlet property="lbRefunding" destination="La5-yl-kr4" id="4UF-cX-rNW"/>
                         <outlet property="lbStake" destination="5ah-eS-1Wf" id="yqe-XB-csq"/>

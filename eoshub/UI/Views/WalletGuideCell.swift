@@ -22,6 +22,7 @@ class WalletGuideCell: UITableViewCell {
     private func setupUI() {
         greeting.text = LocalizedString.Wallet.First.greeting
         guide.text = LocalizedString.Wallet.First.guide
+        selectionStyle = .none
     }
 }
 

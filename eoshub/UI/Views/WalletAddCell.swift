@@ -22,7 +22,7 @@ class WalletAddCell: UITableViewCell {
     }
     
     private func setupUI() {
-        
+        selectionStyle = .none
     }
     
     override func layoutSubviews() {

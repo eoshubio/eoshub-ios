@@ -225,7 +225,7 @@ extension WalletViewController: UITableViewDataSource {
             cell.selectionStyle = .none
             return cell
         } else {
-            cell.selectionStyle = .gray
+            cell.selectionStyle = .none
         }
         
         return cell
@@ -252,7 +252,7 @@ extension WalletViewController: UITableViewDelegate {
         guard let nc = parent?.navigationController else { return }
         
         let item = items[indexPath.section][indexPath.row]
-        if let item = item as? AccountInfo, item.ownerMode == true {
+        if let item = item as? AccountInfo {
             //go to wallet detail
             flowDelegate?.goToWalletDetail(from: nc, with: item)
         } else if let item = item as? TokenBalanceInfo {

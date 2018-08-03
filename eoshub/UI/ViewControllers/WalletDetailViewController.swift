@@ -62,7 +62,8 @@ class WalletDetailViewController: BaseViewController {
     @IBOutlet fileprivate weak var btnBuyRam: UIButton!
     @IBOutlet fileprivate weak var btnSellRam: UIButton!
     
-    
+    @IBOutlet fileprivate weak var layoutResY: NSLayoutConstraint!
+    @IBOutlet fileprivate weak var layoutRAMY: NSLayoutConstraint!
     
     private var accountInfo: AccountInfo!
     
@@ -192,6 +193,20 @@ class WalletDetailViewController: BaseViewController {
             progRam.progressTintColor = Color.progressGreen.uiColor
             resUsedRamPercent.textColor = Color.gray.uiColor
         }
+        
+        //owner mode
+        if viewModel.ownerMode == false {
+//            layoutResY.constant = -15
+//            layoutRAMY.constant = -15
+//            view.layoutIfNeeded()
+            
+            btnDelegate.isHidden = true
+            btnUndelegate.isHidden = true
+            btnBuyRam.isHidden = true
+            btnSellRam.isHidden = true
+        }
+        
+        
         //refund
         remainTimeView.isHidden = (viewModel.refundingEOS == 0)
         
