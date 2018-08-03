@@ -100,6 +100,8 @@ class TxCell: UITableViewCell {
     @IBOutlet fileprivate weak var lbMemoTitle: UILabel!
     @IBOutlet fileprivate weak var lbMemo: UILabel!
     
+    fileprivate var bag: DisposeBag? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
@@ -114,6 +116,7 @@ class TxCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        bag = nil
         lbInOut.text = nil
         lbRelatedAccount.text = nil
         lbQuantity.text = nil
@@ -126,8 +129,18 @@ class TxCell: UITableViewCell {
     }
     
     func configure(myaccount: String, tx: Tx) {
+        let bag = DisposeBag()
+        self.bag = bag
         lbTxDate.text = Date(timeIntervalSince1970: tx.timeStamp).dataToLocalTime()
         setTxId(id: tx.txid)
+        
+        btnTxId.rx.singleTap
+            .bind {
+                if let url = URL(string: Config.txHost + tx.txid) {
+                    UIApplication.shared.open(url, options: [:])
+                }
+            }
+            .disposed(by: bag)
         
         switch tx.action {
         case Contract.Action.transfer.rawValue:
@@ -254,8 +267,9 @@ class TxCell: UITableViewCell {
     }
     
     private func setTxId(id: String) {
-        let txId = NSAttributedString(string: id, attributes: [NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue])
+        let txId = NSAttributedString(string: id, attributes: [NSAttributedStringKey.link : NSUnderlineStyle.styleSingle.rawValue])
         btnTxId.setAttributedTitle(txId, for: .normal)
+        
     }
     
 }

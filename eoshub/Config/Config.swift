@@ -56,6 +56,8 @@ struct Config {
         return shortVersion
     }
     
+    static var txHost: String = "https://eosflare.io/tx/"
+    
     //TODO: check it
     static let limitResCPU: Int64 = 500
     static let limitResNet: Int64 = 1000
