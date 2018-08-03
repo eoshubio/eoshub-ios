@@ -19,9 +19,15 @@ class VoteViewController: BaseViewController {
     @IBOutlet fileprivate weak var lbAccountName: UILabel!
     @IBOutlet fileprivate weak var lbStakedEOSTitle: UILabel!
     @IBOutlet fileprivate weak var lbStakedEOS: UILabel!
-    @IBOutlet fileprivate weak var btnChangeStake: UIButton!
+    @IBOutlet fileprivate weak var progressStaked: UIProgressView?
+//    @IBOutlet fileprivate weak var btnChangeStake: UIButton!
     @IBOutlet fileprivate weak var btnChangeAccount: UIButton!
     @IBOutlet fileprivate weak var bpList: UITableView!
+    
+    @IBOutlet fileprivate weak var itemChangeStake: UIBarButtonItem?
+    @IBOutlet fileprivate weak var itemChangeAccount: UIBarButtonItem?
+    
+    
     
     fileprivate weak var btnApplyItem: UIBarButtonItem!
     fileprivate weak var btnVotedBPs: UIBarButtonItem!
@@ -38,7 +44,7 @@ class VoteViewController: BaseViewController {
     fileprivate var applyControlContainer: UIView? = nil
     fileprivate var btnApply: UIButton? = nil
     
-    fileprivate let maxVoteCount = 19 //for JungleNet
+    fileprivate let maxVoteCount = 19 //TODO: Change it / for JungleNet
     
     fileprivate let menuControlHeight: CGFloat = 90
     
@@ -55,7 +61,7 @@ class VoteViewController: BaseViewController {
     
     private func setupUI() {
         lbStakedEOSTitle.text = LocalizedString.Vote.staked
-        btnChangeStake.setTitle(LocalizedString.Vote.changeStake, for: .normal)
+//        btnChangeStake.setTitle(LocalizedString.Vote.changeStake, for: .normal)
         
         naviBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         naviBar.shadowImage = UIImage()
@@ -67,13 +73,30 @@ class VoteViewController: BaseViewController {
         bpList.dataSource = self
         bpList.delegate = self
         
-        let applyButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
-        applyButton.setTitle("Apply", for: .normal)
-        applyButton.titleLabel?.font = Font.appleSDGothicNeo(.medium).uiFont(12)
-        applyButton.setTitleColor(UIColor.white, for: .normal)
-        let applyItem = UIBarButtonItem(customView: applyButton)
+//        let applyButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
+//        applyButton.setTitle("Apply", for: .normal)
+//        applyButton.titleLabel?.font = Font.appleSDGothicNeo(.medium).uiFont(12)
+//        applyButton.setTitleColor(UIColor.white, for: .normal)
+//        let applyItem = UIBarButtonItem(customView: applyButton)
+//
+//        navigationItem.rightBarButtonItems = [applyItem]
         
-        navigationItem.rightBarButtonItems = [applyItem]
+        itemChangeStake?.rx.singleTap
+            .bind { [weak self] in
+                guard let nc = self?.navigationController, let account = self?.selectedAccount else { return }
+                self?.flowDelegate?.goToWalletDetail(from: nc, account: account)
+
+            }
+            .disposed(by: bag)
+        
+        itemChangeAccount?.rx.singleTap
+            .bind { [weak self] in
+                self?.handleChangeAccount()
+            }
+            .disposed(by: bag)
+        
+        itemChangeAccount?.title = LocalizedString.Vote.changeAccount
+        itemChangeStake?.title = LocalizedString.Wallet.resources
         
     }
     
@@ -92,12 +115,12 @@ class VoteViewController: BaseViewController {
             })
             .disposed(by: bag)
 
-        btnChangeStake.rx.singleTap
-            .bind { [weak self] in
-                guard let nc = self?.navigationController, let account = self?.selectedAccount else { return }
-                self?.flowDelegate?.goToWalletDetail(from: nc, account: account)
-            }
-            .disposed(by: bag)
+//        btnChangeStake.rx.singleTap
+//            .bind { [weak self] in
+//                guard let nc = self?.navigationController, let account = self?.selectedAccount else { return }
+//                self?.flowDelegate?.goToWalletDetail(from: nc, account: account)
+//            }
+//            .disposed(by: bag)
     }
     
     func reload() {
@@ -143,6 +166,10 @@ class VoteViewController: BaseViewController {
         
         lbAccountName.text = account.account
         lbStakedEOS.text = account.stakedEOS.dot4String
+        
+        let ratio = Float(account.stakedEOS / account.totalEOS)
+        
+        progressStaked?.setProgress(ratio, animated: true)
         
         let bps = account.votedProducers
         var bpMap: [String: Bool] = [:]

@@ -31,3 +31,11 @@ extension Reactive where Base: UIButton {
 }
 
 
+extension Reactive where Base: UIBarButtonItem {
+    
+    /// Reactive wrapper for `TouchUpInside` control event.
+    /// debounce 0.3 sec at main thread
+    public var singleTap: Observable<Void> {
+        return tap.skipDoubleTap
+    }
+}
