@@ -15,9 +15,17 @@ class Preferences {
 
     var preferHost: String
     
+    var lastRefreshTime: TimeInterval {
+        didSet {
+            defaults.set(lastRefreshTime, forKey: "lastRefreshTime")
+        }
+    }
+    
     let defaults = UserDefaults(suiteName: "settings")!
     
     init() {
         preferHost = defaults.string(forKey: "preferHost") ?? Config.host
+        
+        lastRefreshTime = defaults.double(forKey: "lastRefreshTime")
     }
 }

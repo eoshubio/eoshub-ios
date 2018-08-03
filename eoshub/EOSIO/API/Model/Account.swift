@@ -70,6 +70,4 @@ struct Account: JSONInitializable {
     
 }
 
-//TODO: 아래 내용 처리
-//"self_delegated_bandwidth": null,
 

@@ -34,6 +34,17 @@ class WalletViewController: BaseViewController {
     fileprivate var rx_receive = PublishSubject<AccountInfo>()
     fileprivate var rx_menuClicked = PublishSubject<AccountInfo>()
     
+    //refresh control
+    lazy var refreshControl: UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action:
+            #selector(self.handleRefresh(_:)),
+                                 for: UIControlEvents.valueChanged)
+        refreshControl.tintColor = Color.basePurple.uiColor
+        
+        return refreshControl
+    }()
+    
     private var initialized = false
     
     lazy var eoshubAccounts: Results<EHAccount> = {
@@ -87,6 +98,7 @@ class WalletViewController: BaseViewController {
         
         walletList.register(UINib(nibName: "WalletGuideCell", bundle: nil), forCellReuseIdentifier: "WalletGuideCell")
         
+        walletList.addSubview(refreshControl)
     }
     
     private func reloadUI() {
@@ -193,6 +205,24 @@ class WalletViewController: BaseViewController {
         AccountManager.shared.doLoadAccount()
     }
     
+    @objc fileprivate func handleRefresh(_ refreshControl: UIRefreshControl) {
+        
+        let minWaitTime: TimeInterval = 60
+        let curTime = Date().timeIntervalSince1970
+        if fabs(curTime - Preferences.shared.lastRefreshTime) > minWaitTime {
+            Preferences.shared.lastRefreshTime = curTime
+            AccountManager.shared.loadAccounts()
+                .subscribe {
+                    refreshControl.endRefreshing()
+                }
+                .disposed(by: bag)
+        } else {
+            Log.i("ignore")
+            refreshControl.endRefreshing()
+        }
+        
+        
+    }
 }
 
 
