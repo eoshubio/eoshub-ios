@@ -589,13 +589,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HvC-as-KPf">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
-                                <color key="backgroundColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="xeg-5n-BGh"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="st1-ZE-1Su">
                                 <rect key="frame" x="0.0" y="778" width="375" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -710,15 +703,22 @@
                                             <outlet property="lbSymbol" destination="jcd-qj-Afx" id="xyD-I2-VNe"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SendInputFormCell" rowHeight="400" id="EpM-cV-g7r" customClass="SendInputFormCell" customModule="eoshub" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="188" width="375" height="400"/>
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SendInputFormCell" rowHeight="500" id="EpM-cV-g7r" customClass="SendInputFormCell" customModule="eoshub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="188" width="375" height="500"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EpM-cV-g7r" id="nY4-we-KlH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="399.66666666666669"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="EpM-cV-g7r" id="nY4-we-KlH">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="499.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lpe-pX-uJT">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="900" id="uaT-Hj-Pgx"/>
+                                                    </constraints>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mmb-4T-fwH">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="499.66666666666669"/>
                                                     <subviews>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.0000" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="yV8-Zg-XKP" customClass="FormattedNumberField" customModule="eoshub" customModuleProvider="target">
                                                             <rect key="frame" x="77.999999999999986" y="0.0" width="251.66666666666663" height="60"/>
@@ -884,6 +884,9 @@
                                                 <constraint firstAttribute="bottom" secondItem="mmb-4T-fwH" secondAttribute="bottom" id="NjR-DO-7Sb"/>
                                                 <constraint firstItem="mmb-4T-fwH" firstAttribute="leading" secondItem="nY4-we-KlH" secondAttribute="leading" id="QOE-gV-m5F"/>
                                                 <constraint firstItem="mmb-4T-fwH" firstAttribute="top" secondItem="nY4-we-KlH" secondAttribute="top" id="cuG-eF-2k9"/>
+                                                <constraint firstItem="Lpe-pX-uJT" firstAttribute="top" secondItem="nY4-we-KlH" secondAttribute="top" id="mjc-fN-gAc"/>
+                                                <constraint firstAttribute="trailing" secondItem="Lpe-pX-uJT" secondAttribute="trailing" id="qep-YN-yCV"/>
+                                                <constraint firstItem="Lpe-pX-uJT" firstAttribute="leading" secondItem="nY4-we-KlH" secondAttribute="leading" id="wHG-Rs-SaV"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -903,15 +906,12 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="HvC-as-KPf" firstAttribute="leading" secondItem="qfS-xg-Eyy" secondAttribute="leading" id="1NQ-Wl-ART"/>
                             <constraint firstItem="st1-ZE-1Su" firstAttribute="top" secondItem="56L-Xb-hdw" secondAttribute="bottom" id="Fb0-Xj-UJl"/>
                             <constraint firstAttribute="trailing" secondItem="st1-ZE-1Su" secondAttribute="trailing" id="N97-G0-vMO"/>
                             <constraint firstItem="st1-ZE-1Su" firstAttribute="leading" secondItem="6Nv-6g-f7Z" secondAttribute="leading" id="S7d-TN-wrW"/>
-                            <constraint firstItem="HvC-as-KPf" firstAttribute="top" secondItem="6Nv-6g-f7Z" secondAttribute="top" id="XDV-Ic-GXi"/>
                             <constraint firstItem="yFB-rB-u9v" firstAttribute="leading" secondItem="6Nv-6g-f7Z" secondAttribute="leading" id="XaQ-lm-Sy5"/>
-                            <constraint firstItem="HvC-as-KPf" firstAttribute="trailing" secondItem="qfS-xg-Eyy" secondAttribute="trailing" id="a5H-Q2-qa0"/>
                             <constraint firstItem="56L-Xb-hdw" firstAttribute="top" secondItem="yFB-rB-u9v" secondAttribute="bottom" id="aSc-cd-MEa"/>
                             <constraint firstItem="yFB-rB-u9v" firstAttribute="top" secondItem="qfS-xg-Eyy" secondAttribute="top" id="lFa-bm-4UP"/>
                             <constraint firstItem="56L-Xb-hdw" firstAttribute="leading" secondItem="6Nv-6g-f7Z" secondAttribute="leading" id="oVI-nB-Luf"/>
@@ -1742,13 +1742,6 @@ HuGYqET5GDW5CV</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ijn-db-hqH">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
-                                <color key="backgroundColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="V0D-Ry-pZd"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="edu-NZ-65H">
                                 <rect key="frame" x="0.0" y="778" width="375" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1863,13 +1856,20 @@ HuGYqET5GDW5CV</string>
                                             <outlet property="lbSymbol" destination="gn6-bC-n54" id="NiB-Ww-Iur"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DelegateInputFormCell" rowHeight="400" id="GiV-60-ayv" customClass="DelegateInputFormCell" customModule="eoshub" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DelegateInputFormCell" rowHeight="400" id="GiV-60-ayv" customClass="DelegateInputFormCell" customModule="eoshub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="188" width="375" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GiV-60-ayv" id="U0T-tK-woX">
+                                        <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="GiV-60-ayv" id="U0T-tK-woX">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EoD-Q7-Q2k">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="900" id="Txa-cg-nL4"/>
+                                                    </constraints>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xyj-bm-nAu">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
                                                     <subviews>
@@ -2028,8 +2028,11 @@ HuGYqET5GDW5CV</string>
                                                 </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="EoD-Q7-Q2k" secondAttribute="trailing" id="0nl-zW-bJL"/>
                                                 <constraint firstAttribute="trailing" secondItem="xyj-bm-nAu" secondAttribute="trailing" id="1la-2M-JYz"/>
+                                                <constraint firstItem="EoD-Q7-Q2k" firstAttribute="top" secondItem="U0T-tK-woX" secondAttribute="top" id="A81-sT-ehT"/>
                                                 <constraint firstAttribute="trailing" secondItem="yIw-Vh-hMK" secondAttribute="trailing" id="Pud-em-ybm"/>
+                                                <constraint firstItem="EoD-Q7-Q2k" firstAttribute="leading" secondItem="U0T-tK-woX" secondAttribute="leading" id="Yeg-NO-M1y"/>
                                                 <constraint firstItem="xyj-bm-nAu" firstAttribute="top" secondItem="U0T-tK-woX" secondAttribute="top" id="axM-IX-qw4"/>
                                                 <constraint firstItem="yIw-Vh-hMK" firstAttribute="top" secondItem="xyj-bm-nAu" secondAttribute="bottom" id="g1n-zQ-t1S"/>
                                                 <constraint firstItem="xyj-bm-nAu" firstAttribute="leading" secondItem="U0T-tK-woX" secondAttribute="leading" id="gKc-eA-hq4"/>
@@ -2049,16 +2052,13 @@ HuGYqET5GDW5CV</string>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="etK-OL-W6L" secondAttribute="trailing" id="6Rz-MV-cIE"/>
                             <constraint firstItem="edu-NZ-65H" firstAttribute="leading" secondItem="QIj-ZL-A2J" secondAttribute="leading" id="7c9-3T-vaF"/>
                             <constraint firstAttribute="bottom" secondItem="edu-NZ-65H" secondAttribute="bottom" id="8tP-oG-Bsi"/>
                             <constraint firstItem="etK-OL-W6L" firstAttribute="top" secondItem="sWJ-NY-eTK" secondAttribute="top" id="CRK-h5-CZN"/>
                             <constraint firstItem="1af-nP-AiY" firstAttribute="top" secondItem="etK-OL-W6L" secondAttribute="bottom" id="FmM-f0-f0g"/>
-                            <constraint firstItem="ijn-db-hqH" firstAttribute="leading" secondItem="sWJ-NY-eTK" secondAttribute="leading" id="IbG-5u-DjD"/>
-                            <constraint firstItem="ijn-db-hqH" firstAttribute="top" secondItem="QIj-ZL-A2J" secondAttribute="top" id="OIj-yH-GTU"/>
-                            <constraint firstItem="ijn-db-hqH" firstAttribute="trailing" secondItem="sWJ-NY-eTK" secondAttribute="trailing" id="OOJ-RT-7Xd"/>
                             <constraint firstItem="1af-nP-AiY" firstAttribute="leading" secondItem="QIj-ZL-A2J" secondAttribute="leading" id="QUL-hl-NSu"/>
                             <constraint firstAttribute="trailing" secondItem="1af-nP-AiY" secondAttribute="trailing" id="TV3-bf-SVg"/>
                             <constraint firstItem="edu-NZ-65H" firstAttribute="top" secondItem="1af-nP-AiY" secondAttribute="bottom" id="XHd-2J-8Sa"/>
@@ -2086,13 +2086,6 @@ HuGYqET5GDW5CV</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPB-jc-EHs">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
-                                <color key="backgroundColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="rig-Rc-zg1"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yvS-nm-jh6">
                                 <rect key="frame" x="0.0" y="778" width="375" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2207,13 +2200,20 @@ HuGYqET5GDW5CV</string>
                                             <outlet property="lbSymbol" destination="nmL-5V-KZX" id="Zxk-P6-YXL"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DelegateInputFormCell" rowHeight="400" id="G5a-7A-WvC" customClass="DelegateInputFormCell" customModule="eoshub" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DelegateInputFormCell" rowHeight="400" id="G5a-7A-WvC" customClass="DelegateInputFormCell" customModule="eoshub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="188" width="375" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G5a-7A-WvC" id="qKq-X1-FTQ">
+                                        <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="G5a-7A-WvC" id="qKq-X1-FTQ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Dw6-zW-qql">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="900" id="Z96-ss-Eij"/>
+                                                    </constraints>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="C3B-hx-FnN">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
                                                     <subviews>
@@ -2375,9 +2375,12 @@ HuGYqET5GDW5CV</string>
                                                 <constraint firstItem="D9c-h3-XFP" firstAttribute="leading" secondItem="qKq-X1-FTQ" secondAttribute="leading" id="63Y-ng-TSd"/>
                                                 <constraint firstItem="C3B-hx-FnN" firstAttribute="leading" secondItem="qKq-X1-FTQ" secondAttribute="leading" id="CqS-Xp-HUp"/>
                                                 <constraint firstAttribute="trailing" secondItem="D9c-h3-XFP" secondAttribute="trailing" id="MQd-fm-K07"/>
+                                                <constraint firstItem="Dw6-zW-qql" firstAttribute="top" secondItem="qKq-X1-FTQ" secondAttribute="top" id="QZD-fM-pmQ"/>
                                                 <constraint firstItem="C3B-hx-FnN" firstAttribute="top" secondItem="qKq-X1-FTQ" secondAttribute="top" id="UxT-Cg-tEw"/>
+                                                <constraint firstAttribute="trailing" secondItem="Dw6-zW-qql" secondAttribute="trailing" id="WZJ-JN-UHO"/>
                                                 <constraint firstAttribute="bottom" secondItem="D9c-h3-XFP" secondAttribute="bottom" priority="750" id="nft-gj-6v6"/>
                                                 <constraint firstItem="D9c-h3-XFP" firstAttribute="top" secondItem="C3B-hx-FnN" secondAttribute="bottom" id="pf0-5O-hOW"/>
+                                                <constraint firstItem="Dw6-zW-qql" firstAttribute="leading" secondItem="qKq-X1-FTQ" secondAttribute="leading" id="srB-Dy-3zj"/>
                                                 <constraint firstAttribute="trailing" secondItem="C3B-hx-FnN" secondAttribute="trailing" id="wc9-ug-e3m"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -2393,7 +2396,7 @@ HuGYqET5GDW5CV</string>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="GOY-nU-ibJ" firstAttribute="bottom" secondItem="vRY-fj-tbD" secondAttribute="bottom" id="3oG-dm-OQc"/>
                             <constraint firstItem="LUZ-kb-kU6" firstAttribute="leading" secondItem="sr0-Ll-PgL" secondAttribute="leading" id="7B3-mY-b09"/>
@@ -2401,12 +2404,9 @@ HuGYqET5GDW5CV</string>
                             <constraint firstAttribute="bottom" secondItem="yvS-nm-jh6" secondAttribute="bottom" id="Fx4-Bl-Syj"/>
                             <constraint firstAttribute="trailing" secondItem="vRY-fj-tbD" secondAttribute="trailing" id="OEI-N7-Dp5"/>
                             <constraint firstItem="vRY-fj-tbD" firstAttribute="leading" secondItem="sr0-Ll-PgL" secondAttribute="leading" id="PFh-R7-bDP"/>
-                            <constraint firstItem="fPB-jc-EHs" firstAttribute="top" secondItem="sr0-Ll-PgL" secondAttribute="top" id="YFF-jc-LZY"/>
                             <constraint firstItem="vRY-fj-tbD" firstAttribute="top" secondItem="LUZ-kb-kU6" secondAttribute="bottom" id="aPy-LT-2wW"/>
                             <constraint firstItem="LUZ-kb-kU6" firstAttribute="top" secondItem="GOY-nU-ibJ" secondAttribute="top" id="cnM-M4-k57"/>
-                            <constraint firstItem="fPB-jc-EHs" firstAttribute="leading" secondItem="GOY-nU-ibJ" secondAttribute="leading" id="dru-Zr-3QI"/>
                             <constraint firstItem="yvS-nm-jh6" firstAttribute="top" secondItem="vRY-fj-tbD" secondAttribute="bottom" id="duF-82-gD2"/>
-                            <constraint firstItem="fPB-jc-EHs" firstAttribute="trailing" secondItem="GOY-nU-ibJ" secondAttribute="trailing" id="gkx-Ng-UfL"/>
                             <constraint firstAttribute="trailing" secondItem="yvS-nm-jh6" secondAttribute="trailing" id="mwR-6o-Jk9"/>
                             <constraint firstItem="yvS-nm-jh6" firstAttribute="leading" secondItem="sr0-Ll-PgL" secondAttribute="leading" id="qhz-QQ-2Js"/>
                         </constraints>
@@ -2430,13 +2430,6 @@ HuGYqET5GDW5CV</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ac6-Yw-eMm">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
-                                <color key="backgroundColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="Ncd-rz-Dte"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3T-u4-SOb">
                                 <rect key="frame" x="0.0" y="778" width="375" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2551,13 +2544,20 @@ HuGYqET5GDW5CV</string>
                                             <outlet property="lbSymbol" destination="sq0-7G-GuR" id="BME-6w-dhS"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RamInputFormCell" rowHeight="400" id="eGY-va-1od" customClass="RamInputFormCell" customModule="eoshub" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RamInputFormCell" rowHeight="400" id="eGY-va-1od" customClass="RamInputFormCell" customModule="eoshub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="188" width="375" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eGY-va-1od" id="9Qt-r3-2wc">
+                                        <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="eGY-va-1od" id="9Qt-r3-2wc">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DAu-Ye-Vgt">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="900" id="v5w-4T-MAR"/>
+                                                    </constraints>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VoX-r1-Oob">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
                                                     <subviews>
@@ -2674,7 +2674,10 @@ HuGYqET5GDW5CV</string>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="Plq-3e-dnq" secondAttribute="trailing" id="365-jp-zUw"/>
+                                                <constraint firstItem="DAu-Ye-Vgt" firstAttribute="top" secondItem="9Qt-r3-2wc" secondAttribute="top" id="Brn-dE-p6l"/>
                                                 <constraint firstItem="VoX-r1-Oob" firstAttribute="leading" secondItem="9Qt-r3-2wc" secondAttribute="leading" id="OOT-tX-a3c"/>
+                                                <constraint firstItem="DAu-Ye-Vgt" firstAttribute="leading" secondItem="9Qt-r3-2wc" secondAttribute="leading" id="OPv-Zo-LAN"/>
+                                                <constraint firstAttribute="trailing" secondItem="DAu-Ye-Vgt" secondAttribute="trailing" id="a2f-gh-5yO"/>
                                                 <constraint firstItem="VoX-r1-Oob" firstAttribute="top" secondItem="9Qt-r3-2wc" secondAttribute="top" id="a6i-Yt-Wxn"/>
                                                 <constraint firstAttribute="bottom" secondItem="Plq-3e-dnq" secondAttribute="bottom" priority="750" id="bAx-l3-Dhw"/>
                                                 <constraint firstItem="Plq-3e-dnq" firstAttribute="leading" secondItem="9Qt-r3-2wc" secondAttribute="leading" id="f4j-32-abG"/>
@@ -2692,17 +2695,14 @@ HuGYqET5GDW5CV</string>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nU5-I8-41E" firstAttribute="leading" secondItem="XxP-aR-9dT" secondAttribute="leading" id="0Jh-qy-pfG"/>
                             <constraint firstItem="J3T-u4-SOb" firstAttribute="leading" secondItem="XxP-aR-9dT" secondAttribute="leading" id="9Gn-Rf-llj"/>
-                            <constraint firstItem="ac6-Yw-eMm" firstAttribute="leading" secondItem="U1J-oG-SFe" secondAttribute="leading" id="AQB-qZ-4Yo"/>
                             <constraint firstItem="J3T-u4-SOb" firstAttribute="top" secondItem="nU5-I8-41E" secondAttribute="bottom" id="BfF-JP-AQs"/>
                             <constraint firstItem="nU5-I8-41E" firstAttribute="top" secondItem="Dcz-3z-l0r" secondAttribute="bottom" id="Ecg-2g-0r2"/>
                             <constraint firstAttribute="trailing" secondItem="nU5-I8-41E" secondAttribute="trailing" id="FXY-6J-2sL"/>
-                            <constraint firstItem="ac6-Yw-eMm" firstAttribute="trailing" secondItem="U1J-oG-SFe" secondAttribute="trailing" id="Fum-ta-n1x"/>
                             <constraint firstAttribute="trailing" secondItem="J3T-u4-SOb" secondAttribute="trailing" id="Hvw-lT-Amo"/>
-                            <constraint firstItem="ac6-Yw-eMm" firstAttribute="top" secondItem="XxP-aR-9dT" secondAttribute="top" id="J2D-t1-iu7"/>
                             <constraint firstAttribute="trailing" secondItem="Dcz-3z-l0r" secondAttribute="trailing" id="jL1-wo-MQz"/>
                             <constraint firstItem="Dcz-3z-l0r" firstAttribute="top" secondItem="U1J-oG-SFe" secondAttribute="top" id="n1I-Lp-JgA"/>
                             <constraint firstAttribute="bottom" secondItem="J3T-u4-SOb" secondAttribute="bottom" id="tr1-0D-5ye"/>
@@ -2729,13 +2729,6 @@ HuGYqET5GDW5CV</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tiy-bA-Ptx">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="300"/>
-                                <color key="backgroundColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="lGF-V7-8gK"/>
-                                </constraints>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOd-GK-hid">
                                 <rect key="frame" x="0.0" y="778" width="375" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -2880,13 +2873,20 @@ HuGYqET5GDW5CV</string>
                                             <outlet property="lbUsedBalance" destination="paT-tu-n7L" id="jl1-fj-tpu"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RamInputFormCell" rowHeight="400" id="JmZ-vW-HW2" customClass="RamInputFormCell" customModule="eoshub" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RamInputFormCell" rowHeight="400" id="JmZ-vW-HW2" customClass="RamInputFormCell" customModule="eoshub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="188" width="375" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JmZ-vW-HW2" id="vfl-qz-jU8">
+                                        <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JmZ-vW-HW2" id="vfl-qz-jU8">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o0M-Iz-JRH">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="900"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="900" id="mbl-0I-b3N"/>
+                                                    </constraints>
+                                                </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0J-Ha-H8o">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="111"/>
                                                     <subviews>
@@ -3005,9 +3005,12 @@ HuGYqET5GDW5CV</string>
                                                 <constraint firstItem="AdU-LT-IOn" firstAttribute="leading" secondItem="vfl-qz-jU8" secondAttribute="leading" id="0oI-7z-Hlz"/>
                                                 <constraint firstItem="AdU-LT-IOn" firstAttribute="top" secondItem="Z0J-Ha-H8o" secondAttribute="bottom" id="89p-GT-9wc"/>
                                                 <constraint firstAttribute="trailing" secondItem="Z0J-Ha-H8o" secondAttribute="trailing" id="Bgg-sD-RvY"/>
+                                                <constraint firstAttribute="trailing" secondItem="o0M-Iz-JRH" secondAttribute="trailing" id="DJg-xz-FZf"/>
+                                                <constraint firstItem="o0M-Iz-JRH" firstAttribute="leading" secondItem="vfl-qz-jU8" secondAttribute="leading" id="F01-0o-q5N"/>
                                                 <constraint firstItem="Z0J-Ha-H8o" firstAttribute="top" secondItem="vfl-qz-jU8" secondAttribute="top" id="KO7-sX-5ri"/>
                                                 <constraint firstItem="Z0J-Ha-H8o" firstAttribute="leading" secondItem="vfl-qz-jU8" secondAttribute="leading" id="LJT-9t-owh"/>
                                                 <constraint firstAttribute="bottom" secondItem="AdU-LT-IOn" secondAttribute="bottom" priority="750" id="LXG-Eb-xis"/>
+                                                <constraint firstItem="o0M-Iz-JRH" firstAttribute="top" secondItem="vfl-qz-jU8" secondAttribute="top" id="ioH-Kr-9Cy"/>
                                                 <constraint firstAttribute="trailing" secondItem="AdU-LT-IOn" secondAttribute="trailing" id="opI-Iv-9dh"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -3021,16 +3024,13 @@ HuGYqET5GDW5CV</string>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="LJh-Aa-EEq" firstAttribute="bottom" secondItem="zLu-nO-B1R" secondAttribute="bottom" id="2bw-cb-4J9"/>
                             <constraint firstAttribute="trailing" secondItem="zLu-nO-B1R" secondAttribute="trailing" id="3Au-T3-PKk"/>
                             <constraint firstAttribute="bottom" secondItem="aOd-GK-hid" secondAttribute="bottom" id="MIa-rL-fd2"/>
-                            <constraint firstItem="tiy-bA-Ptx" firstAttribute="trailing" secondItem="LJh-Aa-EEq" secondAttribute="trailing" id="O8a-ZC-a7l"/>
-                            <constraint firstItem="tiy-bA-Ptx" firstAttribute="top" secondItem="6pw-sB-aK5" secondAttribute="top" id="WJo-YL-w2J"/>
                             <constraint firstItem="aOd-GK-hid" firstAttribute="leading" secondItem="6pw-sB-aK5" secondAttribute="leading" id="cZt-6g-Mmj"/>
                             <constraint firstAttribute="trailing" secondItem="FXX-2g-lnY" secondAttribute="trailing" id="dbk-dB-iQE"/>
-                            <constraint firstItem="tiy-bA-Ptx" firstAttribute="leading" secondItem="LJh-Aa-EEq" secondAttribute="leading" id="fiJ-4f-0fE"/>
                             <constraint firstItem="FXX-2g-lnY" firstAttribute="leading" secondItem="6pw-sB-aK5" secondAttribute="leading" id="fqO-Yy-6lO"/>
                             <constraint firstItem="zLu-nO-B1R" firstAttribute="top" secondItem="FXX-2g-lnY" secondAttribute="bottom" id="gCr-gg-5od"/>
                             <constraint firstItem="aOd-GK-hid" firstAttribute="top" secondItem="zLu-nO-B1R" secondAttribute="bottom" id="pwi-yg-Pup"/>
