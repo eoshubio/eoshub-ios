@@ -136,7 +136,7 @@ class TxCell: UITableViewCell {
         
         btnTxId.rx.singleTap
             .bind {
-                if let url = URL(string: Config.txHost + tx.txid) {
+                if let url = URL(string: Config.txHost + tx.txid), UIApplication.shared.canOpenURL(url) {
                     UIApplication.shared.open(url, options: [:])
                 }
             }

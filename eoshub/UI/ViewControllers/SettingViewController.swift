@@ -250,7 +250,7 @@ class SettingViewController: FormViewController {
         
         let telegram = LabelRow() {
             $0.title = LocalizedString.Setting.App.telegram
-            $0.value = "@EOSHub"
+            $0.value = "EOSHub official community"
             $0.cellStyle = .value1
             }.cellUpdate { (cell, row) in
                 cell.textLabel?.textColor = Color.darkGray.uiColor
@@ -258,6 +258,10 @@ class SettingViewController: FormViewController {
                 cell.height = { 50 }
             }.onCellSelection({ (_, row) in
                 row.deselect()
+                if let url = URL(string: "https://t.me/joinchat/IIRAOk205MY9QrHxL0n4Lw"), UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+                
             })
         
         section += [version, github, openSource, term, telegram]
