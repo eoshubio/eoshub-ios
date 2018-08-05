@@ -46,8 +46,16 @@ class TabBarViewController: BaseViewController {
         view.insertSubview(contentView, at: 0)
         
         let menus = MenuTabBar(frame: CGRect(x: 0, y: 0, width: menuContainer.bounds.width, height: 50))
-        menus.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+//        menus.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         menuContainer.addSubview(menus)
+        menus.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            menus.leadingAnchor.constraint(equalTo: menuContainer.leadingAnchor, constant: 0),
+            menus.trailingAnchor.constraint(equalTo: menuContainer.trailingAnchor, constant: 0),
+            menus.topAnchor.constraint(equalTo: menuContainer.topAnchor, constant: 0),
+            menus.bottomAnchor.constraint(equalTo: menuContainer.bottomAnchor, constant: 0)
+        ])
         
         menuTabBar = menus
     }
