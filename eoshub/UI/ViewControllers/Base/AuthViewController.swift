@@ -28,8 +28,6 @@ class AuthViewController: BaseViewController, GIDSignInDelegate, GIDSignInUIDele
             loginWithFacebook()
         case .google:
             loginWithGoogle()
-        case .email:
-            loginWithEmail(email: "TODO: Implement a email form")
         case .none:
             loginAnonymously()
         
@@ -102,11 +100,28 @@ class AuthViewController: BaseViewController, GIDSignInDelegate, GIDSignInUIDele
         handleCredential(credential: credential)
     }
     
-    //MARK: Email
-    func loginWithEmail(email: String) {
+    //MARK: Email Password
+//    @remarks Possible error codes:
+//
+//    + `FIRAuthErrorCodeInvalidEmail` - Indicates the email address is malformed.
+//    + `FIRAuthErrorCodeEmailAlreadyInUse` - Indicates the email used to attempt sign up
+//    already exists. Call fetchProvidersForEmail to check which sign-in mechanisms the user
+//    used, and prompt the user to sign in with one of those.
+//    + `FIRAuthErrorCodeOperationNotAllowed` - Indicates that email and password accounts
+//    are not enabled. Enable them in the Auth section of the Firebase console.
+//    + `FIRAuthErrorCodeWeakPassword` - Indicates an attempt to set a password that is
+//    considered too weak. The NSLocalizedFailureReasonErrorKey field in the NSError.userInfo
+//    dictionary object will contain more detailed explanation that can be shown to the user.
+//
+//    @remarks See `FIRAuthErrors` for a list of error codes that are common to all API methods.
+
+    
+    
+    //MARK: EmailLink
+    private func loginWithEmail(email: String) {
         //send sing in link request
         let actionCodeSettings = ActionCodeSettings()
-        actionCodeSettings.url = URL(string: "https://eos-hub.io")
+        actionCodeSettings.url = URL(string: "https://eoshub.page.link/email")
         // The sign-in operation has to always be completed in the app.
         actionCodeSettings.handleCodeInApp = true
         actionCodeSettings.setIOSBundleID(Bundle.main.bundleIdentifier!)
@@ -145,28 +160,29 @@ class AuthViewController: BaseViewController, GIDSignInDelegate, GIDSignInUIDele
     
     
     private func handleCredential(credential: AuthCredential) {
+        WaitingView.shared.start()
         Auth.auth().signInAndRetrieveData(with: credential) { [weak self](user, error) in
-            
-            guard let user = user else { return }
-            
+            WaitingView.shared.stop()
             if let error = error {
-                self?.failToLogin(error: error)
+                 self?.failToLogin(error: error)
                 return
             }
             
-            self?.loggedIn(user: user)
+            guard let user = user else { return }
             
-            //            p user?.additionalUserInfo?.isNewUser
-            //            p user.user.photoURL
-            Log.i("User is signed in")
+            
+            self?.loggedIn(user: user)
         }
     }
     
+   
     func loggedIn(user: AuthDataResult) {
         //override it
+        Log.i("User is signed in")
     }
     
     func failToLogin(error: Error?) {
         
     }
+    
 }

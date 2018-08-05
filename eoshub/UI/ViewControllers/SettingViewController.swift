@@ -50,9 +50,12 @@ class SettingViewController: FormViewController {
         form +++ EOSSettings()
         form +++ walletSettings()
         form +++ appSettings()
+        
+        let email = Auth.auth().currentUser?.identifierString ?? ""
+        
         form
             
-            +++ Section("")
+            +++ Section(email)
             <<< LabelRow(){
                 $0.title = LocalizedString.Setting.logout
                 $0.cellStyle = .default

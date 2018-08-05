@@ -106,6 +106,13 @@
 		2C3B17AD20FCCC7000E6BAAD /* TxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17AC20FCCC7000E6BAAD /* TxManager.swift */; };
 		2C3B17AF20FCFDF400E6BAAD /* TransferPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B17AE20FCFDF400E6BAAD /* TransferPopup.xib */; };
 		2C3B17B120FD023000E6BAAD /* TransferPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17B020FD023000E6BAAD /* TransferPopup.swift */; };
+		2C7426B421169DFF00F8A85E /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7426B321169DFF00F8A85E /* AuthError.swift */; };
+		2C7426B62116B05C00F8A85E /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7426B52116B05C00F8A85E /* SigninViewController.swift */; };
+		2C7426B82116B07000F8A85E /* ForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7426B72116B07000F8A85E /* ForgetViewController.swift */; };
+		2C7426BA2116B1A300F8A85E /* SigninFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7426B92116B1A300F8A85E /* SigninFlowController.swift */; };
+		2C7426BC2116B80D00F8A85E /* ForgetPWFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7426BB2116B80D00F8A85E /* ForgetPWFlowController.swift */; };
+		2C7426BE2116D8D500F8A85E /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7426BD2116D8D500F8A85E /* VerifyViewController.swift */; };
+		2C7426C02116D9D900F8A85E /* VerifyFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7426BF2116D9D900F8A85E /* VerifyFlowController.swift */; };
 		2C755F1B20FF708600FD5FBF /* TouchIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C755F1A20FF708600FD5FBF /* TouchIdViewController.swift */; };
 		2C770C8D20FAECA8007F71C4 /* TokenDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C8C20FAECA8007F71C4 /* TokenDetailViewController.swift */; };
 		2C770C8F20FAF1F5007F71C4 /* TokenDetailFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C8E20FAF1F5007F71C4 /* TokenDetailFlowController.swift */; };
@@ -339,6 +346,13 @@
 		2C3B17AC20FCCC7000E6BAAD /* TxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxManager.swift; sourceTree = "<group>"; };
 		2C3B17AE20FCFDF400E6BAAD /* TransferPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferPopup.xib; sourceTree = "<group>"; };
 		2C3B17B020FD023000E6BAAD /* TransferPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferPopup.swift; sourceTree = "<group>"; };
+		2C7426B321169DFF00F8A85E /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
+		2C7426B52116B05C00F8A85E /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
+		2C7426B72116B07000F8A85E /* ForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewController.swift; sourceTree = "<group>"; };
+		2C7426B92116B1A300F8A85E /* SigninFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninFlowController.swift; sourceTree = "<group>"; };
+		2C7426BB2116B80D00F8A85E /* ForgetPWFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPWFlowController.swift; sourceTree = "<group>"; };
+		2C7426BD2116D8D500F8A85E /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
+		2C7426BF2116D9D900F8A85E /* VerifyFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyFlowController.swift; sourceTree = "<group>"; };
 		2C755F1A20FF708600FD5FBF /* TouchIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIdViewController.swift; sourceTree = "<group>"; };
 		2C770C8C20FAECA8007F71C4 /* TokenDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetailViewController.swift; sourceTree = "<group>"; };
 		2C770C8E20FAF1F5007F71C4 /* TokenDetailFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetailFlowController.swift; sourceTree = "<group>"; };
@@ -727,6 +741,9 @@
 				2CE1112520F2504000B93BEB /* MainTabFlowController.swift */,
 				2CE110EE20F1C9D600B93BEB /* LoginFlowController.swift */,
 				2CE110F620F1E00D00B93BEB /* TermFlowController.swift */,
+				2C7426B92116B1A300F8A85E /* SigninFlowController.swift */,
+				2C7426BF2116D9D900F8A85E /* VerifyFlowController.swift */,
+				2C7426BB2116B80D00F8A85E /* ForgetPWFlowController.swift */,
 				2CE1110120F1EE9C00B93BEB /* WalletFlowController.swift */,
 				2CEC2D4D20F65D8600AF5E9B /* WalletDetailFlowController.swift */,
 				2C770C9A20FB7CBD007F71C4 /* DelegateFlowController.swift */,
@@ -761,6 +778,9 @@
 				2CE1112A20F25B0B00B93BEB /* Base */,
 				2CE110D820F1C52900B93BEB /* LoginViewController.swift */,
 				2CE110F420F1DCEC00B93BEB /* TermViewController.swift */,
+				2C7426B52116B05C00F8A85E /* SigninViewController.swift */,
+				2C7426BD2116D8D500F8A85E /* VerifyViewController.swift */,
+				2C7426B72116B07000F8A85E /* ForgetViewController.swift */,
 				2CE1112320F24CF200B93BEB /* MainTabViewController.swift */,
 				2CE110FF20F1EDB000B93BEB /* WalletViewController.swift */,
 				2CEC2D4920F65C3000AF5E9B /* WalletDetailViewController.swift */,
@@ -835,6 +855,7 @@
 				2CFE954920F3947300DC173F /* EOSAccountViewModel.swift */,
 				2C1D928D2100C7DC0009F5C4 /* Validator.swift */,
 				2CB6B7EE210483560048601A /* TransactionForm.swift */,
+				2C7426B321169DFF00F8A85E /* AuthError.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1198,7 +1219,9 @@
 				2CE1113A20F27BE000B93BEB /* WalletCell.swift in Sources */,
 				2CE1110620F1F76200B93BEB /* SettingFlowController.swift in Sources */,
 				2C770CA920FBA2A9007F71C4 /* SellRamFlowController.swift in Sources */,
+				2C7426C02116D9D900F8A85E /* VerifyFlowController.swift in Sources */,
 				2CE1112020F2403100B93BEB /* MenuTabBar.swift in Sources */,
+				2C7426BE2116D8D500F8A85E /* VerifyViewController.swift in Sources */,
 				2CE1113420F26D8000B93BEB /* WalletAddCell.swift in Sources */,
 				2CE1110220F1EE9C00B93BEB /* WalletFlowController.swift in Sources */,
 				2CE1112420F24CF200B93BEB /* MainTabViewController.swift in Sources */,
@@ -1220,6 +1243,7 @@
 				2C2ACFDF20F46B3300C637D8 /* FindFlowController.swift in Sources */,
 				2C279B7920F7A4A100D2F6C4 /* ReceiveFlowController.swift in Sources */,
 				2CB6B7F12104AD020048601A /* PreferAccountViewController.swift in Sources */,
+				2C7426B62116B05C00F8A85E /* SigninViewController.swift in Sources */,
 				2C770C9720FB6E94007F71C4 /* RoundedShadowButton.swift in Sources */,
 				2C279BB620F8C42700D2F6C4 /* EosPrivateKey.m in Sources */,
 				2CB6B7F32104AE970048601A /* PreferAccountFlowController.swift in Sources */,
@@ -1263,6 +1287,7 @@
 				2CEC2D4A20F65C3000AF5E9B /* WalletDetailViewController.swift in Sources */,
 				2C279B9320F8C30700D2F6C4 /* PackedTransaction.swift in Sources */,
 				2C1E3E9720FE18000009D2AF /* Popup.swift in Sources */,
+				2C7426B421169DFF00F8A85E /* AuthError.swift in Sources */,
 				2C770C9B20FB7CBD007F71C4 /* DelegateFlowController.swift in Sources */,
 				2CA5D1882109FAD5006C928B /* TokenAddFlowController.swift in Sources */,
 				2CEC2D4620F6423000AF5E9B /* AccountManager.swift in Sources */,
@@ -1289,6 +1314,7 @@
 				2CE110FE20F1ED6500B93BEB /* LoginButton.swift in Sources */,
 				2C279BD720F8C5A300D2F6C4 /* Key.swift in Sources */,
 				2CE1112620F2504000B93BEB /* MainTabFlowController.swift in Sources */,
+				2C7426BA2116B1A300F8A85E /* SigninFlowController.swift in Sources */,
 				2C1E3E9520FE14000009D2AF /* WaitingView.swift in Sources */,
 				2CE110F320F1DAF700B93BEB /* BaseViewController.swift in Sources */,
 				2CB6B7F52104C7850048601A /* QRScannerViewController.swift in Sources */,
@@ -1302,6 +1328,7 @@
 				2C279B7520F7844300D2F6C4 /* SendCurrencyFlowController.swift in Sources */,
 				2CE1111B20F23C7400B93BEB /* CGSize+extension.swift in Sources */,
 				2C2ACFF920F4A3DE00C637D8 /* ConfirmPinFlowController.swift in Sources */,
+				2C7426BC2116B80D00F8A85E /* ForgetPWFlowController.swift in Sources */,
 				2C770C8D20FAECA8007F71C4 /* TokenDetailViewController.swift in Sources */,
 				2C279BD820F8C5A300D2F6C4 /* Contract+Args.swift in Sources */,
 				2C279BB420F8C42700D2F6C4 /* Crypto.m in Sources */,
@@ -1349,6 +1376,7 @@
 				2CB6B7ED210391A40048601A /* AccountTextField.swift in Sources */,
 				2C279BC320F8C58100D2F6C4 /* EOSAPI.swift in Sources */,
 				2C279BF020F8E90100D2F6C4 /* Security.swift in Sources */,
+				2C7426B82116B07000F8A85E /* ForgetViewController.swift in Sources */,
 				2CDF5917210C7077003D866C /* AuthViewController.swift in Sources */,
 				2CDF5919210CDF3F003D866C /* UserManager.swift in Sources */,
 				2C2ACFFF20F4E51700C637D8 /* BPCell.swift in Sources */,

@@ -8,6 +8,21 @@
 "login.email" = "이메일로 로그인하기";
 "login.none" = "익명으로 로그인하기";
 
+"login.email.email" = "이메일";
+"login.email.pw" = "패스워드 (최소 6글자)";
+"login.email.signin" = "로그인";
+"login.email.forget" = "비밀번호를 잊으셨나요?";
+"login.email.verficationSent" = "인증 링크를 %@ 로 전송하였습니다.";
+
+"login.verify.title" = "이메일 인증";
+"login.verify.description" = "%@ 로 인증링크가 전송 되었습니다. 이메일에서 인증 링크를 클릭 후 아래 버튼을 눌러주세요.";
+"login.verify.confirm" = "확인";
+"login.verify.relogin" = "한번 더 로그인";
+"login.verify.reloginText" = "%@ 계정으로 한번 더 로그인 해주세요.";
+
+"login.forgetpw.title" = "비밀번호 재설정";
+"login.forgetpw.send" = "비밀번호 재설정 링크 보내기";
+
 /* 약관 */
 "term.title" = "이오스허브는 EOS와 EOS기반 토큰들을\n가장 안전하게 보관할 수 있는 모바일\n콜드 월렛 입니다";
 "term.goTerm" = "이용약관";

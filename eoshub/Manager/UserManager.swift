@@ -20,7 +20,14 @@ class UserManager {
 
 extension User {
     
-    enum LoginType {
+    var identifierString: String {
+        if let email = email {
+            return email + " (\(loginType.rawValue))"
+        }
+        return "from \(loginType.rawValue)"
+    }
+    
+    enum LoginType: String {
         case anonymous
         case email
         case facebook
@@ -59,6 +66,7 @@ extension User {
     
     
     func urlForProfileImageFor(imageResolution: ImageResolution) -> URL? {
+        
         switch imageResolution {
         //for thumnail we just return the std photoUrl
         case .thumbnail         : return photoURL
@@ -66,6 +74,11 @@ extension User {
         case .highres           : return urlForProfileImageFor(imageResolution:.custom(size: 200))
         //custom size is where the user specified its own value
         case .custom(let size)  :
+            if let photoURLString = photoURL?.absoluteString, photoURLString.hasPrefix("https://graph.facebook.com") == true {
+                let urlString = photoURLString + "/picture?height=\(size)"
+                return URL(string: urlString)
+            }
+            
             switch loginType {
             //for facebook we assemble the photoUrl based on the facebookUserId via the graph API
             case .facebook :

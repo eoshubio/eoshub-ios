@@ -76,6 +76,7 @@ class WalletViewController: BaseViewController {
     private func setupUI() {
         
         let profileURL = UserManager.shared.profileURL
+        btnProfile.imageView?.contentMode = .scaleAspectFill
         btnProfile.sd_setImage(with: profileURL, for: .normal, placeholderImage: #imageLiteral(resourceName: "profileDefault"),
                                options: [], completed: nil)
        

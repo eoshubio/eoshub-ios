@@ -20,6 +20,27 @@ struct LocalizedString {
         static let google = NSLocalizedString("login.google", comment: "")
         static let email = NSLocalizedString("login.email", comment: "")
         static let none = NSLocalizedString("login.none", comment: "")
+        
+        struct Email {
+            static let email = NSLocalizedString("login.email.email", comment: "")
+            static let pw = NSLocalizedString("login.email.pw", comment: "")
+            static let signin = NSLocalizedString("login.email.signin", comment: "")
+            static let forgot = NSLocalizedString("login.email.forget", comment: "")
+            static let verify = NSLocalizedString("login.email.verficationSent", comment: "")
+        }
+
+        struct Verify {
+            static let title = NSLocalizedString("login.verify.title", comment: "")
+            static let description = NSLocalizedString("login.verify.description", comment: "")
+            static let confirm = NSLocalizedString("login.verify.confirm", comment: "")
+            static let relogin = NSLocalizedString("login.verify.relogin", comment: "")
+            static let reloginText = NSLocalizedString("login.verify.reloginText", comment: "")
+        }
+        
+        struct ForgotPW {
+            static let title = NSLocalizedString("login.forgetpw.title", comment: "")
+            static let send = NSLocalizedString("login.forgetpw.send", comment: "")
+        }
     }
     
     struct Term {

@@ -37,8 +37,21 @@ class Popup: UIView {
         popup.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
     }
     
-    func configure(style: Style, description: String, observer: AnyObserver<Void>? = nil) {
+    func configure(style: Style, titleString: String? = nil , description: String, observer: AnyObserver<Void>? = nil) {
         
+        configure(style: style, titleString: titleString, observer: observer)
+        
+        text.text = description
+    }
+    
+    func configure(style: Style, titleString: String? = nil , description: NSAttributedString , observer: AnyObserver<Void>? = nil) {
+        
+        configure(style: style, titleString: titleString, observer: observer)
+        
+        text.attributedText = description
+    }
+    
+    private func configure(style: Style, titleString: String? = nil, observer: AnyObserver<Void>? = nil) {
         switch style {
         case .success:
             titleImage.image = #imageLiteral(resourceName: "popupCheck")
@@ -51,7 +64,9 @@ class Popup: UIView {
             title.text = "Warning..."
         }
         
-        text.text = description
+        if let titleString = titleString {
+            title.text = titleString
+        }
         
         btnOk.rx.singleTap
             .bind {
@@ -67,6 +82,9 @@ class Popup: UIView {
             .disposed(by: bag)
     }
     
+    
+    
+    
     fileprivate func show() {
         let window = UIApplication.shared.keyWindow!
         frame = UIScreen.main.bounds
@@ -79,13 +97,13 @@ class Popup: UIView {
     }
     
     
-    static func show(style: Style, description: String) -> Observable<Void> {
+    static func show(style: Style, titleString: String? = nil, description: String) -> Observable<Void> {
         
         guard let popup = Bundle.main.loadNibNamed("Popup", owner: nil, options: nil)?.first as? Popup else { preconditionFailure() }
         
         return Observable<Void>.create({ (observer) -> Disposable in
             
-            popup.configure(style: style, description: description, observer: observer)
+            popup.configure(style: style, titleString: titleString, description: description, observer: observer)
             
             popup.show()
             
@@ -93,11 +111,30 @@ class Popup: UIView {
         })
     }
     
-    static func present(style: Style, description: String) {
+    static func show(style: Style, titleString: String? = nil, description: NSAttributedString) -> Observable<Void> {
+        
         guard let popup = Bundle.main.loadNibNamed("Popup", owner: nil, options: nil)?.first as? Popup else { preconditionFailure() }
-        popup.configure(style: style, description: description)
+        
+        return Observable<Void>.create({ (observer) -> Disposable in
+            
+            popup.configure(style: style, titleString: titleString, description: description, observer: observer)
+            
+            popup.show()
+            
+            return Disposables.create()
+        })
+    }
+    
+    static func present(style: Style, titleString: String? = nil, description: String) {
+        guard let popup = Bundle.main.loadNibNamed("Popup", owner: nil, options: nil)?.first as? Popup else { preconditionFailure() }
+        popup.configure(style: style, titleString: titleString, description: description)
         popup.show()
     }
     
+    static func present(style: Style, titleString: String? = nil, description: NSAttributedString) {
+        guard let popup = Bundle.main.loadNibNamed("Popup", owner: nil, options: nil)?.first as? Popup else { preconditionFailure() }
+        popup.configure(style: style, titleString: titleString, description: description)
+        popup.show()
+    }
     
 }

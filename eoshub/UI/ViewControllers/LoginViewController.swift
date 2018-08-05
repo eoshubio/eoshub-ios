@@ -46,6 +46,11 @@ class LoginViewController: AuthViewController {
         let availableLoginTypes: [LoginType] = [.facebook, .google, .email]
         
         stackLoginButtons.spacing = 10
+        let white = UIColor(white: 1.0, alpha: 0.8)
+        let anonymouseTitle = NSAttributedString(string: LocalizedString.Login.none,
+                                                 attributes: [NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue,
+                                                              NSAttributedStringKey.foregroundColor: white])
+        btnSkipLogin?.setAttributedTitle(anonymouseTitle, for: .normal)
         
         availableLoginTypes.forEach { (type) in
             let loginButton = LoginButton(frame: CGRect(x: 0, y: 0, width: stackLoginButtons.bounds.width, height: 44))
@@ -75,7 +80,15 @@ class LoginViewController: AuthViewController {
 
     
     override func login(with type: LoginType) {
-        super.login(with: type)
+        
+        switch type {
+        case .email:
+            guard let nc = navigationController else { return }
+            flowDelegate?.goToSignin(from: nc)
+        default:
+            super.login(with: type)
+        }
+        
 //        WaitingView.shared.start()
     }
     
@@ -95,8 +108,8 @@ class LoginViewController: AuthViewController {
     override func failToLogin(error: Error?) {
         if let error = error {
             Log.e(error)
+            AuthError(with: error as NSError).showPopup()
         }
-        WaitingView.shared.stop()
     }
     
 }

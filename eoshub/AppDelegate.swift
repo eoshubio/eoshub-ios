@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDynamicLinks
 import GoogleSignIn
 import FBSDKCoreKit
 
@@ -64,11 +65,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                              sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
                                              annotation: [:]) {
             return true
-        } else if FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String, annotation: options[UIApplicationOpenURLOptionsKey.annotation]) {
+        } else if let sourceOption = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+            FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: sourceOption, annotation: options[UIApplicationOpenURLOptionsKey.annotation]) {
+            return true
+        } else if let dLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
+            Log.i(dLink.description)
             return true
         }
         
         return false
+    }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+        
+        let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
+            // ...
+            if let error = error {
+                Log.e(error)
+            } else {
+                Log.i(dynamiclink.debugDescription)
+            }
+        }
+        return handled
     }
 
 }

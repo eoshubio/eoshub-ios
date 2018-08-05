@@ -8,6 +8,22 @@
 "login.email" = "Sign in with Email";
 "login.none" = "Skip sign up";
 
+
+"login.email.email" = "Email";
+"login.email.pw" = "Password (At least 6 letters)";
+"login.email.signin" = "Sign in";
+"login.email.forget" = "Forgot password?";
+"login.email.verficationSent" = "Verification link sent to %@.";
+
+"login.verify.title" = "Verify email";
+"login.verify.description" = "Verification link sent to %@. Click on the verification link in the email and press the Confirm button below.";
+"login.verify.confirm" = "Confirm";
+"login.verify.relogin" = "Sign in again";
+"login.verify.reloginText" = "Please sign in again at %@";
+
+"login.forgetpw.title" = "Reset password";
+"login.forgetpw.send" = "Reset password via email";
+
 /* 약관 */
 "term.title" = "EOSHub is\na mobile cold wallet\nthat can store\n'EOS ans EOS based token'\nSafely";
 "term.goTerm" = "terms of use";

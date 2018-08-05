@@ -59,7 +59,7 @@ extension LoginType {
         case .kakao:
             return UIImage(named: "kakaotalk")
         case .email:
-            return nil
+            return UIImage(named: "email")
         case .none:
             return nil
         }
@@ -74,7 +74,7 @@ extension LoginType {
         case .kakao:
             return UIColor.colorUInt8(r: 255, g: 155, b: 0)
         case .email:
-            return UIColor.colorUInt8(r: 255, g: 95, b: 84)
+            return UIColor.colorUInt8(r: 255, g: 155, b: 0)
         case .none:
             return UIColor.clear
         }

@@ -19,6 +19,7 @@ target 'eoshub' do
   pod 'QRCode'
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
+  pod 'Firebase/DynamicLinks'
   pod 'Fabric', '~> 1.7.6'
   pod 'Crashlytics', '~> 3.10.1'
   pod 'FBSDKLoginKit'
