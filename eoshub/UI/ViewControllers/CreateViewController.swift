@@ -154,6 +154,8 @@ class CreateViewCell: UITableViewCell, ConfigurationableCell {
 }
 
 class CreateAccountCell: CreateViewCell {
+    @IBOutlet fileprivate var lbTitle: UILabel!
+    @IBOutlet fileprivate var lbText: UILabel!
     @IBOutlet fileprivate var btnCreate: UIButton!
     private let bag = DisposeBag()
     
@@ -167,7 +169,13 @@ class CreateAccountCell: CreateViewCell {
     }
     
     private func setupUI() {
-    
+        lbTitle.text = LocalizedString.Create.New.title
+        btnCreate.setTitle(LocalizedString.Create.New.action, for: .normal)
+        let text = NSMutableAttributedString(string: LocalizedString.Create.New.text)
+        text.addAttributeColor(text: "CPU", color: Color.lightPurple.uiColor)
+        text.addAttributeColor(text: "Network", color: Color.lightPurple.uiColor)
+        text.addAttributeColor(text: "RAM", color: Color.lightPurple.uiColor)
+        lbText.attributedText = text
     }
     
     override func configure(subject: PublishSubject<Void>) {
@@ -181,6 +189,8 @@ class CreateAccountCell: CreateViewCell {
 
 
 class ImportAccountCell: CreateViewCell {
+    @IBOutlet fileprivate var lbTitle: UILabel!
+    @IBOutlet fileprivate var lbText: UILabel!
     @IBOutlet fileprivate var btnImport: UIButton!
     private let bag = DisposeBag()
     
@@ -194,7 +204,11 @@ class ImportAccountCell: CreateViewCell {
     }
     
     private func setupUI() {
-        
+        lbTitle.text = LocalizedString.Create.Import.title
+        btnImport.setTitle(LocalizedString.Create.Import.action, for: .normal)
+        let text = NSMutableAttributedString(string: LocalizedString.Create.Import.text)
+        text.addAttributeColor(text: "iCloud keychain", color: Color.lightPurple.uiColor)
+        lbText.attributedText = text
     }
     
     override func configure(subject: PublishSubject<Void>) {
@@ -208,6 +222,8 @@ class ImportAccountCell: CreateViewCell {
 
 
 class ImportPubAccountCell: CreateViewCell {
+    @IBOutlet fileprivate var lbTitle: UILabel!
+    @IBOutlet fileprivate var lbText: UILabel!
     @IBOutlet fileprivate var btnImport: UIButton!
     private let bag = DisposeBag()
     
@@ -221,7 +237,9 @@ class ImportPubAccountCell: CreateViewCell {
     }
     
     private func setupUI() {
-        
+        lbTitle.text = LocalizedString.Create.Interest.title
+        lbText.text = LocalizedString.Create.Interest.text
+        btnImport.setTitle(LocalizedString.Create.Interest.action, for: .normal)
     }
     
     override func configure(subject: PublishSubject<Void>) {

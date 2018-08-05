@@ -83,6 +83,27 @@ struct LocalizedString {
         
     }
     
+    struct Create {
+        struct New {
+            static let title = NSLocalizedString("create.new.title", comment: "")
+            static let text = NSLocalizedString("create.new.text", comment: "")
+            static let action = NSLocalizedString("create.new.action", comment: "")
+        }
+        
+        struct Import {
+            static let title = NSLocalizedString("create.import.title", comment: "")
+            static let text = NSLocalizedString("create.import.text", comment: "")
+            static let action = NSLocalizedString("create.import.action", comment: "")
+        }
+        
+        struct Interest {
+            static let title = NSLocalizedString("create.interest.title", comment: "")
+            static let text = NSLocalizedString("create.interest.text", comment: "")
+            static let action = NSLocalizedString("create.interest.action", comment: "")
+        }
+        
+    }
+    
     struct Wallet {
         static let send = NSLocalizedString("wallet.send", comment: "")
         static let receive = NSLocalizedString("wallet.receive", comment: "")

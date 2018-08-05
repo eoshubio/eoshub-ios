@@ -54,6 +54,19 @@
 "setting.app.term" = "Term & Privacy policy";
 "setting.app.telegram" = "Telegram";
 
+/* 만들기 */
+"create.new.title" = "Create a new EOS account";
+"create.new.text" = "To create a new EOS account, you must allocate CPU and Network resources to the EOS blockchain and purchase a minimum amount of RAM. Please press the Create button for more information.";
+"create.new.action" = "Create";
+
+"create.import.title" = "Import an existing account";
+"create.import.text" = "You can keep your existing EOS account securely in EOSHub. The private key is encrypted and stored in the iCloud keychain.";
+"create.import.action" = "Import";
+
+"create.interest.title" = "Add an interest account";
+"create.interest.text" = "You can add and manage the EOS account you are interested in. Accounts of interest do not require a private key, and are only viewable.";
+"create.interest.action" = "Add";
+
 /* 지갑 */
 "wallet.send" = "Send";
 "wallet.receive" = "Receive";

@@ -113,6 +113,7 @@
 		2C7426BC2116B80D00F8A85E /* ForgetPWFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7426BB2116B80D00F8A85E /* ForgetPWFlowController.swift */; };
 		2C7426BE2116D8D500F8A85E /* VerifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7426BD2116D8D500F8A85E /* VerifyViewController.swift */; };
 		2C7426C02116D9D900F8A85E /* VerifyFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7426BF2116D9D900F8A85E /* VerifyFlowController.swift */; };
+		2C7426C2211749EA00F8A85E /* NSAttributedString+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7426C1211749EA00F8A85E /* NSAttributedString+extension.swift */; };
 		2C755F1B20FF708600FD5FBF /* TouchIdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C755F1A20FF708600FD5FBF /* TouchIdViewController.swift */; };
 		2C770C8D20FAECA8007F71C4 /* TokenDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C8C20FAECA8007F71C4 /* TokenDetailViewController.swift */; };
 		2C770C8F20FAF1F5007F71C4 /* TokenDetailFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770C8E20FAF1F5007F71C4 /* TokenDetailFlowController.swift */; };
@@ -353,6 +354,7 @@
 		2C7426BB2116B80D00F8A85E /* ForgetPWFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetPWFlowController.swift; sourceTree = "<group>"; };
 		2C7426BD2116D8D500F8A85E /* VerifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyViewController.swift; sourceTree = "<group>"; };
 		2C7426BF2116D9D900F8A85E /* VerifyFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyFlowController.swift; sourceTree = "<group>"; };
+		2C7426C1211749EA00F8A85E /* NSAttributedString+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+extension.swift"; sourceTree = "<group>"; };
 		2C755F1A20FF708600FD5FBF /* TouchIdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIdViewController.swift; sourceTree = "<group>"; };
 		2C770C8C20FAECA8007F71C4 /* TokenDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetailViewController.swift; sourceTree = "<group>"; };
 		2C770C8E20FAF1F5007F71C4 /* TokenDetailFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenDetailFlowController.swift; sourceTree = "<group>"; };
@@ -704,6 +706,7 @@
 				2C770C9C20FB85DB007F71C4 /* UITextField+extension.swift */,
 				2CA5D195210C4E46006C928B /* Range+extension.swift */,
 				2CCA34A7210DD9550024BB5D /* Array+extension.swift */,
+				2C7426C1211749EA00F8A85E /* NSAttributedString+extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1344,6 +1347,7 @@
 				2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */,
 				2CA5D18E210B5B58006C928B /* TokenAddPopup.swift in Sources */,
 				2C279B7720F7A29A00D2F6C4 /* ReceiveViewController.swift in Sources */,
+				2C7426C2211749EA00F8A85E /* NSAttributedString+extension.swift in Sources */,
 				2CE110D520F1C4E700B93BEB /* FlowConfigure.swift in Sources */,
 				2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */,
 				2C279C0320FA0E3000D2F6C4 /* RealmString.swift in Sources */,
