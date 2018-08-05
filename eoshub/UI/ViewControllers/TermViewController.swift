@@ -14,7 +14,7 @@ class TermViewController: BaseViewController {
     
     @IBOutlet fileprivate var lbTitle: UILabel!
     @IBOutlet fileprivate var btnPrivacy: UIButton!
-    @IBOutlet fileprivate var lbPrivacyDesc: UILabel!
+    @IBOutlet fileprivate var lbPrivacyDesc: UITextView!
     @IBOutlet fileprivate var btnStart: UIButton!
     
     var flowDelegate: TermFlowEventDelegate?
@@ -27,8 +27,22 @@ class TermViewController: BaseViewController {
     
     private func setupUI() {
         lbTitle.text = LocalizedString.Term.title
-        btnPrivacy.setTitle(LocalizedString.Term.goPrivacy, for: .normal)
+        btnPrivacy.setTitle(LocalizedString.Term.termAndPrivacy, for: .normal)
         btnStart.setTitle(LocalizedString.Term.start, for: .normal)
+        let termPolicyText = LocalizedString.Term.privacyDesc
+        let termPolicyString = NSMutableAttributedString(string: termPolicyText)
+        if let termRange = termPolicyText.range(of: LocalizedString.Term.term), let policyRange = termPolicyText.range(of: LocalizedString.Term.goPrivacy) {
+            let langCode = Locale.current.languageCode ?? "en"
+            termPolicyString.addAttribute(NSAttributedStringKey.link, value: EOSHubAPI.URL.term.getHtml(languateCode: langCode), range: termRange.nsRange)
+            termPolicyString.addAttribute(NSAttributedStringKey.foregroundColor, value: Color.blue.uiColor, range: termRange.nsRange)
+            termPolicyString.addAttribute(NSAttributedStringKey.link, value: EOSHubAPI.URL.privacy_policy.getHtml(languateCode: langCode), range: policyRange.nsRange)
+            termPolicyString.addAttribute(NSAttributedStringKey.foregroundColor, value: Color.blue.uiColor, range: policyRange.nsRange)
+
+        }
+        
+        lbPrivacyDesc.attributedText = termPolicyString
+        lbPrivacyDesc.isUserInteractionEnabled = true
+        
     }
     
     private func bindActions() {

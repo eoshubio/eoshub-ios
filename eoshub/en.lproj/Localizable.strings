@@ -10,8 +10,10 @@
 
 /* 약관 */
 "term.title" = "EOSHub is\na mobile cold wallet\nthat can store\n'EOS ans EOS based token'\nSafely";
-"term.goPrivacy" = "Privacy policy";
-"term.privacyDesc" = "By clicking the Start button, you agree to the terms of use and policies.";
+"term.goTerm" = "terms of use";
+"term.termAndPrivacy" = "Term and Privacy policy";
+"term.goPrivacy" = "privacy policies";
+"term.privacyDesc" = "By clicking the Start button, you agree to the terms of use and privacy policies.";
 "term.start" = "Start";
 
 

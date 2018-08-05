@@ -24,6 +24,8 @@ struct LocalizedString {
     
     struct Term {
         static let title = NSLocalizedString("term.title", comment: "")
+        static let term = NSLocalizedString("term.goTerm", comment: "")
+        static let termAndPrivacy = NSLocalizedString("term.termAndPrivacy", comment: "")
         static let goPrivacy = NSLocalizedString("term.goPrivacy", comment: "")
         static let privacyDesc = NSLocalizedString("term.privacyDesc", comment: "")
         static let start = NSLocalizedString("term.start", comment: "")

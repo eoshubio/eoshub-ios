@@ -225,6 +225,8 @@ class SettingViewController: FormViewController {
                 row.deselect()
             })
         
+        
+        
         let openSource = LabelRow() {
             $0.title = LocalizedString.Setting.App.license
             $0.cellStyle = .default
@@ -239,13 +241,33 @@ class SettingViewController: FormViewController {
             })
         
         let term = LabelRow() {
-            $0.title = LocalizedString.Setting.App.term
+            $0.title = LocalizedString.Term.term.capitalized
             $0.cellStyle = .default
             }.cellUpdate { (cell, row) in
                 cell.textLabel?.textColor = Color.darkGray.uiColor
                 cell.height = { 50 }
+                cell.accessoryType = .disclosureIndicator
             }.onCellSelection({ (_, row) in
                 row.deselect()
+                let url = EOSHubAPI.URL.term.getHtml()
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+            })
+        
+        let privacyPolicy = LabelRow() {
+            $0.title = LocalizedString.Term.goPrivacy.capitalized
+            $0.cellStyle = .default
+            }.cellUpdate { (cell, row) in
+                cell.textLabel?.textColor = Color.darkGray.uiColor
+                cell.height = { 50 }
+                cell.accessoryType = .disclosureIndicator
+            }.onCellSelection({ (_, row) in
+                row.deselect()
+                let url = EOSHubAPI.URL.privacy_policy.getHtml()
+                if UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
             })
         
         let telegram = LabelRow() {
@@ -264,7 +286,7 @@ class SettingViewController: FormViewController {
                 
             })
         
-        section += [version, github, openSource, term, telegram]
+        section += [version, github, openSource, term, privacyPolicy, telegram]
         
         return section
     }

@@ -140,12 +140,6 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mask" translatesAutoresizingMaskIntoConstraints="NO" id="07F-rU-le5">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="344"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="시작하기 버튼을 누르시면 회원약관, 정책에 동의됩니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLD-pR-V3f">
-                                        <rect key="frame" x="40" y="166" width="281.66666666666669" height="15.666666666666657"/>
-                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
-                                        <color key="textColor" red="0.23921568627450981" green="0.23921568627450981" blue="0.23921568627450981" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Flg-cT-hkD" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
                                         <rect key="frame" x="15" y="246" width="345" height="44"/>
                                         <color key="backgroundColor" red="0.41960784313725491" green="0.24313725490196078" blue="0.85098039215686272" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -155,6 +149,14 @@
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                                         <state key="normal" title="시작하기"/>
                                     </button>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="By clicking the Start button, you agree to the terms of use and privacy policies." textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6CQ-lI-nen">
+                                        <rect key="frame" x="30" y="166" width="315" height="75"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                        <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                    </textView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2QW-6u-Pzs">
                                         <rect key="frame" x="130.66666666666666" y="125" width="115" height="36"/>
                                         <constraints>
@@ -168,17 +170,17 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="Flg-cT-hkD" firstAttribute="top" secondItem="6CQ-lI-nen" secondAttribute="bottom" constant="5" id="0O6-Rv-zW2"/>
                                     <constraint firstItem="07F-rU-le5" firstAttribute="leading" secondItem="MKj-bE-FIa" secondAttribute="leading" id="1j7-0f-glq"/>
                                     <constraint firstItem="07F-rU-le5" firstAttribute="top" secondItem="MKj-bE-FIa" secondAttribute="top" id="3Jb-vZ-SsN"/>
                                     <constraint firstItem="2QW-6u-Pzs" firstAttribute="centerX" secondItem="MKj-bE-FIa" secondAttribute="centerX" id="5kp-gC-ScG"/>
                                     <constraint firstAttribute="trailing" secondItem="07F-rU-le5" secondAttribute="trailing" id="8hS-9J-UDo"/>
                                     <constraint firstAttribute="bottom" secondItem="07F-rU-le5" secondAttribute="bottom" id="ACw-yy-Ujm"/>
-                                    <constraint firstItem="QLD-pR-V3f" firstAttribute="top" secondItem="2QW-6u-Pzs" secondAttribute="bottom" constant="5" id="EQK-Cj-w8d"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="QLD-pR-V3f" secondAttribute="trailing" constant="40" id="XdC-uP-xzo"/>
+                                    <constraint firstAttribute="trailing" secondItem="6CQ-lI-nen" secondAttribute="trailing" constant="30" id="JYc-qv-P64"/>
                                     <constraint firstItem="2QW-6u-Pzs" firstAttribute="top" secondItem="MKj-bE-FIa" secondAttribute="top" priority="750" constant="125" id="ZBC-XG-s2n"/>
+                                    <constraint firstItem="6CQ-lI-nen" firstAttribute="leading" secondItem="MKj-bE-FIa" secondAttribute="leading" constant="30" id="ajJ-K7-j8W"/>
                                     <constraint firstAttribute="trailing" secondItem="Flg-cT-hkD" secondAttribute="trailing" constant="15" id="dxz-MP-kS0"/>
-                                    <constraint firstItem="QLD-pR-V3f" firstAttribute="leading" secondItem="MKj-bE-FIa" secondAttribute="leading" constant="40" id="i6L-4n-DyX"/>
-                                    <constraint firstItem="Flg-cT-hkD" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QLD-pR-V3f" secondAttribute="bottom" constant="5" id="nS0-a5-rxl"/>
+                                    <constraint firstItem="6CQ-lI-nen" firstAttribute="top" secondItem="2QW-6u-Pzs" secondAttribute="bottom" constant="5" id="jiR-Z7-0AB"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="300" id="uv0-yz-zkR"/>
                                     <constraint firstItem="Flg-cT-hkD" firstAttribute="leading" secondItem="MKj-bE-FIa" secondAttribute="leading" constant="15" id="xQu-Os-EdE"/>
                                 </constraints>
@@ -206,7 +208,7 @@
                     <connections>
                         <outlet property="btnPrivacy" destination="2QW-6u-Pzs" id="aZs-vr-91E"/>
                         <outlet property="btnStart" destination="Flg-cT-hkD" id="tkq-Ha-tkb"/>
-                        <outlet property="lbPrivacyDesc" destination="QLD-pR-V3f" id="GcN-sI-Usg"/>
+                        <outlet property="lbPrivacyDesc" destination="6CQ-lI-nen" id="im1-zz-Wl5"/>
                         <outlet property="lbTitle" destination="uWI-E4-ZGU" id="8Tp-YE-ixI"/>
                         <segue destination="bc0-aS-mB4" kind="show" id="lcV-Lo-fbX"/>
                     </connections>
@@ -214,6 +216,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YoT-qb-tcx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="93.599999999999994" y="16.995073891625616"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="kHr-vv-bTY">
+            <objects>
+                <viewController id="TlB-Vp-bMV" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9ze-CK-wt8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jbr-GB-0xF">
+                                <rect key="frame" x="0.0" y="44" width="375" height="734"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <wkWebViewConfiguration key="configuration" applicationNameForUserAgent="EOSHub">
+                                    <dataDetectorTypes key="dataDetectorTypes"/>
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences" javaScriptEnabled="NO"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="rOU-BV-ofu" firstAttribute="trailing" secondItem="Jbr-GB-0xF" secondAttribute="trailing" id="B3q-Hw-8Nm"/>
+                            <constraint firstItem="Jbr-GB-0xF" firstAttribute="leading" secondItem="rOU-BV-ofu" secondAttribute="leading" id="JLD-ne-a3X"/>
+                            <constraint firstItem="Jbr-GB-0xF" firstAttribute="top" secondItem="rOU-BV-ofu" secondAttribute="top" id="Q8q-ai-S5o"/>
+                            <constraint firstItem="rOU-BV-ofu" firstAttribute="bottom" secondItem="Jbr-GB-0xF" secondAttribute="bottom" id="UKw-7R-sMQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="rOU-BV-ofu"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EDN-36-5ih" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="94" y="748"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="dIc-YU-90A">
