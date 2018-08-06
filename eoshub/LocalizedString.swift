@@ -94,6 +94,8 @@ struct LocalizedString {
             static let title = NSLocalizedString("create.import.title", comment: "")
             static let text = NSLocalizedString("create.import.text", comment: "")
             static let action = NSLocalizedString("create.import.action", comment: "")
+            static let warningTitle = NSLocalizedString("create.import.warningTitle", comment: "")
+            static let warning = NSLocalizedString("create.import.warning", comment: "")
         }
         
         struct Interest {

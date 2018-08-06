@@ -25,7 +25,7 @@
 "login.forgetpw.send" = "Reset password via email";
 
 /* 약관 */
-"term.title" = "EOSHub is\na mobile cold wallet\nthat can store\n'EOS ans EOS based token'\nSafely";
+"term.title" = "EOSHub is\na mobile cold wallet\nthat can store\n'EOS and EOS based token'\nSafely";
 "term.goTerm" = "terms of use";
 "term.termAndPrivacy" = "Term and Privacy policy";
 "term.goPrivacy" = "privacy policies";
@@ -62,6 +62,8 @@
 "create.import.title" = "Import an existing account";
 "create.import.text" = "You can keep your existing EOS account securely in EOSHub. The private key is encrypted and stored in the iCloud keychain.";
 "create.import.action" = "Import";
+"create.import.warningTitle" = "Please follow the precautions below when adding a private key.";
+"create.import.warning" = "1. Enter the private key directly. (The copy / paste function is saved on the public paste board, and is vulnerable to hacking.)\n2. Turn off Wifi. It is also a good idea to turn on Airplane mode.\n3. EOSHub uses the iCloud keychain to protect your mobile phone from loss and provide strong security. If the iCloud option is off, you will not be able to recover your private key when you lose your phone. (Settings-iCloud-Keychain-On OK)";
 
 "create.interest.title" = "Add an interest account";
 "create.interest.text" = "You can add and manage the EOS account you are interested in. Accounts of interest do not require a private key, and are only viewable.";

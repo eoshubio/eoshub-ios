@@ -30,13 +30,13 @@
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ooe-ys-fTp">
                                 <rect key="frame" x="0.0" y="768" width="375" height="44"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="rno-Kp-rxb"/>
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vhf-0r-54U">
-                                <rect key="frame" x="0.0" y="154" width="375" height="614"/>
+                                <rect key="frame" x="0.0" y="144" width="375" height="668"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CreateAccountCell" rowHeight="250" id="WkW-wj-snS" customClass="CreateAccountCell" customModule="eoshub" customModuleProvider="target">
@@ -47,10 +47,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9nb-Kc-vf8" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="9.9999999999999858" width="355" height="239.66666666666663"/>
+                                                    <rect key="frame" x="10" y="9.9999999999999858" width="394" height="239.66666666666663"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create a new EOS account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Pe-K5-CXW">
-                                                            <rect key="frame" x="20" y="25" width="180.33333333333334" height="24"/>
+                                                            <rect key="frame" x="20" y="25" width="180.66666666666666" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="24" id="sAT-gd-P2r"/>
                                                             </constraints>
@@ -59,14 +59,14 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llR-3B-NQ9">
-                                                            <rect key="frame" x="20" y="64" width="315" height="91.666666666666686"/>
+                                                            <rect key="frame" x="20" y="64" width="354" height="91.666666666666686"/>
                                                             <string key="text">To create a new EOS account, you must allocate CPU and Network resources to the EOS blockchain and purchase a minimum amount of RAM. Please press the Create button for more information.</string>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                             <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XvP-X8-XVN" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
-                                                            <rect key="frame" x="15" y="175.66666666666666" width="325" height="44"/>
+                                                            <rect key="frame" x="15" y="175.66666666666666" width="364" height="44"/>
                                                             <color key="backgroundColor" red="0.41960784309999999" green="0.24313725489999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="ed1-WD-nmu"/>
@@ -123,10 +123,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="T7k-GU-0h1" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="9.9999999999999858" width="355" height="239.66666666666663"/>
+                                                    <rect key="frame" x="10" y="9.9999999999999858" width="394" height="239.66666666666663"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Import an existing account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCm-W8-ySi">
-                                                            <rect key="frame" x="20" y="25" width="182.66666666666666" height="24"/>
+                                                            <rect key="frame" x="20" y="25" width="183" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="24" id="Gcc-D4-6Hl"/>
                                                             </constraints>
@@ -135,7 +135,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oe2-53-ZIA" customClass="PurpleButton" customModule="eoshub" customModuleProvider="target">
-                                                            <rect key="frame" x="15" y="175.66666666666666" width="325" height="44"/>
+                                                            <rect key="frame" x="15" y="175.66666666666666" width="364" height="44"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="pp9-xw-dRQ"/>
@@ -151,7 +151,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You can keep your existing EOS account securely in EOSHub. The private key is encrypted and stored in the iCloud keychain." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31X-uy-0Rv">
-                                                            <rect key="frame" x="20" y="64" width="315" height="91.666666666666686"/>
+                                                            <rect key="frame" x="20" y="64" width="354" height="91.666666666666686"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                             <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -200,7 +200,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YGM-G8-qNf" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="9.9999999999999858" width="355" height="239.66666666666663"/>
+                                                    <rect key="frame" x="10" y="9.9999999999999858" width="394" height="239.66666666666663"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add an interest account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Csd-CZ-OOo">
                                                             <rect key="frame" x="20" y="25" width="163.66666666666666" height="24"/>
@@ -212,14 +212,14 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G2S-WW-Fyr">
-                                                            <rect key="frame" x="20" y="64" width="315" height="96.666666666666686"/>
+                                                            <rect key="frame" x="20" y="64" width="354" height="96.666666666666686"/>
                                                             <string key="text">You can add and manage the EOS account you are interested in. Accounts of interest do not require a private key, and are only viewable.</string>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                             <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QjD-dU-Fkf" customClass="PurpleButton" customModule="eoshub" customModuleProvider="target">
-                                                            <rect key="frame" x="15" y="180.66666666666666" width="325" height="44"/>
+                                                            <rect key="frame" x="15" y="180.66666666666666" width="364" height="44"/>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="0wR-du-OeV"/>
@@ -284,11 +284,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Vhf-0r-54U" firstAttribute="top" secondItem="qlq-kG-5KH" secondAttribute="top" constant="110" id="49M-Gk-bMs"/>
+                            <constraint firstItem="Vhf-0r-54U" firstAttribute="top" secondItem="qlq-kG-5KH" secondAttribute="top" constant="100" id="49M-Gk-bMs"/>
                             <constraint firstAttribute="bottom" secondItem="Vwd-5C-gmB" secondAttribute="bottom" id="Cqx-3R-etk"/>
                             <constraint firstItem="Vhf-0r-54U" firstAttribute="leading" secondItem="6sY-Cz-OVZ" secondAttribute="leading" id="FRo-Sl-Ehg"/>
                             <constraint firstItem="Vwd-5C-gmB" firstAttribute="leading" secondItem="6sY-Cz-OVZ" secondAttribute="leading" id="Jnq-9t-6z3"/>
-                            <constraint firstItem="qlq-kG-5KH" firstAttribute="bottom" secondItem="Vhf-0r-54U" secondAttribute="bottom" constant="10" id="LBA-cm-SRY"/>
+                            <constraint firstAttribute="bottom" secondItem="Vhf-0r-54U" secondAttribute="bottom" id="LBA-cm-SRY"/>
                             <constraint firstItem="ooe-ys-fTp" firstAttribute="leading" secondItem="6sY-Cz-OVZ" secondAttribute="leading" id="MtC-Mh-ns2"/>
                             <constraint firstAttribute="trailing" secondItem="Vwd-5C-gmB" secondAttribute="trailing" id="QoM-mg-4Zo"/>
                             <constraint firstItem="A9K-gG-sA9" firstAttribute="top" secondItem="qlq-kG-5KH" secondAttribute="top" constant="10" id="S6s-s2-EiG"/>
@@ -345,10 +345,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="734"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="W4l-II-kFW">
-                                                <rect key="frame" x="0.0" y="537" width="375" height="197"/>
+                                                <rect key="frame" x="0.0" y="355.33333333333326" width="375" height="378.66666666666674"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Import Key to Wallet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSM-jU-WE6">
-                                                        <rect key="frame" x="98.333333333333314" y="35" width="178" height="24"/>
+                                                        <rect key="frame" x="99" y="35" width="178" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="rib-HH-UzG"/>
                                                         </constraints>
@@ -357,7 +357,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rNw-5E-1bR" customClass="ActionButton" customModule="eoshub" customModuleProvider="target">
-                                                        <rect key="frame" x="20" y="138" width="335" height="44"/>
+                                                        <rect key="frame" x="20" y="319.66666666666669" width="335" height="44"/>
                                                         <color key="backgroundColor" red="0.41960784309999999" green="0.24313725489999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="eGm-sI-i3u"/>
@@ -366,37 +366,53 @@
                                                         <state key="normal" title="Import private key"/>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="private key " textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4I8-ff-ekL" customClass="WhiteTextField" customModule="eoshub" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="84" width="345" height="44"/>
+                                                        <rect key="frame" x="20" y="265.66666666666669" width="335" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="wY0-Ad-ZhI"/>
                                                         </constraints>
                                                         <color key="textColor" red="0.23921568627450979" green="0.23921568627450979" blue="0.23921568627450979" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M8C-92-Deh" customClass="GrayButton" customModule="eoshub" customModuleProvider="target">
-                                                        <rect key="frame" x="295" y="91.666666666666629" width="60" height="30"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="100" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Sb-wG-yLI">
+                                                        <rect key="frame" x="20" y="116.00000000000004" width="335" height="134.66666666666663"/>
+                                                        <mutableString key="text">1. Enter the private key directly. (The copy / paste function is saved on the public paste board, and is vulnerable to hacking.) 2. Turn off Wifi. It is also a good idea to turn on Airplane mode. 3. EOSHub uses the iCloud keychain to protect your mobile phone from loss and provide strong security. If the iCloud option is off, you will not be able to recover your private key when you lose your phone. (Settings-iCloud-Keychain-On OK)</mutableString>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                        <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please follow the precautions below." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LGU-uj-hf0">
+                                                        <rect key="frame" x="47" y="84" width="308" height="17"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popupWarning" translatesAutoresizingMaskIntoConstraints="NO" id="eoa-VW-eHl">
+                                                        <rect key="frame" x="20" y="80.666666666666686" width="20" height="20"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="NTZ-6P-7u4"/>
-                                                            <constraint firstAttribute="width" constant="60" id="jlc-CR-klE"/>
+                                                            <constraint firstAttribute="width" constant="20" id="Zff-OH-ShF"/>
+                                                            <constraint firstAttribute="height" constant="20" id="oKB-Y3-mAH"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                        <state key="normal" title="Paste">
-                                                            <color key="titleColor" red="0.47450980392156861" green="0.47450980392156861" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        </state>
-                                                    </button>
+                                                    </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="trailing" secondItem="4I8-ff-ekL" secondAttribute="trailing" constant="15" id="25d-YS-cJ7"/>
-                                                    <constraint firstItem="M8C-92-Deh" firstAttribute="centerY" secondItem="4I8-ff-ekL" secondAttribute="centerY" id="3ZI-Ja-67L"/>
-                                                    <constraint firstItem="4I8-ff-ekL" firstAttribute="leading" secondItem="W4l-II-kFW" secondAttribute="leading" constant="15" id="6XD-FU-ZZz"/>
+                                                    <constraint firstAttribute="trailing" secondItem="4I8-ff-ekL" secondAttribute="trailing" constant="20" id="25d-YS-cJ7"/>
+                                                    <constraint firstAttribute="trailing" secondItem="8Sb-wG-yLI" secondAttribute="trailing" constant="20" id="3p0-6d-nic"/>
+                                                    <constraint firstItem="4I8-ff-ekL" firstAttribute="leading" secondItem="W4l-II-kFW" secondAttribute="leading" constant="20" id="6XD-FU-ZZz"/>
+                                                    <constraint firstAttribute="trailing" secondItem="LGU-uj-hf0" secondAttribute="trailing" constant="20" id="7C3-LS-krW"/>
+                                                    <constraint firstItem="LGU-uj-hf0" firstAttribute="leading" secondItem="eoa-VW-eHl" secondAttribute="trailing" constant="7" id="83O-j6-u8B"/>
                                                     <constraint firstAttribute="trailing" secondItem="rNw-5E-1bR" secondAttribute="trailing" constant="20" id="8Qf-AR-coi"/>
-                                                    <constraint firstItem="4I8-ff-ekL" firstAttribute="top" secondItem="uSM-jU-WE6" secondAttribute="bottom" constant="25" id="MCt-u3-e4P"/>
+                                                    <constraint firstItem="8Sb-wG-yLI" firstAttribute="top" secondItem="LGU-uj-hf0" secondAttribute="bottom" constant="15" id="9HU-qX-xct"/>
                                                     <constraint firstItem="uSM-jU-WE6" firstAttribute="top" secondItem="W4l-II-kFW" secondAttribute="top" constant="35" id="MDH-8g-L9z"/>
+                                                    <constraint firstItem="4I8-ff-ekL" firstAttribute="top" secondItem="8Sb-wG-yLI" secondAttribute="bottom" constant="15" id="Nf3-xH-UKu"/>
+                                                    <constraint firstItem="LGU-uj-hf0" firstAttribute="top" secondItem="uSM-jU-WE6" secondAttribute="bottom" constant="25" id="TUr-gd-ZU3"/>
                                                     <constraint firstAttribute="bottom" secondItem="rNw-5E-1bR" secondAttribute="bottom" constant="15" id="XG4-Au-KCO"/>
                                                     <constraint firstItem="rNw-5E-1bR" firstAttribute="top" secondItem="4I8-ff-ekL" secondAttribute="bottom" constant="10" id="dtV-wp-zc1"/>
-                                                    <constraint firstItem="M8C-92-Deh" firstAttribute="trailing" secondItem="4I8-ff-ekL" secondAttribute="trailing" constant="-5" id="jA8-3n-XpF"/>
+                                                    <constraint firstItem="8Sb-wG-yLI" firstAttribute="leading" secondItem="W4l-II-kFW" secondAttribute="leading" constant="20" id="jag-7d-aGx"/>
+                                                    <constraint firstItem="eoa-VW-eHl" firstAttribute="leading" secondItem="W4l-II-kFW" secondAttribute="leading" constant="20" id="ov1-rM-yDD"/>
+                                                    <constraint firstItem="LGU-uj-hf0" firstAttribute="centerY" secondItem="eoa-VW-eHl" secondAttribute="centerY" constant="2" id="sQg-ai-K7D"/>
+                                                    <constraint firstItem="8Sb-wG-yLI" firstAttribute="centerX" secondItem="W4l-II-kFW" secondAttribute="centerX" id="saR-VN-82z"/>
                                                     <constraint firstItem="rNw-5E-1bR" firstAttribute="leading" secondItem="W4l-II-kFW" secondAttribute="leading" constant="20" id="t8F-t1-mio"/>
                                                     <constraint firstItem="uSM-jU-WE6" firstAttribute="centerX" secondItem="W4l-II-kFW" secondAttribute="centerX" id="zAB-FH-Wgj"/>
                                                 </constraints>
@@ -440,9 +456,10 @@
                     </view>
                     <connections>
                         <outlet property="btnImport" destination="rNw-5E-1bR" id="mMj-9f-fWe"/>
-                        <outlet property="btnPaste" destination="M8C-92-Deh" id="hst-NJ-EXO"/>
                         <outlet property="contentsScrollView" destination="zfd-yl-xWv" id="bgg-AI-Ka6"/>
                         <outlet property="lbTitle" destination="uSM-jU-WE6" id="juB-z6-ujo"/>
+                        <outlet property="lbWarning" destination="8Sb-wG-yLI" id="ezJ-x7-EUJ"/>
+                        <outlet property="lbWarningTitle" destination="LGU-uj-hf0" id="Mks-Gb-p1F"/>
                         <outlet property="txtPriKey" destination="4I8-ff-ekL" id="diT-zG-fqM"/>
                         <segue destination="xmE-HY-Oos" kind="show" id="cPe-Oe-tqv"/>
                     </connections>
@@ -487,7 +504,7 @@
                                                 <rect key="frame" x="0.0" y="468" width="375" height="266"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Find EOS Account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Car-1Q-h10">
-                                                        <rect key="frame" x="110.66666666666669" y="35" width="153" height="24"/>
+                                                        <rect key="frame" x="111" y="35" width="153" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="T8o-wD-yet"/>
                                                         </constraints>
@@ -664,7 +681,7 @@
                                                 <rect key="frame" x="0.0" y="537" width="375" height="197"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add interest account" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="1Vd-cw-ctr">
-                                                        <rect key="frame" x="98.666666666666686" y="35" width="178" height="24"/>
+                                                        <rect key="frame" x="99" y="35" width="178" height="24"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="24" id="Nam-IL-zTx"/>
                                                         </constraints>
@@ -678,20 +695,20 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="PTm-gT-LGx"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
                                                         <state key="normal" title="Add interset account"/>
                                                     </button>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Please enter your EOS account of interest." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xh7-p0-7OI" customClass="WhiteAccountTextField" customModule="eoshub" customModuleProvider="target">
-                                                        <rect key="frame" x="15" y="84" width="345" height="44"/>
+                                                        <rect key="frame" x="20" y="84" width="335" height="44"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="44" id="c8z-X4-jPU"/>
                                                         </constraints>
                                                         <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="12"/>
+                                                        <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="alphabet" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wn0-pk-lRu" customClass="GrayButton" customModule="eoshub" customModuleProvider="target">
-                                                        <rect key="frame" x="295" y="91.666666666666629" width="60" height="30"/>
+                                                        <rect key="frame" x="290" y="91.666666666666629" width="60" height="30"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="I3g-e9-DSw"/>
                                                             <constraint firstAttribute="width" constant="60" id="OKZ-A0-uL8"/>
@@ -707,14 +724,14 @@
                                                     <constraint firstItem="Wn0-pk-lRu" firstAttribute="centerY" secondItem="xh7-p0-7OI" secondAttribute="centerY" id="0Hz-zw-9Aj"/>
                                                     <constraint firstItem="1Vd-cw-ctr" firstAttribute="centerX" secondItem="1vw-ui-pyH" secondAttribute="centerX" id="F02-dc-fNU"/>
                                                     <constraint firstItem="Wn0-pk-lRu" firstAttribute="trailing" secondItem="xh7-p0-7OI" secondAttribute="trailing" constant="-5" id="KWf-ot-Gdr"/>
-                                                    <constraint firstItem="xh7-p0-7OI" firstAttribute="leading" secondItem="1vw-ui-pyH" secondAttribute="leading" constant="15" id="QLB-lJ-vi9"/>
+                                                    <constraint firstItem="xh7-p0-7OI" firstAttribute="leading" secondItem="1vw-ui-pyH" secondAttribute="leading" constant="20" id="QLB-lJ-vi9"/>
                                                     <constraint firstItem="1Vd-cw-ctr" firstAttribute="top" secondItem="1vw-ui-pyH" secondAttribute="top" constant="35" id="SGk-wj-3eI"/>
                                                     <constraint firstItem="3ss-Ip-lwS" firstAttribute="leading" secondItem="1vw-ui-pyH" secondAttribute="leading" constant="20" id="Tht-nR-yKp"/>
                                                     <constraint firstAttribute="trailing" secondItem="3ss-Ip-lwS" secondAttribute="trailing" constant="20" id="ZQC-Q6-u7s"/>
                                                     <constraint firstItem="3ss-Ip-lwS" firstAttribute="top" secondItem="xh7-p0-7OI" secondAttribute="bottom" constant="10" id="gS3-5R-bLr"/>
                                                     <constraint firstAttribute="bottom" secondItem="3ss-Ip-lwS" secondAttribute="bottom" constant="15" id="qEJ-fQ-gxS"/>
                                                     <constraint firstItem="xh7-p0-7OI" firstAttribute="top" secondItem="1Vd-cw-ctr" secondAttribute="bottom" constant="25" id="wne-vm-SyK"/>
-                                                    <constraint firstAttribute="trailing" secondItem="xh7-p0-7OI" secondAttribute="trailing" constant="15" id="wxh-RL-aqb"/>
+                                                    <constraint firstAttribute="trailing" secondItem="xh7-p0-7OI" secondAttribute="trailing" constant="20" id="wxh-RL-aqb"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
@@ -771,5 +788,6 @@
         <image name="bgGrady" width="750" height="1334"/>
         <image name="closeBig" width="21" height="21"/>
         <image name="logoBlackL" width="282" height="138"/>
+        <image name="popupWarning" width="100" height="100"/>
     </resources>
 </document>

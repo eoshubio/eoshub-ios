@@ -86,14 +86,12 @@ class PreferAccountViewController: TextInputViewController {
                         return Observable.just(account)
                     })
             })
-            .subscribe(onNext: { [weak self] (account) in
-                
+            .subscribe(onError: { (error) in
+                print(error)
+            }, onCompleted: { [weak self] in
                 guard let nc = self?.navigationController else { return }
                 
                 self?.flowDelegate?.returnToMain(from: nc)
-                
-                }, onError: { (error) in
-                    print(error)
             })
             .disposed(by: bag)
             

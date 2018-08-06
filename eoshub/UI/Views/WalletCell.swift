@@ -132,6 +132,10 @@ class WalletCell: UITableViewCell {
             .asObservable()
             .observeOn(MainScheduler.asyncInstance)
             .subscribe(onNext: { [weak self](price) in
+                if viewModel.isInvalidated {
+                    return
+                }
+                
                 if let estimatedString = price?.estimatedPrice(eosQuantity: viewModel.totalEOS) {
                     self?.estimatedPrice.text = "≈ " + estimatedString
                 } else {

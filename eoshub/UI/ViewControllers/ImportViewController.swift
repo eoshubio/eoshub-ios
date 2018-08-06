@@ -16,7 +16,8 @@ class ImportViewController: TextInputViewController {
     
     @IBOutlet fileprivate weak var lbTitle: UILabel!
     @IBOutlet fileprivate weak var txtPriKey: WhiteTextField!
-    @IBOutlet fileprivate weak var btnPaste: UIButton!
+    @IBOutlet fileprivate weak var lbWarningTitle: UILabel!
+    @IBOutlet fileprivate weak var lbWarning: UILabel!
     @IBOutlet fileprivate weak var btnImport: UIButton!
 //    @IBOutlet fileprivate weak var btnFindAccount: UIButton!
     
@@ -37,8 +38,9 @@ class ImportViewController: TextInputViewController {
     
     private func setupUI() {
         lbTitle.text = LocalizedString.Wallet.Import.title
-        btnPaste.setTitle(LocalizedString.Common.paste, for: .normal)
         btnImport.setTitle(LocalizedString.Wallet.Import.store, for: .normal)
+        lbWarningTitle.text = LocalizedString.Create.Import.warningTitle
+        lbWarning.text = LocalizedString.Create.Import.warning
         
         let txt = LocalizedString.Wallet.Import.findAccount
         let txtFindAccount = NSMutableAttributedString(string: txt,
@@ -57,9 +59,6 @@ class ImportViewController: TextInputViewController {
         
         txtPriKey.placeholder = LocalizedString.Wallet.priKey
         txtPriKey.delegate = self
-        
-        txtPriKey.padding.right = btnPaste.bounds.width + 5
-        
         
         
     }
@@ -80,16 +79,7 @@ class ImportViewController: TextInputViewController {
                 self?.handleImportKey()
             }
             .disposed(by: bag)
-        
-        btnPaste.rx.singleTap
-            .flatMap({ [weak self] (_) -> Observable<Bool> in
-                guard let pasted = UIPasteboard.general.string else { return Observable.just(false) }
-                self?.txtPriKey.text = pasted
-                return Observable.just(EOS_Key_Encode.validateWif(pasted))
-            })
-            .bind(to: btnImport.rx.isEnabled)
-            .disposed(by: bag)
-        
+                
         txtPriKey.rx.text.orEmpty
             .flatMap { (priKey) -> Observable<Bool> in
                 return Observable.just(EOS_Key_Encode.validateWif(priKey))
@@ -133,8 +123,6 @@ class ImportViewController: TextInputViewController {
                             })
                  })
                 .subscribe(onNext: { [weak self] (account) in
-                    
-                    
                     
                     AccountManager.shared.refreshUI()
                     

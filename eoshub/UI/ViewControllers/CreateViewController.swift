@@ -157,7 +157,7 @@ class CreateAccountCell: CreateViewCell {
     @IBOutlet fileprivate var lbTitle: UILabel!
     @IBOutlet fileprivate var lbText: UILabel!
     @IBOutlet fileprivate var btnCreate: UIButton!
-    private let bag = DisposeBag()
+    private var bag: DisposeBag? = nil
     
     deinit {
         print("deinit")
@@ -166,6 +166,11 @@ class CreateAccountCell: CreateViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bag = nil
     }
     
     private func setupUI() {
@@ -179,6 +184,8 @@ class CreateAccountCell: CreateViewCell {
     }
     
     override func configure(subject: PublishSubject<Void>) {
+        let bag = DisposeBag()
+        self.bag = bag
         btnCreate.rx.singleTap
             .bind {
                 subject.onNext(())
@@ -192,7 +199,7 @@ class ImportAccountCell: CreateViewCell {
     @IBOutlet fileprivate var lbTitle: UILabel!
     @IBOutlet fileprivate var lbText: UILabel!
     @IBOutlet fileprivate var btnImport: UIButton!
-    private let bag = DisposeBag()
+    private var bag: DisposeBag? = nil
     
     deinit {
         print("deinit")
@@ -201,6 +208,11 @@ class ImportAccountCell: CreateViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bag = nil
     }
     
     private func setupUI() {
@@ -212,6 +224,8 @@ class ImportAccountCell: CreateViewCell {
     }
     
     override func configure(subject: PublishSubject<Void>) {
+        let bag = DisposeBag()
+        self.bag = bag
         btnImport.rx.singleTap
             .bind {
                 subject.onNext(())
@@ -225,7 +239,7 @@ class ImportPubAccountCell: CreateViewCell {
     @IBOutlet fileprivate var lbTitle: UILabel!
     @IBOutlet fileprivate var lbText: UILabel!
     @IBOutlet fileprivate var btnImport: UIButton!
-    private let bag = DisposeBag()
+    private var bag: DisposeBag? = nil
     
     deinit {
         print("deinit")
@@ -236,6 +250,11 @@ class ImportPubAccountCell: CreateViewCell {
         setupUI()
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bag = nil
+    }
+    
     private func setupUI() {
         lbTitle.text = LocalizedString.Create.Interest.title
         lbText.text = LocalizedString.Create.Interest.text
@@ -243,6 +262,8 @@ class ImportPubAccountCell: CreateViewCell {
     }
     
     override func configure(subject: PublishSubject<Void>) {
+        let bag = DisposeBag()
+        self.bag = bag
         btnImport.rx.singleTap
             .bind {
                 subject.onNext(())

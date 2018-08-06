@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="102.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QiK-yx-nyO" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
+                    <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QiK-yx-nyO" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
                         <rect key="frame" x="15" y="10" width="345" height="77.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="addwallet" translatesAutoresizingMaskIntoConstraints="NO" id="Swr-U9-4EM">
