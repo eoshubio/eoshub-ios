@@ -149,10 +149,9 @@ class SendCurrencyViewController: TextInputViewController {
     }
     
     fileprivate func confirmTransfer() {
-        
-        
+        let quantity = Currency(balance: sendForm.quantity.value, token: balance.token)
         TransferPopup.show(account: sendForm.account.value, memo: sendForm.memo.value,
-                           quantity: sendForm.quantity.value.dot4String,
+                           quantity: quantity.balance,
                            symbol: balance.symbol)
             .subscribe(onNext: { [weak self] (accept) in
                 if accept {
