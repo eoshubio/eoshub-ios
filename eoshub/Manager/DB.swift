@@ -58,6 +58,15 @@ class DB {
         }
     }
     
+    func deleteAccount(account: AccountInfo) {
+        if let willDeleteAccount = getAccounts().filter("account = '\(account.account)'").first {
+            DB.shared.safeWrite {
+                realm.delete(willDeleteAccount)
+                realm.delete(account)
+            }
+        }
+    }
+    
     func getAccounts() -> Results<EHAccount> {
         return realm.objects(EHAccount.self)
     }

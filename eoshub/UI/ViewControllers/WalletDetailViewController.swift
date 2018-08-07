@@ -65,6 +65,9 @@ class WalletDetailViewController: BaseViewController {
     @IBOutlet fileprivate weak var layoutResY: NSLayoutConstraint!
     @IBOutlet fileprivate weak var layoutRAMY: NSLayoutConstraint!
     
+    @IBOutlet fileprivate weak var deleteView: UIView!
+    @IBOutlet fileprivate weak var btnDelete: UIButton!
+    
     private var accountInfo: AccountInfo!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -100,6 +103,7 @@ class WalletDetailViewController: BaseViewController {
         btnUndelegate.setTitle(LocalizedString.Wallet.Delegate.undelegate, for: .normal)
         btnBuyRam.setTitle(LocalizedString.Wallet.Ram.buyram, for: .normal)
         btnSellRam.setTitle(LocalizedString.Wallet.Ram.sellram, for: .normal)
+        btnDelete.setTitle(LocalizedString.Wallet.Option.delete, for: .normal)
         
         updateAccount(with: accountInfo)
     }
@@ -140,10 +144,30 @@ class WalletDetailViewController: BaseViewController {
             })
             .disposed(by: bag)
         
+        btnDelete.rx.singleTap
+            .bind { [weak self] in
+                guard let account = self?.accountInfo else { return }
+                self?.deleteWallet(account: account)
+            }
+            .disposed(by: bag)
+        
+    }
+    
+    fileprivate func deleteWallet(account: AccountInfo) {
+        DB.shared.deleteAccount(account: account)
+        
+        AccountManager.shared.refreshUI()
+        
+        flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: {
+            
+        })
+        
     }
     
     
     fileprivate func updateAccount(with viewModel: AccountInfo) {
+        if viewModel.isInvalidated { return }
+        
         account.text = viewModel.account
         total.text = viewModel.totalEOS.dot4String
         availableEOS.text = viewModel.availableEOS.dot4String
@@ -196,9 +220,9 @@ class WalletDetailViewController: BaseViewController {
         
         //owner mode
         if viewModel.ownerMode == false {
-//            layoutResY.constant = -15
-//            layoutRAMY.constant = -15
-//            view.layoutIfNeeded()
+            layoutResY.constant = -15
+            layoutRAMY.constant = -15
+            view.layoutIfNeeded()
             
             btnDelegate.isHidden = true
             btnUndelegate.isHidden = true
@@ -206,6 +230,7 @@ class WalletDetailViewController: BaseViewController {
             btnSellRam.isHidden = true
         }
         
+        deleteView.isHidden = viewModel.ownerMode
         
         //refund
         remainTimeView.isHidden = (viewModel.refundingEOS == 0)
@@ -220,6 +245,7 @@ class WalletDetailViewController: BaseViewController {
             let _ = Observable<Int>
                 .interval(1, scheduler: MainScheduler.instance)
                 .subscribe(onNext: { [weak self] (_) in
+                    if viewModel.isInvalidated { return }
                     let remain = viewModel.refundingTime - Date().timeIntervalSince1970
                     self?.remainTime.text = remain.stringTime
                 })
