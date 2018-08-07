@@ -119,7 +119,7 @@
 "wallet.ram.used" = "할당된 RAM";
 "wallet.ram.warning" = "이오스 램은 가격 변동이 있기 때문에 거래에 주의하시기 바랍니다. 램 거래에 따르는 위험을 충분히 숙지하신 후 진행하시기 바랍니다.";
 
-"wallet.option.addToken" = "토큰 추가";
+"wallet.option.addToken" = "토큰 추가하기";
 "wallet.option.delete" = "지갑 지우기";
 "wallet.option.deleteWarning" = "이오스허브 앱에서만 삭제됩니다.";
 

@@ -163,7 +163,7 @@ class WalletViewController: BaseViewController {
         
         rx_menuClicked
             .subscribe(onNext: { [weak self] (account) in
-                self?.openMenu(account: account)
+                self?.addTokens(account: account)
             })
             .disposed(by: bag)
         
@@ -181,30 +181,39 @@ class WalletViewController: BaseViewController {
         
     }
     
+    fileprivate func addTokens(account: AccountInfo) {
+        guard let ehaccount = AccountManager.shared.getAccount(accountName: account.account),
+        let nc = navigationController else { return }
+        
+        flowDelegate?.goToAddToken(from: nc, with: ehaccount)
+
+    }
+    
     fileprivate func openMenu(account: AccountInfo) {
-        let sheet = UIAlertController(title: account.account, message: "", preferredStyle: .actionSheet)
         
-        let addToken = UIAlertAction(title: LocalizedString.Wallet.Option.addToken, style: .default) { [weak self](_) in
-            guard let ehaccount = AccountManager.shared.getAccount(accountName: account.account),
-                let nc = self?.navigationController else { return }
-            
-            self?.flowDelegate?.goToAddToken(from: nc, with: ehaccount)
-        }
-        sheet.addAction(addToken)
-        
-        if account.ownerMode == false {
-            let delete = UIAlertAction(title: LocalizedString.Wallet.Option.delete, style: .destructive) { [weak self] (_) in
-                self?.deleteWallet(account: account.account)
-            }
-            
-            sheet.addAction(delete)
-        }
-        
-        
-        
-        sheet.addAction(UIAlertAction(title: LocalizedString.Common.cancel, style: .cancel, handler: nil))
-        
-        present(sheet, animated: true, completion: nil)
+//        let sheet = UIAlertController(title: account.account, message: "", preferredStyle: .actionSheet)
+//
+//        let addToken = UIAlertAction(title: LocalizedString.Wallet.Option.addToken, style: .default) { [weak self](_) in
+//            guard let ehaccount = AccountManager.shared.getAccount(accountName: account.account),
+//                let nc = self?.navigationController else { return }
+//
+//            self?.flowDelegate?.goToAddToken(from: nc, with: ehaccount)
+//        }
+//        sheet.addAction(addToken)
+//
+//        if account.ownerMode == false {
+//            let delete = UIAlertAction(title: LocalizedString.Wallet.Option.delete, style: .destructive) { [weak self] (_) in
+//                self?.deleteWallet(account: account.account)
+//            }
+//
+//            sheet.addAction(delete)
+//        }
+//
+//
+//
+//        sheet.addAction(UIAlertAction(title: LocalizedString.Common.cancel, style: .cancel, handler: nil))
+//
+//        present(sheet, animated: true, completion: nil)
     }
     
     fileprivate func deleteWallet(account: String) {

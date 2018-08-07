@@ -13,6 +13,8 @@ import RxSwift
 class WalletCell: UITableViewCell {
     @IBOutlet fileprivate weak var account: UILabel!
     
+    @IBOutlet fileprivate weak var lbAddTokens: UILabel!
+    
     @IBOutlet fileprivate weak var total: UILabel!
     
     @IBOutlet fileprivate weak var estimatedPrice: UILabel!
@@ -51,6 +53,8 @@ class WalletCell: UITableViewCell {
     }
     
     private func setupUI() {
+        
+        lbAddTokens.text = LocalizedString.Wallet.Option.addToken
         
         btnSend.setTitle(LocalizedString.Wallet.send, for: .normal)
         btnReceive.setTitle(LocalizedString.Wallet.receive, for: .normal)
