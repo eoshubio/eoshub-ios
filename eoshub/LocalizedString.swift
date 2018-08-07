@@ -178,8 +178,13 @@ struct LocalizedString {
             static let addToken = NSLocalizedString("wallet.option.addToken", comment: "")
             static let delete = NSLocalizedString("wallet.option.delete", comment: "")
             static let deleteWarning = NSLocalizedString("wallet.option.deleteWarning", comment: "")
-            
         }
+        
+        struct Inactive {
+            static let account = NSLocalizedString("wallet.inactive.account", comment: "")
+            static let guide = NSLocalizedString("wallet.inactive.guide", comment: "")
+        }
+        
     }
     
     struct Token {

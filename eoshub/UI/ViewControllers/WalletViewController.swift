@@ -99,6 +99,8 @@ class WalletViewController: BaseViewController {
         
         walletList.register(UINib(nibName: "WalletGuideCell", bundle: nil), forCellReuseIdentifier: "WalletGuideCell")
         
+        walletList.register(UINib(nibName: "WalletLockedCell", bundle: nil), forCellReuseIdentifier: "WalletLockedCell")
+        
         walletList.addSubview(refreshControl)
     }
     
@@ -118,8 +120,13 @@ class WalletViewController: BaseViewController {
                     let sectionItem: [CellType] = [info] + TokenBalanceInfos
                     items.append(sectionItem)
                 }
-            items.append([WalletAddCellType.add])
+                        
+            eoshubAccounts.filter("account = ''")
+                .forEach { (ehaccount) in
+                    items.append([InactiveWallet(account: ehaccount)])
+                }
             
+            items.append([WalletAddCellType.add])
             walletList.reloadData()
         }
     }
@@ -290,9 +297,30 @@ extension WalletViewController: UITableViewDelegate {
             
           flowDelegate?.goToTokenDetail(from: nc, with: item)
             
+        } else if let item = item as? InactiveWallet {
+            let account = item.ehaccount
+            let pubKey = account.publicKey
+            RxEOSAPI.getAccountFromPubKey(pubKey: pubKey)
+                .flatMap({ (accountName) -> Observable<EHAccount> in
+                    DB.shared.safeWrite {
+                        account.account = accountName
+                    }
+                    
+                    return AccountManager.shared.loadAccount(account: account)
+                        .flatMap({ (_) -> Observable<EHAccount> in
+                            return Observable.just(account)
+                        })
+                })
+                .subscribe(onCompleted: {
+                    //reload
+                    AccountManager.shared.refreshUI()
+                }) {
+                    Log.i("disposed")
+                }
+                .disposed(by: bag)
+
         } else if item is WalletAddCellType {
             //go to create wallet
-            
             flowDelegate?.goToCreate(from: nc)
         }
     }

@@ -123,6 +123,8 @@
 "wallet.option.delete" = "지갑 지우기";
 "wallet.option.deleteWarning" = "이오스허브 앱에서만 삭제됩니다.";
 
+"wallet.inactive.account" = "잠김";
+"wallet.inactive.guide" = "네트워크에 연결한 후 클릭하면 활성화 됩니다.";
 
 /* 토큰 */
 "token.add" = "토큰 추가";

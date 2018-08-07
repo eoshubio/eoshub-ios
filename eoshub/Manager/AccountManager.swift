@@ -34,18 +34,19 @@ class AccountManager {
     func loadAccounts() -> Observable<Void> {
         
         var accountInfos: [AccountInfo] = []
-        
-        return Observable.from(Array(eoshubAccounts))
+        let accounts = eoshubAccounts.filter("account != ''")
+        return Observable.from(Array(accounts))
             .concatMap { [unowned self](account) -> Observable<AccountInfo> in
                 return self.getAccountInfo(account: account)
             }
             .do(onNext: { (info) in
-                accountInfos.append(info)
+                 accountInfos.append(info)
             }, onError: { (error) in
                 Log.e(error)
             }, onCompleted: {
                 DB.shared.syncObjects(accountInfos)
-                self.refreshUI()
+            }, onDispose: { [weak self] in
+                self?.refreshUI()
             })
             .flatMap({ _ in Observable.just(())})
     }
@@ -54,6 +55,7 @@ class AccountManager {
         loadAccounts()
             .subscribe(onDisposed: {
                 Log.d("disposed")
+             
             })
             .disposed(by: bag)
     }
@@ -76,8 +78,14 @@ class AccountManager {
         } else {
             return nil
         }
-        
-        
+    }
+    
+    func getAccount(pubKey: String) -> EHAccount? {
+        if let found = eoshubAccounts.filter("publicKey = '\(pubKey)'").first {
+            return found
+        } else {
+            return nil
+        }
     }
     
     private func getAccountInfo(account: EHAccount, isFirstTime: Bool = false) -> Observable<AccountInfo> {

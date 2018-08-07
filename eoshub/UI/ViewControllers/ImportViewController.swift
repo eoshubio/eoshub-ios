@@ -91,52 +91,69 @@ class ImportViewController: TextInputViewController {
     
     fileprivate func handleImportKey() {
         
+        defer {
+            view.endEditing(true)
+        }
+        
         //1. get public key from private key
         guard let priKey = txtPriKey.text else { return }
         
         guard let pubKey = EOS_Key_Encode.eos_publicKey_(with_wif: priKey) else { return }
         
-        //TODO: Check network is available
-        if true {
-            RxEOSAPI.getAccountFromPubKey(pubKey: pubKey)
-                .flatMap({ (accountName) -> Observable<EHAccount> in
-                    var account: EHAccount
-                    
-                    if let existAccount = AccountManager.shared.getAccount(accountName: accountName) {
-                        if existAccount.owner {
-                            return Observable.error(EOSErrorType.existAccount)
-                        } else {
-                            account = EHAccount(account: accountName, publicKey: pubKey, owner: true)
-                        }
-                    } else {
-                        account = EHAccount(account: accountName, publicKey: pubKey, owner: true)
-                    }
-                    
-                    //2. save account with public Key
-                    _ = Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
-                    
-                    DB.shared.addOrUpdateObjects([account] as [EHAccount]) 
-                    
-                    return AccountManager.shared.loadAccount(account: account)
+        
+        if let existAccount = AccountManager.shared.getAccount(pubKey: pubKey), existAccount.owner {
+            Popup.present(style: Popup.Style.failed, description: "\(EOSErrorType.existAccount)")
+        } else {
+            if Reachability.isConnectedToNetwork() {
+                RxEOSAPI.getAccountFromPubKey(pubKey: pubKey)
+                    .flatMap({ (accountName) -> Observable<EHAccount> in
+                        let account = EHAccount(account: accountName, publicKey: pubKey, owner: true)
+                        
+                        //2. save account with public Key
+                        _ = Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
+                        
+                        DB.shared.addOrUpdateObjects([account] as [EHAccount])
+                        
+                        return AccountManager.shared.loadAccount(account: account)
                             .flatMap({ (_) -> Observable<EHAccount> in
                                 return Observable.just(account)
                             })
-                 })
-                .subscribe(onNext: { [weak self] (account) in
-                    
-                    AccountManager.shared.refreshUI()
-                    
-                    guard let nc = self?.navigationController else { return }
-                    
-                    self?.flowDelegate?.returnToMain(from: nc)
-                    
-                    }, onError: { [weak self] (error) in
-                        print(error)
-                        Popup.present(style: Popup.Style.failed, description: "\(error)")
-                        self?.view.endEditing(true)
-                })
-                .disposed(by: bag)
+                    })
+                    .subscribe(onNext: { [weak self] (account) in
+                        
+                        AccountManager.shared.refreshUI()
+                        
+                        guard let nc = self?.navigationController else { return }
+                        
+                        self?.flowDelegate?.returnToMain(from: nc)
+                        
+                        }, onError: { [weak self] (error) in
+                            print(error)
+                            Popup.present(style: Popup.Style.failed, description: "\(error)")
+                            self?.view.endEditing(true)
+                    })
+                    .disposed(by: bag)
+            } else {
+                
+                let lockedAccount = EHAccount(account: "", publicKey: pubKey, owner: true)
+                
+                _ = Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
+                
+                 DB.shared.addOrUpdateObjects([lockedAccount] as [EHAccount])
+                
+                AccountManager.shared.refreshUI()
+                
+                guard let nc =  navigationController else { return }
+                
+                flowDelegate?.returnToMain(from: nc)
+            }
+            
+            
+            
+            
         }
+        
+        
         
     }
     

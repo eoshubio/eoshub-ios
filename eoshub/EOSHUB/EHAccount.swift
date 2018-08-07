@@ -41,7 +41,7 @@ class EHAccount: DBObject, Mergeable {
     
     convenience init(account: String, publicKey: String, owner: Bool) {
         self.init()
-        self.id = account
+        self.id = publicKey
         self.account = account
         self.publicKey = publicKey
         self.owner = owner

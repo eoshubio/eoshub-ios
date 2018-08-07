@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -162,7 +163,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walletbg0" translatesAutoresizingMaskIntoConstraints="NO" id="tzK-8P-okH">
                                 <rect key="frame" x="0.0" y="68" width="345" height="130"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="130" id="Sym-IB-t5u"/>
+                                    <constraint firstAttribute="width" secondItem="tzK-8P-okH" secondAttribute="height" multiplier="69:26" id="VOB-tN-e4d"/>
                                 </constraints>
                             </imageView>
                         </subviews>

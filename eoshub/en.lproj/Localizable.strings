@@ -124,6 +124,10 @@
 "wallet.option.delete" = "Delete wallet";
 "wallet.option.deleteWarning" = "This will only be removed from the EOSHub app.";
 
+"wallet.inactive.account" = "Locked";
+"wallet.inactive.guide" = "Please enable the data network to access account information.";
+
+
 /* 토큰 */
 "token.add" = "Add Token";
 "token.added" = "Tokens added to wallet";

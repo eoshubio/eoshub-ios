@@ -106,6 +106,9 @@
 		2C3B17AD20FCCC7000E6BAAD /* TxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17AC20FCCC7000E6BAAD /* TxManager.swift */; };
 		2C3B17AF20FCFDF400E6BAAD /* TransferPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B17AE20FCFDF400E6BAAD /* TransferPopup.xib */; };
 		2C3B17B120FD023000E6BAAD /* TransferPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17B020FD023000E6BAAD /* TransferPopup.swift */; };
+		2C63FE962118A7150036652B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE952118A7150036652B /* Reachability.swift */; };
+		2C63FE982118AAE50036652B /* WalletLockedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C63FE972118AAE50036652B /* WalletLockedCell.xib */; };
+		2C63FE9A2118AEA70036652B /* WalletLockedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE992118AEA70036652B /* WalletLockedCell.swift */; };
 		2C7426B421169DFF00F8A85E /* AuthError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7426B321169DFF00F8A85E /* AuthError.swift */; };
 		2C7426B62116B05C00F8A85E /* SigninViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7426B52116B05C00F8A85E /* SigninViewController.swift */; };
 		2C7426B82116B07000F8A85E /* ForgetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C7426B72116B07000F8A85E /* ForgetViewController.swift */; };
@@ -347,6 +350,9 @@
 		2C3B17AC20FCCC7000E6BAAD /* TxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxManager.swift; sourceTree = "<group>"; };
 		2C3B17AE20FCFDF400E6BAAD /* TransferPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferPopup.xib; sourceTree = "<group>"; };
 		2C3B17B020FD023000E6BAAD /* TransferPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferPopup.swift; sourceTree = "<group>"; };
+		2C63FE952118A7150036652B /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
+		2C63FE972118AAE50036652B /* WalletLockedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletLockedCell.xib; sourceTree = "<group>"; };
+		2C63FE992118AEA70036652B /* WalletLockedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletLockedCell.swift; sourceTree = "<group>"; };
 		2C7426B321169DFF00F8A85E /* AuthError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthError.swift; sourceTree = "<group>"; };
 		2C7426B52116B05C00F8A85E /* SigninViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SigninViewController.swift; sourceTree = "<group>"; };
 		2C7426B72116B07000F8A85E /* ForgetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgetViewController.swift; sourceTree = "<group>"; };
@@ -707,6 +713,7 @@
 				2CA5D195210C4E46006C928B /* Range+extension.swift */,
 				2CCA34A7210DD9550024BB5D /* Array+extension.swift */,
 				2C7426C1211749EA00F8A85E /* NSAttributedString+extension.swift */,
+				2C63FE952118A7150036652B /* Reachability.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -836,6 +843,8 @@
 				2C279C0D20FA5FA800D2F6C4 /* TokenCell.xib */,
 				2C2ACFF420F49DCA00C637D8 /* FaceIdInputView.xib */,
 				2C2ACFC020F3AEED00C637D8 /* TestCell.xib */,
+				2C63FE992118AEA70036652B /* WalletLockedCell.swift */,
+				2C63FE972118AAE50036652B /* WalletLockedCell.xib */,
 				2CE1113920F27BE000B93BEB /* WalletCell.swift */,
 				2CE1113B20F27C1E00B93BEB /* WalletCell.xib */,
 				2CE1113320F26D8000B93BEB /* WalletAddCell.swift */,
@@ -1052,6 +1061,7 @@
 				2CE1111020F2118900B93BEB /* LoginButton.xib in Resources */,
 				2CE1110920F1FA6600B93BEB /* Localizable.strings in Resources */,
 				2C2ACFF520F49DCA00C637D8 /* FaceIdInputView.xib in Resources */,
+				2C63FE982118AAE50036652B /* WalletLockedCell.xib in Resources */,
 				2CE1113620F26DBB00B93BEB /* WalletAddCell.xib in Resources */,
 				2CEC2D4420F63BFF00AF5E9B /* WalletGuideCell.xib in Resources */,
 				2C1E3E9B20FE2BF50009D2AF /* DelegatePopup.xib in Resources */,
@@ -1217,6 +1227,7 @@
 				2CEC2D4E20F65D8600AF5E9B /* WalletDetailFlowController.swift in Sources */,
 				2C279B7320F783DF00D2F6C4 /* SendCurrencyViewController.swift in Sources */,
 				2C279C0A20FA452F00D2F6C4 /* Config.swift in Sources */,
+				2C63FE962118A7150036652B /* Reachability.swift in Sources */,
 				2C279BFD20F9D39600D2F6C4 /* AccountInfo.swift in Sources */,
 				2CA5D192210C468A006C928B /* LicenseViewController.swift in Sources */,
 				2CE1113A20F27BE000B93BEB /* WalletCell.swift in Sources */,
@@ -1295,6 +1306,7 @@
 				2CA5D1882109FAD5006C928B /* TokenAddFlowController.swift in Sources */,
 				2CEC2D4620F6423000AF5E9B /* AccountManager.swift in Sources */,
 				2C770C9320FB30AD007F71C4 /* Symbol.swift in Sources */,
+				2C63FE9A2118AEA70036652B /* WalletLockedCell.swift in Sources */,
 				2CE110F120F1D65400B93BEB /* Color.swift in Sources */,
 				2CE1110420F1F30200B93BEB /* SettingViewController.swift in Sources */,
 				2C279BFF20F9D3D000D2F6C4 /* BPInfo.swift in Sources */,
