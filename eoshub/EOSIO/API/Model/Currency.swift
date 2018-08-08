@@ -13,15 +13,16 @@ typealias Symbol = String
 struct Token: Equatable, Hashable {
     let symbol: Symbol
     let contract: String
-    let decimal = 4
+    let decimal: Int
     
     var stringValue: String {
         return symbol + "@" + contract
     }
     
-    init(symbol: Symbol, contract: String) {
+    init(symbol: Symbol, contract: String, decimal: Int = 4) {
         self.symbol = symbol
         self.contract = contract
+        self.decimal = decimal
     }
     
     init?(with stringValue: String) {
@@ -31,6 +32,7 @@ struct Token: Equatable, Hashable {
         } else {
             self.symbol = comp.first!
             self.contract = comp.last!
+            self.decimal = 4
         }
     }
 }
@@ -61,7 +63,7 @@ struct Currency {
     
     init(balance: Double, token: Token = .eos) {
         self.quantity = balance
-        self.balance = balance.dot4String
+        self.balance = balance.getString(precision: token.decimal)
         self.token = token
         
     }

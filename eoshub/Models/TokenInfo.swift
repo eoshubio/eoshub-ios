@@ -16,7 +16,7 @@ class TokenInfo: DBObject, Mergeable {
     @objc dynamic var decimal: Int = 4
     
     var token: Token {
-        return Token(symbol: symbol, contract: contract)
+        return Token(symbol: symbol, contract: contract, decimal: decimal)
     }
     
     override static func ignoredProperties() -> [String] {

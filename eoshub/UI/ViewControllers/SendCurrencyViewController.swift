@@ -149,7 +149,10 @@ class SendCurrencyViewController: TextInputViewController {
     }
     
     fileprivate func confirmTransfer() {
-        let quantity = Currency(balance: sendForm.quantity.value, token: balance.token)
+        
+        let token = TokenManager.shared.knownTokens.filter("id = '\(balance.token.stringValue)'").first?.token ?? balance.token
+        
+        let quantity = Currency(balance: sendForm.quantity.value, token: token)
         TransferPopup.show(account: sendForm.account.value, memo: sendForm.memo.value,
                            quantity: quantity.balance,
                            symbol: balance.symbol)
@@ -165,8 +168,7 @@ class SendCurrencyViewController: TextInputViewController {
     }
     
     fileprivate func transfer() {
-        //TODO: validation account
-        //TODO: validate available EOS
+
         authentication(showAt: self)
             .flatMap { [weak self](validated) -> Observable<JSON> in
                 
@@ -176,9 +178,11 @@ class SendCurrencyViewController: TextInputViewController {
                 
                 let wallet = Wallet(key: strongSelf.account.pubKey)
                 
+                let token = TokenManager.shared.knownTokens.filter("id = '\(strongSelf.balance.token.stringValue)'").first?.token ?? strongSelf.balance.token
+                
                 return RxEOSAPI.sendCurrency(from: strongSelf.account.account,
                                              to: strongSelf.sendForm.account.value,
-                                             quantity: strongSelf.sendForm.quantityCurrency(token: strongSelf.balance.token),
+                                             quantity: strongSelf.sendForm.quantityCurrency(token: token),
                                              memo: strongSelf.sendForm.memo.value,
                                              wallet: wallet)
             }
