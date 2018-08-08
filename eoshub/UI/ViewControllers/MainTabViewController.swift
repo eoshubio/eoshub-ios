@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class MainTabViewController: TabBarViewController {
+class MainTabViewController: TabBarViewController, MenuTabBarDeleagte {
   
     var flowDelegate: MainTabFlowEventDelegate?
     
@@ -37,8 +37,8 @@ class MainTabViewController: TabBarViewController {
     private func bindActions() {
         menuTabBar.selected
             .bind { [weak self](menu) in
-                guard let strongSelf = self, let menu = menu as? MainMenu else { return }
-                strongSelf.flowDelegate?.go(from: strongSelf, to: menu, animated: true)
+                guard let menu = menu as? MainMenu else { return }
+                self?.go(to: menu)
             }
             .disposed(by: bag)
         
@@ -56,6 +56,7 @@ class MainTabViewController: TabBarViewController {
     
     private func setupMenus() {
         menuTabBar.configure(menus: [MainMenu.wallet, MainMenu.vote, MainMenu.airdrop])
+        menuTabBar.delegate = self
         menuTabBar.selectMenu(menu: MainMenu.wallet)
     }
     
@@ -74,5 +75,19 @@ class MainTabViewController: TabBarViewController {
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
+    }
+    
+    private func go(to menu: MainMenu) {
+        flowDelegate?.go(from: self, to: menu, animated: true)
+    }
+    
+    func canMoveToMenu(menu: Menu) -> Bool {
+        switch menu {
+        case MainMenu.vote:
+            let hasOwnerMode = AccountManager.shared.infos.filter("ownerMode = true").count > 0
+            return hasOwnerMode
+        default:
+            return true
+        }
     }
 }

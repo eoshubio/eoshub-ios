@@ -43,6 +43,8 @@ class MenuTabBar: UIView {
     fileprivate var buttons: [UIButton] = []
     fileprivate var stack: UIStackView!
     
+    var delegate: MenuTabBarDeleagte?
+    
     private let bag = DisposeBag()
     
     fileprivate var indicatorView: UIView!
@@ -132,6 +134,9 @@ class MenuTabBar: UIView {
     }
     
     func selectMenu(menu: Menu) {
+        //ignore
+        if delegate?.canMoveToMenu(menu: menu) == false { return }
+        
         if selectedMenu?.id != menu.id {
             selectedMenu = menu
             if let selectedButton = buttons.filter ({ $0.tag == menu.id }).first {
@@ -143,4 +148,6 @@ class MenuTabBar: UIView {
     
 }
 
-
+protocol MenuTabBarDeleagte {
+    func canMoveToMenu(menu: Menu) -> Bool
+}
