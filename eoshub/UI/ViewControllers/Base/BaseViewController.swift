@@ -59,6 +59,12 @@ class BaseViewController: UIViewController {
         }
     }
     
+    func addBackButton() {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(self.back))
+        
+        
+    }
+    
 }
 
 
@@ -84,4 +90,9 @@ extension BaseViewController {
                     }
                 })
     }
+    
+    @objc func back() {
+        navigationController?.popViewController(animated: true)
+    }
+    
 }

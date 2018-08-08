@@ -28,9 +28,18 @@ class PinCodeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-//        showNavigationBar(with: .basePurple)
+        
         pinView.clear()
         pinView.show()
+        
+        switch mode! {
+        case .confirm:
+            showNavigationBar(with: .basePurple)
+            addBackButton()
+        default:
+            break
+        }
+        
     }
     
     override func viewDidLoad() {
@@ -42,9 +51,10 @@ class PinCodeViewController: BaseViewController {
     private func setupUI() {
         switch mode! {
         case .create:
+            btnClose.isHidden = true
             lbTitle.text = LocalizedString.Secure.Pin.create
         case .confirm:
-            btnClose.isHidden = true
+            btnClose.isHidden = true //add back
             lbTitle.text = LocalizedString.Secure.Pin.confirm
             addInputView()
         case .validation:
@@ -65,16 +75,29 @@ class PinCodeViewController: BaseViewController {
         
         btnClose.rx.singleTap
             .bind { [weak self] in
-                if let delegate = self?.flowDelegate as? ValidatePinFlowDelegate {
-                    guard let nc = self?.navigationController else { return }
-                    delegate.cancelled(from: nc)
-                }
+                self?.handleCancel()
+                
             }
             .disposed(by: bag)
     }
     
     func configure(mode: Mode) {
         self.mode = mode
+    }
+    
+    fileprivate func handleCancel() {
+        if let delegate = flowDelegate as? ValidatePinFlowDelegate {
+            guard let nc = navigationController else { return }
+            delegate.cancelled(from: nc)
+        }
+        
+        switch mode! {
+        case .change:
+            flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
+        default:
+            break
+        }
+        
     }
     
     fileprivate func addInputView() {

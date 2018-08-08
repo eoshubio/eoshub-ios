@@ -35,7 +35,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWW-wC-sTf" customClass="PinCodeView" customModule="eoshub" customModuleProvider="target">
-                                <rect key="frame" x="122.66666666666669" y="294" width="130" height="13"/>
+                                <rect key="frame" x="122.66666666666669" y="273" width="130" height="13"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="13" id="aSB-II-h3k"/>
@@ -43,7 +43,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxn-pf-Ppo" customClass="ExtendButton" customModule="eoshub" customModuleProvider="target">
-                                <rect key="frame" x="340" y="59" width="20" height="20"/>
+                                <rect key="frame" x="335" y="64" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="MAt-We-Kol"/>
                                     <constraint firstAttribute="height" constant="20" id="Q1d-tF-evO"/>
@@ -57,13 +57,13 @@
                             <constraint firstItem="eWW-wC-sTf" firstAttribute="centerX" secondItem="X25-gU-4B5" secondAttribute="centerX" id="L8o-dK-8pP"/>
                             <constraint firstItem="2A2-X9-JEB" firstAttribute="centerX" secondItem="X25-gU-4B5" secondAttribute="centerX" id="UJP-Pa-RKp"/>
                             <constraint firstItem="2A2-X9-JEB" firstAttribute="top" secondItem="dMI-MI-VIf" secondAttribute="top" constant="80" id="cHp-UO-J3k"/>
-                            <constraint firstItem="Pxn-pf-Ppo" firstAttribute="top" secondItem="dMI-MI-VIf" secondAttribute="top" constant="15" id="dGV-3d-gVy"/>
-                            <constraint firstItem="dMI-MI-VIf" firstAttribute="trailing" secondItem="Pxn-pf-Ppo" secondAttribute="trailing" constant="15" id="e0G-Lz-Kmb"/>
+                            <constraint firstItem="Pxn-pf-Ppo" firstAttribute="top" secondItem="dMI-MI-VIf" secondAttribute="top" constant="20" id="dGV-3d-gVy"/>
+                            <constraint firstItem="dMI-MI-VIf" firstAttribute="trailing" secondItem="Pxn-pf-Ppo" secondAttribute="trailing" constant="20" id="e0G-Lz-Kmb"/>
                             <constraint firstItem="6f8-El-DRx" firstAttribute="centerX" secondItem="X25-gU-4B5" secondAttribute="centerX" id="gG1-Yn-1ZS"/>
                             <constraint firstItem="6f8-El-DRx" firstAttribute="top" secondItem="2A2-X9-JEB" secondAttribute="bottom" constant="15" id="iLC-t5-TJi"/>
                             <constraint firstItem="S7d-1y-xxV" firstAttribute="leading" secondItem="X25-gU-4B5" secondAttribute="leading" id="iR2-iE-8Jl"/>
                             <constraint firstAttribute="bottom" secondItem="S7d-1y-xxV" secondAttribute="bottom" id="ode-Ww-cTA"/>
-                            <constraint firstItem="eWW-wC-sTf" firstAttribute="top" secondItem="6f8-El-DRx" secondAttribute="bottom" constant="61" id="yvb-mQ-nKe"/>
+                            <constraint firstItem="eWW-wC-sTf" firstAttribute="top" secondItem="6f8-El-DRx" secondAttribute="bottom" constant="40" id="yvb-mQ-nKe"/>
                             <constraint firstItem="S7d-1y-xxV" firstAttribute="top" secondItem="X25-gU-4B5" secondAttribute="top" id="znP-br-xgZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dMI-MI-VIf"/>
@@ -90,7 +90,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKF-gq-WSN" customClass="ExtendButton" customModule="eoshub" customModuleProvider="target">
-                                <rect key="frame" x="340" y="59" width="20" height="20"/>
+                                <rect key="frame" x="335" y="64" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="hw9-sY-D5o"/>
                                     <constraint firstAttribute="height" constant="20" id="stE-vr-aIT"/>
@@ -133,13 +133,13 @@
                             <constraint firstItem="uYE-oT-8ve" firstAttribute="centerX" secondItem="XLp-Kl-GkK" secondAttribute="centerX" id="Neq-Bl-h0E"/>
                             <constraint firstItem="Szh-2N-bX5" firstAttribute="top" secondItem="gss-cl-EJG" secondAttribute="top" constant="80" id="P0W-Qy-ais"/>
                             <constraint firstItem="aYW-ts-qBK" firstAttribute="leading" secondItem="gss-cl-EJG" secondAttribute="leading" id="Uh4-EQ-k0t"/>
-                            <constraint firstItem="gss-cl-EJG" firstAttribute="trailing" secondItem="bKF-gq-WSN" secondAttribute="trailing" constant="15" id="ad9-8U-WJW"/>
+                            <constraint firstItem="gss-cl-EJG" firstAttribute="trailing" secondItem="bKF-gq-WSN" secondAttribute="trailing" constant="20" id="ad9-8U-WJW"/>
                             <constraint firstItem="aYW-ts-qBK" firstAttribute="trailing" secondItem="gss-cl-EJG" secondAttribute="trailing" id="dXP-wu-29v"/>
                             <constraint firstItem="aYW-ts-qBK" firstAttribute="top" secondItem="XLp-Kl-GkK" secondAttribute="top" id="eEF-hr-7l7"/>
                             <constraint firstItem="E4i-jN-d3U" firstAttribute="centerX" secondItem="XLp-Kl-GkK" secondAttribute="centerX" id="oKO-KE-fyo"/>
                             <constraint firstItem="Szh-2N-bX5" firstAttribute="centerX" secondItem="XLp-Kl-GkK" secondAttribute="centerX" id="oz0-xq-sq5"/>
                             <constraint firstAttribute="bottom" secondItem="aYW-ts-qBK" secondAttribute="bottom" id="rl4-6w-dvV"/>
-                            <constraint firstItem="bKF-gq-WSN" firstAttribute="top" secondItem="gss-cl-EJG" secondAttribute="top" constant="15" id="rty-pg-ONx"/>
+                            <constraint firstItem="bKF-gq-WSN" firstAttribute="top" secondItem="gss-cl-EJG" secondAttribute="top" constant="20" id="rty-pg-ONx"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gss-cl-EJG"/>
                     </view>
