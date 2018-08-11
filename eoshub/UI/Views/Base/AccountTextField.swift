@@ -10,6 +10,14 @@ import Foundation
 import UIKit
 
 class AccountTextField: UITextField {
+    
+    var hasWrongChar: Bool {
+        if let accountName = text {
+            return Validator.wrongAccountName(name: accountName).count > 0
+        }
+        return false
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -26,7 +34,7 @@ class AccountTextField: UITextField {
     }
     
     @objc fileprivate func textFieldEditingDidChanged(_ sender: Any) {
-        guard let accountName = text, accountName.count > 0 else { return }
+        guard let accountName = text?.trimmingCharacters(in: .whitespaces).lowercased(), accountName.count > 0 else { return }
         
         let wrongChrs = Validator.wrongAccountName(name: accountName)
         

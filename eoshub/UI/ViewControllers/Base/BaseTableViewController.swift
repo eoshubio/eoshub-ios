@@ -34,10 +34,10 @@ class BaseTableViewController: UITableViewController {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         
         //        navigationController?.navigationBar.barTintColor = UIColor.clear
-        navigationController?.view.backgroundColor = UIColor.clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.shadowImage = UIImage()
-        navigationController?.navigationBar.isTranslucent = true
+        navigationController?.view.backgroundColor = UIColor.white
+//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+//        navigationController?.navigationBar.shadowImage = UIImage()
+//        navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = tintColor.uiColor
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: tintColor.uiColor]
         navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: tintColor.uiColor]
@@ -51,9 +51,16 @@ class BaseTableViewController: UITableViewController {
         default:
             break
         }
+    }
+    
+    func addBackButton(title: String = " ") {
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: title, style: .done, target: self, action: #selector(self.back))
         
         
-        
+    }
+    
+    @objc func back() {
+        navigationController?.popViewController(animated: true)
     }
     
 }

@@ -39,7 +39,9 @@ class CreateFlowController: FlowController, CreateFlowEventDelegate {
     
     
     func goCreateAccount(from nc: UINavigationController) {
-        
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = CreateAccountFlowController(configure: config)
+        fc.start(animated: true)
     }
     
     func goImportPrivateKey(from nc: UINavigationController) {

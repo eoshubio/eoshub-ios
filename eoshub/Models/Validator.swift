@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RxSwift
 
 struct Validator {
     fileprivate static let validChars = Array(".12345abcdefghijklmnopqrstuvwxyz")
@@ -35,7 +36,7 @@ struct Validator {
         
         var iterator = 0
         for chr in name {
-            if validChars.contains(chr) == false || iterator > maxLength {
+            if validChars.contains(chr) == false || iterator >= maxLength {
                 indices.append(iterator)
             }
             iterator += 1
@@ -45,6 +46,10 @@ struct Validator {
         return indices.map { NSMakeRange($0, 1) }
     }
     
+    static func validatePubkey(pubKey: String) -> Bool {
+        let validate = pubKey.hasPrefix("EOS") && pubKey.count == 53
+        return validate
+    }
     
     
 }

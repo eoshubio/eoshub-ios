@@ -9,7 +9,8 @@
 import Foundation
 import UIKit
 
-class RoundedButton: UIButton {
+class RoundedButton: BorderColorButton {
+    
     
     @IBInspectable var radius: CGFloat = 6.0 {
         didSet {
@@ -64,4 +65,13 @@ class RoundedButton: UIButton {
     private func relayout() {
         setCornerRadius(radius: radius)
     }
+    
+    
+   
+    
+    
 }
+
+
+
+

@@ -44,6 +44,7 @@ enum EOSResponseError: Error, JSONInitializable {
     case unsatisfiedAuthorization(String)
     case messageException(String)
     case unknownError(String)
+    case unknownKey
     
     init?(json: JSON) {
         guard let error = json["error"] as? JSON, let code = error["code"] as? Int else { return nil }
@@ -70,7 +71,11 @@ enum EOSResponseError: Error, JSONInitializable {
         case .unAuthorized:
             self = .unsatisfiedAuthorization(errorMessage)
         case .unknownError:
-            self = .unknownError(errorMessage)
+            if errorMessage == "unknown key" {
+                self = .unknownKey
+            } else {
+                self = .unknownError(errorMessage)
+            }
         }
     }
     

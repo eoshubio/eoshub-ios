@@ -13,6 +13,9 @@ enum FlowIdentifier: String {
     case main
     case mainTab
     case create
+    case createAcc
+    case createAccInfo
+    case getTxCode
     case importPri
     case importPub
     case findAccount

@@ -36,16 +36,7 @@ class TokenViewController: BaseTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showNavigationBar(with: Color.basePurple, animated: false, largeTitle: true)
-//        navigationController?.setNavigationBarHidden(false, animated: false)
-//        navigationController?.view.backgroundColor = UIColor.lightGray
-////        navigationController?.navigationBar.shadowImage = UIImage()
-//        navigationController?.navigationBar.isTranslucent = false
-//        navigationController?.navigationBar.tintColor = Color.basePurple.uiColor
-//        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Color.basePurple.uiColor]
-//        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: Color.basePurple.uiColor]
-//        navigationController?.navigationBar.prefersLargeTitles = true
-//        navigationController?.navigationBar.barStyle = .default
-        
+
         
         //search bar
         let search = UISearchController(searchResultsController: nil)

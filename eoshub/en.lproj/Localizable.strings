@@ -63,11 +63,43 @@
 "create.import.text" = "You can keep your existing EOS account securely in EOSHub. The private key is encrypted and stored in the iCloud keychain.";
 "create.import.action" = "Import";
 "create.import.warningTitle" = "Please follow the precautions below when adding a private key.";
-"create.import.warning" = "1. Enter the private key directly. (The copy / paste function is saved on the public paste board, and is vulnerable to hacking.)\n2. Turn off Wifi. It is also a good idea to turn on Airplane mode.\n3. EOSHub uses the iCloud keychain to protect your mobile phone from loss and provide strong security. If the iCloud option is off, you will not be able to recover your private key when you lose your phone. (Settings-iCloud-Keychain-On OK)";
+"create.import.warning" = "1. Enter the private key directly with a keyboard. (Copy and Paste function cause potential security threats.)\n2. Turn off Wifi connection. Importing key on Airplane mode is a more safe way.\n3. EOSHub uses the iCloud Keychain to protect your mobile phone from loss security risk. You will not be able to recover your private key when you lose your phone without iCloud Keychain. (Settings-iCloud-Keychain-On OK)";
 
 "create.interest.title" = "Add an interest account";
 "create.interest.text" = "You can add and manage the EOS account you are interested in. Accounts of interest do not require a private key, and are only viewable.";
 "create.interest.action" = "Add";
+
+
+"create.account.title" = "Create account";
+"create.account.name" = "EOS account name";
+"create.account.enter" = "Enter account name to use";
+"create.account.rules" = "[a~z], [1~5], Only 12 characters are allowed.";
+"create.account.check" = "Account duplicate check";
+"create.account.check.failed" = "%@ is not available.";
+"create.account.check.success" = "%@ is available.";
+"create.account.keys" = "Generate keys";
+"create.account.se.title" = "Generate keys on Apple Secure enclave.";
+"create.account.se.text" = "Secure enclave protects your private key from hackers and your mistakes perfectly with Apple's powerful Secure hardware.";
+"create.account.se.detail" = "For more details";
+"create.account.insert.title" = "Insert Public key directly";
+"create.account.insert.text" = "You must keep safe the private key that is paired with the public key.";
+"create.account.next" = "Next step";
+
+"create.check.title" = "Check account informations";
+"create.check.name" = "Account name";
+"cretae.check.text" = "Your account will be created with the following information:";
+"create.check.keys" = "Owner & Active key";
+
+"create.invoice.title" = "Invoice";
+"create.invoice.textDeposit" = "Please deposit %@ EOS with the given note to the account below. The deposited EOS is used to allocate the resources needed to create an account.";
+"create.invoice.timelimit" = "%@ hour";
+"create.invoice.textTimelimit" = "This invoice is valid for %@ only. If you want to get a new one, press the refresh button at the top.";
+"create.invoice.memo" = "memo";
+"create.invoice.textConfirm" = "After you have sent the EOS to the given memo and account, please click Confirm. It may take several minutes to confirm the transaction.";
+"create.invoice.Confirm" = "Confirm";
+
+
+
 
 /* 지갑 */
 "wallet.send" = "Send";
@@ -180,3 +212,4 @@
 "common.done" = "Done";
 "common.edit" = "Edit";
 "common.cancelShort" = "Cancel";
+

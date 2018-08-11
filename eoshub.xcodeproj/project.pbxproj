@@ -133,6 +133,14 @@
 		2C770CA520FB9B97007F71C4 /* BuyRamFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA420FB9B97007F71C4 /* BuyRamFlowController.swift */; };
 		2C770CA720FBA051007F71C4 /* SellRamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA620FBA051007F71C4 /* SellRamViewController.swift */; };
 		2C770CA920FBA2A9007F71C4 /* SellRamFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA820FBA2A9007F71C4 /* SellRamFlowController.swift */; };
+		2C99E498211D98AF00DB55A6 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E497211D98AF00DB55A6 /* CreateAccountViewController.swift */; };
+		2C99E49A211D992600DB55A6 /* CreateAccountFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E499211D992600DB55A6 /* CreateAccountFlowController.swift */; };
+		2C99E49C211DB40C00DB55A6 /* BorderColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E49B211DB40C00DB55A6 /* BorderColorButton.swift */; };
+		2C99E4A0211E71C900DB55A6 /* CreateAccountRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E49F211E71C900DB55A6 /* CreateAccountRequest.swift */; };
+		2C99E4A2211EDE9E00DB55A6 /* CreateAccountInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E4A1211EDE9E00DB55A6 /* CreateAccountInfoViewController.swift */; };
+		2C99E4A4211EDF2200DB55A6 /* CreateAccountInfoFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E4A3211EDF2200DB55A6 /* CreateAccountInfoFlowController.swift */; };
+		2C99E4A6211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E4A5211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift */; };
+		2C99E4A8211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E4A7211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift */; };
 		2CA5D1862109FA08006C928B /* TokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D1852109FA08006C928B /* TokenViewController.swift */; };
 		2CA5D1882109FAD5006C928B /* TokenAddFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */; };
 		2CA5D18A210A22B2006C928B /* EOSHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D189210A22B2006C928B /* EOSHubAPI.swift */; };
@@ -377,6 +385,14 @@
 		2C770CA420FB9B97007F71C4 /* BuyRamFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyRamFlowController.swift; sourceTree = "<group>"; };
 		2C770CA620FBA051007F71C4 /* SellRamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellRamViewController.swift; sourceTree = "<group>"; };
 		2C770CA820FBA2A9007F71C4 /* SellRamFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellRamFlowController.swift; sourceTree = "<group>"; };
+		2C99E497211D98AF00DB55A6 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
+		2C99E499211D992600DB55A6 /* CreateAccountFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountFlowController.swift; sourceTree = "<group>"; };
+		2C99E49B211DB40C00DB55A6 /* BorderColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BorderColorButton.swift; sourceTree = "<group>"; };
+		2C99E49F211E71C900DB55A6 /* CreateAccountRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountRequest.swift; sourceTree = "<group>"; };
+		2C99E4A1211EDE9E00DB55A6 /* CreateAccountInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInfoViewController.swift; sourceTree = "<group>"; };
+		2C99E4A3211EDF2200DB55A6 /* CreateAccountInfoFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInfoFlowController.swift; sourceTree = "<group>"; };
+		2C99E4A5211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInvoiceViewController.swift; sourceTree = "<group>"; };
+		2C99E4A7211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInvoiceFlowController.swift; sourceTree = "<group>"; };
 		2CA5D1852109FA08006C928B /* TokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewController.swift; sourceTree = "<group>"; };
 		2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAddFlowController.swift; sourceTree = "<group>"; };
 		2CA5D189210A22B2006C928B /* EOSHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSHubAPI.swift; sourceTree = "<group>"; };
@@ -625,7 +641,6 @@
 				2C02AE692110BA0500C6ECF3 /* eoshub.entitlements */,
 				2C279C0820FA452900D2F6C4 /* Config */,
 				2CE110C820F1C44400B93BEB /* EOSIO */,
-				2CE110CD20F1C4A900B93BEB /* EOSHUB */,
 				2CE110C920F1C47800B93BEB /* Network */,
 				2CE110CA20F1C47E00B93BEB /* UI */,
 				2CE1111120F218BB00B93BEB /* Models */,
@@ -734,15 +749,6 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
-		2CE110CD20F1C4A900B93BEB /* EOSHUB */ = {
-			isa = PBXGroup;
-			children = (
-				2C279BE720F8DD6A00D2F6C4 /* EHAccount.swift */,
-				2CA5D18F210B715E006C928B /* EOSHubError.swift */,
-			);
-			path = EOSHUB;
-			sourceTree = "<group>";
-		};
 		2CE110CE20F1C4CE00B93BEB /* FlowControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -770,6 +776,9 @@
 				2CE1110520F1F76200B93BEB /* SettingFlowController.swift */,
 				2CA5D193210C481C006C928B /* LicenseFlowController.swift */,
 				2C2ACFD020F3DD1800C637D8 /* CreateFlowController.swift */,
+				2C99E499211D992600DB55A6 /* CreateAccountFlowController.swift */,
+				2C99E4A3211EDF2200DB55A6 /* CreateAccountInfoFlowController.swift */,
+				2C99E4A7211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift */,
 				2C2ACFD620F442E400C637D8 /* ImportFlowController.swift */,
 				2CB6B7F22104AE970048601A /* PreferAccountFlowController.swift */,
 				2C2ACFDE20F46B3300C637D8 /* FindFlowController.swift */,
@@ -807,6 +816,9 @@
 				2CE1112B20F263B100B93BEB /* VoteViewController.swift */,
 				2CE1112F20F26BA300B93BEB /* AirdropViewController.swift */,
 				2C2ACFCE20F3D8EB00C637D8 /* CreateViewController.swift */,
+				2C99E497211D98AF00DB55A6 /* CreateAccountViewController.swift */,
+				2C99E4A1211EDE9E00DB55A6 /* CreateAccountInfoViewController.swift */,
+				2C99E4A5211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift */,
 				2C2ACFD420F4427F00C637D8 /* ImportViewController.swift */,
 				2CB6B7F02104AD020048601A /* PreferAccountViewController.swift */,
 				2C2ACFDA20F4607700C637D8 /* FindAccountViewController.swift */,
@@ -827,7 +839,6 @@
 				2CEC2D4B20F65D1500AF5E9B /* StakeProgressBar.swift */,
 				2C2ACFE220F476F900C637D8 /* PincodeView.swift */,
 				2C2ACFFE20F4E51700C637D8 /* BPCell.swift */,
-				2C2ACFF620F49F5100C637D8 /* FaceIdInputView.swift */,
 				2C1E3E9420FE14000009D2AF /* WaitingView.swift */,
 				2C1E3E9620FE18000009D2AF /* Popup.swift */,
 				2C1E3E9820FE18960009D2AF /* Popup.xib */,
@@ -841,6 +852,7 @@
 				2C1E3E9E20FE37AB0009D2AF /* RamPopup.xib */,
 				2C279C0B20FA5F1700D2F6C4 /* TokenCell.swift */,
 				2C279C0D20FA5FA800D2F6C4 /* TokenCell.xib */,
+				2C2ACFF620F49F5100C637D8 /* FaceIdInputView.swift */,
 				2C2ACFF420F49DCA00C637D8 /* FaceIdInputView.xib */,
 				2C2ACFC020F3AEED00C637D8 /* TestCell.xib */,
 				2C63FE992118AEA70036652B /* WalletLockedCell.swift */,
@@ -860,6 +872,9 @@
 		2CE1111120F218BB00B93BEB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				2C279BE720F8DD6A00D2F6C4 /* EHAccount.swift */,
+				2CA5D18F210B715E006C928B /* EOSHubError.swift */,
+				2C99E49F211E71C900DB55A6 /* CreateAccountRequest.swift */,
 				2CE1111220F218C700B93BEB /* LoginType.swift */,
 				2C279BFC20F9D39600D2F6C4 /* AccountInfo.swift */,
 				2C279BFE20F9D3D000D2F6C4 /* BPInfo.swift */,
@@ -877,6 +892,7 @@
 			children = (
 				2CE1111820F23C1700B93BEB /* BounceButton.swift */,
 				2CE110FB20F1EC8600B93BEB /* RoundedButton.swift */,
+				2C99E49B211DB40C00DB55A6 /* BorderColorButton.swift */,
 				2C770C9620FB6E94007F71C4 /* RoundedShadowButton.swift */,
 				2CE1113720F26DF000B93BEB /* RoundedView.swift */,
 				2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */,
@@ -1219,10 +1235,12 @@
 				2C279BF620F9C66500D2F6C4 /* Wallet.swift in Sources */,
 				2C279C0C20FA5F1700D2F6C4 /* TokenCell.swift in Sources */,
 				2C279BD420F8C5A300D2F6C4 /* BlockProducer.swift in Sources */,
+				2C99E4A0211E71C900DB55A6 /* CreateAccountRequest.swift in Sources */,
 				2C2ACFE520F47C1900C637D8 /* PinCodeViewController.swift in Sources */,
 				2C279BB520F8C42700D2F6C4 /* EOS_Key_Encode.m in Sources */,
 				2CB6B7FB2104DA230048601A /* NetworkError.swift in Sources */,
 				2CE1112920F252B500B93BEB /* TabBarViewConroller.swift in Sources */,
+				2C99E49A211D992600DB55A6 /* CreateAccountFlowController.swift in Sources */,
 				2C770C8F20FAF1F5007F71C4 /* TokenDetailFlowController.swift in Sources */,
 				2CEC2D4E20F65D8600AF5E9B /* WalletDetailFlowController.swift in Sources */,
 				2C279B7320F783DF00D2F6C4 /* SendCurrencyViewController.swift in Sources */,
@@ -1271,6 +1289,7 @@
 				2C1E3E9D20FE2D810009D2AF /* DelegatePopup.swift in Sources */,
 				2C279BA620F8C3CB00D2F6C4 /* sha2.c in Sources */,
 				2C279B7B20F7AEAC00D2F6C4 /* TxViewController.swift in Sources */,
+				2C99E498211D98AF00DB55A6 /* CreateAccountViewController.swift in Sources */,
 				2C279B8D20F8C30700D2F6C4 /* Packable.swift in Sources */,
 				2CE1111720F23BF600B93BEB /* ExtendButton.swift in Sources */,
 				2C279BC120F8C58100D2F6C4 /* EOSIOConfig.swift in Sources */,
@@ -1350,6 +1369,7 @@
 				2C1E3EA120FE37B60009D2AF /* RamPopup.swift in Sources */,
 				2C279B8C20F8C30700D2F6C4 /* Action.swift in Sources */,
 				2C279BDC20F8C5A300D2F6C4 /* Block.swift in Sources */,
+				2C99E4A8211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift in Sources */,
 				2C2ACFDB20F4607700C637D8 /* FindAccountViewController.swift in Sources */,
 				2C770C9F20FB8BBE007F71C4 /* UndelegateViewController.swift in Sources */,
 				2C2ACFDD20F4608800C637D8 /* TextInputViewController.swift in Sources */,
@@ -1359,6 +1379,7 @@
 				2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */,
 				2CA5D18E210B5B58006C928B /* TokenAddPopup.swift in Sources */,
 				2C279B7720F7A29A00D2F6C4 /* ReceiveViewController.swift in Sources */,
+				2C99E4A2211EDE9E00DB55A6 /* CreateAccountInfoViewController.swift in Sources */,
 				2C7426C2211749EA00F8A85E /* NSAttributedString+extension.swift in Sources */,
 				2CE110D520F1C4E700B93BEB /* FlowConfigure.swift in Sources */,
 				2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */,
@@ -1369,10 +1390,12 @@
 				2CE1112E20F2680100B93BEB /* VoteFlowController.swift in Sources */,
 				2CE110D420F1C4E700B93BEB /* MainFlowController.swift in Sources */,
 				2C279BDA20F8C5A300D2F6C4 /* EOSResponseModel.swift in Sources */,
+				2C99E4A4211EDF2200DB55A6 /* CreateAccountInfoFlowController.swift in Sources */,
 				2C31F7F6210612CE0025D18A /* Preferences.swift in Sources */,
 				2C3B17AD20FCCC7000E6BAAD /* TxManager.swift in Sources */,
 				2CEC2D4C20F65D1500AF5E9B /* StakeProgressBar.swift in Sources */,
 				2C2ACFCF20F3D8EB00C637D8 /* CreateViewController.swift in Sources */,
+				2C99E4A6211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift in Sources */,
 				2CE110E920F1C9B300B93BEB /* DBObject.swift in Sources */,
 				2CE1111320F218C700B93BEB /* LoginType.swift in Sources */,
 				2C2ACFCB20F3CBB600C637D8 /* WalletGuideCell.swift in Sources */,
@@ -1393,6 +1416,7 @@
 				2C279BC320F8C58100D2F6C4 /* EOSAPI.swift in Sources */,
 				2C279BF020F8E90100D2F6C4 /* Security.swift in Sources */,
 				2C7426B82116B07000F8A85E /* ForgetViewController.swift in Sources */,
+				2C99E49C211DB40C00DB55A6 /* BorderColorButton.swift in Sources */,
 				2CDF5917210C7077003D866C /* AuthViewController.swift in Sources */,
 				2CDF5919210CDF3F003D866C /* UserManager.swift in Sources */,
 				2C2ACFFF20F4E51700C637D8 /* BPCell.swift in Sources */,

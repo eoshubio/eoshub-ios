@@ -61,12 +61,41 @@
 "create.import.text" = "기존에 생성된 EOS 계정을 EOSHub 에 안전하게 보관할 수 있습니다. Private key 는 암호화되어 iCloud keychain 저장됩니다.";
 "create.import.action" = "가져오기";
 "create.import.warningTitle" = "Private key 를 추가할때 아래의 주의사항을 따라주세요.";
-"create.import.warning" = "1. Private key를 직접 입력해주세요.(복사/붙여넣기 기능은 공개된 Paste 보드에 저장되어 해킹에 취약합니다)\n2. 와이파이를 꺼주세요. 비행기모드를 켜는 것도 좋은 방법 입니다.\n3. EOSHub는 휴대폰의 분실에 대비하고 강력한 보안을 위하여  iCloud keychain 을 사용합니다. iCloud 옵션이 꺼져있으면 휴대폰 분실시 Private key를 복구 할 수 없습니다. (설정-iCloud-키체인-켬 확인)";
+"create.import.warning" = "1. Private key는 키보드를 통해 직접 입력해주세요. 복사/붙여넣기는 Key가 공개된 클립보드에 저장되어 해킹에 취약합니다.\n2. 비행기모드 상태로 전환 후 입력하면 더 안전합니다.\n3. EOSHub는 강력한 보안과 Key 복원을 위하여 iCloud Keychain을 사용합니다. iCloud 비활성화되어 있으면 Private key를 복구할 수 없습니다. (설정-iCloud-키체인-켬 확인)";
 
 
 "create.interest.title" = "관심 계정 추가하기";
 "create.interest.text" = "관심있는 EOS 계정을 추가하여 관리 할 수 있습니다. 관심 계정은 private key를 필요로 하지 않으며, 조회만 가능합니다.";
 "create.interest.action" = "추가하기";
+
+"create.account.title" = "계정 생성";
+"create.account.name" = "EOS 계정 이름";
+"create.account.enter" = "사용할 계정을 입력해주세요.";
+"create.account.rules" = "[a~z], [1~5], 12 글자만 가능합니다.";
+"create.account.check" = "계정 중복 확인";
+"create.account.check.failed" = "%@ 는 사용 할 수 없는 이름입니다.";
+"create.account.check.success" = "%@ 는 사용 가능합니다.";
+"create.account.keys" = "키 생성";
+"create.account.se.title" = "Apple Secure enclave 내에 비밀키 생성";
+"create.account.se.text" = "Secure enclave 는 Apple 의 강력한 보안 솔루션입니다. 이 옵션을 선택하면 iPhone의 하드웨어 보안영역에 비밀키를 생성합니다.";
+"create.account.se.detail" = "자세히 알아보기";
+"create.account.insert.title" = "사용할 공개키 직접 입력";
+"create.account.insert.text" = "입력하는 공개키와 쌍을 이루는 비밀키를 안전하게 보관해야 하며 잃어버려서는 안됩니다.";
+"create.account.next" = "다음 단계로";
+
+"create.check.title" = "계정 정보 확인";
+"create.check.name" = "계정 이름";
+"cretae.check.text" = "아래 정보로 계정을 생성합니다.";
+"create.check.keys" = "Onwer & Active key";
+
+"create.invoice.title" = "인보이스";
+"create.invoice.textDeposit" = "아래의 계정과 메모로 %@ EOS 를 송금해주세요. 계정을 생성하는데 필요한 자원 할당에 사용됩니다.";
+"create.invoice.timelimit" = "%@ 시간";
+"create.invoice.textTimelimit" = "이 인보이스는 %@ 동안만 유효합니다. 새로운 인보이스를 발급 받으려면 상단의 갱신 버튼을 눌러주세요.";
+"create.invoice.memo" = "메모";
+"create.invoice.textConfirm" = "EOS 를 송금 후에 계정 생성 버튼을 눌러주세요. 입금 확인에는 최대 몇분 가량 소모 될 수 있습니다.";
+"create.invoice.Confirm" = "계정 생성";
+
 
 /* 지갑 */
 "wallet.send" = "보내기";
@@ -180,3 +209,4 @@
 "common.done" = "완료";
 "common.edit" = "편집";
 "common.cancelShort" = "취소";
+

@@ -104,6 +104,41 @@ struct LocalizedString {
             static let action = NSLocalizedString("create.interest.action", comment: "")
         }
         
+        struct Account {
+            static let title = NSLocalizedString("create.account.title", comment: "")
+            static let name = NSLocalizedString("create.account.name", comment: "")
+            static let enter = NSLocalizedString("create.account.enter", comment: "")
+            static let rules = NSLocalizedString("create.account.rules", comment: "")
+            static let check = NSLocalizedString("create.account.check", comment: "")
+            static let keys = NSLocalizedString("create.account.keys", comment: "")
+            static let seTitle = NSLocalizedString("create.account.se.title", comment: "")
+            static let seText = NSLocalizedString("create.account.se.text", comment: "")
+            static let seDetail = NSLocalizedString("create.account.se.detail", comment: "")
+            static let insertTitle = NSLocalizedString("create.account.insert.title", comment: "")
+            static let insertText = NSLocalizedString("create.account.insert.text", comment: "")
+            static let next = NSLocalizedString("create.account.next", comment: "")
+        }
+        
+        struct Check {
+            static let title = NSLocalizedString("create.check.title", comment: "")
+            static let name = NSLocalizedString("create.check.name", comment: "")
+            static let text = NSLocalizedString("cretae.check.text", comment: "")
+            static let keys = NSLocalizedString("create.check.keys", comment: "")
+            static let failed = NSLocalizedString("create.account.check.failed", comment: "")
+            static let success = NSLocalizedString("create.account.check.success", comment: "")
+        }
+        
+        struct Invoice {
+            static let title = NSLocalizedString("create.invoice.title", comment: "")
+            static let textDeposit = NSLocalizedString("create.invoice.textDeposit", comment: "")
+            static let timelimit = NSLocalizedString("create.invoice.timelimit", comment: "")
+            static let textTimelimit = NSLocalizedString("create.invoice.textTimelimit", comment: "")
+            static let memo = NSLocalizedString("create.invoice.memo", comment: "")
+            static let textConfirm = NSLocalizedString("create.invoice.textConfirm", comment: "")
+            static let confirm = NSLocalizedString("create.invoice.Confirm", comment: "")
+        }
+        
+        
     }
     
     struct Wallet {
