@@ -19,30 +19,52 @@ class Security {
     
     var needAuthentication: Bool = true
     
-    var enableBioAuth: Bool
-    
-    init() {
-        KeychainSwift().set(true, forKey: "eoshub.enableBioAuth")
-        enableBioAuth = KeychainSwift().getBool("eoshub.enableBioAuth") ?? false
+    var enableBioAuth: Bool {
+        return KeychainSwift().getBool(bioAuthKey) ?? false
     }
     
+  
+    
+    init() {
+        
+    }
+    
+    private func makeRandomSeed(count: Int) -> String {
+        var result = ""
+        for _ in 0..<count {
+            let randomChr = UInt8(arc4random() % 255)
+            result += String(format: "%02X", randomChr)
+        }
+        return result
+    }
     
     func setPin(pin: String) {
-        KeychainSwift().set(pin, forKey: "eoshub.gate")
+        KeychainSwift().set(pin, forKey: gateKey)
     }
     
     func setEnableBioAuth(on: Bool) {
-        enableBioAuth = on
-        KeychainSwift().set(on, forKey: "eoshub.enableBioAuth")
+        
+        KeychainSwift().set(on, forKey: bioAuthKey)
     }
     
     func validatePin(pin: String) -> Bool {
-        let existPin = KeychainSwift().get("eoshub.gate")
+        let existPin = KeychainSwift().get(gateKey)
         return existPin == pin
     }
     
     func hasPin() -> Bool {
-        return KeychainSwift().get("eoshub.gate") != nil
+        return KeychainSwift().get(gateKey) != nil
+    }
+    
+    private var seed: String {
+        if let seed =  KeychainSwift().get(seedKey) {
+            return seed
+        } else {
+            let seed = makeRandomSeed(count: 32)
+            KeychainSwift().set(seed, forKey: seedKey)
+            return seed
+        }
+        
     }
     
     func biometryType() -> LABiometryType {
@@ -56,7 +78,6 @@ class Security {
     
     
     func getDBKeyData() -> Data {
-        let dbKey = "eoshub.db.non-sensitive"
         if let loadedKey = KeychainSwift().getData(dbKey) {
             return loadedKey
         } else {
@@ -71,14 +92,11 @@ class Security {
     }
     
     func setEncryptedKey(pub: String, pri: String) -> Observable<Bool> {
-        guard let pin = KeychainSwift().get("eoshub.gate") else {
-            return Observable.error(EOSErrorType.cannotFoundPIN)
-        }
-        
+ 
         guard let priData = pri.data(using: .utf8)
             else { return Observable.error(EOSErrorType.invalidKeys) }
         
-        let enPri = RNCryptor.encrypt(data: priData, withPassword: pin)
+        let enPri = RNCryptor.encrypt(data: priData, withPassword: seed)
         
         let key = String(pub[3...])
         
@@ -88,20 +106,40 @@ class Security {
     }
     
     func getEncryptedPrivateKey(pub: String) -> String? {
-        
-        guard let pin = KeychainSwift().get("eoshub.gate") else {
-            return nil
-        }
-        
+
         let key = String(pub[3...])
         
         guard let encryptedPriData = KeychainSwift().getData(key) else { return nil }
         
-        guard let priData = try? RNCryptor.decrypt(data: encryptedPriData, withPassword: pin) else { return nil }
+        guard let priData = try? RNCryptor.decrypt(data: encryptedPriData, withPassword: seed) else { return nil }
         
         let priKey = String(data: priData, encoding: .utf8)
         
         return priKey
     }
+    
+}
+
+extension Security {
+    fileprivate var prefix: String {
+        return UserManager.shared.userId+"@"
+    }
+    
+    fileprivate var seedKey: String {
+        return prefix + "eoshub.seed"
+    }
+    
+    fileprivate var gateKey: String {
+        return prefix + "eoshub.gate"
+    }
+    
+    fileprivate var bioAuthKey: String {
+        return prefix + "eoshub.enableBioAuth"
+    }
+    
+    fileprivate var dbKey: String {
+        return prefix + "eoshub.db.non-sensitive"
+    }
+    
     
 }

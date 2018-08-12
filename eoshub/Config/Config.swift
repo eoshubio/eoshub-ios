@@ -23,7 +23,7 @@ struct Config {
         case .junglenet:
             return "https://eos-hub.io:8443"
         case .mainnet:
-            return "https://api.main-net.eosnodeone.io"
+            return "https://eos.greymass.com"
         default:
             preconditionFailure()
         }

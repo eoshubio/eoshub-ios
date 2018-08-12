@@ -134,6 +134,7 @@ struct LocalizedString {
             static let timelimit = NSLocalizedString("create.invoice.timelimit", comment: "")
             static let textTimelimit = NSLocalizedString("create.invoice.textTimelimit", comment: "")
             static let memo = NSLocalizedString("create.invoice.memo", comment: "")
+            static let account = NSLocalizedString("create.invoice.account", comment: "")
             static let textConfirm = NSLocalizedString("create.invoice.textConfirm", comment: "")
             static let confirm = NSLocalizedString("create.invoice.Confirm", comment: "")
         }

@@ -51,10 +51,14 @@ extension RxAPIRequest {
     }
     
     func responseJSON(method: Alamofire.HTTPMethod = .post, parameter: Parameters?, encoding: ParameterEncoding = JSONEncoding.default) -> Observable<JSON> {
+        return responseJSON(method: method, parameter: parameter, encoding: encoding, header: [:])
+    }
+    
+    func responseJSON(method: Alamofire.HTTPMethod = .post, parameter: Parameters?, encoding: ParameterEncoding = JSONEncoding.default, header: [String: String] = [:]) -> Observable<JSON> {
         let apiURL = url
         
         return Observable.create { (observer) -> Disposable in
-            let request =  Alamofire.request(apiURL, method: method, parameters: parameter, encoding: encoding, headers: [:])
+            let request =  Alamofire.request(apiURL, method: method, parameters: parameter, encoding: encoding, headers: header)
                 .responseJSON(completionHandler: { (response) in
                     switch response.result {
                     case .success(let result):

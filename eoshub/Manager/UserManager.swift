@@ -16,6 +16,12 @@ class UserManager {
         return Auth.auth().currentUser?.urlForProfileImageFor(imageResolution: .highres)
     }
     
+    var userId: String {
+        return Auth.auth().currentUser?.uid ?? "UnknownID"
+    }
+    
+
+    
 }
 
 extension User {

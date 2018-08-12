@@ -13,6 +13,8 @@ class CreateAccountInfoViewController: BaseTableViewController {
     
     var flowDelegate: CreateAccountInfoFlowEventDelegate?
     
+    fileprivate var request: CreateAccountRequest!
+    
     let infoForm = CreateAccountInfoForm()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -30,8 +32,19 @@ class CreateAccountInfoViewController: BaseTableViewController {
         
     }
     
+    func configure(request: CreateAccountRequest) {
+        self.request = request
+    }
+    
     private func setupUI() {
-        
+        let userId = UserManager.shared.userId
+        if let request = DB.shared.realm.objects(CreateAccountRequest.self).filter("id BEGINSWITH '\(userId)' AND completed = false").first {
+            infoForm.name.value = request.name
+            infoForm.key.value = request.ownerKey
+        } else {
+            Log.e("Invalid state: not exist request")
+            flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
+        }
     }
     
     private func bindActions() {
@@ -55,6 +68,7 @@ extension CreateAccountInfoViewController {
         switch indexPath.row {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CreateAccountInfoCell", for: indexPath) as? CreateAccountInfoCell else { preconditionFailure() }
+            cell.configure(form: infoForm)
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CreateAccountInfoNextCell", for: indexPath) as? CreateAccountInfoNextCell else { preconditionFailure() }
@@ -84,6 +98,11 @@ class CreateAccountInfoCell: UITableViewCell {
         lbtext.text = LocalizedString.Create.Check.text
         lbNameTitle.text = LocalizedString.Create.Check.name
         lbKeyTitle.text = LocalizedString.Create.Check.keys
+    }
+    
+    func configure(form: CreateAccountInfoForm) {
+        lbName.text = form.name.value
+        lbKey.text = form.key.value
     }
 }
 
@@ -118,6 +137,8 @@ class CreateAccountInfoNextCell: UITableViewCell {
 
 
 struct CreateAccountInfoForm {
+    let name = Variable<String>("")
+    let key = Variable<String>("")
     let onNext = PublishSubject<Void>()
 }
 

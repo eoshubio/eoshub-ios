@@ -18,6 +18,10 @@ extension NSMutableAttributedString {
         addAttribute(text: text, attr: [NSAttributedStringKey.link : url])
     }
     
+    func addAttributeFont(text: String, font: UIFont) {
+        addAttribute(text: text, attr: [NSAttributedStringKey.font : font])
+    }
+    
     private func addAttribute(text: String, attr: [NSAttributedStringKey: Any]) {
         if let range = string.range(of: text) {
             addAttributes(attr, range: range.nsRange)

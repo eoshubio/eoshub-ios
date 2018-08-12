@@ -11,7 +11,7 @@ import RealmSwift
 import KeychainSwift
 
 class DB {
-    static let shared = DB()
+    static var shared = DB()
     
     private var notNotifyingTokens: [NotificationToken] = []
     
@@ -27,6 +27,9 @@ class DB {
 
     
     init() {
+        
+        let userId = UserManager.shared.userId
+        
         let encryptedKeyData = Security.shared.getDBKeyData()
         
         //Encrypted Realm Config
@@ -34,7 +37,7 @@ class DB {
         
         encryptionConfig.fileURL = encryptionConfig.fileURL!
             .deletingLastPathComponent()
-            .appendingPathComponent("wallet.realm")
+            .appendingPathComponent("wallet.realm." + userId)
       
         
         realm = try! Realm(configuration: encryptionConfig)
@@ -81,6 +84,12 @@ class DB {
     
     func getTokens() -> Results<TokenInfo> {
         return realm.objects(TokenInfo.self)
+    }
+    
+    func addCreateAccountRequest(request: CreateAccountRequest) {
+        DB.shared.safeWrite {
+            realm.add(request)
+        }
     }
 }
 

@@ -18,11 +18,17 @@ class CreateAccountInfoFlowController: FlowController, CreateAccountInfoFlowEven
         self.configure = configure
     }
     
+    fileprivate var request: CreateAccountRequest!
+    
+    func configure(request: CreateAccountRequest) {
+        self.request = request
+    }
+    
     func show(animated: Bool) {
         
         guard let vc = UIStoryboard(name: "Create", bundle: nil).instantiateViewController(withIdentifier: "CreateAccountInfoViewController") as? CreateAccountInfoViewController else { preconditionFailure() }
         vc.flowDelegate = self
-        
+        vc.configure(request: request)
         show(viewController: vc, animated: animated) {
             
         }
@@ -31,6 +37,7 @@ class CreateAccountInfoFlowController: FlowController, CreateAccountInfoFlowEven
     func goGetCode(from nc: UINavigationController) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = CreateAccountInvoiceFlowController(configure: config)
+        fc.configure(request: request)
         fc.start(animated: true)
     }
 }

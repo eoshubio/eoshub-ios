@@ -12,6 +12,12 @@ import RxSwift
 
 class CreateAccountInvoiceViewController: BaseTableViewController {
     
+    fileprivate let invoiceForm = InvoiceForm()
+    
+    private var invoice: Invoice? = nil
+    
+    fileprivate var request: CreateAccountRequest!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showNavigationBar(with: .basePurple, animated: animated, largeTitle: true)
@@ -23,11 +29,125 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        setupData()
+        bindActions()
+    }
+    
+    func configure(request: CreateAccountRequest) {
+        self.request = request
     }
     
     @objc fileprivate func refresh() {
+        //get new invoice
+        refreshData()
+    }
+    
+    private func setupUI() {
         
     }
+    
+    private func setupData() {
+        if  request.currentStage.rawValue >= CreateAccountRequest.Stage.invoice.rawValue {
+            //If a valid invoice is in the DB
+            invoiceForm.update(from: request)
+            invoice = request.invoice
+        } else {
+            //get new invoice
+            refreshData()
+        }
+    }
+    
+    
+    private func bindActions() {
+        invoiceForm.txSearch
+            .bind { [weak self] in
+                self?.findRequestInTxs()
+            }
+            .disposed(by: bag)
+    }
+    
+    private func findRequestInTxs() {
+        WaitingView.shared.start()
+        getTx()
+            .subscribe(onNext: { (tx) in
+                Log.i(tx.txid)
+                
+            }, onError: { (error) in
+                Popup.present(style: .failed, description: "\(error)")
+            }) {
+                WaitingView.shared.stop()
+        }
+        .disposed(by: bag)
+    }
+    
+    private func getTx() -> Observable<Tx> {
+        
+        let account = request.creator
+        
+        return RxEOSAPI.getTxHistory(account: account)
+                        .flatMap(getRequestedTx)
+    }
+    
+    private func getRequestedTx(txs: [Tx]) -> Observable<Tx> {
+        guard let invoice = invoice else { return Observable.error(EOSErrorType.emptyData) }
+        if let tx = txs.filter({checkHasRequestedTx(tx: $0, invoice: invoice)}).first {
+            return Observable.just(tx)
+        } else {
+            return Observable.error(EOSErrorType.txNotFound)
+        }
+    }
+    
+    private func checkHasRequestedTx(tx: Tx, invoice: Invoice) -> Bool {
+        guard let data = JSON.createJSON(from: tx.data) else { return false }
+        
+        guard let from = data.string(for: Contract.Args.transfer.from),
+            let to = data.string(for: Contract.Args.transfer.to),
+            let currencyString = data.string(for: Contract.Args.transfer.quantity),
+            let currency = Currency.create(stringValue: currencyString, contract: .eos),
+            let memo = data.string(for: Contract.Args.transfer.memo) else { return  false }
+        
+        if to == invoice.creator || from == invoice.creator,
+            currency.quantity >= invoice.totalEOS.quantity,
+            memo == invoice.memo {
+            return true
+        } else {
+            return false
+        }
+        
+    }
+    
+
+    private func refreshData() {
+        let userId = UserManager.shared.userId
+        WaitingView.shared.start()
+        EOSHubAPI.getMemo(userId: userId)
+            .flatMap { (json) -> Observable<Invoice> in
+                if let invoice = Invoice(json: json) {
+                    return Observable.just(invoice)
+                } else {
+                    return Observable.error(EOSErrorType.emptyData)
+                }
+            }
+            .subscribe(onNext: { [weak self] (invoice) in
+                self?.request.addInvoice(creator: invoice.creator, memo: invoice.memo, total: invoice.totalEOS.stringValue, created: invoice.timestamp)
+                self?.invoice = invoice
+                self?.invoiceForm.update(from: invoice)
+                }, onError: { (error) in
+                    Popup.present(style: .failed, description: "\(error)")
+            }) {
+                WaitingView.shared.stop()
+            }
+            .disposed(by: bag)
+
+    }
+    
+    private func createAccount(txid: String) {
+        
+        
+        
+    }
+    
 }
 
 extension CreateAccountInvoiceViewController {
@@ -39,9 +159,11 @@ extension CreateAccountInvoiceViewController {
         switch indexPath.row {
         case 0:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CreateAccountInvoiceCell", for: indexPath) as? CreateAccountInvoiceCell else { preconditionFailure() }
+            cell.configure(form: invoiceForm)
             return cell
         case 1:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CreateAccountRequestCell", for: indexPath) as? CreateAccountRequestCell else { preconditionFailure() }
+            cell.configure(form: invoiceForm)
             return cell
         default:
             preconditionFailure()
@@ -66,7 +188,7 @@ class CreateAccountInvoiceCell: UITableViewCell {
     @IBOutlet fileprivate weak var lbQuantityRAM: UILabel!
     @IBOutlet fileprivate weak var lbQuantityTotal: UILabel!
     
-    
+    var bag: DisposeBag? = nil
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -76,6 +198,7 @@ class CreateAccountInvoiceCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        bag = nil
     }
     
     private func setupUI() {
@@ -96,6 +219,8 @@ class CreateAccountInvoiceCell: UITableViewCell {
         btnCopyAccount.setTitle(LocalizedString.Common.copy, for: .normal)
         
         timerCount.setThemeColor(fgColor: Color.red.uiColor, bgColor: .clear, state: .normal)
+        
+        timerCount.isHidden = true
     }
     
     private func bindActions() {
@@ -112,9 +237,63 @@ class CreateAccountInvoiceCell: UITableViewCell {
         }
     }
     
+    func configure(form: InvoiceForm) {
+        let bag = DisposeBag()
+        self.bag = bag
+        
+        form.creatorName.asObservable()
+            .bind(to: lbName.rx.text)
+            .disposed(by: bag)
+     
+        form.memo.asObservable()
+            .bind(to: lbMemo.rx.text)
+            .disposed(by: bag)
+
+        form.cpu.asObservable()
+            .bind(to: lbQuantityCPU.rx.text)
+            .disposed(by: bag)
+
+        form.net.asObservable()
+            .bind(to: lbQuantityNet.rx.text)
+            .disposed(by: bag)
+
+        form.ram.asObservable()
+            .bind(to: lbQuantityRAM.rx.text)
+            .disposed(by: bag)
+
+        form.total.asObservable()
+            .bind(to: lbQuantityTotal.rx.text)
+            .disposed(by: bag)
     
+        let fontSize = lbTextDeposit.font.pointSize
+        let boldFont = Font.appleSDGothicNeo(.bold).uiFont(fontSize)
+        form.total.asObservable()
+            .flatMap({ (total) -> Observable<NSAttributedString> in
+                let text = String(format: LocalizedString.Create.Invoice.textDeposit, total)
+                let attrText = NSMutableAttributedString(string: text)
+                
+                attrText.addAttributeFont(text: total, font: boldFont)
+                attrText.addAttributeFont(text: LocalizedString.Create.Invoice.account, font: boldFont)
+                attrText.addAttributeFont(text: LocalizedString.Create.Invoice.memo, font: boldFont)
+                return Observable.just(attrText)
+            })
+            .bind(to: lbTextDeposit.rx.attributedText)
+            .disposed(by: bag)
     
-    
+        
+        let _ = Observable<Int>
+            .interval(1, scheduler: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] (_) in
+                let timestamp = form.timestamp.value
+                let remain = timestamp + 3600 - Date().timeIntervalSince1970
+                let text = remain >= 0 ? remain.stringTime : "Expired"
+                self?.timerCount.isHidden = false
+                self?.timerCount.setTitle(text, for: .normal)
+            })
+            .disposed(by: bag)
+        
+        
+    }
     
 }
 
@@ -123,6 +302,8 @@ class CreateAccountInvoiceCell: UITableViewCell {
 class CreateAccountRequestCell: UITableViewCell {
     @IBOutlet fileprivate weak var lbTextConfirm: UILabel!
     @IBOutlet fileprivate weak var btnConfirm: UIButton!
+    var bag: DisposeBag? = nil
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
@@ -130,6 +311,7 @@ class CreateAccountRequestCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        bag = nil
     }
     
     private func setupUI() {
@@ -137,9 +319,59 @@ class CreateAccountRequestCell: UITableViewCell {
         btnConfirm.setTitle(LocalizedString.Create.Invoice.confirm, for: .normal)
     }
     
+    func configure(form: InvoiceForm) {
+        let bag = DisposeBag()
+        self.bag = bag
+        btnConfirm.rx.singleTap
+            .bind {
+                form.txSearch.onNext(())
+            }
+            .disposed(by: bag)
+    }
     
 }
 
+struct InvoiceForm {
+    let creatorName = Variable<String>(" ")
+    let memo = Variable<String>(" ")
+    let cpu = Variable<String>(" ")
+    let net = Variable<String>(" ")
+    let ram = Variable<String>(" ")
+    let total = Variable<String>(" ")
+    let timestamp = Variable<Double>(0)
+    
+    let txSearch = PublishSubject<Void>()
+    
+    func update(from txMemo: Invoice) {
+        creatorName.value = txMemo.creator
+        memo.value = txMemo.memo
+        cpu.value = txMemo.cpu.stringValue
+        net.value = txMemo.net.stringValue
+        ram.value = "\(txMemo.ram) Bytes"
+        total.value = txMemo.totalEOS.stringValue
+        timestamp.value = txMemo.timestamp
+    }
+    
+    func update(from request: CreateAccountRequest) {
+        creatorName.value = request.creator
+        memo.value = request.memo
+        cpu.value = request.cpu
+        net.value = request.net
+        ram.value = request.ram + "Bytes"
+        total.value = request.total
+        timestamp.value = request.created
+    }
+}
 
-
+extension CreateAccountRequest {
+    var invoice: Invoice? {
+        
+        guard let totalEOS = Currency(eosCurrency: total),
+            let cpuEOS = Currency(eosCurrency: cpu),
+            let netEOS = Currency(eosCurrency: net),
+            let ramBytes = Int64(ram) else { return nil }
+        
+        return Invoice(totalEOS: totalEOS, memo: memo, timestamp: created, creator: creator, cpu: cpuEOS, net: netEOS, ram: ramBytes)
+    }
+}
 

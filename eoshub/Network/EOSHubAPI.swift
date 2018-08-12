@@ -7,10 +7,16 @@
 //
 
 import Foundation
+import Alamofire
+import RxSwift
 
 struct EOSHubAPI {
     enum Token: String {
         case list
+    }
+    
+    enum Account: String {
+        case memo
     }
     
     enum URL: String {
@@ -25,6 +31,13 @@ extension EOSHubAPI.Token: RxAPIRequest {
     }
 }
 
+extension EOSHubAPI.Account: RxAPIRequest {
+    var url: String {
+        return Config.eoshubHost + "/v1/wallet/" + rawValue //TODO: Change to account
+    }
+}
+
+
 extension EOSHubAPI.URL {
     func getHtml() -> URL {
         return getHtml(languateCode: Locale.current.languageCode ?? "en")
@@ -36,4 +49,16 @@ extension EOSHubAPI.URL {
             return URL(string: Config.eoshubHost + "/" + rawValue + "?lang=en")!
         }
     }
+}
+
+extension EOSHubAPI {
+    
+    
+    static func getMemo(userId: String) -> Observable<JSON> {
+        let params = ["userId": userId] //TODO: move to header
+        
+        return EOSHubAPI.Account.memo
+                .responseJSON(method: .get, parameter: params, encoding: URLEncoding.default, header: [:])
+    }
+    
 }

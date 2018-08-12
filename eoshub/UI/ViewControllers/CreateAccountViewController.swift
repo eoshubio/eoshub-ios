@@ -9,12 +9,20 @@
 import Foundation
 import UIKit
 import RxSwift
+import RealmSwift
+import FirebaseAuth
 
 class CreateAccountViewController: BaseTableViewController {
     
     var flowDelegate: CreateAccountFlowEventDelegate?
     
     var requestForm = CreateAccountForm()
+    
+    var userId: String {
+        return UserManager.shared.userId
+    }
+    
+    fileprivate var request: CreateAccountRequest!
     
     enum CellType {
         case accountName, key, next
@@ -34,8 +42,28 @@ class CreateAccountViewController: BaseTableViewController {
         bindActions()
     }
     
+    func configure(request: CreateAccountRequest) {
+        self.request = request
+    }
+    
     private func setupUI() {
-        
+        if request.currentStage.rawValue >= CreateAccountRequest.Stage.accountCheck.rawValue {
+            requestForm.validatedAccount.value = request.name
+            requestForm.validatedKey.value = request.ownerKey
+
+            switch request.keyFrom {
+            case .secureEnclave:
+                requestForm.createKeyMode.value = .secureEnclave
+            case .iCloudKeychain:
+                requestForm.createKeyMode.value = .iCloudKeychain
+            case .imported:
+                requestForm.createKeyMode.value = .imported
+            default:
+                break
+            }
+            
+            items = [.accountName, .key, .next]
+        }
     }
     
     private func bindActions() {
@@ -53,11 +81,42 @@ class CreateAccountViewController: BaseTableViewController {
         
         requestForm.next.asObservable()
             .bind { [weak self] in
-                guard let nc = self?.navigationController else { return }
-                self?.flowDelegate?.goInfo(from: nc)
+                self?.goToCheck()
+                
             }
             .disposed(by: bag)
         
+    }
+    
+    private func goToCheck() {
+        
+        let accountName = requestForm.validatedAccount.value
+        var pubKey: String
+        let from = requestForm.createKeyMode.value
+        
+        switch requestForm.createKeyMode.value {
+        case .secureEnclave:
+            //TODO: Change to secure enclave
+            if request.keyFrom == .secureEnclave, request.ownerKey.count > 0 {
+                //skip
+                pubKey = request.ownerKey
+            } else {
+                let keypair = EosPrivateKey.init(eosPrivateKey: ())
+                pubKey = keypair!.eosPublicKey
+                _ = Security.shared.setEncryptedKey(pub: pubKey, pri: keypair!.eosPrivateKey)
+            }
+            
+        case .imported:
+            pubKey = requestForm.validatedKey.value
+        default:
+            preconditionFailure("Not implemented")
+        }
+        
+        
+        request.changeAccountInfo(accountName: accountName, pubKey: pubKey, from: from)
+ 
+        guard let nc = navigationController else { return }
+        flowDelegate?.goInfo(from: nc, request: request)
     }
     
     private func checkAccount(name: String) {
@@ -193,12 +252,18 @@ class CreateAccountNameCell: UITableViewCell {
         txtAccountName.text = form.validatedAccount.value
         
         lastValidatedAccount = form.validatedAccount.value
+        
+        
         form.validatedAccount.asObservable()
             .bind { [weak self] (validatedAccount) in
+                self?.setAccountLength(name: validatedAccount)
                 let state: SeqState = validatedAccount.count > 0 ? .pass : .editing
                 self?.lastValidatedAccount = validatedAccount
                 self?.rx_seqState.onNext(state)
                 self?.btnDuplicateCheck.isSelected = (state == .pass)
+                if validatedAccount.count > 0 {
+                    self?.btnDuplicateCheck.isEnabled = true
+                }
             }
             .disposed(by: bag)
         
@@ -325,7 +390,7 @@ class CreateAccountKeysCell: UITableViewCell {
         
         btnEnableInsertKey.rx.singleTap
             .bind {
-                form.createKeyMode.value = .insert
+                form.createKeyMode.value = .imported
             }
             .disposed(by: bag)
     }
@@ -397,7 +462,7 @@ class CreateAccountInsertKeyCell: UITableViewCell {
         
         btnEnableInsertKey.rx.singleTap
             .bind {
-                form.createKeyMode.value = .insert
+                form.createKeyMode.value = .imported
             }
             .disposed(by: bag)
      
@@ -520,9 +585,7 @@ enum SeqState: String {
 }
 
 enum CreateKeyMode: String {
-    case secureEnclave
-    case generate
-    case insert
+    case secureEnclave, iCloudKeychain, imported, none
 }
 
 

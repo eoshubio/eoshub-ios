@@ -18,23 +18,38 @@ class CreateAccountFlowController: FlowController, CreateAccountFlowEventDelegat
         self.configure = configure
     }
     
+    func getRequest() -> CreateAccountRequest {
+        let userId = UserManager.shared.userId
+        if let request = DB.shared.realm.objects(CreateAccountRequest.self).filter("id BEGINSWITH '\(userId)' AND completed = false").last {
+            return request
+        } else {
+            let request = CreateAccountRequest(userId: userId)
+            DB.shared.addCreateAccountRequest(request: request)
+            return request
+        }
+    }
+    
     func show(animated: Bool) {
         
         guard let vc = UIStoryboard(name: "Create", bundle: nil).instantiateViewController(withIdentifier: "CreateAccountViewController") as? CreateAccountViewController else { preconditionFailure() }
         vc.flowDelegate = self
+        
+        let request = getRequest()
+        vc.configure(request: request)
         
         show(viewController: vc, animated: animated) {
             
         }
     }
     
-    func goInfo(from nc: UINavigationController) {
+    func goInfo(from nc: UINavigationController, request: CreateAccountRequest) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = CreateAccountInfoFlowController(configure: config)
+        fc.configure(request: request)
         fc.start(animated: true)
     }
 }
 
 protocol CreateAccountFlowEventDelegate: FlowEventDelegate {
-    func goInfo(from nc: UINavigationController)
+    func goInfo(from nc: UINavigationController, request: CreateAccountRequest)
 }

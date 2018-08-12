@@ -306,12 +306,8 @@ class SendInputFormCell: TransactionInputFormCell, UITextFieldDelegate {
         })
         .disposed(by: bag)
    
-        txtMemo.rx.text
-            .subscribe( { (text) in
-                if let input = text.element as? String {
-                    form.memo.value = input
-                }
-            })
+        txtMemo.rx.text.orEmpty
+            .bind(to: form.memo)
             .disposed(by: bag)
    
         txtQuantity.rx.text
@@ -324,13 +320,20 @@ class SendInputFormCell: TransactionInputFormCell, UITextFieldDelegate {
         
         btnPaste.rx.tap
             .bind { [weak self] in
-                self?.txtAcount.text = UIPasteboard.general.string
+                if let text = UIPasteboard.general.string {
+                    self?.txtAcount.text = text
+                    form.account.value = text
+                }
             }
             .disposed(by: bag)
         
         btnPasteMemo.rx.tap
             .bind { [weak self] in
-                self?.txtMemo.text = UIPasteboard.general.string
+                if let text = UIPasteboard.general.string {
+                    self?.txtMemo.text = UIPasteboard.general.string
+                    form.memo.value = text
+                }
+                
             }
             .disposed(by: bag)
         

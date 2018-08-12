@@ -13,7 +13,11 @@ class Preferences {
     static let shared = Preferences()
     
 
-    var preferHost: String
+    var preferHost: String {
+        didSet {
+            defaults.set(preferHost, forKey: "preferHost")
+        }
+    }
     
     var lastRefreshTime: TimeInterval {
         didSet {

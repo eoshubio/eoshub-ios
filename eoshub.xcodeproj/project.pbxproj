@@ -141,6 +141,7 @@
 		2C99E4A4211EDF2200DB55A6 /* CreateAccountInfoFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E4A3211EDF2200DB55A6 /* CreateAccountInfoFlowController.swift */; };
 		2C99E4A6211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E4A5211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift */; };
 		2C99E4A8211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E4A7211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift */; };
+		2C99E4AA211FFAC600DB55A6 /* TxMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E4A9211FFAC600DB55A6 /* TxMemo.swift */; };
 		2CA5D1862109FA08006C928B /* TokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D1852109FA08006C928B /* TokenViewController.swift */; };
 		2CA5D1882109FAD5006C928B /* TokenAddFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */; };
 		2CA5D18A210A22B2006C928B /* EOSHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D189210A22B2006C928B /* EOSHubAPI.swift */; };
@@ -393,6 +394,7 @@
 		2C99E4A3211EDF2200DB55A6 /* CreateAccountInfoFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInfoFlowController.swift; sourceTree = "<group>"; };
 		2C99E4A5211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInvoiceViewController.swift; sourceTree = "<group>"; };
 		2C99E4A7211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInvoiceFlowController.swift; sourceTree = "<group>"; };
+		2C99E4A9211FFAC600DB55A6 /* TxMemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxMemo.swift; sourceTree = "<group>"; };
 		2CA5D1852109FA08006C928B /* TokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewController.swift; sourceTree = "<group>"; };
 		2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAddFlowController.swift; sourceTree = "<group>"; };
 		2CA5D189210A22B2006C928B /* EOSHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSHubAPI.swift; sourceTree = "<group>"; };
@@ -883,6 +885,7 @@
 				2C1D928D2100C7DC0009F5C4 /* Validator.swift */,
 				2CB6B7EE210483560048601A /* TransactionForm.swift */,
 				2C7426B321169DFF00F8A85E /* AuthError.swift */,
+				2C99E4A9211FFAC600DB55A6 /* TxMemo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1250,6 +1253,7 @@
 				2CA5D192210C468A006C928B /* LicenseViewController.swift in Sources */,
 				2CE1113A20F27BE000B93BEB /* WalletCell.swift in Sources */,
 				2CE1110620F1F76200B93BEB /* SettingFlowController.swift in Sources */,
+				2C99E4AA211FFAC600DB55A6 /* TxMemo.swift in Sources */,
 				2C770CA920FBA2A9007F71C4 /* SellRamFlowController.swift in Sources */,
 				2C7426C02116D9D900F8A85E /* VerifyFlowController.swift in Sources */,
 				2CE1112020F2403100B93BEB /* MenuTabBar.swift in Sources */,

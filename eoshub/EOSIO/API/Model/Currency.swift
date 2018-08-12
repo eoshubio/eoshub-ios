@@ -74,6 +74,7 @@ struct Currency {
         self.token = token
     }
     
+    //cf) "1.0000 EOS"
     init?(eosCurrency: String) {
         let comp = eosCurrency.components(separatedBy: " ")
         if comp.count == 2 {

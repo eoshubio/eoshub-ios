@@ -89,10 +89,11 @@
 "create.check.keys" = "Onwer & Active key";
 
 "create.invoice.title" = "인보이스";
-"create.invoice.textDeposit" = "아래의 계정과 메모로 %@ EOS 를 송금해주세요. 계정을 생성하는데 필요한 자원 할당에 사용됩니다.";
+"create.invoice.textDeposit" = "아래의 계정과 메모로 %@ 를 송금해주세요. 계정을 생성하는데 필요한 자원 할당에 사용됩니다.";
 "create.invoice.timelimit" = "%@ 시간";
 "create.invoice.textTimelimit" = "이 인보이스는 %@ 동안만 유효합니다. 새로운 인보이스를 발급 받으려면 상단의 갱신 버튼을 눌러주세요.";
 "create.invoice.memo" = "메모";
+"create.invoice.account" = "계정";
 "create.invoice.textConfirm" = "EOS 를 송금 후에 계정 생성 버튼을 눌러주세요. 입금 확인에는 최대 몇분 가량 소모 될 수 있습니다.";
 "create.invoice.Confirm" = "계정 생성";
 

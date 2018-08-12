@@ -91,10 +91,11 @@
 "create.check.keys" = "Owner & Active key";
 
 "create.invoice.title" = "Invoice";
-"create.invoice.textDeposit" = "Please deposit %@ EOS with the given note to the account below. The deposited EOS is used to allocate the resources needed to create an account.";
+"create.invoice.textDeposit" = "Please deposit %@ with the given memo to the account below. The deposited EOS is used to allocate the resources needed to create an account.";
 "create.invoice.timelimit" = "%@ hour";
 "create.invoice.textTimelimit" = "This invoice is valid for %@ only. If you want to get a new one, press the refresh button at the top.";
 "create.invoice.memo" = "memo";
+"create.invoice.account" = "account";
 "create.invoice.textConfirm" = "After you have sent the EOS to the given memo and account, please click Confirm. It may take several minutes to confirm the transaction.";
 "create.invoice.Confirm" = "Confirm";
 

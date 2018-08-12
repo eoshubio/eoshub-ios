@@ -1275,7 +1275,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSv-mu-mcE" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="10" width="355" height="79"/>
+                                            <rect key="frame" x="10" y="10" width="355" height="79.333333333333329"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbu-Ey-n50" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="355" height="55"/>
@@ -1373,26 +1373,26 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7GT-FV-wh9" customClass="RoundedView" customModule="eoshub" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="114" width="315" height="149"/>
+                                                    <rect key="frame" x="20" y="114.00000000000001" width="315" height="149.33333333333337"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLW-p8-Jgs">
-                                                            <rect key="frame" x="10" y="10" width="92.333333333333329" height="18"/>
+                                                            <rect key="frame" x="10" y="10" width="92.666666666666671" height="18"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="15"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eoshubiogate" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QzL-7f-fGo">
-                                                            <rect key="frame" x="10" y="38" width="89.333333333333329" height="19.333333333333329"/>
+                                                            <rect key="frame" x="10" y="38" width="89.666666666666671" height="19.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
                                                             <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner &amp; Active key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJR-fs-17i">
-                                                            <rect key="frame" x="10" y="72.333333333333343" width="124" height="18"/>
+                                                            <rect key="frame" x="10" y="72.666666666666657" width="124" height="18"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EOS6wWmsEAawx9AfbzEb9cSugdnAjmCnRUYfadp3zkxZNvDnbKEZv" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eUV-pw-9i5">
-                                                            <rect key="frame" x="10" y="100.33333333333334" width="295" height="33.666666666666657"/>
+                                                            <rect key="frame" x="10" y="100.66666666666666" width="295" height="33.666666666666657"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1464,7 +1464,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mqa-j9-VPA" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="10" width="355" height="79.333333333333329"/>
+                                            <rect key="frame" x="10" y="10" width="355" height="79.666666666666671"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ts6-Jz-scz" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="355" height="55"/>
@@ -1543,7 +1543,7 @@
                                             <rect key="frame" x="10" y="25" width="355" height="565"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invoice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKj-5e-eO2">
-                                                    <rect key="frame" x="20.000000000000004" y="25" width="49.333333333333343" height="24"/>
+                                                    <rect key="frame" x="19.999999999999996" y="25" width="49.666666666666657" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="24" id="vMb-xv-Ah5"/>
                                                     </constraints>
@@ -1551,24 +1551,24 @@
                                                     <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPr-ho-KPv">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPr-ho-KPv">
                                                     <rect key="frame" x="20" y="64" width="315" height="72"/>
-                                                    <string key="text">Please deposit 0.0000 EOS with the given note to the account below. The deposited EOS is used to allocate the resources needed to create an account.</string>
+                                                    <string key="text">Please deposit 0.0000 EOS with the given memo to the account below. The deposited EOS is used to allocate the resources needed to create an account.</string>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                     <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This invoice is valid for 1 hour only. If you want to get a new one, press the refresh button at the top." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yd-f4-r9w">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="This invoice is valid for 1 hour only. If you want to get a new one, press the refresh button at the top." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yd-f4-r9w">
                                                     <rect key="frame" x="20" y="151" width="315" height="54"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
                                                     <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wVb-9w-fcf" customClass="RoundedView" customModule="eoshub" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="219.99999999999997" width="315" height="311.33333333333326"/>
+                                                    <rect key="frame" x="20" y="220.00000000000003" width="315" height="311.66666666666674"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hA5-Wi-vs6">
-                                                            <rect key="frame" x="10" y="10" width="92.333333333333329" height="18"/>
+                                                            <rect key="frame" x="10" y="10" width="92.666666666666671" height="18"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="15"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -1603,12 +1603,12 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thv-3l-7Al">
-                                                            <rect key="frame" x="40" y="195.33333333333331" width="50" height="17"/>
+                                                            <rect key="frame" x="40" y="195.66666666666669" width="50" height="17"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="14"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0100 EOS" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ctw-Vu-5ug">
-                                                            <rect key="frame" x="233.33333333333329" y="195.33333333333331" width="71.666666666666657" height="17"/>
+                                                            <rect key="frame" x="233.66666666666671" y="195.66666666666669" width="71.333333333333343" height="17"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
                                                             <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1649,7 +1649,7 @@
                                                                 <constraint firstAttribute="width" constant="60" id="MgR-MG-2WG"/>
                                                                 <constraint firstAttribute="height" constant="30" id="iDV-wc-47Q"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                                             <state key="normal" title="Copy">
                                                                 <color key="titleColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
@@ -1665,7 +1665,7 @@
                                                                 <constraint firstAttribute="height" constant="30" id="6dg-lf-dly"/>
                                                                 <constraint firstAttribute="width" constant="60" id="j0v-hx-bGU"/>
                                                             </constraints>
-                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                                             <state key="normal" title="Copy">
                                                                 <color key="titleColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             </state>
@@ -1690,7 +1690,7 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000 EOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="12d-X0-QiC">
-                                                            <rect key="frame" x="206.33333333333334" y="274.66666666666663" width="98.666666666666657" height="21.666666666666686"/>
+                                                            <rect key="frame" x="206.66666666666666" y="274.66666666666663" width="98.333333333333343" height="22"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="18"/>
                                                             <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1746,10 +1746,10 @@
                                                     </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AcZ-yp-gJN" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
-                                                    <rect key="frame" x="79.333333333333329" y="27" width="49.999999999999986" height="20"/>
+                                                    <rect key="frame" x="79.666666666666671" y="27" width="55.000000000000014" height="20"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="20" id="FIf-tn-7KG"/>
-                                                        <constraint firstAttribute="width" constant="50" id="aDU-XD-kIZ"/>
+                                                        <constraint firstAttribute="width" constant="55" id="eSp-1l-iEQ"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                     <state key="normal" title="59:59">
@@ -1821,17 +1821,17 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ayf-5E-HKq" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="10" width="355" height="179.66666666666666"/>
+                                            <rect key="frame" x="10" y="10" width="355" height="180"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tW7-Ng-cud">
-                                                    <rect key="frame" x="20" y="25" width="315" height="70.666666666666671"/>
+                                                    <rect key="frame" x="20" y="25" width="315" height="71"/>
                                                     <string key="text">After you have sent the EOS to the given note and account, please click Confirm. It may take several minutes to confirm the transaction.</string>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
                                                     <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lys-QR-ibc" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="110.66666666666669" width="315" height="44"/>
+                                                    <rect key="frame" x="20" y="111" width="315" height="44"/>
                                                     <color key="backgroundColor" red="0.45098039220000002" green="0.20392156859999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="m7U-iP-Qk4"/>

@@ -94,6 +94,9 @@ class LoginViewController: AuthViewController {
     
     override func loggedIn(user: AuthDataResult) {
 //        WaitingView.shared.stop()
+        
+        DB.shared = DB()
+        
         guard let nc = self.navigationController else { return }
         if user.additionalUserInfo?.isNewUser == true {
             //sign-up

@@ -14,6 +14,12 @@ class CreateAccountInvoiceFlowController: FlowController {
     
     var id: FlowIdentifier { return .getTxCode }
     
+    fileprivate var request: CreateAccountRequest!
+    
+    func configure(request: CreateAccountRequest) {
+        self.request = request
+    }
+    
     required init(configure: FlowConfigure) {
         self.configure = configure
     }
@@ -21,6 +27,8 @@ class CreateAccountInvoiceFlowController: FlowController {
     func show(animated: Bool) {
         
         guard let vc = UIStoryboard(name: "Create", bundle: nil).instantiateViewController(withIdentifier: "CreateAccountInvoiceViewController") as? CreateAccountInvoiceViewController else { preconditionFailure() }
+        
+        vc.configure(request: request)
         
         show(viewController: vc, animated: animated) {
             

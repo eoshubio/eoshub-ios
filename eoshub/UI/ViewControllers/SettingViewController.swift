@@ -138,7 +138,8 @@ class SettingViewController: FormViewController {
         let host =  PushRow<String>() {
             $0.title = LocalizedString.Setting.Host.title
             //TODO: get from server
-            $0.options = ["https://api.main-net.eosnodeone.io", "https://eos.greymass.com", "https://api.cypherglass.com", "https://publicapi-mainnet.eosauthority.com", "https://mainnet.eoscanada.com"]
+            //"https://api.main-net.eosnodeone.io" is not support history_plugin
+            $0.options = ["https://eos.greymass.com", "https://api.cypherglass.com", "https://publicapi-mainnet.eosauthority.com", "https://mainnet.eoscanada.com"]
             $0.value = Preferences.shared.preferHost
             
             }.cellUpdate { (cell, row) in
@@ -148,7 +149,7 @@ class SettingViewController: FormViewController {
                 guard let `self` = self else { return }
                 guard let host = row.value else { return }
                 EOSHost.shared.host = host
-                
+                WaitingView.shared.start()
                 RxEOSAPI.getInfo()
                     .subscribe(onNext: { (_) in
                         Preferences.shared.preferHost = host
@@ -157,7 +158,9 @@ class SettingViewController: FormViewController {
                         //TODO: check https_plugin
                         Popup.present(style: .failed, description: LocalizedString.Setting.Host.failed)
                         EOSHost.shared.host = Preferences.shared.preferHost
-                    })
+                    }) {
+                        WaitingView.shared.stop()
+                    }
                     .disposed(by: self.bag)
                 
             })
