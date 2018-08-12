@@ -44,7 +44,7 @@ class PinCodeView: UIView {
         
         passwordField = UITextField(frame: .zero)
         passwordField.alpha = 0
-        passwordField.textContentType = .password
+//        passwordField.textContentType = .
         passwordField.smartDashesType = .no
         passwordField.smartQuotesType = .no
         passwordField.spellCheckingType = .no

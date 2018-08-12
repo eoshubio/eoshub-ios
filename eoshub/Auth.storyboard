@@ -123,28 +123,36 @@
                                 <color key="textColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OW9-3u-L8V">
+                                <rect key="frame" x="135" y="353.66666666666669" width="105" height="105"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="M4a-PO-6Nn" firstAttribute="centerX" secondItem="XLp-Kl-GkK" secondAttribute="centerX" id="1tk-OO-tFY"/>
                             <constraint firstItem="E4i-jN-d3U" firstAttribute="top" secondItem="Szh-2N-bX5" secondAttribute="bottom" constant="25" id="4sz-UK-cBy"/>
+                            <constraint firstItem="OW9-3u-L8V" firstAttribute="bottom" secondItem="uYE-oT-8ve" secondAttribute="bottom" id="5Ts-n0-xB1"/>
                             <constraint firstItem="M4a-PO-6Nn" firstAttribute="top" secondItem="uYE-oT-8ve" secondAttribute="bottom" constant="15" id="HYB-Y7-aMS"/>
                             <constraint firstItem="uYE-oT-8ve" firstAttribute="centerY" secondItem="XLp-Kl-GkK" secondAttribute="centerY" id="LZP-Hm-XQ3"/>
                             <constraint firstItem="uYE-oT-8ve" firstAttribute="centerX" secondItem="XLp-Kl-GkK" secondAttribute="centerX" id="Neq-Bl-h0E"/>
                             <constraint firstItem="Szh-2N-bX5" firstAttribute="top" secondItem="gss-cl-EJG" secondAttribute="top" constant="80" id="P0W-Qy-ais"/>
                             <constraint firstItem="aYW-ts-qBK" firstAttribute="leading" secondItem="gss-cl-EJG" secondAttribute="leading" id="Uh4-EQ-k0t"/>
+                            <constraint firstItem="OW9-3u-L8V" firstAttribute="trailing" secondItem="uYE-oT-8ve" secondAttribute="trailing" id="Xna-t8-z29"/>
                             <constraint firstItem="gss-cl-EJG" firstAttribute="trailing" secondItem="bKF-gq-WSN" secondAttribute="trailing" constant="20" id="ad9-8U-WJW"/>
                             <constraint firstItem="aYW-ts-qBK" firstAttribute="trailing" secondItem="gss-cl-EJG" secondAttribute="trailing" id="dXP-wu-29v"/>
                             <constraint firstItem="aYW-ts-qBK" firstAttribute="top" secondItem="XLp-Kl-GkK" secondAttribute="top" id="eEF-hr-7l7"/>
+                            <constraint firstItem="OW9-3u-L8V" firstAttribute="leading" secondItem="uYE-oT-8ve" secondAttribute="leading" id="iia-qD-gc2"/>
                             <constraint firstItem="E4i-jN-d3U" firstAttribute="centerX" secondItem="XLp-Kl-GkK" secondAttribute="centerX" id="oKO-KE-fyo"/>
                             <constraint firstItem="Szh-2N-bX5" firstAttribute="centerX" secondItem="XLp-Kl-GkK" secondAttribute="centerX" id="oz0-xq-sq5"/>
                             <constraint firstAttribute="bottom" secondItem="aYW-ts-qBK" secondAttribute="bottom" id="rl4-6w-dvV"/>
                             <constraint firstItem="bKF-gq-WSN" firstAttribute="top" secondItem="gss-cl-EJG" secondAttribute="top" constant="20" id="rty-pg-ONx"/>
+                            <constraint firstItem="OW9-3u-L8V" firstAttribute="top" secondItem="uYE-oT-8ve" secondAttribute="top" id="wUj-26-wDf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gss-cl-EJG"/>
                     </view>
                     <connections>
                         <outlet property="btnClose" destination="bKF-gq-WSN" id="YmW-BR-ONn"/>
+                        <outlet property="btnRetry" destination="OW9-3u-L8V" id="bgz-Tb-EnY"/>
                         <outlet property="guide" destination="E4i-jN-d3U" id="t12-gR-j8a"/>
                         <outlet property="icon" destination="uYE-oT-8ve" id="dOb-vo-pfU"/>
                         <outlet property="type" destination="M4a-PO-6Nn" id="5Nw-hE-GDE"/>

@@ -168,15 +168,11 @@ class SendCurrencyViewController: TextInputViewController {
     }
     
     fileprivate func transfer() {
-
-        authentication(showAt: self)
-            .flatMap { [weak self](validated) -> Observable<JSON> in
-                
-                WaitingView.shared.start()
-                
+        WaitingView.shared.start()
+        unlockWallet(pinTarget: self, pubKey: account.pubKey)
+            .flatMap { [weak self](wallet) -> Observable<JSON> in
+        
                 guard let strongSelf = self else { return  Observable.error(EOSErrorType.invalidState) }
-                
-                let wallet = Wallet(key: strongSelf.account.pubKey)
                 
                 let token = TokenManager.shared.knownTokens.filter("id = '\(strongSelf.balance.token.stringValue)'").first?.token ?? strongSelf.balance.token
                 
@@ -187,7 +183,6 @@ class SendCurrencyViewController: TextInputViewController {
                                              wallet: wallet)
             }
             .flatMap({ (_) -> Observable<Void> in
-                WaitingView.shared.stop()
                 //clear form
                 self.sendForm.clear()
                 //pop
@@ -200,9 +195,10 @@ class SendCurrencyViewController: TextInputViewController {
                 self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
             }, onError: { (error) in
                 Log.e(error)
-                WaitingView.shared.stop()
                 Popup.present(style: .failed, description: "\(error)")
-            })
+            }) {
+                WaitingView.shared.stop()
+            }
             .disposed(by: bag)
         
     }

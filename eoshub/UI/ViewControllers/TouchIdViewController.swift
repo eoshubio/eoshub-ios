@@ -18,7 +18,7 @@ class TouchIdViewController: BaseViewController {
     @IBOutlet fileprivate weak var icon: UIImageView!
     @IBOutlet fileprivate weak var type: UILabel!
     @IBOutlet fileprivate weak var btnClose: UIButton!
-    
+    @IBOutlet fileprivate weak var btnRetry: UIButton!
    
     
     enum AuthMode {
@@ -29,6 +29,7 @@ class TouchIdViewController: BaseViewController {
         super.viewDidLoad()
         setupUI()
         bindActions()
+        doAuth()
     }
     
     
@@ -41,7 +42,9 @@ class TouchIdViewController: BaseViewController {
         case .none:
             break
         }
-        
+    }
+    
+    func doAuth() {
         let reason = LocalizedString.Secure.Bio.reason
         
         let lacontext = LAContext()
@@ -88,6 +91,12 @@ class TouchIdViewController: BaseViewController {
             .bind { [weak self] in
                 guard let nc = self?.navigationController else { return }
                 self?.flowDelegate?.finish(viewControllerToFinish: nc, animated: true, completion: nil)
+            }
+            .disposed(by: bag)
+        
+        btnRetry.rx.singleTap
+            .bind { [weak self] in
+                self?.doAuth()
             }
             .disposed(by: bag)
     }
