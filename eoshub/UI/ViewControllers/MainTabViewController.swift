@@ -32,6 +32,10 @@ class MainTabViewController: TabBarViewController, MenuTabBarDeleagte {
     
     private func setupUI() {
         setupMenus()
+        menuContainer.layer.shadowOpacity = 0.2
+        menuContainer.layer.shadowRadius = 4
+        menuContainer.layer.shadowOffset = CGSize(width: 0, height: -1)
+        menuContainer.layer.shadowColor = UIColor.black.cgColor
     }
     
     private func bindActions() {
