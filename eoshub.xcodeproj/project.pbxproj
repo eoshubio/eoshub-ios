@@ -163,6 +163,12 @@
 		2CB6B7F92104D75D0048601A /* ExchangeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7F82104D75D0048601A /* ExchangeAPI.swift */; };
 		2CB6B7FB2104DA230048601A /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7FA2104DA230048601A /* NetworkError.swift */; };
 		2CB6B7FD2104DBAD0048601A /* ExchangeManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */; };
+		2CBAAC642121D825006A423E /* Airdrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBAAC632121D825006A423E /* Airdrop.swift */; };
+		2CBAAC662121DCB4006A423E /* NSLayoutConstraint+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBAAC652121DCB4006A423E /* NSLayoutConstraint+extension.swift */; };
+		2CBAAC6B2121E4C4006A423E /* banner_ono.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CBAAC6A2121E4C3006A423E /* banner_ono.png */; };
+		2CBAAC6D2121E658006A423E /* banner_eosdac.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CBAAC6C2121E657006A423E /* banner_eosdac.png */; };
+		2CBAAC6F2121E804006A423E /* banner_pandora.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CBAAC6E2121E803006A423E /* banner_pandora.png */; };
+		2CBAAC712121E880006A423E /* icon_eosdac.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CBAAC702121E87F006A423E /* icon_eosdac.png */; };
 		2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */; };
 		2CCA34A6210DA2A30024BB5D /* ABI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA34A5210DA2A30024BB5D /* ABI.swift */; };
 		2CCA34A8210DD9550024BB5D /* Array+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA34A7210DD9550024BB5D /* Array+extension.swift */; };
@@ -416,6 +422,12 @@
 		2CB6B7F82104D75D0048601A /* ExchangeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExchangeAPI.swift; sourceTree = "<group>"; };
 		2CB6B7FA2104DA230048601A /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeManager.swift; sourceTree = "<group>"; };
+		2CBAAC632121D825006A423E /* Airdrop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Airdrop.swift; sourceTree = "<group>"; };
+		2CBAAC652121DCB4006A423E /* NSLayoutConstraint+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSLayoutConstraint+extension.swift"; sourceTree = "<group>"; };
+		2CBAAC6A2121E4C3006A423E /* banner_ono.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_ono.png; sourceTree = "<group>"; };
+		2CBAAC6C2121E657006A423E /* banner_eosdac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_eosdac.png; sourceTree = "<group>"; };
+		2CBAAC6E2121E803006A423E /* banner_pandora.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_pandora.png; sourceTree = "<group>"; };
+		2CBAAC702121E87F006A423E /* icon_eosdac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_eosdac.png; sourceTree = "<group>"; };
 		2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedNumberField.swift; sourceTree = "<group>"; };
 		2CCA34A5210DA2A30024BB5D /* ABI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABI.swift; sourceTree = "<group>"; };
 		2CCA34A7210DD9550024BB5D /* Array+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+extension.swift"; sourceTree = "<group>"; };
@@ -612,9 +624,21 @@
 		2CA5D197210C52A9006C928B /* assets */ = {
 			isa = PBXGroup;
 			children = (
+				2CBAAC672121E4A1006A423E /* dummy */,
 				2CA5D198210C53D6006C928B /* LicenseDescriptions.json */,
 			);
 			path = assets;
+			sourceTree = "<group>";
+		};
+		2CBAAC672121E4A1006A423E /* dummy */ = {
+			isa = PBXGroup;
+			children = (
+				2CBAAC702121E87F006A423E /* icon_eosdac.png */,
+				2CBAAC6E2121E803006A423E /* banner_pandora.png */,
+				2CBAAC6C2121E657006A423E /* banner_eosdac.png */,
+				2CBAAC6A2121E4C3006A423E /* banner_ono.png */,
+			);
+			path = dummy;
 			sourceTree = "<group>";
 		};
 		2CE1109C20F1C31000B93BEB = {
@@ -731,6 +755,7 @@
 				2CCA34A7210DD9550024BB5D /* Array+extension.swift */,
 				2C7426C1211749EA00F8A85E /* NSAttributedString+extension.swift */,
 				2C63FE952118A7150036652B /* Reachability.swift */,
+				2CBAAC652121DCB4006A423E /* NSLayoutConstraint+extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -886,6 +911,7 @@
 				2CB6B7EE210483560048601A /* TransactionForm.swift */,
 				2C7426B321169DFF00F8A85E /* AuthError.swift */,
 				2C99E4A9211FFAC600DB55A6 /* TxMemo.swift */,
+				2CBAAC632121D825006A423E /* Airdrop.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1073,6 +1099,7 @@
 			files = (
 				2CE1113C20F27C1E00B93BEB /* WalletCell.xib in Resources */,
 				2CEC2D4820F647A500AF5E9B /* Wallet.storyboard in Resources */,
+				2CBAAC6B2121E4C4006A423E /* banner_ono.png in Resources */,
 				2C1E3E9920FE18960009D2AF /* Popup.xib in Resources */,
 				2CA5D199210C53D6006C928B /* LicenseDescriptions.json in Resources */,
 				2CE110DB20F1C8AC00B93BEB /* Images.xcassets in Resources */,
@@ -1088,10 +1115,13 @@
 				2C2ACFC120F3AEED00C637D8 /* TestCell.xib in Resources */,
 				2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */,
 				2C3B17AF20FCFDF400E6BAAD /* TransferPopup.xib in Resources */,
+				2CBAAC6D2121E658006A423E /* banner_eosdac.png in Resources */,
 				2C2ACFCD20F3CE9800C637D8 /* Create.storyboard in Resources */,
 				2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */,
 				2C279C0E20FA5FA800D2F6C4 /* TokenCell.xib in Resources */,
 				2CA5D19B210C6698006C928B /* GoogleService-Info.plist in Resources */,
+				2CBAAC6F2121E804006A423E /* banner_pandora.png in Resources */,
+				2CBAAC712121E880006A423E /* icon_eosdac.png in Resources */,
 				2CE1111520F2395800B93BEB /* Main.storyboard in Resources */,
 				2C1E3E9F20FE37AB0009D2AF /* RamPopup.xib in Resources */,
 			);
@@ -1272,6 +1302,7 @@
 				2C755F1B20FF708600FD5FBF /* TouchIdViewController.swift in Sources */,
 				2CA5D194210C481C006C928B /* LicenseFlowController.swift in Sources */,
 				2C770C9920FB77F4007F71C4 /* DelegateViewController.swift in Sources */,
+				2CBAAC642121D825006A423E /* Airdrop.swift in Sources */,
 				2C31F7F821061F3C0025D18A /* ChangePinFlowController.swift in Sources */,
 				2C2ACFD520F4427F00C637D8 /* ImportViewController.swift in Sources */,
 				2C279B8F20F8C30700D2F6C4 /* SignedTransaction.swift in Sources */,
@@ -1381,6 +1412,7 @@
 				2CE1110E20F1FACD00B93BEB /* LocalizedString.swift in Sources */,
 				2C2ACFED20F48E1D00C637D8 /* UIButton+extension.swift in Sources */,
 				2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */,
+				2CBAAC662121DCB4006A423E /* NSLayoutConstraint+extension.swift in Sources */,
 				2CA5D18E210B5B58006C928B /* TokenAddPopup.swift in Sources */,
 				2C279B7720F7A29A00D2F6C4 /* ReceiveViewController.swift in Sources */,
 				2C99E4A2211EDE9E00DB55A6 /* CreateAccountInfoViewController.swift in Sources */,

@@ -40,7 +40,7 @@
                                     <constraint firstAttribute="width" constant="10" id="oR8-K8-4Mk"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="yS3-Sr-APb">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="yS3-Sr-APb">
                                 <rect key="frame" x="286" y="12.5" width="25" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="YmR-Ki-NXk"/>
@@ -87,6 +87,5 @@
     </objects>
     <resources>
         <image name="detailLarge" width="20" height="33"/>
-        <image name="logo" width="145" height="119"/>
     </resources>
 </document>
