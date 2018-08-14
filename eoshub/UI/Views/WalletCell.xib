@@ -40,7 +40,7 @@
                                             <constraint firstAttribute="width" constant="7" id="w4o-Og-GE0"/>
                                         </constraints>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8C-Sg-RbY">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k8C-Sg-RbY" customClass="ExtendButton" customModule="eoshub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="72.5" height="34"/>
                                     </button>
                                 </subviews>

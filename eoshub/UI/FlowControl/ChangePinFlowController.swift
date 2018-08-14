@@ -25,7 +25,7 @@ class ChangePinFlowController: FlowController, ChangePinFlowEventDelegate {
         vc.flowDelegate = self
         vc.configure(mode: .change)
         
-        let nc = UINavigationController(rootViewController: vc)
+        let nc = BaseNavigationController(rootViewController: vc)
         
         show(viewController: nc, animated: animated) {
             

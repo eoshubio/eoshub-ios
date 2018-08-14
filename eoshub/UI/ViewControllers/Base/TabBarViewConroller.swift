@@ -38,6 +38,7 @@ class TabBarViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.clipsToBounds = true
         setupUI()
     }
     

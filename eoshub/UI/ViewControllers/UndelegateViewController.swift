@@ -38,7 +38,7 @@ class UndelegateViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showNavigationBar(with: .white)
+        showNavigationBar(with: .white, bgColor: .basePurple)
         title = LocalizedString.Wallet.Delegate.undelegate
     }
     

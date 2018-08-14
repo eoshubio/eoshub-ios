@@ -23,7 +23,7 @@ class MainFlowController: FlowController {
         //TODO: Load App configs
         TokenManager.shared.load()
         
-        let nc = UINavigationController()
+        let nc = BaseNavigationController()
         
         let frame = UIScreen.main.bounds
         

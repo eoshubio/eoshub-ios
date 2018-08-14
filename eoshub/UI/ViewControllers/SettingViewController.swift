@@ -22,26 +22,33 @@ class SettingViewController: FormViewController {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
         
-        navigationController?.view.backgroundColor = UIColor.clear
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationController?.navigationBar.isTranslucent = true
+        let bgTranslucent = Color.baseGray.getUIColor(alpha: 0.8)
+        
         navigationController?.navigationBar.shadowImage = UIImage()
         
-        navigationController?.navigationBar.tintColor = Color.basePurple.uiColor
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Color.basePurple.uiColor]
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: Color.basePurple.uiColor]
+        navigationController?.navigationBar.setBackgroundImage(UIImage(color: bgTranslucent) , for: UIBarMetrics.default)
+        navigationController?.navigationBar.backgroundColor = .clear
+        navigationController?.navigationBar.isTranslucent = true
         
-        navigationController?.navigationBar.prefersLargeTitles = true
+        let tintColor = Color.basePurple
+        navigationController?.navigationBar.tintColor = tintColor.uiColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: tintColor.uiColor]
+        navigationController?.navigationBar.largeTitleTextAttributes =
+            [NSAttributedStringKey.foregroundColor: tintColor.uiColor,
+             NSAttributedStringKey.font: Font.appleSDGothicNeo(.bold).uiFont(30)]
+        
         
         navigationController?.navigationBar.barStyle = .default
-        
+        navigationController?.navigationBar.prefersLargeTitles = true
         title = LocalizedString.Setting.title
+        
         
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.clipsToBounds = true
         setupUI()
     }
     

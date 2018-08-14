@@ -32,7 +32,7 @@ class CreatePinFlowController: FlowController, CreatePinFlowDelegate {
             }
         } else {
             //modal
-            let nc = UINavigationController(rootViewController: vc)
+            let nc = BaseNavigationController(rootViewController: vc)
             show(viewController: nc, animated: animated) {
                 
             }

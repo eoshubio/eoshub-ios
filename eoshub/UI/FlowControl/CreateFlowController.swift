@@ -30,7 +30,7 @@ class CreateFlowController: FlowController, CreateFlowEventDelegate {
         vc.flowDelegate = self
         vc.configure(items: items)
         
-        let nc = UINavigationController(rootViewController: vc)
+        let nc = BaseNavigationController(rootViewController: vc)
         
         show(viewController: nc, animated: animated) {
             

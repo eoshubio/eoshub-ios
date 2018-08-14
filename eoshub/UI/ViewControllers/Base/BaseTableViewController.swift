@@ -30,14 +30,14 @@ class BaseTableViewController: UITableViewController {
         return .lightContent
     }
     
-    func showNavigationBar(with tintColor: Color, animated: Bool = true, largeTitle: Bool = false) {
+    func showNavigationBar(with tintColor: Color, bgColor: Color = .baseGray, animated: Bool = true, largeTitle: Bool = false) {
         navigationController?.setNavigationBarHidden(false, animated: animated)
         
-        //        navigationController?.navigationBar.barTintColor = UIColor.clear
-        navigationController?.view.backgroundColor = UIColor.white
-//        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-//        navigationController?.navigationBar.shadowImage = UIImage()
-//        navigationController?.navigationBar.isTranslucent = true
+      
+        navigationController?.navigationBar.shadowImage = UIImage()
+        
+        navigationController?.navigationBar.isTranslucent = true
+        
         navigationController?.navigationBar.tintColor = tintColor.uiColor
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: tintColor.uiColor]
         navigationController?.navigationBar.largeTitleTextAttributes =
@@ -45,10 +45,17 @@ class BaseTableViewController: UITableViewController {
              NSAttributedStringKey.font: Font.appleSDGothicNeo(.bold).uiFont(30)]
         
         navigationController?.navigationBar.prefersLargeTitles = largeTitle
+        
+        
         switch tintColor {
         case .white:
+            navigationController?.navigationBar.setBackgroundImage(UIImage() , for: UIBarMetrics.default)
+            navigationController?.navigationBar.backgroundColor = .clear
             navigationController?.navigationBar.barStyle = .black
         case .basePurple, .darkGray:
+            let bgTranslucent = bgColor.getUIColor(alpha: 0.8)
+            navigationController?.navigationBar.setBackgroundImage(UIImage(color: bgTranslucent) , for: UIBarMetrics.default)
+            navigationController?.navigationBar.backgroundColor = .clear
             navigationController?.navigationBar.barStyle = .default
         default:
             break

@@ -34,7 +34,7 @@ class TokenDetailViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showNavigationBar(with: .white)
+        showNavigationBar(with: .white, bgColor: .basePurple)
         
     }
     

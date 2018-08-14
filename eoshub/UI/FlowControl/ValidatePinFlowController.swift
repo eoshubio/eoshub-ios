@@ -27,7 +27,7 @@ class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
         if Security.shared.enableBioAuth && Security.shared.biometryType() != .none {
             guard let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "TouchIdViewController") as? TouchIdViewController else { preconditionFailure() }
             vc.flowDelegate = self
-            let nc = UINavigationController(rootViewController: vc)
+            let nc = BaseNavigationController(rootViewController: vc)
             show(viewController: nc, animated: animated) {
                 
             }
@@ -36,7 +36,7 @@ class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
             vc.flowDelegate = self
             vc.configure(mode: .validation)
             
-            let nc = UINavigationController(rootViewController: vc)
+            let nc = BaseNavigationController(rootViewController: vc)
             
             show(viewController: nc, animated: animated) {
                 
@@ -50,6 +50,7 @@ class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
         Security.shared.needAuthentication = false
         Security.shared.authorized.onNext(true)
         validated.onNext(true)
+        validated.onCompleted()
         finish(viewControllerToFinish: nc, animated: true, completion: nil)
         
     }
@@ -57,6 +58,7 @@ class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
     func cancelled(from nc: UINavigationController) {
         Security.shared.authorized.onNext(false)
         validated.onNext(false)
+        validated.onCompleted()
         finish(viewControllerToFinish: nc, animated: true, completion: nil)
     }
 }

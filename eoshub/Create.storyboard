@@ -1271,11 +1271,11 @@
                                 <rect key="frame" x="0.0" y="798" width="375" height="100"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Axo-qn-PpZ" id="nKZ-2K-7D9">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99.666666666666671"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aSv-mu-mcE" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="10" width="355" height="79.333333333333329"/>
+                                            <rect key="frame" x="10" y="10" width="355" height="79"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kbu-Ey-n50" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
                                                     <rect key="frame" x="0.0" y="0.0" width="355" height="55"/>

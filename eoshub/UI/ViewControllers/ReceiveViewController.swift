@@ -31,7 +31,7 @@ class ReceiveViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = LocalizedString.Wallet.receive
-        showNavigationBar(with: .white)
+        showNavigationBar(with: .white, bgColor: .basePurple)
     }
     
     override func viewDidLoad() {
