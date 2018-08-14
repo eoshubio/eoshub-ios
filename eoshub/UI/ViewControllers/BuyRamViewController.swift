@@ -157,7 +157,7 @@ extension BuyRamViewController: UITableViewDataSource {
         if indexPath.row == 0 {
             cellId = "MyAccountCell"
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? SendMyAccountCell else { preconditionFailure() }
-            let balance = Currency(balance: account.totalEOS, token: .eos)
+            let balance = Currency(balance: account.availableEOS, token: .eos)
             cell.configure(account: account, balance: balance)
             return cell
             

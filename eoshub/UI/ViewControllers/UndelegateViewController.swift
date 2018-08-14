@@ -168,7 +168,7 @@ extension UndelegateViewController: UITableViewDataSource {
         if indexPath.row == 0 {
             cellId = "UndelegateMyAccountCell"
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellId) as? UndelegateMyAccountCell else { preconditionFailure() }
-            let balance = Currency(balance: account.totalEOS, token: .eos)
+            let balance = Currency(balance: account.stakedEOS, token: .eos)
             cell.configure(account: account, balance: balance)
             return cell
             
