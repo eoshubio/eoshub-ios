@@ -46,7 +46,9 @@ class BaseViewController: UIViewController {
         
         navigationController?.navigationBar.tintColor = tintColor.uiColor
         navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: tintColor.uiColor]
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: tintColor.uiColor]
+        navigationController?.navigationBar.largeTitleTextAttributes =
+            [NSAttributedStringKey.foregroundColor: tintColor.uiColor,
+             NSAttributedStringKey.font: Font.appleSDGothicNeo(.bold).uiFont(30)]
         
         navigationController?.navigationBar.prefersLargeTitles = largeTitle
         switch tintColor {
