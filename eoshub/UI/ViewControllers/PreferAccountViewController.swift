@@ -74,7 +74,11 @@ class PreferAccountViewController: TextInputViewController {
     
     
     private func handleAddAccount() {
+        
+        txtAccount.resignFirstResponder()
+        
         guard let accountName = txtAccount.text else { return }
+        WaitingView.shared.start()
         RxEOSAPI.getPubKeyFromAccount(account: accountName)
             .flatMap({ (pubKey) -> Observable<EHAccount> in
                 let account = EHAccount(account: accountName, publicKey: pubKey, owner: false)
@@ -92,7 +96,9 @@ class PreferAccountViewController: TextInputViewController {
                 guard let nc = self?.navigationController else { return }
                 
                 self?.flowDelegate?.returnToMain(from: nc)
-            })
+            }) {
+                WaitingView.shared.stop()
+            }
             .disposed(by: bag)
             
         

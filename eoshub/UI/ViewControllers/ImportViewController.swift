@@ -17,7 +17,7 @@ class ImportViewController: TextInputViewController {
     @IBOutlet fileprivate weak var lbTitle: UILabel!
     @IBOutlet fileprivate weak var txtPriKey: WhiteTextField!
     @IBOutlet fileprivate weak var lbWarningTitle: UILabel!
-    @IBOutlet fileprivate weak var lbWarning: UILabel!
+    @IBOutlet fileprivate weak var lbWarning: UITextView!
     @IBOutlet fileprivate weak var btnImport: UIButton!
 //    @IBOutlet fileprivate weak var btnFindAccount: UIButton!
     
@@ -40,19 +40,37 @@ class ImportViewController: TextInputViewController {
         lbTitle.text = LocalizedString.Wallet.Import.title
         btnImport.setTitle(LocalizedString.Wallet.Import.store, for: .normal)
         lbWarningTitle.text = LocalizedString.Create.Import.warningTitle
-        lbWarning.text = LocalizedString.Create.Import.warning
         
-        let txt = LocalizedString.Wallet.Import.findAccount
-        let txtFindAccount = NSMutableAttributedString(string: txt,
-        attributes: [NSAttributedStringKey.font: Font.appleSDGothicNeo(.regular).uiFont(12),
-                     NSAttributedStringKey.foregroundColor: Color.darkGray.uiColor])
         
-        if let clickRange = txt.range(of: LocalizedString.Wallet.Import.clickHere) {
-            let clickNSRange = txt.nsRange(from: clickRange)
-            txtFindAccount.addAttributes([NSAttributedStringKey.font : Font.appleSDGothicNeo(.bold).uiFont(12),
-                                          NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue],
-                                         range: clickNSRange)
+        let warning = NSMutableAttributedString(string: LocalizedString.Create.Import.warning)
+        
+//        https://support.apple.com/en-us/HT204085
+//        https://support.apple.com/ko-kr/HT204085
+        var code = "en-us"
+        if let lan = Locale.current.languageCode, let region = Locale.current.regionCode?.lowercased() {
+            code = lan + "-" + region
         }
+        let keyChainDoc = "https://support.apple.com/\(code)/HT204085"
+        warning.addAttributeFont(text: warning.string, font: Font.appleSDGothicNeo(.regular).uiFont(14))
+        if let url = URL(string: keyChainDoc) {
+            warning.addAttributeURL(text: LocalizedString.Create.Import.keychain, url: url)
+            warning.addAttributeFont(text: LocalizedString.Create.Import.keychain, font: Font.appleSDGothicNeo(.semiBold).uiFont(14))
+        }
+        warning.addLineHeight(height: 4)
+        
+        lbWarning.attributedText = warning
+        
+//        let txt = LocalizedString.Wallet.Import.findAccount
+//        let txtFindAccount = NSMutableAttributedString(string: txt,
+//        attributes: [NSAttributedStringKey.font: Font.appleSDGothicNeo(.regular).uiFont(12),
+//                     NSAttributedStringKey.foregroundColor: Color.darkGray.uiColor])
+//
+//        if let clickRange = txt.range(of: LocalizedString.Wallet.Import.clickHere) {
+//            let clickNSRange = txt.nsRange(from: clickRange)
+//            txtFindAccount.addAttributes([NSAttributedStringKey.font : Font.appleSDGothicNeo(.bold).uiFont(12),
+//                                          NSAttributedStringKey.underlineStyle: NSUnderlineStyle.styleSingle.rawValue],
+//                                         range: clickNSRange)
+//        }
         
         
 //        btnFindAccount.setAttributedTitle(txtFindAccount, for: .normal)
@@ -91,9 +109,7 @@ class ImportViewController: TextInputViewController {
     
     fileprivate func handleImportKey() {
         
-        defer {
-            view.endEditing(true)
-        }
+        txtPriKey.resignFirstResponder()
         
         //1. get public key from private key
         guard let priKey = txtPriKey.text else { return }
@@ -105,6 +121,7 @@ class ImportViewController: TextInputViewController {
             Popup.present(style: Popup.Style.failed, description: "\(EOSErrorType.existAccount)")
         } else {
             if Reachability.isConnectedToNetwork() {
+                WaitingView.shared.start()
                 RxEOSAPI.getAccountFromPubKey(pubKey: pubKey)
                     .flatMap({ (accountName) -> Observable<EHAccount> in
                         let account = EHAccount(account: accountName, publicKey: pubKey, owner: true)
@@ -131,7 +148,9 @@ class ImportViewController: TextInputViewController {
                             print(error)
                             Popup.present(style: Popup.Style.failed, description: "\(error)")
                             self?.view.endEditing(true)
-                    })
+                    }) {
+                        WaitingView.shared.stop()
+                    }
                     .disposed(by: bag)
             } else {
                 
