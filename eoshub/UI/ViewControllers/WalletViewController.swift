@@ -268,7 +268,8 @@ extension WalletViewController: UITableViewDataSource {
             return cell
         } else if item is TokenBalanceInfo {
             guard let cell = cell as? TokenCell, let item = item as? TokenBalanceInfo else { preconditionFailure() }
-            cell.configure(currency: item.currency)
+            let ownerMode = item.owner.ownerMode
+            cell.configure(currency: item.currency, ownerMode: ownerMode)
             cell.selectionStyle = .none
             return cell
         } else {
@@ -303,8 +304,9 @@ extension WalletViewController: UITableViewDelegate {
             //go to wallet detail
             flowDelegate?.goToWalletDetail(from: nc, with: item)
         } else if let item = item as? TokenBalanceInfo {
-            
-          flowDelegate?.goToTokenDetail(from: nc, with: item)
+            if item.owner.ownerMode {
+                flowDelegate?.goToTokenDetail(from: nc, with: item)
+            }
             
         } else if let item = item as? InactiveWallet {
             let account = item.ehaccount

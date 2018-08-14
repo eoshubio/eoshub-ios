@@ -13,11 +13,12 @@ class TokenCell: UITableViewCell {
     @IBOutlet fileprivate var balance: UILabel!
     @IBOutlet fileprivate var symbol: UILabel!
     @IBOutlet fileprivate var icon: UIImageView!
+    @IBOutlet fileprivate var disclosure: UIImageView?
     
-    
-    func configure(currency: Currency) {
+    func configure(currency: Currency, ownerMode: Bool) {
         balance.text = currency.balance
         symbol.text = currency.symbol
+        disclosure?.isHidden = (ownerMode == false)
     }
 }
 

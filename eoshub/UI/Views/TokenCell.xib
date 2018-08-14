@@ -79,6 +79,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
                 <outlet property="balance" destination="iGo-lT-h75" id="8Q1-oa-6TO"/>
+                <outlet property="disclosure" destination="oPL-iP-MdC" id="XB1-hy-NO4"/>
                 <outlet property="icon" destination="yS3-Sr-APb" id="Qtf-jX-gtj"/>
                 <outlet property="symbol" destination="KMg-kv-fbm" id="bGV-GJ-tj7"/>
             </connections>
