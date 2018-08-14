@@ -59,44 +59,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Q2l-Rp-NM9">
-                                <rect key="frame" x="15" y="568" width="345" height="150"/>
+                                <rect key="frame" x="15" y="603" width="345" height="150"/>
                                 <constraints>
                                     <constraint firstAttribute="height" priority="750" constant="150" id="9LJ-pC-vF0"/>
                                 </constraints>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahZ-Gt-EAP">
-                                <rect key="frame" x="87.666666666666686" y="733" width="200" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="GtX-uV-FCy"/>
-                                    <constraint firstAttribute="height" constant="30" id="vo6-Qb-l9g"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
-                                <state key="normal" title="익명으로 로그인 하기"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.32549019607843138" green="0.12549019607843137" blue="0.67843137254901964" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qrY-7h-ub9" firstAttribute="top" secondItem="ys6-sY-V4i" secondAttribute="bottom" constant="45" id="3xL-bb-Y7B"/>
-                            <constraint firstItem="ahZ-Gt-EAP" firstAttribute="top" secondItem="Q2l-Rp-NM9" secondAttribute="bottom" constant="15" id="8gj-EI-kFo"/>
                             <constraint firstItem="i0n-A4-k8f" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="FwI-eR-XVL"/>
                             <constraint firstItem="9kl-np-IOL" firstAttribute="top" secondItem="qrY-7h-ub9" secondAttribute="bottom" constant="45" id="JGe-VK-zyE"/>
                             <constraint firstAttribute="bottom" secondItem="i0n-A4-k8f" secondAttribute="bottom" id="K7Q-IV-KeD"/>
                             <constraint firstItem="i0n-A4-k8f" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Nvt-is-ZoZ"/>
                             <constraint firstItem="ys6-sY-V4i" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="100" id="T4S-CD-Hnt"/>
-                            <constraint firstItem="ahZ-Gt-EAP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WCY-ck-75Y"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Q2l-Rp-NM9" secondAttribute="trailing" constant="15" id="ZjG-RM-ETA"/>
                             <constraint firstItem="qrY-7h-ub9" firstAttribute="leading" secondItem="ys6-sY-V4i" secondAttribute="leading" id="ane-sZ-M7S"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ahZ-Gt-EAP" secondAttribute="bottom" constant="15" id="aqx-4o-1vI"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="9kl-np-IOL" secondAttribute="trailing" constant="40" id="be7-14-d2l"/>
                             <constraint firstItem="Q2l-Rp-NM9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="15" id="gbE-Ds-ABF"/>
                             <constraint firstItem="9kl-np-IOL" firstAttribute="leading" secondItem="ys6-sY-V4i" secondAttribute="leading" id="lms-oE-wdO"/>
                             <constraint firstItem="ys6-sY-V4i" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="40" id="mAW-i7-DMJ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Q2l-Rp-NM9" secondAttribute="bottom" constant="25" id="s3a-ld-GDs"/>
                             <constraint firstAttribute="trailing" secondItem="i0n-A4-k8f" secondAttribute="trailing" id="vTU-7X-10e"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="btnSkipLogin" destination="ahZ-Gt-EAP" id="OMb-Kl-Fn6"/>
                         <outlet property="lbTitle" destination="9kl-np-IOL" id="ZNd-NX-QE2"/>
                         <outlet property="stackLoginButtons" destination="Q2l-Rp-NM9" id="7CN-pv-iBz"/>
                         <segue destination="j7z-5T-2tv" kind="show" id="UuY-MA-gYg"/>
