@@ -10,10 +10,15 @@ import Foundation
 
 typealias Symbol = String
 
+func == (lhs: Token, rhs: Token) -> Bool {
+    return lhs.stringValue == rhs.stringValue
+}
+
 struct Token: Equatable, Hashable {
     let symbol: Symbol
     let contract: String
     let decimal: Int
+    
     
     var stringValue: String {
         return symbol + "@" + contract
