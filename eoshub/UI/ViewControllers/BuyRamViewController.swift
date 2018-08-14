@@ -199,7 +199,7 @@ class RamInputFormCell: TransactionInputFormCell {
     
     func configure(account: AccountInfo, inputForm: RamInputForm, dotStyle: FormattedNumberField.DotStyle = .dot4,
                    title: String, available: Observable<Bool>) {
-        ramBytes.text = account.availableRamBytes.prettyPrinted + " RAM"
+        ramBytes.text = account.availableRamBytes.prettyPrinted + " Bytes"
         
         let bag = DisposeBag()
         txtQuantity.style = dotStyle

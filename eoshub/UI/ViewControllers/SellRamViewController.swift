@@ -185,12 +185,12 @@ class SellRamAccountCell: UITableViewCell {
     
     
     func configure(account: AccountInfo) {
-        lbAvailable.text = LocalizedString.Wallet.Transfer.available + "Ram"
+        lbAvailable.text = LocalizedString.Wallet.Transfer.available + "RAM"
         lbUsed.text = LocalizedString.Wallet.Ram.used
         lbAccount.text = account.account
         lbBalance.text = account.availableRamBytes.prettyPrinted
         lbUsedBalance.text = account.usedRam.prettyPrinted
-        lbSymbol.text = "RAM"
+        lbSymbol.text = "Bytes"
     }
     
 }
