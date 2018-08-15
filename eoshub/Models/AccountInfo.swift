@@ -14,6 +14,7 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     
     @objc dynamic var account: String = ""
     @objc dynamic var pubKey: String = ""
+    
     var totalEOS: Double {
         return availableEOS + stakedEOS + refundingEOS
     }
@@ -35,6 +36,8 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     @objc dynamic var refundingTime: TimeInterval = 0
     
     @objc dynamic var ownerMode: Bool = false
+    
+//    @objc dynamic var activeKey: String
     
     //votes info
     let _votedProducers = List<RealmString>()
@@ -82,14 +85,14 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         return ["votedProducers", "tokens", "availableRamBytes", "usedCPURatio", "usedNetRatio", "usedRAMRatio"]
     }
     
-    convenience init(with eosioAccount: Account, isOwner: Bool) {
+    convenience init(with eosioAccount: Account, storedKey: String) {
         self.init()
         self.id = eosioAccount.name
         account = eosioAccount.name
-        pubKey = eosioAccount.permissions.first?.keys.first?.key ?? ""
+        
         availableEOS = eosioAccount.liquidBalance.quantity
         stakedEOS = eosioAccount.resources.staked
-        ownerMode = isOwner
+        
         if let producers = eosioAccount.voterInfo?.producers {
             votedProducers = producers
         }
@@ -116,9 +119,23 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         usedRam = eosioAccount.ramUsage
         maxRam = eosioAccount.ramQuota
         
+        ownerMode = false
+        
+        if storedKey.count > 0 {
+            let allkeys = eosioAccount.permissions.map({$0.keys}).joined()
+            
+            if let matchKey = allkeys.filter({ $0.key == storedKey }).first {
+                pubKey = matchKey.key
+                ownerMode = true
+            }
+        }
+        
+        
     }
     
     func mergeChanges(from newObject: AccountInfo) {
+        pubKey = newObject.pubKey
+        
         availableEOS = newObject.availableEOS
         stakedEOS = newObject.stakedEOS
         ownerMode = newObject.ownerMode
@@ -136,6 +153,7 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         maxNet = newObject.maxNet
         usedRam = newObject.usedRam
         maxRam = newObject.maxRam
+        
         
         _tokens.removeAll()
         _tokens.append(objectsIn: newObject._tokens)

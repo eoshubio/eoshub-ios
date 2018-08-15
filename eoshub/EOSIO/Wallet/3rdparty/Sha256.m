@@ -10,6 +10,7 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <CommonCrypto/CommonCryptor.h>
 
+#include <openssl/sha.h>
 @implementation Sha256
 
 - (instancetype)init {
@@ -37,6 +38,7 @@
         
         uint8_t digest[CC_SHA256_DIGEST_LENGTH];
         CC_SHA256(bytesData.bytes, (CC_LONG)bytesData.length, digest);
+   
         self.mHashBytesData = [NSData dataWithBytes:digest length:CC_SHA256_DIGEST_LENGTH];
         
         NSMutableString* outputSha256_Digest = [NSMutableString stringWithCapacity:CC_SHA256_DIGEST_LENGTH * 2];
@@ -45,6 +47,7 @@
             [outputSha256_Digest appendFormat:@"%02x", digest[i]];
         }
         self.sha256 = outputSha256_Digest;
+        
     }
     return self;
 }

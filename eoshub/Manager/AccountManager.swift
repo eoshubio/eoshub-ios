@@ -88,20 +88,19 @@ class AccountManager {
         }
     }
     
-    private func getAccountInfo(account: EHAccount, isFirstTime: Bool = false) -> Observable<AccountInfo> {
+    private func getAccountInfo(account ehAccount: EHAccount, isFirstTime: Bool = false) -> Observable<AccountInfo> {
         
-        let preferTokens = isFirstTime ? TokenManager.shared.knownTokens.map({ $0.token }) : account.tokens
+        let preferTokens = isFirstTime ? TokenManager.shared.knownTokens.map({ $0.token }) : ehAccount.tokens
         
-        return RxEOSAPI.getAccount(name: account.account)
-            .flatMap({ [weak self](account) ->  Observable<AccountInfo> in
-                let owner = self?.eoshubAccounts.filter("account = '\(account.name)'").first?.owner ?? false
-                let info = AccountInfo(with: account, isOwner: owner)
+        return RxEOSAPI.getAccount(name: ehAccount.account)
+            .flatMap({ (account) ->  Observable<AccountInfo> in
+                let info = AccountInfo(with: account, storedKey: ehAccount.publicKey)
                 return Observable.just(info)
             })
             .flatMap({ (info) -> Observable<AccountInfo> in
                 //Refund unstaked EOS if needed
                 if info.ownerMode && info.refundingTime > 0 && info.refundingEOS > 0{
-                    let wallet = Wallet(account: account)
+                    let wallet = Wallet(account: ehAccount)
                     return RxEOSAPI.refund(owner: info.account, wallet: wallet).catchErrorJustReturn([:])
                                     .flatMap({ (json) -> Observable<AccountInfo> in
                                         Log.i(json)
@@ -112,7 +111,7 @@ class AccountManager {
                 }
             })
             .flatMap { (info) -> Observable<AccountInfo> in
-                return RxEOSAPI.getTokens(account: account, tokens: preferTokens)
+                return RxEOSAPI.getTokens(account: ehAccount, tokens: preferTokens)
                         .flatMap({ (tokenBalances) -> Observable<AccountInfo> in
                             
                             if isFirstTime {
@@ -120,7 +119,7 @@ class AccountManager {
                                 info.addTokens(currency: havingToken)
                                 let tokens = havingToken.map { $0.token }
                                 DB.shared.safeWrite {
-                                    account.setPreferTokens(tokens: tokens)
+                                    ehAccount.setPreferTokens(tokens: tokens)
                                 }
                             } else {
                                 info.addTokens(currency: tokenBalances)

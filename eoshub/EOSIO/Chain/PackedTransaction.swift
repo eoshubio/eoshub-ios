@@ -15,10 +15,11 @@ class PackedTransaction: JSONOutput {
     
     var json: JSON {
         var params = JSON()
+        params["signatures"] = signatures
         params["compression"] = "none"
         params["packed_context_free_data"] = ""
         params["packed_trx"] = packedTrx
-        params["signatures"] = signatures
+        
         return params
     }
     

@@ -90,16 +90,17 @@ extension BaseViewController {
     }
     
     func unlockWallet(pinTarget vc: UIViewController, pubKey: String) -> Observable<Wallet> {
-        
-        return authentication(showAt: vc)
-                .flatMap({ (validate) -> Observable<Wallet> in
-                    if validate {
-                        let wallet = Wallet(key: pubKey)
-                        return Observable.just(wallet)
-                    } else {
-                        return Observable.error(EOSErrorType.authenticationFailed)
-                    }
-                })
+        let wallet = Wallet(key: pubKey)
+        return Observable.just(wallet)
+//        return authentication(showAt: vc)
+//                .flatMap({ (validate) -> Observable<Wallet> in
+//                    if validate {
+//                        let wallet = Wallet(key: pubKey)
+//                        return Observable.just(wallet)
+//                    } else {
+//                        return Observable.error(EOSErrorType.authenticationFailed)
+//                    }
+//                })
     }
     
     @objc func back() {

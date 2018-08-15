@@ -59,6 +59,7 @@ class WalletViewController: BaseViewController {
             setupUI()
             bindActions()
             reloadUI()
+            
         }
     }
     

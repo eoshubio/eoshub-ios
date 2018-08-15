@@ -283,7 +283,7 @@ extension RxEOSAPI {
       
         let code = quantity.token.contract
         
-        let contract = Contract.transfer(code: code, from: from, to: to, quantity: quantity, memo: memo)
+        let contract = Contract.transfer(code: code, from: from, to: to, quantity: quantity, memo: memo, authorization: Authorization(actor: from, permission: .owner))
 
         return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
         
@@ -291,7 +291,7 @@ extension RxEOSAPI {
     
     //MARK: vote bp
     static func voteBPs(voter: String, producers: [String], wallet: Wallet) -> Observable<JSON> {
-        let contract = Contract.voteProducer(voter: voter, producers: producers)
+        let contract = Contract.voteProducer(voter: voter, producers: producers, authorization: Authorization(actor: voter, permission: .owner))
         return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
     }
     
@@ -309,32 +309,32 @@ extension RxEOSAPI {
     //MARK: Delegate Bandwidth
     static func delegatebw(account: String, cpu: Currency, net: Currency, wallet: Wallet) -> Observable<JSON> {
         
-        let contract = Contract.delegateBW(from: account, receiver: account, cpu: cpu, net: net)
+        let contract = Contract.delegateBW(from: account, receiver: account, cpu: cpu, net: net, authorization: Authorization(actor: account, permission: .owner))
         return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
         
     }
     
     static func undelegatebw(account: String, cpu: Currency, net: Currency, wallet: Wallet) -> Observable<JSON> {
         
-        let contract = Contract.undelegateBW(from: account, receiver: account, cpu: cpu, net: net)
+        let contract = Contract.undelegateBW(from: account, receiver: account, cpu: cpu, net: net, authorization: Authorization(actor: account, permission: .owner))
         return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
         
     }
     
     //MARK: Refund
     static func refund(owner: String, wallet: Wallet) -> Observable<JSON> {
-        let contract = Contract.refund(owner: owner)
+        let contract = Contract.refund(owner: owner, authorization: Authorization(actor: owner, permission: .owner))
         return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
     }
     
     //MARK: Ram
     static func buyram(account: String, quantity: Currency, wallet: Wallet) -> Observable<JSON> {
-        let contract = Contract.buyram(payer: account, receiver: account, quant: quantity)
+        let contract = Contract.buyram(payer: account, receiver: account, quant: quantity, authorization: Authorization(actor: account, permission: .owner))
         return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
     }
     
     static func sellram(account: String, bytes: Int64, wallet: Wallet) -> Observable<JSON> {
-        let contract = Contract.sellram(account: account, bytes: bytes)
+        let contract = Contract.sellram(account: account, bytes: bytes, authorization: Authorization(actor: account, permission: .owner))
         return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
     }
     

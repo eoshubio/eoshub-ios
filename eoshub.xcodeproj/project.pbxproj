@@ -106,6 +106,9 @@
 		2C3B17AD20FCCC7000E6BAAD /* TxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17AC20FCCC7000E6BAAD /* TxManager.swift */; };
 		2C3B17AF20FCFDF400E6BAAD /* TransferPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B17AE20FCFDF400E6BAAD /* TransferPopup.xib */; };
 		2C3B17B120FD023000E6BAAD /* TransferPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17B020FD023000E6BAAD /* TransferPopup.swift */; };
+		2C3E72B72123C2CC00D114B2 /* SecureEnclaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E72B42123C2CB00D114B2 /* SecureEnclaveManager.swift */; };
+		2C3E72B82123C2CC00D114B2 /* R1Key.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E72B62123C2CC00D114B2 /* R1Key.mm */; };
+		2C3E72C22124369700D114B2 /* Keystore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E72C12124369700D114B2 /* Keystore.swift */; };
 		2C63FE962118A7150036652B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE952118A7150036652B /* Reachability.swift */; };
 		2C63FE982118AAE50036652B /* WalletLockedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C63FE972118AAE50036652B /* WalletLockedCell.xib */; };
 		2C63FE9A2118AEA70036652B /* WalletLockedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE992118AEA70036652B /* WalletLockedCell.swift */; };
@@ -367,6 +370,11 @@
 		2C3B17AC20FCCC7000E6BAAD /* TxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxManager.swift; sourceTree = "<group>"; };
 		2C3B17AE20FCFDF400E6BAAD /* TransferPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferPopup.xib; sourceTree = "<group>"; };
 		2C3B17B020FD023000E6BAAD /* TransferPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransferPopup.swift; sourceTree = "<group>"; };
+		2C3E72B32123C2CA00D114B2 /* ripemd160.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = ripemd160.hpp; sourceTree = "<group>"; };
+		2C3E72B42123C2CB00D114B2 /* SecureEnclaveManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureEnclaveManager.swift; sourceTree = "<group>"; };
+		2C3E72B52123C2CC00D114B2 /* R1Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = R1Key.h; sourceTree = "<group>"; };
+		2C3E72B62123C2CC00D114B2 /* R1Key.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = R1Key.mm; sourceTree = "<group>"; };
+		2C3E72C12124369700D114B2 /* Keystore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keystore.swift; sourceTree = "<group>"; };
 		2C63FE952118A7150036652B /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2C63FE972118AAE50036652B /* WalletLockedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletLockedCell.xib; sourceTree = "<group>"; };
 		2C63FE992118AEA70036652B /* WalletLockedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletLockedCell.swift; sourceTree = "<group>"; };
@@ -554,8 +562,13 @@
 		2C279BA920F8C42000D2F6C4 /* Sig */ = {
 			isa = PBXGroup;
 			children = (
+				2C3E72B52123C2CC00D114B2 /* R1Key.h */,
+				2C3E72B62123C2CC00D114B2 /* R1Key.mm */,
+				2C3E72B32123C2CA00D114B2 /* ripemd160.hpp */,
 				2C279BB320F8C42700D2F6C4 /* Crypto.h */,
 				2C279BAA20F8C42600D2F6C4 /* Crypto.m */,
+				2C3E72B42123C2CB00D114B2 /* SecureEnclaveManager.swift */,
+				2C3E72C12124369700D114B2 /* Keystore.swift */,
 				2C279BF520F9C66500D2F6C4 /* Wallet.swift */,
 			);
 			path = Sig;
@@ -623,6 +636,13 @@
 				2C279C0920FA452F00D2F6C4 /* Config.swift */,
 			);
 			path = Config;
+			sourceTree = "<group>";
+		};
+		2C3E72BF2124075E00D114B2 /* FC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FC;
 			sourceTree = "<group>";
 		};
 		2CA5D197210C52A9006C928B /* assets */ = {
@@ -984,6 +1004,7 @@
 		2CFE954C20F394BD00DC173F /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
+				2C3E72BF2124075E00D114B2 /* FC */,
 				2C279BE220F8C6B100D2F6C4 /* 3rdparty */,
 				2C279BA920F8C42000D2F6C4 /* Sig */,
 			);
@@ -1278,6 +1299,7 @@
 				2C2ACFE520F47C1900C637D8 /* PinCodeViewController.swift in Sources */,
 				2C279BB520F8C42700D2F6C4 /* EOS_Key_Encode.m in Sources */,
 				2CB6B7FB2104DA230048601A /* NetworkError.swift in Sources */,
+				2C3E72C22124369700D114B2 /* Keystore.swift in Sources */,
 				2CE1112920F252B500B93BEB /* TabBarViewConroller.swift in Sources */,
 				2C99E49A211D992600DB55A6 /* CreateAccountFlowController.swift in Sources */,
 				2C770C8F20FAF1F5007F71C4 /* TokenDetailFlowController.swift in Sources */,
@@ -1340,6 +1362,7 @@
 				2C770C9120FB2628007F71C4 /* Tx.swift in Sources */,
 				2CE1110020F1EDB000B93BEB /* WalletViewController.swift in Sources */,
 				2CFE954A20F3947300DC173F /* EOSAccountViewModel.swift in Sources */,
+				2C3E72B72123C2CC00D114B2 /* SecureEnclaveManager.swift in Sources */,
 				2C770C9D20FB85DB007F71C4 /* UITextField+extension.swift in Sources */,
 				2CE1113020F26BA300B93BEB /* AirdropViewController.swift in Sources */,
 				2C279BA820F8C3CB00D2F6C4 /* base58.c in Sources */,
@@ -1438,6 +1461,7 @@
 				2C31F7F6210612CE0025D18A /* Preferences.swift in Sources */,
 				2C3B17AD20FCCC7000E6BAAD /* TxManager.swift in Sources */,
 				2CEC2D4C20F65D1500AF5E9B /* StakeProgressBar.swift in Sources */,
+				2C3E72B82123C2CC00D114B2 /* R1Key.mm in Sources */,
 				2C2ACFCF20F3D8EB00C637D8 /* CreateViewController.swift in Sources */,
 				2C99E4A6211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift in Sources */,
 				2CE110E920F1C9B300B93BEB /* DBObject.swift in Sources */,
@@ -1649,7 +1673,7 @@
 				DEVELOPMENT_TEAM = XYD35BDX65;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = eoshub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1678,7 +1702,7 @@
 				DEVELOPMENT_TEAM = XYD35BDX65;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = eoshub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
