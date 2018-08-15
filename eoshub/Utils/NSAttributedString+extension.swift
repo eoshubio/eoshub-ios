@@ -22,6 +22,12 @@ extension NSMutableAttributedString {
         addAttribute(text: text, attr: [NSAttributedStringKey.font : font])
     }
     
+    func addLineHeight(height: CGFloat) {
+        let style = NSMutableParagraphStyle()
+        style.lineSpacing = height
+        addAttribute(text: string, attr: [NSAttributedStringKey.paragraphStyle: style])
+    }
+    
     private func addAttribute(text: String, attr: [NSAttributedStringKey: Any]) {
         if let range = string.range(of: text) {
             addAttributes(attr, range: range.nsRange)
