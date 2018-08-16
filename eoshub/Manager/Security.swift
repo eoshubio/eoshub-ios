@@ -98,7 +98,12 @@ class Security {
         
         let enPri = RNCryptor.encrypt(data: priData, withPassword: seed)
         
-        let key = String(pub[3...])
+        var key = prefix
+        if pub.hasPrefix("PUB_R1_") {
+            key += String(pub[7...])
+        } else {
+            key += String(pub[3...])
+        }
         
         KeychainSwift().set(enPri, forKey: key)
         
@@ -107,7 +112,12 @@ class Security {
     
     func getEncryptedPrivateKey(pub: String) -> String? {
 
-        let key = String(pub[3...])
+        var key = prefix
+        if pub.hasPrefix("PUB_R1_") {
+            key += String(pub[7...])
+        } else {
+            key += String(pub[3...])
+        }
         
         guard let encryptedPriData = KeychainSwift().getData(key) else { return nil }
         

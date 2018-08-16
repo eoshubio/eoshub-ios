@@ -20,18 +20,16 @@ class CreateAccountRequest: DBObject {
     @objc dynamic var _keyFrom: String = ""
     
     //invoice stage
-    @objc dynamic var cpu = "0.2000 EOS"
-    @objc dynamic var net = "0.0100 EOS"
-    @objc dynamic var ram = "5120"
-    
-    @objc dynamic var creator: String = ""
-    @objc dynamic var memo: String = ""
+    @objc dynamic var completed: Bool = false
     @objc dynamic var total: String = ""
+    @objc dynamic var memo: String = ""
     @objc dynamic var created: Double = 0
+    @objc dynamic var creator: String = ""
+    @objc dynamic var cpu = ""
+    @objc dynamic var net = ""
+    @objc dynamic var ram = ""
     @objc dynamic var expireTime: Double = 3600
     
-    @objc dynamic var completed: Bool = false
-
     var keyFrom: CreateKeyMode {
         return CreateKeyMode(rawValue: _keyFrom) ?? .none
     }
@@ -87,12 +85,17 @@ class CreateAccountRequest: DBObject {
         }
     }
     
-    func addInvoice(creator: String, memo: String, total: String, created: Double) {
+    func addInvoice(invoice: Invoice) {
         DB.shared.safeWrite {
-            self.creator = creator
-            self.memo = memo
-            self.total = total
-            self.created = created
+            self.completed = invoice.completed
+            self.total = invoice.totalEOS.stringValue
+            self.memo = invoice.memo
+            self.created = invoice.createdAt
+            self.creator = invoice.creator
+            self.cpu = invoice.cpu.stringValue
+            self.net = invoice.net.stringValue
+            self.ram = "\(invoice.ram) Bytes"
+            self.expireTime = 3600
         }
     }
     

@@ -17,6 +17,7 @@ struct EOSHubAPI {
     
     enum Account: String {
         case memo
+        case create
     }
     
     enum URL: String {
@@ -33,7 +34,7 @@ extension EOSHubAPI.Token: RxAPIRequest {
 
 extension EOSHubAPI.Account: RxAPIRequest {
     var url: String {
-        return Config.eoshubHost + "/v1/wallet/" + rawValue //TODO: Change to account
+        return Config.eoshubHost + "/v1/account/" + rawValue
     }
 }
 
@@ -55,10 +56,29 @@ extension EOSHubAPI {
     
     
     static func getMemo(userId: String) -> Observable<JSON> {
-        let params = ["userId": userId] //TODO: move to header
+        let header = ["user_id": userId]
         
         return EOSHubAPI.Account.memo
-                .responseJSON(method: .get, parameter: params, encoding: URLEncoding.default, header: [:])
+            .responseJSON(method: .get, parameter: [:], encoding: URLEncoding.default, header: header)
+    }
+    
+    static func refreshMemo(userId: String) -> Observable<JSON> {
+        let header = ["user_id": userId]
+        
+        return EOSHubAPI.Account.memo
+            .responseJSON(method: .post, parameter: [:], encoding: URLEncoding.default, header: header)
+    }
+    
+    static func createAccount(userId: String, txId: String, accountName: String, ownerKey: String, activeKey: String) -> Observable<JSON> {
+        let header = ["user_id": userId]
+        let parmas = ["txId": txId,
+                      "accountName": accountName,
+                      "ownerKey": ownerKey,
+                      "activeKey": activeKey]
+        
+        return EOSHubAPI.Account.create
+            .responseJSON(method: .post, parameter: parmas, encoding: URLEncoding.default, header: header)
+        
     }
     
 }

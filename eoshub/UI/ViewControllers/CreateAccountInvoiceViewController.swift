@@ -70,8 +70,22 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
     private func findRequestInTxs() {
         WaitingView.shared.start()
         getTx()
-            .subscribe(onNext: { (tx) in
-                Log.i(tx.txid)
+            .flatMap(createAccount)
+            .subscribe(onNext: { [weak self] (json) in
+                guard let `self` = self else { return }
+                if let resultType = json.string(for: "resultType"), resultType == "SUCCESS" {
+                    let ehaccount = EHAccount(account: self.request.name,
+                                              publicKey: self.request.ownerKey,
+                                              owner: true)
+                    
+                    DB.shared.addAccount(account: ehaccount)
+                    
+                    AccountManager.shared.doLoadAccount()
+                    Popup.present(style: .success, description: "\(json)")
+                } else {
+                    Popup.present(style: .failed, description: "\(json)")
+                }
+                
                 
             }, onError: { (error) in
                 Popup.present(style: .failed, description: "\(error)")
@@ -121,7 +135,7 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
     private func refreshData() {
         let userId = UserManager.shared.userId
         WaitingView.shared.start()
-        EOSHubAPI.getMemo(userId: userId)
+        EOSHubAPI.refreshMemo(userId: userId)
             .flatMap { (json) -> Observable<Invoice> in
                 if let invoice = Invoice(json: json) {
                     return Observable.just(invoice)
@@ -130,7 +144,7 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
                 }
             }
             .subscribe(onNext: { [weak self] (invoice) in
-                self?.request.addInvoice(creator: invoice.creator, memo: invoice.memo, total: invoice.totalEOS.stringValue, created: invoice.timestamp)
+                self?.request.addInvoice(invoice: invoice)
                 self?.invoice = invoice
                 self?.invoiceForm.update(from: invoice)
                 }, onError: { (error) in
@@ -142,9 +156,14 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
 
     }
     
-    private func createAccount(txid: String) {
+    private func createAccount(tx: Tx) -> Observable<JSON> {
+        let userId = UserManager.shared.userId
         
-        
+        return EOSHubAPI.createAccount(userId: userId,
+                                txId: tx.txid,
+                                accountName: request.name,
+                                ownerKey: request.ownerKey,
+                                activeKey: request.activeKey)
         
     }
     
@@ -349,7 +368,7 @@ struct InvoiceForm {
         net.value = txMemo.net.stringValue
         ram.value = "\(txMemo.ram) Bytes"
         total.value = txMemo.totalEOS.stringValue
-        timestamp.value = txMemo.timestamp
+        timestamp.value = txMemo.createdAt
     }
     
     func update(from request: CreateAccountRequest) {
@@ -368,10 +387,13 @@ extension CreateAccountRequest {
         
         guard let totalEOS = Currency(eosCurrency: total),
             let cpuEOS = Currency(eosCurrency: cpu),
-            let netEOS = Currency(eosCurrency: net),
-            let ramBytes = Int64(ram) else { return nil }
+            let netEOS = Currency(eosCurrency: net) else { return nil }
+//            let ramBytes = 6 else { return nil }
         
-        return Invoice(totalEOS: totalEOS, memo: memo, timestamp: created, creator: creator, cpu: cpuEOS, net: netEOS, ram: ramBytes)
+        return Invoice(completed: completed,
+                       totalEOS: totalEOS, memo: memo, createdAt: created, expiredAt: created + expireTime,
+                       expireTime: Int(expireTime),
+                       creator: creator, cpu: cpuEOS, net: netEOS, ram: 6)
     }
 }
 
