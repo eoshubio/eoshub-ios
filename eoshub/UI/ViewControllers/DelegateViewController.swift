@@ -94,11 +94,10 @@ class DelegateViewController: BaseViewController {
         
         let accountName = account.account
         
-        unlockWallet(pinTarget: self, pubKey: account.pubKey)
-            .flatMap { (wallet) -> Observable<JSON> in
-                 WaitingView.shared.start()
-                return RxEOSAPI.delegatebw(account: accountName, cpu: cpu, net: net, wallet: wallet)
-            }
+        let wallet = Wallet(key: account.pubKey, parent: self)
+        
+        WaitingView.shared.start()
+        RxEOSAPI.delegatebw(account: accountName, cpu: cpu, net: net, wallet: wallet)
             .flatMap({ (_) -> Observable<Void> in
                 WaitingView.shared.stop()
                 //clear form

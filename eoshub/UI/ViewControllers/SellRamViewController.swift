@@ -90,11 +90,10 @@ class SellRamViewController: BaseViewController {
         
         let quantity = Int64(inputForm.quantity.value) ?? 0
         let accountName = account.account
-        unlockWallet(pinTarget: self, pubKey: account.pubKey)
-            .flatMap { (wallet) -> Observable<JSON> in
-                WaitingView.shared.start()
-                return RxEOSAPI.sellram(account: accountName, bytes: quantity, wallet: wallet)
-            }
+        let wallet = Wallet(key: account.pubKey, parent: self)
+        
+        WaitingView.shared.start()
+        RxEOSAPI.sellram(account: accountName, bytes: quantity, wallet: wallet)    
             .flatMap({ (_) -> Observable<Void> in
                 WaitingView.shared.stop()
                 //clear form

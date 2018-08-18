@@ -200,11 +200,7 @@ struct RxEOSAPI {
                 
                 let signTrx = SignedTransaction(json: trx)!
                 
-                //sign
-                wallet.sign(txn: signTrx, cid: data.blockInfo.chainId)
-                
-                return Observable.just(signTrx)
-
+                return wallet.rx_sign(txn: signTrx, cid: data.blockInfo.chainId)
             }
             .flatMap { (trx) -> Observable<JSON> in
                 Log.d(trx)

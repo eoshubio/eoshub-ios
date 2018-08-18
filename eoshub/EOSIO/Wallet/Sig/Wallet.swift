@@ -7,10 +7,13 @@
 //
 
 import Foundation
+import RxSwift
 
 
 
 class Wallet {
+    
+    fileprivate weak var authParentVC: UIViewController?
     
     private let pubKey: String
     
@@ -18,33 +21,83 @@ class Wallet {
         self.pubKey = account.publicKey
     }
     
-    init(key: String) {
+    init(key: String, parent: UIViewController) {
         self.pubKey = key
+        authParentVC = parent
     }
     
+    //deprecated
     func sign(txn: SignedTransaction, cid: String) {
 
-        let packedBytes = txn.digest(cid: cid, capacity: 255)
-  
         guard let priKey = Security.shared.getEncryptedPrivateKey(pub: pubKey) else {
             Log.e("cannot find private key in keychain for \(pubKey)")
             return
         }
+        
+ 
+    }
+    
+    func rx_sign(txn: SignedTransaction, cid: String) -> Observable<SignedTransaction> {
+         guard let priKey = Security.shared.getEncryptedPrivateKey(pub: pubKey) else {
+            Log.e("cannot find private key in keychain for \(pubKey)")
+            return Observable.error(WalletError.noValidPrivatekey)
+        }
+        
+        
+        if priKey.hasPrefix("se") == false {
+            //authentication self
+            guard let vc = authParentVC else { return Observable.error(WalletError.authorizationViewisNotSet)}
+            
+            return authentication(showAt: vc)
+                .flatMap({ [weak self] (authorized) -> Observable<SignedTransaction> in
+                    if authorized {
+                        self?.sign(txn: txn, cid: cid, priKey: priKey)
+                        if txn.signatures.count > 0 {
+                            return Observable.just(txn)
+                        } else {
+                            return Observable.error(WalletError.failedToSignature)
+                        }
+                    } else {
+                        return Observable.error(WalletError.cancelled)
+                    }
+                })
+            
+        } else {
+            sign(txn: txn, cid: cid, priKey: priKey)
+            if txn.signatures.count > 0 {
+                return Observable.just(txn)
+            } else {
+                return Observable.error(WalletError.failedToSignature)
+            }
+        }
+    }
+    
+    private func authentication(showAt vc: UIViewController) -> Observable<Bool> {
+        let config = FlowConfigure(container: vc, parent: nil, flowType: .modal)
+        let fc = ValidatePinFlowController(configure: config)
+        fc.start(animated: true)
+        
+        return fc.validated.asObservable()
+    }
+    
+    private func sign(txn: SignedTransaction, cid: String, priKey: String) {
+        let packedBytes = txn.digest(cid: cid, capacity: 255)
         
         guard let digest = Sha256(data: Data(bytes: packedBytes))!.mHashBytesData else {
             Log.e("fail to create digest")
             return
         }
         
-        if priKey.hasPrefix("eoshub") {
+        if Validator.validatePrivateKeyR1(label: priKey) {
             //SE
             signSE(txn: txn, priKeyLabel: priKey, digest: digest)
-        } else {
+        } else if Validator.validatePrivateKeyK1(key: priKey) {
             signK1(txn: txn, priKey: priKey, digest: digest)
+        } else {
+            Log.e("failed to find valid private key type")
+            return
         }
-        
         //TODO: supports R1
-        
     }
     
     private func signK1(txn: SignedTransaction, priKey: String, digest: Data) {
@@ -63,17 +116,7 @@ class Wallet {
         }
         
     }
-    
-    private func swapUInt16Data(data : Data) -> Data {
-        var mdata = data // make a mutable copy
-        let count = data.count / MemoryLayout<UInt16>.size
-        mdata.withUnsafeMutableBytes { (i16ptr: UnsafeMutablePointer<UInt16>) in
-            for i in 0..<count {
-                i16ptr[i] =  i16ptr[i].byteSwapped
-            }
-        }
-        return mdata
-    }
+
 }
 
 

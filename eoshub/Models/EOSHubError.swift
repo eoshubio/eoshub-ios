@@ -10,4 +10,18 @@ import Foundation
 
 enum EOSHubError: Error {
     case userCancelled
+    
+}
+
+enum WalletError: Error {
+    case noValidPrivatekey
+    
+    case authorizationViewisNotSet
+    
+    case failedToCreateDigest
+
+    case failedToSignature
+    
+    case cancelled
+
 }

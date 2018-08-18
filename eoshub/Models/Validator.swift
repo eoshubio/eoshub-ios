@@ -51,5 +51,12 @@ struct Validator {
         return validate
     }
     
+    static func validatePrivateKeyK1(key: String) -> Bool {
+        return EOS_Key_Encode.validateWif(key)
+    }
+    
+    static func validatePrivateKeyR1(label: String) -> Bool {
+        return label.hasPrefix("se")
+    }
     
 }

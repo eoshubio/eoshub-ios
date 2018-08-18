@@ -260,11 +260,10 @@ class VoteViewController: BaseViewController {
         guard let selectedAccount = selectedAccount else { return }
         let voter = selectedAccount.account
         let bps = selectedBps.map({$0.name}).sorted()
-            
-        unlockWallet(pinTarget: self, pubKey: selectedAccount.pubKey)
-            .flatMap({ (wallet) -> Observable<JSON> in
-                return RxEOSAPI.voteBPs(voter: voter, producers: bps, wallet: wallet)
-            })
+        
+        let wallet = Wallet(key: selectedAccount.pubKey, parent: self)
+        
+        RxEOSAPI.voteBPs(voter: voter, producers: bps, wallet: wallet)
             .flatMap({ (_) -> Observable<Void> in
                 return AccountManager.shared.loadAccounts()
             })
