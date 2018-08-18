@@ -105,7 +105,8 @@ class UndelegateViewController: BaseViewController {
         
         WaitingView.shared.start()
         
-        RxEOSAPI.undelegatebw(account: accountName, cpu: cpu, net: net, wallet: wallet)    
+        RxEOSAPI.undelegatebw(account: accountName, cpu: cpu, net: net, wallet: wallet,
+                              authorization: Authorization(actor: account.account, permission: account.permission))
             .flatMap({ (_) -> Observable<Void> in
                 WaitingView.shared.stop()
                 //clear form

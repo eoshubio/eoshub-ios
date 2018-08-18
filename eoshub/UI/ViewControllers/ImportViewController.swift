@@ -124,7 +124,7 @@ class ImportViewController: TextInputViewController {
                 WaitingView.shared.start()
                 RxEOSAPI.getAccountFromPubKey(pubKey: pubKey)
                     .flatMap({ (accountName) -> Observable<EHAccount> in
-                        let account = EHAccount(account: accountName, publicKey: pubKey, owner: true)
+                        let account = EHAccount(userId: UserManager.shared.userId, account: accountName, publicKey: pubKey, owner: true)
                         
                         //2. save account with public Key
                         _ = Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
@@ -154,7 +154,7 @@ class ImportViewController: TextInputViewController {
                     .disposed(by: bag)
             } else {
                 
-                let lockedAccount = EHAccount(account: "", publicKey: pubKey, owner: true)
+                let lockedAccount = EHAccount(userId: UserManager.shared.userId, publicKey: pubKey, owner: true)
                 
                 _ = Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
                 

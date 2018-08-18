@@ -95,7 +95,8 @@ class BuyRamViewController: BaseViewController {
         let wallet = Wallet(key: account.pubKey, parent: self)
         
         WaitingView.shared.start()
-        RxEOSAPI.buyram(account: accountName, quantity: quantity, wallet: wallet)    
+        RxEOSAPI.buyram(account: accountName, quantity: quantity, wallet: wallet,
+                        authorization: Authorization(actor: account.account, permission: account.permission))    
             .flatMap({ (_) -> Observable<Void> in
                 WaitingView.shared.stop()
                 //clear form

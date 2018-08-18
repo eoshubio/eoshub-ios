@@ -74,7 +74,8 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
             .subscribe(onNext: { [weak self] (json) in
                 guard let `self` = self else { return }
                 if let resultType = json.string(for: "resultType"), resultType == "SUCCESS" {
-                    let ehaccount = EHAccount(account: self.request.name,
+                    let ehaccount = EHAccount(userId: UserManager.shared.userId,
+                                                account: self.request.name,
                                               publicKey: self.request.ownerKey,
                                               owner: true)
                     

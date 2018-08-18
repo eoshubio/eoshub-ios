@@ -33,7 +33,7 @@ class DB {
         let encryptedKeyData = Security.shared.getDBKeyData()
         
         //Encrypted Realm Config
-        var encryptionConfig = Realm.Configuration(encryptionKey: encryptedKeyData, readOnly: false, schemaVersion: 2, migrationBlock: DB.migrationBlock)
+        var encryptionConfig = Realm.Configuration(encryptionKey: encryptedKeyData, readOnly: false, schemaVersion: 4, migrationBlock: DB.migrationBlock)
         
         encryptionConfig.fileURL = encryptionConfig.fileURL!
             .deletingLastPathComponent()
@@ -53,16 +53,16 @@ class DB {
         }
     }
     
-    func deleteAccount(account: String) {
-        if let willDeleteAccount = getAccounts().filter("account = '\(account)'").first {
+    func deleteAccount(account: String, userId: String) {
+        if let willDeleteAccount = getAccounts(userId: userId).filter("account = '\(account)'").first {
             DB.shared.safeWrite {
                 realm.delete(willDeleteAccount)
             }
         }
     }
     
-    func deleteAccount(account: AccountInfo) {
-        if let willDeleteAccount = getAccounts().filter("account = '\(account.account)'").first {
+    func deleteAccount(account: AccountInfo, userId: String) {
+        if let willDeleteAccount = getAccounts(userId: userId).filter("account = '\(account.account)'").first {
             DB.shared.safeWrite {
                 realm.delete(willDeleteAccount)
                 realm.delete(account)
@@ -70,8 +70,12 @@ class DB {
         }
     }
     
-    func getAccounts() -> Results<EHAccount> {
+    func getAllAccounts() -> Results<EHAccount> {
         return realm.objects(EHAccount.self)
+    }
+    
+    func getAccounts(userId: String) -> Results<EHAccount> {
+        return getAllAccounts().filter("id BEGINSWITH '\(userId)'")
     }
     
     func getAccountInfos() -> Results<AccountInfo> {

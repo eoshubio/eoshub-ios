@@ -178,7 +178,8 @@ class SendCurrencyViewController: TextInputViewController {
                                 to: sendForm.account.value,
                           quantity: sendForm.quantityCurrency(token: token),
                               memo: sendForm.memo.value,
-                            wallet: wallet)
+                            wallet: wallet,
+                    authorization: Authorization(actor: account.account, permission: account.permission))
             .flatMap({ (_) -> Observable<Void> in
                 //clear form
                 self.sendForm.clear()

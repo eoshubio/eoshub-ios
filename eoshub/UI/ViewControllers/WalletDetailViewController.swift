@@ -154,7 +154,7 @@ class WalletDetailViewController: BaseViewController {
     }
     
     fileprivate func deleteWallet(account: AccountInfo) {
-        DB.shared.deleteAccount(account: account)
+        DB.shared.deleteAccount(account: account, userId: UserManager.shared.userId)
         
         AccountManager.shared.refreshUI()
         

@@ -93,7 +93,8 @@ class SellRamViewController: BaseViewController {
         let wallet = Wallet(key: account.pubKey, parent: self)
         
         WaitingView.shared.start()
-        RxEOSAPI.sellram(account: accountName, bytes: quantity, wallet: wallet)    
+        RxEOSAPI.sellram(account: accountName, bytes: quantity, wallet: wallet,
+                         authorization: Authorization(actor: accountName, permission: account.permission))
             .flatMap({ (_) -> Observable<Void> in
                 WaitingView.shared.stop()
                 //clear form

@@ -263,7 +263,8 @@ class VoteViewController: BaseViewController {
         
         let wallet = Wallet(key: selectedAccount.pubKey, parent: self)
         
-        RxEOSAPI.voteBPs(voter: voter, producers: bps, wallet: wallet)
+        RxEOSAPI.voteBPs(voter: voter, producers: bps, wallet: wallet,
+                         authorization: Authorization(actor: selectedAccount.account, permission: selectedAccount.permission))
             .flatMap({ (_) -> Observable<Void> in
                 return AccountManager.shared.loadAccounts()
             })

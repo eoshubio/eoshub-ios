@@ -9,7 +9,11 @@
 import Foundation
 
 
-class EOSName: Packable {
+class EOSName: Packable, Equatable {
+    static func == (lhs: EOSName, rhs: EOSName) -> Bool {
+        return lhs.value == rhs.value
+    }
+    
     private let MAX_NAME_IDX = 12
     
     var value: String = ""

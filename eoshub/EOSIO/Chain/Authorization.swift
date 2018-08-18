@@ -35,6 +35,11 @@ class Authorization: Packable, JSONInitializable, JSONOutput {
         self.permission = permission
     }
     
+    init(actor: String, permission: String) {
+        self.actor = EOSName(actor)
+        self.permission = Permission(permission)
+    }
+    
     required init?(json: JSON) {
         guard let actor = json.string(for: "actor") else { return nil }
         guard let permission = json.string(for: "permission") else { return nil }

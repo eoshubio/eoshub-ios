@@ -81,7 +81,7 @@ class PreferAccountViewController: TextInputViewController {
         WaitingView.shared.start()
         RxEOSAPI.getPubKeyFromAccount(account: accountName)
             .flatMap({ (pubKey) -> Observable<EHAccount> in
-                let account = EHAccount(account: accountName, publicKey: pubKey, owner: false)
+                let account = EHAccount(userId: UserManager.shared.userId, account: accountName, publicKey: pubKey, owner: false)
               
                 DB.shared.addOrUpdateObjects([account] as [EHAccount])
                 

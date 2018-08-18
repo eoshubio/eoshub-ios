@@ -48,7 +48,7 @@ class WalletViewController: BaseViewController {
     private var initialized = false
     
     lazy var eoshubAccounts: Results<EHAccount> = {
-        return DB.shared.getAccounts().sorted(byKeyPath: "created", ascending: true)
+        return DB.shared.getAccounts(userId : UserManager.shared.userId).sorted(byKeyPath: "created", ascending: true)
     }()
     
     override func viewWillAppear(_ animated: Bool) {
@@ -218,7 +218,7 @@ class WalletViewController: BaseViewController {
     }
     
     fileprivate func deleteWallet(account: String) {
-        DB.shared.deleteAccount(account: account)
+        DB.shared.deleteAccount(account: account, userId: UserManager.shared.userId)
         
         AccountManager.shared.doLoadAccount()
     }

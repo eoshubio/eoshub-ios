@@ -97,7 +97,8 @@ class DelegateViewController: BaseViewController {
         let wallet = Wallet(key: account.pubKey, parent: self)
         
         WaitingView.shared.start()
-        RxEOSAPI.delegatebw(account: accountName, cpu: cpu, net: net, wallet: wallet)
+        RxEOSAPI.delegatebw(account: accountName, cpu: cpu, net: net, wallet: wallet,
+                            authorization: Authorization(actor: account.account, permission: account.permission))
             .flatMap({ (_) -> Observable<Void> in
                 WaitingView.shared.stop()
                 //clear form

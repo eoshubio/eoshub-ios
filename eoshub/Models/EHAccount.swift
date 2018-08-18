@@ -39,14 +39,24 @@ class EHAccount: DBObject, Mergeable {
         return ["tokenSymbols"]
     }
     
-    convenience init(account: String, publicKey: String, owner: Bool) {
+    convenience init(userId: String, account: String, publicKey: String, owner: Bool) {
         self.init()
-        self.id = publicKey
+        self.id = userId + "@" + account
         self.account = account
         self.publicKey = publicKey
         self.owner = owner
         created = Date().timeIntervalSince1970
  
+    }
+    
+    convenience init(userId: String, publicKey: String, owner: Bool) {
+        self.init()
+        self.id = userId + "@" + "none@\(Date().timeIntervalSince1970)"
+        self.account = ""
+        self.publicKey = publicKey
+        self.owner = owner
+        created = Date().timeIntervalSince1970
+        
     }
     
     func addPreferToken(token: Token) {

@@ -16,7 +16,7 @@ class AccountManager {
     private let bag = DisposeBag()
     
     var eoshubAccounts: Results<EHAccount> {
-        return DB.shared.getAccounts().sorted(byKeyPath: "created", ascending: true)
+        return DB.shared.getAccounts(userId: UserManager.shared.userId).sorted(byKeyPath: "created", ascending: true)
     }
     
     var mainAccount: AccountInfo? = nil // save to preference
@@ -101,7 +101,8 @@ class AccountManager {
                 //Refund unstaked EOS if needed
                 if info.ownerMode && info.refundingTime > 0 && info.refundingEOS > 0{
                     let wallet = Wallet(account: ehAccount)
-                    return RxEOSAPI.refund(owner: info.account, wallet: wallet).catchErrorJustReturn([:])
+                    return RxEOSAPI.refund(owner: info.account, wallet: wallet,
+                                           authorization: Authorization(actor: info.account, permission: info.permission)).catchErrorJustReturn([:])
                                     .flatMap({ (json) -> Observable<AccountInfo> in
                                         Log.i(json)
                                         return Observable.just(info)

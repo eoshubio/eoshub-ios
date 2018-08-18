@@ -14,6 +14,7 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     
     @objc dynamic var account: String = ""
     @objc dynamic var pubKey: String = ""
+    @objc dynamic var permission: String = ""
     
     var totalEOS: Double {
         return availableEOS + stakedEOS + refundingEOS
@@ -37,7 +38,7 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     
     @objc dynamic var ownerMode: Bool = false
     
-//    @objc dynamic var activeKey: String
+    
     
     //votes info
     let _votedProducers = List<RealmString>()
@@ -80,9 +81,9 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     var usedRAMRatio: Float {
         return Float(usedRam) / Float(maxRam)
     }
-
+    
     override static func ignoredProperties() -> [String] {
-        return ["votedProducers", "tokens", "availableRamBytes", "usedCPURatio", "usedNetRatio", "usedRAMRatio"]
+        return ["votedProducers", "tokens", "availableRamBytes", "usedCPURatio", "usedNetRatio", "usedRAMRatio", "permission"]
     }
     
     convenience init(with eosioAccount: Account, storedKey: String) {
@@ -122,11 +123,14 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         ownerMode = false
         
         if storedKey.count > 0 {
-            let allkeys = eosioAccount.permissions.map({$0.keys}).joined()
             
-            if let matchKey = allkeys.filter({ $0.key == storedKey }).first {
-                pubKey = matchKey.key
-                ownerMode = true
+            eosioAccount.permissions.forEach { (auth) in
+                //check owner
+                if let matchKey = auth.keys.filter({$0.key == storedKey}).first {
+                    pubKey = matchKey.key
+                    permission = auth.permission.value
+                    ownerMode = true
+                }
             }
         }
         
