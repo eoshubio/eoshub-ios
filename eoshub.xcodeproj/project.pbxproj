@@ -108,7 +108,6 @@
 		2C3B17B120FD023000E6BAAD /* TransferPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17B020FD023000E6BAAD /* TransferPopup.swift */; };
 		2C3E72B72123C2CC00D114B2 /* SecureEnclaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E72B42123C2CB00D114B2 /* SecureEnclaveManager.swift */; };
 		2C3E72B82123C2CC00D114B2 /* R1Key.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E72B62123C2CC00D114B2 /* R1Key.mm */; };
-		2C3E72C22124369700D114B2 /* Keystore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E72C12124369700D114B2 /* Keystore.swift */; };
 		2C63FE962118A7150036652B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE952118A7150036652B /* Reachability.swift */; };
 		2C63FE982118AAE50036652B /* WalletLockedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C63FE972118AAE50036652B /* WalletLockedCell.xib */; };
 		2C63FE9A2118AEA70036652B /* WalletLockedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE992118AEA70036652B /* WalletLockedCell.swift */; };
@@ -374,7 +373,6 @@
 		2C3E72B42123C2CB00D114B2 /* SecureEnclaveManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureEnclaveManager.swift; sourceTree = "<group>"; };
 		2C3E72B52123C2CC00D114B2 /* R1Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = R1Key.h; sourceTree = "<group>"; };
 		2C3E72B62123C2CC00D114B2 /* R1Key.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = R1Key.mm; sourceTree = "<group>"; };
-		2C3E72C12124369700D114B2 /* Keystore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keystore.swift; sourceTree = "<group>"; };
 		2C63FE952118A7150036652B /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2C63FE972118AAE50036652B /* WalletLockedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletLockedCell.xib; sourceTree = "<group>"; };
 		2C63FE992118AEA70036652B /* WalletLockedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletLockedCell.swift; sourceTree = "<group>"; };
@@ -568,7 +566,6 @@
 				2C279BB320F8C42700D2F6C4 /* Crypto.h */,
 				2C279BAA20F8C42600D2F6C4 /* Crypto.m */,
 				2C3E72B42123C2CB00D114B2 /* SecureEnclaveManager.swift */,
-				2C3E72C12124369700D114B2 /* Keystore.swift */,
 				2C279BF520F9C66500D2F6C4 /* Wallet.swift */,
 			);
 			path = Sig;
@@ -1299,7 +1296,6 @@
 				2C2ACFE520F47C1900C637D8 /* PinCodeViewController.swift in Sources */,
 				2C279BB520F8C42700D2F6C4 /* EOS_Key_Encode.m in Sources */,
 				2CB6B7FB2104DA230048601A /* NetworkError.swift in Sources */,
-				2C3E72C22124369700D114B2 /* Keystore.swift in Sources */,
 				2CE1112920F252B500B93BEB /* TabBarViewConroller.swift in Sources */,
 				2C99E49A211D992600DB55A6 /* CreateAccountFlowController.swift in Sources */,
 				2C770C8F20FAF1F5007F71C4 /* TokenDetailFlowController.swift in Sources */,

@@ -26,11 +26,21 @@ char base58_map[256] = {0};
             base58_map[i] = -1;
         for (unsigned i = 0; i < sizeof(base58_chars); ++i)
             base58_map[base58_chars[i]] = i;
+        
+        ERR_load_crypto_strings();
+        OpenSSL_add_all_algorithms();
+        OPENSSL_config(nullptr);
+        
     }
     return self;
 }
 
-
+- (void)dealloc
+{
+    EVP_cleanup();
+    ERR_free_strings();
+    
+}
 
 std::string binary_to_base58(const unsigned char* bin, int size) {
     std::string result("");
@@ -110,8 +120,15 @@ std::string key_to_string(unsigned char* key, int size, const char (&suffix)[suf
 }
 
 
-- (NSString*) signature_from_ecdsaWith:(EC_KEY*) key  pub_data:(NSData*) pub_data  sig:(ECDSA_SIG*) sig  digest:(NSData*) d {
-    NSData* data = signature_from_ecdsa(key, pub_data, sig, d);
+- (NSString*) signature_from_ecdsaWith:(NSData*) pub_data  sigData:(NSData*) sigData  digest:(NSData*) d {
+    
+    ECDSA_SIG* sig = [self createEcdsaSigFromSigData:sigData];
+    
+    NSData* data = signature_from_ecdsa(pub_data, sig, d);
+    
+    if (data == nil) {
+        return nil;
+    }
     
     unsigned char* bin = (unsigned char*)data.bytes;
     
@@ -125,8 +142,33 @@ std::string key_to_string(unsigned char* key, int size, const char (&suffix)[suf
 }
 
 
-//MARK sign
-NSData* signature_from_ecdsa(const EC_KEY* key, NSData* pub_data, ECDSA_SIG* sig, NSData* d) {
+//MARK: R1
+
+
+
+
+//MARK: Keys
++ (NSData*) get_public_key_data: (SecKeyRef) pubkey {
+    CFErrorRef error = nullptr;
+    CFDataRef keyrep = nullptr;
+    keyrep = SecKeyCopyExternalRepresentation(pubkey, &error);
+
+    unsigned char pub_key_data[33] = {0};
+    
+    if(!error) {
+        const UInt8* cfdata = CFDataGetBytePtr(keyrep);
+        memcpy(pub_key_data+1, cfdata+1, 32);
+        pub_key_data[0] = 0x02 + (cfdata[64]&1);
+    }
+    
+    return [NSData dataWithBytes:pub_key_data length:33];
+}
+
+//MARK: Sign
+NSData* signature_from_ecdsa(NSData* pub_data, ECDSA_SIG* sig, NSData* d) {
+    
+    EC_KEY* key = EC_KEY_new_by_curve_name(NID_X9_62_prime256v1);
+    
     //We can't use ssl_bignum here; _get0() does not transfer ownership to us; _set0() does transfer ownership to fc::ecdsa_sig
     const BIGNUM *sig_r, *sig_s;
     BIGNUM *r = BN_new(), *s = BN_new();
@@ -136,52 +178,78 @@ NSData* signature_from_ecdsa(const EC_KEY* key, NSData* pub_data, ECDSA_SIG* sig
     
     //want to always use the low S value
     const EC_GROUP* group = EC_KEY_get0_group(key);
-    fc::ssl_bignum order, halforder;
+    BIGNUM* order = BN_new();
+    BIGNUM* halforder = BN_new();
     EC_GROUP_get_order(group, order, nullptr);
     BN_rshift1(halforder, order);
     if(BN_cmp(s, halforder) > 0)
         BN_sub(s, order, s);
     
-    unsigned char csig[65] = { 0 };
     
     int nBitsR = BN_num_bits(r);
     int nBitsS = BN_num_bits(s);
     if(nBitsR > 256 || nBitsS > 256) {
+        free(r);
+        free(s);
+        free(order);
+        free(halforder);
         return nil;
     }
-
+    
     ECDSA_SIG_set0(sig, r, s);
     
     int nRecId = -1;
+    
+    
     for (int i=0; i<4; i++)
     {
-        EC_KEY* keyRec;
-        keyRec = EC_KEY_new_by_curve_name( NID_X9_62_prime256v1 );
-        
-        if (ECDSA_SIG_recover_key_GFp(keyRec, sig, (unsigned char*)d.bytes, (int)d.length, i, 1) == 1)
+        if (ECDSA_SIG_recover_key_GFp(key, sig, (unsigned char*)d.bytes, (int)d.length, i, 1) == 1)
         {
-            
-//            if (keyRec.serialize() == pub_data )
+            EC_KEY_set_conv_form(key, POINT_CONVERSION_COMPRESSED);
+          
+            unsigned char* pubcheck = nullptr;
+    
+            int s = i2o_ECPublicKey(key, &pubcheck);
+
+            if (memcmp(pubcheck, pub_data.bytes, pub_data.length) == 0)
             {
                 nRecId = i;
+                free(pubcheck);
                 break;
+            }
+            if (s > 0) {
+                free(pubcheck);
             }
         }
     }
-    
+
     if (nRecId == -1) {
         //"unable to construct recoverable key"
+        free(r);
+        free(s);
+        free(order);
+        free(halforder);
         return nil;
     }
     
-    csig[0] = nRecId+27+4;
+    unsigned char csig[65] = { 0 };
+    
     BN_bn2bin(r,&csig[33-(nBitsR+7)/8]);
     BN_bn2bin(s,&csig[65-(nBitsS+7)/8]);
     
+    csig[0] = nRecId+27+4;
+    
     NSData* sigData = [NSData dataWithBytes:csig length:65];
+    
+    
+    free(r);
+    free(s);
+    free(order);
+    free(halforder);
     
     return sigData;
 }
+
 
 int ECDSA_SIG_recover_key_GFp(EC_KEY *eckey, ECDSA_SIG *ecsig, const unsigned char *msg, int msglen, int recid, int check)
 {
@@ -301,6 +369,173 @@ namespace fc {
     };
 
 }
+
+
+
+
+
+//MARK: R1
+int static EC_KEY_regenerate_key(EC_KEY *eckey, const BIGNUM *priv_key) {
+    int ok = 0;
+    BN_CTX *ctx = NULL;
+    EC_POINT *pub_key = NULL;
+    
+    if (!eckey) return 0;
+    
+    const EC_GROUP *group = EC_KEY_get0_group(eckey);
+    
+    if ((ctx = BN_CTX_new()) == NULL)
+        goto err;
+    
+    pub_key = EC_POINT_new(group);
+    
+    if (pub_key == NULL)
+        goto err;
+    
+    if (!EC_POINT_mul(group, pub_key, priv_key, NULL, NULL, ctx))
+        goto err;
+    
+    EC_KEY_set_private_key(eckey,priv_key);
+    EC_KEY_set_public_key(eckey,pub_key);
+    
+    ok = 1;
+    
+err:
+    
+    if (pub_key) EC_POINT_free(pub_key);
+    if (ctx != NULL) BN_CTX_free(ctx);
+    
+    return(ok);
+}
+
+EC_KEY* regenerate( NSData* priSec ) {
+    
+    EC_KEY* key = EC_KEY_new_by_curve_name( NID_X9_62_prime256v1 );
+    
+    BIGNUM* bn = BN_new();
+    
+    const unsigned char* front = (unsigned char*)priSec.bytes;
+    
+    BN_bin2bn( (const unsigned char*)&front, 32, bn );
+    
+    if( !EC_KEY_regenerate_key(key,bn) )
+    {
+        return nil;
+    }
+    return key;
+}
+
+
+NSData* getPriSecret(EC_KEY* priECKey) {
+    const BIGNUM* bn = EC_KEY_get0_private_key(priECKey);
+    int nBytes = BN_num_bytes(bn);
+    
+    unsigned char sec[32];
+    
+    BN_bn2bin(bn, &((unsigned char*)&sec)[32-nBytes]);
+    
+    return [NSData dataWithBytes:sec length:32];
+}
+
+
+- (EC_KEY*) createECKeyFromPublicSecKey: (SecKeyRef)key {
+    
+    CFDataRef keyrep = SecKeyCopyExternalRepresentation(key, nil);
+    
+    const UInt8* cfdata = CFDataGetBytePtr(keyrep);
+    
+    unsigned char pubKeyData[33] = {0};
+    
+    memcpy(pubKeyData + 1, cfdata + 1, 32);
+    
+    pubKeyData[0] = 0x02 + (cfdata[64]&1);
+    
+    const unsigned char* front = (unsigned char*)&pubKeyData[0];
+    
+    EC_KEY* openKey = EC_KEY_new_by_curve_name( NID_X9_62_prime256v1 );
+    
+    EC_KEY* ecPubKey = o2i_ECPublicKey(&openKey, &front, 33);
+    
+    return ecPubKey;
+}
+
+- (EC_KEY*) createECKeyFromPublicKeyData: (NSData*) pubData {
+    const unsigned char* front = (unsigned char*)pubData.bytes;
+    
+    EC_KEY* openKey = EC_KEY_new_by_curve_name( NID_X9_62_prime256v1 );
+    
+    EC_KEY* ecPubKey = o2i_ECPublicKey(&openKey, &front, (int)pubData.length);
+    
+    return ecPubKey;
+}
+
+- (EC_KEY*) createECKeyFromPrivateKeyData: (NSData*) priData {
+
+    BIGNUM* bn = BN_new();
+    
+    BN_bin2bn((const unsigned char *)priData.bytes,(int)priData.length, bn);
+    
+    printBN(bn);
+    
+    int nbytes = BN_num_bytes(bn);
+    
+    printf("\nnBytes : %d", nbytes);
+    
+    unsigned char sec[32] = {0};
+    
+    BN_bn2bin(bn, &((unsigned char*)&sec)[32-nbytes] );
+
+    EC_KEY* ecPriKey = EC_KEY_new_by_curve_name( NID_X9_62_prime256v1 );
+
+    BIGNUM* priKeyBn = BN_new();
+    
+    BN_bin2bn( (const unsigned char*)sec, 32, priKeyBn );
+    
+    EC_KEY_regenerate_key(ecPriKey,priKeyBn);
+    
+    printf("%s", ERR_error_string( ERR_get_error(), nullptr));
+    
+    return ecPriKey;
+}
+
+- (ECDSA_SIG*) createEcdsaSigFromSigData: (NSData*) sigData {
+    
+    ECDSA_SIG* sigNew = ECDSA_SIG_new();
+    
+    const unsigned char* sigFront = (unsigned char*)sigData.bytes;
+    
+    d2i_ECDSA_SIG(&sigNew, &sigFront, (long)sigData.length);
+    
+    return sigNew;
+}
+
+//MARK: Debug Utils
+void printSig(ECDSA_SIG* sig) {
+    printf("\n(sig->r, sig->s): (%s,%s)\n", BN_bn2hex(sig->r), BN_bn2hex(sig->s));
+}
+
+void printBN(BIGNUM* bn) {
+    printf("\n%s\n", BN_bn2hex(bn));
+}
+
+void printECKey(EC_KEY* ec_key) {
+    EC_GROUP *ec_group = EC_GROUP_new_by_curve_name(NID_X9_62_prime256v1);
+    
+    const EC_POINT *pub = EC_KEY_get0_public_key(ec_key);
+    
+    BIGNUM *x = BN_new();
+    BIGNUM *y = BN_new();
+    
+    if (EC_POINT_get_affine_coordinates_GFp(ec_group, pub, x, y, NULL)) {
+        printf("\n");
+        BN_print_fp(stdout, x);
+        putc('\n', stdout);
+        BN_print_fp(stdout, y);
+        putc('\n', stdout);
+    }
+}
+
+
 
 
 

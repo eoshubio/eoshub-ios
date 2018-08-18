@@ -14,7 +14,7 @@
 
 - (NSString*) getEOSPublicKeyWithR1Data:(NSData*) data;
 
-- (NSString*) signature_from_ecdsaWith:(EC_KEY*) key  pub_data:(NSData*) pub_data  sig:(ECDSA_SIG*) sig  digest:(NSData*) d;
+- (NSString*) signature_from_ecdsaWith:(NSData*) pub_data  sigData:(NSData*) sigData  digest:(NSData*) d;
 
 @end
 

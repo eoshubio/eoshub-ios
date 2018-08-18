@@ -23,11 +23,10 @@ class MainFlowController: FlowController {
         //TODO: Load App configs
         TokenManager.shared.load()
         
-
 //        
 //        let account = EHAccount(account: "forthehorde1", publicKey: "PUB_R1_6sCJnLCPf3xrAAaBtq6gikoJNssSu42PDyK3hgDuawP7xsKMcF", owner: true)
         
-        _  = Security.shared.setEncryptedKey(pub: "PUB_R1_6sCJnLCPf3xrAAaBtq6gikoJNssSu42PDyK3hgDuawP7xsKMcF", pri: "eoshub.prikey.test.1")
+//        _  = Security.shared.setEncryptedKey(pub: "PUB_R1_6sCJnLCPf3xrAAaBtq6gikoJNssSu42PDyK3hgDuawP7xsKMcF", pri: "eoshub.prikey.test.1")
         //        let priKey = "eoshub.prikey.test.1"
 
 //        DB.shared.addAccount(account: account)
