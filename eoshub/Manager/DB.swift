@@ -159,25 +159,48 @@ extension DB {
     }
     
     
-    func addOrUpdateObjects<Element: DBObject>(_ newObjects: [Element]) where Element: Mergeable {
-        safeWrite {
-            var newObjectsMap: [String: Element] = [:]
-            newObjects.forEach({ newObjectsMap[$0.id] = $0 })
-            
-            let oldObjects = realm.objects(Element.self)
-            
-            for oldObject in oldObjects {
-                guard let newObject = newObjectsMap[oldObject.id] else {
-                    continue
+    func addOrUpdateObjects<Element: DBObject>(_ newObjects: [Element], async: Bool = false) where Element: Mergeable {
+        if async {
+            safeWriteAsync { [unowned self] in
+                
+                var newObjectsMap: [String: Element] = [:]
+                newObjects.forEach({ newObjectsMap[$0.id] = $0 })
+                
+                let oldObjects = self.realm.objects(Element.self)
+                
+                for oldObject in oldObjects {
+                    guard let newObject = newObjectsMap[oldObject.id] else {
+                        continue
+                    }
+                    
+                    newObjectsMap[oldObject.id] = nil
+                    oldObject.mergeChanges(from: newObject)
                 }
                 
-                newObjectsMap[oldObject.id] = nil
-                oldObject.mergeChanges(from: newObject)
+                let brandNewObjects = newObjectsMap.values
+                self.realm.add(brandNewObjects, update: false)
             }
-            
-            let brandNewObjects = newObjectsMap.values
-            realm.add(brandNewObjects, update: false)
+        } else {
+            safeWrite {
+                var newObjectsMap: [String: Element] = [:]
+                newObjects.forEach({ newObjectsMap[$0.id] = $0 })
+                
+                let oldObjects = realm.objects(Element.self)
+                
+                for oldObject in oldObjects {
+                    guard let newObject = newObjectsMap[oldObject.id] else {
+                        continue
+                    }
+                    
+                    newObjectsMap[oldObject.id] = nil
+                    oldObject.mergeChanges(from: newObject)
+                }
+                
+                let brandNewObjects = newObjectsMap.values
+                realm.add(brandNewObjects, update: false)
+            }
         }
+        
     }
     
     func syncObjects<Element: DBObject>(_ newObjects: [Element]) where Element: Mergeable {

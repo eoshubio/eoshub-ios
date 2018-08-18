@@ -44,7 +44,7 @@ class VoteViewController: BaseViewController {
     fileprivate var applyControlContainer: UIView? = nil
     fileprivate var btnApply: UIButton? = nil
     
-    fileprivate let maxVoteCount = 19 //TODO: Change it / for JungleNet
+    fileprivate let maxVoteCount = 30 // 19 for JungleNet
     
     fileprivate let menuControlHeight: CGFloat = 90
     
@@ -130,7 +130,7 @@ class VoteViewController: BaseViewController {
     
     fileprivate func loadMainAccount() {
         let mgr = AccountManager.shared
-        if let mainAccount = mgr.mainAccount ?? mgr.infos.first {
+        if let mainAccount = mgr.mainAccount ?? mgr.ownerInfos.first {
             configure(account: mainAccount)
         }
         
@@ -256,30 +256,33 @@ class VoteViewController: BaseViewController {
     }
     
     @objc fileprivate func onVoteApplyClicked() {
+        dismissApplyView()
         //1. get voter
         guard let selectedAccount = selectedAccount else { return }
         let voter = selectedAccount.account
         let bps = selectedBps.map({$0.name}).sorted()
+    
+        WaitingView.shared.start()
         
         let wallet = Wallet(key: selectedAccount.pubKey, parent: self)
         
-        RxEOSAPI.voteBPs(voter: voter, producers: bps, wallet: wallet,
-                         authorization: Authorization(actor: selectedAccount.account, permission: selectedAccount.permission))
-            .flatMap({ (_) -> Observable<Void> in
-                return AccountManager.shared.loadAccounts()
-            })
-            .subscribe(onNext: { (_) in
-                
-            }, onError: { (error) in
-                Log.e(error)
-            }, onCompleted: {
-                
-            })
-            .disposed(by: bag)
+        RxEOSAPI.voteBPs(voter: voter, producers: bps, wallet: wallet, authorization: Authorization(actor: voter, permission: selectedAccount.permission))
+            .subscribe(onNext: { [weak self] (json) in
+                    print(json)
+                    self?.applySelection()
+                    Popup.present(style: .success, description: "\(bps)")
+                }, onError: { [weak self] (error) in
+                    self?.restoreSelection()
+                    Popup.present(style: .failed, description: error.localizedDescription)
+                }, onCompleted: {
+                    Log.d("completed")
+                    AccountManager.shared.doLoadAccount()
+                }, onDisposed: {
+                    Log.d("disposed")
+                    WaitingView.shared.stop()
+                })
+                .disposed(by: bag)
         
-        
-        applySelection()
-        dismissApplyView()
     }
     
     @objc fileprivate func onVoteCancelled() {

@@ -25,6 +25,11 @@ class AccountManager {
        return DB.shared.getAccountInfos()
     }
     
+    var ownerInfos: Results<AccountInfo> {
+        return DB.shared.getAccountInfos().filter("ownerMode = true")
+    }
+    
+    
     let accountInfoRefreshed = PublishSubject<Void>()
     
     func refreshUI() {

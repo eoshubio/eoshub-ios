@@ -10,13 +10,11 @@ import Foundation
 
 
 func dispatch_async_on_mainThread(_ block: @escaping ()->()) {
-    if Thread.isMainThread {
+
+    DispatchQueue.main.async(execute: {
         block()
-    } else {
-        DispatchQueue.main.async(execute: {
-            block()
-        })
-    }
+    })
+    
 }
 
 func dispatch_sync_on_mainThread(_ block: ()->()) {

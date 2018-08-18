@@ -17,10 +17,9 @@ class SignedTransaction: Transaction {
     
     override var json: JSON {
         var params: JSON = [:]
-        params["signatures"] = signatures
+        params["compression"] = "none"
         params["transaction"] = super.json
-        params["contextFreeData"] = []
-        
+        params["signatures"] = signatures
         return params
     }
     
@@ -29,7 +28,7 @@ class SignedTransaction: Transaction {
         signatures = json.arrayString(for: "signatures") ?? []
     }
     
-    func digest(cid: String? = nil, capacity: Int = 512) -> [UInt8] {
+    func digest(cid: String? = nil, capacity: Int = 512, addEmptySha: Bool = false) -> [UInt8] {
         let pack = Pack(with: capacity)
         if let cid = cid {
             pack.put(bytes: cid.hexToBytes)
@@ -37,8 +36,10 @@ class SignedTransaction: Transaction {
         
         serialize(pack: pack)
         
-        let emptySha = [UInt8](repeating: 0x00, count: 32)
-        pack.put(bytes: emptySha)
+        if addEmptySha {
+            let emptySha = [UInt8](repeating: 0x00, count: 32)
+            pack.put(bytes: emptySha)
+        }
         
         return pack.packedBytes
     }
