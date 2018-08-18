@@ -91,11 +91,11 @@ class BuyRamViewController: BaseViewController {
 
         let quantity = Currency(balance: inputForm.quantity.value, token: .eos)
         let accountName = account.account
-        unlockWallet(pinTarget: self, pubKey: account.pubKey)
-            .flatMap { (wallet) -> Observable<JSON> in
-                WaitingView.shared.start()
-                return RxEOSAPI.buyram(account: accountName, quantity: quantity, wallet: wallet)
-            }
+        
+        let wallet = Wallet(key: account.pubKey, parent: self)
+        
+        WaitingView.shared.start()
+        RxEOSAPI.buyram(account: accountName, quantity: quantity, wallet: wallet)    
             .flatMap({ (_) -> Observable<Void> in
                 WaitingView.shared.stop()
                 //clear form

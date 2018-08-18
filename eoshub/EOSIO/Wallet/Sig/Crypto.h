@@ -8,8 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface Crypto : NSObject
 
 + (NSString*) signWithPrivateKey: (NSData*) private_key hash: (NSData*) message_hash;
+
 
 @end

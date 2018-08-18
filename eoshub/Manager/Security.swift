@@ -128,6 +128,26 @@ class Security {
         return priKey
     }
     
+    //MARK: Keys
+    func generatePrivateKeyAndSaveLabel() -> String? {
+        
+        let label = "se." + prefix + "\(Date().timeIntervalSince1970)"
+        
+        guard let accessControl = SecureEnclaveManager.accessControl() else {
+            Log.e("cannot make access control")
+            return nil
+        }
+        
+        guard let eosPubKey = SecureEnclaveManager.generateKeyPair(privateKeyLabel: label, accessControl: accessControl) else {
+            Log.e("cannot generate keypair")
+            return nil
+        }
+
+        _ = setEncryptedKey(pub: eosPubKey, pri: label)
+        
+        return eosPubKey
+    }
+    
 }
 
 extension Security {
@@ -150,6 +170,10 @@ extension Security {
     fileprivate var dbKey: String {
         return prefix + "eoshub.db.non-sensitive"
     }
-    
-    
 }
+
+
+
+
+
+

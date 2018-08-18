@@ -11,6 +11,18 @@
 #import "rmd160.h"
 #import "libbase58.h"
 
+#include <openssl/ec.h>
+#include <openssl/crypto.h>
+#include <openssl/evp.h>
+#include <openssl/conf.h>
+#include <openssl/err.h>
+#include <openssl/ecdsa.h>
+#include <openssl/ecdh.h>
+#include <openssl/sha.h>
+#include <openssl/obj_mac.h>
+
+
+
 @implementation Crypto
 
 
@@ -20,6 +32,8 @@
     uint8_t* pri_key = (uint8_t*)[private_key bytes];
     uint8_t* hash = (uint8_t*)[message_hash bytes];
     int recId = uECC_sign_forbc(pri_key, hash, signature);
+    
+    
     if (recId < 0) {
         return NULL;
     } else {
@@ -46,5 +60,8 @@
         return sig;
     }
 }
+
+
+
 
 @end

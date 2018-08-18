@@ -6,4 +6,15 @@
 #import "Sha256.h"
 #import "Crypto.h"
 #import "EOS_Key_Encode.h"
+#import "R1Key.h"
 
+//MARK: openssl
+#include <openssl/ec.h>
+#include <openssl/crypto.h>
+#include <openssl/evp.h>
+#include <openssl/conf.h>
+#include <openssl/err.h>
+#include <openssl/ecdsa.h>
+#include <openssl/ecdh.h>
+#include <openssl/sha.h>
+#include <openssl/obj_mac.h>

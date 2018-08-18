@@ -17,10 +17,10 @@ class SignedTransaction: Transaction {
     
     override var json: JSON {
         var params: JSON = [:]
-        params["compression"] = "none"
-        params["transaction"] = super.json
         params["signatures"] = signatures
-
+        params["transaction"] = super.json
+        params["contextFreeData"] = []
+        
         return params
     }
     

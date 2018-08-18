@@ -24,6 +24,7 @@ target 'eoshub' do
   pod 'Crashlytics', '~> 3.10.1'
   pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
+  pod 'OpenSSL-Universal'
   target 'eoshubTests' do
     inherit! :search_paths
     # Pods for testing

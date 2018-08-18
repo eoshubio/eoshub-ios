@@ -9,8 +9,8 @@
 import Foundation
 
 class Transaction: TransactionHeader {
-    var actions: [Action] = []
     let contextFreeAction: [Action] = [] //not used
+    var actions: [Action] = []
     let transactionExtension: [UInt8] = [] // not used
     
      override var json: JSON {

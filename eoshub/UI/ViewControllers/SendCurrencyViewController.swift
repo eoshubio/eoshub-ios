@@ -169,19 +169,16 @@ class SendCurrencyViewController: TextInputViewController {
     
     fileprivate func transfer() {
         WaitingView.shared.start()
-        unlockWallet(pinTarget: self, pubKey: account.pubKey)
-            .flatMap { [weak self](wallet) -> Observable<JSON> in
         
-                guard let strongSelf = self else { return  Observable.error(EOSErrorType.invalidState) }
-                
-                let token = TokenManager.shared.knownTokens.filter("id = '\(strongSelf.balance.token.stringValue)'").first?.token ?? strongSelf.balance.token
-                
-                return RxEOSAPI.sendCurrency(from: strongSelf.account.account,
-                                             to: strongSelf.sendForm.account.value,
-                                             quantity: strongSelf.sendForm.quantityCurrency(token: token),
-                                             memo: strongSelf.sendForm.memo.value,
-                                             wallet: wallet)
-            }
+        let wallet = Wallet(key: account.pubKey, parent: self)
+        
+        let token = TokenManager.shared.knownTokens.filter("id = '\(balance.token.stringValue)'").first?.token ?? balance.token
+        
+        RxEOSAPI.sendCurrency(from: account.account,
+                                to: sendForm.account.value,
+                          quantity: sendForm.quantityCurrency(token: token),
+                              memo: sendForm.memo.value,
+                            wallet: wallet)
             .flatMap({ (_) -> Observable<Void> in
                 //clear form
                 self.sendForm.clear()

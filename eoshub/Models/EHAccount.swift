@@ -72,8 +72,6 @@ class EHAccount: DBObject, Mergeable {
         created = newObject.created
         owner = newObject.owner
         _tokens = newObject._tokens
-        
-        
     }
 }
 

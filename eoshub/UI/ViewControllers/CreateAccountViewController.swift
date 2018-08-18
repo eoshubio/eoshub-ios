@@ -96,15 +96,22 @@ class CreateAccountViewController: BaseTableViewController {
         
         switch requestForm.createKeyMode.value {
         case .secureEnclave:
-            //TODO: Change to secure enclave
+            
             if request.keyFrom == .secureEnclave, request.ownerKey.count > 0 {
                 //skip
                 pubKey = request.ownerKey
             } else {
-                let keypair = EosPrivateKey.init(eosPrivateKey: ())
-                pubKey = keypair!.eosPublicKey
-                _ = Security.shared.setEncryptedKey(pub: pubKey, pri: keypair!.eosPrivateKey)
+                    guard let pubkeyFromSecureEnclave = Security.shared.generatePrivateKeyAndSaveLabel() else {
+                        Popup.present(style: .failed, description: "Cannot generate key from Secure enclave")
+                        return
+                }
+                print(pubkeyFromSecureEnclave)
+                pubKey = pubkeyFromSecureEnclave
             }
+//                let keypair = EosPrivateKey.init(eosPrivateKey: ())
+//                pubKey = keypair!.eosPublicKey
+//                _ = Security.shared.setEncryptedKey(pub: pubKey, pri: keypair!.eosPrivateKey)
+//            }
             
         case .imported:
             pubKey = requestForm.validatedKey.value

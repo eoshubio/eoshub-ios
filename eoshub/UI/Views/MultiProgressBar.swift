@@ -62,6 +62,11 @@ class MultiProgressBar: UIView {
             total += v
         }
         
+        if total == 0 {
+            total = 1
+            values[0] = 1
+        }
+        
         for i in 0..<items.count {
             let item = items[i]
             

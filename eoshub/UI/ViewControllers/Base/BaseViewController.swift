@@ -80,27 +80,6 @@ class BaseViewController: UIViewController {
 
 
 extension BaseViewController {
-    //Validate PIN
-    func authentication(showAt vc: UIViewController) -> Observable<Bool> {
-        let config = FlowConfigure(container: vc, parent: nil, flowType: .modal)
-        let fc = ValidatePinFlowController(configure: config)
-        fc.start(animated: true)
-        
-        return fc.validated.asObservable()
-    }
-    
-    func unlockWallet(pinTarget vc: UIViewController, pubKey: String) -> Observable<Wallet> {
-        
-        return authentication(showAt: vc)
-                .flatMap({ (validate) -> Observable<Wallet> in
-                    if validate {
-                        let wallet = Wallet(key: pubKey)
-                        return Observable.just(wallet)
-                    } else {
-                        return Observable.error(EOSErrorType.authenticationFailed)
-                    }
-                })
-    }
     
     @objc func back() {
         navigationController?.popViewController(animated: true)
