@@ -23,25 +23,6 @@ class MainFlowController: FlowController {
         //TODO: Load App configs
         TokenManager.shared.load()
       
-//        let pubKey = Security.shared.generatePrivateKeyAndSaveLabel()!
-//
-//        print(pubKey)
-//
-        let account = EHAccount(userId: UserManager.shared.userId, account: "forthehorde1", publicKey: "PUB_R1_7QHjkyAyWwx3C8n8vPaXiGAs4CQZPXPPuHF1pRfFjWEJ7YmTk5", owner: true)
-//
-//        DB.shared.addAccount(account: account)
-        DB.shared.addOrUpdateObjects([account] as [EHAccount])
-
-        
-//        
-//        let account = EHAccount(account: "forthehorde1", publicKey: "PUB_R1_6sCJnLCPf3xrAAaBtq6gikoJNssSu42PDyK3hgDuawP7xsKMcF", owner: true)
-        
-//        _  = Security.shared.setEncryptedKey(pub: "PUB_R1_6sCJnLCPf3xrAAaBtq6gikoJNssSu42PDyK3hgDuawP7xsKMcF", pri: "eoshub.prikey.test.1")
-//                let priKey = "eoshub.prikey.test.1"
-//
-//        DB.shared.addAccount(account: account)
-//        DB.shared.addOrUpdateObjects([account] as [EHAccount])
-        
         let nc = BaseNavigationController()
         
         let frame = UIScreen.main.bounds

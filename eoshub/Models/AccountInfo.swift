@@ -83,7 +83,7 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     }
     
     override static func ignoredProperties() -> [String] {
-        return ["votedProducers", "tokens", "availableRamBytes", "usedCPURatio", "usedNetRatio", "usedRAMRatio", "permission"]
+        return ["votedProducers", "tokens", "availableRamBytes", "usedCPURatio", "usedNetRatio", "usedRAMRatio"]
     }
     
     convenience init(with eosioAccount: Account, storedKey: String) {
@@ -139,7 +139,7 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     
     func mergeChanges(from newObject: AccountInfo) {
         pubKey = newObject.pubKey
-        
+        permission = newObject.permission
         availableEOS = newObject.availableEOS
         stakedEOS = newObject.stakedEOS
         ownerMode = newObject.ownerMode
