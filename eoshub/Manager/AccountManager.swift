@@ -104,7 +104,7 @@ class AccountManager {
             })
             .flatMap({ (info) -> Observable<AccountInfo> in
                 //Refund unstaked EOS if needed
-                if info.ownerMode && info.refundingTime > 0 && info.refundingEOS > 0{
+                if info.ownerMode && info.hasRefundedEOS {
                     let wallet = Wallet(account: ehAccount)
                     return RxEOSAPI.refund(owner: info.account, wallet: wallet,
                                            authorization: Authorization(actor: info.account, permission: info.permission)).catchErrorJustReturn([:])

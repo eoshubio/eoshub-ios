@@ -38,6 +38,9 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     
     @objc dynamic var ownerMode: Bool = false
     
+    var hasRefundedEOS: Bool {
+        return  Date().timeIntervalSince1970 - refundingTime > 0 && refundingEOS > 0
+    }
     
     
     //votes info
