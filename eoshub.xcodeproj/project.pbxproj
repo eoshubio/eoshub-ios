@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2C0290BF2129C93900C3AFCB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290BE2129C93900C3AFCB /* GradientView.swift */; };
+		2C0290C12129CD2B00C3AFCB /* AccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */; };
+		2C0290C32129D41C00C3AFCB /* AccountDetailFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */; };
 		2C02AE6821108FED00C6ECF3 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */; };
 		2C1D928E2100C7DC0009F5C4 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D928D2100C7DC0009F5C4 /* Validator.swift */; };
 		2C1E3E9520FE14000009D2AF /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9420FE14000009D2AF /* WaitingView.swift */; };
@@ -257,6 +259,8 @@
 
 /* Begin PBXFileReference section */
 		2C0290BE2129C93900C3AFCB /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
+		2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailViewController.swift; sourceTree = "<group>"; };
+		2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailFlowController.swift; sourceTree = "<group>"; };
 		2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		2C02AE692110BA0500C6ECF3 /* eoshub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = eoshub.entitlements; sourceTree = "<group>"; };
 		2C1D928D2100C7DC0009F5C4 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -812,6 +816,7 @@
 				2C7426BF2116D9D900F8A85E /* VerifyFlowController.swift */,
 				2C7426BB2116B80D00F8A85E /* ForgetPWFlowController.swift */,
 				2CE1110120F1EE9C00B93BEB /* WalletFlowController.swift */,
+				2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */,
 				2CEC2D4D20F65D8600AF5E9B /* WalletDetailFlowController.swift */,
 				2C770C9A20FB7CBD007F71C4 /* DelegateFlowController.swift */,
 				2C770CA020FB8E0F007F71C4 /* UndelegateFlowController.swift */,
@@ -853,6 +858,7 @@
 				2C7426B72116B07000F8A85E /* ForgetViewController.swift */,
 				2CE1112320F24CF200B93BEB /* MainTabViewController.swift */,
 				2CE110FF20F1EDB000B93BEB /* WalletViewController.swift */,
+				2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */,
 				2CEC2D4920F65C3000AF5E9B /* WalletDetailViewController.swift */,
 				2C770C9820FB77F4007F71C4 /* DelegateViewController.swift */,
 				2C770C9E20FB8BBE007F71C4 /* UndelegateViewController.swift */,
@@ -1312,6 +1318,7 @@
 				2CE1113A20F27BE000B93BEB /* WalletCell.swift in Sources */,
 				2CE1110620F1F76200B93BEB /* SettingFlowController.swift in Sources */,
 				2C99E4AA211FFAC600DB55A6 /* TxMemo.swift in Sources */,
+				2C0290C32129D41C00C3AFCB /* AccountDetailFlowController.swift in Sources */,
 				2C770CA920FBA2A9007F71C4 /* SellRamFlowController.swift in Sources */,
 				2C7426C02116D9D900F8A85E /* VerifyFlowController.swift in Sources */,
 				2CE1112020F2403100B93BEB /* MenuTabBar.swift in Sources */,
@@ -1360,6 +1367,7 @@
 				2C279BC120F8C58100D2F6C4 /* EOSIOConfig.swift in Sources */,
 				2CE110E720F1C9B300B93BEB /* DispatchQueue.swift in Sources */,
 				2C770C9120FB2628007F71C4 /* Tx.swift in Sources */,
+				2C0290C12129CD2B00C3AFCB /* AccountDetailViewController.swift in Sources */,
 				2CE1110020F1EDB000B93BEB /* WalletViewController.swift in Sources */,
 				2CFE954A20F3947300DC173F /* EOSAccountViewModel.swift in Sources */,
 				2C3E72B72123C2CC00D114B2 /* SecureEnclaveManager.swift in Sources */,

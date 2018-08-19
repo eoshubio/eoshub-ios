@@ -65,8 +65,6 @@ class WalletDetailViewController: BaseViewController {
     @IBOutlet fileprivate weak var layoutResY: NSLayoutConstraint!
     @IBOutlet fileprivate weak var layoutRAMY: NSLayoutConstraint!
     
-    @IBOutlet fileprivate weak var deleteView: UIView!
-    @IBOutlet fileprivate weak var btnDelete: UIButton!
     
     private var accountInfo: AccountInfo!
     
@@ -103,7 +101,6 @@ class WalletDetailViewController: BaseViewController {
         btnUndelegate.setTitle(LocalizedString.Wallet.Delegate.undelegate, for: .normal)
         btnBuyRam.setTitle(LocalizedString.Wallet.Ram.buyram, for: .normal)
         btnSellRam.setTitle(LocalizedString.Wallet.Ram.sellram, for: .normal)
-        btnDelete.setTitle(LocalizedString.Wallet.Option.delete, for: .normal)
         
         updateAccount(with: accountInfo)
     }
@@ -144,25 +141,9 @@ class WalletDetailViewController: BaseViewController {
             })
             .disposed(by: bag)
         
-        btnDelete.rx.singleTap
-            .bind { [weak self] in
-                guard let account = self?.accountInfo else { return }
-                self?.deleteWallet(account: account)
-            }
-            .disposed(by: bag)
-        
     }
     
-    fileprivate func deleteWallet(account: AccountInfo) {
-        DB.shared.deleteAccount(account: account, userId: UserManager.shared.userId)
-        
-        AccountManager.shared.refreshUI()
-        
-        flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: {
-            
-        })
-        
-    }
+    
     
     
     fileprivate func updateAccount(with viewModel: AccountInfo) {
@@ -230,7 +211,6 @@ class WalletDetailViewController: BaseViewController {
             btnSellRam.isHidden = true
         }
         
-        deleteView.isHidden = viewModel.ownerMode
         
         //refund
         remainTimeView.isHidden = (viewModel.refundingEOS == 0)

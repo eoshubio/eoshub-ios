@@ -131,8 +131,10 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
                 //check owner
                 if let matchKey = auth.keys.filter({$0.key == storedKey}).first {
                     pubKey = matchKey.key
-                    permission = auth.permission.value
-                    ownerMode = true
+                    if Security.shared.getEncryptedPrivateKey(pub: pubKey) != nil {
+                        permission = auth.permission.value
+                        ownerMode = true
+                    }
                 }
             }
         }

@@ -15,26 +15,18 @@ class VoteViewController: BaseViewController {
     
     var flowDelegate: VoteFlowEventDelegate?
     
-    @IBOutlet fileprivate weak var naviBar: UINavigationBar!
     @IBOutlet fileprivate weak var lbAccountName: UILabel!
     @IBOutlet fileprivate weak var lbStakedEOSTitle: UILabel!
     @IBOutlet fileprivate weak var lbStakedEOS: UILabel!
     @IBOutlet fileprivate weak var progressStaked: UIProgressView?
-//    @IBOutlet fileprivate weak var btnChangeStake: UIButton!
-    @IBOutlet fileprivate weak var btnChangeAccount: UIButton!
     @IBOutlet fileprivate weak var bpList: UITableView!
-    
-    @IBOutlet fileprivate weak var itemChangeStake: UIBarButtonItem?
-    @IBOutlet fileprivate weak var itemChangeAccount: UIBarButtonItem?
-    
     
     
     fileprivate weak var btnApplyItem: UIBarButtonItem!
     fileprivate weak var btnVotedBPs: UIBarButtonItem!
     
-    fileprivate var selectedAccount: AccountInfo? {
-        return AccountManager.shared.mainAccount
-    }
+    fileprivate var selectedAccount: AccountInfo!
+    
     fileprivate var items: [BPCellViewModel] = []
     fileprivate var prvVotedBps: [BPCellViewModel] = []
     fileprivate var selectedBps: [BPCellViewModel] {
@@ -50,7 +42,8 @@ class VoteViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        title = "Vote"
+        showNavigationBar(with: .basePurple, animated: animated, largeTitle: false)
+        title = LocalizedString.Vote.title
     }
     
     override func viewDidLoad() {
@@ -59,53 +52,31 @@ class VoteViewController: BaseViewController {
         bindActions()
     }
     
+    func configure(account: AccountInfo) {
+        self.selectedAccount = account
+        
+    }
+    
     private func setupUI() {
+        layoutVoterInfo(account: selectedAccount)
+        
         lbStakedEOSTitle.text = LocalizedString.Vote.staked
-//        btnChangeStake.setTitle(LocalizedString.Vote.changeStake, for: .normal)
-        
-        naviBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        naviBar.shadowImage = UIImage()
-        naviBar.isTranslucent = true
-        naviBar.tintColor = .white
-        
+
         bpList.rowHeight = UITableViewAutomaticDimension
         bpList.estimatedRowHeight = 65
         bpList.dataSource = self
         bpList.delegate = self
-        
-//        let applyButton = UIButton(frame: CGRect(x: 0, y: 0, width: 50, height: 30))
-//        applyButton.setTitle("Apply", for: .normal)
-//        applyButton.titleLabel?.font = Font.appleSDGothicNeo(.medium).uiFont(12)
-//        applyButton.setTitleColor(UIColor.white, for: .normal)
-//        let applyItem = UIBarButtonItem(customView: applyButton)
-//
-//        navigationItem.rightBarButtonItems = [applyItem]
-        
-        itemChangeStake?.rx.singleTap
-            .bind { [weak self] in
-                guard let nc = self?.navigationController, let account = self?.selectedAccount else { return }
-                self?.flowDelegate?.goToWalletDetail(from: nc, account: account)
 
-            }
-            .disposed(by: bag)
-        
-        itemChangeAccount?.rx.singleTap
-            .bind { [weak self] in
-                self?.handleChangeAccount()
-            }
-            .disposed(by: bag)
-        
-        itemChangeAccount?.title = LocalizedString.Vote.changeAccount
-        itemChangeStake?.title = LocalizedString.Wallet.resources
-        
+
+        loadBPList()
     }
     
     private func bindActions() {
-        btnChangeAccount.rx.tap
-            .subscribe(onNext: { [weak self](_) in
-                self?.handleChangeAccount()
-            })
-            .disposed(by: bag)
+//        btnChangeAccount.rx.tap
+//            .subscribe(onNext: { [weak self](_) in
+//                self?.handleChangeAccount()
+//            })
+//            .disposed(by: bag)
         
         AccountManager.shared.accountInfoRefreshed
             .subscribe(onNext: { [weak self](_) in
@@ -123,19 +94,6 @@ class VoteViewController: BaseViewController {
 //            .disposed(by: bag)
     }
     
-    func reload() {
-        loadMainAccount()
-        loadBPList()
-    }
-    
-    fileprivate func loadMainAccount() {
-        let mgr = AccountManager.shared
-        if let mainAccount = mgr.mainAccount ?? mgr.ownerInfos.first {
-            configure(account: mainAccount)
-        }
-        
-        btnChangeAccount.isHidden =  AccountManager.shared.infos.count <= 1
-    }
     
     fileprivate func loadBPList() {
         WaitingView.shared.start()
@@ -156,13 +114,6 @@ class VoteViewController: BaseViewController {
                 WaitingView.shared.stop()
             }
             .disposed(by: bag)
-    }
-    
-    
-    fileprivate func configure(account: AccountInfo) {
-        AccountManager.shared.mainAccount = account
-        
-        layoutVoterInfo(account: account)
     }
     
     fileprivate func layoutVoterInfo(account: AccountInfo) {

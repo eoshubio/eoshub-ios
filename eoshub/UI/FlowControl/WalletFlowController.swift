@@ -44,7 +44,7 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
     
     func goToWalletDetail(from nc: UINavigationController, with account: AccountInfo) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
-        let fc = WalletDetailFlowController(configure: config)
+        let fc = AccountDetailFlowController(configure: config)
         fc.configure(account: account)
         fc.start(animated: true)
     }
