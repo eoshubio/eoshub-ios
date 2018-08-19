@@ -138,6 +138,7 @@ class VoteViewController: BaseViewController {
     }
     
     fileprivate func loadBPList() {
+        WaitingView.shared.start()
         RxEOSAPI.getProducers(limit: maxBPList)
             .subscribe(onNext: { [weak self](bps) in
                 Log.i(bps)
@@ -151,7 +152,9 @@ class VoteViewController: BaseViewController {
                 
             }, onCompleted: {
                 
-            })
+            }) {
+                WaitingView.shared.stop()
+            }
             .disposed(by: bag)
     }
     

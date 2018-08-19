@@ -66,7 +66,9 @@ class TxViewController: BaseViewController {
                 self?.tableView.reloadData()
                 }, onError: { (error) in
                     Log.e(error)
-            })
+            }) {
+                
+            }
             .disposed(by: bag)
     }
     

@@ -107,8 +107,8 @@ class UndelegateViewController: BaseViewController {
         
         RxEOSAPI.undelegatebw(account: accountName, cpu: cpu, net: net, wallet: wallet,
                               authorization: Authorization(actor: account.account, permission: account.permission))
-            .flatMap({ (_) -> Observable<Void> in
-                WaitingView.shared.stop()
+            .flatMap({ (json) -> Observable<Void> in
+                Log.d(json)
                 //clear form
                 self.inputForm.clear()
                 //pop
@@ -121,9 +121,10 @@ class UndelegateViewController: BaseViewController {
                 self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
             }, onError: { (error) in
                 Log.e(error)
-                WaitingView.shared.stop()
                 Popup.present(style: .failed, description: "\(error)")
-            })
+            }) {
+                WaitingView.shared.stop()
+            }
             .disposed(by: bag)
         
     }

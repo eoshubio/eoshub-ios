@@ -66,6 +66,7 @@ class TokenViewController: BaseTableViewController {
     @objc fileprivate func add() {
         TokenAddPopup.show()
             .flatMap({ (tokenInfo) -> Observable<(tokenInfo: TokenInfo, exist: Bool)> in
+                WaitingView.shared.start()
                 return RxEOSAPI.getExistCurrencyStats(token: tokenInfo.token)
                     .flatMap({ (exist) -> Observable<(tokenInfo: TokenInfo, exist: Bool)> in
                         return Observable.just((tokenInfo: tokenInfo, exist: exist ))
@@ -91,7 +92,9 @@ class TokenViewController: BaseTableViewController {
                 let text = "\(error)"
                 Popup.present(style: .failed, description: text)
                 Log.e(error)
-            })
+            }) {
+                WaitingView.shared.stop()
+            }
             .disposed(by: bag)
         
     }

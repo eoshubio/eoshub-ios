@@ -96,7 +96,6 @@ class SellRamViewController: BaseViewController {
         RxEOSAPI.sellram(account: accountName, bytes: quantity, wallet: wallet,
                          authorization: Authorization(actor: accountName, permission: account.permission))
             .flatMap({ (_) -> Observable<Void> in
-                WaitingView.shared.stop()
                 //clear form
                 self.inputForm.clear()
                 //pop
@@ -109,9 +108,10 @@ class SellRamViewController: BaseViewController {
                 self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
             }, onError: { (error) in
                 Log.e(error)
-                WaitingView.shared.stop()
                 Popup.present(style: .failed, description: "\(error)")
-            })
+            }) {
+                WaitingView.shared.stop()
+            }
             .disposed(by: bag)
         
     }

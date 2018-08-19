@@ -225,7 +225,7 @@ class WalletViewController: BaseViewController {
     
     @objc fileprivate func handleRefresh(_ refreshControl: UIRefreshControl) {
         
-        let minWaitTime: TimeInterval = 60
+        let minWaitTime: TimeInterval = 5
         let curTime = Date().timeIntervalSince1970
         if fabs(curTime - Preferences.shared.lastRefreshTime) > minWaitTime {
             Preferences.shared.lastRefreshTime = curTime
@@ -312,6 +312,8 @@ extension WalletViewController: UITableViewDelegate {
         } else if let item = item as? InactiveWallet {
             let account = item.ehaccount
             let pubKey = account.publicKey
+            //Test it
+            WaitingView.shared.start()
             RxEOSAPI.getAccountFromPubKey(pubKey: pubKey)
                 .flatMap({ (accountName) -> Observable<EHAccount> in
                     DB.shared.safeWrite {
@@ -328,6 +330,7 @@ extension WalletViewController: UITableViewDelegate {
                     AccountManager.shared.refreshUI()
                 }) {
                     Log.i("disposed")
+                    WaitingView.shared.stop()
                 }
                 .disposed(by: bag)
 

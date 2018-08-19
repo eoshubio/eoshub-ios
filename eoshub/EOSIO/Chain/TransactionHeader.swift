@@ -10,7 +10,7 @@ import Foundation
 
 
 class TransactionHeader: Packable, JSONInitializable, JSONOutput {
-    private let expirationSec: TimeInterval = 180
+    private let expirationSec: TimeInterval = 1800
     
     @discardableResult func serialize(pack: Pack) -> Pack {
         let expiration = Int(expirationDate.timeIntervalSince1970)

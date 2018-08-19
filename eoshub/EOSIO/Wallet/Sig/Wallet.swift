@@ -26,16 +26,6 @@ class Wallet {
         authParentVC = parent
     }
     
-    //deprecated
-    func sign(txn: SignedTransaction, cid: String) {
-
-        guard let priKey = Security.shared.getEncryptedPrivateKey(pub: pubKey) else {
-            Log.e("cannot find private key in keychain for \(pubKey)")
-            return
-        }
-        
- 
-    }
     
     func rx_sign(txn: SignedTransaction, cid: String) -> Observable<SignedTransaction> {
          guard let priKey = Security.shared.getEncryptedPrivateKey(pub: pubKey) else {

@@ -98,7 +98,6 @@ class BuyRamViewController: BaseViewController {
         RxEOSAPI.buyram(account: accountName, quantity: quantity, wallet: wallet,
                         authorization: Authorization(actor: account.account, permission: account.permission))    
             .flatMap({ (_) -> Observable<Void> in
-                WaitingView.shared.stop()
                 //clear form
                 self.inputForm.clear()
                 //pop
@@ -111,9 +110,10 @@ class BuyRamViewController: BaseViewController {
                 self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
             }, onError: { (error) in
                 Log.e(error)
-                WaitingView.shared.stop()
                 Popup.present(style: .failed, description: "\(error)")
-            })
+            }) {
+                WaitingView.shared.stop()
+            }
             .disposed(by: bag)
 
     }
@@ -133,7 +133,7 @@ class BuyRamViewController: BaseViewController {
     private func validate() {
         
          let quantity = Currency(balance: inputForm.quantity.value, token: .eos)
-        
+        WaitingView.shared.start()
         RxEOSAPI.getRamPrice()
             .flatMap { (price) -> Observable<Bool> in
                 return RamPopup.showForBuyRam(quantity: quantity.quantity, ramPrice: price.ramPriceKB)
@@ -142,7 +142,9 @@ class BuyRamViewController: BaseViewController {
                 if apply {
                     self?.handleTransaction()
                 }
-            })
+            }) {
+                WaitingView.shared.stop()
+            }
             .disposed(by: bag)
         
     }
