@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2C0290BF2129C93900C3AFCB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290BE2129C93900C3AFCB /* GradientView.swift */; };
 		2C02AE6821108FED00C6ECF3 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */; };
 		2C1D928E2100C7DC0009F5C4 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D928D2100C7DC0009F5C4 /* Validator.swift */; };
 		2C1E3E9520FE14000009D2AF /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9420FE14000009D2AF /* WaitingView.swift */; };
@@ -255,6 +256,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2C0290BE2129C93900C3AFCB /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		2C02AE692110BA0500C6ECF3 /* eoshub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = eoshub.entitlements; sourceTree = "<group>"; };
 		2C1D928D2100C7DC0009F5C4 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -941,6 +943,7 @@
 		2CE1111E20F23F2400B93BEB /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				2C0290BE2129C93900C3AFCB /* GradientView.swift */,
 				2CE1111820F23C1700B93BEB /* BounceButton.swift */,
 				2CE110FB20F1EC8600B93BEB /* RoundedButton.swift */,
 				2C99E49B211DB40C00DB55A6 /* BorderColorButton.swift */,
@@ -1285,6 +1288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C0290BF2129C93900C3AFCB /* GradientView.swift in Sources */,
 				2C279BC420F8C58100D2F6C4 /* RxAPIRequests.swift in Sources */,
 				2CE110E520F1C9B300B93BEB /* String+extension.swift in Sources */,
 				2CE1113220F26BD700B93BEB /* AirdropFlowController.swift in Sources */,
