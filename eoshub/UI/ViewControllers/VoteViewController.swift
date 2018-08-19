@@ -194,6 +194,7 @@ class VoteViewController: BaseViewController {
             .forEach { (info) in
             
             let action = UIAlertAction(title: info.account, style: .default, handler: { [weak self](_) in
+                self?.dismissApplyView()
                 AccountManager.shared.mainAccount = info
                 self?.configure(account: info)
             })

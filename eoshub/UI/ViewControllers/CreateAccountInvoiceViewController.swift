@@ -40,7 +40,21 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
     
     @objc fileprivate func refresh() {
         //get new invoice
-        refreshData()
+        if request.isExpired == false {
+            let alert = UIAlertController(title: LocalizedString.Common.caution, message: LocalizedString.Create.Invoice.refreshWarning,
+                                          preferredStyle: UIAlertControllerStyle.alert)
+            
+            alert.addAction(UIAlertAction(title: LocalizedString.Common.confirmShort, style: .default, handler: { [weak self](_) in
+                self?.refreshData()
+            }))
+            
+            alert.addAction(UIAlertAction(title: LocalizedString.Common.cancelShort, style: .cancel, handler: nil))
+            
+            present(alert, animated: true, completion: nil)
+            
+        } else {
+            refreshData()
+        }
     }
     
     private func setupUI() {
@@ -229,12 +243,6 @@ class CreateAccountInvoiceCell: UITableViewCell {
         lbNameTitle.text = LocalizedString.Create.Check.name
         lbMemoTitle.text = LocalizedString.Create.Invoice.memo
         
-        let timeLimit = String(format: LocalizedString.Create.Invoice.timelimit, "\(1)")
-        let txtTimeLimit = String(format: LocalizedString.Create.Invoice.textTimelimit, timeLimit)
-        let attrTimeLimit = NSMutableAttributedString(string: txtTimeLimit)
-        attrTimeLimit.addAttributeColor(text: timeLimit, color: Color.red.uiColor)
-        lbTextTimeLimit.attributedText = attrTimeLimit
-        
         btnCopyMemo.setTitle(LocalizedString.Common.copy, for: .normal)
         btnCopyAccount.setTitle(LocalizedString.Common.copy, for: .normal)
         
@@ -261,6 +269,16 @@ class CreateAccountInvoiceCell: UITableViewCell {
         let bag = DisposeBag()
         self.bag = bag
         
+        form.expireHour.asObservable()
+            .bind { [weak self] (hour) in
+                let timeLimit = String(format: LocalizedString.Create.Invoice.timelimit, "\(hour)")
+                let txtTimeLimit = String(format: LocalizedString.Create.Invoice.textTimelimit, timeLimit)
+                let attrTimeLimit = NSMutableAttributedString(string: txtTimeLimit)
+                attrTimeLimit.addAttributeColor(text: timeLimit, color: Color.red.uiColor)
+                self?.lbTextTimeLimit.attributedText = attrTimeLimit
+            }
+            .disposed(by: bag)
+        
         form.creatorName.asObservable()
             .bind(to: lbName.rx.text)
             .disposed(by: bag)
@@ -284,6 +302,7 @@ class CreateAccountInvoiceCell: UITableViewCell {
         form.total.asObservable()
             .bind(to: lbQuantityTotal.rx.text)
             .disposed(by: bag)
+        
     
         let fontSize = lbTextDeposit.font.pointSize
         let boldFont = Font.appleSDGothicNeo(.bold).uiFont(fontSize)
@@ -359,6 +378,7 @@ struct InvoiceForm {
     let ram = Variable<String>(" ")
     let total = Variable<String>(" ")
     let timestamp = Variable<Double>(0)
+    let expireHour = Variable<Int>(1)
     
     let txSearch = PublishSubject<Void>()
     
@@ -370,6 +390,7 @@ struct InvoiceForm {
         ram.value = "\(txMemo.ram) Bytes"
         total.value = txMemo.totalEOS.stringValue
         timestamp.value = txMemo.createdAt
+        expireHour.value = txMemo.expireHour
     }
     
     func update(from request: CreateAccountRequest) {
@@ -380,6 +401,7 @@ struct InvoiceForm {
         ram.value = request.ram + "Bytes"
         total.value = request.total
         timestamp.value = request.created
+        expireHour.value = request.expireHour
     }
 }
 

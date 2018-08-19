@@ -112,6 +112,8 @@ struct LocalizedString {
             static let rules = NSLocalizedString("create.account.rules", comment: "")
             static let check = NSLocalizedString("create.account.check", comment: "")
             static let keys = NSLocalizedString("create.account.keys", comment: "")
+            static let genTitle = NSLocalizedString("create.account.generate.title", comment: "")
+            static let genText = NSLocalizedString("create.account.generate.text", comment: "")
             static let seTitle = NSLocalizedString("create.account.se.title", comment: "")
             static let seText = NSLocalizedString("create.account.se.text", comment: "")
             static let seDetail = NSLocalizedString("create.account.se.detail", comment: "")
@@ -138,6 +140,7 @@ struct LocalizedString {
             static let account = NSLocalizedString("create.invoice.account", comment: "")
             static let textConfirm = NSLocalizedString("create.invoice.textConfirm", comment: "")
             static let confirm = NSLocalizedString("create.invoice.Confirm", comment: "")
+            static let refreshWarning = NSLocalizedString("create.invoice.refreshWarning", comment: "")
         }
         
         
@@ -293,6 +296,8 @@ struct LocalizedString {
         static let done = NSLocalizedString("common.done", comment: "")
         static let edit = NSLocalizedString("common.edit", comment: "")
         static let cancelShort = NSLocalizedString("common.cancelShort", comment: "")
+        static let confirmShort = NSLocalizedString("common.confirmShort", comment: "")
+        static let caution = NSLocalizedString("common.caution", comment: "")
     }
     
     

@@ -79,6 +79,8 @@
 "create.account.check.failed" = "%@ is not available.";
 "create.account.check.success" = "%@ is available.";
 "create.account.keys" = "Generate keys";
+"create.account.generate.title" = "Generate key pairs";
+"create.account.generate.text" = "Create a key pair and store it in the iCloud Keychain.";
 "create.account.se.title" = "Generate keys on Apple Secure enclave.";
 "create.account.se.text" = "Secure enclave protects your private key from hackers and your mistakes perfectly with Apple's powerful Secure hardware.";
 "create.account.se.detail" = "For more details";
@@ -99,7 +101,7 @@
 "create.invoice.account" = "account";
 "create.invoice.textConfirm" = "After you have sent the EOS to the given memo and account, please click Confirm. It may take several minutes to confirm the transaction.";
 "create.invoice.Confirm" = "Confirm";
-
+"create.invoice.refreshWarning" = "Currently, the previous invoice is open. Are you sure you want to start a new transaction and remove your existing invoice?";
 
 
 
@@ -214,4 +216,5 @@
 "common.done" = "Done";
 "common.edit" = "Edit";
 "common.cancelShort" = "Cancel";
-
+"common.confirmShort" = "Confirm";
+"common.caution" = "Caution";

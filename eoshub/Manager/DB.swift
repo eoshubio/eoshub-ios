@@ -33,7 +33,7 @@ class DB {
         let encryptedKeyData = Security.shared.getDBKeyData()
         
         //Encrypted Realm Config
-        var encryptionConfig = Realm.Configuration(encryptionKey: encryptedKeyData, readOnly: false, schemaVersion: 5, migrationBlock: DB.migrationBlock)
+        var encryptionConfig = Realm.Configuration(encryptionKey: encryptedKeyData, readOnly: false, schemaVersion: 6, migrationBlock: DB.migrationBlock)
         
         encryptionConfig.fileURL = encryptionConfig.fileURL!
             .deletingLastPathComponent()
@@ -93,6 +93,12 @@ class DB {
     func addCreateAccountRequest(request: CreateAccountRequest) {
         DB.shared.safeWrite {
             realm.add(request)
+        }
+    }
+    
+    func deleteCreateAccountRequest(request: CreateAccountRequest) {
+        DB.shared.safeWrite {
+            realm.delete(request)
         }
     }
 }

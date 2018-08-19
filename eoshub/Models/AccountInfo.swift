@@ -158,6 +158,8 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         usedRam = newObject.usedRam
         maxRam = newObject.maxRam
         
+        _votedProducers.removeAll()
+        _votedProducers.append(objectsIn: newObject._votedProducers)
         
         _tokens.removeAll()
         _tokens.append(objectsIn: newObject._tokens)

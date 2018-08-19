@@ -40,7 +40,8 @@ class CreateAccountInfoViewController: BaseTableViewController {
         let userId = UserManager.shared.userId
         if let request = DB.shared.realm.objects(CreateAccountRequest.self).filter("id BEGINSWITH '\(userId)' AND completed = false").first {
             infoForm.name.value = request.name
-            infoForm.key.value = request.ownerKey
+            infoForm.ownerKey.value = request.ownerKey
+            infoForm.activeKey.value = request.activeKey
         } else {
             Log.e("Invalid state: not exist request")
             flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
@@ -85,8 +86,8 @@ class CreateAccountInfoCell: UITableViewCell {
     @IBOutlet fileprivate weak var lbtext: UILabel!
     @IBOutlet fileprivate weak var lbNameTitle: UILabel!
     @IBOutlet fileprivate weak var lbName: UILabel!
-    @IBOutlet fileprivate weak var lbKeyTitle: UILabel!
-    @IBOutlet fileprivate weak var lbKey: UILabel!
+    @IBOutlet fileprivate weak var lbOwnerKey: UILabel!
+    @IBOutlet fileprivate weak var lbActiveKey: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -97,12 +98,12 @@ class CreateAccountInfoCell: UITableViewCell {
         lbTitle.text = LocalizedString.Create.Check.title
         lbtext.text = LocalizedString.Create.Check.text
         lbNameTitle.text = LocalizedString.Create.Check.name
-        lbKeyTitle.text = LocalizedString.Create.Check.keys
     }
     
     func configure(form: CreateAccountInfoForm) {
         lbName.text = form.name.value
-        lbKey.text = form.key.value
+        lbOwnerKey.text = form.ownerKey.value
+        lbActiveKey.text = form.activeKey.value
     }
 }
 
@@ -138,7 +139,8 @@ class CreateAccountInfoNextCell: UITableViewCell {
 
 struct CreateAccountInfoForm {
     let name = Variable<String>("")
-    let key = Variable<String>("")
+    let ownerKey = Variable<String>("")
+    let activeKey = Variable<String>("")
     let onNext = PublishSubject<Void>()
 }
 

@@ -58,7 +58,7 @@
 "create.new.action" = "새로 만들기";
 
 "create.import.title" = "기존 계정 가져오기";
-"create.import.text" = "기존에 생성된 EOS 계정을 EOSHub 에 안전하게 보관할 수 있습니다. Private key 는 암호화되어 iCloud keychain 저장됩니다.";
+"create.import.text" = "기존에 생성된 EOS 계정을 EOSHub 에 안전하게 보관할 수 있습니다. Private key 는 암호화되어 iCloud Keychain 저장됩니다.";
 "create.import.action" = "가져오기";
 "create.import.warningTitle" = "아래의 주의사항을 꼭 읽어주세요.";
 "create.import.warning" = "1. Private key는 키보드를 통해 직접 입력해주세요.\n2. EOSHub 는 강력한 보안과 Key 복원을 위하여 iCloud Keychain 을 사용합니다. iCloud 비활성화되어 있으면 Private key를 복구할 수 없습니다.\n(설정-iCloud-키체인-켬 확인)";
@@ -76,6 +76,8 @@
 "create.account.check.failed" = "%@ 는 사용 할 수 없는 이름입니다.";
 "create.account.check.success" = "%@ 는 사용 가능합니다.";
 "create.account.keys" = "키 생성";
+"create.account.generate.title" = "키 페어 생성하기";
+"create.account.generate.text" = "공개키와 개인키를 생성하고 iCloud Keychain 에 보관합니다.";
 "create.account.se.title" = "Apple Secure enclave 내에 비밀키 생성";
 "create.account.se.text" = "Secure enclave 는 Apple 의 강력한 보안 솔루션입니다. 이 옵션을 선택하면 iPhone의 하드웨어 보안영역에 비밀키를 생성합니다.";
 "create.account.se.detail" = "자세히 알아보기";
@@ -96,7 +98,7 @@
 "create.invoice.account" = "계정";
 "create.invoice.textConfirm" = "EOS 를 송금 후에 계정 생성 버튼을 눌러주세요. 입금 확인에는 최대 몇분 가량 소모 될 수 있습니다.";
 "create.invoice.Confirm" = "계정 생성";
-
+"create.invoice.refreshWarning" = "거래 완료 되지 않은 인보이스가 존재합니다. 새로운 거래를 시작하고 기존 인보이스를 삭제하시겠습니까?";
 
 /* 지갑 */
 "wallet.send" = "보내기";
@@ -210,4 +212,7 @@
 "common.done" = "완료";
 "common.edit" = "편집";
 "common.cancelShort" = "취소";
+"common.confirmShort" = "승인";
+"common.caution" = "주의";
+
 

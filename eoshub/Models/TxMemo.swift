@@ -25,6 +25,10 @@ struct Invoice: JSONInitializable {
     let net: Currency
     let ram: Int64
     
+    var expireHour: Int {
+        return Int(Double(expireTime) / 3600.0)
+    }
+    
     init?(json: JSON) {
         guard let json = json.json(for: "resultData") else { return nil }
         guard let memo = json.json(for: "memo") else { return nil }

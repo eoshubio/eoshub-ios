@@ -17,7 +17,8 @@ class CreateAccountRequest: DBObject {
     @objc dynamic var name: String = ""
     @objc dynamic var ownerKey: String = ""
     @objc dynamic var activeKey: String = ""
-    @objc dynamic var _keyFrom: String = ""
+    @objc dynamic var _ownerKeyFrom: String = ""
+    @objc dynamic var _activeKeyFrom: String = ""
     
     //invoice stage
     @objc dynamic var completed: Bool = false
@@ -30,8 +31,12 @@ class CreateAccountRequest: DBObject {
     @objc dynamic var ram = ""
     @objc dynamic var expireTime: Double = 3600
     
-    var keyFrom: CreateKeyMode {
-        return CreateKeyMode(rawValue: _keyFrom) ?? .none
+    var ownerKeyFrom: CreateKeyMode {
+        return CreateKeyMode(rawValue: _ownerKeyFrom) ?? .none
+    }
+    
+    var activeKeyFrom: CreateKeyMode {
+        return CreateKeyMode(rawValue: _activeKeyFrom) ?? .none
     }
     
     enum Stage: Int {
@@ -58,8 +63,16 @@ class CreateAccountRequest: DBObject {
         return stage
     }
     
+    var expireHour: Int {
+        return Int(expireTime / 3600.0)
+    }
+    
+    var isExpired: Bool {
+        return created + expireTime < Date().timeIntervalSince1970 && completed == false
+    }
+    
     override static func ignoredProperties() -> [String] {
-        return ["currentStage"]
+        return ["currentStage", "ownerKeyFrom", "activeKeyFrom", "expireHour", "isExpired"]
     }
     
     convenience init(userId: String) {
@@ -67,23 +80,36 @@ class CreateAccountRequest: DBObject {
         id = userId + "@\(Date().timeIntervalSince1970)"
     }
     
-    convenience init(userId: String, accountName: String, pubKey: String, from: CreateKeyMode) {
+    convenience init(userId: String, accountName: String, ownerKey: String, ownerKeyFrom: CreateKeyMode, activeKey: String, activeKeyFrom: CreateKeyMode) {
         self.init()
-        id = userId + "@\(Date().timeIntervalSince1970)"
-        name = accountName
-        ownerKey = pubKey
-        activeKey = pubKey
-        _keyFrom = from.rawValue
+        self.id = userId + "@\(Date().timeIntervalSince1970)"
+        self.name = accountName
+        self.ownerKey = ownerKey
+        self.activeKey = activeKey
+        self._ownerKeyFrom = ownerKeyFrom.rawValue
+        self._activeKeyFrom = activeKeyFrom.rawValue
     }
     
-    func changeAccountInfo(accountName: String, pubKey: String, from: CreateKeyMode) {
+    func changeAccountInfo(accountName: String, ownerKey: String, ownerKeyFrom: CreateKeyMode, activeKey: String, activeKeyFrom: CreateKeyMode) {
         DB.shared.safeWrite {
-            name = accountName
-            ownerKey = pubKey
-            activeKey = pubKey
-            _keyFrom = from.rawValue
+            self.name = accountName
+            self.ownerKey = ownerKey
+            self.activeKey = activeKey
+            self._ownerKeyFrom = ownerKeyFrom.rawValue
+            self._activeKeyFrom = activeKeyFrom.rawValue
         }
     }
+    
+    func clearAccountInfo() {
+        DB.shared.safeWrite {
+            self.name = ""
+            self.ownerKey = ""
+            self.activeKey = ""
+            self._ownerKeyFrom = ""
+            self._activeKeyFrom = ""
+        }
+    }
+  
     
     func addInvoice(invoice: Invoice) {
         DB.shared.safeWrite {
@@ -95,6 +121,20 @@ class CreateAccountRequest: DBObject {
             self.cpu = invoice.cpu.stringValue
             self.net = invoice.net.stringValue
             self.ram = "\(invoice.ram) Bytes"
+            self.expireTime = Double(invoice.expireTime)
+        }
+    }
+    
+    func clearInvoice() {
+        DB.shared.safeWrite {
+            self.completed = false
+            self.total = ""
+            self.memo = ""
+            self.created = 0
+            self.creator = ""
+            self.cpu = ""
+            self.net = ""
+            self.ram = ""
             self.expireTime = 3600
         }
     }
