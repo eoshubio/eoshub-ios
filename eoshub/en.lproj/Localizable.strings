@@ -101,7 +101,7 @@
 "create.invoice.account" = "account";
 "create.invoice.textConfirm" = "After you have sent the EOS to the given memo and account, please click Confirm. It may take several minutes to confirm the transaction.";
 "create.invoice.Confirm" = "Confirm";
-"create.invoice.refreshWarning" = "Currently, the previous invoice is open. Are you sure you want to start a new transaction and remove your existing invoice?";
+"create.invoice.refreshWarning" = "You already have an invoice. Do you want to start a new transaction and remove your existing invoice?";
 
 
 
