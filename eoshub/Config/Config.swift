@@ -51,6 +51,14 @@ struct Config {
         }
     }
     
+    static var apiServers: [String] {
+        return ["https://eos.greymass.com",
+                "https://api.cypherglass.com",
+                "https://publicapi-mainnet.eosauthority.com",
+                "https://mainnet.eoscanada.com",
+                "https://api.bp.fish"]
+    }
+    
     static var versionString: String {
         let shortVersion = (Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String) ?? "0"
         return shortVersion

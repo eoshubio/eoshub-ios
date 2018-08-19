@@ -55,7 +55,7 @@ class SettingViewController: FormViewController {
     private func setupUI() {
         form +++ securitySettings()
         form +++ EOSSettings()
-        form +++ walletSettings()
+//        form +++ walletSettings()
         form +++ appSettings()
         
         let email = Auth.auth().currentUser?.identifierString ?? ""
@@ -146,7 +146,7 @@ class SettingViewController: FormViewController {
             $0.title = LocalizedString.Setting.Host.title
             //TODO: get from server
             //"https://api.main-net.eosnodeone.io" is not support history_plugin
-            $0.options = ["https://eos.greymass.com", "https://api.cypherglass.com", "https://publicapi-mainnet.eosauthority.com", "https://mainnet.eoscanada.com"]
+            $0.options = Config.apiServers
             $0.value = Preferences.shared.preferHost
             
             }.cellUpdate { (cell, row) in
@@ -176,8 +176,9 @@ class SettingViewController: FormViewController {
         
         return section
     }
-    
+    /*
     private func walletSettings() -> Section {
+        
         var section = Section(LocalizedString.Setting.wallet)
         
         let showDetailInfo = SwitchRow("showDetailInfo") { row in
@@ -209,7 +210,7 @@ class SettingViewController: FormViewController {
         
         return section
     }
-    
+    */
     private func appSettings() -> Section {
         var section = Section(LocalizedString.Setting.app)
         
