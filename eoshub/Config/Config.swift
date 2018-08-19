@@ -53,6 +53,7 @@ struct Config {
     
     static var apiServers: [String] {
         return ["https://eos.greymass.com",
+                "https://api.main-net.eosnodeone.io",
                 "https://api.cypherglass.com",
                 "https://publicapi-mainnet.eosauthority.com",
                 "https://mainnet.eoscanada.com",

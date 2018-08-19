@@ -118,6 +118,12 @@ struct RxEOSAPI {
         
     }
     
+    static func getTransaction(txid: String) -> Observable<JSON> {
+        let params: JSON = ["id": txid]
+        return EOSAPI.History.get_transaction
+                    .responseJSON(parameter: params)
+    }
+    
     //MARK: Wallet
     
 //    static func walletCreate(name: String) -> Observable<Wallet> {
