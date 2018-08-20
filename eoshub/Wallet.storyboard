@@ -12,6 +12,109 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Keypair View Controller-->
+        <scene sceneID="Crz-Px-IDj">
+            <objects>
+                <tableViewController storyboardIdentifier="KeypairViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wwG-SX-tS7" customClass="KeypairViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="Jg0-Dt-5Zd">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="KeyCell" rowHeight="400" id="yhe-ti-EZg" customClass="KeyCell" customModule="eoshub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.333333333333343" width="375" height="400"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yhe-ti-EZg" id="yZV-dU-iZD">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FTn-r6-tif" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="15" width="345" height="103"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zws-JQ-TBn" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="25" width="63" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="ft4-ui-DOj"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                    <state key="normal" title="Stored">
+                                                        <color key="titleColor" red="0.36470588240000001" green="0.76470588240000004" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="low-Qc-kyi" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
+                                                    <rect key="frame" x="93" y="25.333333333333336" width="130" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="hKq-bp-nQu"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                    <state key="normal" title="iClound keychain">
+                                                        <color key="titleColor" red="1" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" text="EOS Public key" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cQY-qZ-kNk">
+                                                    <rect key="frame" x="20" y="60" width="305" height="18"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                    <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="cQY-qZ-kNk" secondAttribute="bottom" constant="25" id="AAO-vO-Zt0"/>
+                                                <constraint firstItem="low-Qc-kyi" firstAttribute="leading" secondItem="zws-JQ-TBn" secondAttribute="trailing" constant="10" id="SIs-9y-eZ6"/>
+                                                <constraint firstItem="zws-JQ-TBn" firstAttribute="top" secondItem="FTn-r6-tif" secondAttribute="top" constant="25" id="TTy-ZM-PhQ"/>
+                                                <constraint firstItem="low-Qc-kyi" firstAttribute="centerY" secondItem="zws-JQ-TBn" secondAttribute="centerY" id="aIu-Ah-cfH"/>
+                                                <constraint firstItem="cQY-qZ-kNk" firstAttribute="leading" secondItem="FTn-r6-tif" secondAttribute="leading" constant="20" id="eM1-nG-2db"/>
+                                                <constraint firstAttribute="trailing" secondItem="cQY-qZ-kNk" secondAttribute="trailing" constant="20" id="f5a-LF-3u8"/>
+                                                <constraint firstItem="cQY-qZ-kNk" firstAttribute="top" secondItem="zws-JQ-TBn" secondAttribute="bottom" constant="15" id="gSN-pB-l9Z"/>
+                                                <constraint firstItem="zws-JQ-TBn" firstAttribute="leading" secondItem="FTn-r6-tif" secondAttribute="leading" constant="20" id="qSd-9E-CH3"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="FTn-r6-tif" firstAttribute="top" secondItem="yZV-dU-iZD" secondAttribute="top" constant="15" id="BAg-hX-lG5"/>
+                                        <constraint firstAttribute="bottom" secondItem="FTn-r6-tif" secondAttribute="bottom" priority="750" constant="5" id="NrF-nS-2yV"/>
+                                        <constraint firstItem="FTn-r6-tif" firstAttribute="leading" secondItem="yZV-dU-iZD" secondAttribute="leading" constant="15" id="qjD-jL-ZgV"/>
+                                        <constraint firstAttribute="trailing" secondItem="FTn-r6-tif" secondAttribute="trailing" constant="15" id="sff-y7-Ae1"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="key" destination="cQY-qZ-kNk" id="UJa-Sn-rsa"/>
+                                    <outlet property="repo" destination="low-Qc-kyi" id="fgl-Eo-2xn"/>
+                                    <outlet property="stored" destination="zws-JQ-TBn" id="kRO-Px-JfH"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="wwG-SX-tS7" id="Wy3-Z6-aE9"/>
+                            <outlet property="delegate" destination="wwG-SX-tS7" id="Tx5-nc-wM6"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="H7F-da-i6Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1378.4000000000001" y="-422.66009852216752"/>
+        </scene>
         <!--Account Detail View Controller-->
         <scene sceneID="ago-Z9-XhG">
             <objects>
@@ -445,6 +548,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="detailIndicator" destination="JIH-Iq-ZHF" id="jfs-I7-6vx"/>
+                                    <outlet property="layoutDetail" destination="CZp-Fy-2fL" id="TaS-bj-rZ6"/>
                                     <outlet property="lbTitle" destination="hyw-uQ-42E" id="O6p-VI-EKd"/>
                                     <outlet property="progCPU" destination="k7n-rF-uTn" id="AS2-Xg-9Y7"/>
                                     <outlet property="progNet" destination="Xf2-gX-YfD" id="Ppl-r6-ndu"/>

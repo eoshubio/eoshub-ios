@@ -36,7 +36,7 @@ class AccountDetailViewController: BaseTableViewController {
     
     private func setupUI() {
         let bgView = UIImageView(image: #imageLiteral(resourceName: "bgGrady"))
-        
+        bgView.alpha = 0.7
         tableView.backgroundView = bgView
         
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 20, 0)
@@ -240,6 +240,7 @@ class ResourcesCell: UITableViewCell {
     @IBOutlet fileprivate weak var progRam: UIProgressView!
     
     @IBOutlet fileprivate weak var detailIndicator: UIView!
+    @IBOutlet fileprivate weak var layoutDetail: NSLayoutConstraint!
     
     var bag: DisposeBag?
     
@@ -296,6 +297,13 @@ class ResourcesCell: UITableViewCell {
         }
         
         detailIndicator.isHidden = (viewModel.ownerMode == false)
+        
+        if viewModel.ownerMode {
+            layoutDetail.constant = 15
+        } else {
+            layoutDetail.constant = -15
+        }
+        layoutIfNeeded()
         
     }
 }

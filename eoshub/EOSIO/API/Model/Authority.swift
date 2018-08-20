@@ -22,6 +22,13 @@ struct Authority: JSONOutput, JSONInitializable {
         return params
     }
     
+    var serialize: String? {
+        var params: JSON = [:]
+        params["permission"] = permission.value
+        params["keys"] = keys.map { $0.key }
+        return params.stringValue
+    }
+    
     init?(json: JSON) {
         permission = Permission(json.string(for: "perm_name") ?? "active")
         let auth = json.json(for: "required_auth")

@@ -52,7 +52,10 @@ class AccountDetailFlowController: FlowController, AccountDetailFlowEventDelegat
     }
     
     func goToKeyPair(from nc: UINavigationController) {
-        
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = KeypairFlowController(configure: config)
+        fc.configure(account: account)
+        fc.start(animated: true)
     }
     
     func goToTx(from nc: UINavigationController) {

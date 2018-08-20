@@ -31,6 +31,7 @@ enum FlowIdentifier: String {
     case forgetPW
     case wallet
     case accountDetail
+    case keypair
     case walletDetail
     case delegatebw
     case undelegatebw

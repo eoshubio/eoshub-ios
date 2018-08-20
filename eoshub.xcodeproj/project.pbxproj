@@ -111,6 +111,8 @@
 		2C3B17B120FD023000E6BAAD /* TransferPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17B020FD023000E6BAAD /* TransferPopup.swift */; };
 		2C3E72B72123C2CC00D114B2 /* SecureEnclaveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E72B42123C2CB00D114B2 /* SecureEnclaveManager.swift */; };
 		2C3E72B82123C2CC00D114B2 /* R1Key.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2C3E72B62123C2CC00D114B2 /* R1Key.mm */; };
+		2C5160FC212AE9CF0005EDD7 /* KeypairViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5160FB212AE9CF0005EDD7 /* KeypairViewController.swift */; };
+		2C5160FE212AEE6B0005EDD7 /* KeypairFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5160FD212AEE6B0005EDD7 /* KeypairFlowController.swift */; };
 		2C63FE962118A7150036652B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE952118A7150036652B /* Reachability.swift */; };
 		2C63FE982118AAE50036652B /* WalletLockedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C63FE972118AAE50036652B /* WalletLockedCell.xib */; };
 		2C63FE9A2118AEA70036652B /* WalletLockedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE992118AEA70036652B /* WalletLockedCell.swift */; };
@@ -379,6 +381,8 @@
 		2C3E72B42123C2CB00D114B2 /* SecureEnclaveManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecureEnclaveManager.swift; sourceTree = "<group>"; };
 		2C3E72B52123C2CC00D114B2 /* R1Key.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = R1Key.h; sourceTree = "<group>"; };
 		2C3E72B62123C2CC00D114B2 /* R1Key.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = R1Key.mm; sourceTree = "<group>"; };
+		2C5160FB212AE9CF0005EDD7 /* KeypairViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypairViewController.swift; sourceTree = "<group>"; };
+		2C5160FD212AEE6B0005EDD7 /* KeypairFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypairFlowController.swift; sourceTree = "<group>"; };
 		2C63FE952118A7150036652B /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2C63FE972118AAE50036652B /* WalletLockedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletLockedCell.xib; sourceTree = "<group>"; };
 		2C63FE992118AEA70036652B /* WalletLockedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletLockedCell.swift; sourceTree = "<group>"; };
@@ -817,6 +821,7 @@
 				2C7426BB2116B80D00F8A85E /* ForgetPWFlowController.swift */,
 				2CE1110120F1EE9C00B93BEB /* WalletFlowController.swift */,
 				2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */,
+				2C5160FD212AEE6B0005EDD7 /* KeypairFlowController.swift */,
 				2CEC2D4D20F65D8600AF5E9B /* WalletDetailFlowController.swift */,
 				2C770C9A20FB7CBD007F71C4 /* DelegateFlowController.swift */,
 				2C770CA020FB8E0F007F71C4 /* UndelegateFlowController.swift */,
@@ -859,6 +864,7 @@
 				2CE1112320F24CF200B93BEB /* MainTabViewController.swift */,
 				2CE110FF20F1EDB000B93BEB /* WalletViewController.swift */,
 				2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */,
+				2C5160FB212AE9CF0005EDD7 /* KeypairViewController.swift */,
 				2CEC2D4920F65C3000AF5E9B /* WalletDetailViewController.swift */,
 				2C770C9820FB77F4007F71C4 /* DelegateViewController.swift */,
 				2C770C9E20FB8BBE007F71C4 /* UndelegateViewController.swift */,
@@ -1370,6 +1376,7 @@
 				2C0290C12129CD2B00C3AFCB /* AccountDetailViewController.swift in Sources */,
 				2CE1110020F1EDB000B93BEB /* WalletViewController.swift in Sources */,
 				2CFE954A20F3947300DC173F /* EOSAccountViewModel.swift in Sources */,
+				2C5160FC212AE9CF0005EDD7 /* KeypairViewController.swift in Sources */,
 				2C3E72B72123C2CC00D114B2 /* SecureEnclaveManager.swift in Sources */,
 				2C770C9D20FB85DB007F71C4 /* UITextField+extension.swift in Sources */,
 				2CE1113020F26BA300B93BEB /* AirdropViewController.swift in Sources */,
@@ -1492,6 +1499,7 @@
 				2C279BC320F8C58100D2F6C4 /* EOSAPI.swift in Sources */,
 				2C279BF020F8E90100D2F6C4 /* Security.swift in Sources */,
 				2C7426B82116B07000F8A85E /* ForgetViewController.swift in Sources */,
+				2C5160FE212AEE6B0005EDD7 /* KeypairFlowController.swift in Sources */,
 				2C99E49C211DB40C00DB55A6 /* BorderColorButton.swift in Sources */,
 				2CDF5917210C7077003D866C /* AuthViewController.swift in Sources */,
 				2CDF5919210CDF3F003D866C /* UserManager.swift in Sources */,
