@@ -138,7 +138,7 @@ class Security {
             if pri.hasPrefix("se") {
                 return .secureEnclave
             } else {
-                return .iCloundKeychain
+                return .iCloudKeychain
             }
         } else {
             return .none
@@ -193,7 +193,7 @@ extension Security {
 
 
 enum KeyRepository {
-    case iCloundKeychain, secureEnclave, none
+    case iCloudKeychain, secureEnclave, none
 }
 
 

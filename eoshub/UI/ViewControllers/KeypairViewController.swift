@@ -123,8 +123,8 @@ class KeyCell: UITableViewCell {
         stored.setThemeColor(fgColor: Color.green.uiColor, bgColor: .clear, state: .normal, border: true)
         stored.setThemeColor(fgColor: Color.lightGray.uiColor, bgColor: .clear, state: .selected, border: true)
         
-        repo.setThemeColor(fgColor: Color.blue.uiColor, bgColor: .clear, state: .normal, border: true)
-        repo.setThemeColor(fgColor: Color.red.uiColor, bgColor: .clear, state: .selected, border: true)
+        repo.setThemeColor(fgColor: Color.progressOrange.uiColor, bgColor: .clear, state: .normal, border: true)
+        repo.setThemeColor(fgColor: Color.progressMagenta.uiColor, bgColor: .clear, state: .selected, border: true)
     }
     
     func configure(pubKey: String, owner: Bool, repo storedAt: KeyRepository) {
@@ -138,7 +138,7 @@ class KeyCell: UITableViewCell {
         }
         
         switch storedAt {
-        case .iCloundKeychain:
+        case .iCloudKeychain:
             repo.isHidden = false
             repo.isSelected = false
             repo.setTitle("iCloud Keychain", for: .normal)

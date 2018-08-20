@@ -27,6 +27,13 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         return _activekeys.map {$0.stringValue}
     }
     
+    var allKeys: [String] {
+        return ownerKeys + activeKeys
+    }
+    
+    @objc dynamic var hasRepoKeychain = false //has private key in keychain
+    @objc dynamic var hasRepoSE = false //has private key in Secure enclave
+    
     var totalEOS: Double {
         return availableEOS + stakedEOS + refundingEOS
     }
@@ -157,7 +164,15 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
                 //check owner
                 if let matchKey = auth.keys.filter({$0.key == storedKey}).first {
                     pubKey = matchKey.key
-                    if Security.shared.getKeyRepository(pub: pubKey) != .none {
+                    let repo = Security.shared.getKeyRepository(pub: pubKey)
+                    if repo != .none {
+                        
+                        if repo == .secureEnclave {
+                            hasRepoSE = true
+                        } else if repo == .iCloudKeychain {
+                            hasRepoKeychain = true
+                        }
+                        
                         permission = auth.permission.value
                         ownerMode = true
                     }
@@ -200,6 +215,9 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         
         _activekeys.removeAll()
         _activekeys.append(objectsIn: newObject._activekeys)
+        
+        hasRepoSE = newObject.hasRepoSE
+        hasRepoKeychain = newObject.hasRepoKeychain
     }
     
     func addToken(currency: Currency) {

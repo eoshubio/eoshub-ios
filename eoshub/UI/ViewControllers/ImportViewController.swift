@@ -44,7 +44,7 @@ class ImportViewController: TextInputViewController {
         
         let warning = NSMutableAttributedString(string: LocalizedString.Create.Import.warning)
         
-        let keyChainDoc = URLs.iCloundKeychain
+        let keyChainDoc = URLs.iCloudKeychain
         warning.addAttributeFont(text: warning.string, font: Font.appleSDGothicNeo(.regular).uiFont(14))
         if let url = URL(string: keyChainDoc) {
             warning.addAttributeURL(text: LocalizedString.Create.Import.keychain, url: url)

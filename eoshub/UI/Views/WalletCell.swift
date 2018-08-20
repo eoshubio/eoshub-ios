@@ -24,6 +24,8 @@ class WalletCell: UITableViewCell {
     @IBOutlet fileprivate weak var btnReceive: UIButton!
     @IBOutlet fileprivate weak var btnMenu: UIButton!
     @IBOutlet fileprivate weak var bg: UIImageView!
+    @IBOutlet fileprivate weak var icon0: UIButton!
+    @IBOutlet fileprivate weak var icon1: UIButton!
     
     private var bag: DisposeBag? = nil
     
@@ -127,6 +129,31 @@ class WalletCell: UITableViewCell {
 //        }
         
         //estimatedPrice
+        let repoKeychain = viewModel.hasRepoKeychain
+        let repoSE = viewModel.hasRepoSE
+       
+        if repoSE && repoKeychain == false {
+            icon0.setImage(#imageLiteral(resourceName: "shield"), for: .normal)
+            icon0.tintColor = Color.progressMagenta.getUIColor()
+            icon0.isHidden = false
+            icon1.isHidden = true
+        } else if repoSE == false && repoKeychain {
+            icon0.setImage(#imageLiteral(resourceName: "keychain"), for: .normal)
+            icon0.tintColor = Color.progressOrange.getUIColor()
+            icon0.isHidden = false
+            icon1.isHidden = true
+        } else if repoSE && repoKeychain {
+            icon0.setImage(#imageLiteral(resourceName: "shield"), for: .normal)
+            icon0.tintColor = Color.progressMagenta.getUIColor()
+            icon1.setImage(#imageLiteral(resourceName: "keychain"), for: .normal)
+            icon1.tintColor = Color.progressOrange.getUIColor()
+            icon0.isHidden = false
+            icon1.isHidden = false
+        } else {
+            icon0.isHidden = true
+            icon1.isHidden = true
+        }
+        
         
         ExchangeManager.shared.lastPrice
             .asObservable()

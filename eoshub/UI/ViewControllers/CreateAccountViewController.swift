@@ -440,7 +440,7 @@ class CreateOwnerKeyCell: CreateActiveKeysCell {
         
         _ = btnGetInfo.rx.singleTap
             .bind {
-                let urlString = URLs.iCloundKeychain
+                let urlString = URLs.iCloudKeychain
                 
                 guard let url =  URL(string: urlString) else { return }
                 if UIApplication.shared.canOpenURL(url) {

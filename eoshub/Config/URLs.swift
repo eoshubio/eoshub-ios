@@ -11,7 +11,7 @@ import Foundation
 struct URLs {
     static let secureEnclave =  "https://developer.apple.com/documentation/security/certificate_key_and_trust_services/keys/storing_keys_in_the_secure_enclave"
     
-    static var iCloundKeychain: String {
+    static var iCloudKeychain: String {
         //        https://support.apple.com/en-us/HT204085
         //        https://support.apple.com/ko-kr/HT204085
         var code = "en-us"
