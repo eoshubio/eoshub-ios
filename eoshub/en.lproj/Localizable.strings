@@ -163,6 +163,7 @@
 "wallet.inactive.account" = "Locked";
 "wallet.inactive.guide" = "Please enable the data network to access account information.";
 
+"wallet.detail.title" = "Account information";
 
 /* 토큰 */
 "token.add" = "Add Token";
@@ -178,6 +179,7 @@
 "token.add.failed" = "Token does not exist";
 
 /* 투표 */
+"vote.title" = "Vote";
 "vote.stakedEOS" = "Staked EOS";
 "vote.changeStake" = "Change Stake";
 "vote.selectAccountTitle" = "Change account";

@@ -65,6 +65,30 @@
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <sections/>
                             </tableView>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhT-4f-PsK" customClass="GradientView" customModule="eoshub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="708" width="375" height="104"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="0.0" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="0.73999999999999999" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ej-FL-dXz" customClass="GradientView" customModule="eoshub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="startColor">
+                                        <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="0.73999999999999999" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="endColor">
+                                        <color key="value" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="0.0" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4O-mF-9b3">
                                 <rect key="frame" x="0.0" y="44" width="375" height="96"/>
                                 <subviews>
@@ -111,14 +135,22 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="5ej-FL-dXz" firstAttribute="leading" secondItem="Pwx-Tv-sdU" secondAttribute="leading" id="3vz-Nc-Jdh"/>
                             <constraint firstItem="bfe-gn-hIR" firstAttribute="leading" secondItem="Pwx-Tv-sdU" secondAttribute="leading" id="9bE-hU-mwm"/>
+                            <constraint firstAttribute="trailing" secondItem="jhT-4f-PsK" secondAttribute="trailing" id="A6s-b2-olE"/>
                             <constraint firstItem="fkE-c3-m6q" firstAttribute="trailing" secondItem="FAs-OS-sZB" secondAttribute="trailing" id="B2r-Ma-kmD"/>
+                            <constraint firstAttribute="trailing" secondItem="5ej-FL-dXz" secondAttribute="trailing" id="EdV-gy-PrP"/>
+                            <constraint firstItem="fkE-c3-m6q" firstAttribute="top" secondItem="5ej-FL-dXz" secondAttribute="bottom" constant="-75" id="GJy-Py-0YD"/>
                             <constraint firstItem="bfe-gn-hIR" firstAttribute="top" secondItem="Pwx-Tv-sdU" secondAttribute="top" id="HOx-Ul-Hta"/>
                             <constraint firstItem="h4O-mF-9b3" firstAttribute="top" secondItem="fkE-c3-m6q" secondAttribute="top" id="Hml-E5-wPC"/>
+                            <constraint firstAttribute="bottom" secondItem="jhT-4f-PsK" secondAttribute="bottom" id="LKV-ZK-bW2"/>
                             <constraint firstAttribute="bottom" secondItem="bfe-gn-hIR" secondAttribute="bottom" id="Oxm-ag-NJl"/>
                             <constraint firstAttribute="trailing" secondItem="bfe-gn-hIR" secondAttribute="trailing" id="Y90-wd-Fhm"/>
+                            <constraint firstItem="jhT-4f-PsK" firstAttribute="leading" secondItem="Pwx-Tv-sdU" secondAttribute="leading" id="YGs-y4-Q7j"/>
                             <constraint firstItem="FAs-OS-sZB" firstAttribute="top" secondItem="fkE-c3-m6q" secondAttribute="top" constant="44" id="edG-LL-S4E"/>
                             <constraint firstAttribute="trailing" secondItem="h4O-mF-9b3" secondAttribute="trailing" id="fUp-24-wDC"/>
+                            <constraint firstItem="5ej-FL-dXz" firstAttribute="top" secondItem="Pwx-Tv-sdU" secondAttribute="top" id="keW-bK-LkR"/>
+                            <constraint firstItem="jhT-4f-PsK" firstAttribute="top" secondItem="fkE-c3-m6q" secondAttribute="bottom" constant="-70" id="lso-0e-LzM"/>
                             <constraint firstItem="fkE-c3-m6q" firstAttribute="bottom" secondItem="FAs-OS-sZB" secondAttribute="bottom" id="oxM-By-JQ7"/>
                             <constraint firstItem="FAs-OS-sZB" firstAttribute="leading" secondItem="fkE-c3-m6q" secondAttribute="leading" id="uuR-VZ-4YF"/>
                             <constraint firstItem="h4O-mF-9b3" firstAttribute="leading" secondItem="Pwx-Tv-sdU" secondAttribute="leading" id="yJS-I2-hId"/>
@@ -384,28 +416,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgGrady" translatesAutoresizingMaskIntoConstraints="NO" id="4ri-6f-xwY">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                             </imageView>
-                            <navigationBar contentMode="scaleToFill" translucent="NO" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dPV-Vx-Mv6">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="HpP-lO-voi"/>
-                                </constraints>
-                                <color key="barTintColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <textAttributes key="titleTextAttributes">
-                                    <color key="textColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </textAttributes>
-                                <items>
-                                    <navigationItem title="Vote" largeTitleDisplayMode="never" id="5l7-54-Rrh">
-                                        <barButtonItem key="leftBarButtonItem" title="계정 변경" style="plain" id="v1m-rC-ShA">
-                                            <color key="tintColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" title="자원 관리" width="40" style="plain" id="Aog-OZ-q57">
-                                            <color key="tintColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
-                            </navigationBar>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nHE-8E-RWK" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                <rect key="frame" x="10" y="104" width="355" height="119"/>
+                                <rect key="frame" x="10" y="59" width="355" height="119"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Staked EOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBV-vY-AmK">
                                         <rect key="frame" x="20" y="76" width="73" height="18"/>
@@ -478,7 +490,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Uf-q3-WHX">
-                                <rect key="frame" x="0.0" y="243" width="375" height="569"/>
+                                <rect key="frame" x="0.0" y="198" width="375" height="614"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BPCell" rowHeight="65" id="L8d-QP-PS7" customClass="BPCell" customModule="eoshub" customModuleProvider="target">
@@ -564,31 +576,24 @@
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="nHE-8E-RWK" firstAttribute="leading" secondItem="PNS-Pr-MRc" secondAttribute="leading" constant="10" id="6IC-IC-qkz"/>
-                            <constraint firstItem="dPV-Vx-Mv6" firstAttribute="leading" secondItem="VnI-ce-Ixj" secondAttribute="leading" id="6do-Gx-Yc6"/>
                             <constraint firstItem="6Uf-q3-WHX" firstAttribute="leading" secondItem="PNS-Pr-MRc" secondAttribute="leading" id="CS6-nO-d66"/>
                             <constraint firstItem="4ri-6f-xwY" firstAttribute="leading" secondItem="PNS-Pr-MRc" secondAttribute="leading" id="DjN-V2-hou"/>
                             <constraint firstItem="4ri-6f-xwY" firstAttribute="top" secondItem="PNS-Pr-MRc" secondAttribute="top" id="Pn1-bG-DLd"/>
                             <constraint firstAttribute="trailing" secondItem="nHE-8E-RWK" secondAttribute="trailing" constant="10" id="RVP-Zq-RYW"/>
                             <constraint firstAttribute="trailing" secondItem="6Uf-q3-WHX" secondAttribute="trailing" id="kVP-MW-Fw9"/>
                             <constraint firstItem="6Uf-q3-WHX" firstAttribute="top" secondItem="nHE-8E-RWK" secondAttribute="bottom" constant="20" id="kZK-v3-UcV"/>
-                            <constraint firstItem="dPV-Vx-Mv6" firstAttribute="trailing" secondItem="VnI-ce-Ixj" secondAttribute="trailing" id="mtc-lr-ehr"/>
+                            <constraint firstItem="nHE-8E-RWK" firstAttribute="top" secondItem="VnI-ce-Ixj" secondAttribute="top" constant="15" id="lCY-0w-aLJ"/>
                             <constraint firstAttribute="bottom" secondItem="4ri-6f-xwY" secondAttribute="bottom" id="pS8-4j-6nf"/>
                             <constraint firstItem="6Uf-q3-WHX" firstAttribute="bottom" secondItem="PNS-Pr-MRc" secondAttribute="bottom" id="sMd-kv-5GG"/>
                             <constraint firstAttribute="trailing" secondItem="4ri-6f-xwY" secondAttribute="trailing" id="uBz-T2-Ab7"/>
-                            <constraint firstItem="dPV-Vx-Mv6" firstAttribute="top" secondItem="VnI-ce-Ixj" secondAttribute="top" id="uQW-aP-C6c"/>
-                            <constraint firstItem="nHE-8E-RWK" firstAttribute="top" secondItem="dPV-Vx-Mv6" secondAttribute="bottom" constant="16" id="xl9-zm-u5b"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="VnI-ce-Ixj"/>
                     </view>
                     <connections>
                         <outlet property="bpList" destination="6Uf-q3-WHX" id="qqv-Gd-WNh"/>
-                        <outlet property="btnChangeAccount" destination="2Ic-uU-IZn" id="Qmj-lH-Rmc"/>
-                        <outlet property="itemChangeAccount" destination="v1m-rC-ShA" id="EXi-Lp-Gs7"/>
-                        <outlet property="itemChangeStake" destination="Aog-OZ-q57" id="u41-6e-NGb"/>
                         <outlet property="lbAccountName" destination="McP-Lt-rB6" id="qrd-DR-nTE"/>
                         <outlet property="lbStakedEOS" destination="dbc-6D-fCh" id="Nj9-E2-jJt"/>
                         <outlet property="lbStakedEOSTitle" destination="BBV-vY-AmK" id="Mvs-kd-LMk"/>
-                        <outlet property="naviBar" destination="dPV-Vx-Mv6" id="Bkl-Hx-cLa"/>
                         <outlet property="progressStaked" destination="oT4-Vx-Mbx" id="V8o-ql-0Jr"/>
                     </connections>
                 </viewController>

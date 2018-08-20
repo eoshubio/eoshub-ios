@@ -54,6 +54,7 @@ class WalletViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         if initialized == false {
+            navigationController?.navigationBar.barStyle = .black
             initialized = true
             view.layoutIfNeeded()
             setupUI()
@@ -72,6 +73,10 @@ class WalletViewController: BaseViewController {
     func show() {
        setNeedsStatusBarAppearanceUpdate()
         
+    }
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .default
     }
     
     private func setupUI() {
@@ -143,21 +148,21 @@ class WalletViewController: BaseViewController {
         
         btnSetting.rx.singleTap
             .bind { [weak self](_) in
-                guard let nc = self?.parent?.navigationController else { return }
+                guard let nc = self?.navigationController else { return }
                 self?.flowDelegate?.goToSetting(from: nc)
             }
             .disposed(by: bag)
         
         rx_send
             .subscribe(onNext: { [weak self](account) in
-                guard let nc = self?.parent?.navigationController else { return }
+                guard let nc = self?.navigationController else { return }
                 self?.flowDelegate?.goToSend(from: nc, with: account)
             })
             .disposed(by: bag)
         
         rx_receive
             .subscribe(onNext: { [weak self](account) in
-                guard let nc = self?.parent?.navigationController else { return }
+                guard let nc = self?.navigationController else { return }
                 self?.flowDelegate?.goToReceive(from: nc, with: account)
             })
             .disposed(by: bag)
@@ -298,7 +303,7 @@ extension WalletViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         tableView.deselectRow(at: indexPath, animated: false)
-        guard let nc = parent?.navigationController else { return }
+        guard let nc = navigationController else { return }
         
         let item = items[indexPath.section][indexPath.row]
         if let item = item as? AccountInfo {

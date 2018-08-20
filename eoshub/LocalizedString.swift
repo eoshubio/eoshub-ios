@@ -225,6 +225,10 @@ struct LocalizedString {
             static let guide = NSLocalizedString("wallet.inactive.guide", comment: "")
         }
         
+        
+        struct Detail {
+            static let title = NSLocalizedString("wallet.detail.title", comment: "")
+        }
     }
     
     struct Token {
@@ -250,6 +254,7 @@ struct LocalizedString {
     }
     
     struct Vote {
+        static let title = NSLocalizedString("vote.title", comment: "")
         static let staked = NSLocalizedString("vote.stakedEOS", comment: "")
         static let changeStake = NSLocalizedString("vote.changeStake", comment: "")
         static let changeAccount = NSLocalizedString("vote.selectAccountTitle", comment: "")

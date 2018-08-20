@@ -153,10 +153,12 @@
 
 "wallet.option.addToken" = "토큰 추가하기";
 "wallet.option.delete" = "지갑 지우기";
-"wallet.option.deleteWarning" = "이오스허브 앱에서만 삭제됩니다.";
+"wallet.option.deleteWarning" = "이오스허브 앱에서 지갑을 삭제합니다.";
 
 "wallet.inactive.account" = "잠김";
 "wallet.inactive.guide" = "네트워크에 연결한 후 클릭하면 활성화 됩니다.";
+
+"wallet.detail.title" = "계정 관리";
 
 /* 토큰 */
 "token.add" = "토큰 추가";
@@ -172,6 +174,7 @@
 "token.add.failed" = "토큰이 존재하지 않습니다.";
 
 /* 투표 */
+"vote.title" = "투표하기";
 "vote.stakedEOS" = "할당된 EOS";
 "vote.changeStake" = "EOS 할당/반환하기";
 "vote.selectAccountTitle" = "계정 변경";

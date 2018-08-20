@@ -18,16 +18,16 @@ class VoteFlowController: FlowController, VoteFlowEventDelegate {
         self.configure = configure
     }
     
+    fileprivate var account: AccountInfo!
+    
+    func configure(account: AccountInfo) {
+        self.account = account
+    }
+    
     func show(animated: Bool) {
-        var vc: VoteViewController?
-        if case FlowType.tab = configure.flowType {
-            vc = (configure.container as? TabBarViewController)?.viewControllers.filter({ $0 is VoteViewController }).first as? VoteViewController
-        } else {
-            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VoteViewController") as? VoteViewController
-        }
-        vc?.flowDelegate = self
-        vc?.reload()
-        
+        guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VoteViewController") as? VoteViewController else { return }
+        vc.flowDelegate = self
+        vc.configure(account: account)
         show(viewController: vc, animated: animated) {
             
         }

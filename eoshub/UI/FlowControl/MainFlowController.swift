@@ -36,7 +36,7 @@ class MainFlowController: FlowController {
                 let fc = LoginFlowController(configure: config)
                 fc.start(animated: false)
                 //1. Go To MainTab
-                let mainFc = MainTabFlowController(configure: config)
+                let mainFc = WalletFlowController(configure: config)
                 mainFc.start(animated: false)
             } else {
                 //2. Go To Login

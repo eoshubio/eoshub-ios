@@ -16,6 +16,17 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     @objc dynamic var pubKey: String = ""
     @objc dynamic var permission: String = ""
     
+    let _ownerkeys = List<RealmString>()
+    let _activekeys = List<RealmString>()
+    
+    var ownerKeys: [String] {
+        return _ownerkeys.map {$0.stringValue}
+    }
+    
+    var activeKeys: [String] {
+        return _activekeys.map {$0.stringValue}
+    }
+    
     var totalEOS: Double {
         return availableEOS + stakedEOS + refundingEOS
     }
@@ -125,14 +136,31 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         
         ownerMode = false
         
+        let okeys = eosioAccount.permissions
+                    .filter {$0.permission == Permission.owner}
+                    .map { $0.keys.map({ $0.key}) }.joined()
+                    .map {RealmString(value: $0)}
+        
+        _ownerkeys.append(objectsIn: okeys)
+        
+        let akeys = eosioAccount.permissions
+                    .filter {$0.permission == Permission.active}
+                    .map { $0.keys.map({ $0.key}) }.joined()
+                    .map {RealmString(value: $0)}
+        
+        _activekeys.append(objectsIn: akeys)
+        
+        
         if storedKey.count > 0 {
             
             eosioAccount.permissions.forEach { (auth) in
                 //check owner
                 if let matchKey = auth.keys.filter({$0.key == storedKey}).first {
                     pubKey = matchKey.key
-                    permission = auth.permission.value
-                    ownerMode = true
+                    if Security.shared.getKeyRepository(pub: pubKey) != .none {
+                        permission = auth.permission.value
+                        ownerMode = true
+                    }
                 }
             }
         }
@@ -166,6 +194,12 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         
         _tokens.removeAll()
         _tokens.append(objectsIn: newObject._tokens)
+        
+        _ownerkeys.removeAll()
+        _ownerkeys.append(objectsIn: newObject._ownerkeys)
+        
+        _activekeys.removeAll()
+        _activekeys.append(objectsIn: newObject._activekeys)
     }
     
     func addToken(currency: Currency) {

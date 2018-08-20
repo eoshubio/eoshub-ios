@@ -128,6 +128,25 @@ class Security {
         return priKey
     }
     
+    func getKeyRepository(pub: String) -> KeyRepository {
+        return _getKeyRepository(pub: pub)
+    }
+    
+    private func _getKeyRepository(pub: String) -> KeyRepository {
+        
+        if let pri = getEncryptedPrivateKey(pub: pub) {
+            if pri.hasPrefix("se") {
+                return .secureEnclave
+            } else {
+                return .iCloundKeychain
+            }
+        } else {
+            return .none
+        }
+    }
+    
+    
+    
     //MARK: Keys
     func generatePrivateKeyAndSaveLabel() -> String? {
         
@@ -173,7 +192,9 @@ extension Security {
 }
 
 
-
+enum KeyRepository {
+    case iCloundKeychain, secureEnclave, none
+}
 
 
 

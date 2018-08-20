@@ -37,7 +37,7 @@ class TxViewController: BaseViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         title = LocalizedString.Tx.title
-        showNavigationBar(with: .white, bgColor: .basePurple)
+        showNavigationBar(with: .basePurple, animated: animated, largeTitle: true)
     }
     
     override func viewDidLoad() {
