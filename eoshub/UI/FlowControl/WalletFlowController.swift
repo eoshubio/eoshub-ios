@@ -80,6 +80,7 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
         fc.configure(account: account)
         fc.start(animated: true)
     }
+
 }
 
 protocol WalletFlowEventDelegate: FlowEventDelegate {
@@ -91,4 +92,5 @@ protocol WalletFlowEventDelegate: FlowEventDelegate {
     func goToCreate(from nc: UINavigationController)
     func goToTokenDetail(from nc: UINavigationController, with tokenBalance: TokenBalanceInfo)
     func goToAddToken(from nc: UINavigationController, with account: EHAccount)
+    
 }

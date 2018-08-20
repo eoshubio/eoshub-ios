@@ -12,10 +12,20 @@ import UIKit
 
 
 protocol FlowEventDelegate: class {
+    func goToWebView(from nc: UINavigationController, with urlString: String, title: String?)
     func finish(viewControllerToFinish: UIViewController, animated: Bool, completion: (()->Void)?)
 }
 
 extension FlowEventDelegate {
+    
+    func goToWebView(from nc: UINavigationController, with urlString: String, title: String?) {
+        let config = FlowConfigure(container: nc, parent: nil, flowType: .navigation)
+        let fc = WebViewFlowController(configure: config)
+        fc.configure(urlString: urlString, title: title)
+        fc.start(animated: true)
+    }
+    
+    
     func finish(viewControllerToFinish: UIViewController, animated: Bool, completion: (()->Void)?) {
         viewControllerToFinish.closeViewController(animated: animated, completion: completion)
     }

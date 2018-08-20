@@ -44,13 +44,7 @@ class ImportViewController: TextInputViewController {
         
         let warning = NSMutableAttributedString(string: LocalizedString.Create.Import.warning)
         
-//        https://support.apple.com/en-us/HT204085
-//        https://support.apple.com/ko-kr/HT204085
-        var code = "en-us"
-        if let lan = Locale.current.languageCode, let region = Locale.current.regionCode?.lowercased() {
-            code = lan + "-" + region
-        }
-        let keyChainDoc = "https://support.apple.com/\(code)/HT204085"
+        let keyChainDoc = URLs.iCloundKeychain
         warning.addAttributeFont(text: warning.string, font: Font.appleSDGothicNeo(.regular).uiFont(14))
         if let url = URL(string: keyChainDoc) {
             warning.addAttributeURL(text: LocalizedString.Create.Import.keychain, url: url)

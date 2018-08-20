@@ -409,13 +409,11 @@ class CreateOwnerKeyCell: CreateActiveKeysCell {
     private var bag: DisposeBag? = nil
     
     override func awakeFromNib() {
-        super.awakeFromNib()
         setupUI()
         bindActions()
     }
     
     override func prepareForReuse() {
-        super.prepareForReuse()
         bag = nil
     }
     
@@ -440,17 +438,9 @@ class CreateOwnerKeyCell: CreateActiveKeysCell {
     
     private func bindActions() {
         
-        //        https://support.apple.com/en-us/HT204085
-        //        https://support.apple.com/ko-kr/HT204085
-        var code = "en-us"
-        if let lan = Locale.current.languageCode, let region = Locale.current.regionCode?.lowercased() {
-            code = lan + "-" + region
-        }
-        let keyChainDoc = "https://support.apple.com/\(code)/HT204085"
-        
         _ = btnGetInfo.rx.singleTap
             .bind {
-                let urlString = keyChainDoc
+                let urlString = URLs.iCloundKeychain
                 
                 guard let url =  URL(string: urlString) else { return }
                 if UIApplication.shared.canOpenURL(url) {
@@ -482,13 +472,11 @@ class InsertOwnerKeyCell: InsertActiveKeyCell {
     private var bag: DisposeBag? = nil
     
     override func awakeFromNib() {
-        super.awakeFromNib()
         setupUI()
         bindActions()
     }
     
     override func prepareForReuse() {
-        super.prepareForReuse()
         bag = nil
     }
     
@@ -602,7 +590,7 @@ class CreateActiveKeysCell: UITableViewCell {
     private func bindActions() {
         _ = btnGetInfo.rx.singleTap
             .bind {
-                let urlString = "https://developer.apple.com/documentation/security/certificate_key_and_trust_services/keys/storing_keys_in_the_secure_enclave"
+                let urlString = URLs.secureEnclave
                 
                 guard let url =  URL(string: urlString) else { return }
                 if UIApplication.shared.canOpenURL(url) {

@@ -47,10 +47,10 @@
             </objects>
             <point key="canvasLocation" x="-631.20000000000005" y="220.93596059113301"/>
         </scene>
-        <!--View Controller-->
+        <!--Web View Controller-->
         <scene sceneID="zoN-K4-x1c">
             <objects>
-                <viewController id="vUx-OW-lOo" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vUx-OW-lOo" customClass="WebViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZNt-PI-TEG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

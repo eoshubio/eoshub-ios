@@ -263,12 +263,11 @@ class SettingViewController: FormViewController {
                 cell.textLabel?.textColor = Color.darkGray.uiColor
                 cell.height = { 50 }
                 cell.accessoryType = .disclosureIndicator
-            }.onCellSelection({ (_, row) in
+            }.onCellSelection({ [weak self](_, row) in
                 row.deselect()
+                guard let nc = self?.navigationController else { return }
                 let url = EOSHubAPI.URL.term.getHtml()
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
+                self?.flowDelegate?.goToWebView(from: nc, with: url, title: LocalizedString.Term.term.capitalized)
             })
         
         let privacyPolicy = LabelRow() {
@@ -278,12 +277,11 @@ class SettingViewController: FormViewController {
                 cell.textLabel?.textColor = Color.darkGray.uiColor
                 cell.height = { 50 }
                 cell.accessoryType = .disclosureIndicator
-            }.onCellSelection({ (_, row) in
+            }.onCellSelection({ [weak self](_, row) in
                 row.deselect()
+                guard let nc = self?.navigationController else { return }
                 let url = EOSHubAPI.URL.privacy_policy.getHtml()
-                if UIApplication.shared.canOpenURL(url) {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
+                self?.flowDelegate?.goToWebView(from: nc, with: url, title: LocalizedString.Term.goPrivacy.capitalized)
             })
         
         let telegram = LabelRow() {

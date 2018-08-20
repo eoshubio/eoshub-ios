@@ -18,6 +18,8 @@ struct Config {
 
     static var eoshubHost = "https://eos-hub.io"
     
+    static var eoshubMedium = "https://medium.com/@eoshub.io"
+    
     static var host: String {
         switch mode {
         case .junglenet:

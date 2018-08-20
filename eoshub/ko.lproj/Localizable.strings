@@ -161,6 +161,8 @@
 "wallet.detail.title" = "계정 관리";
 "wallet.detail.keypairs" = "키페어 관리";
 
+"wallet.notice" = "공지사항";
+
 /* 토큰 */
 "token.add" = "토큰 추가";
 "token.added" = "지갑에 추가된 토큰";

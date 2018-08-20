@@ -40,14 +40,14 @@ extension EOSHubAPI.Account: RxAPIRequest {
 
 
 extension EOSHubAPI.URL {
-    func getHtml() -> URL {
+    func getHtml() -> String {
         return getHtml(languateCode: Locale.current.languageCode ?? "en")
     }
-    func getHtml(languateCode: String) -> URL {
+    func getHtml(languateCode: String) -> String {
         if languateCode == "ko" {
-            return URL(string: Config.eoshubHost + "/" + rawValue)!
+            return Config.eoshubHost + "/" + rawValue
         } else {
-            return URL(string: Config.eoshubHost + "/" + rawValue + "?lang=en")!
+            return Config.eoshubHost + "/" + rawValue + "?lang=en"
         }
     }
 }

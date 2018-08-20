@@ -166,6 +166,8 @@
 "wallet.detail.title" = "Account information";
 "wallet.detail.keypairs" = "Key pairs";
 
+"wallet.notice" = "Notice";
+
 /* 토큰 */
 "token.add" = "Add Token";
 "token.added" = "Tokens added to wallet";

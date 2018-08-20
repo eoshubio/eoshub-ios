@@ -180,6 +180,11 @@ class WalletViewController: BaseViewController {
 //            .subscribe()
 //            .disposed(by: bag)
         
+        btnNotice.rx.singleTap
+            .bind { [weak self] in
+                self?.goToNotice()
+            }
+            .disposed(by: bag)
         
         AccountManager.shared.loadAccounts()
             .subscribe()
@@ -220,6 +225,12 @@ class WalletViewController: BaseViewController {
 //        sheet.addAction(UIAlertAction(title: LocalizedString.Common.cancel, style: .cancel, handler: nil))
 //
 //        present(sheet, animated: true, completion: nil)
+    }
+    
+    fileprivate func goToNotice() {
+        guard let nc = navigationController else { return }
+        let url = Config.eoshubMedium
+        flowDelegate?.goToWebView(from: nc, with: url, title: LocalizedString.Wallet.notice)
     }
     
     fileprivate func deleteWallet(account: String) {
