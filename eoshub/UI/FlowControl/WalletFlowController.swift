@@ -21,14 +21,10 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
     }
     
     func show(animated: Bool) {
-        var vc: WalletViewController?
-        if case FlowType.tab = configure.flowType {
-            vc = (configure.container as? TabBarViewController)?.viewControllers.filter({ $0 is WalletViewController }).first as? WalletViewController
-        } else {
-            vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WalletViewController") as? WalletViewController
-        }
-        vc?.show()
-        vc?.flowDelegate = self
+        let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WalletViewController") as! WalletViewController
+        
+        vc.show()
+        vc.flowDelegate = self
         show(viewController: vc, animated: animated) {
             
         }

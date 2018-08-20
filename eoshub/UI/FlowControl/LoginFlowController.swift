@@ -36,7 +36,7 @@ class LoginFlowController: FlowController, LoginFlowEventDelegate {
     
     func goToMain(from nc: UINavigationController) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
-        let fc = MainTabFlowController(configure: config)
+        let fc = WalletFlowController(configure: config)
         fc.start(animated: true)
     }
     
