@@ -20,6 +20,9 @@ class UserManager {
         return Auth.auth().currentUser?.uid ?? "UnknownID"
     }
     
+    var identiferString: String {
+       return Auth.auth().currentUser?.identifierString ?? ""
+    }
 
     
 }

@@ -11,6 +11,7 @@ import UIKit
 import RxSwift
 import RealmSwift
 import SDWebImage
+import FirebaseAuth
 
 class WalletViewController: BaseViewController {
     
@@ -186,6 +187,12 @@ class WalletViewController: BaseViewController {
             }
             .disposed(by: bag)
         
+        btnProfile.rx.tap
+            .bind { [weak self] in
+                self?.showLogoutView()
+            }
+            .disposed(by: bag)
+        
         AccountManager.shared.loadAccounts()
             .subscribe()
             .disposed(by: bag)
@@ -231,6 +238,30 @@ class WalletViewController: BaseViewController {
         guard let nc = navigationController else { return }
         let url = Config.eoshubMedium
         flowDelegate?.goToWebView(from: nc, with: url, title: LocalizedString.Wallet.notice)
+    }
+    
+    fileprivate func showLogoutView() {
+        let alert = UIAlertController(title: UserManager.shared.identiferString, message: "", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: LocalizedString.Setting.logout, style: .destructive, handler: { [weak self](_) in
+            self?.doLogout()
+        }))
+        
+        alert.addAction(UIAlertAction(title: LocalizedString.Common.cancel, style: .cancel, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func doLogout() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            
+            flowDelegate?.goToRoot(viewControllerToFinish: self, animated: true, completion: nil)
+            
+        } catch let signOutError as NSError {
+            Log.e("Error signing out: \(signOutError)")
+        }
     }
     
     fileprivate func deleteWallet(account: String) {

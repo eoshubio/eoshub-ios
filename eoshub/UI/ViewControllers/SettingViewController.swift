@@ -58,7 +58,7 @@ class SettingViewController: FormViewController {
 //        form +++ walletSettings()
         form +++ appSettings()
         
-        let email = Auth.auth().currentUser?.identifierString ?? ""
+        let email = UserManager.shared.identiferString
         
         form
             
@@ -71,20 +71,35 @@ class SettingViewController: FormViewController {
                     cell.textLabel?.textColor = .red
                     cell.selectionStyle = .gray
                 }).onCellSelection({ [weak self](_, row) in
-                    print("logout")
-                    let firebaseAuth = Auth.auth()
-                    do {
-                        try firebaseAuth.signOut()
-                        if let vc = self {
-                            self?.flowDelegate?.goToRoot(viewControllerToFinish: vc, animated: true, completion: nil)
-                        }
-                    } catch let signOutError as NSError {
-                        Log.e("Error signing out: \(signOutError)")
-                    }
+                    self?.showLogoutView()
                     row.deselect()
                 })
         
         
+    }
+    
+    fileprivate func showLogoutView() {
+        let alert = UIAlertController(title: UserManager.shared.identiferString, message: "", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: LocalizedString.Setting.logout, style: .destructive, handler: { [weak self](_) in
+            self?.doLogout()
+        }))
+        
+        alert.addAction(UIAlertAction(title: LocalizedString.Common.cancel, style: .cancel, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    private func doLogout() {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            
+            flowDelegate?.goToRoot(viewControllerToFinish: self, animated: true, completion: nil)
+            
+        } catch let signOutError as NSError {
+            Log.e("Error signing out: \(signOutError)")
+        }
     }
     
     
