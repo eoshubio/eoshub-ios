@@ -228,6 +228,7 @@ struct LocalizedString {
         
         struct Detail {
             static let title = NSLocalizedString("wallet.detail.title", comment: "")
+            static let keypairs = NSLocalizedString("wallet.detail.keypairs", comment: "")
         }
     }
     

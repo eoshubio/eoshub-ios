@@ -106,7 +106,7 @@ extension AccountDetailViewController {
             return cell
         case .permissions:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleCell else { preconditionFailure() }
-            cell.configure(title: "키페어 관리", color: .lightPurple, marginTop: 25)
+            cell.configure(title: LocalizedString.Wallet.Detail.keypairs, color: .lightPurple, marginTop: 25)
             return cell
         case .vote:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleCell else { preconditionFailure() }

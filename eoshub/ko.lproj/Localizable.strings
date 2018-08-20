@@ -159,6 +159,7 @@
 "wallet.inactive.guide" = "네트워크에 연결한 후 클릭하면 활성화 됩니다.";
 
 "wallet.detail.title" = "계정 관리";
+"wallet.detail.keypairs" = "키페어 관리";
 
 /* 토큰 */
 "token.add" = "토큰 추가";

@@ -19,7 +19,7 @@ class KeypairViewController: BaseTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showNavigationBar(with: .basePurple, animated: animated, largeTitle: true)
-        title = "키 페어"
+        title = LocalizedString.Wallet.Detail.keypairs
     }
     
     override func viewDidLoad() {
@@ -89,7 +89,7 @@ extension KeypairViewController {
         
         headerView?.textLabel?.text = section == 0 ? "Onwer key" : "Active Key"
         headerView?.textLabel?.font = Font.appleSDGothicNeo(.semiBold).uiFont(20)
-        headerView?.textLabel?.textColor = Color.lightPurple.uiColor
+        headerView?.textLabel?.textColor = Color.basePurple.uiColor
     }
 
   

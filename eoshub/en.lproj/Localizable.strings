@@ -164,6 +164,7 @@
 "wallet.inactive.guide" = "Please enable the data network to access account information.";
 
 "wallet.detail.title" = "Account information";
+"wallet.detail.keypairs" = "Key pairs";
 
 /* 토큰 */
 "token.add" = "Add Token";
