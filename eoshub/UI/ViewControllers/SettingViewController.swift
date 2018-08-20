@@ -214,9 +214,11 @@ class SettingViewController: FormViewController {
     private func appSettings() -> Section {
         var section = Section(LocalizedString.Setting.app)
         
+        let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "0"
+        let versionString = Config.versionString + " (\(buildNumber))"
         let version = LabelRow() {
             $0.title = LocalizedString.Setting.App.version
-            $0.value = Config.versionString
+            $0.value = versionString
             $0.cellStyle = .value1
             }.cellUpdate { (cell, row) in
                 cell.textLabel?.textColor = Color.darkGray.uiColor
