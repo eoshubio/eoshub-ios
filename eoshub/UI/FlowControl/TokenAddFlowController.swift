@@ -24,6 +24,11 @@ class TokenAddFlowController: FlowController, FlowEventDelegate {
         self.account = account
     }
     
+    func configure(account: AccountInfo) {
+        guard let account = DB.shared.getAllAccounts().filter("account = '\(account.account)'").first else { return }
+        self.account = account
+    }
+    
     func show(animated: Bool) {
         
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "TokenViewController") as? TokenViewController else { preconditionFailure() }

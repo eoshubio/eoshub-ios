@@ -13,7 +13,7 @@ import RxSwift
 class AccountDetailViewController: BaseTableViewController {
     
     fileprivate enum ItemType {
-        case accountInfo, resources, vote, tx, permissions, delete
+        case accountInfo, resources, tokens, vote, tx, permissions, delete
     }
     
     var flowDelegate: AccountDetailFlowEventDelegate?
@@ -51,9 +51,9 @@ class AccountDetailViewController: BaseTableViewController {
         self.account = account
         
         if account.ownerMode {
-            items.append(contentsOf: [.permissions, .vote, .tx])
+            items.append(contentsOf: [.tokens, .permissions, .vote, .tx])
         } else {
-            items.append(contentsOf: [.permissions, .tx, .delete])
+            items.append(contentsOf: [.tokens, .permissions, .tx, .delete])
         }
         
     }
@@ -104,9 +104,13 @@ extension AccountDetailViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "ResourcesCell", for: indexPath) as? ResourcesCell else { preconditionFailure() }
             cell.configure(viewModel: account)
             return cell
+        case .tokens:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleCell else { preconditionFailure() }
+            cell.configure(title: LocalizedString.Wallet.Option.addToken, color: .lightPurple, marginTop: 25)
+            return cell
         case .permissions:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleCell else { preconditionFailure() }
-            cell.configure(title: LocalizedString.Wallet.Detail.keypairs, color: .lightPurple, marginTop: 25)
+            cell.configure(title: LocalizedString.Wallet.Detail.keypairs, color: .lightPurple)
             return cell
         case .vote:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleCell else { preconditionFailure() }
@@ -134,6 +138,8 @@ extension AccountDetailViewController {
             if account.ownerMode {
                 flowDelegate?.goToResources(from: nc)
             }
+        case .tokens:
+            flowDelegate?.goToToken(from: nc)
         case .vote:
             flowDelegate?.goToVote(from: nc)
         case .tx:

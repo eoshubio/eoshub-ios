@@ -64,6 +64,16 @@ class AccountDetailFlowController: FlowController, AccountDetailFlowEventDelegat
         fc.configure(accountName: account.account, actions: nil, filter: nil)
         fc.start(animated: true)
     }
+    
+    func goToToken(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = TokenAddFlowController(configure: config)
+        fc.configure(account: account)
+        fc.start(animated: true)
+        
+        
+        
+    }
 }
 
 
@@ -72,4 +82,5 @@ protocol AccountDetailFlowEventDelegate: FlowEventDelegate {
     func goToVote(from nc: UINavigationController)
     func goToKeyPair(from nc: UINavigationController)
     func goToTx(from nc: UINavigationController)
+    func goToToken(from nc: UINavigationController)
 }
