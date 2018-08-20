@@ -54,6 +54,12 @@ class WalletViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        if Security.shared.needAuthentication {
+            view.isUserInteractionEnabled = false
+            checkPin()
+        }
+        
         if initialized == false {
             navigationController?.navigationBar.barStyle = .black
             initialized = true
@@ -63,6 +69,8 @@ class WalletViewController: BaseViewController {
             reloadUI()
             
         }
+        
+        
     }
     
     override func viewDidLoad() {
@@ -198,6 +206,21 @@ class WalletViewController: BaseViewController {
             .disposed(by: bag)
         
     }
+    
+    private func checkPin() {
+        guard let nc = navigationController else { return }
+        if self.isCreatedPin() == false {
+            flowDelegate?.cratePin(from: nc)
+        } else {
+            flowDelegate?.validatePin(from: nc)
+        }
+    }
+    
+    private func isCreatedPin() -> Bool {
+        return Security.shared.hasPin()
+    }
+    
+    
     
     fileprivate func addTokens(account: AccountInfo) {
         guard let ehaccount = AccountManager.shared.getAccount(accountName: account.account),
