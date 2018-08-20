@@ -205,6 +205,17 @@ class WalletViewController: BaseViewController {
             .subscribe()
             .disposed(by: bag)
         
+        Security.shared.authorized
+            .subscribe(onNext:{ [weak self](isAuthorized) in
+                if isAuthorized {
+                    //show wallet
+                } else {
+                    //lock wallet
+                }
+                self?.view.isUserInteractionEnabled = true
+            })
+            .disposed(by: bag)
+        
     }
     
     private func checkPin() {
