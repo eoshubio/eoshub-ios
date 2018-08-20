@@ -12,28 +12,18 @@ import RxSwift
 
 class WalletCell: UITableViewCell {
     @IBOutlet fileprivate weak var account: UILabel!
-    
     @IBOutlet fileprivate weak var lbAddTokens: UILabel!
-    
     @IBOutlet fileprivate weak var total: UILabel!
-    
     @IBOutlet fileprivate weak var estimatedPrice: UILabel!
-    
     @IBOutlet fileprivate weak var progress: MultiProgressBar!
-    
     @IBOutlet fileprivate weak var availableEOS: UILabel!
-    
     @IBOutlet fileprivate weak var lbResources: UILabel!
-    
     @IBOutlet fileprivate weak var layoutContainerY: NSLayoutConstraint!
-    
     @IBOutlet fileprivate weak var buttonContainer: UIView!
-    
     @IBOutlet fileprivate weak var btnSend: UIButton!
-    
     @IBOutlet fileprivate weak var btnReceive: UIButton!
-    
     @IBOutlet fileprivate weak var btnMenu: UIButton!
+    @IBOutlet fileprivate weak var bg: UIImageView!
     
     private var bag: DisposeBag? = nil
     
@@ -111,6 +101,12 @@ class WalletCell: UITableViewCell {
                 menuObserver.onNext(viewModel)
             }
             .disposed(by: bag)
+        
+        if viewModel.ownerMode {
+            bg.image = #imageLiteral(resourceName: "walletbg0")
+        } else {
+            bg.image = #imageLiteral(resourceName: "walletbg2")
+        }
         
         //refund
 //        remainTimeView.isHidden = (viewModel.refundingEOS == 0)

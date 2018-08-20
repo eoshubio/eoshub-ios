@@ -186,7 +186,7 @@
                                 <color key="textColor" red="0.47450980392156861" green="0.47450980392156861" blue="0.47450980392156861" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walletbg0" translatesAutoresizingMaskIntoConstraints="NO" id="tzK-8P-okH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walletbg0" translatesAutoresizingMaskIntoConstraints="NO" id="tzK-8P-okH">
                                 <rect key="frame" x="0.0" y="66" width="345" height="130"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="tzK-8P-okH" secondAttribute="height" multiplier="69:26" id="VOB-tN-e4d"/>
@@ -240,6 +240,7 @@
             <connections>
                 <outlet property="account" destination="0Bp-ip-anu" id="LSv-sq-ae1"/>
                 <outlet property="availableEOS" destination="Lm9-5p-z04" id="Biu-xR-jKW"/>
+                <outlet property="bg" destination="tzK-8P-okH" id="ZY3-Wd-qUC"/>
                 <outlet property="btnMenu" destination="k8C-Sg-RbY" id="kbD-1Z-eWa"/>
                 <outlet property="btnReceive" destination="3l1-if-9W8" id="9G0-Qr-Iwa"/>
                 <outlet property="btnSend" destination="bUo-uN-7Cw" id="ZIu-Gd-Ofi"/>

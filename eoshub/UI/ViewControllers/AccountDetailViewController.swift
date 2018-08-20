@@ -301,7 +301,7 @@ class ResourcesCell: UITableViewCell {
         if viewModel.ownerMode {
             layoutDetail.constant = 15
         } else {
-            layoutDetail.constant = -15
+            layoutDetail.constant = -25
         }
         layoutIfNeeded()
         
