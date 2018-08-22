@@ -1277,11 +1277,11 @@
                                 <rect key="frame" x="0.0" y="798" width="375" height="250"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8AH-HU-R0c" id="ajw-4e-m39">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="249.66666666666666"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ihm-al-NGC" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="10" width="355" height="229.33333333333334"/>
+                                            <rect key="frame" x="10" y="10" width="355" height="229"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Keys" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lsz-Tx-ekx">
                                                     <rect key="frame" x="20" y="25" width="33" height="24"/>
@@ -1447,11 +1447,11 @@
                                 <rect key="frame" x="0.0" y="1048" width="375" height="270"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vJT-Xy-wry" id="Vfs-vX-1d8">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="270"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="269.66666666666669"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hVH-Pk-Fxm" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="9.9999999999999858" width="355" height="249.66666666666663"/>
+                                            <rect key="frame" x="10" y="10.000000000000014" width="355" height="249.33333333333337"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active Key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rle-qo-gre">
                                                     <rect key="frame" x="20" y="25" width="73" height="24"/>
@@ -1508,7 +1508,7 @@
                                                     </constraints>
                                                 </view>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hrv-Y2-FG8" userLabel="UIView">
-                                                    <rect key="frame" x="20" y="99" width="315" height="125.66666666666669"/>
+                                                    <rect key="frame" x="20" y="99" width="315" height="125.33333333333331"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Insert Public key directly" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T33-Kl-laz">
                                                             <rect key="frame" x="32" y="0.0" width="283" height="18"/>
@@ -1526,10 +1526,10 @@
                                                             <state key="selected" image="radioOnBig"/>
                                                         </button>
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="czt-WJ-QdH">
-                                                            <rect key="frame" x="32" y="27.999999999999996" width="283" height="38.666666666666657"/>
+                                                            <rect key="frame" x="32" y="28.000000000000004" width="283" height="38.333333333333343"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="You must keep safe the private key that is paired with the public key." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d45-Qy-2w1">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="283" height="38.666666666666664"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="283" height="38.333333333333336"/>
                                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
                                                                     <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -1544,7 +1544,7 @@
                                                             </constraints>
                                                         </view>
                                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Public key" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dom-VV-5j0" customClass="WhiteTextField" customModule="eoshub" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="81.666666666666657" width="315" height="44"/>
+                                                            <rect key="frame" x="0.0" y="81.333333333333343" width="315" height="44"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="44" id="E6x-ds-ACd"/>
                                                             </constraints>
@@ -1718,7 +1718,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7GT-FV-wh9" customClass="RoundedView" customModule="eoshub" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="113.99999999999999" width="315" height="192.66666666666663"/>
+                                                    <rect key="frame" x="20" y="113.99999999999999" width="315" height="202.66666666666663"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kLW-p8-Jgs">
                                                             <rect key="frame" x="10" y="10" width="92.666666666666671" height="18"/>
@@ -1732,33 +1732,66 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Owner key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJR-fs-17i">
-                                                            <rect key="frame" x="10" y="72.666666666666657" width="67.333333333333329" height="18"/>
+                                                            <rect key="frame" x="10" y="77.666666666666657" width="67.333333333333329" height="18"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EOS Owner Key" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="eUV-pw-9i5">
-                                                            <rect key="frame" x="10" y="100.66666666666666" width="295" height="17"/>
+                                                            <rect key="frame" x="10" y="105.66666666666666" width="295" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Active key" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Xd-Xi-Sm1">
-                                                            <rect key="frame" x="10" y="132.66666666666669" width="65" height="18"/>
+                                                            <rect key="frame" x="10" y="142.66666666666669" width="65" height="18"/>
                                                             <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EOS Active Key" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="5Ns-ye-DRX">
-                                                            <rect key="frame" x="10" y="160.66666666666669" width="295" height="17"/>
+                                                            <rect key="frame" x="10" y="170.66666666666669" width="295" height="17"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                             <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sSn-gt-pzV" customClass="GrayButton" customModule="eoshub" customModuleProvider="target">
+                                                            <rect key="frame" x="259" y="71.666666666666657" width="46" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="SyJ-rq-e9o"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                            <state key="normal" title="Copy">
+                                                                <color key="titleColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                                    <real key="value" value="3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RCu-XK-osY" customClass="GrayButton" customModule="eoshub" customModuleProvider="target">
+                                                            <rect key="frame" x="259" y="137" width="46" height="30"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="30" id="yqP-dl-Blt"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="12"/>
+                                                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                            <state key="normal" title="Copy">
+                                                                <color key="titleColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                            </state>
+                                                            <userDefinedRuntimeAttributes>
+                                                                <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                                    <real key="value" value="3"/>
+                                                                </userDefinedRuntimeAttribute>
+                                                            </userDefinedRuntimeAttributes>
+                                                        </button>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.98039215686274506" green="0.98039215686274506" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="eUV-pw-9i5" firstAttribute="leading" secondItem="PJR-fs-17i" secondAttribute="leading" id="0cb-Kh-VI2"/>
                                                         <constraint firstAttribute="bottom" secondItem="5Ns-ye-DRX" secondAttribute="bottom" constant="15" id="3Eo-Oy-N4v"/>
                                                         <constraint firstItem="QzL-7f-fGo" firstAttribute="top" secondItem="kLW-p8-Jgs" secondAttribute="bottom" constant="10" id="42u-PX-BWg"/>
+                                                        <constraint firstItem="sSn-gt-pzV" firstAttribute="centerY" secondItem="PJR-fs-17i" secondAttribute="centerY" id="8gm-CY-gvT"/>
                                                         <constraint firstAttribute="trailing" secondItem="5Ns-ye-DRX" secondAttribute="trailing" constant="10" id="BDH-d5-GPn"/>
                                                         <constraint firstItem="5Ns-ye-DRX" firstAttribute="leading" secondItem="3Xd-Xi-Sm1" secondAttribute="leading" id="CJM-fL-pdQ"/>
                                                         <constraint firstItem="3Xd-Xi-Sm1" firstAttribute="leading" secondItem="PJR-fs-17i" secondAttribute="leading" id="FUA-43-fEj"/>
@@ -1766,11 +1799,14 @@
                                                         <constraint firstItem="QzL-7f-fGo" firstAttribute="leading" secondItem="kLW-p8-Jgs" secondAttribute="leading" id="RGq-Id-4jb"/>
                                                         <constraint firstItem="kLW-p8-Jgs" firstAttribute="top" secondItem="7GT-FV-wh9" secondAttribute="top" constant="10" id="VUJ-8I-F6c"/>
                                                         <constraint firstItem="kLW-p8-Jgs" firstAttribute="leading" secondItem="7GT-FV-wh9" secondAttribute="leading" constant="10" id="YNq-Wc-d7T"/>
-                                                        <constraint firstItem="PJR-fs-17i" firstAttribute="top" secondItem="QzL-7f-fGo" secondAttribute="bottom" constant="15" id="aa6-Vg-7sg"/>
+                                                        <constraint firstItem="RCu-XK-osY" firstAttribute="centerY" secondItem="3Xd-Xi-Sm1" secondAttribute="centerY" id="aHP-77-n4c"/>
+                                                        <constraint firstItem="PJR-fs-17i" firstAttribute="top" secondItem="QzL-7f-fGo" secondAttribute="bottom" constant="20" id="aa6-Vg-7sg"/>
                                                         <constraint firstItem="PJR-fs-17i" firstAttribute="leading" secondItem="kLW-p8-Jgs" secondAttribute="leading" id="g4R-e7-Ay0"/>
                                                         <constraint firstItem="eUV-pw-9i5" firstAttribute="top" secondItem="PJR-fs-17i" secondAttribute="bottom" constant="10" id="kOs-Ti-5u7"/>
                                                         <constraint firstItem="5Ns-ye-DRX" firstAttribute="top" secondItem="3Xd-Xi-Sm1" secondAttribute="bottom" constant="10" id="ltn-Ck-7dx"/>
-                                                        <constraint firstItem="3Xd-Xi-Sm1" firstAttribute="top" secondItem="eUV-pw-9i5" secondAttribute="bottom" constant="15" id="pSj-GE-K4H"/>
+                                                        <constraint firstAttribute="trailing" secondItem="RCu-XK-osY" secondAttribute="trailing" constant="10" id="oBM-X9-eVb"/>
+                                                        <constraint firstItem="3Xd-Xi-Sm1" firstAttribute="top" secondItem="eUV-pw-9i5" secondAttribute="bottom" constant="20" id="pSj-GE-K4H"/>
+                                                        <constraint firstAttribute="trailing" secondItem="sSn-gt-pzV" secondAttribute="trailing" constant="10" id="zD8-1y-Psn"/>
                                                     </constraints>
                                                     <userDefinedRuntimeAttributes>
                                                         <userDefinedRuntimeAttribute type="number" keyPath="radius">
@@ -1809,6 +1845,8 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
+                                    <outlet property="btnCopyActiveKey" destination="RCu-XK-osY" id="7vc-Mh-o60"/>
+                                    <outlet property="btnCopyOwnerKey" destination="sSn-gt-pzV" id="Hm4-kp-eCu"/>
                                     <outlet property="lbActiveKey" destination="5Ns-ye-DRX" id="1Oo-MS-W1x"/>
                                     <outlet property="lbName" destination="QzL-7f-fGo" id="al9-PE-Oat"/>
                                     <outlet property="lbNameTitle" destination="kLW-p8-Jgs" id="dRE-Qb-JaK"/>

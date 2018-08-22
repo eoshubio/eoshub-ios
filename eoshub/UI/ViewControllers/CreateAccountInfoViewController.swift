@@ -88,16 +88,34 @@ class CreateAccountInfoCell: UITableViewCell {
     @IBOutlet fileprivate weak var lbName: UILabel!
     @IBOutlet fileprivate weak var lbOwnerKey: UILabel!
     @IBOutlet fileprivate weak var lbActiveKey: UILabel!
+    @IBOutlet fileprivate weak var btnCopyOwnerKey: UIButton!
+    @IBOutlet fileprivate weak var btnCopyActiveKey: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+        bindActions()
     }
     
     private func setupUI() {
         lbTitle.text = LocalizedString.Create.Check.title
         lbtext.text = LocalizedString.Create.Check.text
         lbNameTitle.text = LocalizedString.Create.Check.name
+        btnCopyOwnerKey.setTitle(LocalizedString.Common.copy, for: .normal)
+        btnCopyActiveKey.setTitle(LocalizedString.Common.copy, for: .normal)
+    }
+    
+    private func bindActions() {
+        _ = btnCopyOwnerKey.rx.tap
+            .bind { [weak self] in
+                UIPasteboard.general.string = self?.lbOwnerKey.text
+            }
+        
+        _ = btnCopyActiveKey.rx.tap
+            .bind { [weak self] in
+                UIPasteboard.general.string = self?.lbActiveKey.text
+            }
+        
     }
     
     func configure(form: CreateAccountInfoForm) {
