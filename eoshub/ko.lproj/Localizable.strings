@@ -73,6 +73,7 @@
 "create.account.enter" = "사용할 계정을 입력해주세요.";
 "create.account.rules" = "[a~z], [1~5], 12 글자만 가능합니다.";
 "create.account.check" = "계정 중복 확인";
+"create.account.checked" = "사용가능한 계정 이름입니다";
 "create.account.check.failed" = "%@ 는 사용 할 수 없는 이름입니다.";
 "create.account.check.success" = "%@ 는 사용 가능합니다.";
 "create.account.keys" = "키 생성";

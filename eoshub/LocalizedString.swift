@@ -111,6 +111,7 @@ struct LocalizedString {
             static let enter = NSLocalizedString("create.account.enter", comment: "")
             static let rules = NSLocalizedString("create.account.rules", comment: "")
             static let check = NSLocalizedString("create.account.check", comment: "")
+            static let checked = NSLocalizedString("create.account.checked", comment: "")
             static let keys = NSLocalizedString("create.account.keys", comment: "")
             static let genTitle = NSLocalizedString("create.account.generate.title", comment: "")
             static let genText = NSLocalizedString("create.account.generate.text", comment: "")

@@ -90,7 +90,7 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
                 if let resultType = json.string(for: "resultType"), resultType == "SUCCESS" {
                     let ehaccount = EHAccount(userId: UserManager.shared.userId,
                                                 account: self.request.name,
-                                              publicKey: self.request.ownerKey,
+                                              publicKey: self.request.activeKey,
                                               owner: true)
                     
                     DB.shared.addAccount(account: ehaccount)

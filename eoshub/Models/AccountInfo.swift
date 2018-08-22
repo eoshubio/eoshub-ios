@@ -158,27 +158,33 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         _activekeys.append(objectsIn: akeys)
         
         
-        if storedKey.count > 0 {
-            
-            eosioAccount.permissions.forEach { (auth) in
-                //check owner
-                if let matchKey = auth.keys.filter({$0.key == storedKey}).first {
-                    pubKey = matchKey.key
-                    let repo = Security.shared.getKeyRepository(pub: pubKey)
-                    if repo != .none {
+        
+        var storedKeys: [String] = []
+        eosioAccount.permissions.forEach { (auth) in
+            //check owner
+            auth.keys.forEach({ (key) in
+                    
+                let repo = Security.shared.getKeyRepository(pub: key.key)
+                if repo != .none {
                         
-                        if repo == .secureEnclave {
-                            hasRepoSE = true
-                        } else if repo == .iCloudKeychain {
-                            hasRepoKeychain = true
-                        }
-                        
-                        permission = auth.permission.value
-                        ownerMode = true
+                    if repo == .secureEnclave {
+                        hasRepoSE = true
+                    } else if repo == .iCloudKeychain {
+                        hasRepoKeychain = true
                     }
+                    storedKeys.append(key.key)
+                    permission = auth.permission.value
+                    ownerMode = true
                 }
+            })
+                
+            if let matchKey = storedKeys.filter({$0 == storedKey}).first {
+                pubKey = matchKey
+            } else {
+                pubKey = storedKeys.first ?? ""
             }
         }
+        
         
         
     }

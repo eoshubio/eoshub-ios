@@ -76,6 +76,7 @@
 "create.account.enter" = "Enter account name to use";
 "create.account.rules" = "[a~z], [1~5], Only 12 characters are allowed.";
 "create.account.check" = "Account duplicate check";
+"create.account.checked" = "Account name is available";
 "create.account.check.failed" = "%@ is not available.";
 "create.account.check.success" = "%@ is available.";
 "create.account.keys" = "Generate keys";

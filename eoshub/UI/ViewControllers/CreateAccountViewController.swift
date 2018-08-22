@@ -147,8 +147,11 @@ class CreateAccountViewController: BaseTableViewController {
                 //skip
                 ownerKey = request.ownerKey
             } else {
-                let keypair = EosPrivateKey(eosPrivateKey: ()) //TODO: refectoring
-                ownerKey = keypair!.eosPublicKey
+                guard let key = Security.shared.generatePrivateKey(in: .iCloudKeychain) else {
+                    Popup.present(style: .failed, description: "generatePrivateKey")
+                    return
+                }
+                ownerKey = key
             }
         case .imported:
             ownerKey = requestForm.validatedOwnerKey.value
@@ -164,11 +167,10 @@ class CreateAccountViewController: BaseTableViewController {
                 //skip
                 activeKey = request.activeKey
             } else {
-                    guard let pubkeyFromSecureEnclave = Security.shared.generatePrivateKeyAndSaveLabel() else {
+                    guard let pubkeyFromSecureEnclave = Security.shared.generatePrivateKey(in: .secureEnclave) else {
                         Popup.present(style: .failed, description: "Cannot generate key from Secure enclave")
                         return
                 }
-                print(pubkeyFromSecureEnclave)
                 activeKey = pubkeyFromSecureEnclave
             }
             
@@ -298,6 +300,7 @@ class CreateAccountNameCell: UITableViewCell {
         txtAccountName.placeholder = LocalizedString.Create.Account.enter
         lbAccountRule.text = LocalizedString.Create.Account.rules
         btnDuplicateCheck.setTitle(LocalizedString.Create.Account.check, for: .normal)
+        btnDuplicateCheck.setTitle(LocalizedString.Create.Account.checked, for: .selected)
         
         lbAccountLength.textColor = Color.lightGray.uiColor
         
@@ -461,6 +464,7 @@ class CreateOwnerKeyCell: CreateActiveKeysCell {
         
         btnEnableInsertKey.rx.singleTap
             .bind {
+                form.validatedOwnerKey.value = ""
                 form.createOwnerKeyMode.value = .imported
             }
             .disposed(by: bag)
@@ -516,6 +520,7 @@ class InsertOwnerKeyCell: InsertActiveKeyCell {
             .disposed(by: bag)
         
         txtPubKey.text = form.validatedOwnerKey.value
+        
         txtPubKey.rx.text.orEmpty
             .bind { [weak self] (key) in
                 let validated = Validator.validatePubkey(pubKey: key)
@@ -612,6 +617,7 @@ class CreateActiveKeysCell: UITableViewCell {
 
         btnEnableInsertKey.rx.singleTap
             .bind {
+                form.validatedActiveKey.value = ""
                 form.createActiveKeyMode.value = .imported
             }
             .disposed(by: bag)

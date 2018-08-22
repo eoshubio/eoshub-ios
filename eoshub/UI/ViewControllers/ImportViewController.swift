@@ -121,7 +121,7 @@ class ImportViewController: TextInputViewController {
                         let account = EHAccount(userId: UserManager.shared.userId, account: accountName, publicKey: pubKey, owner: true)
                         
                         //2. save account with public Key
-                        _ = Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
+                        Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
                         
                         DB.shared.addOrUpdateObjects([account] as [EHAccount])
                         
@@ -150,7 +150,7 @@ class ImportViewController: TextInputViewController {
                 
                 let lockedAccount = EHAccount(userId: UserManager.shared.userId, publicKey: pubKey, owner: true)
                 
-                _ = Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
+                Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
                 
                  DB.shared.addOrUpdateObjects([lockedAccount] as [EHAccount])
                 

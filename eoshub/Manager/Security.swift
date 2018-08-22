@@ -91,10 +91,10 @@ class Security {
         }
     }
     
-    func setEncryptedKey(pub: String, pri: String) -> Observable<Bool> {
+    func setEncryptedKey(pub: String, pri: String) -> String? {
  
         guard let priData = pri.data(using: .utf8)
-            else { return Observable.error(EOSErrorType.invalidKeys) }
+            else { return nil }
         
         let enPri = RNCryptor.encrypt(data: priData, withPassword: seed)
         
@@ -107,7 +107,8 @@ class Security {
         
         KeychainSwift().set(enPri, forKey: key)
         
-        return Observable.just(true)
+        return pub
+        
     }
     
     func getEncryptedPrivateKey(pub: String) -> String? {
@@ -148,8 +149,27 @@ class Security {
     
     
     //MARK: Keys
-    func generatePrivateKeyAndSaveLabel() -> String? {
+    func generatePrivateKey(in repo: KeyRepository) -> String? {
+        switch repo {
+        case .iCloudKeychain:
+            return generatePrivateKeyInKeyChain()
+        case .secureEnclave:
+            return generatePrivateKeyInSecureEnclave()
+        default:
+            return nil
+        }
         
+    }
+    
+    private func generatePrivateKeyInKeyChain() -> String? {
+        let gen = EosPrivateKey(eosPrivateKey: ())!
+        let pubKey = gen.eosPublicKey!
+        let priKey = gen.eosPrivateKey!
+        
+        return setEncryptedKey(pub: pubKey, pri: priKey)
+    }
+    
+    private func generatePrivateKeyInSecureEnclave() -> String? {
         let label = "se." + prefix + "\(Date().timeIntervalSince1970)"
         
         guard let accessControl = SecureEnclaveManager.accessControl() else {
@@ -161,10 +181,8 @@ class Security {
             Log.e("cannot generate keypair")
             return nil
         }
-
-        _ = setEncryptedKey(pub: eosPubKey, pri: label)
         
-        return eosPubKey
+        return setEncryptedKey(pub: eosPubKey, pri: label)
     }
     
 }
