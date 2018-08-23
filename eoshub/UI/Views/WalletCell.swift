@@ -12,17 +12,17 @@ import RxSwift
 
 class WalletCell: UITableViewCell {
     @IBOutlet fileprivate weak var account: UILabel!
-    @IBOutlet fileprivate weak var lbAddTokens: UILabel!
+    @IBOutlet fileprivate weak var lbReceive: UILabel!
     @IBOutlet fileprivate weak var total: UILabel!
     @IBOutlet fileprivate weak var estimatedPrice: UILabel!
     @IBOutlet fileprivate weak var progress: MultiProgressBar!
     @IBOutlet fileprivate weak var availableEOS: UILabel!
-    @IBOutlet fileprivate weak var lbResources: UILabel!
+    @IBOutlet fileprivate weak var lbDetail: UILabel!
     @IBOutlet fileprivate weak var layoutContainerY: NSLayoutConstraint!
     @IBOutlet fileprivate weak var buttonContainer: UIView!
     @IBOutlet fileprivate weak var btnSend: UIButton!
     @IBOutlet fileprivate weak var btnReceive: UIButton!
-    @IBOutlet fileprivate weak var btnMenu: UIButton!
+    @IBOutlet fileprivate weak var btnAddTokens: UIButton!
     @IBOutlet fileprivate weak var bg: UIImageView!
     @IBOutlet fileprivate weak var icon0: UIButton!
     @IBOutlet fileprivate weak var icon1: UIButton!
@@ -45,11 +45,12 @@ class WalletCell: UITableViewCell {
     }
     
     private func setupUI() {
+        lbReceive.text = LocalizedString.Wallet.receive
         
-        lbAddTokens.text = LocalizedString.Wallet.Option.addToken
-        
+        lbDetail.text = LocalizedString.Wallet.details
+
         btnSend.setTitle(LocalizedString.Wallet.send, for: .normal)
-        btnReceive.setTitle(LocalizedString.Wallet.receive, for: .normal)
+        btnAddTokens.setTitle(LocalizedString.Wallet.Option.addToken, for: .normal)
         
         let eosStates: [EOSState] = [.available, .staked, .refunding]
         
@@ -69,7 +70,7 @@ class WalletCell: UITableViewCell {
         
         availableEOS.text =  "(\(viewModel.availableEOS.dot4String) EOS" + LocalizedString.Wallet.available + ")"
         
-        lbResources.text = LocalizedString.Wallet.resources
+       
         let marginBottom: CGFloat = 35
         if viewModel.ownerMode == false {
             buttonContainer.isHidden = true
@@ -98,7 +99,7 @@ class WalletCell: UITableViewCell {
             }
             .disposed(by: bag)
         
-        btnMenu.rx.singleTap
+        btnAddTokens.rx.singleTap
             .bind {
                 menuObserver.onNext(viewModel)
             }

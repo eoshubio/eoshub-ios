@@ -158,7 +158,7 @@ struct LocalizedString {
         static let pubKey = NSLocalizedString("wallet.pubKey", comment: "")
         
         static let resources = NSLocalizedString("wallet.resources", comment: "")
-        
+        static let details = NSLocalizedString("wallet.viewDetails", comment: "")
         static let notice = NSLocalizedString("wallet.notice", comment: "")
         
         struct Import {
