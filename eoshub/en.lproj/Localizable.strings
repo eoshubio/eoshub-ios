@@ -115,7 +115,7 @@
 "wallet.pubKey" = "Public Key";
 "wallet.priKey" = "Private key";
 "wallet.resources" = "Resources";
-"wallet.viewDetails" = "Account management";
+"wallet.viewDetails" = "See more";
 
 "wallet.import.title" = "Import EOS Account";
 "wallet.import.account" = "EOS Account name";

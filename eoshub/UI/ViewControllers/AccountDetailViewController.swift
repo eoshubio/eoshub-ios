@@ -118,7 +118,7 @@ extension AccountDetailViewController {
             return cell
         case .tx:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleCell else { preconditionFailure() }
-            cell.configure(title: LocalizedString.Tx.title, color: .lightPurple)
+            cell.configure(title: LocalizedString.Wallet.Transfer.history, color: .lightPurple)
             return cell
         case .delete:
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleCell else { preconditionFailure() }
