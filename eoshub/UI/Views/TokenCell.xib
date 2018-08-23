@@ -11,10 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TokenCell" rowHeight="70" id="gLa-JW-GuJ" customClass="TokenCell" customModule="eoshub" customModuleProvider="target">
+        <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TokenCell" rowHeight="70" id="gLa-JW-GuJ" customClass="TokenCell" customModule="eoshub" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gLa-JW-GuJ" id="4pY-Pr-uWP">
+            <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gLa-JW-GuJ" id="4pY-Pr-uWP">
                 <rect key="frame" x="0.0" y="0.0" width="375" height="69.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
@@ -63,7 +63,7 @@
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
                             <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                <real key="value" value="10"/>
+                                <real key="value" value="5"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
@@ -72,7 +72,7 @@
                 <constraints>
                     <constraint firstItem="k50-6H-zGX" firstAttribute="top" secondItem="4pY-Pr-uWP" secondAttribute="top" constant="10" id="TbY-Nd-LZQ"/>
                     <constraint firstItem="k50-6H-zGX" firstAttribute="leading" secondItem="4pY-Pr-uWP" secondAttribute="leading" constant="15" id="x3N-KQ-UHA"/>
-                    <constraint firstAttribute="bottom" secondItem="k50-6H-zGX" secondAttribute="bottom" priority="750" constant="10" id="zku-9g-0Kp"/>
+                    <constraint firstAttribute="bottom" secondItem="k50-6H-zGX" secondAttribute="bottom" priority="750" constant="5" id="zku-9g-0Kp"/>
                     <constraint firstAttribute="trailing" secondItem="k50-6H-zGX" secondAttribute="trailing" constant="15" id="zzx-kI-r8l"/>
                 </constraints>
             </tableViewCellContentView>
