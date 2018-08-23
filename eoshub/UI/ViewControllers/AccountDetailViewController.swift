@@ -186,6 +186,10 @@ class AccountCell: UITableViewCell {
         lbAvailable.text = LocalizedString.Wallet.available
         lbStake.text = LocalizedString.Wallet.staked
         lbRefunding.text = LocalizedString.Wallet.refunding
+        remainTimeView.layer.cornerRadius = remainTimeView.bounds.height * 0.5
+        remainTimeView.layer.masksToBounds = true
+        remainTimeView.layer.borderWidth = 1.0
+        remainTimeView.layer.borderColor = Color.red.uiColor.cgColor
     }
     
     func configure(viewModel: AccountInfo) {
