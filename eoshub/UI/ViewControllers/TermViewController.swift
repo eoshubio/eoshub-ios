@@ -55,7 +55,7 @@ class TermViewController: BaseViewController {
     
     private func signin() {
         guard let nc = navigationController else { return }
-        flowDelegate?.goToMain(from: nc)
+        flowDelegate?.goToNext(from: nc)
     }
     
     

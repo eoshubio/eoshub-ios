@@ -15,20 +15,20 @@ class VerifyFlowController: FlowController, VerifyFlowEventDelegate {
     
     var id: FlowIdentifier { return .signinEmail }
     
-    fileprivate var email: String!
+    fileprivate var viewModel: VerifyViewController.ViewModel!
     
     required init(configure: FlowConfigure) {
         self.configure = configure
     }
     
-    func configure(email: String) {
-        self.email = email
+    func configure(viewModel: VerifyViewController.ViewModel) {
+        self.viewModel = viewModel
     }
     
     func show(animated: Bool) {
         guard let vc = UIStoryboard(name: "Intro", bundle: nil).instantiateViewController(withIdentifier: "VerifyViewController") as? VerifyViewController else { preconditionFailure() }
         vc.flowDelegate = self
-        vc.configure(email: email)
+        vc.configure(viewModel: viewModel)
         show(viewController: vc, animated: animated) {
             
         }

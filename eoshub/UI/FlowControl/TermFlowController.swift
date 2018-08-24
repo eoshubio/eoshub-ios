@@ -14,8 +14,14 @@ class TermFlowController: FlowController, TermFlowEventDelegate {
     
     var id: FlowIdentifier { return .term }
     
+    var verifyViewModel: VerifyViewController.ViewModel?
+    
     required init(configure: FlowConfigure) {
         self.configure = configure
+    }
+    
+    func configure(verifyViewModel: VerifyViewController.ViewModel) {
+        self.verifyViewModel = verifyViewModel
     }
     
     func show(animated: Bool) {
@@ -27,15 +33,25 @@ class TermFlowController: FlowController, TermFlowEventDelegate {
     }
     
     //MARK: TermFlowEventDelegate
-    func goToMain(from nc: UINavigationController) {
-        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
-        let fc = WalletFlowController(configure: config)
-        fc.start(animated: true)
+    func goToNext(from nc: UINavigationController) {
+        if let parent = configure.parent?.id, parent == .signinEmail {
+            let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+            let fc = VerifyFlowController(configure: config)
+            if let viewModel = verifyViewModel {
+                fc.configure(viewModel: viewModel)
+            }
+            fc.start(animated: true)
+            
+        } else {
+            let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+            let fc = WalletFlowController(configure: config)
+            fc.start(animated: true)
+        }
     }
 }
 
 protocol TermFlowEventDelegate: FlowEventDelegate {
-    func goToMain(from nc: UINavigationController)
+    func goToNext(from nc: UINavigationController)
 }
 
 

@@ -114,6 +114,7 @@ class SigninViewController: TextInputViewController {
         guard let email = txtEmail.text?.trimmingCharacters(in: .whitespaces), let password = txtPasswd.text else { return }
         WaitingView.shared.start()
         Auth.auth().signIn(withEmail: email, password: password) { [weak self](user, error) in
+            WaitingView.shared.stop()
             if let error = error {
                 if let authErrorType = AuthError.getError(error: error)?.type, authErrorType == AuthErrorType.ERROR_USER_NOT_FOUND {
                     //create
@@ -135,9 +136,9 @@ class SigninViewController: TextInputViewController {
     
     
     private func createUserWithEmail(email: String, password: String) {
-        
+        WaitingView.shared.start()
         Auth.auth().createUser(withEmail: email, password: password) { [weak self](user, error) in
-            
+            WaitingView.shared.stop()
             if let error = error {
                 Log.e(error)
                 self?.failToLogin(error: error)
@@ -146,7 +147,10 @@ class SigninViewController: TextInputViewController {
                 if user.user.isEmailVerified {
                     self?.loggedIn(user: user)
                 } else {
-                    self?.verifyEmail(user: user.user, email: email)
+                    //Go to term
+                    guard let nc = self?.navigationController else { return }
+                    self?.flowDelegate?.goToTerm(from: nc, viewModel: VerifyViewController.ViewModel(user: user.user, email: email))
+//                    self?.verifyEmail(user: user.user, email: email)
                 }
             }
         }
@@ -154,26 +158,29 @@ class SigninViewController: TextInputViewController {
     
     private func verifyEmail(user: User, email: String) {
         
-        let actionCodeSettings =  ActionCodeSettings()
+        guard let nc = navigationController else { return }
+        flowDelegate?.goToVerifyEmail(from: nc, viewModel: VerifyViewController.ViewModel(user: user, email: email))
         
-        user.sendEmailVerification(with: actionCodeSettings) { [weak self] (error) in
-            
-            if let error = error {
-                self?.failToLogin(error: error)
-            } else {
-                
-                let text = String(format: LocalizedString.Login.Email.verify, email)
-                let description = NSMutableAttributedString(string: text)
-                if let emailRange = text.range(of: email) {
-                    description.addAttribute(.foregroundColor, value: Color.lightPurple.uiColor, range: emailRange.nsRange)
-                }
-                
-                Popup.present(style: .success, description: description)
-                guard let nc = self?.navigationController else { return }
-                self?.flowDelegate?.goToVerifyEmail(from: nc, email: email)
-                WaitingView.shared.stop()
-            }
-        }
+//        let actionCodeSettings =  ActionCodeSettings()
+//
+//        user.sendEmailVerification(with: actionCodeSettings) { [weak self] (error) in
+//
+//            if let error = error {
+//                self?.failToLogin(error: error)
+//            } else {
+//
+//                let text = String(format: LocalizedString.Login.Email.verify, email)
+//                let description = NSMutableAttributedString(string: text)
+//                if let emailRange = text.range(of: email) {
+//                    description.addAttribute(.foregroundColor, value: Color.lightPurple.uiColor, range: emailRange.nsRange)
+//                }
+//
+//                Popup.present(style: .success, description: description)
+//                guard let nc = self?.navigationController else { return }
+//                self?.flowDelegate?.goToVerifyEmail(from: nc, email: email)
+//                WaitingView.shared.stop()
+//            }
+//        }
         
     }
     
@@ -182,14 +189,8 @@ class SigninViewController: TextInputViewController {
         
         guard let nc = self.navigationController else { return }
         
-        if user.additionalUserInfo?.isNewUser == true {
-            //sign-up
-            flowDelegate?.goToTerm(from: nc)
-        } else {
-            //log-in
-            flowDelegate?.goToMain(from: nc)
-        }
-        
+        //log-in
+        flowDelegate?.goToMain(from: nc)
     }
     
     private func failToLogin(error: Error?) {

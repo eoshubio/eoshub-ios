@@ -52,7 +52,12 @@ class MainFlowController: FlowController {
     
     
     private func checkValidLoginToken() -> Bool {
-        return Auth.auth().currentUser != nil
+        guard let user = Auth.auth().currentUser else { return false }
+        if  user.loginType == .email {
+            return user.isEmailVerified
+        } else {
+            return true
+        }
     }
     
 }

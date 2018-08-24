@@ -27,9 +27,10 @@ class SigninEmailFlowController: FlowController, SigninEmailFlowEventDelegate {
         }
     }
     
-    func goToTerm(from nc: UINavigationController) {
+    func goToTerm(from nc: UINavigationController, viewModel: VerifyViewController.ViewModel) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = TermFlowController(configure: config)
+        fc.configure(verifyViewModel: viewModel)
         fc.start(animated: true)
     }
     
@@ -39,10 +40,10 @@ class SigninEmailFlowController: FlowController, SigninEmailFlowEventDelegate {
         fc.start(animated: true)
     }
     
-    func goToVerifyEmail(from nc: UINavigationController, email: String) {
+    func goToVerifyEmail(from nc: UINavigationController, viewModel: VerifyViewController.ViewModel){
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = VerifyFlowController(configure: config)
-        fc.configure(email: email)
+        fc.configure(viewModel: viewModel)
         fc.start(animated: true)
     }
     
@@ -54,9 +55,9 @@ class SigninEmailFlowController: FlowController, SigninEmailFlowEventDelegate {
 }
 
 protocol SigninEmailFlowEventDelegate: FlowEventDelegate {
-    func goToTerm(from nc: UINavigationController)
+    func goToTerm(from nc: UINavigationController, viewModel: VerifyViewController.ViewModel)
     func goToMain(from nc: UINavigationController)
-    func goToVerifyEmail(from nc: UINavigationController, email: String)
+    func goToVerifyEmail(from nc: UINavigationController, viewModel: VerifyViewController.ViewModel)
     func goToForgotPW(from nc: UINavigationController)
 }
 
