@@ -11,7 +11,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class SendCurrencyViewController: TextInputViewController {
+class SendCurrencyViewController: TextInputViewController, NavigationPopDelegate {
     
     var flowDelegate: SendFlowEventDelegate?
     
@@ -32,6 +32,10 @@ class SendCurrencyViewController: TextInputViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setNavigationBarAtributes()
+    }
+    
+    func setNavigationBarAtributes() {
         title = LocalizedString.Wallet.send
         showNavigationBar(with: .white)
     }

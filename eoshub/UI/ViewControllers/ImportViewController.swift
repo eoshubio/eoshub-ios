@@ -27,7 +27,7 @@ class ImportViewController: TextInputViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showNavigationBar(with: .darkGray)
+        showNavigationBar(with: .basePurple)
     }
     
     override func viewDidLoad() {
