@@ -71,12 +71,16 @@ class Wallet {
     }
     
     private func sign(txn: SignedTransaction, cid: String, priKey: String) {
-        let packedBytes = txn.digest(cid: cid, capacity: 255)
+        let packedBytes = txn.digest(cid: cid)
         
-        guard let digest = Sha256(data: Data(bytes: packedBytes))!.mHashBytesData else {
-            Log.e("fail to create digest")
-            return
-        }
+//        guard let digest = Sha256(data: Data(bytes: packedBytes))!.mHashBytesData else {
+//            Log.e("fail to create digest")
+//            return
+//        }
+        
+        let packedData = Data(bytes: packedBytes)
+        
+        let digest = Sha256.digest(data: packedData)
         
         if Validator.validatePrivateKeyR1(label: priKey) {
             //SE

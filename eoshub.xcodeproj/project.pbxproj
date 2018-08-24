@@ -44,8 +44,6 @@
 		2C279BB420F8C42700D2F6C4 /* Crypto.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BAA20F8C42600D2F6C4 /* Crypto.m */; };
 		2C279BB520F8C42700D2F6C4 /* EOS_Key_Encode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BAC20F8C42600D2F6C4 /* EOS_Key_Encode.m */; };
 		2C279BB620F8C42700D2F6C4 /* EosPrivateKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BB020F8C42600D2F6C4 /* EosPrivateKey.m */; };
-		2C279BB720F8C42700D2F6C4 /* Sha256.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BB120F8C42700D2F6C4 /* Sha256.m */; };
-		2C279BB820F8C42700D2F6C4 /* Sha.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BB220F8C42700D2F6C4 /* Sha.m */; };
 		2C279BC020F8C58100D2F6C4 /* EOSErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BBA20F8C58000D2F6C4 /* EOSErrorType.swift */; };
 		2C279BC120F8C58100D2F6C4 /* EOSIOConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BBB20F8C58000D2F6C4 /* EOSIOConfig.swift */; };
 		2C279BC220F8C58100D2F6C4 /* RxEOSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BBC20F8C58100D2F6C4 /* RxEOSAPI.swift */; };
@@ -143,6 +141,7 @@
 		2C770CA520FB9B97007F71C4 /* BuyRamFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA420FB9B97007F71C4 /* BuyRamFlowController.swift */; };
 		2C770CA720FBA051007F71C4 /* SellRamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA620FBA051007F71C4 /* SellRamViewController.swift */; };
 		2C770CA920FBA2A9007F71C4 /* SellRamFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA820FBA2A9007F71C4 /* SellRamFlowController.swift */; };
+		2C821200212FE5B1009A11D5 /* Sha256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8211FF212FE5B1009A11D5 /* Sha256.swift */; };
 		2C82F30A212306B00021E172 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C82F309212306B00021E172 /* BaseNavigationController.swift */; };
 		2C82F30C2123107E0021E172 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C82F30B2123107E0021E172 /* UIImage+extension.swift */; };
 		2C99E498211D98AF00DB55A6 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E497211D98AF00DB55A6 /* CreateAccountViewController.swift */; };
@@ -309,12 +308,8 @@
 		2C279BAA20F8C42600D2F6C4 /* Crypto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Crypto.m; sourceTree = "<group>"; };
 		2C279BAB20F8C42600D2F6C4 /* EOS_Key_Encode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EOS_Key_Encode.h; sourceTree = "<group>"; };
 		2C279BAC20F8C42600D2F6C4 /* EOS_Key_Encode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EOS_Key_Encode.m; sourceTree = "<group>"; };
-		2C279BAD20F8C42600D2F6C4 /* Sha.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sha.h; sourceTree = "<group>"; };
 		2C279BAE20F8C42600D2F6C4 /* EosPrivateKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EosPrivateKey.h; sourceTree = "<group>"; };
-		2C279BAF20F8C42600D2F6C4 /* Sha256.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sha256.h; sourceTree = "<group>"; };
 		2C279BB020F8C42600D2F6C4 /* EosPrivateKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EosPrivateKey.m; sourceTree = "<group>"; };
-		2C279BB120F8C42700D2F6C4 /* Sha256.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sha256.m; sourceTree = "<group>"; };
-		2C279BB220F8C42700D2F6C4 /* Sha.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sha.m; sourceTree = "<group>"; };
 		2C279BB320F8C42700D2F6C4 /* Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crypto.h; sourceTree = "<group>"; };
 		2C279BBA20F8C58000D2F6C4 /* EOSErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EOSErrorType.swift; sourceTree = "<group>"; };
 		2C279BBB20F8C58000D2F6C4 /* EOSIOConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EOSIOConfig.swift; sourceTree = "<group>"; };
@@ -416,6 +411,7 @@
 		2C770CA420FB9B97007F71C4 /* BuyRamFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyRamFlowController.swift; sourceTree = "<group>"; };
 		2C770CA620FBA051007F71C4 /* SellRamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellRamViewController.swift; sourceTree = "<group>"; };
 		2C770CA820FBA2A9007F71C4 /* SellRamFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellRamFlowController.swift; sourceTree = "<group>"; };
+		2C8211FF212FE5B1009A11D5 /* Sha256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sha256.swift; sourceTree = "<group>"; };
 		2C82F309212306B00021E172 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		2C82F30B2123107E0021E172 /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
 		2C99E497211D98AF00DB55A6 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -583,6 +579,7 @@
 				2C279BAA20F8C42600D2F6C4 /* Crypto.m */,
 				2C3E72B42123C2CB00D114B2 /* SecureEnclaveManager.swift */,
 				2C279BF520F9C66500D2F6C4 /* Wallet.swift */,
+				2C8211FF212FE5B1009A11D5 /* Sha256.swift */,
 			);
 			path = Sig;
 			sourceTree = "<group>";
@@ -635,10 +632,6 @@
 				2C279BAC20F8C42600D2F6C4 /* EOS_Key_Encode.m */,
 				2C279BAE20F8C42600D2F6C4 /* EosPrivateKey.h */,
 				2C279BB020F8C42600D2F6C4 /* EosPrivateKey.m */,
-				2C279BAD20F8C42600D2F6C4 /* Sha.h */,
-				2C279BB220F8C42700D2F6C4 /* Sha.m */,
-				2C279BAF20F8C42600D2F6C4 /* Sha256.h */,
-				2C279BB120F8C42700D2F6C4 /* Sha256.m */,
 			);
 			path = 3rdparty;
 			sourceTree = "<group>";
@@ -1436,7 +1429,6 @@
 				2CE110EA20F1C9B300B93BEB /* Observable+extension.swift in Sources */,
 				2C02AE6821108FED00C6ECF3 /* RoundedShadowView.swift in Sources */,
 				2C279BA520F8C3CB00D2F6C4 /* rmd160.c in Sources */,
-				2C279BB720F8C42700D2F6C4 /* Sha256.m in Sources */,
 				2C770C9520FB436F007F71C4 /* RefundInfo.swift in Sources */,
 				2CE110FE20F1ED6500B93BEB /* LoginButton.swift in Sources */,
 				2C279BD720F8C5A300D2F6C4 /* Key.swift in Sources */,
@@ -1478,7 +1470,6 @@
 				2CE110D520F1C4E700B93BEB /* FlowConfigure.swift in Sources */,
 				2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */,
 				2C279C0320FA0E3000D2F6C4 /* RealmString.swift in Sources */,
-				2C279BB820F8C42700D2F6C4 /* Sha.m in Sources */,
 				2C2ACFE720F47CA200C637D8 /* CreatePinFlowController.swift in Sources */,
 				2CE1113820F26DF000B93BEB /* RoundedView.swift in Sources */,
 				2CE1112E20F2680100B93BEB /* VoteFlowController.swift in Sources */,
@@ -1499,6 +1490,7 @@
 				2C279B9020F8C30700D2F6C4 /* Authorization.swift in Sources */,
 				2C279BF420F8F86500D2F6C4 /* DebugLog.swift in Sources */,
 				2C279BA420F8C3CB00D2F6C4 /* sha3.c in Sources */,
+				2C821200212FE5B1009A11D5 /* Sha256.swift in Sources */,
 				2C2ACFF720F49F5100C637D8 /* FaceIdInputView.swift in Sources */,
 				2C279BD320F8C5A300D2F6C4 /* Contract.swift in Sources */,
 				2CB6B7EF210483560048601A /* TransactionForm.swift in Sources */,

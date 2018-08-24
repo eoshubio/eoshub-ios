@@ -85,22 +85,6 @@ class SecureEnclaveManager {
         return raw
     }
     
-    //TODO: delete it, for test only code
-    private class func getPublicKey(label publicLabel: String) -> SecKey? {
-        
-        let query: [String: Any] = [
-            kSecClass as String: kSecClassKey,
-            kSecAttrKeyType as String: kSecAttrKeyTypeECSECPrimeRandom,
-            kSecAttrKeyClass as String: kSecAttrKeyClassPublic,
-            kSecAttrApplicationTag as String: publicLabel,
-            kSecReturnRef as String: true,
-            kSecUseOperationPrompt as String: "Authenticate to sign transaction",
-            ]
-        
-        let raw = getSecKeyWithQuery(query)
-        return raw
-    }
-    
     private class func getSecKeyWithQuery(_ query: [String: Any]) -> SecKey? {
         
         var result: CFTypeRef?

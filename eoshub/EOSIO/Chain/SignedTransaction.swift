@@ -28,8 +28,8 @@ class SignedTransaction: Transaction {
         signatures = json.arrayString(for: "signatures") ?? []
     }
     
-    func digest(cid: String? = nil, capacity: Int = 512) -> [UInt8] {
-        let pack = Pack(with: capacity)
+    func digest(cid: String? = nil) -> [UInt8] {
+        let pack = Pack()
         if let cid = cid {
             pack.put(bytes: cid.hexToBytes)
         }

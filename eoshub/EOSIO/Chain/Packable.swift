@@ -16,7 +16,7 @@ protocol Packable {
 }
 
 class Pack {
-    var data: [UInt8]
+    var data: [UInt8] = []
     
     var packedBytes: [UInt8] {
         return Array(data[0..<idx])
@@ -28,29 +28,15 @@ class Pack {
         data = []
     }
     
-    init(with capacity: Int) {
-        data = [UInt8](repeating: 0, count: capacity)
-    }
-    
     func put(_ byte: UInt8) {
-        if data.count - idx < 1 {
-            //append
-            data.append(byte)
-        } else {
-            //replace
-            data[idx] = byte
-        }
+        //append
+        data.append(byte)
         idx += 1
     }
     
     func put(bytes: [UInt8]) {
-        if data.count - idx < bytes.count {
-            //append
-            data += bytes
-        } else {
-            let range = Range<Int>(NSMakeRange(idx, bytes.count))!
-            data.replaceSubrange(range, with: bytes)
-        }
+        //append
+        data += bytes
         idx += bytes.count
     }
     
