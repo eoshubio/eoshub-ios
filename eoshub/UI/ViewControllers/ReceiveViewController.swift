@@ -84,6 +84,7 @@ class ReceiveViewController: BaseViewController {
             .bind { [weak self] in
                 guard let text = self?.account.account else { return }
                 UIPasteboard.general.string = text
+                Popup.present(style: .success, description: LocalizedString.Common.copied)
             }
             .disposed(by: bag)
         
@@ -91,6 +92,7 @@ class ReceiveViewController: BaseViewController {
             .bind { [weak self] in
                 guard let text = self?.account.pubKey else { return }
                 UIPasteboard.general.string = text
+                Popup.present(style: .success, description: LocalizedString.Common.copied)
             }
             .disposed(by: bag)
         

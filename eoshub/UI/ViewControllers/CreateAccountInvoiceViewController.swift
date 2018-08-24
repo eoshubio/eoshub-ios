@@ -256,12 +256,14 @@ class CreateAccountInvoiceCell: UITableViewCell {
             .bind { [weak self] in
                 guard let account = self?.lbName.text else { return }
                 UIPasteboard.general.string = account
+                Popup.present(style: .success, description: LocalizedString.Common.copied)
             }
         
         _ = btnCopyMemo.rx.tap
             .bind { [weak self] in
                 guard let memo = self?.lbMemo.text else { return }
                 UIPasteboard.general.string = memo
+                Popup.present(style: .success, description: LocalizedString.Common.copied)
         }
     }
     

@@ -109,11 +109,13 @@ class CreateAccountInfoCell: UITableViewCell {
         _ = btnCopyOwnerKey.rx.tap
             .bind { [weak self] in
                 UIPasteboard.general.string = self?.lbOwnerKey.text
+                Popup.present(style: .success, description: LocalizedString.Common.copied)
             }
         
         _ = btnCopyActiveKey.rx.tap
             .bind { [weak self] in
                 UIPasteboard.general.string = self?.lbActiveKey.text
+                Popup.present(style: .success, description: LocalizedString.Common.copied)
             }
         
     }
