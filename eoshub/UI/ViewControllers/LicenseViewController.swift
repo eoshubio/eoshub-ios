@@ -43,7 +43,7 @@ class LicenseViewController: FormViewController {
     }
     
     private func loadData() {
-        licenses = [.Alamofire, .Chainkit, .Eureka, .KeychainSwift, .QRCode, .Realm, .RNCryptor, .RxSwift]
+        licenses = [.Alamofire, .Chainkit, .Eureka, .KeychainSwift, .QRCode, .Realm, .RNCryptor, .RxSwift, .Firebase, .SDWebImage]
         if let jsonURL = Bundle.main.url(forResource: "LicenseDescriptions", withExtension: "json"),
             let jsonData = try? Data(contentsOf: jsonURL),
             let json = try? JSONSerialization.jsonObject(with: jsonData, options: .mutableContainers) as? JSON,
@@ -182,6 +182,22 @@ extension License {
         
         return License(title: "RNCryptor", link: link, description: description)
     }
+    
+    static var SDWebImage: License {
+        let link = "https://github.com/rs/SDWebImage"
+        let description = "Copyright (c) 2009-2017 Olivier Poitrey rs@dailymotion.com\nMIT License (MIT)"
+        
+        return License(title: "SDWebImage", link: link, description: description)
+    }
+    
+    static var Firebase: License {
+        let link = "https://github.com/firebase/firebase-ios-sdk"
+        let description = "Apache License 2.0"
+        
+        return License(title: "Firebase", link: link, description: description)
+    }
+    
+  
 }
 
 
