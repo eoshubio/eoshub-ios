@@ -91,7 +91,11 @@ class PreferAccountViewController: TextInputViewController {
                     })
             })
             .subscribe(onError: { (error) in
-                Popup.present(style: .failed, description: "\(error)")
+                if let error = error as? EOSResponseError {
+                    error.showErrorPopup()
+                } else {
+                    Popup.present(style: .failed, description: "\(error)")
+                }
             }, onCompleted: { [weak self] in
                 guard let nc = self?.navigationController else { return }
                 

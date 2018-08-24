@@ -121,7 +121,7 @@ class ImportViewController: TextInputViewController {
                         let account = EHAccount(userId: UserManager.shared.userId, account: accountName, publicKey: pubKey, owner: true)
                         
                         //2. save account with public Key
-                        Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
+                        _ = Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
                         
                         DB.shared.addOrUpdateObjects([account] as [EHAccount])
                         
@@ -139,8 +139,11 @@ class ImportViewController: TextInputViewController {
                         self?.flowDelegate?.returnToMain(from: nc)
                         
                         }, onError: { [weak self] (error) in
-                            print(error)
-                            Popup.present(style: Popup.Style.failed, description: "\(error)")
+                            if let error = error as? EOSResponseError {
+                                error.showErrorPopup()
+                            } else {
+                                Popup.present(style: .failed, description: "\(error)")
+                            }
                             self?.view.endEditing(true)
                     }) {
                         WaitingView.shared.stop()
@@ -150,7 +153,7 @@ class ImportViewController: TextInputViewController {
                 
                 let lockedAccount = EHAccount(userId: UserManager.shared.userId, publicKey: pubKey, owner: true)
                 
-                Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
+                _ = Security.shared.setEncryptedKey(pub: pubKey, pri: priKey)
                 
                  DB.shared.addOrUpdateObjects([lockedAccount] as [EHAccount])
                 

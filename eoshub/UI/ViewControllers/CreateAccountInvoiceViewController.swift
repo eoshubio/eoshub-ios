@@ -116,7 +116,11 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
                 
                 
             }, onError: { (error) in
-                Popup.present(style: .failed, description: "\(error)")
+                if let error = error as? EOSResponseError {
+                    error.showErrorPopup()
+                } else if case EOSHubError.txNotFound = error {
+                    Popup.present(style: .failed, description: error.localizedDescription)
+                }
             }) {
                 WaitingView.shared.stop()
         }
@@ -136,7 +140,7 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
         if let tx = txs.filter({checkHasRequestedTx(tx: $0, invoice: invoice)}).first {
             return Observable.just(tx)
         } else {
-            return Observable.error(EOSErrorType.txNotFound)
+            return Observable.error(EOSHubError.txNotFound)
         }
     }
     

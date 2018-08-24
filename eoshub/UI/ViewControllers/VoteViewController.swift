@@ -228,7 +228,11 @@ class VoteViewController: BaseViewController {
                     Popup.present(style: .success, description: "\(bps)")
                 }, onError: { [weak self] (error) in
                     self?.restoreSelection()
-                    Popup.present(style: .failed, description: error.localizedDescription)
+                    
+                    if let error = error as? EOSResponseError {
+                        error.showErrorPopup()
+                    }
+                    
                 }, onCompleted: {
                     Log.d("completed")
                     AccountManager.shared.doLoadAccount()

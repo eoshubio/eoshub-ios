@@ -109,8 +109,8 @@ class BuyRamViewController: BaseViewController {
             .subscribe(onNext: { (_) in
                 self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
             }, onError: { (error) in
-                Log.e(error)
-                Popup.present(style: .failed, description: "\(error)")
+                guard let error = error as? EOSResponseError else { return }
+                error.showErrorPopup()
             }) {
                 WaitingView.shared.stop()
             }

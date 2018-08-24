@@ -199,7 +199,8 @@ class CreateAccountViewController: BaseTableViewController {
                 Popup.present(style: .failed, description: text)
                 
             }, onError: { [weak self](error) in
-                if case EOSResponseError.unknownKey = error {
+                guard let error = error as? EOSResponseError else { return }
+                if error.isUnkonwKey {
                     self?.requestForm.validatedAccount.value = name
                     let text = String(format: LocalizedString.Create.Check.success, name)
                     Popup.present(style: .success, description: text)
@@ -212,7 +213,13 @@ class CreateAccountViewController: BaseTableViewController {
                 } else {
                     //exception
                     self?.requestForm.validatedAccount.value = ""
-                    Popup.present(style: .failed, description: error.localizedDescription)
+                    error.showErrorPopup()
+                    //Add create key cell
+                    let prvItemCount = self?.items.count ?? 0
+                    if prvItemCount == 2 {
+                        self?.items = [.accountName, .ownerKey, .activeKey, .next]
+                        self?.tableView.insertRows(at: [IndexPath(row: 1, section: 0), IndexPath(row: 2, section: 0)], with: .fade)
+                    }
                 }
             }) {
                 WaitingView.shared.stop()

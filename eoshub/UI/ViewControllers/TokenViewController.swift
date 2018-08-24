@@ -89,9 +89,11 @@ class TokenViewController: BaseTableViewController {
                 }
                 
             }, onError: { (error) in
-                let text = "\(error)"
-                Popup.present(style: .failed, description: text)
-                Log.e(error)
+                if let error = error as? EOSResponseError {
+                    error.showErrorPopup()
+                } else {
+                    Popup.present(style: .failed, description: "\(error)")
+                }
             }) {
                 WaitingView.shared.stop()
             }

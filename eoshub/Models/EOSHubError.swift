@@ -10,7 +10,16 @@ import Foundation
 
 enum EOSHubError: Error {
     case userCancelled
+    case txNotFound
     
+    var localizedDescription: String {
+        switch self {
+        case .userCancelled:
+            return "Canceled."
+        case .txNotFound:
+            return "Transaction not found. It can take up to 15 minutes for transactions to be reflected in the block chain."
+        }
+    }
 }
 
 enum WalletError: Error {
