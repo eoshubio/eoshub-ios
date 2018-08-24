@@ -22,6 +22,13 @@ class MainFlowController: FlowController {
     func show(animated: Bool) {
         //TODO: Load App configs
         TokenManager.shared.load()
+        
+        if isJailBroken() {
+            
+            Popup.present(style: .failed, description: "Jailbroken device is not supported.")
+            
+            return
+        }
       
         let nc = BaseNavigationController()
         
@@ -58,6 +65,19 @@ class MainFlowController: FlowController {
         } else {
             return true
         }
+    }
+    
+    private func isJailBroken() -> Bool {
+        var jailBroken = false
+        let cydiaPath = "/Applications/Cydia.app"
+        let aptPath = "/private/var/lib/apt/"
+        if FileManager.default.fileExists(atPath: cydiaPath) {
+            jailBroken = true
+        }
+        if FileManager.default.fileExists(atPath: aptPath) {
+            jailBroken = true
+        }
+        return jailBroken
     }
     
 }
