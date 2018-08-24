@@ -11,9 +11,7 @@ import UIKit
 import RxSwift
 import RealmSwift
 
-class TxViewController: BaseViewController {
-    
-    @IBOutlet fileprivate weak var tableView: UITableView!
+class TxViewController: BaseTableViewController {
     
     fileprivate lazy var items: Results<Tx> = {
         var result = TxManager.shared.getTx(for: account)
@@ -74,13 +72,13 @@ class TxViewController: BaseViewController {
     
 }
 
-extension TxViewController: UITableViewDataSource, UITableViewDelegate {
+extension TxViewController {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "TxCell", for: indexPath) as? TxCell else { preconditionFailure() }
         let item = items[indexPath.row]
         cell.selectionStyle = .none
