@@ -12,6 +12,8 @@ import RxSwift
 
 class CreateAccountInvoiceViewController: BaseTableViewController {
     
+    var flowDelegate: FlowEventDelegate?
+    
     fileprivate let invoiceForm = InvoiceForm()
     
     private var invoice: Invoice? = nil
@@ -82,6 +84,7 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
     }
     
     private func findRequestInTxs() {
+        
         WaitingView.shared.start()
         getTx()
             .flatMap(createAccount)
@@ -96,7 +99,17 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
                     DB.shared.addAccount(account: ehaccount)
                     
                     AccountManager.shared.doLoadAccount()
+                    
                     Popup.present(style: .success, description: "\(json)")
+                    
+                    DB.shared.safeWrite {
+                        self.request.completed = true
+                    }
+                    
+                    guard let nc = self.navigationController else { return }
+                    
+                    self.flowDelegate?.finish(viewControllerToFinish: nc, animated: true, completion: nil)
+                    
                 } else {
                     Popup.present(style: .failed, description: "\(json)")
                 }

@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class CreateAccountInvoiceFlowController: FlowController {
+class CreateAccountInvoiceFlowController: FlowController, FlowEventDelegate {
     var configure: FlowConfigure
     
     var id: FlowIdentifier { return .getTxCode }
@@ -29,11 +29,13 @@ class CreateAccountInvoiceFlowController: FlowController {
         guard let vc = UIStoryboard(name: "Create", bundle: nil).instantiateViewController(withIdentifier: "CreateAccountInvoiceViewController") as? CreateAccountInvoiceViewController else { preconditionFailure() }
         
         vc.configure(request: request)
-        
+        vc.flowDelegate = self
         show(viewController: vc, animated: animated) {
             
         }
     }
 
 }
+
+
 
