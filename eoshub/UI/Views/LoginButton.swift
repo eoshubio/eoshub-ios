@@ -41,7 +41,7 @@ class LoginButton: RoundedButton {
     func configure(type: LoginType) {
         self.type = type
         icon.image = type.icon
-        titleView.text = type.title.capitalized
+        titleView.text = type.title
         titleView.textColor = type.textColor
         _view.backgroundColor = type.bgColor
         
