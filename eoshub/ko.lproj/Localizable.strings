@@ -214,6 +214,7 @@
 /* 일반 */
 "common.paste" = "붙여넣기";
 "common.copy" = "복사하기";
+"common.copied" = "복사됨";
 "common.apply" = "적용하기";
 "common.cancel" = "취소하기";
 "common.share" = "공유하기";
