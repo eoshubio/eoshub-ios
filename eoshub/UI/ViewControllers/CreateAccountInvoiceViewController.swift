@@ -9,7 +9,6 @@
 import Foundation
 import UIKit
 import RxSwift
-import FRHyperLabel
 
 class CreateAccountInvoiceViewController: BaseTableViewController {
     
