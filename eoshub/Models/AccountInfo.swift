@@ -159,7 +159,7 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         
         
         
-        var storedKeys: [String] = []
+        var storedKeys: [(key: String, permission: String)] = []
         eosioAccount.permissions.forEach { (auth) in
             //check owner
             auth.keys.forEach({ (key) in
@@ -172,16 +172,17 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
                     } else if repo == .iCloudKeychain {
                         hasRepoKeychain = true
                     }
-                    storedKeys.append(key.key)
-                    permission = auth.permission.value
+                    storedKeys.append((key: key.key, permission: auth.permission.value))
                     ownerMode = true
                 }
             })
                 
-            if let matchKey = storedKeys.filter({$0 == storedKey}).first {
-                pubKey = matchKey
-            } else {
-                pubKey = storedKeys.first ?? ""
+            if let matchKey = storedKeys.filter({$0.key == storedKey}).first {
+                pubKey = matchKey.key
+                permission = matchKey.permission
+            } else if let firstKey =  storedKeys.first {
+                pubKey = firstKey.key
+                permission = firstKey.permission
             }
         }
         
