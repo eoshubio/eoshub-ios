@@ -2212,25 +2212,25 @@
                                     <outlet property="timerCount" destination="AcZ-yp-gJN" id="KUt-3O-NaH"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CreateAccountRequestCell" rowHeight="200" id="5tr-j9-1C0" customClass="CreateAccountRequestCell" customModule="eoshub" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="628" width="375" height="200"/>
+                            <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="CreateAccountRequestCell" rowHeight="400" id="5tr-j9-1C0" customClass="CreateAccountRequestCell" customModule="eoshub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="628" width="375" height="400"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5tr-j9-1C0" id="XSS-cX-s8a">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ayf-5E-HKq" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                            <rect key="frame" x="10" y="10" width="355" height="180"/>
+                                            <rect key="frame" x="10" y="10" width="355" height="234.66666666666666"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tW7-Ng-cud">
-                                                    <rect key="frame" x="20" y="25" width="315" height="71"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tW7-Ng-cud">
+                                                    <rect key="frame" x="20" y="24.999999999999996" width="315" height="50.666666666666657"/>
                                                     <string key="text">After you have sent the EOS to the given note and account, please click Confirm. It may take several minutes to confirm the transaction.</string>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
-                                                    <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lys-QR-ibc" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="111" width="315" height="44"/>
+                                                    <rect key="frame" x="20" y="165.66666666666666" width="315" height="44"/>
                                                     <color key="backgroundColor" red="0.45098039220000002" green="0.20392156859999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="44" id="m7U-iP-Qk4"/>
@@ -2243,15 +2243,40 @@
                                                         </userDefinedRuntimeAttribute>
                                                     </userDefinedRuntimeAttributes>
                                                 </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ScO-rd-Qyl" customClass="ExtendButton" customModule="eoshub" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="115.66666666666667" width="20" height="20.000000000000014"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="utA-AB-9rO"/>
+                                                        <constraint firstAttribute="height" constant="20" id="xIB-hL-vIh"/>
+                                                    </constraints>
+                                                    <state key="normal" image="radioOffBig"/>
+                                                    <state key="selected" image="radioOnBig"/>
+                                                </button>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="751" editable="NO" text="I have read an accept the privacy policy, EOS Constitution and terms of service." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="eBI-6j-c9m">
+                                                    <rect key="frame" x="50" y="100.66666666666667" width="285" height="50.000000000000014"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="tTr-Mc-6VB"/>
+                                                    </constraints>
+                                                    <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                    <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                                                </textView>
                                             </subviews>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstItem="lys-QR-ibc" firstAttribute="top" secondItem="tW7-Ng-cud" secondAttribute="bottom" constant="15" id="9LT-en-uNB"/>
                                                 <constraint firstItem="tW7-Ng-cud" firstAttribute="top" secondItem="Ayf-5E-HKq" secondAttribute="top" constant="25" id="Ffb-3w-c6D"/>
                                                 <constraint firstItem="lys-QR-ibc" firstAttribute="leading" secondItem="Ayf-5E-HKq" secondAttribute="leading" constant="20" id="HdA-uw-LCv"/>
+                                                <constraint firstItem="eBI-6j-c9m" firstAttribute="leading" secondItem="ScO-rd-Qyl" secondAttribute="trailing" constant="10" id="L88-Rj-c3X"/>
                                                 <constraint firstAttribute="trailing" secondItem="tW7-Ng-cud" secondAttribute="trailing" constant="20" id="So2-ZC-66U"/>
+                                                <constraint firstItem="ScO-rd-Qyl" firstAttribute="leading" secondItem="tW7-Ng-cud" secondAttribute="leading" id="XAY-IV-YAv"/>
+                                                <constraint firstItem="eBI-6j-c9m" firstAttribute="trailing" secondItem="tW7-Ng-cud" secondAttribute="trailing" id="Z4e-WZ-LNS"/>
+                                                <constraint firstItem="lys-QR-ibc" firstAttribute="top" secondItem="eBI-6j-c9m" secondAttribute="bottom" constant="15" id="cOi-to-VNm"/>
                                                 <constraint firstAttribute="trailing" secondItem="lys-QR-ibc" secondAttribute="trailing" constant="20" id="eTa-zv-Py9"/>
+                                                <constraint firstItem="eBI-6j-c9m" firstAttribute="centerY" secondItem="ScO-rd-Qyl" secondAttribute="centerY" id="gT3-TR-31X"/>
                                                 <constraint firstItem="tW7-Ng-cud" firstAttribute="leading" secondItem="Ayf-5E-HKq" secondAttribute="leading" constant="20" id="x65-bc-Ma8"/>
+                                                <constraint firstItem="eBI-6j-c9m" firstAttribute="top" secondItem="tW7-Ng-cud" secondAttribute="bottom" constant="25" id="xgW-rF-2Bq"/>
                                                 <constraint firstAttribute="bottom" secondItem="lys-QR-ibc" secondAttribute="bottom" constant="25" id="yq2-bI-vM5"/>
                                             </constraints>
                                             <userDefinedRuntimeAttributes>
@@ -2266,14 +2291,16 @@
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="Ayf-5E-HKq" secondAttribute="trailing" constant="10" id="bhb-eD-MS7"/>
                                         <constraint firstItem="Ayf-5E-HKq" firstAttribute="leading" secondItem="XSS-cX-s8a" secondAttribute="leading" constant="10" id="lTS-Ob-gHd"/>
-                                        <constraint firstAttribute="bottom" secondItem="Ayf-5E-HKq" secondAttribute="bottom" constant="10" id="lm7-sb-wYH"/>
+                                        <constraint firstAttribute="bottom" secondItem="Ayf-5E-HKq" secondAttribute="bottom" priority="750" constant="10" id="lm7-sb-wYH"/>
                                         <constraint firstItem="Ayf-5E-HKq" firstAttribute="top" secondItem="XSS-cX-s8a" secondAttribute="top" constant="10" id="vLw-O9-lr6"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
+                                    <outlet property="btnAgree" destination="ScO-rd-Qyl" id="3rK-GN-5dL"/>
                                     <outlet property="btnConfirm" destination="lys-QR-ibc" id="bz6-Oe-lSm"/>
                                     <outlet property="lbTextConfirm" destination="tW7-Ng-cud" id="gLZ-Lo-hEW"/>
+                                    <outlet property="txtTerms" destination="eBI-6j-c9m" id="0oA-ip-nsd"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

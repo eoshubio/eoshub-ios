@@ -142,6 +142,9 @@ struct LocalizedString {
             static let textConfirm = NSLocalizedString("create.invoice.textConfirm", comment: "")
             static let confirm = NSLocalizedString("create.invoice.Confirm", comment: "")
             static let refreshWarning = NSLocalizedString("create.invoice.refreshWarning", comment: "")
+            
+            static let agreeTerms = NSLocalizedString("create.invoice.agreeTerms", comment: "")
+            static let term = NSLocalizedString("create.invoice.term", comment: "")
         }
         
         
@@ -308,6 +311,7 @@ struct LocalizedString {
         static let cancelShort = NSLocalizedString("common.cancelShort", comment: "")
         static let confirmShort = NSLocalizedString("common.confirmShort", comment: "")
         static let caution = NSLocalizedString("common.caution", comment: "")
+        static let constitusion = NSLocalizedString("create.eosConstitusion", comment: "")
     }
     
     

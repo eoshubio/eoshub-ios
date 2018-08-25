@@ -142,6 +142,7 @@
 		2C770CA720FBA051007F71C4 /* SellRamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA620FBA051007F71C4 /* SellRamViewController.swift */; };
 		2C770CA920FBA2A9007F71C4 /* SellRamFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C770CA820FBA2A9007F71C4 /* SellRamFlowController.swift */; };
 		2C821200212FE5B1009A11D5 /* Sha256.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8211FF212FE5B1009A11D5 /* Sha256.swift */; };
+		2C82120221305C24009A11D5 /* EHAnalytics.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C82120121305C24009A11D5 /* EHAnalytics.swift */; };
 		2C82F30A212306B00021E172 /* BaseNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C82F309212306B00021E172 /* BaseNavigationController.swift */; };
 		2C82F30C2123107E0021E172 /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C82F30B2123107E0021E172 /* UIImage+extension.swift */; };
 		2C99E498211D98AF00DB55A6 /* CreateAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E497211D98AF00DB55A6 /* CreateAccountViewController.swift */; };
@@ -412,6 +413,7 @@
 		2C770CA620FBA051007F71C4 /* SellRamViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellRamViewController.swift; sourceTree = "<group>"; };
 		2C770CA820FBA2A9007F71C4 /* SellRamFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SellRamFlowController.swift; sourceTree = "<group>"; };
 		2C8211FF212FE5B1009A11D5 /* Sha256.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sha256.swift; sourceTree = "<group>"; };
+		2C82120121305C24009A11D5 /* EHAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EHAnalytics.swift; sourceTree = "<group>"; };
 		2C82F309212306B00021E172 /* BaseNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNavigationController.swift; sourceTree = "<group>"; };
 		2C82F30B2123107E0021E172 /* UIImage+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+extension.swift"; sourceTree = "<group>"; };
 		2C99E497211D98AF00DB55A6 /* CreateAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountViewController.swift; sourceTree = "<group>"; };
@@ -804,6 +806,7 @@
 				2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */,
 				2C31F7F5210612CE0025D18A /* Preferences.swift */,
 				2CDF5918210CDF3F003D866C /* UserManager.swift */,
+				2C82120121305C24009A11D5 /* EHAnalytics.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -1338,6 +1341,7 @@
 				2C3B17B120FD023000E6BAAD /* TransferPopup.swift in Sources */,
 				2CB6B7F72104C8560048601A /* QRScannerFlowController.swift in Sources */,
 				2CE110EB20F1C9B300B93BEB /* Character+extension.swift in Sources */,
+				2C82120221305C24009A11D5 /* EHAnalytics.swift in Sources */,
 				2C279C0120FA0B7100D2F6C4 /* VoterInfo.swift in Sources */,
 				2C279C0520FA43F700D2F6C4 /* TokenManager.swift in Sources */,
 				2C3B17AB20FCC42C00E6BAAD /* Mergeable.swift in Sources */,

@@ -18,7 +18,7 @@ class WebViewController: BaseViewController, WKUIDelegate, WKNavigationDelegate 
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showNavigationBar(with: .basePurple, animated: animated, largeTitle: true)
+        showNavigationBar(with: .basePurple, animated: animated, largeTitle: false)
     }
     
     

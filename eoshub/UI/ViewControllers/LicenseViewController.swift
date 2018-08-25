@@ -196,8 +196,7 @@ extension License {
         
         return License(title: "Firebase", link: link, description: description)
     }
-    
-  
+
 }
 
 

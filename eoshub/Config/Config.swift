@@ -20,6 +20,10 @@ struct Config {
     
     static var eoshubMedium = "https://medium.com/@eoshub.io"
     
+    static let termForBuyers = "https://github.com/eoshubio/documents/blob/master/TermsForBuyers.md"
+    
+    static let eosConstitution = "https://github.com/EOS-Mainnet/governance/blob/master/eosio.system/eosio.system-clause-constitution-rc.md"
+    
     static var host: String {
         switch mode {
         case .junglenet:

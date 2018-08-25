@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import RxSwift
+import FRHyperLabel
 
 class CreateAccountInvoiceViewController: BaseTableViewController {
     
@@ -81,6 +82,23 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
                 self?.findRequestInTxs()
             }
             .disposed(by: bag)
+        
+        invoiceForm.tapString
+            .bind { [weak self] (text) in
+                switch text {
+                case LocalizedString.Create.Invoice.term:
+                    guard let nc = self?.navigationController else { return }
+                    self?.flowDelegate?.goToWebView(from: nc, with: Config.termForBuyers,
+                                                    title: LocalizedString.Create.Invoice.term)
+                case LocalizedString.Common.constitusion:
+                    guard let nc = self?.navigationController else { return }
+                    self?.flowDelegate?.goToWebView(from: nc, with: Config.eosConstitution,
+                                                    title: LocalizedString.Common.constitusion)
+                default:
+                    break
+                }
+            }
+            .disposed(by: bag)
     }
     
     private func findRequestInTxs() {
@@ -116,10 +134,8 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
                 
                 
             }, onError: { (error) in
-                if let error = error as? EOSResponseError {
-                    error.showErrorPopup()
-                } else if case EOSHubError.txNotFound = error {
-                    Popup.present(style: .failed, description: error.localizedDescription)
+                if let error = error as? PrettyPrintedPopup {
+                    error.showPopup()
                 }
             }) {
                 WaitingView.shared.stop()
@@ -357,9 +373,14 @@ class CreateAccountInvoiceCell: UITableViewCell {
 
 
 
-class CreateAccountRequestCell: UITableViewCell {
+class CreateAccountRequestCell: UITableViewCell, UITextViewDelegate {
     @IBOutlet fileprivate weak var lbTextConfirm: UILabel!
     @IBOutlet fileprivate weak var btnConfirm: UIButton!
+    @IBOutlet fileprivate weak var txtTerms: UITextView!
+    @IBOutlet fileprivate weak var btnAgree: UIButton!
+    
+    fileprivate var rx_tapString = PublishSubject<String>()
+    
     var bag: DisposeBag? = nil
     
     override func awakeFromNib() {
@@ -375,15 +396,44 @@ class CreateAccountRequestCell: UITableViewCell {
     private func setupUI() {
         lbTextConfirm.text = LocalizedString.Create.Invoice.textConfirm
         btnConfirm.setTitle(LocalizedString.Create.Invoice.confirm, for: .normal)
+
+        let textTerms = NSMutableAttributedString(string: LocalizedString.Create.Invoice.agreeTerms)
+        
+        let termURL = URL(string: Config.termForBuyers)!
+        let constitutionURL = URL(string: Config.eosConstitution)!
+        textTerms.addAttributeURL(text: LocalizedString.Create.Invoice.term, url: termURL)
+        textTerms.addAttributeURL(text: LocalizedString.Common.constitusion, url: constitutionURL)
+        txtTerms.attributedText = textTerms
+
+        
     }
+    
+
     
     func configure(form: InvoiceForm) {
         let bag = DisposeBag()
         self.bag = bag
+        
+        btnAgree.rx.tap
+            .bind { [weak self] in
+                guard let `self` = self else { return }
+                self.btnAgree.isSelected = !self.btnAgree.isSelected
+                form.agreed.onNext(self.btnAgree.isSelected)
+            }
+            .disposed(by: bag)
+        
+        form.agreed.asObservable()
+            .bind(to: btnConfirm.rx.isEnabled)
+            .disposed(by: bag)
+        
         btnConfirm.rx.singleTap
             .bind {
                 form.txSearch.onNext(())
             }
+            .disposed(by: bag)
+        
+        rx_tapString.asObservable()
+            .bind(to: form.tapString)
             .disposed(by: bag)
     }
     
@@ -399,6 +449,9 @@ struct InvoiceForm {
     let timestamp = Variable<Double>(0)
     let expireHour = Variable<Int>(1)
     
+    let agreed = BehaviorSubject<Bool>(value: false)
+    
+    let tapString = PublishSubject<String>()
     let txSearch = PublishSubject<Void>()
     
     func update(from txMemo: Invoice) {

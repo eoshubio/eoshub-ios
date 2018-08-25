@@ -61,7 +61,11 @@ struct EOSResponseError: Error, JSONInitializable {
     }
 }
 
-extension EOSResponseError {
+extension EOSResponseError: PrettyPrintedPopup {
+    
+    func showPopup() {
+        showErrorPopup()
+    }
     
     func showErrorPopup() {
         let title = name.capitalized.replacingOccurrences(of: "_", with: " ")
@@ -76,7 +80,9 @@ extension EOSResponseError {
 
 
 
-
+protocol PrettyPrintedPopup {
+    func showPopup()
+}
 
 
 

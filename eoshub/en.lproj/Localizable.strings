@@ -104,6 +104,9 @@
 "create.invoice.Confirm" = "Confirm";
 "create.invoice.refreshWarning" = "You already have an invoice. Do you want to start a new transaction and remove your existing invoice?";
 
+"create.invoice.agreeTerms" = "I have read an accept the Terms of service & Privacy policy and EOS Constitution.";
+"create.invoice.term" = "Terms of service & Privacy policy";
+
 
 
 /* 지갑 */
@@ -227,3 +230,4 @@
 "common.confirmShort" = "Confirm";
 "common.caution" = "Caution";
 
+"create.eosConstitusion" = "EOS Constitution";
