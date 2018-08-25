@@ -6,7 +6,7 @@
 "login.kakao" = "Sign in with Kakao";
 "login.google" = "Sign in with Google";
 "login.email" = "Sign in with Email";
-"login.none" = "Skip sign up";
+"login.none" = "Skip sign in";
 
 
 "login.email.email" = "Email";
@@ -25,11 +25,11 @@
 "login.forgetpw.send" = "Reset password via email";
 
 /* 약관 */
-"term.title" = "EOSHub is\na mobile cold wallet\nthat can store\n'EOS and EOS based token'\nsafely";
-"term.goTerm" = "terms of use";
-"term.termAndPrivacy" = "Term and privacy policy";
-"term.goPrivacy" = "privacy policies";
-"term.privacyDesc" = "By clicking the Start button, you agree to the terms of use and privacy policies.";
+"term.title" = "EOSHub is\na mobile cold wallet\nthat can store\n'EOS and EOS based tokens'\nsafely";
+"term.goTerm" = "Terms of Use";
+"term.termAndPrivacy" = "Terms and Privacy policy";
+"term.goPrivacy" = "Privacy policy";
+"term.privacyDesc" = "By clicking the Start button, you agree to the Terms of Use and Privacy policy.";
 "term.start" = "Start";
 
 
@@ -46,7 +46,7 @@
 "setting.host.success" = "Successfully changed.";
 "setting.host.failed" = "API host not accessible.";
 
-"setting.wallet.showDetail" = "Show detail infos";
+"setting.wallet.showDetail" = "Show detail info";
 "setting.wallet.hideTokens" = "Hide tokens";
 
 "setting.app.version" = "Version";
@@ -62,20 +62,20 @@
 "create.import.title" = "Import an existing account";
 "create.import.text" = "You can keep your existing EOS account securely in EOSHub. The private key is encrypted and stored in the iCloud Keychain.";
 "create.import.action" = "Import";
-"create.import.warningTitle" = "Please follow the below instructions when you import a private key.";
-"create.import.warning" = "1. Enter the private key directly. Do not copy and paste.\n2. EOSHub uses the iCloud Keychain to prevent security issues. Please turn on iCloud Keychain for the best result.\n(Settings-iCloud-Keychain-On OK)";
+"create.import.warningTitle" = "Please follow the below instructions when you import a private key." ;
+"create.import.warning" = "1. Enter the private key directly. Do not copy and paste.\n2. EOSHub uses the iCloud keychain to prevent security issues. Please turn on iCloud for the best results. \n(Settings-iCloud-Keychain-On OK)";
 "create.import.iCloudKeychain" = "iCloud Keychain";
 
 "create.interest.title" = "Follow an account";
-"create.interest.text" = "You can add a specific EOS account to view blockchain information.";
+"create.interest.text" = "You can add a specific EOS account to view the blockchain information.";
 "create.interest.action" = "Add";
 
 
 "create.account.title" = "Create account";
 "create.account.name" = "EOS account name";
-"create.account.enter" = "Enter account name to use";
+"create.account.enter" = "Enter an account name to use";
 "create.account.rules" = "[a~z], [1~5], Only 12 characters are allowed.";
-"create.account.check" = " Account duplication check ";
+"create.account.check" = "Account duplication check";
 "create.account.checked" = "Account name is available";
 "create.account.check.failed" = "%@ is not available.";
 "create.account.check.success" = "%@ is available.";
@@ -83,10 +83,10 @@
 "create.account.generate.title" = "Generate key pair";
 "create.account.generate.text" = "Create a key pair and store it in the iCloud Keychain.";
 "create.account.se.title" = "Generate keys on Apple Secure enclave.";
-"create.account.se.text" = "Secure enclave technology protects your private key from security attacks or unpredictable risk with Apple's powerful Secure hardware.";
+"create.account.se.text" = "Secure enclave technology protects your private key from security attacks or unpredictable risks with Apple's powerful Secure hardware.";
 "create.account.se.detail" = "For more details";
-"create.account.insert.title" = "Type Public key directly";
-"create.account.insert.text" = "The key pair consists of a private key and a public key. The public key is safe to give out and will be publicly visible in the blockchain. The private key must be kept secret and stored securely.";
+"create.account.insert.title" = "Type in the public key directly";
+"create.account.insert.text" = "The key pair consists of a private key and a public key. The public key is safe to give out, and will be publicly visible in the blockchain. The private key must be kept secret and stored securely." ;
 "create.account.next" = "Next step";
 
 "create.check.title" = "Check account information";
@@ -95,12 +95,12 @@
 "create.check.keys" = "Owner & Active key";
 
 "create.invoice.title" = "Invoice";
-"create.invoice.textDeposit" = "Please send %@ to the below account including the following unique string. You should add this string at memo when you send EOS. Your EOS will become your resources and used to create an account.";
+"create.invoice.textDeposit" = "Please send %@ to the below account, including the following unique string. You should add this string as a memo when you send EOS. Your EOS will become your resource and be used to create an account." ;
 "create.invoice.timelimit" = "%@ hour";
-"create.invoice.textTimelimit" = "This invoice is valid for %@ only. If you want to remove all information and restart from the beginning, press the refresh button at the top.";
+"create.invoice.textTimelimit" = "This invoice is valid for %@ only. If you want to remove all information and restart from the beginning, press the refresh button at the top." ;
 "create.invoice.memo" = "memo";
 "create.invoice.account" = "account";
-"create.invoice.textConfirm" = "After sending EOS to assigned account, Please click Confirm button to proceed. It may take several minutes to confirm the transaction.";
+"create.invoice.textConfirm" = "After sending EOS to the assigned account, please click the Confirm button to proceed. It may take several minutes to confirm the transaction.";
 "create.invoice.Confirm" = "Confirm";
 "create.invoice.refreshWarning" = "You already have an invoice. Do you want to start a new transaction and remove your existing invoice?";
 
@@ -123,17 +123,17 @@
 "wallet.import.title" = "Import EOS Account";
 "wallet.import.account" = "EOS account name";
 "wallet.import.store" = "Store private key";
-"wallet.import.findAccount" = "If you don't know your EOS account, Please touch here";
+"wallet.import.findAccount" = "If you don't know your EOS account, please touch here";
 "wallet.import.clickHere" = "Please touch here";
 
 "wallet.find.title" = "Find EOS account";
 "wallet.find.search" = "Search";
 
-"wallet.interest.title" = "Follow account";
+"wallet.interest.title" = "Follow an account";
 "wallet.interest.account" = "Please type an EOS account to add";
 "wallet.interest.store" = "Add";
 
-"wallet.first.greeting" = "Greeting!";
+"wallet.first.greeting" = "Greetings!";
 "wallet.first.guide" = "Create your first EOS Wallet!";
 
 "wallet.transfer.available" = "Available ";
@@ -153,21 +153,19 @@
 "wallet.delegate.history" = "Delegate record";
 "wallet.delegate.delegateTitle" = "Delegate";
 
-"wallet.ram.buyram" = "Buy ram";
-"wallet.ram.sellram" = "Sell ram";
+"wallet.ram.buyram" = "Buy RAM";
+"wallet.ram.sellram" = "Sell RAM";
 "wallet.ram.buy" = "Buy";
 "wallet.ram.sell" = "Sell";
 "wallet.ram.history" = "Trading record";
 "wallet.ram.used" = "Used RAM";
-"wallet.ram.warning" = "Please be careful of RAM price fluctuation. We recommend you to fully understand the risks involved in trading.";
-
+"wallet.ram.warning" = "Please be careful of RAM price fluctuations. We recommend you fully understand the risks involved in trading.";
 "wallet.option.addToken" = "Add Tokens";
 "wallet.option.delete" = "Delete wallet";
-"wallet.option.deleteWarning" = "This action will only remove your account from EOSHub app.";
+"wallet.option.deleteWarning" = "This action will only remove your account from the EOSHub app.";
 
 "wallet.inactive.account" = "Locked";
-"wallet.inactive.guide" = "Please enable cellular data network to access account information.";
-
+"wallet.inactive.guide" = "Please enable the cellular data network to access account information.";
 "wallet.detail.title" = "Account information";
 "wallet.detail.keypairs" = "Key pairs";
 
@@ -205,14 +203,14 @@
 "tx.success" = "The transaction was successfully transferred. Please wait for confirmation.";
 
 /* PIN */
-"secure.pin.create" = "Create PIN Code";
-"secure.pin.confirm" = "Confirm PIN Code";
-"secure.pin.validation" = "PIN Code";
+"secure.pin.create" = "Create PIN";
+"secure.pin.confirm" = "Confirm PIN";
+"secure.pin.validation" = "PIN";
 "secure.pin.change" = "Change PIN";
 "secure.pin.useFaceID" = "Login with FaceID (Recommended)";
 "secure.pin.useTouchID" = "Login with TouchID (Recommended)";
 
-"secure.bio.reason" = "It is used to verify identity and EOS transaction.";
+"secure.bio.reason" = "It is used to verify your identity and your EOS transactions.";
 "secure.bio.faceId" = "Authenticate yourself with Face ID";
 "secure.bio.touchId" = "Authenticate yourself with Touch ID";
 
