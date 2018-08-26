@@ -124,62 +124,6 @@ struct RxEOSAPI {
                     .responseJSON(parameter: params)
     }
     
-    //MARK: Wallet
-    
-//    static func walletCreate(name: String) -> Observable<Wallet> {
-//        return EOSAPI.Wallet.create
-//                .responseString(method: .post, parameter: [StringEncoding.key: name], encoding: StringEncoding.default)
-//                .flatMap({ (pw) -> Observable<Wallet> in
-//                    return Observable.just(Wallet(name: name, password: pw))
-//                })
-//    }
-//
-//    static func walletImportKey(key: String, to wallet: Wallet) -> Observable<Wallet> {
-//        return EOSAPI.Wallet.import_key
-//                .response(method: .post, array: [wallet.name, key])
-//                .flatMap({ (_) -> Observable<Wallet> in
-//                    return Observable.just(wallet)
-//                })
-//    }
-//
-//    static func walletGetKeys() -> Observable<[String]> {
-//        return EOSAPI.Wallet.get_public_keys
-//                .responseArray(method: .post, parameter: nil, encoding: URLEncoding.default)
-//                .flatMap({ (array) -> Observable<[String]> in
-//                    if let array = array as? [String] {
-//                        return Observable.just(array)
-//                    } else {
-//                        return Observable.just([])
-//                    }
-//                })
-//    }
-//
-//    static func walletUnlock(array: [String]) -> Observable<Bool> {
-//
-//        return EOSAPI.Wallet.unlock
-//                .responseJSON(method: .post, parameter: [ArrayEncoding.key: array], encoding: ArrayEncoding.default)
-//                .flatMap({_ in return Observable.just(true)})
-//                .catchError({ (error) -> Observable<Bool> in
-//                    //TODO: If wallet is already opened, return true
-//                    return Observable.just(false)
-//                })
-//    }
-//
-//    static func walletCreateKey(wallet: Wallet) -> Observable<Wallet> {
-//        return EOSAPI.Wallet.create_key
-//                .responseString(method: .post, parameter: [ArrayEncoding.key: [wallet.name, "K1"]], encoding: ArrayEncoding.default)
-//                .flatMap({ (key) -> Observable<Wallet> in
-//                    wallet.publicKey = key
-//                    return Observable.just(wallet)
-//                })
-//
-//    }
-    
-//    static func signTransaction(array: [Any]) -> Observable<JSON> {
-//
-//        return EOSAPI.Wallet.sign_transaction
-//                .responseJSON(method: .post, parameter: [ArrayEncoding.key: array], encoding: ArrayEncoding.default)
-//    }
     
     //MARK: Contract
     static func pushContract(contracts: [Contract], wallet: Wallet) -> Observable<JSON> {

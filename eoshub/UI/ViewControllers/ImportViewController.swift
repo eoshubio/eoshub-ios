@@ -178,12 +178,6 @@ class ImportViewController: TextInputViewController {
         
     }
     
-    fileprivate func isNetworkAvailable() -> Bool {
-        //TODO: Implement, 네트워크가 비활성화시 일단 private 키를 저장하고, 월렛 로딩할때 명시적으로 account 를 Get 하는 옵션을 준다.
-        return true
-    }
-    
-    
 }
 
 

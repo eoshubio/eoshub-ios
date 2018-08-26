@@ -16,8 +16,6 @@ class Authorization: Packable, JSONInitializable, JSONOutput {
         return pack
     }
     
-    static let eoshub = Authorization(actor: EOSHub.account, permission: .active)
-    
     let actor: EOSName
     let permission: Permission
     

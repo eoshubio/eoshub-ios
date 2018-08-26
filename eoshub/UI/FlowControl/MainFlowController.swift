@@ -20,7 +20,7 @@ class MainFlowController: FlowController {
     }
     
     func show(animated: Bool) {
-        //TODO: Load App configs
+        
         TokenManager.shared.load()
         
         if isJailBroken() {

@@ -180,7 +180,6 @@ extension TokenViewController {
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        //TODO: PDR 삭제금지
         return indexPath.section == 0
     }
     

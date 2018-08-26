@@ -45,7 +45,6 @@
 		2C279BB520F8C42700D2F6C4 /* EOS_Key_Encode.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BAC20F8C42600D2F6C4 /* EOS_Key_Encode.m */; };
 		2C279BB620F8C42700D2F6C4 /* EosPrivateKey.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BB020F8C42600D2F6C4 /* EosPrivateKey.m */; };
 		2C279BC020F8C58100D2F6C4 /* EOSErrorType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BBA20F8C58000D2F6C4 /* EOSErrorType.swift */; };
-		2C279BC120F8C58100D2F6C4 /* EOSIOConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BBB20F8C58000D2F6C4 /* EOSIOConfig.swift */; };
 		2C279BC220F8C58100D2F6C4 /* RxEOSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BBC20F8C58100D2F6C4 /* RxEOSAPI.swift */; };
 		2C279BC320F8C58100D2F6C4 /* EOSAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BBD20F8C58100D2F6C4 /* EOSAPI.swift */; };
 		2C279BC420F8C58100D2F6C4 /* RxAPIRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C279BBE20F8C58100D2F6C4 /* RxAPIRequests.swift */; };
@@ -317,7 +316,6 @@
 		2C279BB020F8C42600D2F6C4 /* EosPrivateKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EosPrivateKey.m; sourceTree = "<group>"; };
 		2C279BB320F8C42700D2F6C4 /* Crypto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Crypto.h; sourceTree = "<group>"; };
 		2C279BBA20F8C58000D2F6C4 /* EOSErrorType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EOSErrorType.swift; sourceTree = "<group>"; };
-		2C279BBB20F8C58000D2F6C4 /* EOSIOConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EOSIOConfig.swift; sourceTree = "<group>"; };
 		2C279BBC20F8C58100D2F6C4 /* RxEOSAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxEOSAPI.swift; sourceTree = "<group>"; };
 		2C279BBD20F8C58100D2F6C4 /* EOSAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EOSAPI.swift; sourceTree = "<group>"; };
 		2C279BBE20F8C58100D2F6C4 /* RxAPIRequests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RxAPIRequests.swift; sourceTree = "<group>"; };
@@ -600,7 +598,6 @@
 				2C279BBD20F8C58100D2F6C4 /* EOSAPI.swift */,
 				2C279BBA20F8C58000D2F6C4 /* EOSErrorType.swift */,
 				2C279BBF20F8C58100D2F6C4 /* EOSHost.swift */,
-				2C279BBB20F8C58000D2F6C4 /* EOSIOConfig.swift */,
 				2C279BBE20F8C58100D2F6C4 /* RxAPIRequests.swift */,
 				2C279BBC20F8C58100D2F6C4 /* RxEOSAPI.swift */,
 				2C279BC620F8C58B00D2F6C4 /* Model */,
@@ -1392,7 +1389,6 @@
 				2C99E498211D98AF00DB55A6 /* CreateAccountViewController.swift in Sources */,
 				2C279B8D20F8C30700D2F6C4 /* Packable.swift in Sources */,
 				2CE1111720F23BF600B93BEB /* ExtendButton.swift in Sources */,
-				2C279BC120F8C58100D2F6C4 /* EOSIOConfig.swift in Sources */,
 				2CE110E720F1C9B300B93BEB /* DispatchQueue.swift in Sources */,
 				2C770C9120FB2628007F71C4 /* Tx.swift in Sources */,
 				2C0290C12129CD2B00C3AFCB /* AccountDetailViewController.swift in Sources */,

@@ -39,7 +39,6 @@ class DB {
             .deletingLastPathComponent()
             .appendingPathComponent("wallet.realm." + userId)
       
-        //TODO: implement logout code
         realm = try! Realm(configuration: encryptionConfig)
         
     }
@@ -47,10 +46,7 @@ class DB {
 
     //MARK: EOS Account
     func addAccount(account: EHAccount) {
-        //TODO: 중복검사
-        safeWrite {
-            realm.add(account)
-        }
+        addOrUpdateObjects([account] as [EHAccount])
     }
     
     func deleteAccount(account: String, userId: String) {
