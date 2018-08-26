@@ -24,9 +24,10 @@ class WalletAddCell: UITableViewCell {
     
     private func setupUI() {
         selectionStyle = .none
-        
+        let donationAccount = "eoshuborigin"
         let text = NSMutableAttributedString(string: "Donation: eoshuborigin")
-        text.addAttributeFont(text: "eoshuborigin", font: Font.appleSDGothicNeo(.semiBold).uiFont(14))
+        text.addAttributeFont(text: donationAccount, font: Font.appleSDGothicNeo(.semiBold).uiFont(14))
+        text.addAttributeColor(text: donationAccount, color: Color.basePurple.uiColor)
         lbDonation.attributedText = text
         
     }

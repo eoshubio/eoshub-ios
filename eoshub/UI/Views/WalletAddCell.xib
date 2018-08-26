@@ -43,7 +43,7 @@
                         </userDefinedRuntimeAttributes>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" alpha="0.80000000000000004" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Donation: eoshuborigin" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vOC-rA-Mqt">
-                        <rect key="frame" x="15" y="102.5" width="146" height="18"/>
+                        <rect key="frame" x="214" y="102.5" width="146" height="18"/>
                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                         <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -52,10 +52,10 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="QiK-yx-nyO" secondAttribute="trailing" constant="15" id="6rf-zN-vr5"/>
+                    <constraint firstItem="vOC-rA-Mqt" firstAttribute="trailing" secondItem="QiK-yx-nyO" secondAttribute="trailing" id="ERT-7V-6h3"/>
                     <constraint firstItem="vOC-rA-Mqt" firstAttribute="top" secondItem="QiK-yx-nyO" secondAttribute="bottom" constant="15" id="FNH-Ub-une"/>
                     <constraint firstAttribute="bottom" secondItem="QiK-yx-nyO" secondAttribute="bottom" priority="750" constant="35" id="Qis-Un-ynP"/>
                     <constraint firstItem="QiK-yx-nyO" firstAttribute="top" secondItem="RIW-me-3DK" secondAttribute="top" constant="10" id="da0-86-79Q"/>
-                    <constraint firstItem="vOC-rA-Mqt" firstAttribute="leading" secondItem="QiK-yx-nyO" secondAttribute="leading" id="jvi-eF-9N6"/>
                     <constraint firstItem="QiK-yx-nyO" firstAttribute="leading" secondItem="RIW-me-3DK" secondAttribute="leading" constant="15" id="np6-ey-xCI"/>
                 </constraints>
             </tableViewCellContentView>
