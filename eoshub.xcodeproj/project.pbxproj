@@ -181,6 +181,10 @@
 		2CBAAC6D2121E658006A423E /* banner_eosdac.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CBAAC6C2121E657006A423E /* banner_eosdac.png */; };
 		2CBAAC6F2121E804006A423E /* banner_pandora.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CBAAC6E2121E803006A423E /* banner_pandora.png */; };
 		2CBAAC712121E880006A423E /* icon_eosdac.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CBAAC702121E87F006A423E /* icon_eosdac.png */; };
+		2CBD93C82132A16A00A15681 /* DonationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBD93C72132A16A00A15681 /* DonationCell.swift */; };
+		2CBD93CA2132A89900A15681 /* DonationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBD93C92132A89900A15681 /* DonationViewController.swift */; };
+		2CBD93CC2132ABCF00A15681 /* DonateFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CBD93CB2132ABCF00A15681 /* DonateFlowController.swift */; };
+		2CBD93CE2132B4FF00A15681 /* DonationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CBD93CD2132B4FF00A15681 /* DonationCell.xib */; };
 		2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */; };
 		2CCA34A6210DA2A30024BB5D /* ABI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA34A5210DA2A30024BB5D /* ABI.swift */; };
 		2CCA34A8210DD9550024BB5D /* Array+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA34A7210DD9550024BB5D /* Array+extension.swift */; };
@@ -452,6 +456,10 @@
 		2CBAAC6C2121E657006A423E /* banner_eosdac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_eosdac.png; sourceTree = "<group>"; };
 		2CBAAC6E2121E803006A423E /* banner_pandora.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = banner_pandora.png; sourceTree = "<group>"; };
 		2CBAAC702121E87F006A423E /* icon_eosdac.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_eosdac.png; sourceTree = "<group>"; };
+		2CBD93C72132A16A00A15681 /* DonationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationCell.swift; sourceTree = "<group>"; };
+		2CBD93C92132A89900A15681 /* DonationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonationViewController.swift; sourceTree = "<group>"; };
+		2CBD93CB2132ABCF00A15681 /* DonateFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonateFlowController.swift; sourceTree = "<group>"; };
+		2CBD93CD2132B4FF00A15681 /* DonationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DonationCell.xib; sourceTree = "<group>"; };
 		2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedNumberField.swift; sourceTree = "<group>"; };
 		2CCA34A5210DA2A30024BB5D /* ABI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABI.swift; sourceTree = "<group>"; };
 		2CCA34A7210DD9550024BB5D /* Array+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+extension.swift"; sourceTree = "<group>"; };
@@ -823,6 +831,7 @@
 				2C7426BF2116D9D900F8A85E /* VerifyFlowController.swift */,
 				2C7426BB2116B80D00F8A85E /* ForgetPWFlowController.swift */,
 				2CE1110120F1EE9C00B93BEB /* WalletFlowController.swift */,
+				2CBD93CB2132ABCF00A15681 /* DonateFlowController.swift */,
 				2C516101212B03B50005EDD7 /* WebViewFlowController.swift */,
 				2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */,
 				2C5160FD212AEE6B0005EDD7 /* KeypairFlowController.swift */,
@@ -867,6 +876,7 @@
 				2C7426B72116B07000F8A85E /* ForgetViewController.swift */,
 				2CE1112320F24CF200B93BEB /* MainTabViewController.swift */,
 				2CE110FF20F1EDB000B93BEB /* WalletViewController.swift */,
+				2CBD93C92132A89900A15681 /* DonationViewController.swift */,
 				2C5160FF212B00EE0005EDD7 /* WebViewController.swift */,
 				2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */,
 				2C5160FB212AE9CF0005EDD7 /* KeypairViewController.swift */,
@@ -908,6 +918,8 @@
 				2C2ACFE220F476F900C637D8 /* PincodeView.swift */,
 				2C2ACFFE20F4E51700C637D8 /* BPCell.swift */,
 				2C1E3E9420FE14000009D2AF /* WaitingView.swift */,
+				2CBD93C72132A16A00A15681 /* DonationCell.swift */,
+				2CBD93CD2132B4FF00A15681 /* DonationCell.xib */,
 				2C1E3E9620FE18000009D2AF /* Popup.swift */,
 				2C1E3E9820FE18960009D2AF /* Popup.xib */,
 				2CA5D18D210B5B58006C928B /* TokenAddPopup.swift */,
@@ -1162,6 +1174,7 @@
 				2CBAAC6D2121E658006A423E /* banner_eosdac.png in Resources */,
 				2C2ACFCD20F3CE9800C637D8 /* Create.storyboard in Resources */,
 				2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */,
+				2CBD93CE2132B4FF00A15681 /* DonationCell.xib in Resources */,
 				2C279C0E20FA5FA800D2F6C4 /* TokenCell.xib in Resources */,
 				2CA5D19B210C6698006C928B /* GoogleService-Info.plist in Resources */,
 				2CBAAC6F2121E804006A423E /* banner_pandora.png in Resources */,
@@ -1372,6 +1385,7 @@
 				2CE110FA20F1EBE600B93BEB /* UIView+extension.swift in Sources */,
 				2C82F30C2123107E0021E172 /* UIImage+extension.swift in Sources */,
 				2C82F30A212306B00021E172 /* BaseNavigationController.swift in Sources */,
+				2CBD93C82132A16A00A15681 /* DonationCell.swift in Sources */,
 				2C1E3E9D20FE2D810009D2AF /* DelegatePopup.swift in Sources */,
 				2C279BA620F8C3CB00D2F6C4 /* sha2.c in Sources */,
 				2C279B7B20F7AEAC00D2F6C4 /* TxViewController.swift in Sources */,
@@ -1452,11 +1466,13 @@
 				2CE1111B20F23C7400B93BEB /* CGSize+extension.swift in Sources */,
 				2C2ACFF920F4A3DE00C637D8 /* ConfirmPinFlowController.swift in Sources */,
 				2C7426BC2116B80D00F8A85E /* ForgetPWFlowController.swift in Sources */,
+				2CBD93CC2132ABCF00A15681 /* DonateFlowController.swift in Sources */,
 				2C770C8D20FAECA8007F71C4 /* TokenDetailViewController.swift in Sources */,
 				2C279BD820F8C5A300D2F6C4 /* Contract+Args.swift in Sources */,
 				2C279BB420F8C42700D2F6C4 /* Crypto.m in Sources */,
 				2C1E3EA120FE37B60009D2AF /* RamPopup.swift in Sources */,
 				2C279B8C20F8C30700D2F6C4 /* Action.swift in Sources */,
+				2CBD93CA2132A89900A15681 /* DonationViewController.swift in Sources */,
 				2C279BDC20F8C5A300D2F6C4 /* Block.swift in Sources */,
 				2C99E4A8211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift in Sources */,
 				2C2ACFDB20F4607700C637D8 /* FindAccountViewController.swift in Sources */,

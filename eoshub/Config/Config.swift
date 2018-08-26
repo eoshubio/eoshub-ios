@@ -24,6 +24,8 @@ struct Config {
     
     static let eosConstitution = "https://github.com/EOS-Mainnet/governance/blob/master/eosio.system/eosio.system-clause-constitution-rc.md"
     
+    static let donationAccount = "eoshuborigin"
+    
     static var host: String {
         switch mode {
         case .junglenet:

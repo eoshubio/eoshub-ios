@@ -616,6 +616,149 @@
             </objects>
             <point key="canvasLocation" x="-239.13043478260872" y="960.32608695652186"/>
         </scene>
+        <!--Donation View Controller-->
+        <scene sceneID="1b5-fv-JC7">
+            <objects>
+                <tableViewController storyboardIdentifier="DonationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="j9F-im-qcr" customClass="DonationViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sZD-av-fSl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DonateInfoCell" rowHeight="500" id="S7m-ZX-xF3" customClass="DonateInfoCell" customModule="eoshub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="375" height="500"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S7m-ZX-xF3" id="dFP-CU-51e">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBu-2f-tnR" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="15" width="345" height="429"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" text="Dear EOS Hub supporters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQz-23-1TQ">
+                                                    <rect key="frame" x="15" y="20" width="170.33333333333334" height="20"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
+                                                    <color key="textColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqY-EW-ew2">
+                                                    <rect key="frame" x="15" y="65" width="315" height="306"/>
+                                                    <string key="text">The EOS Hub was developed under many supports from EOS enthusiastic fans. As one of the users, We just made out based on a staunch belief that EOS specialized mobile wallet should be like this.
+We hope everyone will enjoy the blockchain innovation.
+
+Thanks to your support
+
+By donating you will be supporting the development of the EOShub directly while allowing independent developers to keep on doing something crazy.
+
+We hope you love the EOSHub as much as I've loved making it.</string>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                    <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" text="Team EOSHub" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7O-au-RSe">
+                                                    <rect key="frame" x="240" y="396" width="90" height="18"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                    <color key="textColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="Y7O-au-RSe" firstAttribute="top" secondItem="PqY-EW-ew2" secondAttribute="bottom" constant="25" id="7St-2x-h6b"/>
+                                                <constraint firstItem="PqY-EW-ew2" firstAttribute="top" secondItem="XQz-23-1TQ" secondAttribute="bottom" constant="25" id="9d3-fB-WLx"/>
+                                                <constraint firstItem="XQz-23-1TQ" firstAttribute="top" secondItem="fBu-2f-tnR" secondAttribute="top" constant="20" id="Ruj-Sw-r0n"/>
+                                                <constraint firstAttribute="bottom" secondItem="Y7O-au-RSe" secondAttribute="bottom" constant="15" id="T4e-tX-Gj6"/>
+                                                <constraint firstAttribute="trailing" secondItem="PqY-EW-ew2" secondAttribute="trailing" constant="15" id="h26-YF-b5v"/>
+                                                <constraint firstItem="PqY-EW-ew2" firstAttribute="leading" secondItem="fBu-2f-tnR" secondAttribute="leading" constant="15" id="hBl-WL-eT5"/>
+                                                <constraint firstItem="Y7O-au-RSe" firstAttribute="trailing" secondItem="PqY-EW-ew2" secondAttribute="trailing" id="ns0-OM-8PY"/>
+                                                <constraint firstItem="XQz-23-1TQ" firstAttribute="leading" secondItem="fBu-2f-tnR" secondAttribute="leading" constant="15" id="qY0-S2-onD"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="fBu-2f-tnR" firstAttribute="top" secondItem="dFP-CU-51e" secondAttribute="top" constant="15" id="L7g-Zr-c8m"/>
+                                        <constraint firstAttribute="trailing" secondItem="fBu-2f-tnR" secondAttribute="trailing" constant="15" id="XHm-iG-idV"/>
+                                        <constraint firstItem="fBu-2f-tnR" firstAttribute="leading" secondItem="dFP-CU-51e" secondAttribute="leading" constant="15" id="nht-ys-eut"/>
+                                        <constraint firstAttribute="bottom" secondItem="fBu-2f-tnR" secondAttribute="bottom" priority="750" constant="15" id="wMi-dF-xW5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="lbText" destination="PqY-EW-ew2" id="kkf-Lj-cOW"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DonateToCell" rowHeight="200" id="AND-2G-t26" customClass="DonateToCell" customModule="eoshub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="528" width="375" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AND-2G-t26" id="Vm2-KO-Ssa">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDp-2n-qcF" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="15" width="345" height="55"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" text="Donate to EOSHub: eoshuborigin" textAlignment="right" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6j7-K2-qeB">
+                                                    <rect key="frame" x="135" y="15" width="195" height="25"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                    <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fill_pink" translatesAutoresizingMaskIntoConstraints="NO" id="dxa-zb-f2R">
+                                                    <rect key="frame" x="115" y="20" width="15" height="15"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="15" id="837-Na-JrS"/>
+                                                        <constraint firstAttribute="height" constant="15" id="BR5-iM-4ix"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="6j7-K2-qeB" firstAttribute="top" secondItem="KDp-2n-qcF" secondAttribute="top" constant="15" id="45B-AM-F9o"/>
+                                                <constraint firstItem="dxa-zb-f2R" firstAttribute="centerY" secondItem="6j7-K2-qeB" secondAttribute="centerY" id="79S-x3-Iuz"/>
+                                                <constraint firstAttribute="bottom" secondItem="6j7-K2-qeB" secondAttribute="bottom" constant="15" id="Ipt-i6-keI"/>
+                                                <constraint firstAttribute="height" constant="55" id="Lu4-9m-Zdl"/>
+                                                <constraint firstItem="6j7-K2-qeB" firstAttribute="leading" secondItem="dxa-zb-f2R" secondAttribute="trailing" constant="5" id="VCQ-Hl-vpu"/>
+                                                <constraint firstAttribute="trailing" secondItem="6j7-K2-qeB" secondAttribute="trailing" constant="15" id="nVf-tD-zcw"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="5"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="bottom" secondItem="KDp-2n-qcF" secondAttribute="bottom" priority="750" constant="15" id="7R3-8r-R4S"/>
+                                        <constraint firstItem="KDp-2n-qcF" firstAttribute="leading" secondItem="Vm2-KO-Ssa" secondAttribute="leading" constant="15" id="Cmz-W1-jVQ"/>
+                                        <constraint firstAttribute="trailing" secondItem="KDp-2n-qcF" secondAttribute="trailing" constant="15" id="nYf-Av-qOa"/>
+                                        <constraint firstItem="KDp-2n-qcF" firstAttribute="top" secondItem="Vm2-KO-Ssa" secondAttribute="top" constant="15" id="rw8-vJ-xpO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="lbDonate" destination="6j7-K2-qeB" id="a8x-0n-u3g"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="j9F-im-qcr" id="heT-5F-yVR"/>
+                            <outlet property="delegate" destination="j9F-im-qcr" id="Efs-lL-Rph"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kSy-Lv-oE9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="629.60000000000002" y="959.85221674876857"/>
+        </scene>
         <!--Setting View Controller-->
         <scene sceneID="k2J-YV-ZKJ">
             <objects>
@@ -652,6 +795,7 @@
     </scenes>
     <resources>
         <image name="bgGrady" width="750" height="1334"/>
+        <image name="fill_pink" width="18" height="17"/>
         <image name="notification" width="42" height="46"/>
         <image name="option" width="40" height="40"/>
         <image name="radioOffBig" width="70" height="70"/>

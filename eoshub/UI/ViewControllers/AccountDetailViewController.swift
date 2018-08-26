@@ -13,7 +13,7 @@ import RxSwift
 class AccountDetailViewController: BaseTableViewController {
     
     fileprivate enum ItemType {
-        case accountInfo, resources, tokens, vote, tx, permissions, delete
+        case accountInfo, resources, tokens, vote, tx, permissions, donation, delete
     }
     
     var flowDelegate: AccountDetailFlowEventDelegate?
@@ -41,6 +41,8 @@ class AccountDetailViewController: BaseTableViewController {
         
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 20, 0)
         
+        tableView.register(UINib(nibName: "DonationCell", bundle: nil), forCellReuseIdentifier: "DonationCell")
+        
     }
     
     private func bindActions() {
@@ -52,6 +54,11 @@ class AccountDetailViewController: BaseTableViewController {
         
         if account.ownerMode {
             items.append(contentsOf: [.tokens, .permissions, .vote, .tx])
+            
+            if account.account != "forthehorde2" {
+                items.append(.donation)
+            }
+            
         } else {
             items.append(contentsOf: [.tokens, .permissions, .tx, .delete])
         }
@@ -124,7 +131,9 @@ extension AccountDetailViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleCell else { preconditionFailure() }
             cell.configure(title: LocalizedString.Wallet.Option.delete, color: .red, marginTop: 30)
             return cell
-
+        case .donation:
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "DonationCell", for: indexPath) as? DonationCell else { preconditionFailure() }
+            return cell
         }
         
         
@@ -148,6 +157,8 @@ extension AccountDetailViewController {
             flowDelegate?.goToKeyPair(from: nc)
         case .delete:
             delete()
+        case .donation:
+            flowDelegate?.goToDonate(from: nc)
         default:
             break
         }

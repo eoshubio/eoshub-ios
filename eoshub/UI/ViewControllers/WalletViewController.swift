@@ -116,6 +116,9 @@ class WalletViewController: BaseViewController {
         
         walletList.register(UINib(nibName: "WalletLockedCell", bundle: nil), forCellReuseIdentifier: "WalletLockedCell")
         
+        walletList.register(UINib(nibName: "DonationCell", bundle: nil), forCellReuseIdentifier: "DonationCell")
+        
+        
         walletList.addSubview(refreshControl)
     }
     
@@ -141,7 +144,14 @@ class WalletViewController: BaseViewController {
                     items.append([InactiveWallet(account: ehaccount)])
                 }
             
-            items.append([WalletAddCellType.add])
+            
+            
+            if AccountManager.shared.ownerInfos.filter("account != 'forthehorde2'").count > 0 {
+                items.append([WalletAddCellType.add, WalletAddCellType.donation])
+            } else {
+                items.append([WalletAddCellType.add])
+            }
+            
             walletList.reloadData()
         }
     }
@@ -415,9 +425,13 @@ extension WalletViewController: UITableViewDelegate {
                 }
                 .disposed(by: bag)
 
-        } else if item is WalletAddCellType {
-            //go to create wallet
-            flowDelegate?.goToCreate(from: nc)
+        } else if let item = item as? WalletAddCellType {
+            switch item {
+            case .add, .guide:
+                flowDelegate?.goToCreate(from: nc)
+            case .donation:
+                flowDelegate?.goToDonate(from: nc, with: nil)
+            }
         }
     }
 }

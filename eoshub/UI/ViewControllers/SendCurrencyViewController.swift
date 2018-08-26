@@ -108,9 +108,12 @@ class SendCurrencyViewController: TextInputViewController, NavigationPopDelegate
         
     }
     
-    func configure(account: AccountInfo, balance: Currency) {
+    func configure(account: AccountInfo, balance: Currency, to: String? = nil) {
         self.account = account
         self.balance = balance
+        if let to = to {
+            sendForm.account.value = to
+        }
     }
     
     fileprivate func goToTxHistory() {
@@ -296,6 +299,9 @@ class SendInputFormCell: TransactionInputFormCell, UITextFieldDelegate {
         let placeHolder = String(format: LocalizedString.Wallet.Transfer.accountPlaceholder, symbol)
         txtAcount.placeholder = placeHolder
         lbSymbol.text = symbol
+        if form.account.value.count == 12 {
+            txtAcount.text = form.account.value
+        }
         
         let bag = DisposeBag()
         txtAcount.rx.text

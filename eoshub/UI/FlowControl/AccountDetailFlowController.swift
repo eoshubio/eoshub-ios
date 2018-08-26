@@ -70,9 +70,13 @@ class AccountDetailFlowController: FlowController, AccountDetailFlowEventDelegat
         let fc = TokenAddFlowController(configure: config)
         fc.configure(account: account)
         fc.start(animated: true)
-        
-        
-        
+    }
+    
+    func goToDonate(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = DonateFlowController(configure: config)
+        fc.configure(account: account)
+        fc.start(animated: true)
     }
 }
 
@@ -83,4 +87,5 @@ protocol AccountDetailFlowEventDelegate: FlowEventDelegate {
     func goToKeyPair(from nc: UINavigationController)
     func goToTx(from nc: UINavigationController)
     func goToToken(from nc: UINavigationController)
+    func goToDonate(from nc: UINavigationController)
 }

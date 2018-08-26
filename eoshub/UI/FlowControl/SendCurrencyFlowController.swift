@@ -17,14 +17,16 @@ class SendCurrencyFlowController: FlowController, SendFlowEventDelegate {
     
     var account: AccountInfo!
     var balance: Currency!
+    var to: String?
     
     required init(configure: FlowConfigure) {
         self.configure = configure
     }
     
-    func configure(account: AccountInfo, balance: Currency) {
+    func configure(account: AccountInfo, balance: Currency, to: String? = nil) {
         self.account = account
         self.balance = balance
+        self.to = to
     }
     
     
@@ -32,7 +34,7 @@ class SendCurrencyFlowController: FlowController, SendFlowEventDelegate {
         EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: SendCurrencyViewController.self)
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "SendCurrencyViewController") as? SendCurrencyViewController else { return }
         vc.flowDelegate = self
-        vc.configure(account: account, balance: balance)
+        vc.configure(account: account, balance: balance, to: to)
         show(viewController: vc, animated: animated) {
             
         }

@@ -10,9 +10,6 @@ import Foundation
 import UIKit
 
 class WalletAddCell: UITableViewCell {
-    
-    @IBOutlet fileprivate weak var lbDonation: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
@@ -24,12 +21,6 @@ class WalletAddCell: UITableViewCell {
     
     private func setupUI() {
         selectionStyle = .none
-        let donationAccount = "eoshuborigin"
-        let text = NSMutableAttributedString(string: "Donation: eoshuborigin")
-        text.addAttributeFont(text: donationAccount, font: Font.appleSDGothicNeo(.semiBold).uiFont(14))
-        text.addAttributeColor(text: donationAccount, color: Color.basePurple.uiColor)
-        lbDonation.attributedText = text
-        
     }
     
     override func layoutSubviews() {
@@ -39,7 +30,7 @@ class WalletAddCell: UITableViewCell {
 
 
 enum WalletAddCellType: CellType {
-    case add, guide
+    case add, guide, donation
     
     var nibName: String {
         switch self {
@@ -47,6 +38,8 @@ enum WalletAddCellType: CellType {
             return "WalletAddCell"
         case .guide:
             return "WalletGuideCell"
+        case .donation:
+            return "DonationCell"
         }
         
     }
