@@ -51,6 +51,7 @@
 "setting.app.license" = "오픈소스 라이센스";
 "setting.app.term" = "약관 및 정책";
 "setting.app.telegram" = "텔레그램";
+"setting.app.twitter" = "트위터";
 
 /* 만들기 */
 "create.new.title" = "새로운 EOS 계정 생성하기";

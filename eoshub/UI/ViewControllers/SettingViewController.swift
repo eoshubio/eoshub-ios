@@ -313,6 +313,24 @@ class SettingViewController: FormViewController {
                 self?.flowDelegate?.goToWebView(from: nc, with: url, title: LocalizedString.Term.goPrivacy.capitalized)
             })
         
+        let twitter = LabelRow() {
+            $0.title = LocalizedString.Setting.App.twitter
+            $0.value = "@EOSHubio"
+            $0.cellStyle = .value1
+            }.cellUpdate { (cell, row) in
+                cell.textLabel?.textColor = Color.darkGray.uiColor
+                cell.detailTextLabel?.textColor = Color.blue.uiColor
+                cell.height = { 50 }
+            }.onCellSelection({ (_, row) in
+                row.deselect()
+                if let twitterURL = URL(string: "twitter://user?id=1011257111802597376"), UIApplication.shared.canOpenURL(twitterURL) {
+                    UIApplication.shared.open(twitterURL, options: [:], completionHandler: nil)
+                } else if let url = URL(string: "https://twitter.com/eoshubio"), UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+                
+            })
+        
         let telegram = LabelRow() {
             $0.title = LocalizedString.Setting.App.telegram
             $0.value = "EOSHub official community"
@@ -329,7 +347,9 @@ class SettingViewController: FormViewController {
                 
             })
         
-        section += [version, github, openSource, term, privacyPolicy, telegram]
+        
+        
+        section += [version, github, openSource, term, privacyPolicy, twitter, telegram]
         
         return section
     }

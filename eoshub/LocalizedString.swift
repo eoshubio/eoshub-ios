@@ -79,6 +79,7 @@ struct LocalizedString {
             static let license = NSLocalizedString("setting.app.license", comment: "")
             static let term = NSLocalizedString("setting.app.term", comment: "")
             static let telegram = NSLocalizedString("setting.app.telegram", comment: "")
+            static let twitter = NSLocalizedString("setting.app.twitter", comment: "")
         }
         
     }
