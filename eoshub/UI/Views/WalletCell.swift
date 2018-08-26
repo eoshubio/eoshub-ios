@@ -68,7 +68,7 @@ class WalletCell: UITableViewCell {
         account.text = viewModel.account
         total.text = viewModel.totalEOS.dot4String
         
-        availableEOS.text =  "(\(viewModel.availableEOS.dot4String) EOS" + LocalizedString.Wallet.available + ")"
+        availableEOS.text =  "(\(viewModel.availableEOS.dot4String) EOS " + LocalizedString.Wallet.available + ")"
         
        
         let marginBottom: CGFloat = 35
