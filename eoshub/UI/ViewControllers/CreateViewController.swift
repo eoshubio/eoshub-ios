@@ -219,7 +219,7 @@ class ImportAccountCell: CreateViewCell {
         lbTitle.text = LocalizedString.Create.Import.title
         btnImport.setTitle(LocalizedString.Create.Import.action, for: .normal)
         let text = NSMutableAttributedString(string: LocalizedString.Create.Import.text)
-        text.addAttributeColor(text: "iCloud keychain", color: Color.lightPurple.uiColor)
+        text.addAttributeColor(text: "iCloud Keychain", color: Color.lightPurple.uiColor)
         lbText.attributedText = text
     }
     

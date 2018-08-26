@@ -11,6 +11,7 @@ import UIKit
 
 class WalletAddCell: UITableViewCell {
     
+    @IBOutlet fileprivate weak var lbDonation: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,6 +24,11 @@ class WalletAddCell: UITableViewCell {
     
     private func setupUI() {
         selectionStyle = .none
+        
+        let text = NSMutableAttributedString(string: "Donation: eoshuborigin")
+        text.addAttributeFont(text: "eoshuborigin", font: Font.appleSDGothicNeo(.semiBold).uiFont(14))
+        lbDonation.attributedText = text
+        
     }
     
     override func layoutSubviews() {
