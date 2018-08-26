@@ -145,6 +145,9 @@ struct LocalizedString {
             
             static let agreeTerms = NSLocalizedString("create.invoice.agreeTerms", comment: "")
             static let term = NSLocalizedString("create.invoice.term", comment: "")
+            
+            static let succeed = NSLocalizedString("create.invoice.succeed", comment: "")
+            
         }
         
         

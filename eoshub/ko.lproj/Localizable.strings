@@ -103,6 +103,7 @@
 
 "create.invoice.agreeTerms" = "구매자를 위한 서비스 약관과 이오스 헌법을 읽었고 동의합니다.";
 "create.invoice.term" = "서비스 약관";
+"create.invoice.succeed" = "당신의 %@ EOS 계정이 성공적으로 생성되었습니다.";
 
 /* 지갑 */
 "wallet.send" = "보내기";

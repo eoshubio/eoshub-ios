@@ -106,7 +106,7 @@
 
 "create.invoice.agreeTerms" = "I have read an accept the Terms of service & Privacy policy and EOS Constitution.";
 "create.invoice.term" = "Terms of service & Privacy policy";
-
+"create.invoice.succeed" = "Your EOS account %@ has been successfully created.";
 
 
 /* 지갑 */

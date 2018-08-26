@@ -119,7 +119,12 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
                     
                     EHAnalytics.trackEvent(event: .create_account(self.request.ownerKeyFrom , self.request.activeKeyFrom))
                     
-                    Popup.present(style: .success, description: "")
+                    let succeedText = String(format: LocalizedString.Create.Invoice.succeed, self.request.name)
+                    
+                    let attrText = NSMutableAttributedString(string: succeedText)
+                    attrText.addAttributeColor(text: self.request.name, color: Color.basePurple.uiColor)
+                    
+                    Popup.present(style: .success, description: attrText)
                     
                     DB.shared.safeWrite {
                         self.request.completed = true
