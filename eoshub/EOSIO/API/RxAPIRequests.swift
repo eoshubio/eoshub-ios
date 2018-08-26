@@ -66,6 +66,8 @@ extension RxAPIRequest {
                         let json = result as? JSON ?? [:]
                         if let error = EOSResponseError(json: json) {
                             observer.onError(error)
+                        } else if let error = EOSHubResponseError(json: json) {
+                            observer.onError(error)
                         } else {
                             observer.onNext(json)
                             observer.onCompleted()

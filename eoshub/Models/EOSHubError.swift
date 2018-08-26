@@ -36,6 +36,38 @@ enum EOSHubError: Error, PrettyPrintedPopup {
     }
 }
 
+
+struct EOSHubResponseError: Error, JSONInitializable, PrettyPrintedPopup {
+    
+    let code: String
+    let message: String?
+    let type: String
+    let data: Any?
+    
+    init?(json: JSON) {
+        guard let resultType = json.string(for: "resultType"),
+              resultType == "FAIL",
+              let code = json.string(for: "resultCode") else { return nil }
+        
+        self.code = code
+        self.message = json.string(for: "resultMessage")
+        self.type = resultType
+        self.data = json["resultData"]
+    }
+    
+    
+    func showPopup() {
+        let errorText = code.capitalized.replacingOccurrences(of: "_", with: " ")
+        
+        let text: String = message ?? errorText
+        
+        Popup.present(style: .failed, description: text)
+    }
+    
+}
+
+
+
 enum WalletError: Error {
     case noValidPrivatekey
     

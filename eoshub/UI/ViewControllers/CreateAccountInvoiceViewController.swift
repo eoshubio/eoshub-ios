@@ -182,6 +182,7 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
     private func refreshData() {
         let userId = UserManager.shared.userId
         WaitingView.shared.start()
+            
         EOSHubAPI.refreshMemo(userId: userId)
             .flatMap { (json) -> Observable<Invoice> in
                 if let invoice = Invoice(json: json) {
@@ -195,7 +196,11 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
                 self?.invoice = invoice
                 self?.invoiceForm.update(from: invoice)
                 }, onError: { (error) in
-                    Popup.present(style: .failed, description: "\(error)")
+                    if let error = error as? PrettyPrintedPopup {
+                        error.showPopup()
+                    } else {
+                        Popup.present(style: .failed, description: "\(error)")
+                    }
             }) {
                 WaitingView.shared.stop()
             }
