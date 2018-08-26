@@ -62,8 +62,7 @@ struct Config {
                 "https://api.main-net.eosnodeone.io",
                 "https://api.cypherglass.com",
                 "https://publicapi-mainnet.eosauthority.com",
-                "https://mainnet.eoscanada.com",
-                "https://api.bp.fish"]
+                "https://mainnet.eoscanada.com"]
     }
     
     static var versionString: String {

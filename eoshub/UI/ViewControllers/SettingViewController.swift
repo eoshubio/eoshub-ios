@@ -187,7 +187,21 @@ class SettingViewController: FormViewController {
                 
             })
         
-        section += [host]
+        let consitituion = LabelRow() {
+            $0.title = LocalizedString.Common.constitusion
+            $0.cellStyle = .default
+            }.cellUpdate { (cell, row) in
+                cell.textLabel?.textColor = Color.darkGray.uiColor
+                cell.height = { 50 }
+                cell.accessoryType = .disclosureIndicator
+            }.onCellSelection({ [weak self](_, row) in
+                row.deselect()
+                guard let nc = self?.navigationController else { return }
+                let url = Config.eosConstitution
+                self?.flowDelegate?.goToWebView(from: nc, with: url, title: LocalizedString.Common.constitusion)
+            })
+        
+        section += [host, consitituion]
         
         return section
     }
