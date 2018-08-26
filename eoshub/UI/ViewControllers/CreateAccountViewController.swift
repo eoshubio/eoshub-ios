@@ -57,6 +57,7 @@ class CreateAccountViewController: BaseTableViewController {
     }
     
     private func setupUI() {
+        EHAnalytics.trackEvent(event: .try_create_account1)
         reloadFromCurrentRequest()
     }
     

@@ -77,9 +77,10 @@ class TokenViewController: BaseTableViewController {
                     let text = LocalizedString.Token.Add.success + "\n" + result.tokenInfo.token.stringValue
                     Popup.present(style: .success, description: text)
                     //try to add token
-                    DB.shared.safeWrite {
-                        self?.account?.addPreferToken(token: result.tokenInfo.token)
-                    }
+                    
+                    EHAnalytics.trackEvent(event: .addToken(token: result.tokenInfo.token))
+                    self?.account?.addPreferToken(token: result.tokenInfo.token)
+                    
                     DB.shared.addOrUpdateObjects([result.tokenInfo] as [TokenInfo])
                     
                     self?.loadTokenData()
@@ -218,9 +219,9 @@ extension TokenViewController {
             
             tokens[0].append(addingToken)
             
-            DB.shared.safeWrite {
-                account?.addPreferToken(token: addingToken.token)
-            }
+            EHAnalytics.trackEvent(event: .addToken(token: addingToken.token))
+            account?.addPreferToken(token: addingToken.token)
+            
             reloadTokenData()
         }
     }

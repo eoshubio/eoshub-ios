@@ -37,6 +37,7 @@ class ImportViewController: TextInputViewController {
     }
     
     private func setupUI() {
+        EHAnalytics.trackEvent(event: .try_import_account)
         lbTitle.text = LocalizedString.Wallet.Import.title
         btnImport.setTitle(LocalizedString.Wallet.Import.store, for: .normal)
         lbWarningTitle.text = LocalizedString.Create.Import.warningTitle
@@ -131,6 +132,8 @@ class ImportViewController: TextInputViewController {
                             })
                     })
                     .subscribe(onNext: { [weak self] (account) in
+                        
+                        EHAnalytics.trackEvent(event: .import_account)
                         
                         AccountManager.shared.refreshUI()
                         

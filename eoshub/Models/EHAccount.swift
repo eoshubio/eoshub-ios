@@ -60,8 +60,10 @@ class EHAccount: DBObject, Mergeable {
     }
     
     func addPreferToken(token: Token) {
-        if tokens.contains(token) == false {
-            _tokens.append(RealmString(value: token.stringValue))
+        DB.shared.safeWrite {
+            if tokens.contains(token) == false {
+                _tokens.append(RealmString(value: token.stringValue))
+            }
         }
     }
     

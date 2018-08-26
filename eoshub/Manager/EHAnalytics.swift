@@ -40,7 +40,7 @@ enum EHEvent {
     case sell_ram
     case create_account(CreateKeyMode, CreateKeyMode)
     case import_account
-    case intrest_account
+    case interest_account
     case try_create_account1
     case try_create_account2
     case try_create_account3
@@ -70,8 +70,8 @@ extension EHEvent {
                                                           "active": active.rawValue as NSString])
         case .import_account:
             return Event(name: "import_account")
-        case .intrest_account:
-            return Event(name: "intrest_account")
+        case .interest_account:
+            return Event(name: "interest_account")
         case .try_create_account1:
             return Event(name: "try_create_account1")
         case .try_create_account2:

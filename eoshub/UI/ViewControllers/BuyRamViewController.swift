@@ -107,6 +107,7 @@ class BuyRamViewController: BaseViewController {
                 return AccountManager.shared.loadAccounts()
             }
             .subscribe(onNext: { (_) in
+                EHAnalytics.trackEvent(event: .buy_ram)
                 self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
             }, onError: { (error) in
                 guard let error = error as? EOSResponseError else { return }

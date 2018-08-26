@@ -225,6 +225,7 @@ class VoteViewController: BaseViewController {
             .subscribe(onNext: { [weak self] (json) in
                     print(json)
                     self?.applySelection()
+                    EHAnalytics.trackEvent(event: .vote)
                     Popup.present(style: .success, description: "\(bps)")
                 }, onError: { [weak self] (error) in
                     self?.restoreSelection()

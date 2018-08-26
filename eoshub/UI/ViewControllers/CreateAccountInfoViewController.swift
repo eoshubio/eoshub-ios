@@ -143,6 +143,7 @@ class CreateAccountInfoNextCell: UITableViewCell {
     }
     
     private func setupUI() {
+        EHAnalytics.trackEvent(event: .try_create_account2)
         btnNext.setTitle(LocalizedString.Create.Account.next, for: .normal)
     }
     

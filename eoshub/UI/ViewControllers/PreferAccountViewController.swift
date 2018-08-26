@@ -36,6 +36,9 @@ class PreferAccountViewController: TextInputViewController {
     }
     
     private func setupUI() {
+        
+        EHAnalytics.trackEvent(event: .try_intrest_account)
+        
         lbTitle.text = LocalizedString.Wallet.Interest.title
         btnPaste.setTitle(LocalizedString.Common.paste, for: .normal)
         
@@ -84,6 +87,8 @@ class PreferAccountViewController: TextInputViewController {
                 let account = EHAccount(userId: UserManager.shared.userId, account: accountName, publicKey: pubKey, owner: false)
               
                 DB.shared.addOrUpdateObjects([account] as [EHAccount])
+                
+                EHAnalytics.trackEvent(event: .interest_account)
                 
                 return AccountManager.shared.loadAccount(account: account)
                     .flatMap({ (_) -> Observable<EHAccount> in

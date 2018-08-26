@@ -193,7 +193,9 @@ class SendCurrencyViewController: TextInputViewController, NavigationPopDelegate
             .flatMap({ (_) -> Observable<Void> in
                 return AccountManager.shared.loadAccounts()
             })
-            .subscribe(onNext: { (_) in
+            .subscribe(onNext: { [weak self](_) in
+                guard let `self` = self else { return }
+                EHAnalytics.trackEvent(event: .transfer(token: self.balance.token))
                 self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
             }, onError: { (error) in
                 guard let error = error as? EOSResponseError else { return }

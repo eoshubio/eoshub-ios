@@ -110,6 +110,7 @@ class DelegateViewController: BaseViewController {
                 return AccountManager.shared.loadAccounts()
             }
             .subscribe(onNext: { (_) in
+                EHAnalytics.trackEvent(event: .delegate_bw)
                 self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
             }, onError: { (error) in
                 guard let error = error as? EOSResponseError else { return }

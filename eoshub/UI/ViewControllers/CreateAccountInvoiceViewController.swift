@@ -60,7 +60,7 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
     }
     
     private func setupUI() {
-        
+        EHAnalytics.trackEvent(event: .try_create_account3)
     }
     
     private func setupData() {
@@ -117,7 +117,9 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
                     
                     AccountManager.shared.doLoadAccount()
                     
-                    Popup.present(style: .success, description: "\(json)")
+                    EHAnalytics.trackEvent(event: .create_account(self.request.ownerKeyFrom , self.request.activeKeyFrom))
+                    
+                    Popup.present(style: .success, description: "")
                     
                     DB.shared.safeWrite {
                         self.request.completed = true
