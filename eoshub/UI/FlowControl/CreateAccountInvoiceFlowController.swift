@@ -25,7 +25,7 @@ class CreateAccountInvoiceFlowController: FlowController, FlowEventDelegate {
     }
     
     func show(animated: Bool) {
-        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: CreateAccountInvoiceViewController.self)
         guard let vc = UIStoryboard(name: "Create", bundle: nil).instantiateViewController(withIdentifier: "CreateAccountInvoiceViewController") as? CreateAccountInvoiceViewController else { preconditionFailure() }
         
         vc.configure(request: request)

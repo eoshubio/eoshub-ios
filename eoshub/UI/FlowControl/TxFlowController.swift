@@ -29,7 +29,7 @@ class TxFlowController: FlowController {
     }
 
     func show(animated: Bool) {
-        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: TxViewController.self)
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "TxViewController") as? TxViewController else { return }
         
         vc.configure(account: accountName, actions: actions, filter: filter)

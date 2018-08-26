@@ -30,7 +30,7 @@ class TokenAddFlowController: FlowController, FlowEventDelegate {
     }
     
     func show(animated: Bool) {
-        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: TokenViewController.self)
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "TokenViewController") as? TokenViewController else { preconditionFailure() }
         vc.flowDelegate = self
         vc.configure(account: account)

@@ -28,7 +28,7 @@ class ReceiveFlowController: FlowController, ReceiveEventDelegate {
     
     
     func show(animated: Bool) {
-        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: ReceiveViewController.self)
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "ReceiveViewController") as? ReceiveViewController else { return }
         vc.flowDelegate = self
         vc.configure(account: account)

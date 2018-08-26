@@ -12,7 +12,7 @@ import UIKit
 class WalletDetailFlowController: FlowController, WalletDetailFlowEventDelegate {
     var configure: FlowConfigure
     
-    var id: FlowIdentifier { return .walletDetail }
+    var id: FlowIdentifier { return .resouces }
     
     var account: AccountInfo!
     
@@ -26,7 +26,7 @@ class WalletDetailFlowController: FlowController, WalletDetailFlowEventDelegate 
     
     
     func show(animated: Bool) {
-       
+       EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: WalletDetailViewController.self)
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "WalletDetailViewController") as? WalletDetailViewController else { return }
         vc.flowDelegate = self
         vc.configure(viewModel: account)

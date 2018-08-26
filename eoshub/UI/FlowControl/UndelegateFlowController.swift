@@ -27,7 +27,7 @@ class UndelegateFlowController: FlowController, UndelegateFlowEventDelegate {
     
     
     func show(animated: Bool) {
-        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: UndelegateViewController.self)
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "UndelegateViewController") as? UndelegateViewController else { return }
         vc.flowDelegate = self
         vc.configure(account: account)

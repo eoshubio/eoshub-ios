@@ -26,7 +26,7 @@ class TokenDetailFlowController: FlowController, TokenDetailFlowEventDelegate {
     
     
     func show(animated: Bool) {
-        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: TokenDetailViewController.self)
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "TokenDetailViewController") as? TokenDetailViewController else { return }
         vc.flowDelegate = self
         vc.configure(tokenInfo: tokenBalance)

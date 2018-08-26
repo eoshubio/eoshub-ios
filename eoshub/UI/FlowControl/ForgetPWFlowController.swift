@@ -19,6 +19,7 @@ class ForgetPWFlowController: FlowController, FlowEventDelegate {
     }
     
     func show(animated: Bool) {
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: ForgotPWViewController.self)
         guard let vc = UIStoryboard(name: "Intro", bundle: nil).instantiateViewController(withIdentifier: "ForgotPWViewController") as? ForgotPWViewController else { preconditionFailure() }
         vc.flowDelegate = self
         show(viewController: vc, animated: animated) {

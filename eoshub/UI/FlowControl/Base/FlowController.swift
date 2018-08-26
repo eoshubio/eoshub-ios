@@ -33,7 +33,7 @@ enum FlowIdentifier: String {
     case web
     case accountDetail
     case keypair
-    case walletDetail
+    case resouces
     case delegatebw
     case undelegatebw
     case buyram
@@ -51,6 +51,7 @@ enum FlowIdentifier: String {
     
     case pop
     case dismiss
+
 }
 
 protocol FlowController {

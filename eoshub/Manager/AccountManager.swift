@@ -34,6 +34,7 @@ class AccountManager {
     
     func refreshUI() {
         accountInfoRefreshed.onNext(())
+        EHAnalytics.setUserProperties()
     }
     
     func loadAccounts() -> Observable<Void> {

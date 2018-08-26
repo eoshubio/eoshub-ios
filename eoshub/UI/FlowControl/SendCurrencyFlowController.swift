@@ -29,7 +29,7 @@ class SendCurrencyFlowController: FlowController, SendFlowEventDelegate {
     
     
     func show(animated: Bool) {
-        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: SendCurrencyViewController.self)
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "SendCurrencyViewController") as? SendCurrencyViewController else { return }
         vc.flowDelegate = self
         vc.configure(account: account, balance: balance)

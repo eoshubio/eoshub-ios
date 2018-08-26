@@ -27,7 +27,7 @@ class WebViewFlowController: FlowController {
     }
 
     func show(animated: Bool) {
-        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: WebViewController.self)
         guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WebViewController") as? WebViewController else { return }
         vc.configure(urlString: urlString, title: title)
         show(viewController: vc, animated: animated) {

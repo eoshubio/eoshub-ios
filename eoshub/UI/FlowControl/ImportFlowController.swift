@@ -20,6 +20,7 @@ class ImportFlowController: FlowController, ImportFlowEventDelegate {
         }
     
         func show(animated: Bool) {
+            EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: ImportViewController.self)
             guard let vc = UIStoryboard(name: "Create", bundle: nil).instantiateViewController(withIdentifier: "ImportViewController") as? ImportViewController else { preconditionFailure() }
             vc.flowDelegate = self
             show(viewController: vc, animated: animated) {

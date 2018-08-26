@@ -26,7 +26,7 @@ class AccountDetailFlowController: FlowController, AccountDetailFlowEventDelegat
     
     
     func show(animated: Bool) {
-        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: AccountDetailViewController.self)
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "AccountDetailViewController") as? AccountDetailViewController else { return }
         vc.flowDelegate = self
         vc.configure(account: account)

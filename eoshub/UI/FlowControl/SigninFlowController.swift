@@ -20,6 +20,7 @@ class SigninEmailFlowController: FlowController, SigninEmailFlowEventDelegate {
     }
     
     func show(animated: Bool) {
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: SigninViewController.self)
         guard let vc = UIStoryboard(name: "Intro", bundle: nil).instantiateViewController(withIdentifier: "SigninViewController") as? SigninViewController else { preconditionFailure() }
         vc.flowDelegate = self
         show(viewController: vc, animated: animated) {

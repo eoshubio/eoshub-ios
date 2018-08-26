@@ -25,6 +25,7 @@ class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
     func show(animated: Bool) {
         
         if Security.shared.enableBioAuth && Security.shared.biometryType() != .none {
+            EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: TouchIdViewController.self)
             guard let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "TouchIdViewController") as? TouchIdViewController else { preconditionFailure() }
             vc.flowDelegate = self
             let nc = BaseNavigationController(rootViewController: vc)
@@ -32,6 +33,7 @@ class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
                 
             }
         } else {
+            EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: PinCodeViewController.self)
             guard let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "PinCodeViewController") as? PinCodeViewController else { preconditionFailure() }
             vc.flowDelegate = self
             vc.configure(mode: .validation)

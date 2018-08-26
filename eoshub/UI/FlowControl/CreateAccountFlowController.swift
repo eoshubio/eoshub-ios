@@ -30,7 +30,7 @@ class CreateAccountFlowController: FlowController, CreateAccountFlowEventDelegat
     }
     
     func show(animated: Bool) {
-        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: CreateAccountViewController.self)
         guard let vc = UIStoryboard(name: "Create", bundle: nil).instantiateViewController(withIdentifier: "CreateAccountViewController") as? CreateAccountViewController else { preconditionFailure() }
         vc.flowDelegate = self
         

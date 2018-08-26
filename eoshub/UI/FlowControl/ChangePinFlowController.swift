@@ -13,14 +13,14 @@ import UIKit
 class ChangePinFlowController: FlowController, ChangePinFlowEventDelegate {
     var configure: FlowConfigure
     
-    var id: FlowIdentifier { return .createPin }
+    var id: FlowIdentifier { return .changePin }
     
     required init(configure: FlowConfigure) {
         self.configure = configure
     }
     
     func show(animated: Bool) {
-        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: PinCodeViewController.self)
         guard let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "PinCodeViewController") as? PinCodeViewController else { preconditionFailure() }
         vc.flowDelegate = self
         vc.configure(mode: .change)

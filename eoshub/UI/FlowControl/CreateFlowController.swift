@@ -25,7 +25,7 @@ class CreateFlowController: FlowController, CreateFlowEventDelegate {
     }
     
     func show(animated: Bool) {
-        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: CreateViewController.self)
         guard let vc = UIStoryboard(name: "Create", bundle: nil).instantiateViewController(withIdentifier: "CreateViewController") as? CreateViewController else { preconditionFailure() }
         vc.flowDelegate = self
         vc.configure(items: items)

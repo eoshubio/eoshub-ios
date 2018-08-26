@@ -23,7 +23,7 @@ class QRScannerFlowController: FlowController, QRScannerFlowEventDelegate {
 
     
     func show(animated: Bool) {
-        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: QRScannerViewController.self)
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "QRScannerViewController") as? QRScannerViewController else { return }
         vc.flowDelegate = self
         show(viewController: vc, animated: animated) {

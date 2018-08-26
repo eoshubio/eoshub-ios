@@ -20,6 +20,7 @@ class PreferAccountFlowController: FlowController, PreferAccountFlowEventDelegat
     }
     
     func show(animated: Bool) {
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: PreferAccountViewController.self)
         guard let vc = UIStoryboard(name: "Create", bundle: nil).instantiateViewController(withIdentifier: "PreferAccountViewController") as? PreferAccountViewController else { preconditionFailure() }
         vc.flowDelegate = self
         show(viewController: vc, animated: animated) {

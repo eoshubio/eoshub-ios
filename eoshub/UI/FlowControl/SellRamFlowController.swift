@@ -27,7 +27,7 @@ class SellRamFlowController: FlowController, SellRamFlowEventDelegate {
     
     
     func show(animated: Bool) {
-        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: SellRamViewController.self)
         guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "SellRamViewController") as? SellRamViewController else { return }
         vc.flowDelegate = self
         vc.configure(account: account)

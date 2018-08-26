@@ -26,6 +26,7 @@ class VerifyFlowController: FlowController, VerifyFlowEventDelegate {
     }
     
     func show(animated: Bool) {
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: VerifyViewController.self)
         guard let vc = UIStoryboard(name: "Intro", bundle: nil).instantiateViewController(withIdentifier: "VerifyViewController") as? VerifyViewController else { preconditionFailure() }
         vc.flowDelegate = self
         vc.configure(viewModel: viewModel)

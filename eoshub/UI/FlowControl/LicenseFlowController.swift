@@ -19,6 +19,7 @@ class LicenseFlowController: FlowController {
     }
     
     func show(animated: Bool) {
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: LicenseViewController.self)
         guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LicenseViewController") as? LicenseViewController else { preconditionFailure() }
         show(viewController: vc, animated: animated) {
             

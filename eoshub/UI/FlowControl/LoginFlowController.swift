@@ -19,6 +19,8 @@ class LoginFlowController: FlowController, LoginFlowEventDelegate {
     }
     
     func show(animated: Bool) {
+        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: LoginViewController.self)
         guard let vc = UIStoryboard(name: "Intro", bundle: nil).instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController else { preconditionFailure() }
         vc.flowDelegate = self
         show(viewController: vc, animated: animated) {

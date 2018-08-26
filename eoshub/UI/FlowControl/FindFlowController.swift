@@ -19,6 +19,7 @@ class FindFlowController: FlowController {
     }
     
     func show(animated: Bool) {
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: FindAccountViewController.self)
         guard let vc = UIStoryboard(name: "Create", bundle: nil).instantiateViewController(withIdentifier: "FindAccountViewController") as? FindAccountViewController else { preconditionFailure() }
         //            vc.flowDelegate = self
         show(viewController: vc, animated: animated) {

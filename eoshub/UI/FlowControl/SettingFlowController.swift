@@ -19,6 +19,7 @@ class SettingFlowController: FlowController, SettingFlowEventDelegate {
     }
     
     func show(animated: Bool) {
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: SettingViewController.self)
         guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "SettingViewController") as? SettingViewController else { preconditionFailure() }
         vc.flowDelegate = self
         show(viewController: vc, animated: animated) {

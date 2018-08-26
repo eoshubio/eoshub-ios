@@ -21,6 +21,7 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
     }
     
     func show(animated: Bool) {
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: WalletViewController.self)
         let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "WalletViewController") as! WalletViewController
         
         vc.show()

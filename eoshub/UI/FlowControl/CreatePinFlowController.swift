@@ -20,7 +20,7 @@ class CreatePinFlowController: FlowController, CreatePinFlowDelegate {
     }
     
     func show(animated: Bool) {
-        
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: PinCodeViewController.self)
         guard let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "PinCodeViewController") as? PinCodeViewController else { preconditionFailure() }
         vc.flowDelegate = self
         vc.configure(mode: .create)

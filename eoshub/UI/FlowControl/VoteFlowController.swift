@@ -25,6 +25,7 @@ class VoteFlowController: FlowController, VoteFlowEventDelegate {
     }
     
     func show(animated: Bool) {
+        EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: VoteViewController.self)
         guard let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "VoteViewController") as? VoteViewController else { return }
         vc.flowDelegate = self
         vc.configure(account: account)
