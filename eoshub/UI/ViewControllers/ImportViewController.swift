@@ -42,8 +42,8 @@ class ImportViewController: TextInputViewController {
         btnImport.setTitle(LocalizedString.Wallet.Import.store, for: .normal)
         lbWarningTitle.text = LocalizedString.Create.Import.warningTitle
         
-        
-        let warning = NSMutableAttributedString(string: LocalizedString.Create.Import.warning)
+        let warningText = LocalizedString.Create.Import.warning + "\n" + LocalizedString.Create.Import.setting
+        let warning = NSMutableAttributedString(string: warningText)
         
         let keyChainDoc = URLs.iCloudKeychain
         warning.addAttributeFont(text: warning.string, font: Font.appleSDGothicNeo(.regular).uiFont(14))
@@ -51,6 +51,9 @@ class ImportViewController: TextInputViewController {
             warning.addAttributeURL(text: LocalizedString.Create.Import.keychain, url: url)
             warning.addAttributeFont(text: LocalizedString.Create.Import.keychain, font: Font.appleSDGothicNeo(.semiBold).uiFont(14))
         }
+   
+        warning.addAttributeFont(text: LocalizedString.Create.Import.setting, font: Font.appleSDGothicNeo(.semiBold).uiFont(14))
+        
         warning.addLineHeight(height: 4)
         
         lbWarning.attributedText = warning
@@ -110,7 +113,6 @@ class ImportViewController: TextInputViewController {
         guard let priKey = txtPriKey.text else { return }
         
         guard let pubKey = EOS_Key_Encode.eos_publicKey_(with_wif: priKey) else { return }
-        
         
         if let existAccount = AccountManager.shared.getAccount(pubKey: pubKey), existAccount.owner {
             Popup.present(style: Popup.Style.failed, description: "\(EOSErrorType.existAccount)")

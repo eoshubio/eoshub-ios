@@ -61,7 +61,8 @@
 "create.import.text" = "기존에 생성된 EOS 계정을 EOSHub 에 안전하게 보관할 수 있습니다. Private key 는 암호화되어 iCloud Keychain 저장됩니다.";
 "create.import.action" = "가져오기";
 "create.import.warningTitle" = "아래의 주의사항을 꼭 읽어주세요.";
-"create.import.warning" = "1. Private key는 키보드를 통해 직접 입력해주세요.\n2. EOSHub 는 강력한 보안과 Key 복원을 위하여 iCloud Keychain 을 사용합니다. iCloud 비활성화되어 있으면 Private key를 복구할 수 없습니다.\n(설정-iCloud-키체인-켬 확인)";
+"create.import.warning" = "1. Private key는 키보드를 통해 직접 입력해주세요.\n\n2. EOSHub 는 강력한 보안과 Key 복원을 위하여 iCloud Keychain 을 사용합니다. iCloud 비활성화되어 있으면 Private key를 복구할 수 없습니다.";
+"create.import.setting" = "(설정 - 프로필 - iCloud - 키체인 - 켬)";
 "create.import.iCloudKeychain" = "iCloud Keychain";
 
 "create.interest.title" = "관심 계정 추가하기";

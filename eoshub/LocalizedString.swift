@@ -96,6 +96,7 @@ struct LocalizedString {
             static let action = NSLocalizedString("create.import.action", comment: "")
             static let warningTitle = NSLocalizedString("create.import.warningTitle", comment: "")
             static let warning = NSLocalizedString("create.import.warning", comment: "")
+            static let setting = NSLocalizedString("create.import.setting", comment: "")
             static let keychain = NSLocalizedString("create.import.iCloudKeychain", comment: "")
         }
         

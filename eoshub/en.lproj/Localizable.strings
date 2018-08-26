@@ -63,7 +63,8 @@
 "create.import.text" = "You can keep your existing EOS account securely in EOSHub. The private key is encrypted and stored in the iCloud Keychain.";
 "create.import.action" = "Import";
 "create.import.warningTitle" = "Please follow the below instructions when you import a private key." ;
-"create.import.warning" = "1. Enter the private key directly. Do not copy and paste.\n2. EOSHub uses the iCloud Keychain to prevent security issues. Please turn on iCloud for the best results. \n(Settings-iCloud-Keychain-On OK)";
+"create.import.warning" = "1. Enter the private key directly. Do not copy and paste.\n\n2. EOSHub uses the iCloud Keychain to prevent security issues. Please turn on iCloud for the best results.";
+"create.import.setting" = "(Settings - Your Profile - iCloud Keychain - On)";
 "create.import.iCloudKeychain" = "iCloud Keychain";
 
 "create.interest.title" = "Follow an account";
