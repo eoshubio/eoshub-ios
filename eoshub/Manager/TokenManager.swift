@@ -16,8 +16,7 @@ class TokenManager {
 
     private let bag = DisposeBag()
     
-    //TODO: Save/Load with Realm, download from server
-    lazy var knownTokens: Results<TokenInfo> = {
+    var knownTokens: Results<TokenInfo> = {
        return DB.shared.getTokens()
     }()
     
@@ -43,7 +42,6 @@ class TokenManager {
         
         let tokens: [TokenInfo] = list.compactMap(TokenInfo.create)
             .filter { (info) -> Bool in
-                //TODO: comment
                 return info.token.stringValue != "EOS@eosio.token"
             }
         
