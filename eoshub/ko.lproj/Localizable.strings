@@ -24,7 +24,7 @@
 "login.forgetpw.send" = "비밀번호 재설정 링크 보내기";
 
 /* 약관 */
-"term.title" = "이오스허브는 EOS와 EOS기반 토큰들을\n가장 안전하게 보관할 수 있는 모바일\n콜드 월렛 입니다";
+"term.title" = "EOSHub는 EOS와 토큰들을 가장 안전하게 보관할 수 있는 모바일 콜드 월렛 입니다";
 "term.goTerm" = "이용약관";
 "term.termAndPrivacy" = "개인정보 보호정책 및 이용약관";
 "term.goPrivacy" = "개인정보 보호정책";
@@ -228,5 +228,6 @@
 "common.cancelShort" = "취소";
 "common.confirmShort" = "승인";
 "common.caution" = "주의";
+"common.back" = "뒤로";
 
 "create.eosConstitusion" = "이오스 헌법";

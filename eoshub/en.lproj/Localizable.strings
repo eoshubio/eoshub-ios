@@ -25,7 +25,7 @@
 "login.forgetpw.send" = "Reset password via email";
 
 /* 약관 */
-"term.title" = "EOSHub is\na mobile cold wallet\nthat can store\n'EOS and EOS based tokens'\nsafely";
+"term.title" = "EOSHub is a mobile cold wallet that can store 'EOS and EOS based tokens' safely";
 "term.goTerm" = "Terms of Use";
 "term.termAndPrivacy" = "Terms and Privacy policy";
 "term.goPrivacy" = "Privacy policy";
@@ -228,5 +228,6 @@
 "common.cancelShort" = "Cancel";
 "common.confirmShort" = "Confirm";
 "common.caution" = "Caution";
+"common.back" = "Back";
 
 "create.eosConstitusion" = "EOS Constitution";

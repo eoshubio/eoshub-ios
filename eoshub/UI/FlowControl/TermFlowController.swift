@@ -42,6 +42,7 @@ class TermFlowController: FlowController, TermFlowEventDelegate {
                 fc.configure(viewModel: viewModel)
             }
             fc.start(animated: true)
+            nc.viewControllers = nc.viewControllers.filter({ ($0 is TermViewController) == false })
             
         } else {
             let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)

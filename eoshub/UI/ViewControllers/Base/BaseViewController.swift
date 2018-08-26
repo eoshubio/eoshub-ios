@@ -71,9 +71,7 @@ class BaseViewController: UIViewController {
     }
     
     func addBackButton() {
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(self.back))
-        
-        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: LocalizedString.Common.back, style: .plain, target: self, action: #selector(self.back))
     }
     
 }
