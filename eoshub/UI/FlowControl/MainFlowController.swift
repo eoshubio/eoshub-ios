@@ -37,8 +37,9 @@ class MainFlowController: FlowController {
         nc.view.frame = frame
         
         show(viewController: nc, animated: animated) {
-            let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
             
+            let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+
             if self.checkValidLoginToken() {
                 let fc = LoginFlowController(configure: config)
                 fc.start(animated: false)

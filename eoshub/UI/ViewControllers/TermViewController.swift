@@ -26,7 +26,13 @@ class TermViewController: BaseViewController {
     }
     
     private func setupUI() {
-        lbTitle.text = LocalizedString.Term.title
+        let titleText = NSMutableAttributedString(string: LocalizedString.Term.title, attributes: [NSAttributedStringKey.font : Font.appleSDGothicNeo(.medium).uiFont(14)])
+        
+        titleText.addLineHeight(height: 6)
+        
+        lbTitle.attributedText = titleText
+        lbTitle.textAlignment = .center
+        
         btnPrivacy.setTitle(LocalizedString.Term.termAndPrivacy, for: .normal)
         btnStart.setTitle(LocalizedString.Term.start, for: .normal)
         let termPolicyText = LocalizedString.Term.privacyDesc

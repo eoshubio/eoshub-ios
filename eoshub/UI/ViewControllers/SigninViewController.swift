@@ -114,7 +114,6 @@ class SigninViewController: TextInputViewController {
         guard let email = txtEmail.text?.trimmingCharacters(in: .whitespaces), let password = txtPasswd.text else { return }
         WaitingView.shared.start()
         Auth.auth().signIn(withEmail: email, password: password) { [weak self](user, error) in
-            WaitingView.shared.stop()
             if let error = error {
                 if let authErrorType = AuthError.getError(error: error)?.type, authErrorType == AuthErrorType.ERROR_USER_NOT_FOUND {
                     //create
@@ -136,9 +135,9 @@ class SigninViewController: TextInputViewController {
     
     
     private func createUserWithEmail(email: String, password: String) {
-        WaitingView.shared.start()
+    
         Auth.auth().createUser(withEmail: email, password: password) { [weak self](user, error) in
-            WaitingView.shared.stop()
+            
             if let error = error {
                 Log.e(error)
                 self?.failToLogin(error: error)
@@ -148,6 +147,7 @@ class SigninViewController: TextInputViewController {
                     self?.loggedIn(user: user)
                 } else {
                     //Go to term
+                    WaitingView.shared.stop()
                     guard let nc = self?.navigationController else { return }
                     self?.flowDelegate?.goToTerm(from: nc, viewModel: VerifyViewController.ViewModel(user: user.user, email: email))
 //                    self?.verifyEmail(user: user.user, email: email)
