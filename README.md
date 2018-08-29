@@ -1,10 +1,9 @@
 # EOSHub
 
-**EOSHUB** is a mobile platform that delivers the benefits of iOS to many people. Despite EOS has many advantages, but accessing to EOS network was too difficult for the ordinary user. The EOSHub is the simplest and safest way to help users to access various EOS features like Vote, Resource management, Trading RAM etc. It prevents security threats caused by hackers and a user's unconscious actions. but it is still easy to use. Because EOSHub supports easy biometrics authentification rather than too long, too complex and too vulnerable private key. Our vision is to share abundant possibilities for everyone in the EOS blockchain.
+Welcome to EOS Hub ­ Easy access to the EOS network.
 
-# Features
-
-As a mobile application built on an EOS ecosphere, EOSHUB needs to meet the demands by efficiently linking blockchain technology services with various real-life scenarios. If the EOS platform opens the possibility for an efficient blockchain, then EOSHUB further strengthens it by providing extra values for the new blockchains and enthusiastic holders by eliminates barriers among different blockchain applications. In addition to basic functions, We provide full benefits of promising airdrops and upcoming ICO offers for all users.
+**EOSHUB** is a mobile platform that delivers the benefits of iOS to many people. Despite EOS has many advantages, but accessing to EOS network was too difficult for the ordinary user. The EOSHub is the simplest and safest way to help users to access various EOS features like Vote, Resource management, Trading RAM etc. It prevents security threats caused by hackers and a user's unconscious actions. but it is still easy to use. Because EOSHub supports easy biometrics authentification rather than too long, too complex and too vulnerable private key. You can do almost everything you need to do about EOS blockchain with EOSHub wallet. Exchanges don’t provide airdrop tokens you deserve and hackers are always looking for security weakness. Let’s start the EOS coin under secure and fast environment.
+Our vision is to share abundant possibilities for everyone in the EOS blockchain.
 
 ## Wallet
 
