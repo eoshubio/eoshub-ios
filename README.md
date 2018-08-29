@@ -34,7 +34,7 @@ Our vision is to share abundant possibilities for everyone in the EOS blockchain
 - Supports airgrap feature. *(available soon)*
 
 ### Smart contract
-- Manually execute smart contracts.
+- Manually execute smart contracts. *(available soon)*
 
 ## ICO platform.
 - EOSHUB is preparing a platform to participate in ICO easily with the EOS that it keeps.
