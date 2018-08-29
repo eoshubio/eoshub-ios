@@ -5,7 +5,7 @@ Welcome to EOS Hub ­ Easy access to the EOS network.
 **EOSHUB** is a mobile platform that delivers the benefits of iOS to many people. Despite EOS has many advantages, but accessing to EOS network was too difficult for the ordinary user. The EOSHub is the simplest and safest way to help users to access various EOS features like Vote, Resource management, Trading RAM etc. It prevents security threats caused by hackers and a user's unconscious actions. but it is still easy to use. Because EOSHub supports easy biometrics authentification rather than too long, too complex and too vulnerable private key. You can do almost everything you need to do about EOS blockchain with EOSHub wallet. Exchanges don’t provide airdrop tokens you deserve and hackers are always looking for security weakness. Let’s start the EOS coin under secure and fast environment.
 Our vision is to share abundant possibilities for everyone in the EOS blockchain.
 
-## Wallet
+## Wallet features
 
 ### EOS Account manager
 - Creating an EOS account
