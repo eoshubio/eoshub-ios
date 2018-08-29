@@ -9,7 +9,7 @@ As a mobile application built on an EOS ecosphere, EOSHUB needs to meet the dema
 ## Wallet
 
 ### EOS Account manager
-- Creating an EOS account *(available soon)*
+- Creating an EOS account
 - Importing own private key.
 - Multiple EOS accounts manager.
 - Favorite accounts list.
@@ -31,11 +31,11 @@ As a mobile application built on an EOS ecosphere, EOSHUB needs to meet the dema
 ### BP voting.
 - Participate in BP voting with stake EOS.
 
-### Airdrops.
-- Provides detailed airdrop information.
+### AirGrap.
+- Supports airgrap feature. *(available soon)*
 
 ### Smart contract
-- Manually execute smart contracts such as `AirGrap`
+- Manually execute smart contracts.
 
 ## ICO platform.
 - EOSHUB is preparing a platform to participate in ICO easily with the EOS that it keeps.
@@ -46,12 +46,14 @@ As a mobile application built on an EOS ecosphere, EOSHUB needs to meet the dema
 - EOSHub can sign on its own. So when signing a transaction, your private key or wallet password is not exposed to the network.
 
 ### iCloud KeyChain
-- The imported private key is stored in the iCloud key chain as a strong encryption algorithm.
-- By using iCloud key chain, you can be free from the loss of mobile phones and you can get powerful Apple security features that have never been hacked.
+- The imported private key is stored in the iCloud Keychain as a strong encryption algorithm.
+- By using iCloud Keychain, you can be free from the loss of mobile phones and you can get powerful Apple security features that have never been hacked.
 
 ### Biometic supports (Face ID, Touch ID)
 - Sign requires biometic authentication for all transactions that require it.
 
 ### Secure enclave supports
-- When you create an EOS account, your private key is created in a [Secure enclave](https://developer.apple.com/documentation/security/certificate_key_and_trust_services/keys/storing_keys_in_the_secure_enclave). Secure enclave protects your private key from hackers and your mistakes perfectly with Apple's powerful Secure hardware.
-In [v1.1.0 of EOS](https://github.com/EOSIO/eos/releases/tag/v1.1.0), we released the function for Mac, and we are making from EOSHUB to iOS version.
+- How about keeping the private key in the hardware when you create a new EOS account?
+The [Secure Enclave](https://developer.apple.com/documentation/security/certificate_key_and_trust_services/keys/storing_keys_in_the_secure_enclave) is Apple's powerful security technology that allows you to protect a private key in a secret place of hardware.
+The Secure Enclave blocks private key access without a user's permission like hacker threats or unconsious mistakes. Because Apple's security hardware enables you to sign a private key without loading on a memory area.
+Recently the EOS block one adds this security feature for Mac in [v1.1.0](https://github.com/EOSIO/eos/releases/tag/v1.1.0). EOSHub is the first mobile app in the world supports the Secure Enclave function for iOS.
