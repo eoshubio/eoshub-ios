@@ -30,7 +30,7 @@ Our vision is to share abundant possibilities for everyone in the EOS blockchain
 ### BP voting.
 - Participate in BP voting with stake EOS.
 
-### AirGrap.
+### Airgrab.
 - Supports airgrap feature. *(available soon)*
 
 ### Smart contract
