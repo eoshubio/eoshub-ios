@@ -36,8 +36,8 @@ Our vision is to share abundant possibilities for everyone in the EOS blockchain
 ### Smart contract
 - Manually execute smart contracts. *(available soon)*
 
-## ICO platform.
-- EOSHUB is preparing a platform to participate in ICO easily with the EOS that it keeps.
+## ICO platform. *(available soon)*
+- EOSHUB wants to be a decentralized ICO platform for all EOS lovers. At EOSHub ICO company can promote their coins and company's technology. and user's can collect information from EOSHub community and also particiapte in ICO directly.
 
 ## Security.
 
