@@ -1,6 +1,6 @@
 # EOSHub
 
-**EOSHUB** is cryptocurrency finance platform on your palm. It gives various features and opportunities to all EOS holders who are interested in investment. We want to deliver more benefits and share huge fruits of EOS ecosystem growth. Our mission is to make everyone can take full benefit of EOS economics by simplifying structures or reducing redundant processes.
+**EOSHUB** is a mobile platform that delivers the benefits of iOS to many people. Despite EOS has many advantages, but accessing to EOS network was too difficult for the ordinary user. The EOSHub is the simplest and safest way to help users to access various EOS features like Vote, Resource management, Trading RAM etc. It prevents security threats caused by hackers and a user's unconscious actions. but it is still easy to use. Because EOSHub supports easy biometrics authentification rather than too long, too complex and too vulnerable private key. Our vision is to share abundant possibilities for everyone in the EOS blockchain.
 
 # Features
 
