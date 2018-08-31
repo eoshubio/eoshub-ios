@@ -9,12 +9,12 @@
 import Foundation
 
 enum EOSHubError: Error, PrettyPrintedPopup {
-    case userCancelled
+    case userCanceled
     case txNotFound
     
     var localizedDescription: String {
         switch self {
-        case .userCancelled:
+        case .userCanceled:
             return "Canceled."
         case .txNotFound:
             return "Transaction not found. It can take up to 15 minutes for transactions to be reflected in the block chain."
@@ -25,7 +25,7 @@ enum EOSHubError: Error, PrettyPrintedPopup {
         var title: String? = nil
         var text: String = ""
         switch self {
-        case .userCancelled:
+        case .userCanceled:
             text = "Canceled."
         case .txNotFound:
             title = "Transaction not found"
@@ -77,6 +77,6 @@ enum WalletError: Error {
 
     case failedToSignature
     
-    case cancelled
+    case canceled
 
 }

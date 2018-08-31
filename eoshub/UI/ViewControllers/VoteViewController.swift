@@ -189,7 +189,7 @@ class VoteViewController: BaseViewController {
                                                       width: halfWidth, height: 44))
         cancelButton.setTitle(LocalizedString.Common.cancel, for: .normal)
         cancelButton.titleLabel?.font = Font.appleSDGothicNeo(.bold).uiFont(12)
-        cancelButton.addTarget(self, action: #selector(self.onVoteCancelled), for: .touchUpInside)
+        cancelButton.addTarget(self, action: #selector(self.onVoteCanceled), for: .touchUpInside)
         applyView.addSubview(cancelButton)
 
         window.addSubview(applyView)
@@ -245,7 +245,7 @@ class VoteViewController: BaseViewController {
         
     }
     
-    @objc fileprivate func onVoteCancelled() {
+    @objc fileprivate func onVoteCanceled() {
         restoreSelection()
         dismissApplyView()
     }
@@ -267,7 +267,7 @@ class VoteViewController: BaseViewController {
         }.map({"\($0.index)"}).joined(separator: "")
         
         if prv == cur {
-            onVoteCancelled()
+            onVoteCanceled()
         } else {
             addApplySectionIfNeeded()
             updateApplyButton()

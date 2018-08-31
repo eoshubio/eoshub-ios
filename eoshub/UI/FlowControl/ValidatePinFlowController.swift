@@ -57,7 +57,7 @@ class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
         
     }
     
-    func cancelled(from nc: UINavigationController) {
+    func canceled(from nc: UINavigationController) {
         Security.shared.authorized.onNext(false)
         validated.onNext(false)
         validated.onCompleted()
@@ -68,6 +68,6 @@ class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
 protocol ValidatePinFlowDelegate: FlowEventDelegate {
     
     func validated(from nc: UINavigationController)
-    func cancelled(from nc: UINavigationController)
+    func canceled(from nc: UINavigationController)
     
 }

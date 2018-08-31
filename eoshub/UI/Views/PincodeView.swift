@@ -100,9 +100,9 @@ class PinCodeView: UIView {
     
     func show() {
         
-        dispatch_async_on_mainThread { [weak self] in
-            self?.passwordField.becomeFirstResponder()
-        }
+//        dispatch_async_on_mainThread { [weak self] in
+//            self?.passwordField.becomeFirstResponder()
+//        }
         
     }
     

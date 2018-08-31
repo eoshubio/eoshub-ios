@@ -88,7 +88,7 @@ class PinCodeViewController: BaseViewController {
     fileprivate func handleCancel() {
         if let delegate = flowDelegate as? ValidatePinFlowDelegate {
             guard let nc = navigationController else { return }
-            delegate.cancelled(from: nc)
+            delegate.canceled(from: nc)
         }
         
         switch mode! {

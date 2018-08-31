@@ -48,7 +48,7 @@ class Wallet {
                             return Observable.error(WalletError.failedToSignature)
                         }
                     } else {
-                        return Observable.error(WalletError.cancelled)
+                        return Observable.error(WalletError.canceled)
                     }
                 })
             
