@@ -11,13 +11,16 @@ import Foundation
 enum EOSHubError: Error, PrettyPrintedPopup {
     case userCanceled
     case txNotFound
+    case invalidState
     
     var localizedDescription: String {
         switch self {
         case .userCanceled:
-            return "Canceled."
+            return "Canceled"
         case .txNotFound:
             return "Transaction not found. It can take up to 15 minutes for transactions to be reflected in the block chain."
+        case .invalidState:
+            return "Invalid state"
         }
     }
     
@@ -26,10 +29,14 @@ enum EOSHubError: Error, PrettyPrintedPopup {
         var text: String = ""
         switch self {
         case .userCanceled:
-            text = "Canceled."
+            text = "Canceled"
         case .txNotFound:
             title = "Transaction not found"
             text = "It can take up to 15 minutes for transactions to be reflected in the block chain."
+        case .invalidState:
+            title = "Invalid state"
+            text = "Invalid state. Please contact EOSHub."
+        
         }
         
         Popup.present(style: .failed, titleString: title, description: text)

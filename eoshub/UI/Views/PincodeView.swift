@@ -88,7 +88,7 @@ class PinCodeView: UIView {
         }
     }
     
-    private func changePinUI(textCount: Int) {
+    func changePinUI(textCount: Int) {
         for dot in dots {
             if dot.tag < textCount {
                 dot.backgroundColor = Color.basePurple.uiColor

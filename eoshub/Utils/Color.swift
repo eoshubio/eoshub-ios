@@ -13,6 +13,7 @@ enum Color {
     case basePurple, baseGray
     case darkGray, gray, lightGray
     case lightPurple
+    case ultraLightPurple
     case red, green, blue
     case seperator
     case white
@@ -37,6 +38,8 @@ enum Color {
             return UIColor(white: 238/255.0, alpha: alpha)
         case .lightPurple:
             return UIColor.colorUInt8(r: 115, g: 52, b: 225, a: alpha)
+        case .ultraLightPurple:
+            return UIColor.colorUInt8(r: 162, g: 126, b: 226, a: alpha)
         case .red:
             return UIColor.colorUInt8(r: 255, g: 113, b: 113, a: alpha)
         case .green:

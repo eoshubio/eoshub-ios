@@ -55,7 +55,7 @@ class RoundedButton: BorderColorButton {
         
         highlightedView = UIView(frame: bounds)
         highlightedView?.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        highlightedView?.backgroundColor = UIColor(white: 0, alpha: 0.5)
+        highlightedView?.backgroundColor = UIColor(white: 0, alpha: 0.2)
         highlightedView?.isUserInteractionEnabled = false
         addSubview(highlightedView!)
         

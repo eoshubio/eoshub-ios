@@ -8,14 +8,39 @@
 
 import Foundation
 import UIKit
+import RxSwift
+import RxCocoa
+import LocalAuthentication
 
 class PinCodeViewController: BaseViewController {
     
     var flowDelegate: FlowEventDelegate?
     
     @IBOutlet fileprivate weak var lbTitle: UILabel!
+    @IBOutlet fileprivate weak var logo: UIImageView!
     @IBOutlet fileprivate weak var pinView: PinCodeView!
     @IBOutlet fileprivate weak var btnClose: UIButton!
+    
+    @IBOutlet fileprivate weak var btn1: CircleButton!
+    @IBOutlet fileprivate weak var btn2: CircleButton!
+    @IBOutlet fileprivate weak var btn3: CircleButton!
+    @IBOutlet fileprivate weak var btn4: CircleButton!
+    @IBOutlet fileprivate weak var btn5: CircleButton!
+    @IBOutlet fileprivate weak var btn6: CircleButton!
+    @IBOutlet fileprivate weak var btn7: CircleButton!
+    @IBOutlet fileprivate weak var btn8: CircleButton!
+    @IBOutlet fileprivate weak var btn9: CircleButton!
+    @IBOutlet fileprivate weak var btn0: CircleButton!
+    @IBOutlet fileprivate weak var btnBio: CircleButton!
+    @IBOutlet fileprivate weak var btnBack: CircleButton!
+    
+   
+    
+    private var pinButtons: [CircleButton] = []
+    
+    private var passcode = BehaviorRelay<String>(value: "")
+    
+    
     
     enum Mode {
         case create
@@ -49,6 +74,11 @@ class PinCodeViewController: BaseViewController {
     }
     
     private func setupUI() {
+        
+        btnBio.isHidden = true
+        
+        setupPinButtons()
+        
         switch mode! {
         case .create:
             btnClose.isHidden = true
@@ -59,6 +89,8 @@ class PinCodeViewController: BaseViewController {
             addInputView()
         case .validation:
             lbTitle.text = LocalizedString.Secure.Pin.validation
+            showBiometicIfAvailable()
+            doBiometicAuthIfAvailable()
         case .change:
             lbTitle.text = LocalizedString.Secure.Pin.change
         }
@@ -66,11 +98,71 @@ class PinCodeViewController: BaseViewController {
         pinView.show()
     }
     
+    private func showBiometicIfAvailable() {
+        if Security.shared.enableBioAuth && Security.shared.biometryType() != .none {
+            btnBio.isHidden = false
+            
+            switch Security.shared.biometryType() {
+            case .faceID:
+                btnBio.setImage(#imageLiteral(resourceName: "faceID"), for: .normal)
+            case .touchID:
+                btnBio.setImage(#imageLiteral(resourceName: "fingerprint"), for: .normal)
+            case .none:
+                break
+            }
+        }
+    }
+    
+    private func setupPinButtons() {
+        pinButtons = [btn0, btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9]
+        for i in 0..<pinButtons.count {
+            let btn = pinButtons[i]
+            btn.tag = i
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: 35)
+            btn.setThemeColor(fgColor: Color.basePurple.uiColor, bgColor: .clear , state: .normal, border: true)
+        }
+        btnBio.setThemeColor(fgColor: Color.ultraLightPurple.uiColor, bgColor: .clear, state: .normal, border: true)
+        btnBio.imageView?.contentMode = .scaleAspectFit
+        btnBio.tintColor = Color.ultraLightPurple.uiColor
+        btnBack.setThemeColor(fgColor: Color.ultraLightPurple.uiColor, bgColor: .clear, state: .normal, border: true)
+        btnBack.imageView?.contentMode = .scaleAspectFit
+    }
+    
     private func bindActions() {
-        pinView.filled
-            .subscribe(onNext: { [weak self](pin) in
-                self?.handlePIN(pin: pin)
-            })
+        
+        pinButtons.forEach { (button) in
+            
+            button.rx.tap
+                .bind { [weak self] in
+                    guard let `self` = self else { return }
+                    if self.passcode.value.count < Config.maxPinCount {
+                        self.passcode.accept(self.passcode.value + "\(button.tag)")
+                    }
+                }
+                .disposed(by: bag)
+        }
+        
+        btnBack.rx.tap
+            .bind { [weak self] in
+                guard let drop = self?.passcode.value.dropLast() else { return }
+                self?.passcode.accept(String(drop))
+            }
+            .disposed(by: bag)
+        
+        passcode
+            .bind { [weak self] (pin) in
+                let count = min(pin.count, Config.maxPinCount)
+                self?.pinView.changePinUI(textCount: count)
+                if pin.count == Config.maxPinCount {
+                    self?.handlePIN(pin: pin)
+                }
+            }
+            .disposed(by: bag)
+        
+        btnBio.rx.tap
+            .bind { [weak self] in
+               self?.doBiometicAuthIfAvailable()
+            }
             .disposed(by: bag)
         
         btnClose.rx.singleTap
@@ -98,6 +190,28 @@ class PinCodeViewController: BaseViewController {
             break
         }
         
+    }
+    
+    fileprivate func doBiometicAuthIfAvailable() {
+        let reason = LocalizedString.Secure.Bio.reason
+        
+        let lacontext = LAContext()
+        if lacontext.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: nil) {
+            lacontext.evaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, localizedReason: reason) { [weak self] (success, error) in
+                DispatchQueue.main.async {
+                    guard let nc = self?.navigationController else { return }
+                    if error != nil {
+                        Log.e(error!.localizedDescription)
+                    } else if success {
+                        //success
+                        guard let delegate = self?.flowDelegate as? ValidatePinFlowDelegate else { return }
+                        delegate.validated(from: nc)
+                    }
+                }
+            }
+        } else {
+            EOSHubError.invalidState.showPopup()
+        }
     }
     
     fileprivate func addInputView() {
@@ -197,6 +311,14 @@ class PinCodeViewController: BaseViewController {
 extension PinCodeViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .default
+    }
+}
+
+class CircleButton: RoundedButton {
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = bounds.height * 0.5
     }
 }
 
