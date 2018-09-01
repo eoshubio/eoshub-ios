@@ -58,22 +58,7 @@ class SettingViewController: FormViewController {
 //        form +++ walletSettings()
         form +++ appSettings()
         
-        let email = UserManager.shared.identiferString
-        
-        form
-            
-            +++ Section(email)
-            <<< LabelRow(){
-                $0.title = LocalizedString.Setting.logout
-                $0.cellStyle = .default
-                }.cellUpdate({ (cell, row) in
-                    cell.textLabel?.textAlignment = .center
-                    cell.textLabel?.textColor = .red
-                    cell.selectionStyle = .gray
-                }).onCellSelection({ [weak self](_, row) in
-                    self?.showLogoutView()
-                    row.deselect()
-                })
+        form +++ accountSettings()
         
         
     }
@@ -354,7 +339,44 @@ class SettingViewController: FormViewController {
         return section
     }
     
-    
+    private func accountSettings() -> Section {
+        let email = UserManager.shared.identiferString
+        
+        var section = Section(email)
+        
+        if UserManager.shared.loginType == .email {
+            let resetPW =  LabelRow() {
+                $0.title = LocalizedString.Setting.Account.resetPW
+                $0.cellStyle = .default
+                }.cellUpdate({ (cell, row) in
+                    cell.textLabel?.textAlignment = .center
+                    cell.textLabel?.textColor = Color.darkGray.uiColor
+                    cell.selectionStyle = .gray
+                }).onCellSelection({ [weak self](_, row) in
+                    guard let nc = self?.navigationController else { return }
+                    self?.flowDelegate?.goToForgotPW(from: nc)
+                    row.deselect()
+                })
+            
+            section += [resetPW]
+        }
+        
+        let logout =  LabelRow() {
+            $0.title = LocalizedString.Setting.logout
+            $0.cellStyle = .default
+            }.cellUpdate({ (cell, row) in
+                cell.textLabel?.textAlignment = .center
+                cell.textLabel?.textColor = .red
+                cell.selectionStyle = .gray
+            }).onCellSelection({ [weak self](_, row) in
+                self?.showLogoutView()
+                row.deselect()
+            })
+        
+        section += [logout]
+        
+        return section
+    }
     
     
 }

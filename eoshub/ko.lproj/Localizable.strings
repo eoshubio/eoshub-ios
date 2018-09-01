@@ -38,8 +38,6 @@
 "setting.wallet" = "지갑";
 "setting.logout" = "로그아웃";
 
-"setting.security.changePin" = "비밀번호 변경";
-
 "setting.host.title" = "API 호스트";
 "setting.host.success" = "성공적으로 변경되었습니다.";
 "setting.host.failed" = "변경하려는 API host 에 접근할 수 없습니다.";
@@ -52,6 +50,7 @@
 "setting.app.term" = "약관 및 정책";
 "setting.app.telegram" = "텔레그램";
 "setting.app.twitter" = "트위터";
+"setting.account.resetPW" = "이메일 비밀번호 변경";
 
 /* 만들기 */
 "create.new.title" = "새로운 EOS 계정 생성하기";

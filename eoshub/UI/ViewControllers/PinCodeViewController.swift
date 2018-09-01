@@ -75,7 +75,8 @@ class PinCodeViewController: BaseViewController {
     
     private func setupUI() {
         
-        btnBio.isHidden = true
+        btnBio.alpha = 0
+        btnBio.isUserInteractionEnabled = false
         
         setupPinButtons()
         
@@ -100,7 +101,8 @@ class PinCodeViewController: BaseViewController {
     
     private func showBiometicIfAvailable() {
         if Security.shared.enableBioAuth && Security.shared.biometryType() != .none {
-            btnBio.isHidden = false
+            btnBio.alpha = 1.0
+            btnBio.isUserInteractionEnabled = true
             
             switch Security.shared.biometryType() {
             case .faceID:
@@ -118,7 +120,7 @@ class PinCodeViewController: BaseViewController {
         for i in 0..<pinButtons.count {
             let btn = pinButtons[i]
             btn.tag = i
-            btn.titleLabel?.font = UIFont.systemFont(ofSize: 35)
+            btn.titleLabel?.font = UIFont.systemFont(ofSize: 30)
             btn.setThemeColor(fgColor: Color.basePurple.uiColor, bgColor: .clear , state: .normal, border: true)
         }
         btnBio.setThemeColor(fgColor: Color.ultraLightPurple.uiColor, bgColor: .clear, state: .normal, border: true)

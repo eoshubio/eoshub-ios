@@ -82,6 +82,10 @@ struct LocalizedString {
             static let twitter = NSLocalizedString("setting.app.twitter", comment: "")
         }
         
+        struct Account {
+            static let resetPW = NSLocalizedString("setting.account.resetPW", comment: "")
+        }
+        
     }
     
     struct Create {
