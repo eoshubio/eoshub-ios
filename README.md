@@ -2,8 +2,13 @@
 
 Welcome to EOS Hub ­ Easy access to the EOS network.
 
-**EOSHUB** is a mobile platform that delivers the benefits of EOS to many people. Despite EOS has many advantages, but accessing to EOS network was too difficult for the ordinary user. The EOSHub is the simplest and safest way to help users to access various EOS features like Vote, Resource management, Trading RAM etc. It prevents security threats caused by hackers and a user's unconscious actions. but it is still easy to use. Because EOSHub supports easy biometrics authentification rather than too long, too complex and too vulnerable private key. You can do almost everything you need to do about EOS blockchain with EOSHub wallet. Exchanges don’t provide airdrop tokens you deserve and hackers are always looking for security weakness. Let’s start the EOS coin under secure and fast environment.
-Our vision is to share abundant possibilities for everyone in the EOS blockchain.
+**EOSHUB** is a mobile platform that delivers the benefits of EOS to many people. Despite many advantages, but access to EOS blockchain network was too difficult for the ordinary user. 
+
+The EOSHub is the easiest and safest way to help users to access various EOS features like Vote, Resource management, Trading RAM etc. It prevents security threats caused by hackers and a user's unconscious actions. 
+
+EOSHub supports easy biometrics authentication rather than too long, too complex and too vulnerable private key. You can do almost everything you need to do on EOS blockchain with EOSHub. 
+
+Our vision is to spread out limitless possibilities of EOS blockchain to everyone.
 
 ## Wallet features
 
@@ -31,7 +36,7 @@ Our vision is to share abundant possibilities for everyone in the EOS blockchain
 - Participate in BP voting with stake EOS.
 
 ### Airgrab.
-- Supports airgrap feature. *(available soon)*
+- Supports airgrab feature. *(available soon)*
 
 ### Smart contract
 - Manually execute smart contracts. *(available soon)*
