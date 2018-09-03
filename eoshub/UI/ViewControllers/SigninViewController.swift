@@ -21,6 +21,7 @@ class SigninViewController: TextInputViewController {
     @IBOutlet fileprivate weak var txtPasswd: UITextField!
     @IBOutlet fileprivate weak var btnSignin: UIButton!
     @IBOutlet fileprivate weak var btnResetPW: UIButton!
+    @IBOutlet fileprivate weak var logo: UIImageView!
     
     let rx_isEnabled = BehaviorSubject<Bool>(value: false)
     
@@ -36,6 +37,10 @@ class SigninViewController: TextInputViewController {
     }
     
     private func setupUI() {
+        if getDisplaySize() == .size_3_5 {
+            logo.isHidden = true
+        }
+        
         lbTitle.text = LocalizedString.Login.email
         txtEmail.placeholder = LocalizedString.Login.Email.email
         txtPasswd.placeholder = LocalizedString.Login.Email.pw

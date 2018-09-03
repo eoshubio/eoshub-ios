@@ -80,5 +80,4 @@ struct Config {
     static let limitResRAM: Int64 = 2000
     
     static let maxPinCount = 6
-    
 }

@@ -75,6 +75,10 @@ class PinCodeViewController: BaseViewController {
     
     private func setupUI() {
         
+        if getDisplaySize() == .size_3_5 {
+            logo.isHidden = true
+        }
+        
         btnBio.alpha = 0
         btnBio.isUserInteractionEnabled = false
         

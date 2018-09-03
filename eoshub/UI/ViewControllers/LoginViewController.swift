@@ -43,6 +43,10 @@ class LoginViewController: AuthViewController {
     private func setupUI() {
         lbTitle.text = LocalizedString.Intro.title
         
+        if getDisplaySize() == .size_3_5 {
+            lbTitle.isHidden = true
+        }
+        
         let availableLoginTypes: [LoginType] = [.facebook, .google, .email]
         
         stackLoginButtons.spacing = 10
