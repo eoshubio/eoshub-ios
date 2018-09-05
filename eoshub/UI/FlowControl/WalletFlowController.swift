@@ -100,6 +100,13 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
         fc.configure(account: account)
         fc.start(animated: true)
     }
+    
+    func goToForgotPW(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = ForgetPWFlowController(configure: config)
+        fc.configure(email: UserManager.shared.email)
+        fc.start(animated: true)
+    }
 }
 
 protocol WalletFlowEventDelegate: FlowEventDelegate {
@@ -114,6 +121,5 @@ protocol WalletFlowEventDelegate: FlowEventDelegate {
     func goToDonate(from nc: UINavigationController, with account: AccountInfo?)
     func cratePin(from nc: UINavigationController)
     func validatePin(from nc: UINavigationController)
-    
-    
+    func goToForgotPW(from nc: UINavigationController)
 }

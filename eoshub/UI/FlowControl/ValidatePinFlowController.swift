@@ -24,15 +24,15 @@ class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
     
     func show(animated: Bool) {
         
-        if Security.shared.enableBioAuth && Security.shared.biometryType() != .none {
-            EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: TouchIdViewController.self)
-            guard let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "TouchIdViewController") as? TouchIdViewController else { preconditionFailure() }
-            vc.flowDelegate = self
-            let nc = BaseNavigationController(rootViewController: vc)
-            show(viewController: nc, animated: animated) {
-                
-            }
-        } else {
+//        if Security.shared.enableBioAuth && Security.shared.biometryType() != .none {
+//            EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: TouchIdViewController.self)
+//            guard let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "TouchIdViewController") as? TouchIdViewController else { preconditionFailure() }
+//            vc.flowDelegate = self
+//            let nc = BaseNavigationController(rootViewController: vc)
+//            show(viewController: nc, animated: animated) {
+//
+//            }
+//        } else {
             EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: PinCodeViewController.self)
             guard let vc = UIStoryboard(name: "Auth", bundle: nil).instantiateViewController(withIdentifier: "PinCodeViewController") as? PinCodeViewController else { preconditionFailure() }
             vc.flowDelegate = self
@@ -43,7 +43,7 @@ class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
             show(viewController: nc, animated: animated) {
                 
             }
-        }
+//        }
        
     }
     
@@ -57,7 +57,7 @@ class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
         
     }
     
-    func cancelled(from nc: UINavigationController) {
+    func canceled(from nc: UINavigationController) {
         Security.shared.authorized.onNext(false)
         validated.onNext(false)
         validated.onCompleted()
@@ -68,6 +68,6 @@ class ValidatePinFlowController: FlowController, ValidatePinFlowDelegate {
 protocol ValidatePinFlowDelegate: FlowEventDelegate {
     
     func validated(from nc: UINavigationController)
-    func cancelled(from nc: UINavigationController)
+    func canceled(from nc: UINavigationController)
     
 }

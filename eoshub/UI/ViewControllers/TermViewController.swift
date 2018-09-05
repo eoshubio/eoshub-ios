@@ -26,6 +26,11 @@ class TermViewController: BaseViewController {
     }
     
     private func setupUI() {
+        if getDisplaySize() == .size_3_5 {
+            lbTitle.isHidden = true
+        }
+        
+        
         let titleText = NSMutableAttributedString(string: LocalizedString.Term.title, attributes: [NSAttributedStringKey.font : Font.appleSDGothicNeo(.medium).uiFont(14)])
         
         titleText.addLineHeight(height: 6)

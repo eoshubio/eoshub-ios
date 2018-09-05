@@ -41,10 +41,17 @@ class SettingFlowController: FlowController, SettingFlowEventDelegate {
         fc.start(animated: true)
     }
     
+    func goToForgotPW(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = ForgetPWFlowController(configure: config)
+        fc.configure(email: UserManager.shared.email)
+        fc.start(animated: true)
+    }
     
 }
 
 protocol SettingFlowEventDelegate: FlowEventDelegate {
     func goToChangePin(from nc: UINavigationController)
     func goToLicense(from nc: UINavigationController)
+    func goToForgotPW(from nc: UINavigationController)
 }

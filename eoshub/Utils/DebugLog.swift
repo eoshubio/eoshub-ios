@@ -1,7 +1,7 @@
 
 import Foundation
 import UIKit
-//import Crashlytics
+import Crashlytics
 
 class Log {
     public enum LogLevel: Int {
@@ -23,11 +23,11 @@ class Log {
         }
     }
     
-//#if DEBUG
+#if DEBUG
     public static var logLevel: LogLevel = .info
-//#else
-//    public static var logLevel: LogLevel = .warning
-//#endif
+#else
+    public static var logLevel: LogLevel = .warning
+#endif
     
     fileprivate class func EHLog( level: LogLevel = .warning,
               message: Any,
@@ -43,12 +43,12 @@ class Log {
         
         let string = "[\(level.description)] \"\(message)\" (\(fileName)-\(function)[\(line)]), Thread0: \(Thread.isMainThread))"
         
-        NSLog("%@",string)
-//        #if DEBUG
-//            CLSNSLogv("%@", getVaList([string]))
-//        #else
-//            CLSLogv("%@", getVaList([string]))
-//        #endif
+//      NSLog("%@",string)
+        #if DEBUG
+            CLSNSLogv("%@", getVaList([string]))
+        #else
+            CLSLogv("%@", getVaList([string]))
+        #endif
         
     }
     

@@ -285,7 +285,14 @@ class WalletViewController: BaseViewController {
     }
     
     fileprivate func showLogoutView() {
-        let alert = UIAlertController(title: UserManager.shared.identiferString, message: "", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: "", message: UserManager.shared.identiferString, preferredStyle: .actionSheet)
+        
+        if UserManager.shared.loginType == .email {
+            alert.addAction(UIAlertAction(title: LocalizedString.Setting.Account.resetPW, style: .default, handler: { [weak self](_) in
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goToForgotPW(from: nc)
+            }))
+        }
         
         alert.addAction(UIAlertAction(title: LocalizedString.Setting.logout, style: .destructive, handler: { [weak self](_) in
             self?.doLogout()

@@ -61,7 +61,7 @@ class TouchIdViewController: BaseViewController {
                         
                     } else {
                         //false
-                        self?.flowDelegate?.cancelled(from: nc)
+                        self?.flowDelegate?.canceled(from: nc)
                         Log.e("false")
                     }
                 }
@@ -69,7 +69,7 @@ class TouchIdViewController: BaseViewController {
         } else {
             //fail
             guard let nc = navigationController else { return }
-            flowDelegate?.cancelled(from: nc)
+            flowDelegate?.canceled(from: nc)
             Log.e("invalid state")
         }
     }

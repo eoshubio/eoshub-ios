@@ -88,7 +88,7 @@ class PinCodeView: UIView {
         }
     }
     
-    private func changePinUI(textCount: Int) {
+    func changePinUI(textCount: Int) {
         for dot in dots {
             if dot.tag < textCount {
                 dot.backgroundColor = Color.basePurple.uiColor
@@ -100,9 +100,9 @@ class PinCodeView: UIView {
     
     func show() {
         
-        dispatch_async_on_mainThread { [weak self] in
-            self?.passwordField.becomeFirstResponder()
-        }
+//        dispatch_async_on_mainThread { [weak self] in
+//            self?.passwordField.becomeFirstResponder()
+//        }
         
     }
     

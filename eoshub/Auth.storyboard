@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nGZ-vk-nhI">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,27 +15,27 @@
             <objects>
                 <viewController storyboardIdentifier="PinCodeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nGZ-vk-nhI" customClass="PinCodeViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="X25-gU-4B5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgGrady" translatesAutoresizingMaskIntoConstraints="NO" id="S7d-1y-xxV">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="2A2-X9-JEB">
-                                <rect key="frame" x="152.66666666666666" y="124" width="70" height="70"/>
+                                <rect key="frame" x="125" y="-41.5" width="70" height="70"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="5ky-YL-Hry"/>
                                     <constraint firstAttribute="height" constant="70" id="Ur9-8z-FVa"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create PIN Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6f8-El-DRx">
-                                <rect key="frame" x="119" y="209" width="137" height="24"/>
+                                <rect key="frame" x="92" y="43.5" width="136.5" height="24"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="20"/>
                                 <color key="textColor" red="0.29803921570000003" green="0.16078431369999999" blue="0.65098039220000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eWW-wC-sTf" customClass="PinCodeView" customModule="eoshub" customModuleProvider="target">
-                                <rect key="frame" x="122.66666666666669" y="273" width="130" height="13"/>
+                                <rect key="frame" x="95" y="97.5" width="130" height="13"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="13" id="aSB-II-h3k"/>
@@ -43,54 +43,259 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pxn-pf-Ppo" customClass="ExtendButton" customModule="eoshub" customModuleProvider="target">
-                                <rect key="frame" x="335" y="64" width="20" height="20"/>
+                                <rect key="frame" x="280" y="40" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="MAt-We-Kol"/>
                                     <constraint firstAttribute="height" constant="20" id="Q1d-tF-evO"/>
                                 </constraints>
                                 <state key="normal" image="close"/>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UEg-Bu-cMY">
+                                <rect key="frame" x="159.5" y="110.5" width="1" height="15"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="FiX-5V-GKN"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="15" id="r5e-Xj-ttz"/>
+                                </constraints>
+                            </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" translatesAutoresizingMaskIntoConstraints="NO" id="HO9-HL-b6j">
+                                <rect key="frame" x="25" y="125.5" width="270" height="340"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="jXz-dK-ABc">
+                                        <rect key="frame" x="0.0" y="0.0" width="270" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XoC-eb-Iun" customClass="CircleButton" customModule="eoshub" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="Ot8-kB-Rvh"/>
+                                                    <constraint firstAttribute="width" constant="70" id="R0c-wB-nAQ"/>
+                                                </constraints>
+                                                <state key="normal" title="1">
+                                                    <color key="titleColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qK3-Jt-TeS" customClass="CircleButton" customModule="eoshub" customModuleProvider="target">
+                                                <rect key="frame" x="100" y="0.0" width="70" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="F7W-GI-Q8z"/>
+                                                    <constraint firstAttribute="height" constant="70" id="Xfu-ak-J0O"/>
+                                                </constraints>
+                                                <state key="normal" title="2">
+                                                    <color key="titleColor" red="0.63529411764705879" green="0.49411764705882355" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ndP-i1-G1l" customClass="CircleButton" customModule="eoshub" customModuleProvider="target">
+                                                <rect key="frame" x="200" y="0.0" width="70" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="M0a-vg-KgB"/>
+                                                    <constraint firstAttribute="height" constant="70" id="ecu-ux-lsc"/>
+                                                </constraints>
+                                                <state key="normal" title="3">
+                                                    <color key="titleColor" red="0.63529411759999999" green="0.4941176471" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.73725490199999999" green="0.58431372550000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Q3J-jh-wTP">
+                                        <rect key="frame" x="0.0" y="90" width="270" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bnl-jU-1mD" customClass="CircleButton" customModule="eoshub" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="CqK-96-avA"/>
+                                                    <constraint firstAttribute="width" constant="70" id="zEe-hF-17h"/>
+                                                </constraints>
+                                                <state key="normal" title="4">
+                                                    <color key="titleColor" red="0.63529411759999999" green="0.4941176471" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lhz-KZ-2D1" customClass="CircleButton" customModule="eoshub" customModuleProvider="target">
+                                                <rect key="frame" x="100" y="0.0" width="70" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="A6G-Tj-5Yg"/>
+                                                    <constraint firstAttribute="height" constant="70" id="rOW-aG-4Hq"/>
+                                                </constraints>
+                                                <state key="normal" title="5">
+                                                    <color key="titleColor" red="0.63529411759999999" green="0.4941176471" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ig4-pf-Pxo" customClass="CircleButton" customModule="eoshub" customModuleProvider="target">
+                                                <rect key="frame" x="200" y="0.0" width="70" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="Kv9-cN-0Hb"/>
+                                                    <constraint firstAttribute="height" constant="70" id="rXt-rQ-aos"/>
+                                                </constraints>
+                                                <state key="normal" title="6">
+                                                    <color key="titleColor" red="0.63529411759999999" green="0.4941176471" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.73725490199999999" green="0.58431372550000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ICO-4r-A3A">
+                                        <rect key="frame" x="0.0" y="180" width="270" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7KW-H3-Aw3" customClass="CircleButton" customModule="eoshub" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="FLR-gx-GAo"/>
+                                                    <constraint firstAttribute="height" constant="70" id="XIv-Ow-CKF"/>
+                                                </constraints>
+                                                <state key="normal" title="7">
+                                                    <color key="titleColor" red="0.63529411759999999" green="0.4941176471" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahY-JK-tbb" customClass="CircleButton" customModule="eoshub" customModuleProvider="target">
+                                                <rect key="frame" x="100" y="0.0" width="70" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="ZxF-jM-cPc"/>
+                                                    <constraint firstAttribute="height" constant="70" id="iOn-LT-4Rh"/>
+                                                </constraints>
+                                                <state key="normal" title="8">
+                                                    <color key="titleColor" red="0.63529411759999999" green="0.4941176471" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="obc-eX-VQc" customClass="CircleButton" customModule="eoshub" customModuleProvider="target">
+                                                <rect key="frame" x="200" y="0.0" width="70" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="x0a-3F-mii"/>
+                                                    <constraint firstAttribute="width" constant="70" id="yk3-18-uOD"/>
+                                                </constraints>
+                                                <state key="normal" title="9">
+                                                    <color key="titleColor" red="0.63529411759999999" green="0.4941176471" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.73725490199999999" green="0.58431372550000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="jIM-UI-j0C">
+                                        <rect key="frame" x="0.0" y="270" width="270" height="70"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frj-m6-VHJ" customClass="CircleButton" customModule="eoshub" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="4Tv-cc-SeJ"/>
+                                                    <constraint firstAttribute="height" constant="70" id="OTB-ah-WWC"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.63529411759999999" green="0.4941176471" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                <inset key="contentEdgeInsets" minX="15" minY="15" maxX="15" maxY="15"/>
+                                                <state key="normal" image="faceID"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rmy-MV-7PS" customClass="CircleButton" customModule="eoshub" customModuleProvider="target">
+                                                <rect key="frame" x="100" y="0.0" width="70" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="8gH-JR-Rpt"/>
+                                                    <constraint firstAttribute="height" constant="70" id="GQP-ns-pK6"/>
+                                                </constraints>
+                                                <state key="normal" title="0">
+                                                    <color key="titleColor" red="0.63529411759999999" green="0.4941176471" blue="0.8862745098" alpha="1" colorSpace="calibratedRGB"/>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I93-cb-t3R" customClass="CircleButton" customModule="eoshub" customModuleProvider="target">
+                                                <rect key="frame" x="200" y="0.0" width="70" height="70"/>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="RzE-Dd-Bd3"/>
+                                                    <constraint firstAttribute="width" constant="70" id="rZs-m1-hhn"/>
+                                                </constraints>
+                                                <inset key="contentEdgeInsets" minX="20" minY="20" maxX="20" maxY="20"/>
+                                                <state key="normal" image="pinBack">
+                                                    <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                        <color key="backgroundColor" red="0.73725490199999999" green="0.58431372550000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="j6a-PX-I2Q"/>
+                                    <constraint firstAttribute="height" constant="340" id="mMD-fM-gvV"/>
+                                </constraints>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xFd-G0-D3B">
+                                <rect key="frame" x="159.5" y="465.5" width="1" height="14.5"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="1" id="Jkj-be-JUd"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="HO9-HL-b6j" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dMI-MI-VIf" secondAttribute="leading" constant="15" id="Aa0-I1-iYD"/>
                             <constraint firstAttribute="trailing" secondItem="S7d-1y-xxV" secondAttribute="trailing" id="IIp-hp-48n"/>
                             <constraint firstItem="eWW-wC-sTf" firstAttribute="centerX" secondItem="X25-gU-4B5" secondAttribute="centerX" id="L8o-dK-8pP"/>
+                            <constraint firstItem="xFd-G0-D3B" firstAttribute="top" secondItem="HO9-HL-b6j" secondAttribute="bottom" id="Rg8-iw-AcN"/>
                             <constraint firstItem="2A2-X9-JEB" firstAttribute="centerX" secondItem="X25-gU-4B5" secondAttribute="centerX" id="UJP-Pa-RKp"/>
-                            <constraint firstItem="2A2-X9-JEB" firstAttribute="top" secondItem="dMI-MI-VIf" secondAttribute="top" constant="80" id="cHp-UO-J3k"/>
+                            <constraint firstItem="dMI-MI-VIf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="HO9-HL-b6j" secondAttribute="trailing" constant="15" id="Zzb-bZ-fAm"/>
+                            <constraint firstItem="2A2-X9-JEB" firstAttribute="top" secondItem="dMI-MI-VIf" secondAttribute="top" priority="250" constant="60" id="cHp-UO-J3k"/>
                             <constraint firstItem="Pxn-pf-Ppo" firstAttribute="top" secondItem="dMI-MI-VIf" secondAttribute="top" constant="20" id="dGV-3d-gVy"/>
                             <constraint firstItem="dMI-MI-VIf" firstAttribute="trailing" secondItem="Pxn-pf-Ppo" secondAttribute="trailing" constant="20" id="e0G-Lz-Kmb"/>
                             <constraint firstItem="6f8-El-DRx" firstAttribute="centerX" secondItem="X25-gU-4B5" secondAttribute="centerX" id="gG1-Yn-1ZS"/>
+                            <constraint firstItem="UEg-Bu-cMY" firstAttribute="top" secondItem="eWW-wC-sTf" secondAttribute="bottom" id="hUy-Yu-7Dg"/>
                             <constraint firstItem="6f8-El-DRx" firstAttribute="top" secondItem="2A2-X9-JEB" secondAttribute="bottom" constant="15" id="iLC-t5-TJi"/>
                             <constraint firstItem="S7d-1y-xxV" firstAttribute="leading" secondItem="X25-gU-4B5" secondAttribute="leading" id="iR2-iE-8Jl"/>
+                            <constraint firstItem="dMI-MI-VIf" firstAttribute="bottom" secondItem="xFd-G0-D3B" secondAttribute="bottom" id="oaO-VJ-nIe"/>
                             <constraint firstAttribute="bottom" secondItem="S7d-1y-xxV" secondAttribute="bottom" id="ode-Ww-cTA"/>
-                            <constraint firstItem="eWW-wC-sTf" firstAttribute="top" secondItem="6f8-El-DRx" secondAttribute="bottom" constant="40" id="yvb-mQ-nKe"/>
+                            <constraint firstItem="UEg-Bu-cMY" firstAttribute="centerX" secondItem="X25-gU-4B5" secondAttribute="centerX" id="rux-Fz-z9f"/>
+                            <constraint firstItem="HO9-HL-b6j" firstAttribute="centerX" secondItem="X25-gU-4B5" secondAttribute="centerX" id="rxg-AO-f3z"/>
+                            <constraint firstItem="xFd-G0-D3B" firstAttribute="centerX" secondItem="X25-gU-4B5" secondAttribute="centerX" id="s6M-ZQ-Yic"/>
+                            <constraint firstItem="HO9-HL-b6j" firstAttribute="top" secondItem="UEg-Bu-cMY" secondAttribute="bottom" id="sUM-Xa-f5A"/>
+                            <constraint firstItem="UEg-Bu-cMY" firstAttribute="height" secondItem="xFd-G0-D3B" secondAttribute="height" id="tbC-Zi-ngD"/>
+                            <constraint firstItem="eWW-wC-sTf" firstAttribute="top" secondItem="6f8-El-DRx" secondAttribute="bottom" constant="30" id="yvb-mQ-nKe"/>
                             <constraint firstItem="S7d-1y-xxV" firstAttribute="top" secondItem="X25-gU-4B5" secondAttribute="top" id="znP-br-xgZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="dMI-MI-VIf"/>
                     </view>
                     <connections>
+                        <outlet property="btn0" destination="rmy-MV-7PS" id="Icl-fW-ROC"/>
+                        <outlet property="btn1" destination="XoC-eb-Iun" id="Lhy-rB-CdV"/>
+                        <outlet property="btn2" destination="qK3-Jt-TeS" id="pua-h5-jWQ"/>
+                        <outlet property="btn3" destination="ndP-i1-G1l" id="pk0-Ah-p9C"/>
+                        <outlet property="btn4" destination="Bnl-jU-1mD" id="weG-3x-vQO"/>
+                        <outlet property="btn5" destination="lhz-KZ-2D1" id="Pao-b2-Rf8"/>
+                        <outlet property="btn6" destination="ig4-pf-Pxo" id="omE-Ie-h03"/>
+                        <outlet property="btn7" destination="7KW-H3-Aw3" id="Wnp-K5-0xb"/>
+                        <outlet property="btn8" destination="ahY-JK-tbb" id="L3E-PX-8p3"/>
+                        <outlet property="btn9" destination="obc-eX-VQc" id="7Xp-Da-aKB"/>
+                        <outlet property="btnBack" destination="I93-cb-t3R" id="iKv-fH-JZv"/>
+                        <outlet property="btnBio" destination="Frj-m6-VHJ" id="2nZ-Pr-ef7"/>
                         <outlet property="btnClose" destination="Pxn-pf-Ppo" id="sGb-1S-4IO"/>
                         <outlet property="lbTitle" destination="6f8-El-DRx" id="c6o-y2-ZTP"/>
+                        <outlet property="logo" destination="2A2-X9-JEB" id="Ajm-I3-gVl"/>
                         <outlet property="pinView" destination="eWW-wC-sTf" id="PSa-dP-06s"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d1g-eV-AXC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-618" y="250"/>
+            <point key="canvasLocation" x="-618.39999999999998" y="249.7536945812808"/>
         </scene>
         <!--Touch Id View Controller-->
         <scene sceneID="cqX-ru-dh5">
             <objects>
                 <viewController storyboardIdentifier="TouchIdViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="WNm-xS-KOE" customClass="TouchIdViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="XLp-Kl-GkK">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgGrady" translatesAutoresizingMaskIntoConstraints="NO" id="aYW-ts-qBK">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bKF-gq-WSN" customClass="ExtendButton" customModule="eoshub" customModuleProvider="target">
-                                <rect key="frame" x="335" y="64" width="20" height="20"/>
+                                <rect key="frame" x="280" y="40" width="20" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="20" id="hw9-sY-D5o"/>
                                     <constraint firstAttribute="height" constant="20" id="stE-vr-aIT"/>
@@ -98,33 +303,33 @@
                                 <state key="normal" image="close"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoPurpleL" translatesAutoresizingMaskIntoConstraints="NO" id="Szh-2N-bX5">
-                                <rect key="frame" x="134" y="124" width="107" height="62"/>
+                                <rect key="frame" x="106.5" y="100" width="107" height="62"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="62" id="O2u-6z-2n7"/>
                                     <constraint firstAttribute="width" constant="107" id="bUG-G6-4r7"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please recognize your face." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E4i-jN-d3U">
-                                <rect key="frame" x="88.999999999999986" y="211" width="197.66666666666663" height="21"/>
+                                <rect key="frame" x="61" y="187" width="198" height="21"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="17"/>
                                 <color key="textColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="faceID" translatesAutoresizingMaskIntoConstraints="NO" id="uYE-oT-8ve">
-                                <rect key="frame" x="135" y="353.66666666666669" width="105" height="105"/>
+                                <rect key="frame" x="107.5" y="187.5" width="105" height="105"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="105" id="dZa-X6-orQ"/>
                                     <constraint firstAttribute="width" constant="105" id="rzu-Lv-mds"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4a-PO-6Nn">
-                                <rect key="frame" x="154" y="473.66666666666669" width="66" height="24"/>
+                                <rect key="frame" x="127" y="307.5" width="66" height="24"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
                                 <color key="textColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OW9-3u-L8V">
-                                <rect key="frame" x="135" y="353.66666666666669" width="105" height="105"/>
+                                <rect key="frame" x="107.5" y="187.5" width="105" height="105"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -169,5 +374,6 @@
         <image name="faceID" width="215" height="215"/>
         <image name="logo" width="145" height="119"/>
         <image name="logoPurpleL" width="208" height="110"/>
+        <image name="pinBack" width="32" height="58"/>
     </resources>
 </document>

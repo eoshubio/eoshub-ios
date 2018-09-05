@@ -118,7 +118,7 @@ class TokenAddPopup: UIView {
         btnCancel.rx.singleTap
             .bind { [weak self] in
                 
-                observer.onError(EOSHubError.userCancelled)
+                observer.onError(EOSHubError.userCanceled)
                 self?.dismiss()
             }
             .disposed(by: bag)

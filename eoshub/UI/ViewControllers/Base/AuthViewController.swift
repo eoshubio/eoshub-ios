@@ -54,7 +54,7 @@ class AuthViewController: BaseViewController, GIDSignInDelegate, GIDSignInUIDele
             }
             
             if result?.isCancelled == true {
-                Log.e("Cancelled")
+                Log.e("Canceled")
                 self?.failToLogin(error: nil)
                 return
             } else {

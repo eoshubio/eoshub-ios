@@ -23,7 +23,14 @@ class UserManager {
     var identiferString: String {
        return Auth.auth().currentUser?.identifierString ?? ""
     }
+    
+    var email: String? {
+        return Auth.auth().currentUser?.email
+    }
 
+    var loginType: User.LoginType {
+        return Auth.auth().currentUser?.loginType ?? .unknown
+    }
     
 }
 

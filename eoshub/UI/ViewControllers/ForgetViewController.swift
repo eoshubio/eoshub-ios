@@ -20,6 +20,8 @@ class ForgotPWViewController: TextInputViewController {
     @IBOutlet fileprivate weak var txtEmail: UITextField!
     @IBOutlet fileprivate weak var btnReset: UIButton!
     
+    fileprivate var emailToValidate: String?
+    
     let rx_isEnabled = BehaviorSubject<Bool>(value: false)
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,11 +35,17 @@ class ForgotPWViewController: TextInputViewController {
         bindActions()
     }
     
+    func configure(email: String?) {
+        emailToValidate = email
+    }
+    
     private func setupUI() {
         lbTitle.text = LocalizedString.Login.ForgotPW.title
         txtEmail.placeholder = LocalizedString.Login.Email.email
+        txtEmail.text = emailToValidate
         btnReset.setTitle(LocalizedString.Login.ForgotPW.send, for: .normal)
     }
+    
     
     private func bindActions() {
         btnReset.isEnabled = false

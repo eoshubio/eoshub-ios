@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wwh-te-ayq">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina3_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,11 +15,11 @@
             <objects>
                 <viewController storyboardIdentifier="MainTabViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="wwh-te-ayq" customClass="MainTabViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QSu-Qp-F3i">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HPf-7H-NRh">
-                                <rect key="frame" x="0.0" y="714" width="375" height="98"/>
+                                <rect key="frame" x="0.0" y="416" width="320" height="64"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="109-hC-PIt"/>
@@ -52,7 +52,7 @@
             <objects>
                 <viewController storyboardIdentifier="WebViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vUx-OW-lOo" customClass="WebViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ZNt-PI-TEG">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="b6K-B1-1BR"/>
@@ -67,21 +67,21 @@
             <objects>
                 <viewController storyboardIdentifier="WalletViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="RM1-tr-jd8" customClass="WalletViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="Pwx-Tv-sdU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgGrady" translatesAutoresizingMaskIntoConstraints="NO" id="bfe-gn-hIR">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <tableView contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="FAs-OS-sZB">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <sections/>
                             </tableView>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jhT-4f-PsK" customClass="GradientView" customModule="eoshub" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="708" width="375" height="104"/>
+                                <rect key="frame" x="0.0" y="410" width="320" height="70"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -93,7 +93,7 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ej-FL-dXz" customClass="GradientView" customModule="eoshub" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="95"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="color" keyPath="startColor">
@@ -105,10 +105,10 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4O-mF-9b3">
-                                <rect key="frame" x="0.0" y="44" width="375" height="96"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="96"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mk4-pD-iUS" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
-                                        <rect key="frame" x="159.66666666666666" y="20" width="56" height="56"/>
+                                        <rect key="frame" x="132" y="20" width="56" height="56"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="56" id="Fsk-8T-nbz"/>
                                             <constraint firstAttribute="height" constant="56" id="UHR-t6-JVa"/>
@@ -120,7 +120,7 @@
                                         </userDefinedRuntimeAttributes>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FoU-uR-qWV" customClass="ExtendButton" customModule="eoshub" customModuleProvider="target">
-                                        <rect key="frame" x="315" y="33" width="30" height="30"/>
+                                        <rect key="frame" x="260" y="33" width="30" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="L1d-Hb-Wjc"/>
                                             <constraint firstAttribute="width" constant="30" id="tUa-Q0-Abj"/>
@@ -191,15 +191,15 @@
             <objects>
                 <viewController storyboardIdentifier="AirdropViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SdX-je-QaB" customClass="AirdropViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O2A-p5-8ox">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgGrady" translatesAutoresizingMaskIntoConstraints="NO" id="Awk-Qh-0D6">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                                 <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1r1-2a-XVY">
-                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="ZTk-o1-MfX"/>
                                 </constraints>
@@ -212,18 +212,18 @@
                                 </items>
                             </navigationBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NQJ-4P-cxF">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AirdropCell" rowHeight="400" id="4so-Pc-43J" customClass="AirdropCell" customModule="eoshub" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="400"/>
+                                    <tableViewCell contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AirdropCell" rowHeight="400" id="4so-Pc-43J" customClass="AirdropCell" customModule="eoshub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="400"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4so-Pc-43J" id="7pI-vh-ie2">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="400"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="400"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6bz-pC-RYk" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                                    <rect key="frame" x="10" y="10" width="355" height="296"/>
+                                                    <rect key="frame" x="10" y="10" width="300" height="296"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Expire date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gky-f8-RUK">
                                                             <rect key="frame" x="20" y="208" width="71" height="18"/>
@@ -235,7 +235,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="16/08/2018" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="889-Lf-u0c">
-                                                            <rect key="frame" x="261.66666666666669" y="208" width="73.333333333333314" height="18"/>
+                                                            <rect key="frame" x="206.5" y="208" width="73.5" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="eQX-K9-Fj8"/>
                                                             </constraints>
@@ -244,7 +244,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ONO" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cwo-MH-txU">
-                                                            <rect key="frame" x="20.000000000000004" y="25" width="33.333333333333343" height="20"/>
+                                                            <rect key="frame" x="20" y="25" width="33.5" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="20" id="7XI-vI-Wqe"/>
                                                             </constraints>
@@ -253,7 +253,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VA2-GE-AB7" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
-                                                            <rect key="frame" x="275" y="23" width="60" height="24"/>
+                                                            <rect key="frame" x="220" y="23" width="60" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="60" id="SoL-k9-zpd"/>
                                                                 <constraint firstAttribute="height" constant="24" id="vGT-gj-pm3"/>
@@ -269,7 +269,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
                                                         <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7LP-XJ-4d9" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
-                                                            <rect key="frame" x="198" y="23" width="70" height="24"/>
+                                                            <rect key="frame" x="143" y="23" width="70" height="24"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="70" id="1E3-Jt-peU"/>
                                                                 <constraint firstAttribute="height" constant="24" id="sN1-LL-qX8"/>
@@ -285,14 +285,14 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </button>
                                                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="1" translatesAutoresizingMaskIntoConstraints="NO" id="sj5-ix-N9K">
-                                                            <rect key="frame" x="20" y="159" width="315" height="1"/>
+                                                            <rect key="frame" x="20" y="159" width="260" height="1"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="1" id="NgW-Is-pjd"/>
                                                             </constraints>
                                                             <color key="progressTintColor" red="0.91764705879999997" green="0.91764705879999997" blue="0.91764705879999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         </progressView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total supply" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AII-QP-Nyi">
-                                                            <rect key="frame" x="20" y="175" width="76.333333333333329" height="18"/>
+                                                            <rect key="frame" x="20" y="175" width="76.5" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="zWF-Rw-57B"/>
                                                             </constraints>
@@ -301,7 +301,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10,000,000,000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbS-fl-u3y">
-                                                            <rect key="frame" x="224.66666666666666" y="175" width="110.33333333333334" height="18"/>
+                                                            <rect key="frame" x="169.5" y="175" width="110.5" height="18"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="18" id="bMB-OP-BnG"/>
                                                             </constraints>
@@ -310,7 +310,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eAf-uu-tVn" customClass="GrayButton" customModule="eoshub" customModuleProvider="target">
-                                                            <rect key="frame" x="195" y="241" width="140" height="30"/>
+                                                            <rect key="frame" x="140" y="241" width="140" height="30"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="3S8-pv-M2M"/>
                                                                 <constraint firstAttribute="width" constant="140" id="83G-I4-0hR"/>
@@ -321,14 +321,14 @@
                                                             </state>
                                                         </button>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="EFM-M7-Piy">
-                                                            <rect key="frame" x="60.333333333333329" y="25" width="20" height="20"/>
+                                                            <rect key="frame" x="60.5" y="25" width="20" height="20"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="20" id="1Ka-O2-fxU"/>
                                                                 <constraint firstAttribute="height" constant="20" id="fJq-Lg-zXA"/>
                                                             </constraints>
                                                         </imageView>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="czf-1F-Meu">
-                                                            <rect key="frame" x="0.0" y="60" width="355" height="100"/>
+                                                            <rect key="frame" x="0.0" y="60" width="300" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="100" id="YwG-zH-x93"/>
                                                             </constraints>
@@ -425,14 +425,14 @@
             <objects>
                 <viewController storyboardIdentifier="VoteViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="rqT-5H-Lnr" customClass="VoteViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="PNS-Pr-MRc">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgGrady" translatesAutoresizingMaskIntoConstraints="NO" id="4ri-6f-xwY">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nHE-8E-RWK" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                <rect key="frame" x="10" y="59" width="355" height="119"/>
+                                <rect key="frame" x="10" y="35" width="300" height="119"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Staked EOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BBV-vY-AmK">
                                         <rect key="frame" x="20" y="76" width="73" height="18"/>
@@ -444,19 +444,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="EOS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hLL-v9-eUs">
-                                        <rect key="frame" x="312.33333333333331" y="76.666666666666657" width="22.666666666666686" height="15.666666666666671"/>
+                                        <rect key="frame" x="257" y="76.5" width="23" height="16"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="13"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dbc-6D-fCh">
-                                        <rect key="frame" x="247.33333333333334" y="74.666666666666657" width="59.333333333333343" height="20.666666666666671"/>
+                                        <rect key="frame" x="192" y="74.5" width="59.5" height="21"/>
                                         <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Ic-uU-IZn" customClass="ExtendButton" customModule="eoshub" customModuleProvider="target">
-                                        <rect key="frame" x="315" y="25" width="20" height="20"/>
+                                        <rect key="frame" x="260" y="25" width="20" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="20" id="Sgs-3B-zEh"/>
                                             <constraint firstAttribute="height" constant="20" id="VUd-ib-MJP"/>
@@ -464,7 +464,7 @@
                                         <state key="normal" image="option"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="eosioaccount" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="McP-Lt-rB6">
-                                        <rect key="frame" x="19.999999999999993" y="25" width="90.333333333333314" height="20"/>
+                                        <rect key="frame" x="20" y="25" width="90.5" height="20"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="sZ3-tQ-wKS"/>
                                         </constraints>
@@ -473,7 +473,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oT4-Vx-Mbx">
-                                        <rect key="frame" x="20" y="60" width="315" height="1"/>
+                                        <rect key="frame" x="20" y="60" width="260" height="1"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="u0U-QE-0OU"/>
                                         </constraints>
@@ -505,18 +505,18 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" directionalLockEnabled="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="6Uf-q3-WHX">
-                                <rect key="frame" x="0.0" y="198" width="375" height="614"/>
+                                <rect key="frame" x="0.0" y="174" width="320" height="306"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BPCell" rowHeight="65" id="L8d-QP-PS7" customClass="BPCell" customModule="eoshub" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="65"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="BPCell" rowHeight="65" id="L8d-QP-PS7" customClass="BPCell" customModule="eoshub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="L8d-QP-PS7" id="SmM-xo-IDI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="64.666666666666671"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="64.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fkS-Wm-YBy" customClass="ExtendButton" customModule="eoshub" customModuleProvider="target">
-                                                    <rect key="frame" x="15" y="14.999999999999996" width="35" height="34.666666666666657"/>
+                                                    <rect key="frame" x="15" y="15" width="35" height="34.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="35" id="VFy-X8-uSd"/>
                                                         <constraint firstAttribute="height" constant="35" id="ZS5-qa-lA7"/>
@@ -534,7 +534,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8gJ-g4-R8n">
-                                                    <rect key="frame" x="70" y="21.666666666666671" width="6.3333333333333286" height="22"/>
+                                                    <rect key="frame" x="70" y="21.5" width="6" height="22"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="22" id="M03-I6-YJc"/>
                                                     </constraints>
@@ -553,7 +553,7 @@
                                                     </state>
                                                 </button>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(0.00%)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wZN-ZO-3I5">
-                                                    <rect key="frame" x="312" y="23.666666666666671" width="43" height="18"/>
+                                                    <rect key="frame" x="257" y="23.5" width="43" height="18"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="18" id="OMh-4f-5UI"/>
                                                     </constraints>
@@ -621,28 +621,28 @@
             <objects>
                 <tableViewController storyboardIdentifier="DonationViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="j9F-im-qcr" customClass="DonationViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="sZD-av-fSl">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DonateInfoCell" rowHeight="500" id="S7m-ZX-xF3" customClass="DonateInfoCell" customModule="eoshub" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="375" height="500"/>
+                                <rect key="frame" x="0.0" y="28" width="320" height="500"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="S7m-ZX-xF3" id="dFP-CU-51e">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="500"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fBu-2f-tnR" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
-                                            <rect key="frame" x="15" y="15" width="345" height="429"/>
+                                            <rect key="frame" x="15" y="15" width="290" height="447"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" text="Dear EOS Hub supporters" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQz-23-1TQ">
-                                                    <rect key="frame" x="15" y="20" width="170.33333333333334" height="20"/>
+                                                    <rect key="frame" x="15" y="20" width="170.5" height="20"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="16"/>
                                                     <color key="textColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="50" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PqY-EW-ew2">
-                                                    <rect key="frame" x="15" y="65" width="315" height="306"/>
+                                                    <rect key="frame" x="15" y="65" width="260" height="324"/>
                                                     <string key="text">The EOS Hub was developed under many supports from EOS enthusiastic fans. As one of the users, We just made out based on a staunch belief that EOS specialized mobile wallet should be like this.
 We hope everyone will enjoy the blockchain innovation.
 
@@ -656,7 +656,7 @@ We hope you love the EOSHub as much as I've loved making it.</string>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" text="Team EOSHub" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y7O-au-RSe">
-                                                    <rect key="frame" x="240" y="396" width="90" height="18"/>
+                                                    <rect key="frame" x="185" y="414" width="90" height="18"/>
                                                     <fontDescription key="fontDescription" name="AppleSDGothicNeo-Medium" family="Apple SD Gothic Neo" pointSize="15"/>
                                                     <color key="textColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -695,10 +695,10 @@ We hope you love the EOSHub as much as I've loved making it.</string>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DonateToCell" rowHeight="200" id="AND-2G-t26" customClass="DonateToCell" customModule="eoshub" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="528" width="375" height="200"/>
+                                <rect key="frame" x="0.0" y="528" width="320" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AND-2G-t26" id="Vm2-KO-Ssa">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="199.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KDp-2n-qcF" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
@@ -764,7 +764,7 @@ We hope you love the EOSHub as much as I've loved making it.</string>
             <objects>
                 <viewController storyboardIdentifier="SettingViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="5fn-Lf-goR" customClass="SettingViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" clipsSubviews="YES" contentMode="scaleToFill" id="rYW-yB-84W">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93333333330000001" green="0.93333333330000001" blue="0.93333333330000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="Ho0-Y4-Z64"/>
@@ -782,7 +782,7 @@ We hope you love the EOSHub as much as I've loved making it.</string>
             <objects>
                 <viewController storyboardIdentifier="LicenseViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="zmH-14-zvh" customClass="LicenseViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iqE-ut-mTE">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="wQI-Fq-0bT"/>
