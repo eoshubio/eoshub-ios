@@ -12,6 +12,7 @@ enum EOSHubError: Error, PrettyPrintedPopup {
     case userCanceled
     case txNotFound
     case invalidState
+    case failedToSignature
     
     var localizedDescription: String {
         switch self {
@@ -21,6 +22,8 @@ enum EOSHubError: Error, PrettyPrintedPopup {
             return "Transaction not found. It can take up to 15 minutes for transactions to be reflected in the block chain."
         case .invalidState:
             return "Invalid state"
+        case .failedToSignature:
+            return "Failed To Signature"
         }
     }
     
@@ -36,7 +39,9 @@ enum EOSHubError: Error, PrettyPrintedPopup {
         case .invalidState:
             title = "Invalid state"
             text = "Invalid state. Please contact EOSHub."
-        
+        case .failedToSignature:
+            title = "Failed To Signature"
+            text = "Perhaps the problem is that the password is wrong or you can not access the Biometic (Face ID or Touch ID)."
         }
         
         Popup.present(style: .failed, titleString: title, description: text)

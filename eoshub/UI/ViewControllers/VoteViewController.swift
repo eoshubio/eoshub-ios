@@ -230,8 +230,8 @@ class VoteViewController: BaseViewController {
                 }, onError: { [weak self] (error) in
                     self?.restoreSelection()
                     
-                    if let error = error as? EOSResponseError {
-                        error.showErrorPopup()
+                    if let error = error as? PrettyPrintedPopup {
+                        error.showPopup()
                     }
                     
                 }, onCompleted: {

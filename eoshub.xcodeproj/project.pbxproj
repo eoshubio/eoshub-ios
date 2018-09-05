@@ -652,13 +652,6 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
-		2C3E72BF2124075E00D114B2 /* FC */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = FC;
-			sourceTree = "<group>";
-		};
 		2CA5D197210C52A9006C928B /* assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -1030,7 +1023,6 @@
 		2CFE954C20F394BD00DC173F /* Wallet */ = {
 			isa = PBXGroup;
 			children = (
-				2C3E72BF2124075E00D114B2 /* FC */,
 				2C279BE220F8C6B100D2F6C4 /* 3rdparty */,
 				2C279BA920F8C42000D2F6C4 /* Sig */,
 			);
