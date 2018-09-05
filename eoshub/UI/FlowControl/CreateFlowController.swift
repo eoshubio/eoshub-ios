@@ -20,6 +20,17 @@ class CreateFlowController: FlowController, CreateFlowEventDelegate {
     
     var items: [CreateViewCellType] = []
     
+    private func getRequest() -> CreateAccountRequest {
+        let userId = UserManager.shared.userId
+        if let request = DB.shared.realm.objects(CreateAccountRequest.self).filter("id BEGINSWITH '\(userId)' AND completed = false").last {
+            return request
+        } else {
+            let request = CreateAccountRequest(userId: userId)
+            DB.shared.addCreateAccountRequest(request: request)
+            return request
+        }
+    }
+    
     func configure(items: [CreateViewCellType]) {
         self.items = items
     }
@@ -39,9 +50,25 @@ class CreateFlowController: FlowController, CreateFlowEventDelegate {
     
     
     func goCreateAccount(from nc: UINavigationController) {
-        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
-        let fc = CreateAccountFlowController(configure: config)
-        fc.start(animated: true)
+        
+        let request = getRequest()
+        
+        
+        if request.currentStage == .invoice {
+            let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+            let fc = CreateAccountFlowController(configure: config)
+            fc.start(animated: true)
+            
+            let invoiceConfig = FlowConfigure(container: nc, parent: fc, flowType: .navigation)
+            let invoiceFC = CreateAccountInvoiceFlowController(configure: invoiceConfig)
+            invoiceFC.configure(request: request)
+            invoiceFC.start(animated: true)
+            
+        } else {
+            let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+            let fc = CreateAccountFlowController(configure: config)
+            fc.start(animated: true)
+        }
     }
     
     func goImportPrivateKey(from nc: UINavigationController) {

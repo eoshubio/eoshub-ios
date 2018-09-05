@@ -12,6 +12,7 @@ import UIKit
 enum FlowType {
     case window
     case navigation
+    case navigationInsert
     case modal
     case tab(Int)
 }

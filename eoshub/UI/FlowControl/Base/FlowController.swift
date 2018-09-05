@@ -61,8 +61,6 @@ protocol FlowController {
     
     init(configure: FlowConfigure)
     func show(animated: Bool)
-    
-    func start(animated: Bool) //Do not implement
 }
 
 private  var history: [FlowIdentifier] = []
@@ -98,6 +96,14 @@ extension FlowController {
             }
             nc.pushViewController(vc, animated: animated)
             completion?()
+        case .navigationInsert:
+            guard let nc = configure.container as? UINavigationController, let vc = vc else {
+                preconditionFailure("\(configure.container) is not UINavigationController")
+            }
+            nc.viewControllers = nc.viewControllers + [vc]
+            vc.view.alpha = 0
+            completion?()
+            vc.view.alpha = 1
         case .tab(let idx):
             guard let tc = configure.container as? TabBarViewController else {
                 preconditionFailure("\(configure.container) is not TabBarViewController")
