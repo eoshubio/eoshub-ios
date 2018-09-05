@@ -481,7 +481,7 @@ struct InvoiceForm {
         memo.value = request.memo
         cpu.value = request.cpu
         net.value = request.net
-        ram.value = request.ram + "Bytes"
+        ram.value = request.ram
         total.value = request.total
         timestamp.value = request.created
         expireHour.value = request.expireHour
