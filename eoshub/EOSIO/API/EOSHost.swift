@@ -18,4 +18,8 @@ open class EOSHost {
     var url: String {
         return host + "/" + version
     }
+    
+    var urlContainsHistory: String {
+        return Config.mainHost + "/" + version
+    }
 }

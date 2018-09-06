@@ -216,7 +216,7 @@ class PinCodeViewController: BaseViewController {
                 }
             }
         } else {
-            EOSHubError.invalidState.showPopup()
+//            EOSHubError.invalidState.showPopup()
         }
     }
     

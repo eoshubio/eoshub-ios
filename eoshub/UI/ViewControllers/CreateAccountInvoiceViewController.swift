@@ -481,7 +481,7 @@ struct InvoiceForm {
         memo.value = request.memo
         cpu.value = request.cpu
         net.value = request.net
-        ram.value = request.ram + "Bytes"
+        ram.value = request.ram
         total.value = request.total
         timestamp.value = request.created
         expireHour.value = request.expireHour
@@ -494,12 +494,12 @@ extension CreateAccountRequest {
         guard let totalEOS = Currency(eosCurrency: total),
             let cpuEOS = Currency(eosCurrency: cpu),
             let netEOS = Currency(eosCurrency: net) else { return nil }
-//            let ramBytes = 6 else { return nil }
+        
         
         return Invoice(completed: completed,
                        totalEOS: totalEOS, memo: memo, createdAt: created, expiredAt: created + expireTime,
                        expireTime: Int(expireTime),
-                       creator: creator, cpu: cpuEOS, net: netEOS, ram: 6)
+                       creator: creator, cpu: cpuEOS, net: netEOS, ram: Int64(ram) ?? 0)
     }
 }
 

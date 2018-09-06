@@ -38,21 +38,6 @@ struct EOSAPI {
         case get_controlled_accounts
     }
 
-    //Removed, Use only mobile cold wallet for maximize security
-//    public enum Wallet: String {
-//        case create
-//        case open
-//        case lock
-//        case lock_all
-//        case unlock
-//        case import_key
-//        case list_wallets
-//        case list_keys
-//        case get_public_keys
-//        case set_timeout
-//        case sign_transaction
-//        case create_key
-//    }
 }
 
 extension EOSAPI.Chain: RxAPIRequest {
@@ -63,15 +48,9 @@ extension EOSAPI.Chain: RxAPIRequest {
 
 extension EOSAPI.History: RxAPIRequest {
     var url: String {
-        return EOSHost.shared.url + "/history/" + rawValue
+        return EOSHost.shared.urlContainsHistory + "/history/" + rawValue
     }
 }
-
-//extension EOSAPI.Wallet {
-//    var url: String {
-//        return  EOSHost.shared.url + "/wallet/" +  rawValue
-//    }
-//}
 
 
 
