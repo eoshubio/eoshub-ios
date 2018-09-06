@@ -37,9 +37,7 @@ class CreateAccountFlowController: FlowController, CreateAccountFlowEventDelegat
         let request = getRequest()
         vc.configure(request: request)
         
-        show(viewController: vc, animated: animated) {
-            
-        }
+        show(viewController: vc, animated: animated, completion: nil)
     }
     
     func goInfo(from nc: UINavigationController, request: CreateAccountRequest) {

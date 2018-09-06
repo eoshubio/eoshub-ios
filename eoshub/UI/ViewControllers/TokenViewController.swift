@@ -90,8 +90,8 @@ class TokenViewController: BaseTableViewController {
                 }
                 
             }, onError: { (error) in
-                if let error = error as? EOSResponseError {
-                    error.showErrorPopup()
+                if let error = error as? PrettyPrintedPopup {
+                    error.showPopup()
                 } else {
                     Popup.present(style: .failed, description: "\(error)")
                 }

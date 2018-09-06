@@ -110,8 +110,8 @@ class BuyRamViewController: BaseViewController {
                 EHAnalytics.trackEvent(event: .buy_ram)
                 self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
             }, onError: { (error) in
-                guard let error = error as? EOSResponseError else { return }
-                error.showErrorPopup()
+                guard let error = error as? PrettyPrintedPopup else { return }
+                error.showPopup()
             }) {
                 WaitingView.shared.stop()
             }

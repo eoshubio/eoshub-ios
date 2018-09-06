@@ -48,7 +48,7 @@ class CreateAccountRequest: DBObject {
         
         let accountChecked = (name.count > 0 && ownerKey.count > 0 && activeKey.count > 0)
         let invoice = (creator.count > 0 && memo.count > 0 && total.count > 0)
-        let expired = created + expireTime > Date().timeIntervalSince1970 
+        let expired = created + expireTime < Date().timeIntervalSince1970 && created > 0
         if completed {
             stage = .completed
         } else if accountChecked {

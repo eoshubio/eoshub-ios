@@ -103,6 +103,10 @@ struct EHAnalytics {
         let total = infos.map({$0.totalEOS}).reduce(0,+)
         
         Analytics.setUserProperty("\(total)", forName: "total_eos_quantity")
+        
+        let ownerMode = infos.count > 0
+    
+        Analytics.setUserProperty("\(ownerMode)", forName: "owner_mode")
     }
     
 }

@@ -33,32 +33,24 @@ class Wallet {
             return Observable.error(WalletError.noValidPrivatekey)
         }
         
-        
         if priKey.hasPrefix("se") == false {
             //authentication self
             guard let vc = authParentVC else { return Observable.error(WalletError.authorizationViewisNotSet)}
-            
+            WaitingView.shared.stop()
             return authentication(showAt: vc)
-                .flatMap({ [weak self] (authorized) -> Observable<SignedTransaction> in
+                .flatMap({ (authorized) -> Observable<SignedTransaction> in
+                    
                     if authorized {
-                        self?.sign(txn: txn, cid: cid, priKey: priKey)
-                        if txn.signatures.count > 0 {
-                            return Observable.just(txn)
-                        } else {
-                            return Observable.error(WalletError.failedToSignature)
-                        }
+                        WaitingView.shared.start()
+                        
+                        return Wallet.sign(txn: txn, cid: cid, priKey: priKey)
                     } else {
                         return Observable.error(WalletError.canceled)
                     }
                 })
             
         } else {
-            sign(txn: txn, cid: cid, priKey: priKey)
-            if txn.signatures.count > 0 {
-                return Observable.just(txn)
-            } else {
-                return Observable.error(WalletError.failedToSignature)
-            }
+            return Wallet.sign(txn: txn, cid: cid, priKey: priKey)
         }
     }
     
@@ -70,13 +62,8 @@ class Wallet {
         return fc.validated.asObservable()
     }
     
-    private func sign(txn: SignedTransaction, cid: String, priKey: String) {
+    private static func sign(txn: SignedTransaction, cid: String, priKey: String) -> Observable<SignedTransaction> {
         let packedBytes = txn.digest(cid: cid)
-        
-//        guard let digest = Sha256(data: Data(bytes: packedBytes))!.mHashBytesData else {
-//            Log.e("fail to create digest")
-//            return
-//        }
         
         let packedData = Data(bytes: packedBytes)
         
@@ -84,29 +71,44 @@ class Wallet {
         
         if Validator.validatePrivateKeyR1(label: priKey) {
             //SE
-            signSE(txn: txn, priKeyLabel: priKey, digest: digest)
+            return signSE(priKeyLabel: priKey, digest: digest)
+                .flatMap({ (sig) -> Observable<SignedTransaction> in
+                    txn.signatures.append(sig)
+                    return Observable.just(txn)
+                })
         } else if Validator.validatePrivateKeyK1(key: priKey) {
-            signK1(txn: txn, priKey: priKey, digest: digest)
+            return signK1(priKey: priKey, digest: digest)
+                .flatMap({ (sig) -> Observable<SignedTransaction> in
+                    txn.signatures.append(sig)
+                    return Observable.just(txn)
+                })
         } else {
             Log.e("failed to find valid private key type")
-            return
+            return Observable.error(EOSHubError.invalidState)
         }
         //TODO: supports R1
     }
     
-    private func signK1(txn: SignedTransaction, priKey: String, digest: Data) {
+    private static func signK1(priKey: String, digest: Data) -> Observable<String> {
         
         let key = EOS_Key_Encode.getRandomBytesData(withWif: priKey)
         
+        
         if let sig = Crypto.sign(withPrivateKey: key, hash: digest) {
-            txn.signatures.append(sig)
+//            txn.signatures.append(sig)
+            return Observable.just(sig)
+        } else {
+            return Observable.error(EOSHubError.failedToSignature)
         }
     }
     
-    private func signSE(txn: SignedTransaction, priKeyLabel: String, digest: Data) {
+    private static func signSE(priKeyLabel: String, digest: Data) -> Observable<String> {
         
         if let sig = SecureEnclaveManager.trySignDigest(digest: digest, privateKeyLabel: priKeyLabel) {
-            txn.signatures.append(sig)
+//            txn.signatures.append(sig)
+            return Observable.just(sig)
+        } else {
+            return Observable.error(EOSHubError.failedToSignature)
         }
         
     }
