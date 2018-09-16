@@ -32,6 +32,7 @@ class ExtendButton: UIButton {
                 touchMargin = (minTouchArea - bounds.size) * 0.5
             }
         }
+        imageView?.contentMode = .scaleAspectFit
     }
     
     
