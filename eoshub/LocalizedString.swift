@@ -111,6 +111,12 @@ struct LocalizedString {
             static let action = NSLocalizedString("create.interest.action", comment: "")
         }
         
+        struct Restore {
+            static let title = NSLocalizedString("create.restore.title", comment: "")
+            static let text = NSLocalizedString("create.restore.text", comment: "")
+            static let action = NSLocalizedString("create.restore.action", comment: "")
+        }
+        
         struct Account {
             static let title = NSLocalizedString("create.account.title", comment: "")
             static let name = NSLocalizedString("create.account.name", comment: "")
