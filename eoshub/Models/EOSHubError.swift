@@ -13,6 +13,7 @@ enum EOSHubError: Error, PrettyPrintedPopup {
     case txNotFound
     case invalidState
     case failedToSignature
+    case failedToGenerateKey
     
     var localizedDescription: String {
         switch self {
@@ -24,6 +25,8 @@ enum EOSHubError: Error, PrettyPrintedPopup {
             return "Invalid state"
         case .failedToSignature:
             return "Failed To Signature"
+        case .failedToGenerateKey:
+            return "Failed to generate keypair"
         }
     }
     
@@ -42,6 +45,9 @@ enum EOSHubError: Error, PrettyPrintedPopup {
         case .failedToSignature:
             title = "Failed To Signature"
             text = "Perhaps the problem is that the password is wrong or you can not access the Biometic (Face ID or Touch ID)."
+        case .failedToGenerateKey:
+            title = "Failed to generate keypair"
+            text = ""
         }
         
         Popup.present(style: .failed, titleString: title, description: text)

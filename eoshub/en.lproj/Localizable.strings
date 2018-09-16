@@ -231,5 +231,8 @@
 "common.confirmShort" = "Confirm";
 "common.caution" = "Caution";
 "common.back" = "Back";
+"common.add" = "Add";
+"common.addShort" = "Add";
+"common.generate" = "Generate";
 
 "create.eosConstitusion" = "EOS Constitution";

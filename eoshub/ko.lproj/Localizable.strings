@@ -229,5 +229,8 @@
 "common.confirmShort" = "승인";
 "common.caution" = "주의";
 "common.back" = "뒤로";
+"common.add" = "추가하기";
+"common.addShort" = "추가";
+"common.generate" = "생성하기";
 
-"create.eosConstitusion" = "이오스 헌법";
+"create.e기sConstitusion" = "이오스 헌법";
