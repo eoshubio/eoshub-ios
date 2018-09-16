@@ -31,7 +31,9 @@ extension Contract {
         case quant
         case bytes
         case account
-
+        case permission
+        case parent
+        case auth
     }
     
     class Args {
@@ -89,6 +91,13 @@ extension Contract {
         
         struct refund {
             static let owner = Key.owner.rawValue
+        }
+        
+        struct updateauth {
+            static let account = Key.account.rawValue
+            static let permission = Key.permission.rawValue
+            static let parent = Key.parent.rawValue
+            static let auth = Key.auth.rawValue
         }
     }
 }

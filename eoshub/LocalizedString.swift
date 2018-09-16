@@ -321,7 +321,11 @@ struct LocalizedString {
         static let confirmShort = NSLocalizedString("common.confirmShort", comment: "")
         static let caution = NSLocalizedString("common.caution", comment: "")
         static let back = NSLocalizedString("common.back", comment: "")
+        static let add = NSLocalizedString("common.add", comment: "")
+        static let addShort = NSLocalizedString("common.addShort", comment: "")
+        static let generate = NSLocalizedString("common.generate", comment: "")
         static let constitusion = NSLocalizedString("create.eosConstitusion", comment: "")
+        
     }
     
     

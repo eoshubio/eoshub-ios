@@ -29,6 +29,11 @@ struct Authority: JSONOutput, JSONInitializable {
         return params.stringValue
     }
     
+
+    var seperated: [Authority] {
+        return keys.map { Authority(key: $0.key, perm: permission)}
+    }
+    
     init?(json: JSON) {
         permission = Permission(json.string(for: "perm_name") ?? "active")
         let auth = json.json(for: "required_auth")
@@ -43,5 +48,9 @@ struct Authority: JSONOutput, JSONInitializable {
         keys = [Key(key: key)]
     }
     
+    init(keys: [String], perm: Permission) {
+        self.permission = perm
+        self.keys = keys.map(Key.init)
+    }
+    
 }
-

@@ -31,6 +31,37 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         return ownerKeys + activeKeys
     }
     
+    @objc dynamic var _storedKeyJSON: String = ""
+    
+    var storedKeys: [StoredKey] {
+        guard let json = JSON.createJSON(from: _storedKeyJSON),
+              let storedKeyJSON = json.arrayJson(for: "storedKeys") else { return [] }
+        
+        return storedKeyJSON.compactMap(StoredKey.init)
+    }
+    
+    var highestPriorityKey: StoredKey? {
+        let keys = storedKeys
+        let ownerKeys = keys.filter({$0.permission == .owner})
+        if ownerKeys.count > 0 {
+            if let seKey = ownerKeys.filter({$0.repo == .secureEnclave}).first {
+                return seKey
+            } else {
+                return ownerKeys.first
+            }
+        }
+        
+        let activeKeys = keys.filter({$0.permission == .active})
+        if activeKeys.count > 0 {
+            if let seKey = activeKeys.filter({$0.repo == .secureEnclave}).first {
+                return seKey
+            } else {
+                return activeKeys.first
+            }
+        }
+        return nil
+    }
+    
     @objc dynamic var hasRepoKeychain = false //has private key in keychain
     @objc dynamic var hasRepoSE = false //has private key in Secure enclave
     
@@ -104,7 +135,7 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     }
     
     override static func ignoredProperties() -> [String] {
-        return ["votedProducers", "tokens", "availableRamBytes", "usedCPURatio", "usedNetRatio", "usedRAMRatio"]
+        return ["votedProducers", "tokens", "availableRamBytes", "usedCPURatio", "usedNetRatio", "usedRAMRatio", "storedAuthority"]
     }
     
     convenience init(with eosioAccount: Account, storedKey: String) {
@@ -157,36 +188,42 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         
         _activekeys.append(objectsIn: akeys)
         
+        var storedKeys: [StoredKey] = []
         
+        let permissions = eosioAccount.permissions.map({$0.seperated}).joined()
         
-        var storedKeys: [(key: String, permission: String)] = []
-        eosioAccount.permissions.forEach { (auth) in
-            //check owner
-            auth.keys.forEach({ (key) in
-                    
-                let repo = Security.shared.getKeyRepository(pub: key.key)
-                if repo != .none {
-                        
-                    if repo == .secureEnclave {
-                        hasRepoSE = true
-                    } else if repo == .iCloudKeychain {
-                        hasRepoKeychain = true
-                    }
-                    storedKeys.append((key: key.key, permission: auth.permission.value))
-                    ownerMode = true
-                }
-            })
+        permissions.forEach { (auth) in
+            guard let key = auth.keys.first else { return }
+            let repo = Security.shared.getKeyRepository(pub: key.key)
+            if repo != .none {
                 
-            if let matchKey = storedKeys.filter({$0.key == storedKey}).first {
-                pubKey = matchKey.key
-                permission = matchKey.permission
-            } else if let firstKey =  storedKeys.first {
-                pubKey = firstKey.key
-                permission = firstKey.permission
+                if repo == .secureEnclave {
+                    hasRepoSE = true
+                } else if repo == .iCloudKeychain {
+                    hasRepoKeychain = true
+                }
+                storedKeys.append(StoredKey(eosioKey: key, permission: auth.permission, repo: repo))
+                ownerMode = true
             }
         }
         
+        //Select the public key to use.
         
+        if let seKey = storedKeys.filter({$0.repo == .secureEnclave}).first {
+            //1. find in secure enclave
+            pubKey = seKey.eosioKey.key
+            permission = seKey.permission.value
+        } else if let keychainKey = storedKeys.filter({$0.repo == .iCloudKeychain }).first {
+            //2. find in iCloud keychains
+            pubKey = keychainKey.eosioKey.key
+            permission = keychainKey.permission.value
+        } else {
+            Log.e("Invalid state")
+        }
+        
+        if let storedKeyJSON = ["storedKeys": storedKeys.compactMap({$0.json})].stringValue {
+            _storedKeyJSON = storedKeyJSON
+        }
         
     }
     
@@ -225,6 +262,8 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         
         hasRepoSE = newObject.hasRepoSE
         hasRepoKeychain = newObject.hasRepoKeychain
+        
+        _storedKeyJSON = newObject._storedKeyJSON
     }
     
     func addToken(currency: Currency) {
