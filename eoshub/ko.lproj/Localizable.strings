@@ -69,6 +69,10 @@
 "create.interest.text" = "관심있는 EOS 계정을 추가하여 관리 할 수 있습니다. 관심 계정은 private key를 필요로 하지 않으며, 조회만 가능합니다.";
 "create.interest.action" = "추가하기";
 
+"create.restore.title" = "지갑 복구하기";
+"create.restore.text" = "이전에 EOSHub 에서 지갑을 추가한 경우, iCloud Keychain으로 부터 EOSHub 지갑을 복구할 수 있습니다.";
+"create.restore.action" = "복구하기";
+
 "create.account.title" = "계정 생성";
 "create.account.name" = "EOS 계정 이름";
 "create.account.enter" = "사용할 계정을 입력해주세요.";
