@@ -116,6 +116,18 @@ extension Contract {
                                 authorization: authorization)
         return contract
     }
+    
+    static func updateauth(account: String, permission: Permission, auth: Authority, authorization: Authorization) -> Contract {
+        let contract = Contract(code: "eosio",
+                                action: .updateauth,
+                                args: [Args.updateauth.account: account,
+                                       Args.updateauth.permission: permission.value,
+                                       Args.updateauth.parent: Permission.owner.value,
+                                       Args.updateauth.auth: auth.json],
+                                authorization: authorization)
+        
+        return contract
+    }
 }
 
 extension Contract {
@@ -123,6 +135,7 @@ extension Contract {
         case newaccount, transfer, buyram, sellram, delegatebw, undelegatebw, voteproducer
         case buyrambytes
         case refund
+        case updateauth
     }
 }
 
