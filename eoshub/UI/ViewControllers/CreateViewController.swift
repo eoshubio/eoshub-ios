@@ -97,8 +97,7 @@ extension CreateViewController: UITableViewDataSource, UITableViewDelegate {
         
         let item = items[indexPath.section]
         
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: item.nibName) as? CreateViewCell else { preconditionFailure() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: item.nibName, for: indexPath) as? CreateViewCell else { preconditionFailure() }
         
         switch item {
         case .create:
@@ -106,7 +105,7 @@ extension CreateViewController: UITableViewDataSource, UITableViewDelegate {
         case .privateKey:
             cell.configure(subject: importPriAccount)
         case .publicKey:
-            cell.configure(subject: importPubAccount)
+            (cell as? ImportPubAccountCell)?.configure(cellType: .publicKey, subject: importPubAccount)
         case .restore:
             (cell as? ImportPubAccountCell)?.configure(cellType: .restore, subject: restoreAccount)
         }
@@ -294,3 +293,4 @@ class ImportPubAccountCell: CreateViewCell {
         
     }
 }
+
