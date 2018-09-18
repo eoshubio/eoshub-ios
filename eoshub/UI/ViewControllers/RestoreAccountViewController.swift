@@ -1,33 +1,16 @@
 //
-//  PreferAccountViewController.swift
+//  RestoreAccountViewController.swift
 //  eoshub
 //
-//  Created by kein on 2018. 7. 22..
+//  Created by kein on 2018. 9. 16..
 //  Copyright © 2018년 EOS Hub. All rights reserved.
 //
 
 import Foundation
 import UIKit
 import RxSwift
-import RxCocoa
 
-class PreferAccountViewController: TextInputViewController {
-    
-    var flowDelegate: PreferAccountFlowEventDelegate?
-    
-    @IBOutlet weak var lbTitle: UILabel!
-    @IBOutlet weak var txtAccount: WhiteAccountTextField!
-    @IBOutlet weak var btnPaste: UIButton!
-    @IBOutlet weak var btnAdd: UIButton!
-    
-    deinit {
-        Log.d("deinit")
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        showNavigationBar(with: .basePurple)
-    }
+class RestoreAccountViewController: PreferAccountViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,22 +20,22 @@ class PreferAccountViewController: TextInputViewController {
     
     private func setupUI() {
         
-        EHAnalytics.trackEvent(event: .try_intrest_account)
+        EHAnalytics.trackEvent(event: .try_restore_account)
         
-        lbTitle.text = LocalizedString.Wallet.Interest.title
+        lbTitle.text = LocalizedString.Create.Restore.title
         btnPaste.setTitle(LocalizedString.Common.paste, for: .normal)
         
-        txtAccount.placeholder = LocalizedString.Wallet.Interest.account
+        txtAccount.placeholder = LocalizedString.Create.Account.name
         txtAccount.delegate = self
         
         txtAccount.padding.right = btnPaste.bounds.width + 5
         
-        btnAdd.setTitle(LocalizedString.Wallet.Interest.add, for: .normal)
+        btnAdd.setTitle(LocalizedString.Create.Restore.action, for: .normal)
     }
     
     private func bindActions() {
         
-   
+        
         btnPaste.rx.singleTap
             .bind { [weak self] in
                 guard let pasted = UIPasteboard.general.string else { return }
@@ -85,10 +68,10 @@ class PreferAccountViewController: TextInputViewController {
         RxEOSAPI.getPubKeyFromAccount(account: accountName)
             .flatMap({ (pubKey) -> Observable<EHAccount> in
                 let account = EHAccount(userId: UserManager.shared.userId, account: accountName, publicKey: pubKey, owner: false)
-              
+                
                 DB.shared.addOrUpdateObjects([account] as [EHAccount])
                 
-                EHAnalytics.trackEvent(event: .interest_account)
+                EHAnalytics.trackEvent(event: .restore_account)
                 
                 return AccountManager.shared.loadAccount(account: account)
                     .flatMap({ (_) -> Observable<EHAccount> in
@@ -109,9 +92,10 @@ class PreferAccountViewController: TextInputViewController {
                 WaitingView.shared.stop()
             }
             .disposed(by: bag)
-            
+        
         
     }
-
+    
+    
     
 }

@@ -11,6 +11,7 @@
 		2C0290C12129CD2B00C3AFCB /* AccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */; };
 		2C0290C32129D41C00C3AFCB /* AccountDetailFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */; };
 		2C02AE6821108FED00C6ECF3 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */; };
+		2C1CC7752149465E0020115A /* KeyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CC7742149465E0020115A /* KeyHeader.xib */; };
 		2C1D928E2100C7DC0009F5C4 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D928D2100C7DC0009F5C4 /* Validator.swift */; };
 		2C1E3E9520FE14000009D2AF /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9420FE14000009D2AF /* WaitingView.swift */; };
 		2C1E3E9720FE18000009D2AF /* Popup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9620FE18000009D2AF /* Popup.swift */; };
@@ -102,6 +103,11 @@
 		2C2ACFFF20F4E51700C637D8 /* BPCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C2ACFFE20F4E51700C637D8 /* BPCell.swift */; };
 		2C31F7F6210612CE0025D18A /* Preferences.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31F7F5210612CE0025D18A /* Preferences.swift */; };
 		2C31F7F821061F3C0025D18A /* ChangePinFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C31F7F721061F3C0025D18A /* ChangePinFlowController.swift */; };
+		2C3A5D68214C9E230045D174 /* KeypairDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A5D67214C9E230045D174 /* KeypairDetailViewController.swift */; };
+		2C3A5D6A214C9E4F0045D174 /* KeypairDetailFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A5D69214C9E4F0045D174 /* KeypairDetailFlowController.swift */; };
+		2C3A5D6C214E34B00045D174 /* StoredKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A5D6B214E34B00045D174 /* StoredKey.swift */; };
+		2C3A5D6E214E70F00045D174 /* RestoreAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A5D6D214E70F00045D174 /* RestoreAccountViewController.swift */; };
+		2C3A5D70214E79900045D174 /* RestoreAccountFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3A5D6F214E79900045D174 /* RestoreAccountFlowController.swift */; };
 		2C3B17AB20FCC42C00E6BAAD /* Mergeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17AA20FCC42C00E6BAAD /* Mergeable.swift */; };
 		2C3B17AD20FCCC7000E6BAAD /* TxManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3B17AC20FCCC7000E6BAAD /* TxManager.swift */; };
 		2C3B17AF20FCFDF400E6BAAD /* TransferPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C3B17AE20FCFDF400E6BAAD /* TransferPopup.xib */; };
@@ -271,6 +277,7 @@
 		2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailFlowController.swift; sourceTree = "<group>"; };
 		2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		2C02AE692110BA0500C6ECF3 /* eoshub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = eoshub.entitlements; sourceTree = "<group>"; };
+		2C1CC7742149465E0020115A /* KeyHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyHeader.xib; sourceTree = "<group>"; };
 		2C1D928D2100C7DC0009F5C4 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		2C1E3E9420FE14000009D2AF /* WaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingView.swift; sourceTree = "<group>"; };
 		2C1E3E9620FE18000009D2AF /* Popup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Popup.swift; sourceTree = "<group>"; };
@@ -374,6 +381,11 @@
 		2C2ACFFE20F4E51700C637D8 /* BPCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BPCell.swift; sourceTree = "<group>"; };
 		2C31F7F5210612CE0025D18A /* Preferences.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preferences.swift; sourceTree = "<group>"; };
 		2C31F7F721061F3C0025D18A /* ChangePinFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePinFlowController.swift; sourceTree = "<group>"; };
+		2C3A5D67214C9E230045D174 /* KeypairDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypairDetailViewController.swift; sourceTree = "<group>"; };
+		2C3A5D69214C9E4F0045D174 /* KeypairDetailFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeypairDetailFlowController.swift; sourceTree = "<group>"; };
+		2C3A5D6B214E34B00045D174 /* StoredKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoredKey.swift; sourceTree = "<group>"; };
+		2C3A5D6D214E70F00045D174 /* RestoreAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreAccountViewController.swift; sourceTree = "<group>"; };
+		2C3A5D6F214E79900045D174 /* RestoreAccountFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestoreAccountFlowController.swift; sourceTree = "<group>"; };
 		2C3B17AA20FCC42C00E6BAAD /* Mergeable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Mergeable.swift; sourceTree = "<group>"; };
 		2C3B17AC20FCCC7000E6BAAD /* TxManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxManager.swift; sourceTree = "<group>"; };
 		2C3B17AE20FCFDF400E6BAAD /* TransferPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransferPopup.xib; sourceTree = "<group>"; };
@@ -825,6 +837,7 @@
 				2C516101212B03B50005EDD7 /* WebViewFlowController.swift */,
 				2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */,
 				2C5160FD212AEE6B0005EDD7 /* KeypairFlowController.swift */,
+				2C3A5D69214C9E4F0045D174 /* KeypairDetailFlowController.swift */,
 				2CEC2D4D20F65D8600AF5E9B /* WalletDetailFlowController.swift */,
 				2C770C9A20FB7CBD007F71C4 /* DelegateFlowController.swift */,
 				2C770CA020FB8E0F007F71C4 /* UndelegateFlowController.swift */,
@@ -845,6 +858,7 @@
 				2C99E4A7211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift */,
 				2C2ACFD620F442E400C637D8 /* ImportFlowController.swift */,
 				2CB6B7F22104AE970048601A /* PreferAccountFlowController.swift */,
+				2C3A5D6F214E79900045D174 /* RestoreAccountFlowController.swift */,
 				2C2ACFDE20F46B3300C637D8 /* FindFlowController.swift */,
 				2C2ACFE620F47CA200C637D8 /* CreatePinFlowController.swift */,
 				2C2ACFF820F4A3DE00C637D8 /* ConfirmPinFlowController.swift */,
@@ -870,6 +884,7 @@
 				2C5160FF212B00EE0005EDD7 /* WebViewController.swift */,
 				2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */,
 				2C5160FB212AE9CF0005EDD7 /* KeypairViewController.swift */,
+				2C3A5D67214C9E230045D174 /* KeypairDetailViewController.swift */,
 				2CEC2D4920F65C3000AF5E9B /* WalletDetailViewController.swift */,
 				2C770C9820FB77F4007F71C4 /* DelegateViewController.swift */,
 				2C770C9E20FB8BBE007F71C4 /* UndelegateViewController.swift */,
@@ -889,6 +904,7 @@
 				2C99E4A5211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift */,
 				2C2ACFD420F4427F00C637D8 /* ImportViewController.swift */,
 				2CB6B7F02104AD020048601A /* PreferAccountViewController.swift */,
+				2C3A5D6D214E70F00045D174 /* RestoreAccountViewController.swift */,
 				2C2ACFDA20F4607700C637D8 /* FindAccountViewController.swift */,
 				2C2ACFE420F47C1900C637D8 /* PinCodeViewController.swift */,
 				2C755F1A20FF708600FD5FBF /* TouchIdViewController.swift */,
@@ -935,6 +951,7 @@
 				2CEC2D4320F63BFF00AF5E9B /* WalletGuideCell.xib */,
 				2CE110FD20F1ED6500B93BEB /* LoginButton.swift */,
 				2CE1110F20F2118900B93BEB /* LoginButton.xib */,
+				2C1CC7742149465E0020115A /* KeyHeader.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -955,6 +972,7 @@
 				2C7426B321169DFF00F8A85E /* AuthError.swift */,
 				2C99E4A9211FFAC600DB55A6 /* TxMemo.swift */,
 				2CBAAC632121D825006A423E /* Airdrop.swift */,
+				2C3A5D6B214E34B00045D174 /* StoredKey.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1154,6 +1172,7 @@
 				2C2ACFF520F49DCA00C637D8 /* FaceIdInputView.xib in Resources */,
 				2C63FE982118AAE50036652B /* WalletLockedCell.xib in Resources */,
 				2CE1113620F26DBB00B93BEB /* WalletAddCell.xib in Resources */,
+				2C1CC7752149465E0020115A /* KeyHeader.xib in Resources */,
 				2CEC2D4420F63BFF00AF5E9B /* WalletGuideCell.xib in Resources */,
 				2C1E3E9B20FE2BF50009D2AF /* DelegatePopup.xib in Resources */,
 				2C2ACFE120F4758900C637D8 /* Auth.storyboard in Resources */,
@@ -1324,6 +1343,7 @@
 				2C770C8F20FAF1F5007F71C4 /* TokenDetailFlowController.swift in Sources */,
 				2CEC2D4E20F65D8600AF5E9B /* WalletDetailFlowController.swift in Sources */,
 				2C279B7320F783DF00D2F6C4 /* SendCurrencyViewController.swift in Sources */,
+				2C3A5D68214C9E230045D174 /* KeypairDetailViewController.swift in Sources */,
 				2C279C0A20FA452F00D2F6C4 /* Config.swift in Sources */,
 				2C63FE962118A7150036652B /* Reachability.swift in Sources */,
 				2C279BFD20F9D39600D2F6C4 /* AccountInfo.swift in Sources */,
@@ -1456,6 +1476,7 @@
 				2C7426BC2116B80D00F8A85E /* ForgetPWFlowController.swift in Sources */,
 				2CBD93CC2132ABCF00A15681 /* DonateFlowController.swift in Sources */,
 				2C770C8D20FAECA8007F71C4 /* TokenDetailViewController.swift in Sources */,
+				2C3A5D70214E79900045D174 /* RestoreAccountFlowController.swift in Sources */,
 				2C279BD820F8C5A300D2F6C4 /* Contract+Args.swift in Sources */,
 				2C279BB420F8C42700D2F6C4 /* Crypto.m in Sources */,
 				2C1E3EA120FE37B60009D2AF /* RamPopup.swift in Sources */,
@@ -1470,6 +1491,7 @@
 				2CE1110E20F1FACD00B93BEB /* LocalizedString.swift in Sources */,
 				2C2ACFED20F48E1D00C637D8 /* UIButton+extension.swift in Sources */,
 				2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */,
+				2C3A5D6C214E34B00045D174 /* StoredKey.swift in Sources */,
 				2CBAAC662121DCB4006A423E /* NSLayoutConstraint+extension.swift in Sources */,
 				2CA5D18E210B5B58006C928B /* TokenAddPopup.swift in Sources */,
 				2C279B7720F7A29A00D2F6C4 /* ReceiveViewController.swift in Sources */,
@@ -1481,8 +1503,10 @@
 				2C2ACFE720F47CA200C637D8 /* CreatePinFlowController.swift in Sources */,
 				2CE1113820F26DF000B93BEB /* RoundedView.swift in Sources */,
 				2CE1112E20F2680100B93BEB /* VoteFlowController.swift in Sources */,
+				2C3A5D6E214E70F00045D174 /* RestoreAccountViewController.swift in Sources */,
 				2CE110D420F1C4E700B93BEB /* MainFlowController.swift in Sources */,
 				2C279BDA20F8C5A300D2F6C4 /* EOSResponseModel.swift in Sources */,
+				2C3A5D6A214C9E4F0045D174 /* KeypairDetailFlowController.swift in Sources */,
 				2C99E4A4211EDF2200DB55A6 /* CreateAccountInfoFlowController.swift in Sources */,
 				2C31F7F6210612CE0025D18A /* Preferences.swift in Sources */,
 				2C3B17AD20FCCC7000E6BAAD /* TxManager.swift in Sources */,

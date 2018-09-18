@@ -41,11 +41,13 @@ enum EHEvent {
     case create_account(CreateKeyMode, CreateKeyMode)
     case import_account
     case interest_account
+    case restore_account
     case try_create_account1
     case try_create_account2
     case try_create_account3
     case try_import_account
     case try_intrest_account
+    case try_restore_account
 }
 
 extension EHEvent {
@@ -72,6 +74,8 @@ extension EHEvent {
             return Event(name: "import_account")
         case .interest_account:
             return Event(name: "interest_account")
+        case .restore_account:
+            return Event(name: "restore_account")
         case .try_create_account1:
             return Event(name: "try_create_account1")
         case .try_create_account2:
@@ -82,6 +86,8 @@ extension EHEvent {
             return Event(name: "try_import_account")
         case .try_intrest_account:
             return Event(name: "try_intrest_account")
+        case .try_restore_account:
+            return Event(name: "try_restore_account")
         }
     }
 }

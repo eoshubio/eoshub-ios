@@ -111,6 +111,12 @@ struct LocalizedString {
             static let action = NSLocalizedString("create.interest.action", comment: "")
         }
         
+        struct Restore {
+            static let title = NSLocalizedString("create.restore.title", comment: "")
+            static let text = NSLocalizedString("create.restore.text", comment: "")
+            static let action = NSLocalizedString("create.restore.action", comment: "")
+        }
+        
         struct Account {
             static let title = NSLocalizedString("create.account.title", comment: "")
             static let name = NSLocalizedString("create.account.name", comment: "")
@@ -321,7 +327,11 @@ struct LocalizedString {
         static let confirmShort = NSLocalizedString("common.confirmShort", comment: "")
         static let caution = NSLocalizedString("common.caution", comment: "")
         static let back = NSLocalizedString("common.back", comment: "")
+        static let add = NSLocalizedString("common.add", comment: "")
+        static let addShort = NSLocalizedString("common.addShort", comment: "")
+        static let generate = NSLocalizedString("common.generate", comment: "")
         static let constitusion = NSLocalizedString("create.eosConstitusion", comment: "")
+        
     }
     
     

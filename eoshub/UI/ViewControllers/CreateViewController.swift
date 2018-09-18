@@ -20,6 +20,7 @@ class CreateViewController: BaseViewController {
     fileprivate var createAccount = PublishSubject<Void>()
     fileprivate var importPriAccount = PublishSubject<Void>()
     fileprivate var importPubAccount = PublishSubject<Void>()
+    fileprivate var restoreAccount = PublishSubject<Void>()
     
     var items: [CreateViewCellType] = []
     
@@ -35,7 +36,6 @@ class CreateViewController: BaseViewController {
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 60
         tableView.allowsSelection = false
-//        tableView.contentInset = UIEdgeInsetsMake(0, 0, 150, 0)
     }
     
     private func bindActions() {
@@ -57,6 +57,13 @@ class CreateViewController: BaseViewController {
             .bind { [weak self] in
                 guard let nc = self?.navigationController else { return }
                 self?.flowDelegate?.goImportPublicKey(from: nc)
+            }
+            .disposed(by: bag)
+        
+        restoreAccount
+            .bind { [weak self] in
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goToRestore(from: nc)
             }
             .disposed(by: bag)
         
@@ -90,8 +97,7 @@ extension CreateViewController: UITableViewDataSource, UITableViewDelegate {
         
         let item = items[indexPath.section]
         
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: item.nibName) as? CreateViewCell else { preconditionFailure() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: item.nibName, for: indexPath) as? CreateViewCell else { preconditionFailure() }
         
         switch item {
         case .create:
@@ -99,7 +105,9 @@ extension CreateViewController: UITableViewDataSource, UITableViewDelegate {
         case .privateKey:
             cell.configure(subject: importPriAccount)
         case .publicKey:
-            cell.configure(subject: importPubAccount)
+            (cell as? ImportPubAccountCell)?.configure(cellType: .publicKey, subject: importPubAccount)
+        case .restore:
+            (cell as? ImportPubAccountCell)?.configure(cellType: .restore, subject: restoreAccount)
         }
         
         return cell
@@ -120,6 +128,7 @@ extension CreateViewController: UITableViewDataSource, UITableViewDelegate {
 enum CreateViewCellType: Int, CellType {
     
     case create, privateKey, publicKey
+    case restore
     
     var id: Int {
         return rawValue
@@ -132,6 +141,8 @@ enum CreateViewCellType: Int, CellType {
         case .privateKey:
             return "ImportAccountCell"
         case .publicKey:
+            return "ImportPubAccountCell"
+        case .restore:
             return "ImportPubAccountCell"
         }
     }
@@ -261,7 +272,7 @@ class ImportPubAccountCell: CreateViewCell {
         btnImport.setTitle(LocalizedString.Create.Interest.action, for: .normal)
     }
     
-    override func configure(subject: PublishSubject<Void>) {
+    func configure(cellType: CreateViewCellType, subject: PublishSubject<Void>) {
         let bag = DisposeBag()
         self.bag = bag
         btnImport.rx.singleTap
@@ -269,5 +280,17 @@ class ImportPubAccountCell: CreateViewCell {
                 subject.onNext(())
             }
             .disposed(by: bag)
+        
+        if cellType == .publicKey {
+            lbTitle.text = LocalizedString.Create.Interest.title
+            lbText.text = LocalizedString.Create.Interest.text
+            btnImport.setTitle(LocalizedString.Create.Interest.action, for: .normal)
+        } else if cellType == .restore {
+            lbTitle.text = LocalizedString.Create.Restore.title
+            lbText.text = LocalizedString.Create.Restore.text
+            btnImport.setTitle(LocalizedString.Create.Restore.action, for: .normal)
+        }
+        
     }
 }
+

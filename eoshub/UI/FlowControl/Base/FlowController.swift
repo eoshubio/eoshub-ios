@@ -18,6 +18,7 @@ enum FlowIdentifier: String {
     case getTxCode
     case importPri
     case importPub
+    case restore
     case findAccount
     case createPin
     case confirmPin
@@ -34,6 +35,7 @@ enum FlowIdentifier: String {
     case web
     case accountDetail
     case keypair
+    case keypairDetail
     case resouces
     case delegatebw
     case undelegatebw

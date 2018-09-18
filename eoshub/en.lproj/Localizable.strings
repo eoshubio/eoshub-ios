@@ -73,6 +73,9 @@
 "create.interest.text" = "You can add a specific EOS account to view the blockchain information.";
 "create.interest.action" = "Add";
 
+"create.restore.title" = "Restore wallet";
+"create.restore.text" = "Restore your EOSHub wallet from iCloud Keychain.";
+"create.restore.action" = "Restore";
 
 "create.account.title" = "Create account";
 "create.account.name" = "EOS account name";
@@ -231,5 +234,8 @@
 "common.confirmShort" = "Confirm";
 "common.caution" = "Caution";
 "common.back" = "Back";
+"common.add" = "Add";
+"common.addShort" = "Add";
+"common.generate" = "Generate";
 
 "create.eosConstitusion" = "EOS Constitution";

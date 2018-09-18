@@ -179,35 +179,7 @@ struct RxEOSAPI {
 
 
 extension RxEOSAPI {
-    //MARK: Create Wallet & Account
-    static func createAccount(name: String, authorization: Authorization) -> Observable<Void> {
-        //1. create wallet
-        
-//        return walletCreate(name: name)
-//            .flatMap { (wallet) -> Observable<Wallet> in
-//                //2. import eosio key
-//                return walletImportKey(key: EOSHub.privateKey, to: wallet)
-//            }
-//            .flatMap { (wallet) -> Observable<Wallet> in
-//                //3. create key for new account
-//                return walletCreateKey(wallet: wallet)
-//            }
-//            .flatMap { (wallet) -> Observable<Wallet> in
-////                WalletManager.shared.addWallet(wallet: wallet)
-//                let minCurrency = Currency(currency: "0.0001 EOS")!
-//                let authority = Authority(key: wallet.publicKey)
-//                let contract = Contract.newAccount(name: name, owner: authority, active: authority, authorization: Authorization.eoshub)
-////                let buyram = Contract.buyram(payer: EOSHub.account, receiver: name, quant: minCurrency)
-//                let buyrambytes = Contract.buyramBytes(payer: EOSHub.account, receiver: name, bytes: 8024)
-//                let delegatebw = Contract.delegateBW(from: EOSHub.account, receiver: name, cpu: minCurrency, net: minCurrency)
-//                return RxEOSAPI.pushContract(contracts: [contract, buyrambytes, delegatebw], wallet: wallet)
-//                    .flatMap({ (_) -> Observable<Wallet> in
-//                        //account 생성시에만 wallet을 저장하게 한다.
-//                        return Observable.just(wallet)
-//                    })
-//            }
-        return Observable.empty()
-    }
+
     
     //MARK: Get account
     static func getAccount(name: String) -> Observable<Account> {
@@ -223,6 +195,12 @@ extension RxEOSAPI {
     }
     
    
+    //MARK: Update Auth
+    static func updateAuth(account: String, permission: Permission, auth: Authority, wallet: Wallet, authorization: Authorization) -> Observable<JSON> {
+        let contract = Contract.updateauth(account: account, permission: permission, auth: auth, authorization: authorization)
+        return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+    }
+    
     
     //MARK: Transfer currency
     static func sendCurrency(from: String, to: String, quantity: Currency, memo: String = "", wallet: Wallet, authorization: Authorization) -> Observable<JSON> {

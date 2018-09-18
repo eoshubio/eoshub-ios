@@ -210,7 +210,7 @@ extension Security {
 }
 
 
-enum KeyRepository {
+enum KeyRepository: String {
     case iCloudKeychain, secureEnclave, none
 }
 

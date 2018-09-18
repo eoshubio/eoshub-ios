@@ -9,12 +9,26 @@
 import Foundation
 import UIKit
 import RxSwift
+import RxCocoa
 
 class KeypairViewController: BaseTableViewController {
     
+    var flowDelegate: KeypairFlowEventDelegate?
+    
     fileprivate var account: AccountInfo!
     
+    fileprivate struct Key {
+        let key: String
+        let permission: String
+        let stored: Bool
+        let repo: KeyRepository
+    }
+    
     fileprivate var items: [[Key]] = []
+    
+    fileprivate var rx_onOwnerKey = PublishSubject<Void>()
+    fileprivate var rx_onActiveKey = PublishSubject<Void>()
+    
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -31,10 +45,12 @@ class KeypairViewController: BaseTableViewController {
     
     func configure(account: AccountInfo) {
         self.account = account
-        
     }
     
     private func loadData() {
+        
+        items.removeAll()
+        
         let secure = Security.shared
         let ownerKeys = account.ownerKeys.map { (key) -> KeypairViewController.Key in
             let repo = secure.getKeyRepository(pub: key)
@@ -53,19 +69,39 @@ class KeypairViewController: BaseTableViewController {
     
     private func setupUI() {
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 20, 0)
+        
+        let headerNib = UINib(nibName: "KeyHeader", bundle: nil)
+        tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "KeyHeader")
     }
     
     private func bindActions() {
+        rx_onOwnerKey
+            .bind { [weak self] in
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goToDetail(from: nc, permission: .owner)
+            }
+            .disposed(by: bag)
         
+        rx_onActiveKey
+            .bind { [weak self] in
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goToDetail(from: nc, permission: .active)
+            }
+            .disposed(by: bag)
+        
+        AccountManager.shared.accountInfoRefreshed
+            .bind { [weak self] in
+                self?.loadData()
+                self?.tableView.reloadData()
+            }
+            .disposed(by: bag)
     }
     
-    
-    fileprivate struct Key {
-        let key: String
-        let permission: String
-        let stored: Bool
-        let repo: KeyRepository
+    @objc private func toggleEditMode(sender: UIButton) {
+        sender.isSelected = !sender.isSelected
     }
+    
+
     
 }
 
@@ -80,19 +116,26 @@ extension KeypairViewController {
         return items[section].count
     }
     
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return  section == 0 ? "Onwer key" : "Active Key"
-    }
-    
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        let headerView = view as? UITableViewHeaderFooterView
-        
-        headerView?.textLabel?.text = section == 0 ? "Onwer key" : "Active Key"
-        headerView?.textLabel?.font = Font.appleSDGothicNeo(.semiBold).uiFont(20)
-        headerView?.textLabel?.textColor = Color.basePurple.uiColor
+        let headerView = view as? KeyHeader
+        switch section {
+        case 0:
+            headerView?.configure(permission: .owner, observer: rx_onOwnerKey.asObserver())
+        case 1:
+            headerView?.configure(permission: .active, observer: rx_onActiveKey.asObserver())
+        default:
+            break
+        }
     }
 
+    
+    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return tableView.dequeueReusableHeaderFooterView(withIdentifier: "KeyHeader")
+    }
   
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 60
+    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "KeyCell", for: indexPath) as? KeyCell else {
@@ -113,10 +156,17 @@ class KeyCell: UITableViewCell {
     @IBOutlet fileprivate weak var stored: BorderColorButton!
     @IBOutlet fileprivate weak var repo: BorderColorButton!
     @IBOutlet fileprivate weak var key: UILabel!
+    @IBOutlet fileprivate weak var delete: UIButton?
+    private var bag: DisposeBag?
     
     override func awakeFromNib() {
         super.awakeFromNib()
         setupUI()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bag = nil
     }
     
     private func setupUI() {
@@ -127,7 +177,10 @@ class KeyCell: UITableViewCell {
         repo.setThemeColor(fgColor: Color.progressMagenta.uiColor, bgColor: .clear, state: .selected, border: true)
     }
     
-    func configure(pubKey: String, owner: Bool, repo storedAt: KeyRepository) {
+    func configure(pubKey: String, owner: Bool, repo storedAt: KeyRepository, observer: AnyObserver<String>? = nil) {
+        let bag = DisposeBag()
+        self.bag = bag
+        
         key.text = pubKey
         if owner {
             stored.setTitle("Stored", for: .normal)
@@ -150,10 +203,73 @@ class KeyCell: UITableViewCell {
             repo.isHidden = true
         }
         
+        delete?.isHidden = (owner == false)
+        delete?.rx.singleTap
+            .bind {
+                observer?.onNext(pubKey)
+        }
+        .disposed(by: bag)
     }
     
     
 }
+
+
+class KeyHeader: UITableViewHeaderFooterView {
+    @IBOutlet fileprivate weak var lbTitle: UILabel!
+    @IBOutlet fileprivate weak var btnAdd: UIButton!
+    @IBOutlet fileprivate weak var lbEdit: UILabel!
+    @IBOutlet fileprivate weak var btnHeader: UIButton!
+    
+    private var bag: DisposeBag?
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupUI()
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bag = nil
+    }
+    
+    private func setupUI() {
+        btnAdd.setTitle(LocalizedString.Common.addShort, for: .normal)
+        lbEdit.text = LocalizedString.Common.edit
+    }
+    
+    func configure(permission: Permission, observer: AnyObserver<Void>) {
+        let bag = DisposeBag()
+        self.bag = bag
+        
+        if permission == .owner {
+            lbTitle.text = "Onwer key"
+        } else if permission == .active {
+            lbTitle.text = "Active key"
+        } else {
+            lbTitle.text = "Unknown key"
+        }
+        
+        btnHeader.isEnabled = (permission == .active)
+        btnAdd.isHidden = !btnHeader.isEnabled
+        lbEdit.isHidden = !btnHeader.isEnabled
+        
+        btnHeader.rx.singleTap
+            .bind {
+                observer.onNext(())
+            }
+            .disposed(by: bag)
+        
+    }
+    
+}
+
+
+
+
+
+
+
 
 
 

@@ -82,10 +82,17 @@ class CreateFlowController: FlowController, CreateFlowEventDelegate {
         let fc = PreferAccountFlowController(configure: config)
         fc.start(animated: true)
     }
+    
+    func goToRestore(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = RestoreAccountFlowController(configure: config)
+        fc.start(animated: true)
+    }
 }
 
 protocol CreateFlowEventDelegate: FlowEventDelegate {
     func goCreateAccount(from nc: UINavigationController)
     func goImportPrivateKey(from nc: UINavigationController)
     func goImportPublicKey(from nc: UINavigationController)
+    func goToRestore(from nc: UINavigationController)
 }
