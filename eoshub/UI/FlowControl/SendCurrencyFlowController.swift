@@ -43,7 +43,7 @@ class SendCurrencyFlowController: FlowController, SendFlowEventDelegate {
     func goToTx(from nc: UINavigationController, account: AccountInfo, filter: Symbol?) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = TxFlowController(configure: config)
-        fc.configure(accountName: account.account, actions: [.transfer], filter: filter)
+        fc.configure(accountName: account.account, actions: [Contract.Action.transfer], filter: filter)
         fc.start(animated: true)
     }
     
