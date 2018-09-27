@@ -159,6 +159,9 @@
 		2C99E4A6211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E4A5211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift */; };
 		2C99E4A8211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E4A7211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift */; };
 		2C99E4AA211FFAC600DB55A6 /* TxMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E4A9211FFAC600DB55A6 /* TxMemo.swift */; };
+		2C9F53CF215133B200C9E85D /* UIApplication+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F53CE215133B200C9E85D /* UIApplication+extension.swift */; };
+		2C9F53D521513CBE00C9E85D /* TxConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F53D421513CBE00C9E85D /* TxConfirmViewController.swift */; };
+		2CA38865214FF32A00B539C5 /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38864214FF32A00B539C5 /* Scheme.swift */; };
 		2CA5D1862109FA08006C928B /* TokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D1852109FA08006C928B /* TokenViewController.swift */; };
 		2CA5D1882109FAD5006C928B /* TokenAddFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */; };
 		2CA5D18A210A22B2006C928B /* EOSHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D189210A22B2006C928B /* EOSHubAPI.swift */; };
@@ -439,6 +442,9 @@
 		2C99E4A5211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInvoiceViewController.swift; sourceTree = "<group>"; };
 		2C99E4A7211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInvoiceFlowController.swift; sourceTree = "<group>"; };
 		2C99E4A9211FFAC600DB55A6 /* TxMemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxMemo.swift; sourceTree = "<group>"; };
+		2C9F53CE215133B200C9E85D /* UIApplication+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+extension.swift"; sourceTree = "<group>"; };
+		2C9F53D421513CBE00C9E85D /* TxConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxConfirmViewController.swift; sourceTree = "<group>"; };
+		2CA38864214FF32A00B539C5 /* Scheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
 		2CA5D1852109FA08006C928B /* TokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewController.swift; sourceTree = "<group>"; };
 		2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAddFlowController.swift; sourceTree = "<group>"; };
 		2CA5D189210A22B2006C928B /* EOSHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSHubAPI.swift; sourceTree = "<group>"; };
@@ -800,6 +806,7 @@
 				2C63FE952118A7150036652B /* Reachability.swift */,
 				2CBAAC652121DCB4006A423E /* NSLayoutConstraint+extension.swift */,
 				2C82F30B2123107E0021E172 /* UIImage+extension.swift */,
+				2C9F53CE215133B200C9E85D /* UIApplication+extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -910,6 +917,7 @@
 				2C755F1A20FF708600FD5FBF /* TouchIdViewController.swift */,
 				2CB6B7F42104C7850048601A /* QRScannerViewController.swift */,
 				2CA5D1852109FA08006C928B /* TokenViewController.swift */,
+				2C9F53D421513CBE00C9E85D /* TxConfirmViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -973,6 +981,7 @@
 				2C99E4A9211FFAC600DB55A6 /* TxMemo.swift */,
 				2CBAAC632121D825006A423E /* Airdrop.swift */,
 				2C3A5D6B214E34B00045D174 /* StoredKey.swift */,
+				2CA38864214FF32A00B539C5 /* Scheme.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1374,6 +1383,7 @@
 				2C770C9920FB77F4007F71C4 /* DelegateViewController.swift in Sources */,
 				2CBAAC642121D825006A423E /* Airdrop.swift in Sources */,
 				2C31F7F821061F3C0025D18A /* ChangePinFlowController.swift in Sources */,
+				2C9F53D521513CBE00C9E85D /* TxConfirmViewController.swift in Sources */,
 				2C2ACFD520F4427F00C637D8 /* ImportViewController.swift in Sources */,
 				2C279B8F20F8C30700D2F6C4 /* SignedTransaction.swift in Sources */,
 				2C279BC520F8C58100D2F6C4 /* EOSHost.swift in Sources */,
@@ -1411,6 +1421,7 @@
 				2C770C9D20FB85DB007F71C4 /* UITextField+extension.swift in Sources */,
 				2CE1113020F26BA300B93BEB /* AirdropViewController.swift in Sources */,
 				2C516104212B0BD90005EDD7 /* URLs.swift in Sources */,
+				2C9F53CF215133B200C9E85D /* UIApplication+extension.swift in Sources */,
 				2C279BA820F8C3CB00D2F6C4 /* base58.c in Sources */,
 				2C770CA720FBA051007F71C4 /* SellRamViewController.swift in Sources */,
 				2C279B7D20F7AEDD00D2F6C4 /* BaseTableViewController.swift in Sources */,
@@ -1525,6 +1536,7 @@
 				2C821200212FE5B1009A11D5 /* Sha256.swift in Sources */,
 				2C2ACFF720F49F5100C637D8 /* FaceIdInputView.swift in Sources */,
 				2C279BD320F8C5A300D2F6C4 /* Contract.swift in Sources */,
+				2CA38865214FF32A00B539C5 /* Scheme.swift in Sources */,
 				2CB6B7EF210483560048601A /* TransactionForm.swift in Sources */,
 				2C279B8B20F8C30700D2F6C4 /* TransactionHeader.swift in Sources */,
 				2CCA34A8210DD9550024BB5D /* Array+extension.swift in Sources */,
