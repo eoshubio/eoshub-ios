@@ -14,9 +14,9 @@ struct Bandwidth: JSONInitializable {
     let max: Int64
     
     init?(json: JSON) {
-        guard let used = json["used"] as? Int64 else { return nil }
-        guard let available = json["available"] as? Int64 else { return nil }
-        guard let max = json["max"] as? Int64 else { return nil }
+        guard let used = json.integer64(for: "used") else { return nil }
+        guard let available = json.integer64(for: "available") else { return nil }
+        guard let max = json.integer64(for: "max") else { return nil }
         self.used = used
         self.available = available
         self.max = max
