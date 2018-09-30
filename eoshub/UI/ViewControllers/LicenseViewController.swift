@@ -27,8 +27,8 @@ class LicenseViewController: FormViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
         navigationController?.navigationBar.tintColor = Color.basePurple.uiColor
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: Color.basePurple.uiColor]
-        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.foregroundColor: Color.basePurple.uiColor]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.basePurple.uiColor]
+        navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: Color.basePurple.uiColor]
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.barStyle = .default
         
@@ -75,13 +75,13 @@ class LicenseViewController: FormViewController {
                     let text = license.link + "\n" + license.description
                     let attrText = NSMutableAttributedString(string: text)
                     if let linkRange = text.range(of: license.link) {
-                        attrText.addAttribute(NSAttributedStringKey.link, value: license.link, range: linkRange.nsRange)
-                        attrText.addAttribute(NSAttributedStringKey.foregroundColor, value: Color.blue.uiColor, range: linkRange.nsRange)
+                        attrText.addAttribute(NSAttributedString.Key.link, value: license.link, range: linkRange.nsRange)
+                        attrText.addAttribute(NSAttributedString.Key.foregroundColor, value: Color.blue.uiColor, range: linkRange.nsRange)
                     }
                     
                     cell.detailTextLabel?.attributedText = attrText
                     
-                    cell.height = { UITableViewAutomaticDimension }
+                    cell.height = { UITableView.automaticDimension }
                 }.onCellSelection({ (_, row) in
                     row.deselect()
                 })
@@ -107,7 +107,7 @@ class LicenseViewController: FormViewController {
                     cell.detailTextLabel?.textColor = Color.lightGray.uiColor
                     cell.detailTextLabel?.numberOfLines = -1
                     
-                    cell.height = { UITableViewAutomaticDimension }
+                    cell.height = { UITableView.automaticDimension }
                 }.onCellSelection({ (_, row) in
                     row.deselect()
                 })

@@ -97,7 +97,7 @@ class ForgotPWViewController: TextInputViewController {
                     description.addAttribute(.foregroundColor, value: Color.lightPurple.uiColor, range: emailRange.nsRange)
                 }
                 Popup.present(style: .success, description: description)
-                guard let `self` = self else { return }
+                guard let self = self else { return }
                 self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
             }
         }

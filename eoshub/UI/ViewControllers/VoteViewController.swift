@@ -62,7 +62,7 @@ class VoteViewController: BaseViewController {
         
         lbStakedEOSTitle.text = LocalizedString.Vote.staked
 
-        bpList.rowHeight = UITableViewAutomaticDimension
+        bpList.rowHeight = UITableView.automaticDimension
         bpList.estimatedRowHeight = 65
         bpList.dataSource = self
         bpList.delegate = self

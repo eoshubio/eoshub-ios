@@ -140,7 +140,7 @@ class PinCodeViewController: BaseViewController {
             
             button.rx.tap
                 .bind { [weak self] in
-                    guard let `self` = self else { return }
+                    guard let self = self else { return }
                     if self.passcode.value.count < Config.maxPinCount {
                         self.passcode.accept(self.passcode.value + "\(button.tag)")
                     }

@@ -31,7 +31,7 @@ class TermViewController: BaseViewController {
         }
         
         
-        let titleText = NSMutableAttributedString(string: LocalizedString.Term.title, attributes: [NSAttributedStringKey.font : Font.appleSDGothicNeo(.medium).uiFont(14)])
+        let titleText = NSMutableAttributedString(string: LocalizedString.Term.title, attributes: [NSAttributedString.Key.font : Font.appleSDGothicNeo(.medium).uiFont(14)])
         
         titleText.addLineHeight(height: 6)
         
@@ -41,14 +41,14 @@ class TermViewController: BaseViewController {
         btnPrivacy.setTitle(LocalizedString.Term.termAndPrivacy, for: .normal)
         btnStart.setTitle(LocalizedString.Term.start, for: .normal)
         let termPolicyText = LocalizedString.Term.privacyDesc
-        let termPolicyString = NSMutableAttributedString(string: termPolicyText, attributes: [NSAttributedStringKey.font : Font.appleSDGothicNeo(.regular).uiFont(14)])
+        let termPolicyString = NSMutableAttributedString(string: termPolicyText, attributes: [NSAttributedString.Key.font : Font.appleSDGothicNeo(.regular).uiFont(14)])
         
         if let termRange = termPolicyText.range(of: LocalizedString.Term.term), let policyRange = termPolicyText.range(of: LocalizedString.Term.goPrivacy) {
             let langCode = Locale.current.languageCode ?? "en"
-            termPolicyString.addAttribute(NSAttributedStringKey.link, value: EOSHubAPI.URL.term.getHtml(languateCode: langCode), range: termRange.nsRange)
-            termPolicyString.addAttribute(NSAttributedStringKey.foregroundColor, value: Color.blue.uiColor, range: termRange.nsRange)
-            termPolicyString.addAttribute(NSAttributedStringKey.link, value: EOSHubAPI.URL.privacy_policy.getHtml(languateCode: langCode), range: policyRange.nsRange)
-            termPolicyString.addAttribute(NSAttributedStringKey.foregroundColor, value: Color.blue.uiColor, range: policyRange.nsRange)
+            termPolicyString.addAttribute(NSAttributedString.Key.link, value: EOSHubAPI.URL.term.getHtml(languateCode: langCode), range: termRange.nsRange)
+            termPolicyString.addAttribute(NSAttributedString.Key.foregroundColor, value: Color.blue.uiColor, range: termRange.nsRange)
+            termPolicyString.addAttribute(NSAttributedString.Key.link, value: EOSHubAPI.URL.privacy_policy.getHtml(languateCode: langCode), range: policyRange.nsRange)
+            termPolicyString.addAttribute(NSAttributedString.Key.foregroundColor, value: Color.blue.uiColor, range: policyRange.nsRange)
 
         }
         
