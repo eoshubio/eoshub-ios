@@ -50,7 +50,7 @@ class SendCurrencyViewController: TextInputViewController, NavigationPopDelegate
         contentsScrollView = tableView
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
         
         
@@ -197,7 +197,7 @@ class SendCurrencyViewController: TextInputViewController, NavigationPopDelegate
                 return AccountManager.shared.loadAccounts()
             })
             .subscribe(onNext: { [weak self](_) in
-                guard let `self` = self else { return }
+                guard let self = self else { return }
                 EHAnalytics.trackEvent(event: .transfer(token: self.balance.token))
                 self.flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
             }, onError: { (error) in

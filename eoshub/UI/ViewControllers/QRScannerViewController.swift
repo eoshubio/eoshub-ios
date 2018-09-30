@@ -75,7 +75,7 @@ class QRScannerViewController: BaseViewController, AVCaptureMetadataOutputObject
     private func bindActions() {
         btnClose.rx.singleTap
             .bind { [weak self] in
-                guard let `self` = self else { return }
+                guard let self = self else { return }
                 self.flowDelegate?.close(from: self)
             }
             .disposed(by: bag)

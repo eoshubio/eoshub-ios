@@ -38,7 +38,7 @@ class WaitingView: UIView {
         bgView.backgroundColor = .black
         bgView.alpha = 0.8
         
-        indicator = UIActivityIndicatorView(activityIndicatorStyle: .whiteLarge)
+        indicator = UIActivityIndicatorView(style: .whiteLarge)
         indicator.center = center
         addSubview(indicator)
     }

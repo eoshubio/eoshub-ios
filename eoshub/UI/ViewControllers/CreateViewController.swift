@@ -33,7 +33,7 @@ class CreateViewController: BaseViewController {
     private func setupUI() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 60
         tableView.allowsSelection = false
     }

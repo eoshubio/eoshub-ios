@@ -29,8 +29,8 @@ struct BlockInfo: JSONInitializable {
     let chainId: String
    
     init?(json: JSON) {
-        if let headBlockNum = json["head_block_num"] as? Int64,
-            let chainId =  json["chain_id"] as? String {
+        if let headBlockNum = json.integer64(for: "head_block_num"),
+            let chainId =  json.string(for: "chain_id") {
             self.headBlockNum = headBlockNum
             self.chainId = chainId
         } else {

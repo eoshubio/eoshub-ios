@@ -123,15 +123,15 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
     }
     
     var usedCPURatio: Float {
-        return Float(usedCPU) / Float(maxCPU)
+        return maxCPU > 0 ? Float(usedCPU) / Float(maxCPU) : 0
     }
     
     var usedNetRatio: Float {
-        return Float(usedNet) / Float(maxNet)
+        return maxNet > 0 ? Float(usedNet) / Float(maxNet) : 0
     }
     
     var usedRAMRatio: Float {
-        return Float(usedRam) / Float(maxRam)
+        return maxRam > 0 ? Float(usedRam) / Float(maxRam) : 0
     }
     
     override static func ignoredProperties() -> [String] {

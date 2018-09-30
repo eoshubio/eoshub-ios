@@ -40,7 +40,7 @@ class WalletViewController: BaseViewController {
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action:
             #selector(self.handleRefresh(_:)),
-                                 for: UIControlEvents.valueChanged)
+                                 for: UIControl.Event.valueChanged)
         refreshControl.tintColor = Color.basePurple.uiColor
         
         return refreshControl
@@ -95,7 +95,7 @@ class WalletViewController: BaseViewController {
         btnProfile.sd_setImage(with: profileURL, for: .normal, placeholderImage: #imageLiteral(resourceName: "profileDefault"),
                                options: [], completed: nil)
        
-        walletList.contentInset = UIEdgeInsetsMake(Const.navBarHeightLargeState - Const.navBarHeightSmallState, 0, 100, 0)
+        walletList.contentInset = UIEdgeInsets.init(top: Const.navBarHeightLargeState - Const.navBarHeightSmallState, left: 0, bottom: 100, right: 0)
         
         setupTableView()
     }
@@ -103,7 +103,7 @@ class WalletViewController: BaseViewController {
     private func setupTableView() {
         walletList.dataSource = self
         walletList.delegate = self
-        walletList.rowHeight = UITableViewAutomaticDimension
+        walletList.rowHeight = UITableView.automaticDimension
         walletList.estimatedRowHeight = 60
     
         walletList.register(UINib(nibName: "WalletAddCell", bundle: nil), forCellReuseIdentifier: "WalletAddCell")
@@ -151,9 +151,9 @@ class WalletViewController: BaseViewController {
             } else {
                 items.append([WalletAddCellType.add])
             }
-            
-            walletList.reloadData()
         }
+        
+        walletList.reloadData()
     }
     
    

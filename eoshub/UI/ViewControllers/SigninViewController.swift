@@ -46,7 +46,7 @@ class SigninViewController: TextInputViewController {
         txtPasswd.placeholder = LocalizedString.Login.Email.pw
         
         let forGotText = NSAttributedString(string: LocalizedString.Login.Email.forgot,
-                                            attributes: [NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue])
+                                            attributes: [NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue])
         
         btnResetPW.setAttributedTitle(forGotText, for: .normal)
         

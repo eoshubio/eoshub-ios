@@ -17,7 +17,7 @@ class UserManager {
     }
     
     var userId: String {
-        return Auth.auth().currentUser?.uid ?? "UnknownID"
+        return loginType == .unknown ? "anonymous" : (Auth.auth().currentUser?.uid ?? "UnknownID")
     }
     
     var identiferString: String {

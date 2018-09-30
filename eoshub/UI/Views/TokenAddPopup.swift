@@ -89,7 +89,7 @@ class TokenAddPopup: UIView {
             })
             .disposed(by: bag)
         
-        txtContract.rx.controlEvent(UIControlEvents.editingDidEnd)
+        txtContract.rx.controlEvent(UIControl.Event.editingDidEnd)
             .subscribe(onNext: { [weak self] (_) in
                 self?.txtSymbol.becomeFirstResponder()
             })

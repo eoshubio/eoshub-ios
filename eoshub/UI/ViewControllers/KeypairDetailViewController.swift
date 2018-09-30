@@ -41,7 +41,7 @@ class KeypairDetailViewController: BaseTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showNavigationBar(with: .basePurple, animated: animated, largeTitle: true)
-        switch permission {
+        switch permission! {
         case .owner:
             title = "Onwer Keys"
         case .active:

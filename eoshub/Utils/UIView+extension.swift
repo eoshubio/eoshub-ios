@@ -130,7 +130,7 @@ extension UIView {
             self.transform = endTransform
         }, completion: { (finished) in
             if finished {
-                UIView.animate(withDuration: 0.2, delay: delay, options: UIViewAnimationOptions(), animations: {
+                UIView.animate(withDuration: 0.2, delay: delay, options: UIView.AnimationOptions(), animations: {
                     self.alpha = 0
                     self.transform = startTransform
                 }, completion: { (finished) in
@@ -156,7 +156,7 @@ extension UIView {
 
 
 extension UIView {
-    func getConstraint(attribute: NSLayoutAttribute) -> NSLayoutConstraint? {
+    func getConstraint(attribute: NSLayoutConstraint.Attribute) -> NSLayoutConstraint? {
         return constraints.filter { (constraint) -> Bool in
             let firstMatch = (constraint.firstItem as? NSObject == self && constraint.firstAttribute == attribute)
             let secondMatch = (constraint.secondItem as? NSObject == self && constraint.secondAttribute == attribute)
