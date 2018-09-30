@@ -151,9 +151,9 @@ class WalletViewController: BaseViewController {
             } else {
                 items.append([WalletAddCellType.add])
             }
-            
-            walletList.reloadData()
         }
+        
+        walletList.reloadData()
     }
     
    

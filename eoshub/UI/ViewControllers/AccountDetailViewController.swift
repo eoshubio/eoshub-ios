@@ -53,7 +53,7 @@ class AccountDetailViewController: BaseTableViewController {
         self.account = account
         
         if account.ownerMode {
-            items.append(contentsOf: [.tokens, .permissions, .vote, .tx])
+            items.append(contentsOf: [.tokens, .permissions, .vote, .tx, .delete])
             
             if account.account != "forthehorde2" {
                 items.append(.donation)
