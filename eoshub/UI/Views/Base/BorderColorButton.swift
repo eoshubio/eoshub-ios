@@ -10,8 +10,8 @@ import Foundation
 import UIKit
 
 class BorderColorButton: UIButton {
-    private var bgColor = [UIControlState: UIColor]()
-    private var borderColor = [UIControlState: UIColor]()
+    private var bgColor = [UIControl.State: UIColor]()
+    private var borderColor = [UIControl.State: UIColor]()
     
     
     
@@ -28,15 +28,15 @@ class BorderColorButton: UIButton {
     }
     
     
-    private func setBorderColor(color: UIColor, state: UIControlState) {
+    private func setBorderColor(color: UIColor, state: UIControl.State) {
         borderColor[state] = color
     }
     
-    private func setBackgroundColor(color: UIColor, state: UIControlState) {
+    private func setBackgroundColor(color: UIColor, state: UIControl.State) {
         bgColor[state] = color
     }
     
-    func setThemeColor(fgColor: UIColor, bgColor: UIColor, state: UIControlState, border: Bool = true) {
+    func setThemeColor(fgColor: UIColor, bgColor: UIColor, state: UIControl.State, border: Bool = true) {
         
         setTitleColor(fgColor, for: state)
         setBackgroundColor(color: bgColor, state: state)
@@ -68,7 +68,7 @@ class BorderColorButton: UIButton {
 
 
 
-extension UIControlState: Hashable {
+extension UIControl.State: Hashable {
     public var hashValue: Int {
         return Int(rawValue)
     }

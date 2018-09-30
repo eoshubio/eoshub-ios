@@ -94,8 +94,8 @@ class Log {
 
 func DebugAlert(message: String, to vc: UIViewController) {
     #if DEBUG
-        let alert = UIAlertController(title: "Internal Error", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.default, handler: nil))
+        let alert = UIAlertController(title: "Internal Error", message: message, preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil))
         alert.show(vc, sender: nil)
     #endif
 }

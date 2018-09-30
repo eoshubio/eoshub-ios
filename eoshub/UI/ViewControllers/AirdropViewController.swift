@@ -30,7 +30,7 @@ class AirdropViewController: BaseViewController {
     
     private func setupUI() {
         tableView.dataSource = self
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, 100, 0)
+        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 100, right: 0)
         
         
     }

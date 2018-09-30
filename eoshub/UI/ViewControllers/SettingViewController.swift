@@ -32,10 +32,10 @@ class SettingViewController: FormViewController {
         
         let tintColor = Color.basePurple
         navigationController?.navigationBar.tintColor = tintColor.uiColor
-        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.foregroundColor: tintColor.uiColor]
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: tintColor.uiColor]
         navigationController?.navigationBar.largeTitleTextAttributes =
-            [NSAttributedStringKey.foregroundColor: tintColor.uiColor,
-             NSAttributedStringKey.font: Font.appleSDGothicNeo(.bold).uiFont(30)]
+            [NSAttributedString.Key.foregroundColor: tintColor.uiColor,
+             NSAttributedString.Key.font: Font.appleSDGothicNeo(.bold).uiFont(30)]
         
         
         navigationController?.navigationBar.barStyle = .default
@@ -153,7 +153,7 @@ class SettingViewController: FormViewController {
                 cell.textLabel?.textColor = Color.darkGray.uiColor
                 cell.height = { 50 }
             }.onChange({ [weak self](row) in
-                guard let `self` = self else { return }
+                guard let self = self else { return }
                 guard let host = row.value else { return }
                 EOSHost.shared.host = host
                 WaitingView.shared.start()

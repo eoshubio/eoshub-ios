@@ -39,7 +39,7 @@ class AccountDetailViewController: BaseTableViewController {
         bgView.alpha = 0.7
         tableView.backgroundView = bgView
         
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, 20, 0)
+        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 20, right: 0)
         
         tableView.register(UINib(nibName: "DonationCell", bundle: nil), forCellReuseIdentifier: "DonationCell")
         

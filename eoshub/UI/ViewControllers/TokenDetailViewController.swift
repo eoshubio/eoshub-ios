@@ -61,7 +61,7 @@ class TokenDetailViewController: BaseViewController {
         
         tokenInfoView.dataSource = self
         tokenInfoView.delegate = self
-        tokenInfoView.rowHeight = UITableViewAutomaticDimension
+        tokenInfoView.rowHeight = UITableView.automaticDimension
         tokenInfoView.estimatedRowHeight = 100
         
         updateInfo(tokenInfo: tokenInfo)
@@ -82,7 +82,7 @@ class TokenDetailViewController: BaseViewController {
         
         AccountManager.shared.accountInfoRefreshed
             .subscribe(onNext: {[weak self](_) in
-                guard let `self` = self else { return }
+                guard let self = self else { return }
                 self.updateInfo(tokenInfo: self.tokenInfo)
             })
             .disposed(by: bag)

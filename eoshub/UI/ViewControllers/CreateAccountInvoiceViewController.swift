@@ -44,7 +44,7 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
         //get new invoice
         if request.isExpired == false {
             let alert = UIAlertController(title: LocalizedString.Common.caution, message: LocalizedString.Create.Invoice.refreshWarning,
-                                          preferredStyle: UIAlertControllerStyle.alert)
+                                          preferredStyle: UIAlertController.Style.alert)
             
             alert.addAction(UIAlertAction(title: LocalizedString.Common.confirmShort, style: .default, handler: { [weak self](_) in
                 self?.refreshData()
