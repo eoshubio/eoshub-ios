@@ -106,7 +106,7 @@ class CreateAccountInvoiceViewController: BaseTableViewController {
         getTx()
             .flatMap(createAccount)
             .subscribe(onNext: { [weak self] (json) in
-                guard let `self` = self else { return }
+                guard let self = self else { return }
                 if let resultType = json.string(for: "resultType"), resultType == "SUCCESS" {
                     let ehaccount = EHAccount(userId: UserManager.shared.userId,
                                                 account: self.request.name,
@@ -427,7 +427,7 @@ class CreateAccountRequestCell: UITableViewCell, UITextViewDelegate {
         
         btnAgree.rx.tap
             .bind { [weak self] in
-                guard let `self` = self else { return }
+                guard let self = self else { return }
                 self.btnAgree.isSelected = !self.btnAgree.isSelected
                 form.agreed.onNext(self.btnAgree.isSelected)
             }
