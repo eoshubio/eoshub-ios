@@ -114,4 +114,24 @@ class EOSAPITest: XCTestCase {
         wait(for: [expectation], timeout: 10.0)
     }
    
+    func testHasHistoryPlugin() {
+        let expectation = XCTestExpectation(description: "Main node has history plugin")
+        let testAccount = "eoshubiotest"
+        
+        RxEOSAPI.getTxHistory(account: testAccount)
+            .subscribe(onNext: { (txs) in
+                XCTAssertGreaterThan(txs.count, 0, "Transaction history not found.")
+            }, onError: { (error) in
+                XCTAssert(false, error.localizedDescription)
+            }, onCompleted: {
+               expectation.fulfill()
+            }) {
+                
+        }
+        .disposed(by: bag)
+        
+        
+        wait(for: [expectation], timeout: 10.0)
+    }
+    
 }
