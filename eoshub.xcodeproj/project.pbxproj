@@ -119,6 +119,8 @@
 		2C516100212B00EE0005EDD7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5160FF212B00EE0005EDD7 /* WebViewController.swift */; };
 		2C516102212B03B50005EDD7 /* WebViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C516101212B03B50005EDD7 /* WebViewFlowController.swift */; };
 		2C516104212B0BD90005EDD7 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C516103212B0BD90005EDD7 /* URLs.swift */; };
+		2C58F54B216249EF003DE166 /* EOSAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58F54A216249EF003DE166 /* EOSAPITest.swift */; };
+		2C58F54D216252BF003DE166 /* EOSHubAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58F54C216252BF003DE166 /* EOSHubAPITest.swift */; };
 		2C63FE962118A7150036652B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE952118A7150036652B /* Reachability.swift */; };
 		2C63FE982118AAE50036652B /* WalletLockedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C63FE972118AAE50036652B /* WalletLockedCell.xib */; };
 		2C63FE9A2118AEA70036652B /* WalletLockedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE992118AEA70036652B /* WalletLockedCell.swift */; };
@@ -198,7 +200,6 @@
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
 		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
 		2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */; };
-		2CE110BE20F1C31400B93BEB /* eoshubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110BD20F1C31400B93BEB /* eoshubTests.swift */; };
 		2CE110D320F1C4E700B93BEB /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110CF20F1C4E700B93BEB /* FlowController.swift */; };
 		2CE110D420F1C4E700B93BEB /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110D020F1C4E700B93BEB /* MainFlowController.swift */; };
 		2CE110D520F1C4E700B93BEB /* FlowConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110D120F1C4E700B93BEB /* FlowConfigure.swift */; };
@@ -399,6 +400,8 @@
 		2C5160FF212B00EE0005EDD7 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		2C516101212B03B50005EDD7 /* WebViewFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewFlowController.swift; sourceTree = "<group>"; };
 		2C516103212B0BD90005EDD7 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		2C58F54A216249EF003DE166 /* EOSAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSAPITest.swift; sourceTree = "<group>"; };
+		2C58F54C216252BF003DE166 /* EOSHubAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSHubAPITest.swift; sourceTree = "<group>"; };
 		2C63FE952118A7150036652B /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2C63FE972118AAE50036652B /* WalletLockedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletLockedCell.xib; sourceTree = "<group>"; };
 		2C63FE992118AEA70036652B /* WalletLockedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletLockedCell.swift; sourceTree = "<group>"; };
@@ -481,7 +484,6 @@
 		2CE110B220F1C31300B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CE110B420F1C31300B93BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CE110B920F1C31300B93BEB /* eoshubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eoshubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CE110BD20F1C31400B93BEB /* eoshubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eoshubTests.swift; sourceTree = "<group>"; };
 		2CE110BF20F1C31400B93BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CE110CF20F1C4E700B93BEB /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		2CE110D020F1C4E700B93BEB /* MainFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
@@ -736,7 +738,8 @@
 		2CE110BC20F1C31300B93BEB /* eoshubTests */ = {
 			isa = PBXGroup;
 			children = (
-				2CE110BD20F1C31400B93BEB /* eoshubTests.swift */,
+				2C58F54A216249EF003DE166 /* EOSAPITest.swift */,
+				2C58F54C216252BF003DE166 /* EOSHubAPITest.swift */,
 				2CE110BF20F1C31400B93BEB /* Info.plist */,
 			);
 			path = eoshubTests;
@@ -1556,7 +1559,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CE110BE20F1C31400B93BEB /* eoshubTests.swift in Sources */,
+				2C58F54B216249EF003DE166 /* EOSAPITest.swift in Sources */,
+				2C58F54D216252BF003DE166 /* EOSHubAPITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1781,8 +1785,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MY5T2D475Y;
+				DEVELOPMENT_TEAM = XYD35BDX65;
 				INFOPLIST_FILE = eoshubTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1791,7 +1796,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peta-vision.eoshubTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eoshub.app/eoshub";
 			};
 			name = Debug;
@@ -1803,8 +1808,9 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MY5T2D475Y;
+				DEVELOPMENT_TEAM = XYD35BDX65;
 				INFOPLIST_FILE = eoshubTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1813,7 +1819,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peta-vision.eoshubTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eoshub.app/eoshub";
 			};
 			name = Release;
