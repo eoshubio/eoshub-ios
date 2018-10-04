@@ -11,6 +11,7 @@
 		2C0290C12129CD2B00C3AFCB /* AccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */; };
 		2C0290C32129D41C00C3AFCB /* AccountDetailFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */; };
 		2C02AE6821108FED00C6ECF3 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */; };
+		2C06A8CE21665BB0002E32E6 /* LocalizedStringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06A8CD21665BB0002E32E6 /* LocalizedStringTest.swift */; };
 		2C1CC7752149465E0020115A /* KeyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CC7742149465E0020115A /* KeyHeader.xib */; };
 		2C1D928E2100C7DC0009F5C4 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D928D2100C7DC0009F5C4 /* Validator.swift */; };
 		2C1E3E9520FE14000009D2AF /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9420FE14000009D2AF /* WaitingView.swift */; };
@@ -278,6 +279,7 @@
 		2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailFlowController.swift; sourceTree = "<group>"; };
 		2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		2C02AE692110BA0500C6ECF3 /* eoshub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = eoshub.entitlements; sourceTree = "<group>"; };
+		2C06A8CD21665BB0002E32E6 /* LocalizedStringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStringTest.swift; sourceTree = "<group>"; };
 		2C1CC7742149465E0020115A /* KeyHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyHeader.xib; sourceTree = "<group>"; };
 		2C1D928D2100C7DC0009F5C4 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		2C1E3E9420FE14000009D2AF /* WaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingView.swift; sourceTree = "<group>"; };
@@ -740,6 +742,7 @@
 			children = (
 				2C58F54A216249EF003DE166 /* EOSAPITest.swift */,
 				2C58F54C216252BF003DE166 /* EOSHubAPITest.swift */,
+				2C06A8CD21665BB0002E32E6 /* LocalizedStringTest.swift */,
 				2CE110BF20F1C31400B93BEB /* Info.plist */,
 			);
 			path = eoshubTests;
@@ -1559,6 +1562,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2C06A8CE21665BB0002E32E6 /* LocalizedStringTest.swift in Sources */,
 				2C58F54B216249EF003DE166 /* EOSAPITest.swift in Sources */,
 				2C58F54D216252BF003DE166 /* EOSHubAPITest.swift in Sources */,
 			);
