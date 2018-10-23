@@ -99,16 +99,16 @@ class MenuTabBar: UIView {
     private func makeButton(from menu: Menu) -> UIButton {
         let button = BounceButton(frame: CGRect(x: 0, y: 0, width: 80, height: 50))
         button.setAttributedTitle( NSAttributedString(string: menu.title,
-                                                      attributes: [NSAttributedStringKey.font : Font.appleSDGothicNeo(.medium).uiFont(13),
-                                                                   NSAttributedStringKey.foregroundColor: Color.gray.uiColor ])
+                                                      attributes: [NSAttributedString.Key.font : Font.appleSDGothicNeo(.medium).uiFont(13),
+                                                                   NSAttributedString.Key.foregroundColor: Color.gray.uiColor ])
             , for: .normal)
         button.setAttributedTitle( NSAttributedString(string: menu.title,
-                                                      attributes: [NSAttributedStringKey.font : Font.appleSDGothicNeo(.bold).uiFont(13),
-                                                                   NSAttributedStringKey.foregroundColor: Color.basePurple.uiColor ])
+                                                      attributes: [NSAttributedString.Key.font : Font.appleSDGothicNeo(.bold).uiFont(13),
+                                                                   NSAttributedString.Key.foregroundColor: Color.basePurple.uiColor ])
             , for: .selected)
         button.setAttributedTitle( NSAttributedString(string: menu.title,
-                                                      attributes: [NSAttributedStringKey.font : Font.appleSDGothicNeo(.regular).uiFont(13),
-                                                                   NSAttributedStringKey.foregroundColor: Color.lightGray.uiColor ])
+                                                      attributes: [NSAttributedString.Key.font : Font.appleSDGothicNeo(.regular).uiFont(13),
+                                                                   NSAttributedString.Key.foregroundColor: Color.lightGray.uiColor ])
             , for: .disabled)
         
         button.rx.tap

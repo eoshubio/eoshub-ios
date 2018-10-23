@@ -57,7 +57,7 @@ class UndelegateViewController: BaseViewController {
         tableView.dataSource = self
         tableView.dataSource = self
         //        tableView.delegate = self
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         
         btnStake.setTitle(LocalizedString.Wallet.Delegate.undelegate, for: .normal)

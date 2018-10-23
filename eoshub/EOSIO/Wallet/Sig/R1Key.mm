@@ -498,6 +498,13 @@ NSData* getPriSecret(EC_KEY* priECKey) {
     return ecPriKey;
 }
 
+
+/**
+ Create ECDSA_SIG from NSData
+
+ @param sigData Signed data
+ @return Allocated ECDSA_SIG (ECDSA_SIG must release memory from the outside with ECDSA_SIG_free.)
+ */
 - (ECDSA_SIG*) createEcdsaSigFromSigData: (NSData*) sigData {
     
     ECDSA_SIG* sigNew = ECDSA_SIG_new();

@@ -11,24 +11,24 @@ import UIKit
 
 extension NSMutableAttributedString {
     func addAttributeColor(text: String, color: UIColor) {
-        addAttribute(text: text, attr: [NSAttributedStringKey.foregroundColor : color])
+        addAttribute(text: text, attr: [NSAttributedString.Key.foregroundColor : color])
     }
     
     func addAttributeURL(text: String, url: URL) {
-        addAttribute(text: text, attr: [NSAttributedStringKey.link : url])
+        addAttribute(text: text, attr: [NSAttributedString.Key.link : url])
     }
     
     func addAttributeFont(text: String, font: UIFont) {
-        addAttribute(text: text, attr: [NSAttributedStringKey.font : font])
+        addAttribute(text: text, attr: [NSAttributedString.Key.font : font])
     }
     
     func addLineHeight(height: CGFloat) {
         let style = NSMutableParagraphStyle()
         style.lineSpacing = height
-        addAttribute(text: string, attr: [NSAttributedStringKey.paragraphStyle: style])
+        addAttribute(text: string, attr: [NSAttributedString.Key.paragraphStyle: style])
     }
     
-    private func addAttribute(text: String, attr: [NSAttributedStringKey: Any]) {
+    private func addAttribute(text: String, attr: [NSAttributedString.Key: Any]) {
         if let range = string.range(of: text) {
             addAttributes(attr, range: range.nsRange)
         }

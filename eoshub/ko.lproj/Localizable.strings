@@ -38,6 +38,8 @@
 "setting.wallet" = "지갑";
 "setting.logout" = "로그아웃";
 
+"setting.security.changePin" = "비밀번호 변경";
+
 "setting.host.title" = "API 호스트";
 "setting.host.success" = "성공적으로 변경되었습니다.";
 "setting.host.failed" = "변경하려는 API host 에 접근할 수 없습니다.";
@@ -237,4 +239,4 @@
 "common.addShort" = "추가";
 "common.generate" = "생성하기";
 
-"create.e기sConstitusion" = "이오스 헌법";
+"create.eosConstitusion" = "이오스 헌법";

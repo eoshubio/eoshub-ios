@@ -53,7 +53,7 @@ class TxViewController: BaseTableViewController {
     private func setupUI() {
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 100
         
     }
@@ -267,7 +267,7 @@ class TxCell: UITableViewCell {
     }
     
     private func setTxId(id: String) {
-        let txId = NSAttributedString(string: id, attributes: [NSAttributedStringKey.link : NSUnderlineStyle.styleSingle.rawValue])
+        let txId = NSAttributedString(string: id, attributes: [NSAttributedString.Key.link : NSUnderlineStyle.single.rawValue])
         btnTxId.setAttributedTitle(txId, for: .normal)
         
     }

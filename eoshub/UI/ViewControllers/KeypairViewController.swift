@@ -68,7 +68,7 @@ class KeypairViewController: BaseTableViewController {
     }
     
     private func setupUI() {
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, 20, 0)
+        tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 20, right: 0)
         
         let headerNib = UINib(nibName: "KeyHeader", bundle: nil)
         tableView.register(headerNib, forHeaderFooterViewReuseIdentifier: "KeyHeader")

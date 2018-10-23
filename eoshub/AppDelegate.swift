@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
@@ -58,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
     
-    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
         /*
          url    URL    "eoshub://tx?request_data=%7B%22code%22%3A%22eosio%22%2C%22action%22%3A%22newaccount%22%2C%22args%22%3A%7B%22creator%22%3A%22eosio%22%2C%22name%22%3A%22keinremote1%22%2C%22owner%22%3A%7B%22threshold%22%3A0%2C%22accounts%22%3A%5B%7B%22actor%22%3A%22keinremote1%22%2C%22permission%22%3A%22owner%22%2C%22weight%22%3A0%7D%5D%2C%22keys%22%3A%5B%22EOS8WtEtozjeBnxporQ1x4uvAL77D4UxRvaFVwMPFjCmnG618XF8u%22%2C%22EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV%22%5D%2C%22waits%22%3A%5B0%5D%7D%2C%22active%22%3A%7B%22threshold%22%3A0%2C%22accounts%22%3A%5B%7B%22actor%22%3A%22keinremote1%22%2C%22permission%22%3A%22active%22%2C%22weight%22%3A0%7D%5D%2C%22keys%22%3A%5B%22EOS8WtEtozjeBnxporQ1x4uvAL77D4UxRvaFVwMPFjCmnG618XF8u%22%2C%22EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV%22%5D%2C%22waits%22%3A%5B0%5D%7D%7D%7D"
@@ -70,11 +70,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         */
         
         if GIDSignIn.sharedInstance().handle(url,
-                                             sourceApplication:options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
+                                             sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
                                              annotation: [:]) {
             return true
-        } else if let sourceOption = options[UIApplicationOpenURLOptionsKey.sourceApplication] as? String,
-            FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: sourceOption, annotation: options[UIApplicationOpenURLOptionsKey.annotation]) {
+        } else if let sourceOption = options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
+            FBSDKApplicationDelegate.sharedInstance().application(app, open: url, sourceApplication: sourceOption, annotation: options[UIApplication.OpenURLOptionsKey.annotation]) {
             return true
         } else if let dLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
             Log.i(dLink.description)
@@ -96,7 +96,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return false
     }
     
-    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([Any]?) -> Void) -> Bool {
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         
         let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity.webpageURL!) { (dynamiclink, error) in
             // ...

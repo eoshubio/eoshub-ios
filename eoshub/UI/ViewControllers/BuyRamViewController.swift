@@ -47,7 +47,7 @@ class BuyRamViewController: BaseViewController {
     
     private func setupUI() {
         tableView.dataSource = self
-        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 150
         
         btnStake.setTitle(LocalizedString.Wallet.Ram.buyram, for: .normal)

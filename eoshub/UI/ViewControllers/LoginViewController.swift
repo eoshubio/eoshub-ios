@@ -51,10 +51,11 @@ class LoginViewController: AuthViewController {
         
         stackLoginButtons.spacing = 10
         let white = UIColor(white: 1.0, alpha: 0.8)
-        let anonymouseTitle = NSAttributedString(string: LocalizedString.Login.none,
-                                                 attributes: [NSAttributedStringKey.underlineStyle : NSUnderlineStyle.styleSingle.rawValue,
-                                                              NSAttributedStringKey.foregroundColor: white])
-        btnSkipLogin?.setAttributedTitle(anonymouseTitle, for: .normal)
+//        let anonymouseTitle = NSAttributedString(string: LocalizedString.Login.none,
+//                                                 attributes: [NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue,
+//                                                              NSAttributedString.Key.foregroundColor: white])
+//        btnSkipLogin?.setAttributedTitle(anonymouseTitle, for: .normal)
+        btnSkipLogin?.setTitle(LocalizedString.Login.none, for: .normal)
         
         availableLoginTypes.forEach { (type) in
             let loginButton = LoginButton(frame: CGRect(x: 0, y: 0, width: stackLoginButtons.bounds.width, height: 44))

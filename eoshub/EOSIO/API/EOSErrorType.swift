@@ -73,8 +73,8 @@ extension EOSResponseError: PrettyPrintedPopup {
         Popup.present(style: .failed, titleString: title, description: what)
     }
     
-    var isUnkonwKey: Bool {
-        return stack.filter({ $0.message == "unknown key" }).count > 0
+    var isUnknownKey: Bool {
+        return stack.filter({ $0.message.contains("unknown key") }).count > 0
     }
 }
 

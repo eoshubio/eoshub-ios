@@ -201,7 +201,7 @@ class CreateAccountViewController: BaseTableViewController {
                 
             }, onError: { [weak self](error) in
                 guard let error = error as? EOSResponseError else { return }
-                if error.isUnkonwKey {
+                if error.isUnknownKey {
                     self?.requestForm.validatedAccount.value = name
                     let text = String(format: LocalizedString.Create.Check.success, name)
                     Popup.present(style: .success, description: text)

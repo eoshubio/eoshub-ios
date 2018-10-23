@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27D07CA8B6395C73A8CB6FA1 /* Pods_eoshubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4BFD097EABB8FE9A11409B3 /* Pods_eoshubTests.framework */; };
 		2C0290BF2129C93900C3AFCB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290BE2129C93900C3AFCB /* GradientView.swift */; };
 		2C0290C12129CD2B00C3AFCB /* AccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */; };
 		2C0290C32129D41C00C3AFCB /* AccountDetailFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */; };
 		2C02AE6821108FED00C6ECF3 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */; };
+		2C06A8CE21665BB0002E32E6 /* LocalizedStringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06A8CD21665BB0002E32E6 /* LocalizedStringTest.swift */; };
 		2C1CC7752149465E0020115A /* KeyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CC7742149465E0020115A /* KeyHeader.xib */; };
 		2C1D928E2100C7DC0009F5C4 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D928D2100C7DC0009F5C4 /* Validator.swift */; };
 		2C1E3E9520FE14000009D2AF /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9420FE14000009D2AF /* WaitingView.swift */; };
@@ -119,6 +121,8 @@
 		2C516100212B00EE0005EDD7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5160FF212B00EE0005EDD7 /* WebViewController.swift */; };
 		2C516102212B03B50005EDD7 /* WebViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C516101212B03B50005EDD7 /* WebViewFlowController.swift */; };
 		2C516104212B0BD90005EDD7 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C516103212B0BD90005EDD7 /* URLs.swift */; };
+		2C58F54B216249EF003DE166 /* EOSAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58F54A216249EF003DE166 /* EOSAPITest.swift */; };
+		2C58F54D216252BF003DE166 /* EOSHubAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58F54C216252BF003DE166 /* EOSHubAPITest.swift */; };
 		2C63FE962118A7150036652B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE952118A7150036652B /* Reachability.swift */; };
 		2C63FE982118AAE50036652B /* WalletLockedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C63FE972118AAE50036652B /* WalletLockedCell.xib */; };
 		2C63FE9A2118AEA70036652B /* WalletLockedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE992118AEA70036652B /* WalletLockedCell.swift */; };
@@ -201,7 +205,6 @@
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
 		2CE110AE20F1C31000B93BEB /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110AC20F1C31000B93BEB /* Intro.storyboard */; };
 		2CE110B320F1C31300B93BEB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */; };
-		2CE110BE20F1C31400B93BEB /* eoshubTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110BD20F1C31400B93BEB /* eoshubTests.swift */; };
 		2CE110D320F1C4E700B93BEB /* FlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110CF20F1C4E700B93BEB /* FlowController.swift */; };
 		2CE110D420F1C4E700B93BEB /* MainFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110D020F1C4E700B93BEB /* MainFlowController.swift */; };
 		2CE110D520F1C4E700B93BEB /* FlowConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110D120F1C4E700B93BEB /* FlowConfigure.swift */; };
@@ -260,8 +263,7 @@
 		2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954520F3914600DC173F /* MultiProgressBar.swift */; };
 		2CFE954820F3930200DC173F /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954720F3930200DC173F /* CellType.swift */; };
 		2CFE954A20F3947300DC173F /* EOSAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954920F3947300DC173F /* EOSAccountViewModel.swift */; };
-		B52C07F61076004528A3A4FE /* Pods_eoshubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED6084D9ED0A15CBAE17906 /* Pods_eoshubTests.framework */; };
-		DAE53D72D1E6BAA58F35A061 /* Pods_eoshub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC2CBA2696CDF2187FE8A20 /* Pods_eoshub.framework */; };
+		F6E75048BBA62E5C1F5C65EF /* Pods_eoshub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2AC71BF57498D0E9B786E553 /* Pods_eoshub.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -275,11 +277,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2231613D32A52B202A4B21BB /* Pods-eoshub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eoshub/Pods-eoshub.debug.xcconfig"; sourceTree = "<group>"; };
+		2AC71BF57498D0E9B786E553 /* Pods_eoshub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eoshub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2C0290BE2129C93900C3AFCB /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailViewController.swift; sourceTree = "<group>"; };
 		2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailFlowController.swift; sourceTree = "<group>"; };
 		2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		2C02AE692110BA0500C6ECF3 /* eoshub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = eoshub.entitlements; sourceTree = "<group>"; };
+		2C06A8CD21665BB0002E32E6 /* LocalizedStringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStringTest.swift; sourceTree = "<group>"; };
 		2C1CC7742149465E0020115A /* KeyHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyHeader.xib; sourceTree = "<group>"; };
 		2C1D928D2100C7DC0009F5C4 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
 		2C1E3E9420FE14000009D2AF /* WaitingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitingView.swift; sourceTree = "<group>"; };
@@ -402,6 +407,8 @@
 		2C5160FF212B00EE0005EDD7 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		2C516101212B03B50005EDD7 /* WebViewFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewFlowController.swift; sourceTree = "<group>"; };
 		2C516103212B0BD90005EDD7 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		2C58F54A216249EF003DE166 /* EOSAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSAPITest.swift; sourceTree = "<group>"; };
+		2C58F54C216252BF003DE166 /* EOSHubAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSHubAPITest.swift; sourceTree = "<group>"; };
 		2C63FE952118A7150036652B /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2C63FE972118AAE50036652B /* WalletLockedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletLockedCell.xib; sourceTree = "<group>"; };
 		2C63FE992118AEA70036652B /* WalletLockedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletLockedCell.swift; sourceTree = "<group>"; };
@@ -487,7 +494,6 @@
 		2CE110B220F1C31300B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CE110B420F1C31300B93BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CE110B920F1C31300B93BEB /* eoshubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eoshubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		2CE110BD20F1C31400B93BEB /* eoshubTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eoshubTests.swift; sourceTree = "<group>"; };
 		2CE110BF20F1C31400B93BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CE110CF20F1C4E700B93BEB /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		2CE110D020F1C4E700B93BEB /* MainFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
@@ -548,12 +554,10 @@
 		2CFE954520F3914600DC173F /* MultiProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiProgressBar.swift; sourceTree = "<group>"; };
 		2CFE954720F3930200DC173F /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
 		2CFE954920F3947300DC173F /* EOSAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSAccountViewModel.swift; sourceTree = "<group>"; };
-		2FC2CBA2696CDF2187FE8A20 /* Pods_eoshub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eoshub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		36B4AA61F57302C0EB3DA6AA /* Pods-eoshubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-eoshubTests/Pods-eoshubTests.release.xcconfig"; sourceTree = "<group>"; };
-		59AB798F947DAD2F27645CE8 /* Pods-eoshubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eoshubTests/Pods-eoshubTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8C0A4A72F4D1FCB5DD4351B4 /* Pods-eoshub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshub.release.xcconfig"; path = "Pods/Target Support Files/Pods-eoshub/Pods-eoshub.release.xcconfig"; sourceTree = "<group>"; };
-		BDD4081D7EAEDC766BA9D65A /* Pods-eoshub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eoshub/Pods-eoshub.debug.xcconfig"; sourceTree = "<group>"; };
-		FED6084D9ED0A15CBAE17906 /* Pods_eoshubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eoshubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3AA5EBECF183826A7E640882 /* Pods-eoshubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eoshubTests/Pods-eoshubTests.debug.xcconfig"; sourceTree = "<group>"; };
+		767E51C868B7565412AFA689 /* Pods-eoshubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-eoshubTests/Pods-eoshubTests.release.xcconfig"; sourceTree = "<group>"; };
+		9790AA266AA00469869D2DD8 /* Pods-eoshub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshub.release.xcconfig"; path = "Pods/Target Support Files/Pods-eoshub/Pods-eoshub.release.xcconfig"; sourceTree = "<group>"; };
+		E4BFD097EABB8FE9A11409B3 /* Pods_eoshubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eoshubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -561,7 +565,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAE53D72D1E6BAA58F35A061 /* Pods_eoshub.framework in Frameworks */,
+				F6E75048BBA62E5C1F5C65EF /* Pods_eoshub.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,7 +573,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B52C07F61076004528A3A4FE /* Pods_eoshubTests.framework in Frameworks */,
+				27D07CA8B6395C73A8CB6FA1 /* Pods_eoshubTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -696,8 +700,8 @@
 				2CE110A720F1C31000B93BEB /* eoshub */,
 				2CE110BC20F1C31300B93BEB /* eoshubTests */,
 				2CE110A620F1C31000B93BEB /* Products */,
-				384033B70FDA1B380FF439BC /* Pods */,
-				578E1E785AC33CDBF8D05D8A /* Frameworks */,
+				A832C8ECD79E525C1501797A /* Pods */,
+				A9ECD721BE224BF37770806D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -742,7 +746,9 @@
 		2CE110BC20F1C31300B93BEB /* eoshubTests */ = {
 			isa = PBXGroup;
 			children = (
-				2CE110BD20F1C31400B93BEB /* eoshubTests.swift */,
+				2C58F54A216249EF003DE166 /* EOSAPITest.swift */,
+				2C58F54C216252BF003DE166 /* EOSHubAPITest.swift */,
+				2C06A8CD21665BB0002E32E6 /* LocalizedStringTest.swift */,
 				2CE110BF20F1C31400B93BEB /* Info.plist */,
 			);
 			path = eoshubTests;
@@ -1056,22 +1062,22 @@
 			path = Wallet;
 			sourceTree = "<group>";
 		};
-		384033B70FDA1B380FF439BC /* Pods */ = {
+		A832C8ECD79E525C1501797A /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				BDD4081D7EAEDC766BA9D65A /* Pods-eoshub.debug.xcconfig */,
-				8C0A4A72F4D1FCB5DD4351B4 /* Pods-eoshub.release.xcconfig */,
-				59AB798F947DAD2F27645CE8 /* Pods-eoshubTests.debug.xcconfig */,
-				36B4AA61F57302C0EB3DA6AA /* Pods-eoshubTests.release.xcconfig */,
+				2231613D32A52B202A4B21BB /* Pods-eoshub.debug.xcconfig */,
+				9790AA266AA00469869D2DD8 /* Pods-eoshub.release.xcconfig */,
+				3AA5EBECF183826A7E640882 /* Pods-eoshubTests.debug.xcconfig */,
+				767E51C868B7565412AFA689 /* Pods-eoshubTests.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		578E1E785AC33CDBF8D05D8A /* Frameworks */ = {
+		A9ECD721BE224BF37770806D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				2FC2CBA2696CDF2187FE8A20 /* Pods_eoshub.framework */,
-				FED6084D9ED0A15CBAE17906 /* Pods_eoshubTests.framework */,
+				2AC71BF57498D0E9B786E553 /* Pods_eoshub.framework */,
+				E4BFD097EABB8FE9A11409B3 /* Pods_eoshubTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1083,13 +1089,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CE110C220F1C31400B93BEB /* Build configuration list for PBXNativeTarget "eoshub" */;
 			buildPhases = (
-				D53B7E406781A5C2B8CC86E2 /* [CP] Check Pods Manifest.lock */,
+				7F0CC82DEC540F3A0E280D77 /* [CP] Check Pods Manifest.lock */,
 				2CE110A120F1C31000B93BEB /* Sources */,
 				2CE110A220F1C31000B93BEB /* Frameworks */,
 				2CE110A320F1C31000B93BEB /* Resources */,
-				270C1BFDBEBBC8F93F84CEE9 /* [CP] Embed Pods Frameworks */,
 				2CA5D19C210C683E006C928B /* ShellScript */,
-				C5423316859F3F1C2F08A6B5 /* [CP] Copy Pods Resources */,
+				004509E74941CE255D7CC822 /* [CP] Embed Pods Frameworks */,
+				7670E48D5285D0D07E3BDDB9 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1104,7 +1110,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CE110C520F1C31400B93BEB /* Build configuration list for PBXNativeTarget "eoshubTests" */;
 			buildPhases = (
-				7804F3E32A3531E11FB86824 /* [CP] Check Pods Manifest.lock */,
+				C0E45433F9A9CFCE577D6E0D /* [CP] Check Pods Manifest.lock */,
 				2CE110B520F1C31300B93BEB /* Sources */,
 				2CE110B620F1C31300B93BEB /* Frameworks */,
 				2CE110B720F1C31300B93BEB /* Resources */,
@@ -1131,7 +1137,7 @@
 				TargetAttributes = {
 					2CE110A420F1C31000B93BEB = {
 						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 0940;
+						LastSwiftMigration = 1000;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -1140,6 +1146,7 @@
 					};
 					2CE110B820F1C31300B93BEB = {
 						CreatedOnToolsVersion = 9.4;
+						LastSwiftMigration = 1000;
 						TestTargetID = 2CE110A420F1C31000B93BEB;
 					};
 				};
@@ -1211,7 +1218,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		270C1BFDBEBBC8F93F84CEE9 /* [CP] Embed Pods Frameworks */ = {
+		004509E74941CE255D7CC822 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1226,6 +1233,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMOAuth2/GTMOAuth2.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCode/QRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework",
@@ -1246,6 +1254,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMOAuth2.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNCryptor.framework",
@@ -1274,25 +1283,7 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
 		};
-		7804F3E32A3531E11FB86824 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-eoshubTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C5423316859F3F1C2F08A6B5 /* [CP] Copy Pods Resources */ = {
+		7670E48D5285D0D07E3BDDB9 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1310,7 +1301,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eoshub/Pods-eoshub-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D53B7E406781A5C2B8CC86E2 /* [CP] Check Pods Manifest.lock */ = {
+		7F0CC82DEC540F3A0E280D77 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1322,6 +1313,24 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-eoshub-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C0E45433F9A9CFCE577D6E0D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-eoshubTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1565,7 +1574,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2CE110BE20F1C31400B93BEB /* eoshubTests.swift in Sources */,
+				2C06A8CE21665BB0002E32E6 /* LocalizedStringTest.swift in Sources */,
+				2C58F54B216249EF003DE166 /* EOSAPITest.swift in Sources */,
+				2C58F54D216252BF003DE166 /* EOSHubAPITest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1726,7 +1737,7 @@
 		};
 		2CE110C320F1C31400B93BEB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BDD4081D7EAEDC766BA9D65A /* Pods-eoshub.debug.xcconfig */;
+			baseConfigurationReference = 2231613D32A52B202A4B21BB /* Pods-eoshub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1749,7 +1760,7 @@
 				PROVISIONING_PROFILE_SPECIFIER = EOSHub_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "eoshub/eoshub-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = arm64;
 			};
@@ -1757,7 +1768,7 @@
 		};
 		2CE110C420F1C31400B93BEB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C0A4A72F4D1FCB5DD4351B4 /* Pods-eoshub.release.xcconfig */;
+			baseConfigurationReference = 9790AA266AA00469869D2DD8 /* Pods-eoshub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1777,7 +1788,7 @@
 				PROVISIONING_PROFILE = "ded6a689-65ac-4cfe-a9ff-541f9f9b5f03";
 				PROVISIONING_PROFILE_SPECIFIER = EOSHub_store;
 				SWIFT_OBJC_BRIDGING_HEADER = "eoshub/eoshub-Bridging-Header.h";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = arm64;
 			};
@@ -1785,13 +1796,14 @@
 		};
 		2CE110C620F1C31400B93BEB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59AB798F947DAD2F27645CE8 /* Pods-eoshubTests.debug.xcconfig */;
+			baseConfigurationReference = 3AA5EBECF183826A7E640882 /* Pods-eoshubTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MY5T2D475Y;
+				DEVELOPMENT_TEAM = XYD35BDX65;
 				INFOPLIST_FILE = eoshubTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1799,21 +1811,22 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peta-vision.eoshubTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eoshub.app/eoshub";
 			};
 			name = Debug;
 		};
 		2CE110C720F1C31400B93BEB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36B4AA61F57302C0EB3DA6AA /* Pods-eoshubTests.release.xcconfig */;
+			baseConfigurationReference = 767E51C868B7565412AFA689 /* Pods-eoshubTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = MY5T2D475Y;
+				DEVELOPMENT_TEAM = XYD35BDX65;
 				INFOPLIST_FILE = eoshubTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1821,8 +1834,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.peta-vision.eoshubTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 1;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eoshub.app/eoshub";
 			};
 			name = Release;

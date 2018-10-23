@@ -64,3 +64,13 @@ Our vision is to spread out limitless possibilities of EOS blockchain to everyon
 The [Secure Enclave](https://developer.apple.com/documentation/security/certificate_key_and_trust_services/keys/storing_keys_in_the_secure_enclave) is Apple's powerful security technology that allows you to protect a private key in a secret place of hardware.
 The Secure Enclave blocks private key access without a user's permission like hacker threats or unconsious mistakes. Because Apple's security hardware enables you to sign a private key without loading on a memory area.
 Recently the EOS block one adds this security feature for Mac in [v1.1.0](https://github.com/EOSIO/eos/releases/tag/v1.1.0). EOSHub is the first mobile app in the world supports the Secure Enclave function for iOS.
+
+---
+
+* Download: https://itunes.apple.com/app/id1420112434
+* Twitter: https://twitter.com/EOSHUBIO
+* Medium: https://medium.com/@eoshub.io
+* Telegram: https://t.me/joinchat/IIRAOk205MY9QrHxL0n4Lw
+* email: contact@eos-hub.io
+
+EOSHub.inc
