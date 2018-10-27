@@ -36,13 +36,17 @@ class TxConfirmViewController: BaseTableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showNavigationBar(with: .basePurple, animated: true, largeTitle: true)
-        title = "EOSBet.io"
+        showNavigationBar(with: .basePurple, animated: true, largeTitle: false)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
         bindActions()
+    }
+    
+    private func setupUI() {
+        
     }
     
     private func bindActions() {
@@ -56,9 +60,10 @@ class TxConfirmViewController: BaseTableViewController {
             .disposed(by: bag)
         
     }
-    //TODO: contract 가 아니고 scheme 을 받아와야함. 그래야 wildcard 를 선택한 계정으로 대체 할 수 있음.
-    func configure(contract: Contract) {
+    
+    func configure(contract: Contract, title: String?) {
         self.contract = contract
+        self.title = title
     }
     
     fileprivate func confirmTx() {
@@ -68,10 +73,12 @@ class TxConfirmViewController: BaseTableViewController {
             return
         }
         
+        guard let usingKey = account.highestPriorityKey else { return }
         
         WaitingView.shared.start()
         
-        let wallet = Wallet(key: account.pubKey, parent: self)
+        
+        let wallet = Wallet(key: usingKey.eosioKey.key, parent: self)
  
         RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
             .do(onNext: { (responseJSON) in
@@ -98,16 +105,17 @@ class TxConfirmViewController: BaseTableViewController {
     }
     
     fileprivate func changeActor() {
-        let alert = UIAlertController(title: LocalizedString.Vote.changeAccount, message: "트랜젝션을 승인할 EOS 계정을 선택해 주세요.", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: LocalizedString.Dapp.Tx.selectAccount, message: LocalizedString.Dapp.Tx.selectAccountTxt, preferredStyle: .actionSheet)
         
         AccountManager.shared.ownerInfos
             .forEach { (info) in
                 
                 let action = UIAlertAction(title: info.account, style: .default, handler: { [weak self](_) in
-                    guard let `self` = self else { return }
+                    guard let `self` = self, let key = info.highestPriorityKey else { return }
                     let prvContract = self.contract!
                     self.contract = Contract(code: prvContract.code, action: prvContract.action, args: prvContract.args,
-                                             authorization: Authorization(actor: info.account, permission: info.permission))
+                                             authorization: Authorization(actor: info.account, permission: key.permission))
+                    self.tableView.reloadData()
                 })
                 
                 if info.account == self.contract.authorization.actor.value {
@@ -177,6 +185,7 @@ class TxConfirmHeaderCell: UITableViewCell {
     @IBOutlet fileprivate weak var lbText: UILabel!
     
     func configure(text: String) {
+        lbTitle.text = LocalizedString.Dapp.Tx.title
         lbText.text = text
     }
 }
@@ -207,9 +216,19 @@ class TxConfirmCell: UITableViewCell {
     
     private var bag: DisposeBag?
     
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        setupUI()
+    }
+    
     override func prepareForReuse() {
         super.prepareForReuse()
         bag = nil
+    }
+    
+    private func setupUI() {
+        btnConfirm.setTitle(LocalizedString.Common.confirmShort, for: .normal)
+        btnCancel.setTitle(LocalizedString.Common.cancelShort, for: .normal)
     }
     
     func configure(form: TxConfirmForm) {

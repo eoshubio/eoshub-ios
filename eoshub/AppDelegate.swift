@@ -80,6 +80,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Log.i(dLink.description)
             return true
         } else if let eoshubScheme = Scheme(url: url) {
+            /*
             let account = AccountManager.shared.ownerInfos.filter("account = 'eoshubiotest'").first!
             let contract = eoshubScheme.getAction(actor: EOSName("eoshubiotest"), authorization: Authorization(actor: account.account, permission: account.permission))!
             
@@ -90,7 +91,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             vc.configure(contract: contract)
             
             topVC.navigationController?.pushViewController(vc, animated: true)
+            */
             
+            //Dapp
+            if let dappAction = eoshubScheme.dappAction, let topVC = UIApplication.topViewController() {
+                let config = FlowConfigure(container: topVC, parent: nil, flowType: .modal)
+                let dappFc = DappWebFlowController(configure: config)
+                dappFc.configure(dappAction: dappAction)
+                dappFc.start(animated: false)
+            }
         }
         
         return false

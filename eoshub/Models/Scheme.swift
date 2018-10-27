@@ -17,15 +17,30 @@ struct Scheme {
     enum Host: String {
 //        case tx
 //        case packed_tx
+        case dapp
         case request
     }
     
+    enum Action: String {
+        case open
+        case transfer
+    }
+    
     enum Parameter: String {
+        case id
+        case title
+        case url
+        case to
+        case quantity
+        case symbol
+        case decimal
+        case code
         case data
         case callback
     }
     
     let host: Host
+    var action: Action? = nil
     var parmas: [Parameter: String] = [:]
     
     init?(url: URL) {
@@ -39,6 +54,10 @@ struct Scheme {
         }
         self.host = host
         
+        if let path = url.path.components(separatedBy: "/").last, let action = Action(rawValue: path) {
+            self.action = action
+        }
+        
         let components = URLComponents(url: url, resolvingAgainstBaseURL: true)
         
         components?.queryItems?.forEach({ (item) in
@@ -48,8 +67,10 @@ struct Scheme {
             }
         })
     }
-  
 }
+
+
+
 
 extension Scheme {
     
@@ -59,6 +80,26 @@ extension Scheme {
         return json
     }
     
+    var dapp: Dapp? {
+        guard let id = parmas[.id],
+            let title = parmas[.title],
+            let urlString = parmas[.url],
+            let url = URL(string: urlString) else { return nil }
+        
+        let dapp = Dapp(id: id, title: title, subTitle: "", url: url)
+        
+        if Dapps.list.contains(where: { $0.id == dapp.id }) == false {
+            return nil
+        }
+        
+        return dapp
+    }
+    
+    var dappAction: DappAction? {
+        return DappAction(scheme: self)
+    }
+    
+    /*
     func getAction(actor: EOSName, authorization: Authorization) -> Contract? {
         guard let data = parmas[.data] else { return nil }
         
@@ -73,5 +114,65 @@ extension Scheme {
         return Contract(code: code, action: action, args: args, authorization: authorization)
         
     }
+    */
+}
+
+class DappAction {
+    
+    let dapp: Dapp
+    
+    enum Action {
+        case open
+        case login
+        case logout
+        case transfer(to: EOSName, quantity: Currency)
+    }
+    
+    var action: Action
+    
+    var callBack: URL?
+    
+    init?(scheme: Scheme) {
+        guard scheme.host == .dapp, scheme.action != nil else { return nil }
+        
+        if let dapp = scheme.dapp {
+            self.dapp = dapp
+        } else if let dappId = scheme.parmas[.id], let dapp = Dapps.list.filter({ $0.id == dappId }).first {
+            self.dapp = dapp
+        } else {
+            return nil
+        }
+        
+        switch scheme.action! {
+        case .open:
+            action = .open
+        case .transfer:
+            guard let to = scheme.parmas[.to],
+                let quantityString = scheme.parmas[.quantity],
+                let quantity = UInt64(quantityString) else { return nil }
+            var symbol = "EOS"
+            var code = "eosio.token"
+            var decimal = 4
+            if let tokenSymbol = scheme.parmas[.symbol] {
+                symbol = tokenSymbol
+            }
+            if let tokenContract = scheme.parmas[.code] {
+                code = tokenContract
+            }
+            if let decimalString = scheme.parmas[.decimal], let tokenDecimal = Int(decimalString) {
+                decimal = tokenDecimal
+            }
+            
+            let token = Token(symbol: symbol, contract: code, decimal: decimal)
+            
+//            let transferTo = EOSName(to)
+            let transferTo = EOSName("eoshuborigin")//test
+            let transferQantity = Currency(integer: quantity, token: token)
+            
+            action = .transfer(to: transferTo, quantity: transferQantity)
+        }
+        
+    }
+
     
 }

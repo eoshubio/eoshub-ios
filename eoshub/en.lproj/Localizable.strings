@@ -220,6 +220,10 @@
 "secure.bio.faceId" = "Authenticate yourself with Face ID";
 "secure.bio.touchId" = "Authenticate yourself with Touch ID";
 
+/* Dapp */
+"dapp.tx.title" = "Please check below exactly";
+"dapp.tx.selectAccount" = "Account select";
+"dapp.tx.selectAccountText" = "Please select an EOS account to approve the transaction.";
 
 /* 일반 */
 "common.paste" = "Paste";

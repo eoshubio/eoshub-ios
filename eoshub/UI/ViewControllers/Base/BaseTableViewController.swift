@@ -64,8 +64,6 @@ class BaseTableViewController: UITableViewController {
     
     func addBackButton(title: String = " ") {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: title, style: .done, target: self, action: #selector(self.back))
-        
-        
     }
     
     @objc func back() {
