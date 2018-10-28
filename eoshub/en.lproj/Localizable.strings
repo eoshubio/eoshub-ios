@@ -68,6 +68,7 @@
 "create.import.warning" = "1. Enter the private key directly. Do not copy and paste.\n\n2. EOSHub uses the iCloud Keychain to prevent security issues. Please turn on iCloud for the best results.";
 "create.import.setting" = "(Settings - Your Profile - iCloud Keychain - On)";
 "create.import.iCloudKeychain" = "iCloud Keychain";
+"create.import.imported" = "Your private key has been successfully stored.";
 
 "create.interest.title" = "Follow an account";
 "create.interest.text" = "You can add a specific EOS account to view the blockchain information.";
@@ -197,6 +198,16 @@
 "vote.selectAccountTitle" = "Change account";
 "vote.selectAccount" = "Select an account to participate in the vote.";
 
+/* 키패어 */
+"keypair.export.title" = "Export";
+"keypair.export.text" = "The private key of selected key pair will be exported.The protection of your exported private key is the responsibility of the individual. Please keep it confidential and safe.";
+"keypair.export.action" = "Export";
+"keypair.import.title" = "Import";
+"keypair.import.text" = "Selected EOS account does not have a Private key in EOSHub. Please start ‘Import’ if you want to store your Private key in iCloud Keychain.";
+"keypair.import.action" = "Import";
+"keypair.se.title" = "Secure enclave protection";
+"keypair.se.text" = "Your Private key is stored in Secure enclave H/W area. This Only Private keys in the iCloud keychain can be exported.";
+
 /* 트렌젝션 */
 "tx.title" = "Transaction";
 "tx.sended" = "Out";
@@ -235,6 +246,7 @@
 "common.done" = "Done";
 "common.edit" = "Edit";
 "common.cancelShort" = "Cancel";
+"common.ok" = "OK";
 "common.confirmShort" = "Confirm";
 "common.caution" = "Caution";
 "common.back" = "Back";

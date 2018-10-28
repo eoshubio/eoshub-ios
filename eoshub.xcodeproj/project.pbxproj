@@ -204,6 +204,7 @@
 		2CDAAD2521836CD100480967 /* DappWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAAD2421836CD100480967 /* DappWebViewController.swift */; };
 		2CDAAD2721836D2200480967 /* Dapp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CDAAD2621836D2200480967 /* Dapp.storyboard */; };
 		2CDAAD29218478DB00480967 /* TxConfirmFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAAD28218478DB00480967 /* TxConfirmFlowController.swift */; };
+		2CDAAD2D2185B93900480967 /* Keypair.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CDAAD2C2185B93900480967 /* Keypair.storyboard */; };
 		2CDF5917210C7077003D866C /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF5916210C7077003D866C /* AuthViewController.swift */; };
 		2CDF5919210CDF3F003D866C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF5918210CDF3F003D866C /* UserManager.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
@@ -497,6 +498,7 @@
 		2CDAAD2421836CD100480967 /* DappWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DappWebViewController.swift; sourceTree = "<group>"; };
 		2CDAAD2621836D2200480967 /* Dapp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dapp.storyboard; sourceTree = "<group>"; };
 		2CDAAD28218478DB00480967 /* TxConfirmFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxConfirmFlowController.swift; sourceTree = "<group>"; };
+		2CDAAD2C2185B93900480967 /* Keypair.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Keypair.storyboard; sourceTree = "<group>"; };
 		2CDF5916210C7077003D866C /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		2CDF5918210CDF3F003D866C /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -758,6 +760,7 @@
 				2CE1111420F2395800B93BEB /* Main.storyboard */,
 				2CDAAD2621836D2200480967 /* Dapp.storyboard */,
 				2CEC2D4720F647A500AF5E9B /* Wallet.storyboard */,
+				2CDAAD2C2185B93900480967 /* Keypair.storyboard */,
 				2C2ACFCC20F3CE9800C637D8 /* Create.storyboard */,
 				2C2ACFE020F4758900C637D8 /* Auth.storyboard */,
 				2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */,
@@ -1206,6 +1209,7 @@
 				2C1E3E9920FE18960009D2AF /* Popup.xib in Resources */,
 				2CA5D199210C53D6006C928B /* LicenseDescriptions.json in Resources */,
 				2CE110DB20F1C8AC00B93BEB /* Images.xcassets in Resources */,
+				2CDAAD2D2185B93900480967 /* Keypair.storyboard in Resources */,
 				2CA5D18C210B5B4E006C928B /* TokenAddPopup.xib in Resources */,
 				2CE1111020F2118900B93BEB /* LoginButton.xib in Resources */,
 				2CE1110920F1FA6600B93BEB /* Localizable.strings in Resources */,
