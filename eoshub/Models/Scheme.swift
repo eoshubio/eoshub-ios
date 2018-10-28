@@ -34,6 +34,7 @@ struct Scheme {
         case quantity
         case symbol
         case decimal
+        case memo
         case code
         case data
         case callback
@@ -125,12 +126,17 @@ class DappAction {
         case open
         case login
         case logout
-        case transfer(to: EOSName, quantity: Currency)
+        case transfer(to: EOSName, quantity: Currency, memo: String)
     }
     
     var action: Action
     
     var callBack: URL?
+    
+    init(dapp: Dapp) {
+        self.dapp = dapp
+        action = .open
+    }
     
     init?(scheme: Scheme) {
         guard scheme.host == .dapp, scheme.action != nil else { return nil }
@@ -165,11 +171,11 @@ class DappAction {
             
             let token = Token(symbol: symbol, contract: code, decimal: decimal)
             
-//            let transferTo = EOSName(to)
-            let transferTo = EOSName("eoshuborigin")//test
+            let transferTo = EOSName(to)
             let transferQantity = Currency(integer: quantity, token: token)
+            let memo = scheme.parmas[.memo] ?? ""
             
-            action = .transfer(to: transferTo, quantity: transferQantity)
+            action = .transfer(to: transferTo, quantity: transferQantity, memo: memo)
         }
         
     }

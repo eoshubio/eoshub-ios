@@ -104,6 +104,7 @@ extension DappWebViewController {
             reloadDappWeb()
         default:
             reloadDappWeb()
+            selectedAccount = AccountManager.shared.ownerInfos.first //default selected
             showActionSheetSelectAccount()
         }
     }
@@ -137,8 +138,8 @@ extension DappWebViewController {
     fileprivate func handleAction() {
         
         switch dappAction.action {
-        case .transfer(let to, let quantity):
-            transfer(to: to, quantity: quantity)
+        case .transfer(let to, let quantity, let memo):
+            transfer(to: to, quantity: quantity, memo: memo)
         case .login:
             selectAccount()
         case .logout:
@@ -150,13 +151,13 @@ extension DappWebViewController {
         }
     }
     
-    fileprivate func transfer(to: EOSName, quantity: Currency) {
+    fileprivate func transfer(to: EOSName, quantity: Currency, memo: String) {
         
         guard let myAccount = selectedAccount, let key = myAccount.highestPriorityKey else { return }
 
         let auth = Authorization(actor: myAccount.account, permission: key.permission)
         
-        let contract = Contract.transfer(from: myAccount.account, to: to.value, quantity: quantity, authorization: auth)
+        let contract = Contract.transfer(from: myAccount.account, to: to.value, quantity: quantity, memo: memo, authorization: auth)
         
         guard let nc = navigationController else { return }
         
