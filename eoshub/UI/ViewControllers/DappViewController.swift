@@ -65,7 +65,11 @@ extension DappViewController {
         let dapp = items[indexPath.row]
         //go to webview
         guard let nc = navigationController else { return }
-        flowDelegate?.goToWebView(from: nc, with: dapp.url.absoluteString, title: dapp.title)
+        
+        let dappAction = DappAction(dapp: dapp)
+
+        flowDelegate?.goToDappWeb(from: nc, dappAction: dappAction)
+        
     }
     
 }

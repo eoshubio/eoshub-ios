@@ -29,9 +29,16 @@ class DappFlowController: FlowController, DappFlowEventDelegate {
             
         }
     }
+    
+    func goToDappWeb(from nc: UINavigationController, dappAction: DappAction) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .modal)
+        let fc = DappWebFlowController(configure: config)
+        fc.configure(dappAction: dappAction)
+        fc.start(animated: true)
+    }
 }
 
 protocol DappFlowEventDelegate: FlowEventDelegate {
-   
+    func goToDappWeb(from nc: UINavigationController, dappAction: DappAction)
 }
 
