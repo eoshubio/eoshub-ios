@@ -20,6 +20,8 @@ class DappWebViewController: BaseViewController, WKUIDelegate, WKNavigationDeleg
     
     fileprivate var selectedAccount: AccountInfo?
     
+    fileprivate let transactionResult = PublishSubject<String>()
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showNavigationBar(with: .basePurple, animated: animated, largeTitle: false)
@@ -45,8 +47,18 @@ class DappWebViewController: BaseViewController, WKUIDelegate, WKNavigationDeleg
         
         //check owner account
         selectAccount()
+        
+        bindActions()
     }
     
+    private func bindActions() {
+        transactionResult
+            .subscribe(onNext: { [weak self] (txid) in
+                let query = URLQueryItem(name: "txid", value: txid)
+                self?.reloadDappWeb(parameters: [query])
+            })
+            .disposed(by: bag)
+    }
    
     func configure(dappAction: DappAction) {
         self.dappAction = dappAction
@@ -54,13 +66,19 @@ class DappWebViewController: BaseViewController, WKUIDelegate, WKNavigationDeleg
         handleAction()
     }
     
-    func reloadDappWeb() {
-        var urlString = dappAction.dapp.url.absoluteString
+    func reloadDappWeb(parameters: [URLQueryItem] = []) {
+        
+        var queryItems: [URLQueryItem] = parameters
+        
         if selectedAccount != nil {
-            urlString += "?account=" + selectedAccount!.account
+            queryItems.append(URLQueryItem(name: "account", value: selectedAccount!.account))
         }
         
-        if let url = URL(string: urlString) {
+        var urlComp = URLComponents(url: dappAction.dapp.url, resolvingAgainstBaseURL: true)
+        urlComp?.queryItems = queryItems
+        
+        
+        if let url = urlComp?.url {
             //        let request = URLRequest(url: defaultURL, cachePolicy: .reloadIgnoringLocalAndRemoteCacheData, timeoutInterval: 10.0)
             let request = URLRequest(url: url)
             
@@ -163,7 +181,7 @@ extension DappWebViewController {
         
         modalPresentationStyle = .overCurrentContext
         
-        flowDelegate?.goToTxConfirm(vc: nc, contract: contract, title: dappAction.dapp.title)
+        flowDelegate?.goToTxConfirm(vc: nc, contract: contract, title: dappAction.dapp.title, result: transactionResult)
         
     }
 }

@@ -11,8 +11,6 @@ import UIKit
 import RxSwift
 
 class TxConfirmViewController: BaseTableViewController {
-    //TODO: login 이 안된 경우 처리.
-    //TODO: pin authentication 이 안된 경우 처리.
     var contract: Contract! {
         didSet {
             items.removeAll()
@@ -33,6 +31,8 @@ class TxConfirmViewController: BaseTableViewController {
     var items: [CellType] = []
     
     fileprivate let form = TxConfirmForm()
+    
+    fileprivate weak var result: PublishSubject<String>?
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -61,9 +61,10 @@ class TxConfirmViewController: BaseTableViewController {
         
     }
     
-    func configure(contract: Contract, title: String?) {
+    func configure(contract: Contract, title: String?, result: PublishSubject<String>?) {
         self.contract = contract
         self.title = title
+        self.result = result
     }
     
     fileprivate func confirmTx() {
@@ -81,9 +82,13 @@ class TxConfirmViewController: BaseTableViewController {
         let wallet = Wallet(key: usingKey.eosioKey.key, parent: self)
  
         RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
-            .do(onNext: { (responseJSON) in
+            .do(onNext: { [weak self] (responseJSON) in
                 //TODO: return to callback url
-                Log.i(responseJSON)
+//                Log.i(responseJSON)
+                if let txid = responseJSON.string(for: "transaction_id") {
+                    //response transacton id
+                    self?.result?.onNext(txid)
+                }
             }, onError: { (error) in
                 //TODO: send error to callback
                 Log.i(error)
