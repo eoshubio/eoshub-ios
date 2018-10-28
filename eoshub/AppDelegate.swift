@@ -60,15 +60,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
         
-        /*
-         url    URL    "eoshub://tx?request_data=%7B%22code%22%3A%22eosio%22%2C%22action%22%3A%22newaccount%22%2C%22args%22%3A%7B%22creator%22%3A%22eosio%22%2C%22name%22%3A%22keinremote1%22%2C%22owner%22%3A%7B%22threshold%22%3A0%2C%22accounts%22%3A%5B%7B%22actor%22%3A%22keinremote1%22%2C%22permission%22%3A%22owner%22%2C%22weight%22%3A0%7D%5D%2C%22keys%22%3A%5B%22EOS8WtEtozjeBnxporQ1x4uvAL77D4UxRvaFVwMPFjCmnG618XF8u%22%2C%22EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV%22%5D%2C%22waits%22%3A%5B0%5D%7D%2C%22active%22%3A%7B%22threshold%22%3A0%2C%22accounts%22%3A%5B%7B%22actor%22%3A%22keinremote1%22%2C%22permission%22%3A%22active%22%2C%22weight%22%3A0%7D%5D%2C%22keys%22%3A%5B%22EOS8WtEtozjeBnxporQ1x4uvAL77D4UxRvaFVwMPFjCmnG618XF8u%22%2C%22EOS6MRyAjQq8ud7hVNYcfnVPJqcVpscN5So8BhtHuGYqET5GDW5CV%22%5D%2C%22waits%22%3A%5B0%5D%7D%7D%7D"
-         url    URL    "eoshub://tx?request_data=data&call_back=http://eos.win/dice/id23434"
-        url.scheme  "eoshub"
-        url.host    "tx"
-        url.query   "request_data=data&call_back=http://eos.win/dice/id23434"
-        
-        */
-        
         if GIDSignIn.sharedInstance().handle(url,
                                              sourceApplication:options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
                                              annotation: [:]) {
