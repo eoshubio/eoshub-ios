@@ -11,6 +11,7 @@ import Foundation
 enum EOSHubError: Error, PrettyPrintedPopup {
     case userCanceled
     case txNotFound
+    case accountNotFound
     case invalidState
     case failedToSignature
     case failedToGenerateKey
@@ -21,6 +22,8 @@ enum EOSHubError: Error, PrettyPrintedPopup {
             return "Canceled"
         case .txNotFound:
             return "Transaction not found. It can take up to 15 minutes for transactions to be reflected in the block chain."
+        case .accountNotFound:
+            return "Account not found"
         case .invalidState:
             return "Invalid state"
         case .failedToSignature:
@@ -39,6 +42,9 @@ enum EOSHubError: Error, PrettyPrintedPopup {
         case .txNotFound:
             title = "Transaction not found"
             text = "It can take up to 15 minutes for transactions to be reflected in the block chain."
+        case .accountNotFound:
+            title = "Account not found"
+            text = ""
         case .invalidState:
             title = "Invalid state"
             text = "Invalid state. Please contact EOSHub."
