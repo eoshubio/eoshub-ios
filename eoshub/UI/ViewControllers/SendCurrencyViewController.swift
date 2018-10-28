@@ -268,6 +268,7 @@ class SendInputFormCell: TransactionInputFormCell, UITextFieldDelegate {
     @IBOutlet fileprivate weak var lbQuantity: UILabel!
     @IBOutlet fileprivate weak var txtQuantity: UITextField!
     @IBOutlet fileprivate weak var lbSymbol: UILabel!
+    @IBOutlet fileprivate weak var lbTextCounter: UILabel!
     
     var bag: DisposeBag? = nil
     
@@ -304,10 +305,12 @@ class SendInputFormCell: TransactionInputFormCell, UITextFieldDelegate {
         }
         
         let bag = DisposeBag()
+        
         txtAcount.rx.text
-            .subscribe( { (text) in
+            .subscribe( { [weak self] (text) in
                 if let input = text.element as? String {
                     form.account.value = input
+                    self?.lbTextCounter.text = "\(input.count)/12"
                 }
         })
         .disposed(by: bag)
