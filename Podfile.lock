@@ -95,6 +95,7 @@ PODS:
   - GTMSessionFetcher/Core (1.2.0)
   - GTMSessionFetcher/Full (1.2.0):
     - GTMSessionFetcher/Core (= 1.2.0)
+  - JSONSyntaxHighlight (1.0.0)
   - KeychainSwift (11.0.0)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
@@ -126,6 +127,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/DynamicLinks
   - GoogleSignIn
+  - JSONSyntaxHighlight
   - KeychainSwift (~> 11.0)
   - OpenSSL-Universal
   - QRCode
@@ -159,6 +161,7 @@ SPEC REPOS:
     - GoogleUtilities
     - GTMOAuth2
     - GTMSessionFetcher
+    - JSONSyntaxHighlight
     - KeychainSwift
     - nanopb
     - OpenSSL-Universal
@@ -192,6 +195,7 @@ SPEC CHECKSUMS:
   GoogleUtilities: 8208aee3e97a1ae93d44c57e96c476a5a3b03f0a
   GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
+  JSONSyntaxHighlight: 8685d8ad0259b909dc97a829fdfbefbec363f449
   KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   OpenSSL-Universal: 401888162f11c33ebbd46f782d9229da35c61327
@@ -203,6 +207,6 @@ SPEC CHECKSUMS:
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
 
-PODFILE CHECKSUM: 1226574757a1ed58e2543cd96bd79874a01c9493
+PODFILE CHECKSUM: 9a3141b1b5e3dca2b9e7a643d02b54ab5487528c
 
 COCOAPODS: 1.5.3

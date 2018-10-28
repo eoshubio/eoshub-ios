@@ -24,6 +24,7 @@ target 'eoshub' do
   pod 'FBSDKLoginKit'
   pod 'GoogleSignIn'
   pod 'OpenSSL-Universal'
+  pod 'JSONSyntaxHighlight'
   target 'eoshubTests' do
     inherit! :search_paths
     # Pods for testing

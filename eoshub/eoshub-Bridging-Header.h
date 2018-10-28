@@ -19,3 +19,4 @@
 #include <openssl/obj_mac.h>
 
 #import <CommonCrypto/CommonDigest.h>
+#import <JSONSyntaxHighlight/JSONSyntaxHighlight.h>
