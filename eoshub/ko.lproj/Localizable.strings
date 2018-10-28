@@ -220,6 +220,12 @@
 "secure.bio.faceId" = "얼굴을 인식시켜 주세요.";
 "secure.bio.touchId" = "Touch ID 로 본인 인증하기.";
 
+/* Dapp */
+"dapp.tx.title" = "아래 내용을 확인해 주세요";
+"dapp.tx.selectAccount" = "계정 변경";
+"dapp.tx.selectAccountText" = "트랜젝션을 승인할 EOS 계정을 선택해 주세요.";
+
+
 
 
 /* 일반 */

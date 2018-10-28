@@ -23,6 +23,10 @@ class Authorization: Packable, JSONInitializable, JSONOutput {
         return ["actor": actor.value, "permission": permission.value]
     }
     
+    var stringValue: String {
+        return actor.value + "@" + permission.value
+    }
+    
     init(actor: EOSName, permission: Permission) {
         self.actor = actor
         self.permission = permission

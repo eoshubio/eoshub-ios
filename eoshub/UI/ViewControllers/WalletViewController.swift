@@ -17,7 +17,10 @@ class WalletViewController: BaseViewController {
     
     var flowDelegate: WalletFlowEventDelegate?
     
-    @IBOutlet fileprivate var btnNotice: UIButton!
+//    @IBOutlet fileprivate var btnNotice: UIButton!
+    @IBOutlet fileprivate var btnDapps: ExtendButton!
+    @IBOutlet fileprivate var btnDappsLabel: UIView!
+    
     @IBOutlet fileprivate var btnSetting: UIButton!
     @IBOutlet fileprivate var btnProfile: RoundedButton!
     
@@ -90,14 +93,18 @@ class WalletViewController: BaseViewController {
     
     private func setupUI() {
         
+        
         let profileURL = UserManager.shared.profileURL
         btnProfile.imageView?.contentMode = .scaleAspectFill
         btnProfile.sd_setImage(with: profileURL, for: .normal, placeholderImage: #imageLiteral(resourceName: "profileDefault"),
                                options: [], completed: nil)
-       
+        
         walletList.contentInset = UIEdgeInsets.init(top: Const.navBarHeightLargeState - Const.navBarHeightSmallState, left: 0, bottom: 100, right: 0)
         
         setupTableView()
+        
+        
+        
     }
     
     private func setupTableView() {
@@ -164,7 +171,6 @@ class WalletViewController: BaseViewController {
             })
             .disposed(by: bag)
         
-        
         btnSetting.rx.singleTap
             .bind { [weak self](_) in
                 guard let nc = self?.navigationController else { return }
@@ -199,11 +205,18 @@ class WalletViewController: BaseViewController {
 //            .subscribe()
 //            .disposed(by: bag)
         
-        btnNotice.rx.singleTap
+//        btnNotice.rx.singleTap
+//            .bind { [weak self] in
+//                self?.goToNotice()
+//            }
+//            .disposed(by: bag)
+        
+        btnDapps.rx.singleTap
             .bind { [weak self] in
-                self?.goToNotice()
+                self?.goToDapp()
             }
             .disposed(by: bag)
+        
         
         btnProfile.rx.tap
             .bind { [weak self] in
@@ -282,6 +295,11 @@ class WalletViewController: BaseViewController {
         guard let nc = navigationController else { return }
         let url = Config.eoshubMedium
         flowDelegate?.goToWebView(from: nc, with: url, title: LocalizedString.Wallet.notice)
+    }
+    
+    fileprivate func goToDapp() {
+        guard let nc = navigationController else { return }
+        flowDelegate?.goToDapp(from: nc)
     }
     
     fileprivate func showLogoutView() {

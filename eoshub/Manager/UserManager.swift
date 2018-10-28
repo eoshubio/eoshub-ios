@@ -12,6 +12,15 @@ import FirebaseAuth
 class UserManager {
     static let shared = UserManager()
     
+    static func checkValidLoginToken() -> Bool {
+        guard let user = Auth.auth().currentUser else { return false }
+        if  user.loginType == .email {
+            return user.isEmailVerified
+        } else {
+            return true
+        }
+    }
+    
     var profileURL: URL? {
         return Auth.auth().currentUser?.urlForProfileImageFor(imageResolution: .highres)
     }
@@ -31,6 +40,8 @@ class UserManager {
     var loginType: User.LoginType {
         return Auth.auth().currentUser?.loginType ?? .unknown
     }
+    
+    
     
 }
 

@@ -40,7 +40,7 @@ class BuyRamFlowController: FlowController, BuyRamFlowEventDelegate {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = TxFlowController(configure: config)
         
-        fc.configure(accountName: account.account, actions: [.buyram, .sellram], filter: nil)
+        fc.configure(accountName: account.account, actions: [Contract.Action.buyram, Contract.Action.sellram], filter: nil)
         
         fc.start(animated: true)
     }

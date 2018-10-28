@@ -20,7 +20,7 @@ class TxViewController: BaseTableViewController {
             result =  result.filter("data CONTAINS ' \(filter)\"'")
         }
         
-        if let actions = actions?.map({$0.rawValue}) {
+        if let actions = actions {
             result = result.filter("action IN %@", actions)
         }
 
@@ -28,7 +28,7 @@ class TxViewController: BaseTableViewController {
     }()
     
     fileprivate var account: String!
-    fileprivate var actions: [Contract.Action]?
+    fileprivate var actions: [String]?
     fileprivate var filter: Symbol?
     
     
@@ -44,7 +44,7 @@ class TxViewController: BaseTableViewController {
         bindActions()
     }
     
-    func configure(account: String, actions: [Contract.Action]?, filter: Symbol?) {
+    func configure(account: String, actions: [String]?, filter: Symbol?) {
         self.account = account
         self.actions = actions
         self.filter = filter
@@ -143,15 +143,15 @@ class TxCell: UITableViewCell {
             .disposed(by: bag)
         
         switch tx.action {
-        case Contract.Action.transfer.rawValue:
+        case Contract.Action.transfer:
             fillTansferData(with: tx.data, myaccount: myaccount, contract: tx.contract)
-        case Contract.Action.buyram.rawValue:
+        case Contract.Action.buyram:
             fillBuyRamData(with: tx.data, myaccount: myaccount)
-        case Contract.Action.sellram.rawValue:
+        case Contract.Action.sellram:
             fillSellRamData(with: tx.data, myaccount: myaccount)
-        case Contract.Action.delegatebw.rawValue:
+        case Contract.Action.delegatebw:
             fillDelegateBWData(with: tx.data, myaccount: myaccount)
-        case Contract.Action.undelegatebw.rawValue:
+        case Contract.Action.undelegatebw:
             fillUndelegateBWData(with: tx.data, myaccount: myaccount)
         default:
             break

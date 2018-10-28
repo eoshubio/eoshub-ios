@@ -40,7 +40,7 @@ class MainFlowController: FlowController {
             
             let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
 
-            if self.checkValidLoginToken() {
+            if UserManager.checkValidLoginToken() {
                 let fc = LoginFlowController(configure: config)
                 fc.start(animated: false)
                 //1. Go To MainTab
@@ -58,15 +58,6 @@ class MainFlowController: FlowController {
         }
     }
     
-    
-    private func checkValidLoginToken() -> Bool {
-        guard let user = Auth.auth().currentUser else { return false }
-        if  user.loginType == .email {
-            return user.isEmailVerified
-        } else {
-            return true
-        }
-    }
     
     private func isJailBroken() -> Bool {
         var jailBroken = false

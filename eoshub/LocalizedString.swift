@@ -313,6 +313,13 @@ struct LocalizedString {
         
     }
     
+    struct Dapp {
+        struct Tx {
+            static let title = NSLocalizedString("dapp.tx.title", comment: "")
+            static let selectAccount = NSLocalizedString("dapp.tx.selectAccount", comment: "")
+            static let selectAccountTxt = NSLocalizedString("dapp.tx.selectAccountText", comment: "")
+        }
+    }
     
     struct Common {
         static let paste = NSLocalizedString("common.paste", comment: "")
