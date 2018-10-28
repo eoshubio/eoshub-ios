@@ -1,0 +1,348 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Keypair View Controller-->
+        <scene sceneID="oQB-cx-IUL">
+            <objects>
+                <tableViewController storyboardIdentifier="KeypairViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="nd8-rX-rvD" customClass="KeypairViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="o6l-b9-iAg">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="KeyCell" rowHeight="200" id="v0u-bT-tlM" customClass="KeyCell" customModule="eoshub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="v0u-bT-tlM" id="Iur-b3-iv1">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="I6a-Ix-KzJ" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="15" width="384" height="108"/>
+                                            <subviews>
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMO-hu-7Hr" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="25" width="61" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="3ni-z8-aOF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                    <state key="normal" title="Stored">
+                                                        <color key="titleColor" red="0.36470588240000001" green="0.76470588240000004" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x6G-nx-jT8" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
+                                                    <rect key="frame" x="88" y="25" width="123" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="Lg0-x4-iaP"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                    <state key="normal" title="iClound keychain">
+                                                        <color key="titleColor" red="1" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" text="EOS Public key" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yGp-tS-e6g">
+                                                    <rect key="frame" x="20" y="65" width="344" height="18"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                    <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NOV-dJ-j8y" customClass="ExtendButton" customModule="eoshub" customModuleProvider="target">
+                                                    <rect key="frame" x="339" y="22.666666666666664" width="25" height="25"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="25" id="3XR-e8-1PD"/>
+                                                        <constraint firstAttribute="height" constant="25" id="yBI-WO-3iD"/>
+                                                    </constraints>
+                                                    <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <state key="normal" image="clipboard"/>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="NOV-dJ-j8y" secondAttribute="trailing" constant="20" id="36z-js-VdT"/>
+                                                <constraint firstItem="DMO-hu-7Hr" firstAttribute="leading" secondItem="I6a-Ix-KzJ" secondAttribute="leading" constant="20" id="7Tf-9V-CMI"/>
+                                                <constraint firstItem="NOV-dJ-j8y" firstAttribute="centerY" secondItem="x6G-nx-jT8" secondAttribute="centerY" id="Dxg-Hn-TbU"/>
+                                                <constraint firstItem="DMO-hu-7Hr" firstAttribute="top" secondItem="I6a-Ix-KzJ" secondAttribute="top" constant="25" id="FaS-V2-3Cp"/>
+                                                <constraint firstItem="yGp-tS-e6g" firstAttribute="top" secondItem="DMO-hu-7Hr" secondAttribute="bottom" constant="20" id="LUZ-Gz-ilI"/>
+                                                <constraint firstItem="x6G-nx-jT8" firstAttribute="leading" secondItem="DMO-hu-7Hr" secondAttribute="trailing" constant="7" id="W4s-Bg-a8S"/>
+                                                <constraint firstItem="x6G-nx-jT8" firstAttribute="centerY" secondItem="DMO-hu-7Hr" secondAttribute="centerY" id="clc-Pg-0aQ"/>
+                                                <constraint firstItem="yGp-tS-e6g" firstAttribute="leading" secondItem="I6a-Ix-KzJ" secondAttribute="leading" constant="20" id="l4T-R8-25L"/>
+                                                <constraint firstAttribute="bottom" secondItem="yGp-tS-e6g" secondAttribute="bottom" constant="25" id="wvu-gc-XTd"/>
+                                                <constraint firstAttribute="trailing" secondItem="yGp-tS-e6g" secondAttribute="trailing" constant="20" id="x3r-Ub-Nsd"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="I6a-Ix-KzJ" firstAttribute="top" secondItem="Iur-b3-iv1" secondAttribute="top" constant="15" id="I2o-Vd-PlU"/>
+                                        <constraint firstAttribute="trailing" secondItem="I6a-Ix-KzJ" secondAttribute="trailing" constant="15" id="hPY-q9-FzB"/>
+                                        <constraint firstItem="I6a-Ix-KzJ" firstAttribute="leading" secondItem="Iur-b3-iv1" secondAttribute="leading" constant="15" id="rG9-l0-KGp"/>
+                                        <constraint firstAttribute="bottom" secondItem="I6a-Ix-KzJ" secondAttribute="bottom" priority="750" constant="5" id="vzM-p9-gMS"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="btnCopy" destination="NOV-dJ-j8y" id="ffE-3S-Dcg"/>
+                                    <outlet property="key" destination="yGp-tS-e6g" id="VtX-S1-1iW"/>
+                                    <outlet property="repo" destination="x6G-nx-jT8" id="gLz-qY-f0u"/>
+                                    <outlet property="stored" destination="DMO-hu-7Hr" id="fbi-Mf-Vys"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="nd8-rX-rvD" id="BA5-eB-7Jh"/>
+                            <outlet property="delegate" destination="nd8-rX-rvD" id="aoa-ZS-wDx"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Inf-4U-lRe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1594" y="-423"/>
+        </scene>
+        <!--Keypair Detail View Controller-->
+        <scene sceneID="jKx-WM-HIO">
+            <objects>
+                <tableViewController storyboardIdentifier="KeypairDetailViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GcT-hE-hh6" customClass="KeypairDetailViewController" customModule="eoshub" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="eSI-Sq-Zj7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="KeyCell" rowHeight="200" id="qIS-9M-3SC" customClass="KeyCell" customModule="eoshub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="55.333333333333343" width="414" height="200"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qIS-9M-3SC" id="lG4-xR-f7w">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FLm-j1-3i0" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="15" width="384" height="108"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQL-El-Emf" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="25" width="61" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="1WK-U6-omA"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                    <state key="normal" title="Stored">
+                                                        <color key="titleColor" red="0.36470588240000001" green="0.76470588240000004" blue="0.74117647060000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mkT-M8-C0P" customClass="RoundedButton" customModule="eoshub" customModuleProvider="target">
+                                                    <rect key="frame" x="88" y="25" width="123" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="Wd5-2K-NUk"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                    <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                                    <state key="normal" title="iClound keychain">
+                                                        <color key="titleColor" red="1" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                            <real key="value" value="10"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" text="EOS Public key" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NSQ-Qh-0jA">
+                                                    <rect key="frame" x="20" y="65" width="344" height="18"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="15"/>
+                                                    <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R14-iV-Yfr" customClass="ExtendButton" customModule="eoshub" customModuleProvider="target">
+                                                    <rect key="frame" x="349" y="25" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="euS-TT-cBg"/>
+                                                        <constraint firstAttribute="height" constant="20" id="t1B-jw-arX"/>
+                                                    </constraints>
+                                                    <state key="normal" image="close"/>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="R14-iV-Yfr" firstAttribute="centerY" secondItem="cQL-El-Emf" secondAttribute="centerY" id="8L3-fl-PJr"/>
+                                                <constraint firstItem="NSQ-Qh-0jA" firstAttribute="leading" secondItem="FLm-j1-3i0" secondAttribute="leading" constant="20" id="8hs-8x-ICa"/>
+                                                <constraint firstItem="NSQ-Qh-0jA" firstAttribute="top" secondItem="cQL-El-Emf" secondAttribute="bottom" constant="20" id="M2V-Ww-NrD"/>
+                                                <constraint firstItem="cQL-El-Emf" firstAttribute="leading" secondItem="FLm-j1-3i0" secondAttribute="leading" constant="20" id="V5h-Hv-w5u"/>
+                                                <constraint firstAttribute="trailing" secondItem="R14-iV-Yfr" secondAttribute="trailing" constant="15" id="XOz-Df-BM5"/>
+                                                <constraint firstAttribute="bottom" secondItem="NSQ-Qh-0jA" secondAttribute="bottom" constant="25" id="a1f-Y4-BWY"/>
+                                                <constraint firstItem="mkT-M8-C0P" firstAttribute="centerY" secondItem="cQL-El-Emf" secondAttribute="centerY" id="g2Y-f9-Kz4"/>
+                                                <constraint firstItem="mkT-M8-C0P" firstAttribute="leading" secondItem="cQL-El-Emf" secondAttribute="trailing" constant="7" id="m9X-mg-AeY"/>
+                                                <constraint firstAttribute="trailing" secondItem="NSQ-Qh-0jA" secondAttribute="trailing" constant="20" id="pzR-HU-TvC"/>
+                                                <constraint firstItem="cQL-El-Emf" firstAttribute="top" secondItem="FLm-j1-3i0" secondAttribute="top" constant="25" id="wvN-0F-JU3"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="FLm-j1-3i0" secondAttribute="trailing" constant="15" id="DiC-OF-daY"/>
+                                        <constraint firstItem="FLm-j1-3i0" firstAttribute="leading" secondItem="lG4-xR-f7w" secondAttribute="leading" constant="15" id="NA9-39-Ze4"/>
+                                        <constraint firstAttribute="bottom" secondItem="FLm-j1-3i0" secondAttribute="bottom" priority="750" constant="5" id="OEh-Ow-rFB"/>
+                                        <constraint firstItem="FLm-j1-3i0" firstAttribute="top" secondItem="lG4-xR-f7w" secondAttribute="top" constant="15" id="q7k-u9-ygd"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="delete" destination="R14-iV-Yfr" id="hLf-jA-DwM"/>
+                                    <outlet property="key" destination="NSQ-Qh-0jA" id="wG5-fi-NQH"/>
+                                    <outlet property="repo" destination="mkT-M8-C0P" id="ylR-ud-LwC"/>
+                                    <outlet property="stored" destination="cQL-El-Emf" id="VJX-4I-cad"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="KeypairAddCell" rowHeight="300" id="dxL-2N-T84" customClass="KeypairAddCell" customModule="eoshub" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="255.33333333333337" width="414" height="300"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dxL-2N-T84" id="qLQ-ce-uHy">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9go-nS-cVX" customClass="RoundedShadowView" customModule="eoshub" customModuleProvider="target">
+                                            <rect key="frame" x="15" y="15" width="384" height="280"/>
+                                            <subviews>
+                                                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G1x-7D-Wby">
+                                                    <rect key="frame" x="299.66666666666669" y="26" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="XtF-qv-Bzf"/>
+                                                        <constraint firstAttribute="height" constant="20" id="z8u-VF-zIh"/>
+                                                    </constraints>
+                                                    <color key="tintColor" red="1" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <state key="normal" image="shield"/>
+                                                </button>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" text="Generate keys on Apple Secure encalve" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RwF-Fa-74C">
+                                                    <rect key="frame" x="20" y="25" width="269.66666666666669" height="24"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="24" id="gQh-iH-qRF"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-SemiBold" family="Apple SD Gothic Neo" pointSize="16"/>
+                                                    <color key="textColor" red="0.23921568630000001" green="0.23921568630000001" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="751" verticalCompressionResistancePriority="751" text="Secure enclave protects your private key from hackers and your mistakes perfectly with Apple's powerful Secure hardware." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l6m-ut-5Ow">
+                                                    <rect key="frame" x="20" y="54" width="349" height="50.666666666666657"/>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                    <color key="textColor" red="0.47450980390000003" green="0.47450980390000003" blue="0.47450980390000003" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4r0-d5-ANH">
+                                                    <rect key="frame" x="20" y="109.66666666666667" width="96" height="30.000000000000014"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="30" id="Jqx-U8-4fM"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
+                                                    <state key="normal" title="For more details">
+                                                        <color key="titleColor" red="0.45098039220000002" green="0.20392156859999999" blue="0.88235294119999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    </state>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yqf-Gn-9eG" customClass="ActionButton" customModule="eoshub" customModuleProvider="target">
+                                                    <rect key="frame" x="20" y="164.66666666666666" width="344" height="44"/>
+                                                    <color key="backgroundColor" red="0.41960784309999999" green="0.24313725489999999" blue="0.85098039219999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="44" id="pAT-v5-34V"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="Generate"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="radius">
+                                                            <real key="value" value="3"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </button>
+                                            </subviews>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Yqf-Gn-9eG" secondAttribute="trailing" constant="20" id="Cd1-nI-dav"/>
+                                                <constraint firstItem="4r0-d5-ANH" firstAttribute="leading" secondItem="l6m-ut-5Ow" secondAttribute="leading" id="DEC-kW-WzQ"/>
+                                                <constraint firstItem="G1x-7D-Wby" firstAttribute="centerY" secondItem="RwF-Fa-74C" secondAttribute="centerY" constant="-1" id="GNO-a9-tMv"/>
+                                                <constraint firstItem="RwF-Fa-74C" firstAttribute="top" secondItem="9go-nS-cVX" secondAttribute="top" constant="25" id="Gyf-4p-CNu"/>
+                                                <constraint firstItem="G1x-7D-Wby" firstAttribute="leading" secondItem="RwF-Fa-74C" secondAttribute="trailing" constant="10" id="KJk-l6-EBA"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="G1x-7D-Wby" secondAttribute="trailing" constant="20" id="O1C-mn-0Dj"/>
+                                                <constraint firstItem="l6m-ut-5Ow" firstAttribute="leading" secondItem="RwF-Fa-74C" secondAttribute="leading" id="TEC-Ax-r0E"/>
+                                                <constraint firstItem="4r0-d5-ANH" firstAttribute="top" secondItem="l6m-ut-5Ow" secondAttribute="bottom" constant="5" id="Vhs-av-TpM"/>
+                                                <constraint firstItem="l6m-ut-5Ow" firstAttribute="top" secondItem="RwF-Fa-74C" secondAttribute="bottom" constant="5" id="XRF-hL-Kld"/>
+                                                <constraint firstItem="Yqf-Gn-9eG" firstAttribute="leading" secondItem="9go-nS-cVX" secondAttribute="leading" constant="20" id="ZYx-zX-yvD"/>
+                                                <constraint firstAttribute="bottom" secondItem="Yqf-Gn-9eG" secondAttribute="bottom" priority="750" constant="25" id="hgn-nD-ffD"/>
+                                                <constraint firstItem="RwF-Fa-74C" firstAttribute="leading" secondItem="9go-nS-cVX" secondAttribute="leading" constant="20" id="kmp-pU-wdN"/>
+                                                <constraint firstAttribute="trailing" secondItem="l6m-ut-5Ow" secondAttribute="trailing" constant="15" id="s2F-yO-30Z"/>
+                                                <constraint firstItem="Yqf-Gn-9eG" firstAttribute="top" secondItem="4r0-d5-ANH" secondAttribute="bottom" constant="25" id="zzz-rD-HPB"/>
+                                            </constraints>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="shadow" value="YES"/>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                                    <real key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
+                                        </view>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="9go-nS-cVX" firstAttribute="top" secondItem="qLQ-ce-uHy" secondAttribute="top" constant="15" id="F4M-38-kvh"/>
+                                        <constraint firstItem="9go-nS-cVX" firstAttribute="leading" secondItem="qLQ-ce-uHy" secondAttribute="leading" constant="15" id="f5M-Fh-j60"/>
+                                        <constraint firstAttribute="bottom" secondItem="9go-nS-cVX" secondAttribute="bottom" constant="5" id="hNv-dl-St8"/>
+                                        <constraint firstAttribute="trailing" secondItem="9go-nS-cVX" secondAttribute="trailing" constant="15" id="kDO-Zs-d0u"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="btnGenerate" destination="Yqf-Gn-9eG" id="73X-no-pQB"/>
+                                    <outlet property="btnIcon" destination="G1x-7D-Wby" id="20a-WC-ZWM"/>
+                                    <outlet property="btnMore" destination="4r0-d5-ANH" id="4v6-NO-sLn"/>
+                                    <outlet property="lbDescription" destination="l6m-ut-5Ow" id="2B2-nZ-7Dr"/>
+                                    <outlet property="lbTitle" destination="RwF-Fa-74C" id="RDh-E9-DCh"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="GcT-hE-hh6" id="19w-5b-Fh0"/>
+                            <outlet property="delegate" destination="GcT-hE-hh6" id="hj1-tx-SRD"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iAW-2I-Vvq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-862.5" y="-423.75"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="clipboard" width="51.200000762939453" height="51.200000762939453"/>
+        <image name="close" width="40" height="40"/>
+        <image name="shield" width="40" height="40"/>
+    </resources>
+</document>

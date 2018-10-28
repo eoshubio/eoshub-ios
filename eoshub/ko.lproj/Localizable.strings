@@ -66,6 +66,7 @@
 "create.import.warning" = "1. Private key는 키보드를 통해 직접 입력해주세요.\n\n2. EOSHub 는 강력한 보안과 Key 복원을 위하여 iCloud Keychain 을 사용합니다. iCloud 비활성화되어 있으면 Private key를 복구할 수 없습니다.";
 "create.import.setting" = "(설정 - 프로필 - iCloud - 키체인 - 켬)";
 "create.import.iCloudKeychain" = "iCloud Keychain";
+"create.import.imported" = "Private key 를 성공적으로 보관하였습니다.";
 
 "create.interest.title" = "관심 계정 추가하기";
 "create.interest.text" = "관심있는 EOS 계정을 추가하여 관리 할 수 있습니다. 관심 계정은 private key를 필요로 하지 않으며, 조회만 가능합니다.";
@@ -196,6 +197,15 @@
 "vote.selectAccountTitle" = "계정 변경";
 "vote.selectAccount" = "투표에 참여할 계정을 골라주세요.";
 
+/* 키패어 */
+"keypair.export.title" = "Private key 내보내기";
+"keypair.export.text" = "선택한 Keypair 의 Private key 를 복사합니다. Private key 관리는 개인의 책임하에 있습니다. 보안에 유의해주세요.";
+"keypair.export.action" = "내보내기";
+"keypair.import.title" = "Private key 가져오기";
+"keypair.import.text" = "Private key 를 안전하게 iCloud Keychain 에 보관하려면 '가져오기'를 누르세요.";
+"keypair.import.action" = "가져오기";
+"keypair.se.title" = "Secure enclave 사용중";
+"keypair.se.text" = "Private key 가 Secure enclave 하드웨어 영역에 보관되어 있습니다. iCloud Keychain 에 보관된 Private key 만 내보낼 수 있습니다.";
 
 
 /* 트렌젝션 */
@@ -238,6 +248,7 @@
 "common.done" = "완료";
 "common.edit" = "편집";
 "common.cancelShort" = "취소";
+"common.ok" = "확인";
 "common.confirmShort" = "승인";
 "common.caution" = "주의";
 "common.back" = "뒤로";

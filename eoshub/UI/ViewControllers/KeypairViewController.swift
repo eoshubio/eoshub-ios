@@ -29,6 +29,9 @@ class KeypairViewController: BaseTableViewController {
     fileprivate var rx_onOwnerKey = PublishSubject<Void>()
     fileprivate var rx_onActiveKey = PublishSubject<Void>()
     
+    deinit {
+        Log.i("deinit")
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -148,6 +151,86 @@ extension KeypairViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let key = items[indexPath.section][indexPath.row]
+        showActionSheet(for: key)
+    }
+    
+    fileprivate func showActionSheet(for key: KeypairViewController.Key) {
+        let sheet = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        switch key.repo {
+        case .iCloudKeychain:
+            sheet.title = LocalizedString.Keypair.Export.title
+            sheet.message = LocalizedString.Keypair.Export.text
+            
+            sheet.addAction(UIAlertAction(title: LocalizedString.Keypair.Export.action,
+                                          style: .default, handler: { [weak self] (action) in
+                //go to pin check
+                guard let self = self else { return }
+                self.authentication(showAt: self)
+                      .subscribe(onNext: { [weak self] (confirmed) in
+                        if confirmed {
+                            //1. export private key
+                            let pubKey = key.key
+                            if let priKey = Security.shared.getEncryptedPrivateKey(pub: pubKey) {
+                                let shareText = "Public Key:\n\(pubKey)\n\nPrivate Key:\n\(priKey)"
+                                self?.shareText(text: shareText)
+                            } else {
+                                //cannot export private key
+                                Popup.present(style: .failed, description: "Failed to decrypt private key")
+                            }
+                        }
+                    }, onError: { (error) in
+                        Log.e(error)
+                    }, onCompleted: {
+                        Log.i("onCompleted")
+                    }) {
+                        Log.i("disposed")
+                    }
+                    .disposed(by: self.bag)
+                
+            }))
+            sheet.addAction(UIAlertAction(title: LocalizedString.Common.cancel, style: .cancel, handler: nil))
+            
+            
+        case .secureEnclave:
+            sheet.title = LocalizedString.Keypair.SE.title
+            sheet.message = LocalizedString.Keypair.SE.text
+            sheet.addAction(UIAlertAction(title: LocalizedString.Common.ok, style: .cancel, handler: nil))
+        case .none:
+            sheet.title = LocalizedString.Keypair.Import.title
+            sheet.message = LocalizedString.Keypair.Import.text
+            sheet.addAction(UIAlertAction(title: LocalizedString.Keypair.Import.action, style: .default, handler: { [weak self] (action) in
+                //go to import key
+                guard let nc = self?.navigationController else { return }
+                self?.flowDelegate?.goImportPrivateKey(from: nc)
+            }))
+            sheet.addAction(UIAlertAction(title: LocalizedString.Common.cancel, style: .cancel, handler: nil))
+        }
+        
+        
+        present(sheet, animated: true, completion: nil)
+    }
+    
+    fileprivate func authentication(showAt vc: UIViewController) -> Observable<Bool> {
+        let config = FlowConfigure(container: vc, parent: nil, flowType: .modal)
+        let fc = ValidatePinFlowController(configure: config)
+        fc.start(animated: true)
+        
+        return fc.validated.asObservable()
+    }
+    
+    fileprivate func shareText(text: String) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+            guard let self = self else { return }
+            let textShare = [ text ]
+            let activityViewController = UIActivityViewController(activityItems: textShare , applicationActivities: nil)
+            self.present(activityViewController, animated: true, completion: nil)
+        }
+        
+    }
+
 }
 
 
@@ -157,6 +240,8 @@ class KeyCell: UITableViewCell {
     @IBOutlet fileprivate weak var repo: BorderColorButton!
     @IBOutlet fileprivate weak var key: UILabel!
     @IBOutlet fileprivate weak var delete: UIButton?
+    @IBOutlet fileprivate weak var btnCopy: UIButton?
+    
     private var bag: DisposeBag?
     
     override func awakeFromNib() {
@@ -209,6 +294,13 @@ class KeyCell: UITableViewCell {
                 observer?.onNext(pubKey)
         }
         .disposed(by: bag)
+        
+        btnCopy?.rx.singleTap
+            .bind {
+                UIPasteboard.general.string = pubKey
+                Popup.present(style: .success, description: LocalizedString.Common.copied)
+            }
+            .disposed(by: bag)
     }
     
     
