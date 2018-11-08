@@ -14,13 +14,19 @@ class Dapp {
     let title: String
     let subTitle: String
     let url: URL
+    let accounts: [EOSName]
     
-    init(id: String, title: String, subTitle: String, url:URL, iconUrl: URL? = nil) {
+    var availableActions: [EOSName] {
+        return [EOSName("transfer")]
+    }
+    
+    init(id: String, title: String, subTitle: String, url:URL, accounts: [EOSName], iconUrl: URL? = nil) {
         self.id = id
         self.title = title
         self.subTitle = subTitle
         self.url = url
         self.iconUrl = nil
+        self.accounts = accounts
     }
 }
 

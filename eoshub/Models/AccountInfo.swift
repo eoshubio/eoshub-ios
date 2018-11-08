@@ -62,6 +62,12 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         return nil
     }
     
+    var autoSignableKey: StoredKey? {
+        let keys = storedKeys
+        
+        return keys.first(where: {$0.repo == .iCloudKeychain}) ?? keys.first
+    }
+    
     @objc dynamic var hasRepoKeychain = false //has private key in keychain
     @objc dynamic var hasRepoSE = false //has private key in Secure enclave
     

@@ -10,7 +10,13 @@ import Foundation
 import UIKit
 import RxSwift
 
+struct TxResult {
+    let txid: String
+    let autoSign: Bool
+}
+
 class TxConfirmViewController: BaseTableViewController {
+    var flowDelegate: FlowEventDelegate?
     var contract: Contract! {
         didSet {
             items.removeAll()
@@ -32,11 +38,19 @@ class TxConfirmViewController: BaseTableViewController {
     
     fileprivate let form = TxConfirmForm()
     
-    fileprivate weak var result: PublishSubject<String>?
+    fileprivate let autoSignSubject = PublishSubject<Bool>()
+    
+    fileprivate weak var result: PublishSubject<TxResult>?
+    
+    fileprivate var autoSignEnabled = false
+    
+    deinit {
+        Log.i("deinit")
+    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        showNavigationBar(with: .basePurple, animated: true, largeTitle: false)
+//        showNavigationBar(with: .basePurple, animated: true, largeTitle: false)
     }
     
     override func viewDidLoad() {
@@ -56,12 +70,19 @@ class TxConfirmViewController: BaseTableViewController {
             .disposed(by: bag)
         
         form.cancel
-            .bind(onNext: dismiss)
+            .bind(onNext: cancelled)
+            .disposed(by: bag)
+        
+        autoSignSubject
+            .asObserver()
+            .bind { [weak self](on) in
+                self?.autoSignEnabled = on
+            }
             .disposed(by: bag)
         
     }
     
-    func configure(contract: Contract, title: String?, result: PublishSubject<String>?) {
+    func configure(contract: Contract, title: String?, result: PublishSubject<TxResult>?) {
         self.contract = contract
         self.title = title
         self.result = result
@@ -81,16 +102,19 @@ class TxConfirmViewController: BaseTableViewController {
         
         let wallet = Wallet(key: usingKey.eosioKey.key, parent: self)
  
+        let isEnabledAutoSign = autoSignEnabled
+        
         RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
             .do(onNext: { [weak self] (responseJSON) in
                 //TODO: return to callback url
 //                Log.i(responseJSON)
                 if let txid = responseJSON.string(for: "transaction_id") {
                     //response transacton id
-                    self?.result?.onNext(txid)
+                    self?.result?.onNext(TxResult(txid: txid, autoSign: isEnabledAutoSign))
                 }
-            }, onError: { (error) in
+            }, onError: { [weak self] (error) in
                 //TODO: send error to callback
+                self?.result?.onError(error)
                 Log.i(error)
             })
             .flatMap({ (_) -> Observable<Void> in
@@ -138,7 +162,13 @@ class TxConfirmViewController: BaseTableViewController {
     }
     
     fileprivate func dismiss() {
-        navigationController?.popViewController(animated: true)
+    
+        flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
+    }
+    
+    fileprivate func cancelled() {
+        result?.onError(EOSHubError.userCanceled)
+        flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: nil)
     }
 }
 
@@ -168,7 +198,7 @@ extension TxConfirmViewController {
             return cell
         case .actor(let actor):
             let cell = tableView.dequeueReusableCell(withIdentifier: "TxConfirmActorCell", for: indexPath) as! TxConfirmActorCell
-            cell.configure(text: actor)
+            cell.configure(text: actor, observer: autoSignSubject)
             return cell
         case .confirm:
             let cell = tableView.dequeueReusableCell(withIdentifier: "TxConfirmCell", for: indexPath) as! TxConfirmCell
@@ -209,9 +239,27 @@ class TxConfirmArgsCell: UITableViewCell {
 class TxConfirmActorCell: UITableViewCell {
     @IBOutlet fileprivate weak var lbTitle: UILabel!
     @IBOutlet fileprivate weak var lbText: UILabel!
+    @IBOutlet fileprivate weak var lbAutoSign: UILabel!
+    @IBOutlet fileprivate weak var swAutoSign: UISwitch!
     
-    func configure(text: String) {
+    private var bag: DisposeBag?
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        bag = nil
+    }
+    
+    func configure(text: String, observer: PublishSubject<Bool>) {
         lbText.text = text
+        lbAutoSign.text = LocalizedString.Tx.autoSign
+        
+        let bag = DisposeBag()
+        self.bag = bag
+        swAutoSign.rx.isOn
+            .bind { (on) in
+                observer.onNext(on)
+            }
+            .disposed(by: bag)
     }
 }
 

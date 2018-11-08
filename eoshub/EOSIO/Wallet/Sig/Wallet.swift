@@ -17,6 +17,8 @@ class Wallet {
     
     private let pubKey: String
     
+    private var skipAuth: Bool = false
+    
     init(account: EHAccount) {
         self.pubKey = account.publicKey
     }
@@ -24,6 +26,11 @@ class Wallet {
     init(key: String, parent: UIViewController) {
         self.pubKey = key
         authParentVC = parent
+    }
+    
+    init(key: String, skipAuth: Bool) {
+        self.pubKey = key
+        self.skipAuth = skipAuth
     }
     
     
@@ -35,20 +42,24 @@ class Wallet {
         
         if priKey.hasPrefix("se") == false {
             //authentication self
-            guard let vc = authParentVC else { return Observable.error(WalletError.authorizationViewisNotSet)}
-            WaitingView.shared.stop()
-            return authentication(showAt: vc)
-                .flatMap({ (authorized) -> Observable<SignedTransaction> in
-                    
-                    if authorized {
-                        WaitingView.shared.start()
+            if skipAuth {
+                return Wallet.sign(txn: txn, cid: cid, priKey: priKey)
+            } else {
+                guard let vc = authParentVC else { return Observable.error(WalletError.authorizationViewisNotSet)}
+                WaitingView.shared.stop()
+                
+                return authentication(showAt: vc)
+                    .flatMap({ (authorized) -> Observable<SignedTransaction> in
                         
-                        return Wallet.sign(txn: txn, cid: cid, priKey: priKey)
-                    } else {
-                        return Observable.error(WalletError.canceled)
-                    }
-                })
-            
+                        if authorized {
+                            WaitingView.shared.start()
+                            
+                            return Wallet.sign(txn: txn, cid: cid, priKey: priKey)
+                        } else {
+                            return Observable.error(WalletError.canceled)
+                        }
+                    })
+            }
         } else {
             return Wallet.sign(txn: txn, cid: cid, priKey: priKey)
         }

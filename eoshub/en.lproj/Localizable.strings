@@ -218,6 +218,7 @@
 "tx.failed" = "Failed";
 "tx.transfer" = "Transfer";
 "tx.success" = "The transaction was successfully transferred. Please wait for confirmation.";
+"tx.autoSign" = "Approve automatic signing";
 
 /* PIN */
 "secure.pin.create" = "Create PIN";

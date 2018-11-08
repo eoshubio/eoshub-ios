@@ -46,8 +46,8 @@ class DappWebFlowController: FlowController, DappWebFlowEventDelegate {
         }
     }
     
-    func goToTxConfirm(vc: UIViewController, contract: Contract, title: String?, result: PublishSubject<String>?) {
-        let config = FlowConfigure(container: vc, parent: self, flowType: .navigation)
+    func goToTxConfirm(vc: UIViewController, contract: Contract, title: String?, result: PublishSubject<TxResult>?) {
+        let config = FlowConfigure(container: vc, parent: self, flowType: .modal)
         let fc = TxConfirmFlowController(configure: config)
         fc.configure(contract: contract, title: title, result: result)
         fc.start(animated: true)
@@ -56,6 +56,6 @@ class DappWebFlowController: FlowController, DappWebFlowEventDelegate {
 
 protocol DappWebFlowEventDelegate: FlowEventDelegate {
     
-    func goToTxConfirm(vc: UIViewController, contract: Contract, title: String?, result: PublishSubject<String>?)
+    func goToTxConfirm(vc: UIViewController, contract: Contract, title: String?, result: PublishSubject<TxResult>?)
     
 }
