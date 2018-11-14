@@ -110,7 +110,7 @@ struct RxEOSAPI {
     
     static func getActions(accountName: String) -> Observable<JSON> {
 
-        let params: JSON = ["account_name": accountName, "pos": -1, "offset": -200]
+        let params: JSON = ["account_name": accountName, "pos": -1, "offset": -100]
         
         return EOSAPI.History.get_actions
                     .responseJSON(method: .post, parameter: params, encoding: JSONEncoding.default)
@@ -292,6 +292,11 @@ extension RxEOSAPI {
     static func getTxHistory(account: String)  -> Observable<[Tx]> {
         return getActions(accountName: account)
             .flatMap { (json) -> Observable<[Tx]> in
+                
+                if let errors = json.string(for: "errors") {
+                    return Observable.error( EOSResponseError(code: 0, stack: [], name: "Exception", what: errors))
+                }
+                
                 guard let actions = json.arrayJson(for: "actions") else { return Observable.error(EOSErrorType.emptyData) }
                 let txs = actions.compactMap(Tx.init)
                 let txSet = Set(txs)

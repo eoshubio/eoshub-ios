@@ -44,12 +44,20 @@ class TxViewController: BaseTableViewController {
     }
     
     private func bindActions() {
+        
+        //show on local
+        updateDataSource()
+        
         TxManager.shared.loadTx(for: account)
             .subscribe(onNext: { [weak self] (_) in
                 self?.updateDataSource()
                 self?.tableView.reloadData()
                 }, onError: { (error) in
-                    Log.e(error)
+                    if let e = error as? PrettyPrintedPopup {
+                        e.showPopup()
+                    } else {
+                        Log.e(error)
+                    }
             }) {
                 
             }
