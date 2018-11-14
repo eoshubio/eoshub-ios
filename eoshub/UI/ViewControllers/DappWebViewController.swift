@@ -44,7 +44,10 @@ class DappWebViewController: BaseViewController, WKUIDelegate, WKNavigationDeleg
         webView.navigationDelegate = self
         webView.customUserAgent = "eoshub/" + Config.versionString
         
+        let websiteDataTypes = NSSet(array: [WKWebsiteDataTypeDiskCache, WKWebsiteDataTypeMemoryCache])
+        let date = NSDate(timeIntervalSince1970: 0)
         
+        WKWebsiteDataStore.default().removeData(ofTypes: websiteDataTypes as! Set<String>, modifiedSince: date as Date, completionHandler:{ })
         
         view = webView
     }
