@@ -165,7 +165,6 @@
 		2C99E4AA211FFAC600DB55A6 /* TxMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E4A9211FFAC600DB55A6 /* TxMemo.swift */; };
 		2C9F53CF215133B200C9E85D /* UIApplication+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F53CE215133B200C9E85D /* UIApplication+extension.swift */; };
 		2C9F53D521513CBE00C9E85D /* TxConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F53D421513CBE00C9E85D /* TxConfirmViewController.swift */; };
-		2CA38865214FF32A00B539C5 /* Scheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA38864214FF32A00B539C5 /* Scheme.swift */; };
 		2CA5D1862109FA08006C928B /* TokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D1852109FA08006C928B /* TokenViewController.swift */; };
 		2CA5D1882109FAD5006C928B /* TokenAddFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */; };
 		2CA5D18A210A22B2006C928B /* EOSHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D189210A22B2006C928B /* EOSHubAPI.swift */; };
@@ -200,9 +199,6 @@
 		2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */; };
 		2CCA34A6210DA2A30024BB5D /* ABI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA34A5210DA2A30024BB5D /* ABI.swift */; };
 		2CCA34A8210DD9550024BB5D /* Array+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA34A7210DD9550024BB5D /* Array+extension.swift */; };
-		2CDAAD232183628F00480967 /* DappWebFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAAD222183628F00480967 /* DappWebFlowController.swift */; };
-		2CDAAD2521836CD100480967 /* DappWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAAD2421836CD100480967 /* DappWebViewController.swift */; };
-		2CDAAD2721836D2200480967 /* Dapp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CDAAD2621836D2200480967 /* Dapp.storyboard */; };
 		2CDAAD29218478DB00480967 /* TxConfirmFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAAD28218478DB00480967 /* TxConfirmFlowController.swift */; };
 		2CDAAD2D2185B93900480967 /* Keypair.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CDAAD2C2185B93900480967 /* Keypair.storyboard */; };
 		2CDF5917210C7077003D866C /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF5916210C7077003D866C /* AuthViewController.swift */; };
@@ -259,10 +255,6 @@
 		2CE1113820F26DF000B93BEB /* RoundedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1113720F26DF000B93BEB /* RoundedView.swift */; };
 		2CE1113A20F27BE000B93BEB /* WalletCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1113920F27BE000B93BEB /* WalletCell.swift */; };
 		2CE1113C20F27C1E00B93BEB /* WalletCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1113B20F27C1E00B93BEB /* WalletCell.xib */; };
-		2CEBDFD3217F56AF003BF7A7 /* DappFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEBDFD2217F56AF003BF7A7 /* DappFlowController.swift */; };
-		2CEBDFD5217F56BC003BF7A7 /* DappViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEBDFD4217F56BC003BF7A7 /* DappViewController.swift */; };
-		2CEBDFD7217F5CEF003BF7A7 /* Dapp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEBDFD6217F5CEF003BF7A7 /* Dapp.swift */; };
-		2CEBDFD9217F5F2C003BF7A7 /* Dapps.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEBDFD8217F5F2C003BF7A7 /* Dapps.swift */; };
 		2CEC2D4420F63BFF00AF5E9B /* WalletGuideCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CEC2D4320F63BFF00AF5E9B /* WalletGuideCell.xib */; };
 		2CEC2D4620F6423000AF5E9B /* AccountManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEC2D4520F6423000AF5E9B /* AccountManager.swift */; };
 		2CEC2D4820F647A500AF5E9B /* Wallet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CEC2D4720F647A500AF5E9B /* Wallet.storyboard */; };
@@ -459,7 +451,6 @@
 		2C99E4A9211FFAC600DB55A6 /* TxMemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxMemo.swift; sourceTree = "<group>"; };
 		2C9F53CE215133B200C9E85D /* UIApplication+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+extension.swift"; sourceTree = "<group>"; };
 		2C9F53D421513CBE00C9E85D /* TxConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxConfirmViewController.swift; sourceTree = "<group>"; };
-		2CA38864214FF32A00B539C5 /* Scheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scheme.swift; sourceTree = "<group>"; };
 		2CA5D1852109FA08006C928B /* TokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewController.swift; sourceTree = "<group>"; };
 		2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAddFlowController.swift; sourceTree = "<group>"; };
 		2CA5D189210A22B2006C928B /* EOSHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSHubAPI.swift; sourceTree = "<group>"; };
@@ -494,9 +485,6 @@
 		2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedNumberField.swift; sourceTree = "<group>"; };
 		2CCA34A5210DA2A30024BB5D /* ABI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABI.swift; sourceTree = "<group>"; };
 		2CCA34A7210DD9550024BB5D /* Array+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+extension.swift"; sourceTree = "<group>"; };
-		2CDAAD222183628F00480967 /* DappWebFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DappWebFlowController.swift; sourceTree = "<group>"; };
-		2CDAAD2421836CD100480967 /* DappWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DappWebViewController.swift; sourceTree = "<group>"; };
-		2CDAAD2621836D2200480967 /* Dapp.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Dapp.storyboard; sourceTree = "<group>"; };
 		2CDAAD28218478DB00480967 /* TxConfirmFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxConfirmFlowController.swift; sourceTree = "<group>"; };
 		2CDAAD2C2185B93900480967 /* Keypair.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Keypair.storyboard; sourceTree = "<group>"; };
 		2CDF5916210C7077003D866C /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
@@ -558,10 +546,6 @@
 		2CE1113720F26DF000B93BEB /* RoundedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedView.swift; sourceTree = "<group>"; };
 		2CE1113920F27BE000B93BEB /* WalletCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCell.swift; sourceTree = "<group>"; };
 		2CE1113B20F27C1E00B93BEB /* WalletCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletCell.xib; sourceTree = "<group>"; };
-		2CEBDFD2217F56AF003BF7A7 /* DappFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DappFlowController.swift; sourceTree = "<group>"; };
-		2CEBDFD4217F56BC003BF7A7 /* DappViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DappViewController.swift; sourceTree = "<group>"; };
-		2CEBDFD6217F5CEF003BF7A7 /* Dapp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dapp.swift; sourceTree = "<group>"; };
-		2CEBDFD8217F5F2C003BF7A7 /* Dapps.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dapps.swift; sourceTree = "<group>"; };
 		2CEC2D4320F63BFF00AF5E9B /* WalletGuideCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletGuideCell.xib; sourceTree = "<group>"; };
 		2CEC2D4520F6423000AF5E9B /* AccountManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountManager.swift; sourceTree = "<group>"; };
 		2CEC2D4720F647A500AF5E9B /* Wallet.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Wallet.storyboard; sourceTree = "<group>"; };
@@ -758,7 +742,6 @@
 				2C279B9720F8C3C900D2F6C4 /* eoshub-Bridging-Header.h */,
 				2CE110AC20F1C31000B93BEB /* Intro.storyboard */,
 				2CE1111420F2395800B93BEB /* Main.storyboard */,
-				2CDAAD2621836D2200480967 /* Dapp.storyboard */,
 				2CEC2D4720F647A500AF5E9B /* Wallet.storyboard */,
 				2CDAAD2C2185B93900480967 /* Keypair.storyboard */,
 				2C2ACFCC20F3CE9800C637D8 /* Create.storyboard */,
@@ -877,8 +860,6 @@
 				2C7426BF2116D9D900F8A85E /* VerifyFlowController.swift */,
 				2C7426BB2116B80D00F8A85E /* ForgetPWFlowController.swift */,
 				2CE1110120F1EE9C00B93BEB /* WalletFlowController.swift */,
-				2CEBDFD2217F56AF003BF7A7 /* DappFlowController.swift */,
-				2CDAAD222183628F00480967 /* DappWebFlowController.swift */,
 				2CBD93CB2132ABCF00A15681 /* DonateFlowController.swift */,
 				2C516101212B03B50005EDD7 /* WebViewFlowController.swift */,
 				2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */,
@@ -927,10 +908,8 @@
 				2C7426B72116B07000F8A85E /* ForgetViewController.swift */,
 				2CE1112320F24CF200B93BEB /* MainTabViewController.swift */,
 				2CE110FF20F1EDB000B93BEB /* WalletViewController.swift */,
-				2CEBDFD4217F56BC003BF7A7 /* DappViewController.swift */,
 				2CBD93C92132A89900A15681 /* DonationViewController.swift */,
 				2C5160FF212B00EE0005EDD7 /* WebViewController.swift */,
-				2CDAAD2421836CD100480967 /* DappWebViewController.swift */,
 				2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */,
 				2C5160FB212AE9CF0005EDD7 /* KeypairViewController.swift */,
 				2C3A5D67214C9E230045D174 /* KeypairDetailViewController.swift */,
@@ -1023,9 +1002,6 @@
 				2C99E4A9211FFAC600DB55A6 /* TxMemo.swift */,
 				2CBAAC632121D825006A423E /* Airdrop.swift */,
 				2C3A5D6B214E34B00045D174 /* StoredKey.swift */,
-				2CA38864214FF32A00B539C5 /* Scheme.swift */,
-				2CEBDFD6217F5CEF003BF7A7 /* Dapp.swift */,
-				2CEBDFD8217F5F2C003BF7A7 /* Dapps.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1229,7 +1205,6 @@
 				2CBD93CE2132B4FF00A15681 /* DonationCell.xib in Resources */,
 				2C279C0E20FA5FA800D2F6C4 /* TokenCell.xib in Resources */,
 				2CA5D19B210C6698006C928B /* GoogleService-Info.plist in Resources */,
-				2CDAAD2721836D2200480967 /* Dapp.storyboard in Resources */,
 				2CBAAC6F2121E804006A423E /* banner_pandora.png in Resources */,
 				2CBAAC712121E880006A423E /* icon_eosdac.png in Resources */,
 				2CE1111520F2395800B93BEB /* Main.storyboard in Resources */,
@@ -1442,7 +1417,6 @@
 				2C2ACFD320F43EE500C637D8 /* WhiteTextField.swift in Sources */,
 				2CE110FC20F1EC8600B93BEB /* RoundedButton.swift in Sources */,
 				2CE110FA20F1EBE600B93BEB /* UIView+extension.swift in Sources */,
-				2CEBDFD9217F5F2C003BF7A7 /* Dapps.swift in Sources */,
 				2C82F30C2123107E0021E172 /* UIImage+extension.swift in Sources */,
 				2C82F30A212306B00021E172 /* BaseNavigationController.swift in Sources */,
 				2CBD93C82132A16A00A15681 /* DonationCell.swift in Sources */,
@@ -1460,11 +1434,9 @@
 				2C5160FC212AE9CF0005EDD7 /* KeypairViewController.swift in Sources */,
 				2C3E72B72123C2CC00D114B2 /* SecureEnclaveManager.swift in Sources */,
 				2C770C9D20FB85DB007F71C4 /* UITextField+extension.swift in Sources */,
-				2CEBDFD3217F56AF003BF7A7 /* DappFlowController.swift in Sources */,
 				2CE1113020F26BA300B93BEB /* AirdropViewController.swift in Sources */,
 				2C516104212B0BD90005EDD7 /* URLs.swift in Sources */,
 				2C9F53CF215133B200C9E85D /* UIApplication+extension.swift in Sources */,
-				2CEBDFD7217F5CEF003BF7A7 /* Dapp.swift in Sources */,
 				2C279BA820F8C3CB00D2F6C4 /* base58.c in Sources */,
 				2C770CA720FBA051007F71C4 /* SellRamViewController.swift in Sources */,
 				2C279B7D20F7AEDD00D2F6C4 /* BaseTableViewController.swift in Sources */,
@@ -1535,7 +1507,6 @@
 				2C279BB420F8C42700D2F6C4 /* Crypto.m in Sources */,
 				2C1E3EA120FE37B60009D2AF /* RamPopup.swift in Sources */,
 				2C279B8C20F8C30700D2F6C4 /* Action.swift in Sources */,
-				2CEBDFD5217F56BC003BF7A7 /* DappViewController.swift in Sources */,
 				2CBD93CA2132A89900A15681 /* DonationViewController.swift in Sources */,
 				2C279BDC20F8C5A300D2F6C4 /* Block.swift in Sources */,
 				2C99E4A8211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift in Sources */,
@@ -1567,7 +1538,6 @@
 				2C31F7F6210612CE0025D18A /* Preferences.swift in Sources */,
 				2C3B17AD20FCCC7000E6BAAD /* TxManager.swift in Sources */,
 				2CEC2D4C20F65D1500AF5E9B /* StakeProgressBar.swift in Sources */,
-				2CDAAD2521836CD100480967 /* DappWebViewController.swift in Sources */,
 				2C3E72B82123C2CC00D114B2 /* R1Key.mm in Sources */,
 				2C2ACFCF20F3D8EB00C637D8 /* CreateViewController.swift in Sources */,
 				2C99E4A6211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift in Sources */,
@@ -1582,7 +1552,6 @@
 				2C821200212FE5B1009A11D5 /* Sha256.swift in Sources */,
 				2C2ACFF720F49F5100C637D8 /* FaceIdInputView.swift in Sources */,
 				2C279BD320F8C5A300D2F6C4 /* Contract.swift in Sources */,
-				2CA38865214FF32A00B539C5 /* Scheme.swift in Sources */,
 				2CB6B7EF210483560048601A /* TransactionForm.swift in Sources */,
 				2C279B8B20F8C30700D2F6C4 /* TransactionHeader.swift in Sources */,
 				2CCA34A8210DD9550024BB5D /* Array+extension.swift in Sources */,
@@ -1594,7 +1563,6 @@
 				2C279BF020F8E90100D2F6C4 /* Security.swift in Sources */,
 				2C7426B82116B07000F8A85E /* ForgetViewController.swift in Sources */,
 				2C5160FE212AEE6B0005EDD7 /* KeypairFlowController.swift in Sources */,
-				2CDAAD232183628F00480967 /* DappWebFlowController.swift in Sources */,
 				2C99E49C211DB40C00DB55A6 /* BorderColorButton.swift in Sources */,
 				2CDF5917210C7077003D866C /* AuthViewController.swift in Sources */,
 				2CDF5919210CDF3F003D866C /* UserManager.swift in Sources */,
