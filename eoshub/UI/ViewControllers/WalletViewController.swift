@@ -18,8 +18,6 @@ class WalletViewController: BaseViewController {
     var flowDelegate: WalletFlowEventDelegate?
     
 //    @IBOutlet fileprivate var btnNotice: UIButton!
-    @IBOutlet fileprivate var btnDapps: ExtendButton!
-    @IBOutlet fileprivate var btnDappsLabel: UIView!
     
     @IBOutlet fileprivate var btnSetting: UIButton!
     @IBOutlet fileprivate var btnProfile: RoundedButton!
@@ -198,26 +196,6 @@ class WalletViewController: BaseViewController {
             })
             .disposed(by: bag)
         
-//        btnRefresh.rx.singleTap
-//            .flatMap({ (_) -> Observable<Void> in
-//                return AccountManager.shared.loadAccounts()
-//            })
-//            .subscribe()
-//            .disposed(by: bag)
-        
-//        btnNotice.rx.singleTap
-//            .bind { [weak self] in
-//                self?.goToNotice()
-//            }
-//            .disposed(by: bag)
-        
-        btnDapps.rx.singleTap
-            .bind { [weak self] in
-                self?.goToDapp()
-            }
-            .disposed(by: bag)
-        
-        
         btnProfile.rx.tap
             .bind { [weak self] in
                 self?.showLogoutView()
@@ -296,11 +274,7 @@ class WalletViewController: BaseViewController {
         let url = Config.eoshubMedium
         flowDelegate?.goToWebView(from: nc, with: url, title: LocalizedString.Wallet.notice)
     }
-    
-    fileprivate func goToDapp() {
-        guard let nc = navigationController else { return }
-        flowDelegate?.goToDapp(from: nc)
-    }
+
     
     fileprivate func showLogoutView() {
         let alert = UIAlertController(title: "", message: UserManager.shared.identiferString, preferredStyle: .actionSheet)

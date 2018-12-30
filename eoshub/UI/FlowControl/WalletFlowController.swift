@@ -107,12 +107,6 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
         fc.configure(email: UserManager.shared.email)
         fc.start(animated: true)
     }
-    
-    func goToDapp(from nc: UINavigationController) {
-        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
-        let fc = DappFlowController(configure: config)
-        fc.start(animated: true)
-    }
 }
 
 protocol WalletFlowEventDelegate: FlowEventDelegate {
@@ -128,5 +122,4 @@ protocol WalletFlowEventDelegate: FlowEventDelegate {
     func cratePin(from nc: UINavigationController)
     func validatePin(from nc: UINavigationController)
     func goToForgotPW(from nc: UINavigationController)
-    func goToDapp(from nc: UINavigationController)
 }

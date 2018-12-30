@@ -70,17 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else if let dLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
             Log.i(dLink.description)
             return true
-        } else if let eoshubScheme = Scheme(url: url) {
-            if UserManager.checkValidLoginToken() {
-                //Open Dapp
-                if let dappAction = eoshubScheme.dappAction, let topVC = UIApplication.topViewController() {
-                    let config = FlowConfigure(container: topVC, parent: nil, flowType: .modal)
-                    let dappFc = DappWebFlowController(configure: config)
-                    dappFc.configure(dappAction: dappAction)
-                    dappFc.start(animated: false)
-                }
-            }
-        }
+        } 
         
         return false
     }
