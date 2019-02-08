@@ -12,6 +12,7 @@
 		2C0290C12129CD2B00C3AFCB /* AccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */; };
 		2C0290C32129D41C00C3AFCB /* AccountDetailFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */; };
 		2C02AE6821108FED00C6ECF3 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */; };
+		2C04ECED220D09A900B11C11 /* DeleatedBW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C04ECEC220D09A900B11C11 /* DeleatedBW.swift */; };
 		2C06A8CE21665BB0002E32E6 /* LocalizedStringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06A8CD21665BB0002E32E6 /* LocalizedStringTest.swift */; };
 		2C1CC7752149465E0020115A /* KeyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CC7742149465E0020115A /* KeyHeader.xib */; };
 		2C1D928E2100C7DC0009F5C4 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D928D2100C7DC0009F5C4 /* Validator.swift */; };
@@ -284,6 +285,7 @@
 		2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailFlowController.swift; sourceTree = "<group>"; };
 		2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedShadowView.swift; sourceTree = "<group>"; };
 		2C02AE692110BA0500C6ECF3 /* eoshub.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = eoshub.entitlements; sourceTree = "<group>"; };
+		2C04ECEC220D09A900B11C11 /* DeleatedBW.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeleatedBW.swift; sourceTree = "<group>"; };
 		2C06A8CD21665BB0002E32E6 /* LocalizedStringTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizedStringTest.swift; sourceTree = "<group>"; };
 		2C1CC7742149465E0020115A /* KeyHeader.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = KeyHeader.xib; sourceTree = "<group>"; };
 		2C1D928D2100C7DC0009F5C4 /* Validator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validator.swift; sourceTree = "<group>"; };
@@ -644,6 +646,7 @@
 			isa = PBXGroup;
 			children = (
 				2C279BCF20F8C5A200D2F6C4 /* Account.swift */,
+				2C04ECEC220D09A900B11C11 /* DeleatedBW.swift */,
 				2C279C0020FA0B7100D2F6C4 /* VoterInfo.swift */,
 				2C770C9420FB436F007F71C4 /* RefundInfo.swift */,
 				2C279BC920F8C5A100D2F6C4 /* Bandwidth.swift */,
@@ -1538,6 +1541,7 @@
 				2C31F7F6210612CE0025D18A /* Preferences.swift in Sources */,
 				2C3B17AD20FCCC7000E6BAAD /* TxManager.swift in Sources */,
 				2CEC2D4C20F65D1500AF5E9B /* StakeProgressBar.swift in Sources */,
+				2C04ECED220D09A900B11C11 /* DeleatedBW.swift in Sources */,
 				2C3E72B82123C2CC00D114B2 /* R1Key.mm in Sources */,
 				2C2ACFCF20F3D8EB00C637D8 /* CreateViewController.swift in Sources */,
 				2C99E4A6211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift in Sources */,

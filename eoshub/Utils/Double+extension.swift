@@ -47,3 +47,9 @@ extension Double {
         }
     }
 }
+
+extension Int64 {
+    var doubleValue: Double {
+        return Double(self)
+    }
+}

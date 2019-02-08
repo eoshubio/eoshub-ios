@@ -47,7 +47,7 @@ extension Token {
     static let pandora = Config.pandoraInfo.token
 }
 
-struct Currency {
+public struct Currency {
     let quantity: Double
     let balance: String
     let token: Token
@@ -124,5 +124,6 @@ extension Currency {
     static let zeroEOS = Currency(balance: 0, token: .eos)
 }
 
-
-
+public func +(lhs: Currency ,rhs: Currency) -> Currency {
+    return Currency(balance: lhs.balance+rhs.balance, token: lhs.token)
+}
