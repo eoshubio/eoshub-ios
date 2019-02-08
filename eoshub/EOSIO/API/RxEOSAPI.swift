@@ -103,7 +103,7 @@ struct RxEOSAPI {
                 if let activePubKey = ac.permissions.last?.keys.last {
                     return Observable.just(activePubKey.key)
                 } else {
-                    return Observable.error(EOSErrorType.emptyData)
+                    return Observable.just("")
                 }
             })
     }
@@ -192,6 +192,12 @@ extension RxEOSAPI {
                         return Observable.error(EOSErrorType.emptyData)
                     }
                 })
+    }
+    
+    static func getListBW(name: String) -> Observable<JSON> {
+        return EOSAPI.Chain.get_table_rows
+            .responseJSON(method: .post, parameter: ["scope": name, "json": true, "code": "eosio", "table": "delband"],
+                          encoding: JSONEncoding.default)
     }
     
    
