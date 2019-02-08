@@ -144,7 +144,12 @@ class AccountInfo: DBObject, EOSAccountViewModel, Mergeable {
         account = eosioAccount.name
         
         availableEOS = eosioAccount.liquidBalance.quantity
-        stakedEOS = eosioAccount.resources.staked
+        if let staked = eosioAccount.voterInfo?.staked.doubleValue {
+            stakedEOS = staked / 10000.0
+        } else {
+            stakedEOS = eosioAccount.resources.staked
+        }
+        
         
         if let producers = eosioAccount.voterInfo?.producers {
             votedProducers = producers
