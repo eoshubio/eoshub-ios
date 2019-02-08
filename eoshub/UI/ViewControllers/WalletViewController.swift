@@ -17,7 +17,8 @@ class WalletViewController: BaseViewController {
     
     var flowDelegate: WalletFlowEventDelegate?
     
-    @IBOutlet fileprivate var btnNotice: UIButton!
+//    @IBOutlet fileprivate var btnNotice: UIButton!
+    
     @IBOutlet fileprivate var btnSetting: UIButton!
     @IBOutlet fileprivate var btnProfile: RoundedButton!
     
@@ -90,14 +91,18 @@ class WalletViewController: BaseViewController {
     
     private func setupUI() {
         
+        
         let profileURL = UserManager.shared.profileURL
         btnProfile.imageView?.contentMode = .scaleAspectFill
         btnProfile.sd_setImage(with: profileURL, for: .normal, placeholderImage: #imageLiteral(resourceName: "profileDefault"),
                                options: [], completed: nil)
-       
+        
         walletList.contentInset = UIEdgeInsets.init(top: Const.navBarHeightLargeState - Const.navBarHeightSmallState, left: 0, bottom: 100, right: 0)
         
         setupTableView()
+        
+        
+        
     }
     
     private func setupTableView() {
@@ -164,7 +169,6 @@ class WalletViewController: BaseViewController {
             })
             .disposed(by: bag)
         
-        
         btnSetting.rx.singleTap
             .bind { [weak self](_) in
                 guard let nc = self?.navigationController else { return }
@@ -190,19 +194,6 @@ class WalletViewController: BaseViewController {
             .subscribe(onNext: { [weak self] (account) in
                 self?.addTokens(account: account)
             })
-            .disposed(by: bag)
-        
-//        btnRefresh.rx.singleTap
-//            .flatMap({ (_) -> Observable<Void> in
-//                return AccountManager.shared.loadAccounts()
-//            })
-//            .subscribe()
-//            .disposed(by: bag)
-        
-        btnNotice.rx.singleTap
-            .bind { [weak self] in
-                self?.goToNotice()
-            }
             .disposed(by: bag)
         
         btnProfile.rx.tap
@@ -283,6 +274,7 @@ class WalletViewController: BaseViewController {
         let url = Config.eoshubMedium
         flowDelegate?.goToWebView(from: nc, with: url, title: LocalizedString.Wallet.notice)
     }
+
     
     fileprivate func showLogoutView() {
         let alert = UIAlertController(title: "", message: UserManager.shared.identiferString, preferredStyle: .actionSheet)

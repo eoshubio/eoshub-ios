@@ -12,7 +12,6 @@ import RxSwift
 
 class WalletCell: UITableViewCell {
     @IBOutlet fileprivate weak var account: UILabel!
-    @IBOutlet fileprivate weak var lbReceive: UILabel!
     @IBOutlet fileprivate weak var total: UILabel!
     @IBOutlet fileprivate weak var estimatedPrice: UILabel!
     @IBOutlet fileprivate weak var progress: MultiProgressBar!
@@ -21,8 +20,8 @@ class WalletCell: UITableViewCell {
     @IBOutlet fileprivate weak var layoutContainerY: NSLayoutConstraint!
     @IBOutlet fileprivate weak var buttonContainer: UIView!
     @IBOutlet fileprivate weak var btnSend: UIButton!
-    @IBOutlet fileprivate weak var btnReceive: UIButton!
     @IBOutlet fileprivate weak var btnAddTokens: UIButton!
+    @IBOutlet fileprivate weak var btnRefresh: UIButton!
     @IBOutlet fileprivate weak var bg: UIImageView!
     @IBOutlet fileprivate weak var icon0: UIButton!
     @IBOutlet fileprivate weak var icon1: UIButton!
@@ -45,9 +44,7 @@ class WalletCell: UITableViewCell {
     }
     
     private func setupUI() {
-        lbReceive.text = LocalizedString.Wallet.receive
-        
-        lbDetail.text = LocalizedString.Wallet.details
+         lbDetail.text = LocalizedString.Wallet.details
 
         btnSend.setTitle(LocalizedString.Wallet.send, for: .normal)
         btnAddTokens.setTitle(LocalizedString.Wallet.Option.addToken, for: .normal)
@@ -93,17 +90,28 @@ class WalletCell: UITableViewCell {
             }
             .disposed(by: bag)
         
-        btnReceive.rx.singleTap
-            .bind {
-                receiveObserver.onNext(viewModel)
-            }
-            .disposed(by: bag)
-        
         btnAddTokens.rx.singleTap
             .bind {
                 menuObserver.onNext(viewModel)
             }
             .disposed(by: bag)
+        
+        let accountName = viewModel.account
+        
+        btnRefresh.rx.singleTap
+            .bind {
+                Log.i("refresh start")
+                WaitingView.shared.start()
+                _ = AccountManager.shared.refreshAccount(account: accountName)
+                        .subscribe(onDisposed: {
+                            Log.i("refresh stopped")
+                            WaitingView.shared.stop()
+                        })
+                
+                
+            }
+            .disposed(by: bag)
+        
         
         if viewModel.ownerMode {
             bg.image = #imageLiteral(resourceName: "walletbg0")

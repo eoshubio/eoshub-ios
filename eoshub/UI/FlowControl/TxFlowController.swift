@@ -15,14 +15,14 @@ class TxFlowController: FlowController {
     var id: FlowIdentifier { return .tx }
     
     fileprivate var accountName: String!
-    fileprivate var actions: [Contract.Action]?
+    fileprivate var actions: [String]?
     fileprivate var filter: Symbol?
     
     required init(configure: FlowConfigure) {
         self.configure = configure
     }
     
-    func configure(accountName: String, actions: [Contract.Action]?, filter: Symbol?) {
+    func configure(accountName: String, actions: [String]?, filter: Symbol?) {
         self.accountName = accountName
         self.actions = actions
         self.filter = filter

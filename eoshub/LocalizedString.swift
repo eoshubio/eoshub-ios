@@ -103,6 +103,7 @@ struct LocalizedString {
             static let warning = NSLocalizedString("create.import.warning", comment: "")
             static let setting = NSLocalizedString("create.import.setting", comment: "")
             static let keychain = NSLocalizedString("create.import.iCloudKeychain", comment: "")
+            static let imported = NSLocalizedString("create.import.imported", comment: "")
         }
         
         struct Interest {
@@ -283,6 +284,25 @@ struct LocalizedString {
         static let selectAccount = NSLocalizedString("vote.selectAccount", comment: "")
     }
     
+    struct Keypair {
+        struct Export {
+            static let title = NSLocalizedString("keypair.export.title", comment: "")
+            static let text = NSLocalizedString("keypair.export.text", comment: "")
+            static let action = NSLocalizedString("keypair.export.action", comment: "")
+        }
+        
+        struct Import {
+            static let title = NSLocalizedString("keypair.import.title", comment: "")
+            static let text = NSLocalizedString("keypair.import.text", comment: "")
+            static let action = NSLocalizedString("keypair.import.action", comment: "")
+        }
+        
+        struct SE {
+            static let title = NSLocalizedString("keypair.se.title", comment: "")
+            static let text = NSLocalizedString("keypair.se.text", comment: "")
+        }
+    }
+
     struct Secure {
         struct Pin {
             static let create = NSLocalizedString("secure.pin.create", comment: "")
@@ -313,6 +333,13 @@ struct LocalizedString {
         
     }
     
+    struct Dapp {
+        struct Tx {
+            static let title = NSLocalizedString("dapp.tx.title", comment: "")
+            static let selectAccount = NSLocalizedString("dapp.tx.selectAccount", comment: "")
+            static let selectAccountTxt = NSLocalizedString("dapp.tx.selectAccountText", comment: "")
+        }
+    }
     
     struct Common {
         static let paste = NSLocalizedString("common.paste", comment: "")
@@ -324,6 +351,7 @@ struct LocalizedString {
         static let done = NSLocalizedString("common.done", comment: "")
         static let edit = NSLocalizedString("common.edit", comment: "")
         static let cancelShort = NSLocalizedString("common.cancelShort", comment: "")
+        static let ok = NSLocalizedString("common.ok", comment: "")
         static let confirmShort = NSLocalizedString("common.confirmShort", comment: "")
         static let caution = NSLocalizedString("common.caution", comment: "")
         static let back = NSLocalizedString("common.back", comment: "")

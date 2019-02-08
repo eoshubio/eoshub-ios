@@ -10,6 +10,29 @@ class ExtendButton: UIButton {
     let minimumTouchPx: CGFloat = 44.0
     var touchMargin = CGSize.zero
     
+    private var btnNew: UIButton?
+    
+    fileprivate var hasNew: Bool = false {
+        didSet {
+            if hasNew {
+                if btnNew == nil {
+                    let btn = UIButton(frame: CGRect(x: 0, y: 0, width: 16, height: 16))
+                    btn.backgroundColor = Color.red.uiColor
+                    btn.layer.cornerRadius = 8
+                    btn.layer.masksToBounds = true
+                    btn.setTitleColor(.white, for: .normal)
+                    btn.center.x = bounds.maxX - 2
+                    btn.center.y = bounds.minY + 2
+                    btn.titleLabel?.font = UIFont.boldSystemFont(ofSize: 9)
+                    btn.isUserInteractionEnabled = false
+                    addSubview(btn)
+                    btnNew = btn
+                }
+            } else {
+                btnNew?.removeFromSuperview()
+            }
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,7 +58,10 @@ class ExtendButton: UIButton {
         imageView?.contentMode = .scaleAspectFit
     }
     
-    
+    func setNew(_ new: Bool, count: Int = 1) {
+        hasNew = new
+        btnNew?.setTitle("\(count)", for: .normal)
+    }
     
     
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {

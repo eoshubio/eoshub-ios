@@ -40,7 +40,7 @@ class DelegateFlowController: FlowController, DelegateFlowEventDelegate {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = TxFlowController(configure: config)
         
-        fc.configure(accountName: account.account, actions: [.delegatebw, .undelegatebw], filter: nil)
+        fc.configure(accountName: account.account, actions: [Contract.Action.delegatebw, Contract.Action.undelegatebw], filter: nil)
         
         fc.start(animated: true)
     }

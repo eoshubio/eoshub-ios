@@ -27,7 +27,7 @@ class KeypairFlowController: FlowController, KeypairFlowEventDelegate {
     
     func show(animated: Bool) {
         EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: KeypairViewController.self)
-        guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "KeypairViewController") as? KeypairViewController else { return }
+        guard let vc = UIStoryboard(name: "Keypair", bundle: nil).instantiateViewController(withIdentifier: "KeypairViewController") as? KeypairViewController else { return }
         vc.flowDelegate = self
         vc.configure(account: account)
         show(viewController: vc, animated: animated) {
@@ -41,9 +41,16 @@ class KeypairFlowController: FlowController, KeypairFlowEventDelegate {
         fc.configure(account: account, permission: permission)
         fc.start(animated: true)
     }
+    
+    func goImportPrivateKey(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = ImportFlowController(configure: config)
+        fc.start(animated: true)
+    }
 }
 
 
 protocol KeypairFlowEventDelegate: FlowEventDelegate {
     func goToDetail(from nc: UINavigationController, permission: Permission)
+    func goImportPrivateKey(from vc: UINavigationController)
 }

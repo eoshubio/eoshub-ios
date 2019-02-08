@@ -31,8 +31,11 @@ enum FlowIdentifier: String {
     case signinEmail
     case forgetPW
     case wallet
+    case dapp
+    case dappWeb
     case donate
     case web
+    case webDapp
     case accountDetail
     case keypair
     case keypairDetail
@@ -51,6 +54,7 @@ enum FlowIdentifier: String {
     case setting
     case license
     case addToken
+    case txConfirm
     
     case pop
     case dismiss

@@ -66,13 +66,26 @@ class AccountManager {
             .disposed(by: bag)
     }
     
+    func refreshAccount(account: String) -> Observable<Void> {
+        guard let ehaccount = getAccount(accountName: account) else { return Observable.error(EOSHubError.txNotFound)}
+        return getAccountInfo(account: ehaccount, isFirstTime: false)
+            .do(onNext: { (info) in
+                DB.shared.addOrUpdateObjects([info] as [AccountInfo])
+            }, onError: { (error) in
+                Log.e(error)
+            }, onDispose: {
+                self.refreshUI()
+            })
+            .flatMap({ _ in Observable.just(())})
+    }
+    
     func loadAccount(account: EHAccount) -> Observable<Void> {
         return getAccountInfo(account: account, isFirstTime: true)
                 .do(onNext: { (info) in
                     DB.shared.addOrUpdateObjects([info] as [AccountInfo])
                 }, onError: { (error) in
                     Log.e(error)
-                }, onCompleted: {
+                }, onDispose: {
                     self.refreshUI()
                 })
                 .flatMap({ _ in Observable.just(())})
@@ -134,6 +147,7 @@ class AccountManager {
                             
                             return Observable.just(info)
                         })
+                        .takeLast(1)
             }
     }
     

@@ -26,8 +26,8 @@ struct Config {
     
     static let donationAccount = "eoshuborigin"
     
-    static let mainHost = "https://eos.greymass.com"
-    
+    static let mainHost = "https://user-api.eoseoul.io:443"
+
     static var host: String {
         switch mode {
         case .junglenet:
@@ -62,7 +62,8 @@ struct Config {
     }
     
     static var apiServers: [String] {
-        return ["https://eos.greymass.com",
+        return ["https://user-api.eoseoul.io:443",
+                "https://eos.greymass.com",
                 "https://api.main-net.eosnodeone.io",
                 "https://publicapi-mainnet.eosauthority.com",
                 "https://mainnet.eoscanada.com"]

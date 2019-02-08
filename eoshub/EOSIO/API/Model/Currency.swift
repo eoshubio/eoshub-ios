@@ -79,6 +79,11 @@ struct Currency {
         self.token = token
     }
     
+    init(integer balance: UInt64, token: Token = .eos) {
+        let quantity = Double(balance) / 10000.0
+        self.init(balance: quantity, token: token)
+    }
+    
     //cf) "1.0000 EOS"
     init?(eosCurrency: String) {
         let comp = eosCurrency.components(separatedBy: " ")
@@ -91,7 +96,7 @@ struct Currency {
             return nil
         }
     }
-    
+
     //cf) rawValue: "1.0000 EOS@eosio.token"
     static func create(rawValue: String) -> Currency? {
         let comp = rawValue.components(separatedBy: " ")

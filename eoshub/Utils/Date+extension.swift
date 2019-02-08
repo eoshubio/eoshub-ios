@@ -16,9 +16,12 @@ extension Date {
     
     func dateToUTC() -> String {
         let dateFormatter = DateFormatter()
+//        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS"
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
-        dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss.SSS"
-        return dateFormatter.string(from: self)
+        let dateString = dateFormatter.string(from: self)
+        
+        return dateString
     }
     
     func dataToLocalTime() -> String {
@@ -30,8 +33,8 @@ extension Date {
     static func UTCToDate(date:String) -> Date? {
         let src = date.components(separatedBy: ".").first ?? date
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "YYYY-MM-dd'T'HH:mm:ss"
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
         let dt = dateFormatter.date(from: src)
         
         return dt

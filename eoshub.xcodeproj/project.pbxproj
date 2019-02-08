@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		292EE1AAB8E5E41BC71CE5FC /* Pods_eoshubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7D5622731D969009BA7D68 /* Pods_eoshubTests.framework */; };
 		2C0290BF2129C93900C3AFCB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290BE2129C93900C3AFCB /* GradientView.swift */; };
 		2C0290C12129CD2B00C3AFCB /* AccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */; };
 		2C0290C32129D41C00C3AFCB /* AccountDetailFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */; };
@@ -162,6 +163,8 @@
 		2C99E4A6211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E4A5211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift */; };
 		2C99E4A8211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E4A7211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift */; };
 		2C99E4AA211FFAC600DB55A6 /* TxMemo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C99E4A9211FFAC600DB55A6 /* TxMemo.swift */; };
+		2C9F53CF215133B200C9E85D /* UIApplication+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F53CE215133B200C9E85D /* UIApplication+extension.swift */; };
+		2C9F53D521513CBE00C9E85D /* TxConfirmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C9F53D421513CBE00C9E85D /* TxConfirmViewController.swift */; };
 		2CA5D1862109FA08006C928B /* TokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D1852109FA08006C928B /* TokenViewController.swift */; };
 		2CA5D1882109FAD5006C928B /* TokenAddFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */; };
 		2CA5D18A210A22B2006C928B /* EOSHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D189210A22B2006C928B /* EOSHubAPI.swift */; };
@@ -196,6 +199,8 @@
 		2CC3F7E521022F0200C4DBAD /* FormattedNumberField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */; };
 		2CCA34A6210DA2A30024BB5D /* ABI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA34A5210DA2A30024BB5D /* ABI.swift */; };
 		2CCA34A8210DD9550024BB5D /* Array+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CCA34A7210DD9550024BB5D /* Array+extension.swift */; };
+		2CDAAD29218478DB00480967 /* TxConfirmFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDAAD28218478DB00480967 /* TxConfirmFlowController.swift */; };
+		2CDAAD2D2185B93900480967 /* Keypair.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CDAAD2C2185B93900480967 /* Keypair.storyboard */; };
 		2CDF5917210C7077003D866C /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF5916210C7077003D866C /* AuthViewController.swift */; };
 		2CDF5919210CDF3F003D866C /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDF5918210CDF3F003D866C /* UserManager.swift */; };
 		2CE110A920F1C31000B93BEB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE110A820F1C31000B93BEB /* AppDelegate.swift */; };
@@ -259,8 +264,7 @@
 		2CFE954620F3914600DC173F /* MultiProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954520F3914600DC173F /* MultiProgressBar.swift */; };
 		2CFE954820F3930200DC173F /* CellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954720F3930200DC173F /* CellType.swift */; };
 		2CFE954A20F3947300DC173F /* EOSAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954920F3947300DC173F /* EOSAccountViewModel.swift */; };
-		B52C07F61076004528A3A4FE /* Pods_eoshubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED6084D9ED0A15CBAE17906 /* Pods_eoshubTests.framework */; };
-		DAE53D72D1E6BAA58F35A061 /* Pods_eoshub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FC2CBA2696CDF2187FE8A20 /* Pods_eoshub.framework */; };
+		34840DFA7B3BAC58E7D2DCBE /* Pods_eoshub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5F64055F9AA8BAB5FB4EFA /* Pods_eoshub.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -274,6 +278,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2AEBFA022908A658145B9F75 /* Pods-eoshubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eoshubTests/Pods-eoshubTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2C0290BE2129C93900C3AFCB /* GradientView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 		2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailViewController.swift; sourceTree = "<group>"; };
 		2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountDetailFlowController.swift; sourceTree = "<group>"; };
@@ -444,6 +449,8 @@
 		2C99E4A5211F01EF00DB55A6 /* CreateAccountInvoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInvoiceViewController.swift; sourceTree = "<group>"; };
 		2C99E4A7211F030300DB55A6 /* CreateAccountInvoiceFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateAccountInvoiceFlowController.swift; sourceTree = "<group>"; };
 		2C99E4A9211FFAC600DB55A6 /* TxMemo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxMemo.swift; sourceTree = "<group>"; };
+		2C9F53CE215133B200C9E85D /* UIApplication+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+extension.swift"; sourceTree = "<group>"; };
+		2C9F53D421513CBE00C9E85D /* TxConfirmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxConfirmViewController.swift; sourceTree = "<group>"; };
 		2CA5D1852109FA08006C928B /* TokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewController.swift; sourceTree = "<group>"; };
 		2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAddFlowController.swift; sourceTree = "<group>"; };
 		2CA5D189210A22B2006C928B /* EOSHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSHubAPI.swift; sourceTree = "<group>"; };
@@ -478,6 +485,8 @@
 		2CC3F7E421022F0200C4DBAD /* FormattedNumberField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormattedNumberField.swift; sourceTree = "<group>"; };
 		2CCA34A5210DA2A30024BB5D /* ABI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ABI.swift; sourceTree = "<group>"; };
 		2CCA34A7210DD9550024BB5D /* Array+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+extension.swift"; sourceTree = "<group>"; };
+		2CDAAD28218478DB00480967 /* TxConfirmFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TxConfirmFlowController.swift; sourceTree = "<group>"; };
+		2CDAAD2C2185B93900480967 /* Keypair.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Keypair.storyboard; sourceTree = "<group>"; };
 		2CDF5916210C7077003D866C /* AuthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
 		2CDF5918210CDF3F003D866C /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		2CE110A520F1C31000B93BEB /* eoshub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = eoshub.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -546,12 +555,11 @@
 		2CFE954520F3914600DC173F /* MultiProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiProgressBar.swift; sourceTree = "<group>"; };
 		2CFE954720F3930200DC173F /* CellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellType.swift; sourceTree = "<group>"; };
 		2CFE954920F3947300DC173F /* EOSAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSAccountViewModel.swift; sourceTree = "<group>"; };
-		2FC2CBA2696CDF2187FE8A20 /* Pods_eoshub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eoshub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		36B4AA61F57302C0EB3DA6AA /* Pods-eoshubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-eoshubTests/Pods-eoshubTests.release.xcconfig"; sourceTree = "<group>"; };
-		59AB798F947DAD2F27645CE8 /* Pods-eoshubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eoshubTests/Pods-eoshubTests.debug.xcconfig"; sourceTree = "<group>"; };
-		8C0A4A72F4D1FCB5DD4351B4 /* Pods-eoshub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshub.release.xcconfig"; path = "Pods/Target Support Files/Pods-eoshub/Pods-eoshub.release.xcconfig"; sourceTree = "<group>"; };
-		BDD4081D7EAEDC766BA9D65A /* Pods-eoshub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eoshub/Pods-eoshub.debug.xcconfig"; sourceTree = "<group>"; };
-		FED6084D9ED0A15CBAE17906 /* Pods_eoshubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eoshubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D7D5622731D969009BA7D68 /* Pods_eoshubTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eoshubTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		54D3021C58ADC923B23500B9 /* Pods-eoshub.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshub.release.xcconfig"; path = "Pods/Target Support Files/Pods-eoshub/Pods-eoshub.release.xcconfig"; sourceTree = "<group>"; };
+		8649D7FDD85342EF0CE7C53A /* Pods-eoshub.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshub.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eoshub/Pods-eoshub.debug.xcconfig"; sourceTree = "<group>"; };
+		E481E4A8D39F4D87F2B506BD /* Pods-eoshubTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshubTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-eoshubTests/Pods-eoshubTests.release.xcconfig"; sourceTree = "<group>"; };
+		FD5F64055F9AA8BAB5FB4EFA /* Pods_eoshub.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_eoshub.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -559,7 +567,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DAE53D72D1E6BAA58F35A061 /* Pods_eoshub.framework in Frameworks */,
+				34840DFA7B3BAC58E7D2DCBE /* Pods_eoshub.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -567,13 +575,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B52C07F61076004528A3A4FE /* Pods_eoshubTests.framework in Frameworks */,
+				292EE1AAB8E5E41BC71CE5FC /* Pods_eoshubTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		187CBAAB6EF28DEECB254DBE /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8649D7FDD85342EF0CE7C53A /* Pods-eoshub.debug.xcconfig */,
+				54D3021C58ADC923B23500B9 /* Pods-eoshub.release.xcconfig */,
+				2AEBFA022908A658145B9F75 /* Pods-eoshubTests.debug.xcconfig */,
+				E481E4A8D39F4D87F2B506BD /* Pods-eoshubTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		2C279B9620F8C3BA00D2F6C4 /* Crypto */ = {
 			isa = PBXGroup;
 			children = (
@@ -694,8 +713,8 @@
 				2CE110A720F1C31000B93BEB /* eoshub */,
 				2CE110BC20F1C31300B93BEB /* eoshubTests */,
 				2CE110A620F1C31000B93BEB /* Products */,
-				384033B70FDA1B380FF439BC /* Pods */,
-				578E1E785AC33CDBF8D05D8A /* Frameworks */,
+				187CBAAB6EF28DEECB254DBE /* Pods */,
+				C4242DF185CB37495AB8191D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -724,6 +743,7 @@
 				2CE110AC20F1C31000B93BEB /* Intro.storyboard */,
 				2CE1111420F2395800B93BEB /* Main.storyboard */,
 				2CEC2D4720F647A500AF5E9B /* Wallet.storyboard */,
+				2CDAAD2C2185B93900480967 /* Keypair.storyboard */,
 				2C2ACFCC20F3CE9800C637D8 /* Create.storyboard */,
 				2C2ACFE020F4758900C637D8 /* Auth.storyboard */,
 				2CE110B120F1C31300B93BEB /* LaunchScreen.storyboard */,
@@ -806,6 +826,7 @@
 				2C63FE952118A7150036652B /* Reachability.swift */,
 				2CBAAC652121DCB4006A423E /* NSLayoutConstraint+extension.swift */,
 				2C82F30B2123107E0021E172 /* UIImage+extension.swift */,
+				2C9F53CE215133B200C9E85D /* UIApplication+extension.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -871,6 +892,7 @@
 				2C279BF120F8EB3E00D2F6C4 /* ValidatePinFlowController.swift */,
 				2C31F7F721061F3C0025D18A /* ChangePinFlowController.swift */,
 				2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */,
+				2CDAAD28218478DB00480967 /* TxConfirmFlowController.swift */,
 			);
 			path = FlowControl;
 			sourceTree = "<group>";
@@ -916,6 +938,7 @@
 				2C755F1A20FF708600FD5FBF /* TouchIdViewController.swift */,
 				2CB6B7F42104C7850048601A /* QRScannerViewController.swift */,
 				2CA5D1852109FA08006C928B /* TokenViewController.swift */,
+				2C9F53D421513CBE00C9E85D /* TxConfirmViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -1053,22 +1076,11 @@
 			path = Wallet;
 			sourceTree = "<group>";
 		};
-		384033B70FDA1B380FF439BC /* Pods */ = {
+		C4242DF185CB37495AB8191D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BDD4081D7EAEDC766BA9D65A /* Pods-eoshub.debug.xcconfig */,
-				8C0A4A72F4D1FCB5DD4351B4 /* Pods-eoshub.release.xcconfig */,
-				59AB798F947DAD2F27645CE8 /* Pods-eoshubTests.debug.xcconfig */,
-				36B4AA61F57302C0EB3DA6AA /* Pods-eoshubTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		578E1E785AC33CDBF8D05D8A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2FC2CBA2696CDF2187FE8A20 /* Pods_eoshub.framework */,
-				FED6084D9ED0A15CBAE17906 /* Pods_eoshubTests.framework */,
+				FD5F64055F9AA8BAB5FB4EFA /* Pods_eoshub.framework */,
+				3D7D5622731D969009BA7D68 /* Pods_eoshubTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1080,13 +1092,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CE110C220F1C31400B93BEB /* Build configuration list for PBXNativeTarget "eoshub" */;
 			buildPhases = (
-				D53B7E406781A5C2B8CC86E2 /* [CP] Check Pods Manifest.lock */,
+				2F6533C08E2EDB971D1D7951 /* [CP] Check Pods Manifest.lock */,
 				2CE110A120F1C31000B93BEB /* Sources */,
 				2CE110A220F1C31000B93BEB /* Frameworks */,
 				2CE110A320F1C31000B93BEB /* Resources */,
-				270C1BFDBEBBC8F93F84CEE9 /* [CP] Embed Pods Frameworks */,
 				2CA5D19C210C683E006C928B /* ShellScript */,
-				C5423316859F3F1C2F08A6B5 /* [CP] Copy Pods Resources */,
+				E107FF96A5B51C99E4AD9FAF /* [CP] Embed Pods Frameworks */,
+				552A658855A35B6CBDDA5547 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1101,7 +1113,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2CE110C520F1C31400B93BEB /* Build configuration list for PBXNativeTarget "eoshubTests" */;
 			buildPhases = (
-				7804F3E32A3531E11FB86824 /* [CP] Check Pods Manifest.lock */,
+				E70F1C3160D6511FF54D7082 /* [CP] Check Pods Manifest.lock */,
 				2CE110B520F1C31300B93BEB /* Sources */,
 				2CE110B620F1C31300B93BEB /* Frameworks */,
 				2CE110B720F1C31300B93BEB /* Resources */,
@@ -1173,6 +1185,7 @@
 				2C1E3E9920FE18960009D2AF /* Popup.xib in Resources */,
 				2CA5D199210C53D6006C928B /* LicenseDescriptions.json in Resources */,
 				2CE110DB20F1C8AC00B93BEB /* Images.xcassets in Resources */,
+				2CDAAD2D2185B93900480967 /* Keypair.storyboard in Resources */,
 				2CA5D18C210B5B4E006C928B /* TokenAddPopup.xib in Resources */,
 				2CE1111020F2118900B93BEB /* LoginButton.xib in Resources */,
 				2CE1110920F1FA6600B93BEB /* Localizable.strings in Resources */,
@@ -1209,7 +1222,56 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		270C1BFDBEBBC8F93F84CEE9 /* [CP] Embed Pods Frameworks */ = {
+		2CA5D19C210C683E006C928B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
+		};
+		2F6533C08E2EDB971D1D7951 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-eoshub-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		552A658855A35B6CBDDA5547 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-eoshub/Pods-eoshub-resources.sh",
+				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eoshub/Pods-eoshub-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E107FF96A5B51C99E4AD9FAF /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1225,6 +1287,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/JSONSyntaxHighlight/JSONSyntaxHighlight.framework",
 				"${BUILT_PRODUCTS_DIR}/KeychainSwift/KeychainSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/QRCode/QRCode.framework",
 				"${BUILT_PRODUCTS_DIR}/RNCryptor/RNCryptor.framework",
@@ -1246,6 +1309,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JSONSyntaxHighlight.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KeychainSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/QRCode.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNCryptor.framework",
@@ -1261,20 +1325,7 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eoshub/Pods-eoshub-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		2CA5D19C210C683E006C928B /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Fabric/run\"";
-		};
-		7804F3E32A3531E11FB86824 /* [CP] Check Pods Manifest.lock */ = {
+		E70F1C3160D6511FF54D7082 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1286,42 +1337,6 @@
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-eoshubTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C5423316859F3F1C2F08A6B5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-eoshub/Pods-eoshub-resources.sh",
-				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleSignIn.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-eoshub/Pods-eoshub-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		D53B7E406781A5C2B8CC86E2 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-eoshub-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1383,6 +1398,7 @@
 				2C770C9920FB77F4007F71C4 /* DelegateViewController.swift in Sources */,
 				2CBAAC642121D825006A423E /* Airdrop.swift in Sources */,
 				2C31F7F821061F3C0025D18A /* ChangePinFlowController.swift in Sources */,
+				2C9F53D521513CBE00C9E85D /* TxConfirmViewController.swift in Sources */,
 				2C2ACFD520F4427F00C637D8 /* ImportViewController.swift in Sources */,
 				2C279B8F20F8C30700D2F6C4 /* SignedTransaction.swift in Sources */,
 				2C279BC520F8C58100D2F6C4 /* EOSHost.swift in Sources */,
@@ -1420,6 +1436,7 @@
 				2C770C9D20FB85DB007F71C4 /* UITextField+extension.swift in Sources */,
 				2CE1113020F26BA300B93BEB /* AirdropViewController.swift in Sources */,
 				2C516104212B0BD90005EDD7 /* URLs.swift in Sources */,
+				2C9F53CF215133B200C9E85D /* UIApplication+extension.swift in Sources */,
 				2C279BA820F8C3CB00D2F6C4 /* base58.c in Sources */,
 				2C770CA720FBA051007F71C4 /* SellRamViewController.swift in Sources */,
 				2C279B7D20F7AEDD00D2F6C4 /* BaseTableViewController.swift in Sources */,
@@ -1513,6 +1530,7 @@
 				2CE1113820F26DF000B93BEB /* RoundedView.swift in Sources */,
 				2CE1112E20F2680100B93BEB /* VoteFlowController.swift in Sources */,
 				2C3A5D6E214E70F00045D174 /* RestoreAccountViewController.swift in Sources */,
+				2CDAAD29218478DB00480967 /* TxConfirmFlowController.swift in Sources */,
 				2CE110D420F1C4E700B93BEB /* MainFlowController.swift in Sources */,
 				2C279BDA20F8C5A300D2F6C4 /* EOSResponseModel.swift in Sources */,
 				2C3A5D6A214C9E4F0045D174 /* KeypairDetailFlowController.swift in Sources */,
@@ -1725,7 +1743,7 @@
 		};
 		2CE110C320F1C31400B93BEB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BDD4081D7EAEDC766BA9D65A /* Pods-eoshub.debug.xcconfig */;
+			baseConfigurationReference = 8649D7FDD85342EF0CE7C53A /* Pods-eoshub.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1756,7 +1774,7 @@
 		};
 		2CE110C420F1C31400B93BEB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8C0A4A72F4D1FCB5DD4351B4 /* Pods-eoshub.release.xcconfig */;
+			baseConfigurationReference = 54D3021C58ADC923B23500B9 /* Pods-eoshub.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -1784,7 +1802,7 @@
 		};
 		2CE110C620F1C31400B93BEB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 59AB798F947DAD2F27645CE8 /* Pods-eoshubTests.debug.xcconfig */;
+			baseConfigurationReference = 2AEBFA022908A658145B9F75 /* Pods-eoshubTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1807,7 +1825,7 @@
 		};
 		2CE110C720F1C31400B93BEB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 36B4AA61F57302C0EB3DA6AA /* Pods-eoshubTests.release.xcconfig */;
+			baseConfigurationReference = E481E4A8D39F4D87F2B506BD /* Pods-eoshubTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";

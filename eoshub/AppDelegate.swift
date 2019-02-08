@@ -70,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else if let dLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
             Log.i(dLink.description)
             return true
-        }
+        } 
         
         return false
     }

@@ -139,9 +139,9 @@ class ImportViewController: TextInputViewController {
                         
                         AccountManager.shared.refreshUI()
                         
-                        guard let nc = self?.navigationController else { return }
+                        Popup.present(style: .success, description: LocalizedString.Create.Import.imported)
                         
-                        self?.flowDelegate?.returnToMain(from: nc)
+                        self?.navigationController?.popViewController(animated: true)
                         
                         }, onError: { [weak self] (error) in
                             if let error = error as? PrettyPrintedPopup {
@@ -164,9 +164,9 @@ class ImportViewController: TextInputViewController {
                 
                 AccountManager.shared.refreshUI()
                 
-                guard let nc =  navigationController else { return }
+                Popup.present(style: .success, description: LocalizedString.Create.Import.imported)
                 
-                flowDelegate?.returnToMain(from: nc)
+                navigationController?.popViewController(animated: true)
             }
             
             

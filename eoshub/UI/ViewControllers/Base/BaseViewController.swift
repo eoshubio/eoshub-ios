@@ -74,6 +74,17 @@ class BaseViewController: UIViewController {
         navigationItem.backBarButtonItem = UIBarButtonItem(title: LocalizedString.Common.back, style: .plain, target: self, action: #selector(self.back))
     }
     
+    func addCloseButton() {
+        
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        button.setImage(UIImage(named: "close"), for: .normal)
+        button.addTarget(self, action: #selector(self.close), for: .touchUpInside)
+        
+        let closeItem = UIBarButtonItem(customView: button)
+        closeItem.customView?.widthAnchor.constraint(equalToConstant: 26).isActive = true
+        closeItem.customView?.heightAnchor.constraint(equalToConstant: 26).isActive = true
+        navigationItem.rightBarButtonItem = closeItem
+    }
 }
 
 
@@ -83,4 +94,7 @@ extension BaseViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc func close() {
+        navigationController?.dismiss(animated: true, completion: nil)
+    }
 }

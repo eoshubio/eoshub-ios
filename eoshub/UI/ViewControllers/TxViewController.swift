@@ -12,25 +12,10 @@ import RxSwift
 import RealmSwift
 
 class TxViewController: BaseTableViewController {
-    
-    fileprivate lazy var items: Results<Tx> = {
-        var result = TxManager.shared.getTx(for: account)
-        
-        if let filter = filter {
-            result =  result.filter("data CONTAINS ' \(filter)\"'")
-        }
-        
-        if let actions = actions?.map({$0.rawValue}) {
-            result = result.filter("action IN %@", actions)
-        }
-
-        return result
-    }()
-    
     fileprivate var account: String!
-    fileprivate var actions: [Contract.Action]?
+    fileprivate var actions: [String]?
     fileprivate var filter: Symbol?
-    
+    fileprivate var items: [Tx] = []
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -44,7 +29,7 @@ class TxViewController: BaseTableViewController {
         bindActions()
     }
     
-    func configure(account: String, actions: [Contract.Action]?, filter: Symbol?) {
+    func configure(account: String, actions: [String]?, filter: Symbol?) {
         self.account = account
         self.actions = actions
         self.filter = filter
@@ -59,15 +44,38 @@ class TxViewController: BaseTableViewController {
     }
     
     private func bindActions() {
+        
+        //show on local
+        updateDataSource()
+        
         TxManager.shared.loadTx(for: account)
             .subscribe(onNext: { [weak self] (_) in
+                self?.updateDataSource()
                 self?.tableView.reloadData()
                 }, onError: { (error) in
-                    Log.e(error)
+                    if let e = error as? PrettyPrintedPopup {
+                        e.showPopup()
+                    } else {
+                        Log.e(error)
+                    }
             }) {
                 
             }
             .disposed(by: bag)
+    }
+    
+    private func updateDataSource() {
+        var result = TxManager.shared.getTx(for: account)
+    
+        if let filter = filter {
+            result =  result.filter("data CONTAINS ' \(filter)\"'")
+        }
+    
+        if let actions = actions {
+            result = result.filter("action IN %@", actions)
+        }
+    
+        items = Array(result)
     }
     
 }
@@ -90,14 +98,15 @@ extension TxViewController {
 
 
 class TxCell: UITableViewCell {
-    @IBOutlet fileprivate weak var lbInOut: UILabel!
+//    @IBOutlet fileprivate weak var lbInOut: UILabel!
+    @IBOutlet fileprivate weak var btnAction: UIButton!
     @IBOutlet fileprivate weak var lbRelatedAccount: UILabel!
     @IBOutlet fileprivate weak var lbQuantity: UILabel!
     @IBOutlet fileprivate weak var lbSymbol: UILabel!
     @IBOutlet fileprivate weak var lbTxDate: UILabel!
-    @IBOutlet fileprivate weak var lbTxIdTitle: UILabel!
+//    @IBOutlet fileprivate weak var lbTxIdTitle: UILabel!
     @IBOutlet fileprivate weak var btnTxId: UIButton!
-    @IBOutlet fileprivate weak var lbMemoTitle: UILabel!
+//    @IBOutlet fileprivate weak var lbMemoTitle: UILabel!
     @IBOutlet fileprivate weak var lbMemo: UILabel!
     
     fileprivate var bag: DisposeBag? = nil
@@ -108,22 +117,25 @@ class TxCell: UITableViewCell {
     }
     
     private func setupUI() {
-        lbTxIdTitle.text = LocalizedString.Tx.id
-        lbMemoTitle.text = LocalizedString.Wallet.Transfer.memo
-        btnTxId.titleLabel?.numberOfLines = 2
-        btnTxId.titleLabel?.textAlignment = .right
+//        lbTxIdTitle.text = LocalizedString.Tx.id
+//        lbMemoTitle.text = LocalizedString.Wallet.Transfer.memo
+//        btnTxId.titleLabel?.numberOfLines = 2
+//        btnTxId.titleLabel?.textAlignment = .right
+        btnAction.isUserInteractionEnabled = false
+        btnAction.layer.cornerRadius = 3
+        btnAction.layer.masksToBounds = true
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
         bag = nil
-        lbInOut.text = nil
         lbRelatedAccount.text = nil
         lbQuantity.text = nil
         lbSymbol.text = nil
         lbTxDate.text = nil
-        lbMemoTitle.text = nil
-        lbMemo.text = nil
+//        lbMemoTitle.text = nil
+//        lbMemo.text = nil
+//        lbMemo.attributedText = nil
         btnTxId.setAttributedTitle(nil, for: .normal)
         
     }
@@ -143,19 +155,20 @@ class TxCell: UITableViewCell {
             .disposed(by: bag)
         
         switch tx.action {
-        case Contract.Action.transfer.rawValue:
+        case Contract.Action.transfer:
             fillTansferData(with: tx.data, myaccount: myaccount, contract: tx.contract)
-        case Contract.Action.buyram.rawValue:
+        case Contract.Action.buyram:
             fillBuyRamData(with: tx.data, myaccount: myaccount)
-        case Contract.Action.sellram.rawValue:
+        case Contract.Action.sellram:
             fillSellRamData(with: tx.data, myaccount: myaccount)
-        case Contract.Action.delegatebw.rawValue:
+        case Contract.Action.delegatebw:
             fillDelegateBWData(with: tx.data, myaccount: myaccount)
-        case Contract.Action.undelegatebw.rawValue:
+        case Contract.Action.undelegatebw:
             fillUndelegateBWData(with: tx.data, myaccount: myaccount)
         default:
-            break
+            fillCustomData(with: tx, myaccount: myaccount)
         }
+        
     }
     
     private func fillTansferData(with dataString: String, myaccount: String, contract: String) {
@@ -170,72 +183,62 @@ class TxCell: UITableViewCell {
 
         let outBound: Bool = from == myaccount
         if outBound {
-            lbInOut.text = LocalizedString.Tx.sended
-            lbInOut.textColor = Color.blue.uiColor
+            btnAction.setTitle("Sent", for: .normal)
+            btnAction.backgroundColor = Color.blue.uiColor
             lbRelatedAccount.text = "(\(to))"
         } else {
-            lbInOut.text = LocalizedString.Tx.received
-            lbInOut.textColor = Color.red.uiColor
+            btnAction.setTitle("Received", for: .normal)
+            btnAction.backgroundColor = Color.red.uiColor
             lbRelatedAccount.text = "(\(from))"
         }
         
         lbQuantity.text = currency.balance
         lbSymbol.text = currency.symbol
-        
-        lbMemo.isHidden = (memo.count == 0)
-        lbMemoTitle.isHidden = (memo.count == 0)
+
         lbMemo.text = memo
     }
     
     private func fillBuyRamData(with dataString: String, myaccount: String) {
         
         guard let data = JSON.createJSON(from: dataString) else { return }
-        
-        lbInOut.text = LocalizedString.Wallet.Ram.buy
-        lbInOut.textColor = Color.blue.uiColor
+    
+        btnAction.setTitle("Buy RAM", for: .normal)
+        btnAction.backgroundColor = Color.blue.uiColor
         lbRelatedAccount.text = ""
 
         if let quant = data.string(for: Contract.Args.buyram.quant), let currency = Currency(eosCurrency: quant) {
             lbQuantity.text = currency.balance
             lbSymbol.text = currency.symbol
         }
-        
-        lbMemo.isHidden = true
-        lbMemoTitle.isHidden = true
+
     }
     
     private func fillSellRamData(with dataString: String, myaccount: String) {
         
         guard let data = JSON.createJSON(from: dataString) else { return }
         
-        lbInOut.text = LocalizedString.Wallet.Ram.sell
-        lbInOut.textColor = Color.red.uiColor
+        btnAction.setTitle("Sell RAM", for: .normal)
+        btnAction.backgroundColor = Color.red.uiColor
         lbRelatedAccount.text = ""
         
         if let bytes = data.integer64(for: Contract.Args.sellram.bytes) {
             lbQuantity.text = bytes.prettyPrinted
             lbSymbol.text = "RAM"
         }
-        
-        lbMemo.isHidden = true
-        lbMemoTitle.isHidden = true
+
     }
     
     private func fillDelegateBWData(with dataString: String, myaccount: String) {
         
         guard let data = JSON.createJSON(from: dataString) else { return }
         
-        lbInOut.text = LocalizedString.Wallet.Delegate.delegateTitle
-        lbInOut.textColor = Color.blue.uiColor
+        btnAction.setTitle("Delegate Bandwidth", for: .normal)
+        btnAction.backgroundColor = Color.blue.uiColor
         lbRelatedAccount.text = ""
         
         if let cpuQu = data.string(for: Contract.Args.delegatebw.stake_cpu_quantity),
             let netQu = data.string(for: Contract.Args.delegatebw.stake_net_quantity) {
-            
-            lbMemoTitle.isHidden = false
-            lbMemo.isHidden = false
-            
-            lbMemoTitle.text = LocalizedString.Wallet.Transfer.quantity
+
             lbMemo.text = "CPU: " + cpuQu + " / Network: " + netQu
         }
         
@@ -248,17 +251,13 @@ class TxCell: UITableViewCell {
         
         guard let data = JSON.createJSON(from: dataString) else { return }
         
-        lbInOut.text = LocalizedString.Wallet.Delegate.undelegate
-        lbInOut.textColor = Color.red.uiColor
+        btnAction.setTitle("Undelegate Bandwidth", for: .normal)
+        btnAction.backgroundColor = Color.red.uiColor
         lbRelatedAccount.text = ""
         
         if let cpuQu = data.string(for: Contract.Args.undelegatebw.unstake_cpu_quantity),
             let netQu = data.string(for: Contract.Args.undelegatebw.unstake_net_quantity){
-            
-            lbMemoTitle.isHidden = false
-            lbMemo.isHidden = false
-            
-            lbMemoTitle.text = LocalizedString.Wallet.Transfer.quantity
+
             lbMemo.text = "CPU: " + cpuQu + " / Network: " + netQu
         }
         
@@ -266,8 +265,35 @@ class TxCell: UITableViewCell {
         lbSymbol.text = ""
     }
     
+    private func fillCustomData(with tx: Tx, myaccount: String) {
+        btnAction.setTitle( tx.action, for: .normal)
+        if tx.contract == "eosio" || tx.action == "receipt" {
+            btnAction.backgroundColor = Color.progressOrange.uiColor
+        } else {
+            btnAction.backgroundColor = Color.gray.uiColor
+        }
+        
+        lbRelatedAccount.text = "(\(tx.contract))"
+        
+        if let json = JSON.createJSON(from: tx.data) {
+            let highlightedJSON = JSONSyntaxHighlight(json: json)
+            highlightedJSON?.keyAttributes = [NSAttributedString.Key.foregroundColor: Color.red.uiColor,
+                                              NSAttributedString.Key.font: Font.appleSDGothicNeo(.medium).uiFont(13)]
+            highlightedJSON?.stringAttributes = [NSAttributedString.Key.foregroundColor: Color.darkGray.uiColor]
+            highlightedJSON?.nonStringAttributes = [NSAttributedString.Key.foregroundColor: Color.progressOrange.uiColor]
+            
+            let attrText = highlightedJSON?.highlightJSON()
+            
+            lbMemo.attributedText = attrText
+        } else {
+            lbMemo.text = tx.data
+        }
+    }
+    
     private func setTxId(id: String) {
-        let txId = NSAttributedString(string: id, attributes: [NSAttributedString.Key.link : NSUnderlineStyle.single.rawValue])
+        let txId = NSAttributedString(string: String(id[0..<6]), attributes:
+            [NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue,
+             NSAttributedString.Key.foregroundColor: Color.blue.uiColor])
         btnTxId.setAttributedTitle(txId, for: .normal)
         
     }

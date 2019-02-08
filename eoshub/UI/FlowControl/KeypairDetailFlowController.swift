@@ -29,7 +29,7 @@ class KeypairDetailFlowController: FlowController {
     
     func show(animated: Bool) {
         EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: KeypairDetailViewController.self)
-        guard let vc = UIStoryboard(name: "Wallet", bundle: nil).instantiateViewController(withIdentifier: "KeypairDetailViewController") as? KeypairDetailViewController else { return }
+        guard let vc = UIStoryboard(name: "Keypair", bundle: nil).instantiateViewController(withIdentifier: "KeypairDetailViewController") as? KeypairDetailViewController else { return }
         vc.configure(account: account, permission: permission)
         show(viewController: vc, animated: animated) {
             

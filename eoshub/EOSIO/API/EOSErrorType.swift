@@ -59,6 +59,13 @@ struct EOSResponseError: Error, JSONInitializable {
         self.name = name
         self.what = what
     }
+    
+    init(code: Int, stack: [EOSExceptionStack], name: String, what: String) {
+        self.code = code
+        self.stack = stack
+        self.name = name
+        self.what = what
+    }
 }
 
 extension EOSResponseError: PrettyPrintedPopup {

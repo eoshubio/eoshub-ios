@@ -227,6 +227,21 @@ class SettingViewController: FormViewController {
     */
     private func appSettings() -> Section {
         var section = Section(LocalizedString.Setting.app)
+
+        let notice = LabelRow() {
+            $0.title = LocalizedString.Wallet.notice
+            $0.cellStyle = .default
+            }.cellUpdate { (cell, row) in
+                cell.textLabel?.textColor = Color.darkGray.uiColor
+                cell.height = { 50 }
+                cell.accessoryType = .disclosureIndicator
+            }.onCellSelection({ (_, row) in
+                row.deselect()
+                if let url = URL(string: Config.eoshubMedium), UIApplication.shared.canOpenURL(url) {
+                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
+                }
+                
+            })
         
         let buildNumber: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String ?? "0"
         let versionString = Config.versionString + " (\(buildNumber))"
@@ -334,7 +349,7 @@ class SettingViewController: FormViewController {
         
         
         
-        section += [version, github, openSource, term, privacyPolicy, twitter, telegram]
+        section += [notice, version, github, openSource, term, privacyPolicy, twitter, telegram]
         
         return section
     }
