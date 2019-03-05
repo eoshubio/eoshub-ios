@@ -15,7 +15,7 @@ class ExchangeManager {
     
     fileprivate let pollingScheduler = ConcurrentDispatchQueueScheduler(qos: .background)
     
-    fileprivate var api: [Price.Currency: ExChangeAPI.Type] = [:]
+    fileprivate var api: [Price.Currency: ExchangeAPI.Type] = [:]
     
     var currency: Price.Currency = .KRW
     
@@ -24,7 +24,7 @@ class ExchangeManager {
     private let bag = DisposeBag()
     
     init() {
-        api[.KRW] = UpbitAPI.self
+        api[.KRW] = BithumbAPI.self
         api[.USD] = BitfinexAPI.self
         
         polling()
@@ -33,13 +33,16 @@ class ExchangeManager {
     func polling() {
         let _ = Observable<Int>
             .interval(1, scheduler: pollingScheduler)
-            .flatMap({ [unowned self](_) -> Observable<Price> in
+            .flatMap({ [unowned self](_) -> Observable<Price?> in
                 guard let api = self.api[self.currency] else { return Observable.error(NetworkError.unknownAPI) }
                 return api.getLastPrice()
             })
+            .catchErrorJustReturn(nil)
             .subscribe(onNext: { [unowned self](price) in
                 self.lastPrice.value = price
-            })
+                }, onError: { (error) in
+                    Log.e(error)
+            } )
             .disposed(by: bag)
     }
     

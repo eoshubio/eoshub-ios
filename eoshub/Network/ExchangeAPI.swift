@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import Alamofire
 
-struct UpbitAPI: ExChangeAPI {
+struct UpbitAPI: ExchangeAPI {
     fileprivate static let baseURL = "https://crix-api-endpoint.upbit.com/v1/crix/candles/"
     
     static func getTrade(period min: Int, code: String, count: Int) -> Observable<[JSON]> {
@@ -38,9 +38,9 @@ struct UpbitAPI: ExChangeAPI {
         })
     }
     
-    static func getLastPrice() -> Observable<Price> {
+    static func getLastPrice() -> Observable<Price?> {
         return getTrade(period: 1, code: "CRIX.UPBIT.KRW-EOS", count: 1)
-                    .flatMap({ (json) -> Observable<Price> in
+                    .flatMap({ (json) -> Observable<Price?> in
                         if let firstTrade = json.first, let lastPrice = firstTrade.double(for: "tradePrice") {
                             return Observable.just(Price(price: lastPrice, currency: .KRW))
                         } else {
@@ -53,11 +53,43 @@ struct UpbitAPI: ExChangeAPI {
 /*
  {"code":"CRIX.UPBIT.KRW-BTC","candleDateTime":"2018-01-02T12:40:00+00:00","candleDateTimeKst":"2018-01-02T21:40:00+09:00","openingPrice":18980000.00000000,"highPrice":19001000.00000000,"lowPrice":18980000.00000000,"tradePrice":18990000.00000000,"candleAccTradeVolume":18.82140964,"candleAccTradePrice":357374677.90878000,"timestamp":1514896859976,"unit":1}
  */
+struct BithumbAPI: ExchangeAPI {
+    fileprivate static let baseURL = "https://api.bithumb.com/public/ticker/EOS"
+    
+    static func getLastPrice() -> Observable<Price?> {
+        
+        return Observable<Price?>.create({ (observer) -> Disposable in
+            let request = Alamofire.request(baseURL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil)
+                .responseJSON(completionHandler: { (response) in
+                    switch response.result {
+                    case .success(let result):
+                        if let json = result as? JSON,
+                            let closingPriceString = json.json(for: "data")?.string(for: "closing_price"),
+                            let closingPrice = Double(closingPriceString) {
+                            let price = Price(price: closingPrice, currency: .KRW)
+                            observer.onNext(price)
+                            observer.onCompleted()
+                        } else {
+                            observer.onError(NetworkError.emptyData)
+                        }
+                    case  .failure(let error):
+                        observer.onError(error)
+                    }
+                })
+            
+            return Disposables.create {
+                request.cancel()
+            }
+        })
+    }
+/* {"opening_price":"3571","closing_price":"3757","min_price":"3556","max_price":"3771","average_price":"3643.7165","units_traded":"2360993.067185","volume_1day":"2360993.067185","volume_7day":"19911011.04642713","buy_price":"3757","sell_price":"3762","24H_fluctate":"186","24H_fluctate_rate":"5.20","date":"1551789652292"}}
+*/
+}
 
-struct BitfinexAPI: ExChangeAPI {
+struct BitfinexAPI: ExchangeAPI {
     fileprivate static let baseURL = "https://api.bitfinex.com/v2/ticker/tEOSUSD"
     
-    static func getLastPrice() -> Observable<Price> {
+    static func getLastPrice() -> Observable<Price?> {
         
         return Observable<[Any]>.create({ (observer) -> Disposable in
             let request = Alamofire.request(baseURL, method: .get, parameters: nil, encoding: URLEncoding.default, headers: nil)
@@ -76,7 +108,7 @@ struct BitfinexAPI: ExChangeAPI {
                 request.cancel()
             }
         })
-            .flatMap { (result) -> Observable<Price> in
+            .flatMap { (result) -> Observable<Price?> in
                 if result.count == 10, let lastPrice = result[6] as? Double {
                     return Observable.just(Price(price: lastPrice, currency: .USD))
                 } else {
@@ -91,8 +123,8 @@ struct BitfinexAPI: ExChangeAPI {
 //[8.2313,6429.71149195,8.2378,10507.2969548,0.1386,0.0171,8.2386,4556957.72128894,8.2926,7.9085]
 
 
-protocol ExChangeAPI {
-    static func getLastPrice() -> Observable<Price>
+protocol ExchangeAPI {
+    static func getLastPrice() -> Observable<Price?>
 }
 
 struct Price {
