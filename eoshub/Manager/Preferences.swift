@@ -25,11 +25,25 @@ class Preferences {
         }
     }
     
+    var preferCurrency: String {
+        didSet {
+            defaults.set(preferCurrency, forKey: "preferCurrency")
+        }
+    }
+    
     let defaults = UserDefaults(suiteName: "settings")!
     
     init() {
         preferHost = defaults.string(forKey: "preferHost") ?? Config.host
         
         lastRefreshTime = defaults.double(forKey: "lastRefreshTime")
+        
+        if let storedCurrency = defaults.string(forKey: "preferCurrency") {
+            preferCurrency = storedCurrency
+        } else if Locale.current.currencyCode == Price.Currency.KRW.rawValue {
+            preferCurrency = Price.Currency.KRW.rawValue
+        } else {
+            preferCurrency = Price.Currency.USD.rawValue
+        }
     }
 }
