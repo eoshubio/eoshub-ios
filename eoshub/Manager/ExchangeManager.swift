@@ -17,20 +17,29 @@ class ExchangeManager {
     
     fileprivate var api: [Price.Currency: ExchangeAPI.Type] = [:]
     
-    var currency: Price.Currency = .KRW
+    var currency: Price.Currency {
+        didSet {
+            polling()
+        }
+    }
     
     var lastPrice = Variable<Price?>(nil)
     
-    private let bag = DisposeBag()
+    private var bag: DisposeBag?
     
     init() {
         api[.KRW] = BithumbAPI.self
         api[.USD] = BitfinexAPI.self
         
+        currency = Price.Currency(rawValue: Preferences.shared.preferCurrency) ?? .KRW
+        
         polling()
     }
     
     func polling() {
+        self.bag = nil
+        let bag = DisposeBag()
+        self.bag = bag
         let _ = Observable<Int>
             .interval(1, scheduler: pollingScheduler)
             .flatMap({ [unowned self](_) -> Observable<Price?> in
@@ -42,7 +51,9 @@ class ExchangeManager {
                 self.lastPrice.value = price
                 }, onError: { (error) in
                     Log.e(error)
-            } )
+            } ) {
+                Log.e("disposed")
+            }
             .disposed(by: bag)
     }
     
