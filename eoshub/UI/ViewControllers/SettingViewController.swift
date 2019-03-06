@@ -172,6 +172,22 @@ class SettingViewController: FormViewController {
                 
             })
         
+        let currency =  PushRow<String>() {
+            $0.title = "Currency"
+            
+            $0.options = [Price.Currency.USD.rawValue, Price.Currency.KRW.rawValue]
+            $0.value = Preferences.shared.preferCurrency
+            
+            }.cellUpdate { (cell, row) in
+                cell.textLabel?.textColor = Color.darkGray.uiColor
+                cell.height = { 50 }
+            }.onChange({ (row) in
+                guard let currency = row.value, let priceCurrency = Price.Currency(rawValue: currency) else { return }
+                Preferences.shared.preferCurrency = currency
+                ExchangeManager.shared.currency = priceCurrency
+            })
+        
+        
         let consitituion = LabelRow() {
             $0.title = LocalizedString.Common.constitusion
             $0.cellStyle = .default
@@ -186,7 +202,7 @@ class SettingViewController: FormViewController {
                 self?.flowDelegate?.goToWebView(from: nc, with: url, title: LocalizedString.Common.constitusion)
             })
         
-        section += [host, consitituion]
+        section += [host, currency, consitituion]
         
         return section
     }

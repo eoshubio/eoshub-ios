@@ -49,7 +49,7 @@ class WalletFlowController: FlowController, WalletFlowEventDelegate {
     func goToCreate(from nc: UINavigationController) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .modal)
         let fc = CreateFlowController(configure: config)
-        fc.configure(items: [.create, .privateKey, .publicKey, .restore])
+        fc.configure(items: [.privateKey, .publicKey, .restore])
         fc.start(animated: true)
     }
     
