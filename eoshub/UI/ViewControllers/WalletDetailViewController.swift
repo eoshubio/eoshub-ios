@@ -136,8 +136,9 @@ class WalletDetailViewController: BaseViewController {
         
         AccountManager.shared.accountInfoRefreshed
             .subscribe(onNext: { [weak self](_) in
-                guard let account = self?.accountInfo else { return }
-                self?.updateAccount(with: account)
+                guard let `self` = self, let info = AccountManager.shared.queryAccountInfo(by: self.accountInfo.account) else { return }
+                self.configure(viewModel: info)
+                self.updateAccount(with: info)
             })
             .disposed(by: bag)
         

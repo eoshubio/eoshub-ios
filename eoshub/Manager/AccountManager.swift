@@ -151,4 +151,8 @@ class AccountManager {
             }
     }
     
+    
+    func queryAccountInfo(by accountName: String) -> AccountInfo? {
+        return infos.first(where: { $0.account == accountName })
+    }
 }
