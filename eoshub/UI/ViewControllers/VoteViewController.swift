@@ -80,9 +80,9 @@ class VoteViewController: BaseViewController {
         
         AccountManager.shared.accountInfoRefreshed
             .subscribe(onNext: { [weak self](_) in
-                if let selectedAccount = self?.selectedAccount {
-                    self?.layoutVoterInfo(account: selectedAccount)
-                }
+                guard let `self` = self, let info = AccountManager.shared.queryAccountInfo(by: self.selectedAccount.account) else { return }
+                self.configure(account: info)
+                self.layoutVoterInfo(account: info)
             })
             .disposed(by: bag)
 

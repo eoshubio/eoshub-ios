@@ -46,12 +46,19 @@ class AccountDetailViewController: BaseTableViewController {
     }
     
     private func bindActions() {
-        
+        AccountManager.shared.accountInfoRefreshed
+            .subscribe(onNext: { [weak self](_) in
+                guard let `self` = self, let info = AccountManager.shared.queryAccountInfo(by: self.account.account) else { return }
+                self.configure(account: info)
+                self.tableView.reloadData()
+            })
+            .disposed(by: bag)
     }
     
     func configure(account: AccountInfo) {
         self.account = account
         
+        items = [.accountInfo, .resources]
         if account.ownerMode {
             items.append(contentsOf: [.tokens, .permissions, .vote, .tx, .delete])
             

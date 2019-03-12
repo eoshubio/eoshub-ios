@@ -94,8 +94,10 @@ class KeypairViewController: BaseTableViewController {
         
         AccountManager.shared.accountInfoRefreshed
             .bind { [weak self] in
-                self?.loadData()
-                self?.tableView.reloadData()
+                guard let `self` = self, let info = AccountManager.shared.queryAccountInfo(by: self.account.account) else { return }
+                self.configure(account: info)
+                self.loadData()
+                self.tableView.reloadData()
             }
             .disposed(by: bag)
     }
