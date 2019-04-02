@@ -118,11 +118,12 @@ extension Contract {
     }
     
     static func updateauth(account: String, permission: Permission, auth: Authority, authorization: Authorization) -> Contract {
+        let parent = permission == Permission.owner ? "" : Permission.owner.value
         let contract = Contract(code: "eosio",
                                 action: Action.updateauth,
                                 args: [Args.updateauth.account: account,
                                        Args.updateauth.permission: permission.value,
-                                       Args.updateauth.parent: Permission.owner.value,
+                                       Args.updateauth.parent: parent,
                                        Args.updateauth.auth: auth.json],
                                 authorization: authorization)
         
