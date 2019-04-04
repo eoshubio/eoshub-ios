@@ -48,7 +48,9 @@ class AccountDetailViewController: BaseTableViewController {
     private func bindActions() {
         AccountManager.shared.accountInfoRefreshed
             .subscribe(onNext: { [weak self](_) in
-                guard let `self` = self, let info = AccountManager.shared.queryAccountInfo(by: self.account.account) else { return }
+                guard let `self` = self else { return }
+                if self.account.isInvalidated { return }
+                guard let info = AccountManager.shared.queryAccountInfo(by: self.account.account) else { return }
                 self.configure(account: info)
                 self.tableView.reloadData()
             })
@@ -60,14 +62,14 @@ class AccountDetailViewController: BaseTableViewController {
         
         items = [.accountInfo, .resources]
         if account.ownerMode {
-            items.append(contentsOf: [.tokens, .permissions, .vote, .tx, .delete])
+            items.append(contentsOf: [.permissions, .tokens, .vote, .tx, .delete])
             
             if account.account != "forthehorde2" {
                 items.append(.donation)
             }
             
         } else {
-            items.append(contentsOf: [.tokens, .permissions, .tx, .delete])
+            items.append(contentsOf: [.permissions, .tokens, .tx, .delete])
         }
         
     }
@@ -75,10 +77,8 @@ class AccountDetailViewController: BaseTableViewController {
     fileprivate func deleteWallet() {
         DB.shared.deleteAccount(account: account, userId: UserManager.shared.userId)
         
-        AccountManager.shared.refreshUI()
-        
         flowDelegate?.finish(viewControllerToFinish: self, animated: true, completion: {
-            
+            AccountManager.shared.refreshUI()
         })
         
     }

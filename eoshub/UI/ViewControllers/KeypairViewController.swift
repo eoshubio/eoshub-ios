@@ -123,11 +123,12 @@ extension KeypairViewController {
     
     override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
         let headerView = view as? KeyHeader
+        let editable = items[0].filter({ $0.stored }).count > 0
         switch section {
         case 0:
-            headerView?.configure(permission: .owner, observer: rx_onOwnerKey.asObserver())
+            headerView?.configure(permission: .owner, editable: editable, observer: rx_onOwnerKey.asObserver())
         case 1:
-            headerView?.configure(permission: .active, observer: rx_onActiveKey.asObserver())
+            headerView?.configure(permission: .active, editable: editable, observer: rx_onActiveKey.asObserver())
         default:
             break
         }
@@ -332,7 +333,7 @@ class KeyHeader: UITableViewHeaderFooterView {
         lbEdit.text = LocalizedString.Common.edit
     }
     
-    func configure(permission: Permission, observer: AnyObserver<Void>) {
+    func configure(permission: Permission, editable: Bool, observer: AnyObserver<Void>) {
         let bag = DisposeBag()
         self.bag = bag
         
@@ -344,7 +345,7 @@ class KeyHeader: UITableViewHeaderFooterView {
             lbTitle.text = "Unknown key"
         }
         
-        btnHeader.isEnabled = (permission == .active)
+        btnHeader.isEnabled = editable
         btnAdd.isHidden = !btnHeader.isEnabled
         lbEdit.isHidden = !btnHeader.isEnabled
         
