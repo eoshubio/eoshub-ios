@@ -41,14 +41,7 @@ class KeypairDetailViewController: BaseTableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showNavigationBar(with: .basePurple, animated: animated, largeTitle: true)
-        switch permission! {
-        case .owner:
-            title = "Onwer Keys"
-        case .active:
-            title = "Active Keys"
-        default:
-            break
-        }
+        title = permission.value.capitalized + " keys"
         
         btnApplyItem = UIBarButtonItem(title: LocalizedString.Common.apply, style: .done, target: self, action: #selector(self.applyUpdateAuth))
         btnApplyItem?.isEnabled = false

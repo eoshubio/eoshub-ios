@@ -337,7 +337,7 @@ class KeyHeader: UITableViewHeaderFooterView {
         let bag = DisposeBag()
         self.bag = bag
         
-        lbTitle.text = permission.value.capitalized
+        lbTitle.text = permission.value.capitalized + " keys"
         
         btnHeader.isEnabled = editable
         btnAdd.isHidden = !btnHeader.isEnabled
