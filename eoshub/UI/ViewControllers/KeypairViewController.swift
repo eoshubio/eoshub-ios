@@ -337,13 +337,7 @@ class KeyHeader: UITableViewHeaderFooterView {
         let bag = DisposeBag()
         self.bag = bag
         
-        if permission == .owner {
-            lbTitle.text = "Onwer key"
-        } else if permission == .active {
-            lbTitle.text = "Active key"
-        } else {
-            lbTitle.text = "Unknown key"
-        }
+        lbTitle.text = permission.value.capitalized + " keys"
         
         btnHeader.isEnabled = editable
         btnAdd.isHidden = !btnHeader.isEnabled

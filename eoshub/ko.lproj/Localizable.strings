@@ -246,7 +246,7 @@
 "common.cancel" = "취소하기";
 "common.share" = "공유하기";
 "common.done" = "완료";
-"common.edit" = "편집";
+"common.edit" = "변경";
 "common.cancelShort" = "취소";
 "common.ok" = "확인";
 "common.confirmShort" = "승인";
