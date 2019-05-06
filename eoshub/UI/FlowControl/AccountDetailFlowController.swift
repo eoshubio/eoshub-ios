@@ -82,7 +82,7 @@ class AccountDetailFlowController: FlowController, AccountDetailFlowEventDelegat
     func goToRex(from nc: UINavigationController) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = RexFlowController(configure: config)
-//        fc.configure(account: account)
+        fc.configure(account: account)
         fc.start(animated: true)
     }
 }

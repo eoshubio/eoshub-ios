@@ -175,6 +175,13 @@
 		2CA0E70922801AA700645998 /* RexBorrowFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0E70822801AA700645998 /* RexBorrowFlowController.swift */; };
 		2CA0E70B22801C4900645998 /* RexFundCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA0E70A22801C4900645998 /* RexFundCell.xib */; };
 		2CA0E70D2280209600645998 /* RexFundCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0E70C2280209600645998 /* RexFundCell.swift */; };
+		2CA0E70F22803BBA00645998 /* RexManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0E70E22803BBA00645998 /* RexManager.swift */; };
+		2CA0E71122803C1500645998 /* RexModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0E71022803C1500645998 /* RexModel.swift */; };
+		2CA0E7132280401A00645998 /* RexBalanceCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA0E7122280401A00645998 /* RexBalanceCell.xib */; };
+		2CA0E7152280404C00645998 /* RexBalanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0E7142280404C00645998 /* RexBalanceCell.swift */; };
+		2CA0E71B2280627900645998 /* DepositPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2CA0E71A2280627900645998 /* DepositPopup.xib */; };
+		2CA0E71D228065B000645998 /* CustomPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0E71C228065B000645998 /* CustomPopup.swift */; };
+		2CA0E71F2280663A00645998 /* DepositPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA0E71E2280663A00645998 /* DepositPopup.swift */; };
 		2CA5D1862109FA08006C928B /* TokenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D1852109FA08006C928B /* TokenViewController.swift */; };
 		2CA5D1882109FAD5006C928B /* TokenAddFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */; };
 		2CA5D18A210A22B2006C928B /* EOSHubAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CA5D189210A22B2006C928B /* EOSHubAPI.swift */; };
@@ -471,6 +478,13 @@
 		2CA0E70822801AA700645998 /* RexBorrowFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RexBorrowFlowController.swift; sourceTree = "<group>"; };
 		2CA0E70A22801C4900645998 /* RexFundCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RexFundCell.xib; sourceTree = "<group>"; };
 		2CA0E70C2280209600645998 /* RexFundCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RexFundCell.swift; sourceTree = "<group>"; };
+		2CA0E70E22803BBA00645998 /* RexManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RexManager.swift; sourceTree = "<group>"; };
+		2CA0E71022803C1500645998 /* RexModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RexModel.swift; sourceTree = "<group>"; };
+		2CA0E7122280401A00645998 /* RexBalanceCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RexBalanceCell.xib; sourceTree = "<group>"; };
+		2CA0E7142280404C00645998 /* RexBalanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RexBalanceCell.swift; sourceTree = "<group>"; };
+		2CA0E71A2280627900645998 /* DepositPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DepositPopup.xib; sourceTree = "<group>"; };
+		2CA0E71C228065B000645998 /* CustomPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPopup.swift; sourceTree = "<group>"; };
+		2CA0E71E2280663A00645998 /* DepositPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositPopup.swift; sourceTree = "<group>"; };
 		2CA5D1852109FA08006C928B /* TokenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenViewController.swift; sourceTree = "<group>"; };
 		2CA5D1872109FAD5006C928B /* TokenAddFlowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenAddFlowController.swift; sourceTree = "<group>"; };
 		2CA5D189210A22B2006C928B /* EOSHubAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSHubAPI.swift; sourceTree = "<group>"; };
@@ -865,6 +879,7 @@
 				2CB6B7FC2104DBAD0048601A /* ExchangeManager.swift */,
 				2C31F7F5210612CE0025D18A /* Preferences.swift */,
 				2CDF5918210CDF3F003D866C /* UserManager.swift */,
+				2CA0E70E22803BBA00645998 /* RexManager.swift */,
 				2C82120121305C24009A11D5 /* EHAnalytics.swift */,
 			);
 			path = Manager;
@@ -985,6 +1000,9 @@
 				2CBD93CD2132B4FF00A15681 /* DonationCell.xib */,
 				2C1E3E9620FE18000009D2AF /* Popup.swift */,
 				2C1E3E9820FE18960009D2AF /* Popup.xib */,
+				2CA0E71C228065B000645998 /* CustomPopup.swift */,
+				2CA0E71E2280663A00645998 /* DepositPopup.swift */,
+				2CA0E71A2280627900645998 /* DepositPopup.xib */,
 				2CA5D18D210B5B58006C928B /* TokenAddPopup.swift */,
 				2CA5D18B210B5B4E006C928B /* TokenAddPopup.xib */,
 				2C3B17B020FD023000E6BAAD /* TransferPopup.swift */,
@@ -1011,6 +1029,8 @@
 				2C1CC7742149465E0020115A /* KeyHeader.xib */,
 				2CA0E70C2280209600645998 /* RexFundCell.swift */,
 				2CA0E70A22801C4900645998 /* RexFundCell.xib */,
+				2CA0E7142280404C00645998 /* RexBalanceCell.swift */,
+				2CA0E7122280401A00645998 /* RexBalanceCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -1032,6 +1052,7 @@
 				2C99E4A9211FFAC600DB55A6 /* TxMemo.swift */,
 				2CBAAC632121D825006A423E /* Airdrop.swift */,
 				2C3A5D6B214E34B00045D174 /* StoredKey.swift */,
+				2CA0E71022803C1500645998 /* RexModel.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1212,6 +1233,7 @@
 				2CE1113C20F27C1E00B93BEB /* WalletCell.xib in Resources */,
 				2CEC2D4820F647A500AF5E9B /* Wallet.storyboard in Resources */,
 				2CBAAC6B2121E4C4006A423E /* banner_ono.png in Resources */,
+				2CA0E7132280401A00645998 /* RexBalanceCell.xib in Resources */,
 				2C1E3E9920FE18960009D2AF /* Popup.xib in Resources */,
 				2CA5D199210C53D6006C928B /* LicenseDescriptions.json in Resources */,
 				2CE110DB20F1C8AC00B93BEB /* Images.xcassets in Resources */,
@@ -1225,6 +1247,7 @@
 				2CA0E6FD228019CA00645998 /* Rex.storyboard in Resources */,
 				2C1CC7752149465E0020115A /* KeyHeader.xib in Resources */,
 				2CEC2D4420F63BFF00AF5E9B /* WalletGuideCell.xib in Resources */,
+				2CA0E71B2280627900645998 /* DepositPopup.xib in Resources */,
 				2C1E3E9B20FE2BF50009D2AF /* DelegatePopup.xib in Resources */,
 				2C2ACFE120F4758900C637D8 /* Auth.storyboard in Resources */,
 				2C2ACFC120F3AEED00C637D8 /* TestCell.xib in Resources */,
@@ -1491,11 +1514,13 @@
 				2C279B9320F8C30700D2F6C4 /* PackedTransaction.swift in Sources */,
 				2C1E3E9720FE18000009D2AF /* Popup.swift in Sources */,
 				2C7426B421169DFF00F8A85E /* AuthError.swift in Sources */,
+				2CA0E71F2280663A00645998 /* DepositPopup.swift in Sources */,
 				2C770C9B20FB7CBD007F71C4 /* DelegateFlowController.swift in Sources */,
 				2CA5D1882109FAD5006C928B /* TokenAddFlowController.swift in Sources */,
 				2CEC2D4620F6423000AF5E9B /* AccountManager.swift in Sources */,
 				2C770C9320FB30AD007F71C4 /* Symbol.swift in Sources */,
 				2C63FE9A2118AEA70036652B /* WalletLockedCell.swift in Sources */,
+				2CA0E7152280404C00645998 /* RexBalanceCell.swift in Sources */,
 				2CA0E70322801A2000645998 /* RexBorrowViewController.swift in Sources */,
 				2CE110F120F1D65400B93BEB /* Color.swift in Sources */,
 				2CE1110420F1F30200B93BEB /* SettingViewController.swift in Sources */,
@@ -1563,6 +1588,7 @@
 				2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */,
 				2C279C0320FA0E3000D2F6C4 /* RealmString.swift in Sources */,
 				2C2ACFE720F47CA200C637D8 /* CreatePinFlowController.swift in Sources */,
+				2CA0E71D228065B000645998 /* CustomPopup.swift in Sources */,
 				2CE1113820F26DF000B93BEB /* RoundedView.swift in Sources */,
 				2CE1112E20F2680100B93BEB /* VoteFlowController.swift in Sources */,
 				2C3A5D6E214E70F00045D174 /* RestoreAccountViewController.swift in Sources */,
@@ -1587,6 +1613,7 @@
 				2C279BF420F8F86500D2F6C4 /* DebugLog.swift in Sources */,
 				2C279BA420F8C3CB00D2F6C4 /* sha3.c in Sources */,
 				2C821200212FE5B1009A11D5 /* Sha256.swift in Sources */,
+				2CA0E70F22803BBA00645998 /* RexManager.swift in Sources */,
 				2C2ACFF720F49F5100C637D8 /* FaceIdInputView.swift in Sources */,
 				2C279BD320F8C5A300D2F6C4 /* Contract.swift in Sources */,
 				2CB6B7EF210483560048601A /* TransactionForm.swift in Sources */,
@@ -1598,6 +1625,7 @@
 				2CB6B7ED210391A40048601A /* AccountTextField.swift in Sources */,
 				2C279BC320F8C58100D2F6C4 /* EOSAPI.swift in Sources */,
 				2C279BF020F8E90100D2F6C4 /* Security.swift in Sources */,
+				2CA0E71122803C1500645998 /* RexModel.swift in Sources */,
 				2C7426B82116B07000F8A85E /* ForgetViewController.swift in Sources */,
 				2CA0E6FF22801A0A00645998 /* RexViewController.swift in Sources */,
 				2C5160FE212AEE6B0005EDD7 /* KeypairFlowController.swift in Sources */,

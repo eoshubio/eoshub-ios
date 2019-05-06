@@ -347,6 +347,71 @@ extension RxEOSAPI {
             
     }
     
+    //MARK: REX
+    static func getRexFund(account: String) -> Observable<RexFund> {
+        let params: JSON = ["json": true,
+                            "code": "eosio",
+                            "scope": "eosio",
+                            "table": "rexfund",
+                            "table_key": "",
+                            "lower_bound": account,
+                            "upper_bound": account,
+                            "limit": 10
+        ]
+        return EOSAPI.Chain.get_table_rows
+                .responseJSON(method: .post, parameter: params, encoding: JSONEncoding.default)
+            .flatMap({ (json) -> Observable<RexFund> in
+                guard let data = json.arrayJson(for: "rows")?.first, let rexfund = RexFund(json: data) else { return Observable.just(RexFund(account: account)) }
+                return Observable.just(rexfund)
+            })
+    }
     
+
+    static func getRexBalance(account: String) -> Observable<RexBalance> {
+        let params: JSON = ["json": true,
+                            "code": "eosio",
+                            "scope": "eosio",
+                            "table": "rexbal",
+                            "table_key": "",
+                            "lower_bound": account,
+                            "upper_bound": account,
+                            "limit": 10
+        ]
+        return EOSAPI.Chain.get_table_rows
+            .responseJSON(method: .post, parameter: params, encoding: JSONEncoding.default)
+            .flatMap({ (json) -> Observable<RexBalance> in
+                guard let data = json.arrayJson(for: "rows")?.first, let rexBalance = RexBalance(json: data) else { return Observable.just(RexBalance(account: account)) }
+                return Observable.just(rexBalance)
+            })
+    }
+    
+    static func getRexInfo(account: String) -> Observable<RexInfo> {
+        return getRexFund(account: account)
+            .flatMap({ (fund) -> Observable<RexInfo> in
+                return getRexBalance(account: account)
+                    .flatMap({ (balance) -> Observable<RexInfo> in
+                        let info = RexInfo(fund: fund, balance: balance)
+                        return Observable.just(info)
+                    })
+            })
+    }
+    
+    //MARK: REX
+    
+    /// deposit
+    static func depositToRex(owner: String, wallet: Wallet, authorization: Authorization) -> (Currency) -> Observable<JSON> {
+        return { (amount) in
+            let contract = Contract.deposit(owner: owner, amount: amount, authorization: authorization)
+            return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+        }
+    }
+    
+    /// withdraw
+    static func withdrawFromRex(owner: String, wallet: Wallet, authorization: Authorization) -> (Currency) -> Observable<JSON> {
+        return { (amount) in
+            let contract = Contract.withdraw(owner: owner, amount: amount, authorization: authorization)
+            return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+        }
+    }
 }
 

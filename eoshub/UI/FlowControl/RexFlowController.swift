@@ -13,8 +13,14 @@ class RexFlowController: FlowController, RexFlowEventDelegate {
     
     var id: FlowIdentifier { return .rex }
     
+    fileprivate var account: AccountInfo!
+    
     required init(configure: FlowConfigure) {
         self.configure = configure
+    }
+    
+    func configure(account: AccountInfo) {
+        self.account = account
     }
     
     func show(animated: Bool) {
@@ -22,6 +28,7 @@ class RexFlowController: FlowController, RexFlowEventDelegate {
         EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: RexViewController.self)
         guard let vc = UIStoryboard(name: "Rex", bundle: nil).instantiateViewController(withIdentifier: "RexViewController") as? RexViewController else { preconditionFailure() }
         vc.flowDelegate = self
+        vc.configure(account: account)
         show(viewController: vc, animated: animated) {
             
         }
