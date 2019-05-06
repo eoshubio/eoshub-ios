@@ -29,9 +29,9 @@ class TxViewController: BaseTableViewController {
         bindActions()
     }
     
-    func configure(account: String, actions: [String]?, filter: Symbol?) {
+    func configure(account: String, actions: [Contract.Action]?, filter: Symbol?) {
         self.account = account
-        self.actions = actions
+        self.actions = actions?.map { $0.name.value }
         self.filter = filter
     }
     
@@ -153,17 +153,17 @@ class TxCell: UITableViewCell {
                 }
             }
             .disposed(by: bag)
-        
-        switch tx.action {
-        case Contract.Action.transfer:
+        guard let action = Contract.Action(rawValue: tx.action) else { return }
+        switch action {
+        case .transfer:
             fillTansferData(with: tx.data, myaccount: myaccount, contract: tx.contract)
-        case Contract.Action.buyram:
+        case .buyram:
             fillBuyRamData(with: tx.data, myaccount: myaccount)
-        case Contract.Action.sellram:
+        case .sellram:
             fillSellRamData(with: tx.data, myaccount: myaccount)
-        case Contract.Action.delegatebw:
+        case .delegatebw:
             fillDelegateBWData(with: tx.data, myaccount: myaccount)
-        case Contract.Action.undelegatebw:
+        case .undelegatebw:
             fillUndelegateBWData(with: tx.data, myaccount: myaccount)
         default:
             fillCustomData(with: tx, myaccount: myaccount)

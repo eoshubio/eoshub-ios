@@ -31,13 +31,13 @@ extension Contract {
                           Args.newaccount.name: name,
                           Args.newaccount.owner: owner.json,
                           Args.newaccount.active: active.json ]
-        let contract = Contract(code: "eosio", action: Action.newaccount, args: agrs, authorization: authorization)
+        let contract = Contract(code: "eosio", action: Action.newaccount.name.value, args: agrs, authorization: authorization)
         return contract
     }
     
     static func transfer(code: String = "eosio.token", from: String, to: String, quantity: Currency, memo: String = "", authorization: Authorization) -> Contract {
         let contract = Contract(code: code,
-                                action: Action.transfer,
+                                action: Action.transfer.name.value,
                                 args: [Args.transfer.from: from,
                                        Args.transfer.to: to,
                                        Args.transfer.quantity: quantity.stringValue,
@@ -48,7 +48,7 @@ extension Contract {
     
     static func buyram(payer: String, receiver: String, quant: Currency, authorization: Authorization) -> Contract {
         let contract = Contract(code: "eosio",
-                                action: Action.buyram,
+                                action: Action.buyram.name.value,
                                 args: [Args.buyram.payer: payer,
                                        Args.buyram.receiver: receiver,
                                        Args.buyram.quant: quant.stringValue],
@@ -58,7 +58,7 @@ extension Contract {
     
     static func sellram(account: String, bytes: Int64, authorization: Authorization) -> Contract {
         let contract = Contract(code: "eosio",
-                                action: Action.sellram,
+                                action: Action.sellram.name.value,
                                 args: [Args.sellram.account: account,
                                        Args.sellram.bytes: bytes],
                                 authorization: authorization)
@@ -69,7 +69,7 @@ extension Contract {
     
     static func buyramBytes(payer: String/*eoshub*/, receiver: String, bytes: Int64, authorization: Authorization) -> Contract {
         let contract = Contract(code: "eosio",
-                                action: Action.buyrambytes,
+                                action: Action.buyrambytes.name.value,
                                 args: [Args.buyrambytes.payer: payer,
                                        Args.buyrambytes.receiver: receiver,
                                        Args.buyrambytes.bytes: bytes],
@@ -79,7 +79,7 @@ extension Contract {
     
     static func delegateBW(from: String, receiver: String, cpu: Currency, net: Currency, authorization: Authorization) -> Contract {
         let contract = Contract(code: "eosio",
-                                action: Action.delegatebw,
+                                action: Action.delegatebw.name.value,
                                 args: [Args.delegatebw.from: from,
                                        Args.delegatebw.receiver: receiver,
                                        Args.delegatebw.stake_cpu_quantity: cpu.stringValue,
@@ -91,7 +91,7 @@ extension Contract {
     
     static func undelegateBW(from: String, receiver: String, cpu: Currency, net: Currency, authorization: Authorization) -> Contract {
         let contract = Contract(code: "eosio",
-                                action: Action.undelegatebw,
+                                action: Action.undelegatebw.name.value,
                                 args: [Args.undelegatebw.from: from,
                                        Args.undelegatebw.receiver: receiver,
                                        Args.undelegatebw.unstake_cpu_quantity: cpu.stringValue,
@@ -102,7 +102,7 @@ extension Contract {
     
     static func voteProducer(voter: String, producers: [String], authorization: Authorization) -> Contract {
         let contract = Contract(code: "eosio",
-                                action: Action.voteproducer,
+                                action: Action.voteproducer.name.value,
                                 args: [Args.voteproducer.voter: voter,
                                        Args.voteproducer.proxy: "",
                                        Args.voteproducer.producers: producers],
@@ -112,7 +112,7 @@ extension Contract {
     
     static func refund(owner: String, authorization: Authorization) -> Contract {
         let contract = Contract(code: "eosio",
-                                action: Action.refund, args: [Args.refund.owner: owner],
+                                action: Action.refund.name.value, args: [Args.refund.owner: owner],
                                 authorization: authorization)
         return contract
     }
@@ -120,7 +120,7 @@ extension Contract {
     static func updateauth(account: String, permission: Permission, auth: Authority, authorization: Authorization) -> Contract {
         let parent = permission == Permission.owner ? "" : Permission.owner.value
         let contract = Contract(code: "eosio",
-                                action: Action.updateauth,
+                                action: Action.updateauth.name.value,
                                 args: [Args.updateauth.account: account,
                                        Args.updateauth.permission: permission.value,
                                        Args.updateauth.parent: parent,
@@ -132,17 +132,23 @@ extension Contract {
 }
 
 extension Contract {
-    struct Action {
-        static let newaccount = "newaccount"
-        static let transfer = "transfer"
-        static let buyram = "buyram"
-        static let sellram = "sellram"
-        static let delegatebw = "delegatebw"
-        static let undelegatebw = "undelegatebw"
-        static let voteproducer = "voteproducer"
-        static let buyrambytes = "buyrambytes"
-        static let refund = "refund"
-        static let updateauth = "updateauth"
+    enum Action: String {
+        case newaccount
+        case transfer
+        case buyram
+        case sellram
+        case delegatebw
+        case undelegatebw
+        case voteproducer
+        case buyrambytes
+        case refund
+        case updateauth
+        
+        var name: EOSName {
+            return EOSName(rawValue)
+        }
     }
+    
+  
 }
 
