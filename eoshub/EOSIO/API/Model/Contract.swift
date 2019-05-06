@@ -129,6 +129,85 @@ extension Contract {
         
         return contract
     }
+    
+    //Rex
+    
+    
+    /// Deposit into owner's REX fund by transfering from owner's liquid token balance
+    static func deposit(owner: String, amount: Currency, authorization: Authorization) -> Contract {
+        let contract = Contract(code: "eosio",
+                                action: .deposit,
+                                args: [Args.deposit.owner: owner,
+                                       Args.deposit.amount: amount.stringValue],
+                                authorization: authorization)
+        return contract
+    }
+    
+    /// Withdraw from owner's REX fund by transfering to owner's liquid token balance
+    static func withdraw(owner: String, amount: Currency, authorization: Authorization) -> Contract {
+        let contract = Contract(code: "eosio",
+                                action: .withdraw,
+                                args: [Args.withdraw.owner: owner,
+                                       Args.withdraw.amount: amount.stringValue],
+                                authorization: authorization)
+        return contract
+    }
+    
+    /// Buy REX using tokens in owner's REX fund
+    static func buyrex(from: String, amount: Currency, authorization: Authorization) -> Contract {
+        let contract = Contract(code: "eosio",
+                                action: .buyrex,
+                                args: [Args.buyrex.from: from,
+                                       Args.buyrex.amount: amount.stringValue],
+                                authorization: authorization)
+        return contract
+    }
+    
+    /// Sell REX tokens
+    static func sellrex(from: String, amount: Currency, authorization: Authorization) -> Contract {
+        let contract = Contract(code: "eosio",
+                                action: .sellrex,
+                                args: [Args.sellrex.from: from,
+                                       Args.sellrex.amount: amount.stringValue],
+                                authorization: authorization)
+        return contract
+    }
+    
+    /// Buy REX using staked tokens
+    static func unstaketorex(from: String, receiver: String, from_cpu: Currency, from_net: Currency, authorization: Authorization) -> Contract {
+        let contract = Contract(code: "eosio",
+                                action: .unstaketorex,
+                                args: [Args.unstaketorex.from: from,
+                                       Args.unstaketorex.receiver: receiver,
+                                       Args.unstaketorex.from_cpu: from_cpu.stringValue,
+                                       Args.unstaketorex.from_net: from_net.stringValue],
+                                authorization: authorization)
+        return contract
+    }
+    
+    /// Rent CPU bandwidth for 30 days
+    static func rentcpu(from: String, receiver: String, loan_payment: Currency, loan_fund: Currency, authorization: Authorization) -> Contract {
+        let contract = Contract(code: "eosio",
+                                action: .rentcpu,
+                                args: [Args.rentcpu.from: from,
+                                       Args.rentcpu.receiver: receiver,
+                                       Args.rentcpu.loan_payment: loan_payment.stringValue,
+                                       Args.rentcpu.loan_fund: loan_fund.stringValue],
+                                authorization: authorization)
+        return contract
+    }
+    
+    /// Rent Network bandwidth for 30 days
+    static func rentnet(from: String, receiver: String, loan_payment: Currency, loan_fund: Currency, authorization: Authorization) -> Contract {
+        let contract = Contract(code: "eosio",
+                                action: .rentnet,
+                                args: [Args.rentnet.from: from,
+                                       Args.rentnet.receiver: receiver,
+                                       Args.rentnet.loan_payment: loan_payment.stringValue,
+                                       Args.rentnet.loan_fund: loan_fund.stringValue],
+                                authorization: authorization)
+        return contract
+    }
 }
 
 extension Contract {
@@ -143,6 +222,26 @@ extension Contract {
         case buyrambytes
         case refund
         case updateauth
+        //rex
+        case deposit // - Deposit into owner's REX fund by transfering from owner's liquid token balance
+        case withdraw // - Withdraw from owner's REX fund by transfering to owner's liquid token balance
+        case buyrex // - Buy REX using tokens in owner's REX fund
+        case lendrex // - Deposit tokens to REX fund and use the tokens to buy REX
+        case unstaketorex // - Buy REX using staked tokens
+        case sellrex // - Sell REX tokens
+        case cancelrexorder // - Cancel queued REX sell order if one exists
+        case mvtosavings // - Move REX tokens to savings bucket
+        case mvfromsavings // - Move REX tokens out of savings bucket
+        case rentcpu // - Rent CPU bandwidth for 30 days
+        case rentnet // - Rent Network bandwidth for 30 days
+        case fundcpuloan // - Deposit into a CPU loan fund
+        case fundnetloan // - Deposit into a Network loan fund
+        case defundcpuloan // - Withdraw from a CPU loan fund
+        case defundnetloan // - Withdraw from a Network loan fund
+        case consolidate // - Consolidate REX maturity buckets into one that matures in 4 days
+        case updaterex // - Update REX owner vote stake and vote weight
+        case rexexec // - Perform REX maintenance by processing expired loans andunfilledll orders
+        case closerex // - Delete unused REX-related user table entries
         
         var name: EOSName {
             return EOSName(rawValue)
