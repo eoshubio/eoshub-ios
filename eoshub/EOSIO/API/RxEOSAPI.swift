@@ -164,7 +164,7 @@ struct RxEOSAPI {
     static func makeAction(contract: Contract) -> Observable<Action> {
         return RxEOSAPI.jsonToBin(json: contract.json)
             .flatMap { (binary) -> Observable<Action> in
-                let action = Action(account: contract.code, action: contract.action, authorization: contract.authorization, binary: binary.bin)
+                let action = Action(account: contract.code, action: contract.action.name.value, authorization: contract.authorization, binary: binary.bin)
                 return Observable.just(action)
             }
     }
