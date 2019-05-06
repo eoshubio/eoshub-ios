@@ -78,6 +78,13 @@ class AccountDetailFlowController: FlowController, AccountDetailFlowEventDelegat
         fc.configure(account: account)
         fc.start(animated: true)
     }
+    
+    func goToRex(from nc: UINavigationController) {
+        let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
+        let fc = RexFlowController(configure: config)
+//        fc.configure(account: account)
+        fc.start(animated: true)
+    }
 }
 
 
@@ -88,4 +95,5 @@ protocol AccountDetailFlowEventDelegate: FlowEventDelegate {
     func goToTx(from nc: UINavigationController)
     func goToToken(from nc: UINavigationController)
     func goToDonate(from nc: UINavigationController)
+    func goToRex(from nc: UINavigationController)
 }
