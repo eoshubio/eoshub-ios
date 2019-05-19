@@ -76,8 +76,11 @@ extension EOSResponseError: PrettyPrintedPopup {
     
     func showErrorPopup() {
         let title = name.capitalized.replacingOccurrences(of: "_", with: " ")
-        
-        Popup.present(style: .failed, titleString: title, description: what)
+        if let detail = stack.first?.message {
+            Popup.present(style: .failed, titleString: title, description: detail)
+        } else {
+            Popup.present(style: .failed, titleString: title, description: what)
+        }
     }
     
     var isUnknownKey: Bool {

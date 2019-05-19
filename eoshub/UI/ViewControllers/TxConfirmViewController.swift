@@ -14,7 +14,7 @@ class TxConfirmViewController: BaseTableViewController {
     var contract: Contract! {
         didSet {
             items.removeAll()
-            let action = contract.action + "@" + contract.code
+            let action = contract.action.name.value + "@" + contract.code
             items.append(.action(action))
             let args = contract.args.map { (argument) -> CellType in
                 let value = argument.value as? String ?? "\(argument.value)"

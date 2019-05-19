@@ -94,6 +94,14 @@ extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
         return value
     }
     
+    func uint64(for key: Key) -> UInt64? {
+        let value: UInt64? = parseValue(for: key)
+        if let stringValue = string(for: key) {
+            return UInt64(stringValue)
+        }
+        return value
+    }
+    
     func float(for key: Key) -> Float? {
         let value: Float? = parseValue(for: key)
         if let stringValue = string(for: key) {

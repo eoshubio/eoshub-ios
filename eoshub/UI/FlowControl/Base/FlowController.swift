@@ -55,6 +55,9 @@ enum FlowIdentifier: String {
     case license
     case addToken
     case txConfirm
+    case rex
+    case rexLend
+    case rexBorrow
     
     case pop
     case dismiss

@@ -164,7 +164,7 @@ struct RxEOSAPI {
     static func makeAction(contract: Contract) -> Observable<Action> {
         return RxEOSAPI.jsonToBin(json: contract.json)
             .flatMap { (binary) -> Observable<Action> in
-                let action = Action(account: contract.code, action: contract.action, authorization: contract.authorization, binary: binary.bin)
+                let action = Action(account: contract.code, action: contract.action.name.value, authorization: contract.authorization, binary: binary.bin)
                 return Observable.just(action)
             }
     }
@@ -347,6 +347,116 @@ extension RxEOSAPI {
             
     }
     
+    //MARK: REX
+    static func getRexFund(account: String) -> Observable<RexFund> {
+        let params: JSON = ["json": true,
+                            "code": "eosio",
+                            "scope": "eosio",
+                            "table": "rexfund",
+                            "table_key": "",
+                            "lower_bound": account,
+                            "upper_bound": account,
+                            "limit": 10
+        ]
+        return EOSAPI.Chain.get_table_rows
+                .responseJSON(method: .post, parameter: params, encoding: JSONEncoding.default)
+            .flatMap({ (json) -> Observable<RexFund> in
+                guard let data = json.arrayJson(for: "rows")?.first, let rexfund = RexFund(json: data) else { return Observable.just(RexFund(account: account)) }
+                return Observable.just(rexfund)
+            })
+    }
     
+
+    static func getRexBalance(account: String) -> Observable<RexBalance> {
+        let params: JSON = ["json": true,
+                            "code": "eosio",
+                            "scope": "eosio",
+                            "table": "rexbal",
+                            "table_key": "",
+                            "lower_bound": account,
+                            "upper_bound": account,
+                            "limit": 10
+        ]
+        return EOSAPI.Chain.get_table_rows
+            .responseJSON(method: .post, parameter: params, encoding: JSONEncoding.default)
+            .flatMap({ (json) -> Observable<RexBalance> in
+                guard let data = json.arrayJson(for: "rows")?.first, let rexBalance = RexBalance(json: data) else { return Observable.just(RexBalance(account: account)) }
+                return Observable.just(rexBalance)
+            })
+    }
+    
+    static func getRexInfo(account: String) -> Observable<RexInfo> {
+        return getRexFund(account: account)
+            .flatMap({ (fund) -> Observable<RexInfo> in
+                return getRexBalance(account: account)
+                    .flatMap({ (balance) -> Observable<RexInfo> in
+                        let info = RexInfo(fund: fund, balance: balance)
+                        return Observable.just(info)
+                    })
+            })
+    }
+    
+    //MARK: REX
+    
+    /// deposit
+    static func depositToRex(owner: String, wallet: Wallet, authorization: Authorization) -> (Currency) -> Observable<JSON> {
+        return { (amount) in
+            let contract = Contract.deposit(owner: owner, amount: amount, authorization: authorization)
+            return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+        }
+    }
+    
+    /// withdraw
+    static func withdrawFromRex(owner: String, wallet: Wallet, authorization: Authorization) -> (Currency) -> Observable<JSON> {
+        return { (amount) in
+            let contract = Contract.withdraw(owner: owner, amount: amount, authorization: authorization)
+            return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+        }
+    }
+    
+    ///buy
+    static func buyRex(owner: String, wallet: Wallet, authorization: Authorization) -> (Currency) -> Observable<JSON> {
+        return { (amount) in
+            let contract = Contract.buyrex(from: owner, amount: amount, authorization: authorization)
+            return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+            
+        }
+    }
+    
+    ///sell
+    static func sellRex(owner: String, wallet: Wallet, authorization: Authorization) -> (Currency) -> Observable<JSON> {
+        return { (amount) in
+            let contract = Contract.sellrex(from: owner, amount: amount, authorization: authorization)
+            return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+            
+        }
+    }
+    
+    ///unstake to REX
+    static func unstakeToRex(owner: String, wallet: Wallet, authorization: Authorization) -> ((cpu: Currency, net: Currency)) -> Observable<JSON> {
+        return { (amount) in
+            let contract = Contract.unstaketorex(owner: owner, receiver: owner, from_cpu: amount.cpu, from_net: amount.net, authorization: authorization)
+            return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+            
+        }
+    }
+    
+    ///rent CPU
+    static func rentCPU(owner: String, wallet: Wallet, authorization: Authorization) -> ((payment: Currency, fund: Currency)) -> Observable<JSON> {
+        return { (amount) in
+            let contract = Contract.rentcpu(from: owner, receiver: owner, loan_payment: amount.payment, loan_fund: amount.fund, authorization: authorization)
+            return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+            
+        }
+    }
+    
+    ///rent NET
+    static func rentNET(owner: String, wallet: Wallet, authorization: Authorization) -> ((payment: Currency, fund: Currency)) -> Observable<JSON> {
+        return { (amount) in
+            let contract = Contract.rentnet(from: owner, receiver: owner, loan_payment: amount.payment, loan_fund: amount.fund, authorization: authorization)
+            return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+            
+        }
+    }
 }
 
