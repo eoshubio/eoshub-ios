@@ -228,11 +228,11 @@ class RexLendBorrowCell: UITableViewCell {
         case .lend:
             lbTitle.text = "Buy / Sell REX"
             lbText.text = "Lend / Unlend EOS through REX"
-            btnAction.setTitle("Lend / Unlend EOS (2.7 %)", for: .normal)
+            btnAction.setTitle("Lend / Unlend EOS", for: .normal)
         case .borrow:
             lbTitle.text = "Borrow CPU/NET"
             lbText.text = "Borrow CPU and Network resources from REX for 30 days"
-            btnAction.setTitle("Borrow CPU/NET (3.0 %)", for: .normal)
+            btnAction.setTitle("Borrow CPU/NET", for: .normal)
         default:
             break
         }

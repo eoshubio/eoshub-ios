@@ -44,6 +44,7 @@ class RexFlowController: FlowController, RexFlowEventDelegate {
     func goToBorrow(from nc: UINavigationController, rexInfo: RexInfo) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = RexBorrowFlowController(configure: config)
+        fc.configure(account: account, rexInfo: rexInfo)
         fc.start(animated: true)
     }
     

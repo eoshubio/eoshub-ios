@@ -129,6 +129,8 @@
 		2C5F0AA9229197DF004197F4 /* RexRemainTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F0AA8229197DF004197F4 /* RexRemainTimeViewController.swift */; };
 		2C5F0AAB22919D80004197F4 /* RexUnstakeResPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F0AAA22919D80004197F4 /* RexUnstakeResPopup.swift */; };
 		2C5F0AAD22919D94004197F4 /* RexUnstakeResPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5F0AAC22919D94004197F4 /* RexUnstakeResPopup.xib */; };
+		2C5F0AAF2291AB9A004197F4 /* RexBorrowPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F0AAE2291AB9A004197F4 /* RexBorrowPopup.swift */; };
+		2C5F0AB12291ABC7004197F4 /* RexBorrowPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5F0AB02291ABC7004197F4 /* RexBorrowPopup.xib */; };
 		2C63FE962118A7150036652B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE952118A7150036652B /* Reachability.swift */; };
 		2C63FE982118AAE50036652B /* WalletLockedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C63FE972118AAE50036652B /* WalletLockedCell.xib */; };
 		2C63FE9A2118AEA70036652B /* WalletLockedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE992118AEA70036652B /* WalletLockedCell.swift */; };
@@ -437,6 +439,8 @@
 		2C5F0AA8229197DF004197F4 /* RexRemainTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RexRemainTimeViewController.swift; sourceTree = "<group>"; };
 		2C5F0AAA22919D80004197F4 /* RexUnstakeResPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RexUnstakeResPopup.swift; sourceTree = "<group>"; };
 		2C5F0AAC22919D94004197F4 /* RexUnstakeResPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RexUnstakeResPopup.xib; sourceTree = "<group>"; };
+		2C5F0AAE2291AB9A004197F4 /* RexBorrowPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RexBorrowPopup.swift; sourceTree = "<group>"; };
+		2C5F0AB02291ABC7004197F4 /* RexBorrowPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RexBorrowPopup.xib; sourceTree = "<group>"; };
 		2C63FE952118A7150036652B /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2C63FE972118AAE50036652B /* WalletLockedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletLockedCell.xib; sourceTree = "<group>"; };
 		2C63FE992118AEA70036652B /* WalletLockedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletLockedCell.swift; sourceTree = "<group>"; };
@@ -1012,6 +1016,8 @@
 				2C1E3E9620FE18000009D2AF /* Popup.swift */,
 				2C1E3E9820FE18960009D2AF /* Popup.xib */,
 				2CA0E71C228065B000645998 /* CustomPopup.swift */,
+				2C5F0AAE2291AB9A004197F4 /* RexBorrowPopup.swift */,
+				2C5F0AB02291ABC7004197F4 /* RexBorrowPopup.xib */,
 				2C5F0AAA22919D80004197F4 /* RexUnstakeResPopup.swift */,
 				2C5F0AAC22919D94004197F4 /* RexUnstakeResPopup.xib */,
 				2C5F0AA422918A0B004197F4 /* RexBuySellPopup.swift */,
@@ -1254,6 +1260,7 @@
 				2CE110DB20F1C8AC00B93BEB /* Images.xcassets in Resources */,
 				2CDAAD2D2185B93900480967 /* Keypair.storyboard in Resources */,
 				2CA5D18C210B5B4E006C928B /* TokenAddPopup.xib in Resources */,
+				2C5F0AB12291ABC7004197F4 /* RexBorrowPopup.xib in Resources */,
 				2CE1111020F2118900B93BEB /* LoginButton.xib in Resources */,
 				2CE1110920F1FA6600B93BEB /* Localizable.strings in Resources */,
 				2C2ACFF520F49DCA00C637D8 /* FaceIdInputView.xib in Resources */,
@@ -1643,6 +1650,7 @@
 				2C279C0720FA444700D2F6C4 /* TokenInfo.swift in Sources */,
 				2CB6B7ED210391A40048601A /* AccountTextField.swift in Sources */,
 				2C279BC320F8C58100D2F6C4 /* EOSAPI.swift in Sources */,
+				2C5F0AAF2291AB9A004197F4 /* RexBorrowPopup.swift in Sources */,
 				2C279BF020F8E90100D2F6C4 /* Security.swift in Sources */,
 				2CA0E71122803C1500645998 /* RexModel.swift in Sources */,
 				2C7426B82116B07000F8A85E /* ForgetViewController.swift in Sources */,

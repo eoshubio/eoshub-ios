@@ -440,5 +440,23 @@ extension RxEOSAPI {
             
         }
     }
+    
+    ///rent CPU
+    static func rentCPU(owner: String, wallet: Wallet, authorization: Authorization) -> ((payment: Currency, fund: Currency)) -> Observable<JSON> {
+        return { (amount) in
+            let contract = Contract.rentcpu(from: owner, receiver: owner, loan_payment: amount.payment, loan_fund: amount.fund, authorization: authorization)
+            return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+            
+        }
+    }
+    
+    ///rent NET
+    static func rentNET(owner: String, wallet: Wallet, authorization: Authorization) -> ((payment: Currency, fund: Currency)) -> Observable<JSON> {
+        return { (amount) in
+            let contract = Contract.rentnet(from: owner, receiver: owner, loan_payment: amount.payment, loan_fund: amount.fund, authorization: authorization)
+            return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+            
+        }
+    }
 }
 

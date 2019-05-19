@@ -13,14 +13,23 @@ class RexBorrowFlowController: FlowController {
     
     var id: FlowIdentifier { return .rexBorrow }
     
+    fileprivate var account: AccountInfo!
+    fileprivate var rexInfo: RexInfo!
+    
     required init(configure: FlowConfigure) {
         self.configure = configure
+    }
+    
+    func configure(account: AccountInfo, rexInfo: RexInfo) {
+        self.account = account
+        self.rexInfo = rexInfo
     }
     
     func show(animated: Bool) {
         
         EHAnalytics.trackScreen(name: id.rawValue, classOfFlow: RexBorrowFlowController.self)
         guard let vc = UIStoryboard(name: "Rex", bundle: nil).instantiateViewController(withIdentifier: "RexBorrowViewController") as? RexBorrowViewController else { preconditionFailure() }
+        vc.configure(account: account, rexInfo: rexInfo)
         show(viewController: vc, animated: animated) {
             
         }
