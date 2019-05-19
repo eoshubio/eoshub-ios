@@ -131,7 +131,7 @@ extension Contract {
         }
         
         struct unstaketorex {
-            static let from = Key.from.rawValue
+            static let owner = Key.owner.rawValue
             static let receiver = Key.receiver.rawValue
             static let from_cpu = Key.from_cpu.rawValue
             static let from_net = Key.from_net.rawValue
@@ -139,7 +139,7 @@ extension Contract {
         
         struct sellrex {
             static let from = Key.from.rawValue
-            static let amount = Key.amount.rawValue
+            static let rex = Key.rex.rawValue
         }
         
         struct cancelrexorder {

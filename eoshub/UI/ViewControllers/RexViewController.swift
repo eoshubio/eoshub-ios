@@ -29,7 +29,7 @@ class RexViewController: BaseTableViewController {
         case balance, fund, lend, borrow
     }
     
-    fileprivate var items: [CellType] = [.balance, .fund, .lend, .borrow]
+    fileprivate var items: [CellType] = [.fund, .balance, .lend, .borrow]
     
     deinit {
         Log.d("")
@@ -63,14 +63,16 @@ class RexViewController: BaseTableViewController {
     
     private func bindActions() {
         goToLend.bind { [weak self] in
-            guard let nc = self?.navigationController else { return }
-            self?.flowDelegate?.goToLend(from: nc)
+            guard let `self` = self else { return }
+            guard let nc = self.navigationController else { return }
+            self.flowDelegate?.goToLend(from: nc, rexInfo: self.rexInfo)
         }
         .disposed(by: disposeBag)
         
         goToBorrow.bind { [weak self] in
-            guard let nc = self?.navigationController else { return }
-            self?.flowDelegate?.goToBorrow(from: nc)
+            guard let `self` = self else { return }
+            guard let nc = self.navigationController else { return }
+            self.flowDelegate?.goToBorrow(from: nc, rexInfo: self.rexInfo)
         }
         .disposed(by: disposeBag)
         
@@ -92,39 +94,46 @@ class RexViewController: BaseTableViewController {
         let accountName = account.account
         
         depositToRex
-            .flatMap { (amount) -> Observable<JSON> in
+            .bind { [weak self](amount) in
+                guard let `self` = self else { return }
                 WaitingView.shared.start()
-                return RxEOSAPI.depositToRex(owner: accountName,
+                RxEOSAPI.depositToRex(owner: accountName,
                                              wallet: wallet,
                                              authorization: Authorization(actor: accountName, permission: highestPriorityKey.permission))(amount)
+                    .subscribe(onNext: { [weak self](_) in
+                        self?.loadData(useActivityIndicator: false)
+                        }, onError: { (error) in
+                            WaitingView.shared.stop()
+                            if let error = error as? PrettyPrintedPopup {
+                                error.showPopup()
+                            } else {
+                                Log.e(error)
+                            }
+                    })
+                    .disposed(by: self.disposeBag)
             }
-            .subscribe(onNext: { [weak self](_) in
-                self?.loadData(useActivityIndicator: false)
-            }, onError: { (error) in
-                if let error = error as? PrettyPrintedPopup {
-                    error.showPopup()
-                } else {
-                    Log.e(error)
-                }
-            })
-            .disposed(by: disposeBag)
+             .disposed(by: disposeBag)
+        
         
         withdrawFromRex
-            .flatMap { (amount) -> Observable<JSON> in
+            .bind { [weak self](amount) in
+                guard let `self` = self else { return }
                 WaitingView.shared.start()
-                return RxEOSAPI.withdrawFromRex(owner: accountName,
-                                             wallet: wallet,
-                                             authorization: Authorization(actor: accountName, permission: highestPriorityKey.permission))(amount)
+                RxEOSAPI.withdrawFromRex(owner: accountName,
+                                                wallet: wallet,
+                                                authorization: Authorization(actor: accountName, permission: highestPriorityKey.permission))(amount)
+                    .subscribe(onNext: { [weak self](_) in
+                        self?.loadData(useActivityIndicator: false)
+                        }, onError: { (error) in
+                            WaitingView.shared.stop()
+                            if let error = error as? PrettyPrintedPopup {
+                                error.showPopup()
+                            } else {
+                                Log.e(error)
+                            }
+                    })
+                    .disposed(by: self.disposeBag)
             }
-            .subscribe(onNext: { [weak self](_) in
-                self?.loadData(useActivityIndicator: false)
-                }, onError: { (error) in
-                    if let error = error as? PrettyPrintedPopup {
-                        error.showPopup()
-                    } else {
-                        Log.e(error)
-                    }
-            })
             .disposed(by: disposeBag)
     }
     
@@ -143,15 +152,10 @@ class RexViewController: BaseTableViewController {
     
     private func refreshData() -> Observable<RexInfo> {
         return RxEOSAPI.getRexInfo(account: account.account)
-            .do(onNext: { [weak self] (info) in
-                self?.rexInfo = info
+            .flatMap({ [weak self](rexInfo) -> Observable<RexInfo> in
+                self?.rexInfo = rexInfo
                 self?.tableView.reloadData()
-                }, onError: { (error) in
-                    if let error = error as? PrettyPrintedPopup {
-                        error.showPopup()
-                    } else {
-                        Log.e(error)
-                    }
+                return Observable.just(rexInfo)
             })
     }
 }
@@ -222,7 +226,7 @@ class RexLendBorrowCell: UITableViewCell {
     func configure(type: RexViewController.CellType, action: AnyObserver<Void>) {
         switch type {
         case .lend:
-            lbTitle.text = "Lend / Unlend EOS"
+            lbTitle.text = "Buy / Sell REX"
             lbText.text = "Lend / Unlend EOS through REX"
             btnAction.setTitle("Lend / Unlend EOS (2.7 %)", for: .normal)
         case .borrow:

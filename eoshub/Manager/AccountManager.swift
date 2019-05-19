@@ -66,7 +66,7 @@ class AccountManager {
             .disposed(by: bag)
     }
     
-    func refreshAccount(account: String) -> Observable<Void> {
+    func refreshAccount(account: String) -> Observable<AccountInfo> {
         guard let ehaccount = getAccount(accountName: account) else { return Observable.error(EOSHubError.txNotFound)}
         return getAccountInfo(account: ehaccount, isFirstTime: false)
             .do(onNext: { (info) in
@@ -76,7 +76,6 @@ class AccountManager {
             }, onDispose: {
                 self.refreshUI()
             })
-            .flatMap({ _ in Observable.just(())})
     }
     
     func loadAccount(account: EHAccount) -> Observable<Void> {

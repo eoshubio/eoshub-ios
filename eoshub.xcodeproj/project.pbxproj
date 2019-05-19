@@ -124,6 +124,11 @@
 		2C516104212B0BD90005EDD7 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C516103212B0BD90005EDD7 /* URLs.swift */; };
 		2C58F54B216249EF003DE166 /* EOSAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58F54A216249EF003DE166 /* EOSAPITest.swift */; };
 		2C58F54D216252BF003DE166 /* EOSHubAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58F54C216252BF003DE166 /* EOSHubAPITest.swift */; };
+		2C5F0AA522918A0B004197F4 /* RexBuySellPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F0AA422918A0B004197F4 /* RexBuySellPopup.swift */; };
+		2C5F0AA722918A1F004197F4 /* RexBuySellPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5F0AA622918A1F004197F4 /* RexBuySellPopup.xib */; };
+		2C5F0AA9229197DF004197F4 /* RexRemainTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F0AA8229197DF004197F4 /* RexRemainTimeViewController.swift */; };
+		2C5F0AAB22919D80004197F4 /* RexUnstakeResPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F0AAA22919D80004197F4 /* RexUnstakeResPopup.swift */; };
+		2C5F0AAD22919D94004197F4 /* RexUnstakeResPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5F0AAC22919D94004197F4 /* RexUnstakeResPopup.xib */; };
 		2C63FE962118A7150036652B /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE952118A7150036652B /* Reachability.swift */; };
 		2C63FE982118AAE50036652B /* WalletLockedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C63FE972118AAE50036652B /* WalletLockedCell.xib */; };
 		2C63FE9A2118AEA70036652B /* WalletLockedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C63FE992118AEA70036652B /* WalletLockedCell.swift */; };
@@ -427,6 +432,11 @@
 		2C516103212B0BD90005EDD7 /* URLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
 		2C58F54A216249EF003DE166 /* EOSAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSAPITest.swift; sourceTree = "<group>"; };
 		2C58F54C216252BF003DE166 /* EOSHubAPITest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSHubAPITest.swift; sourceTree = "<group>"; };
+		2C5F0AA422918A0B004197F4 /* RexBuySellPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RexBuySellPopup.swift; sourceTree = "<group>"; };
+		2C5F0AA622918A1F004197F4 /* RexBuySellPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RexBuySellPopup.xib; sourceTree = "<group>"; };
+		2C5F0AA8229197DF004197F4 /* RexRemainTimeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RexRemainTimeViewController.swift; sourceTree = "<group>"; };
+		2C5F0AAA22919D80004197F4 /* RexUnstakeResPopup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RexUnstakeResPopup.swift; sourceTree = "<group>"; };
+		2C5F0AAC22919D94004197F4 /* RexUnstakeResPopup.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RexUnstakeResPopup.xib; sourceTree = "<group>"; };
 		2C63FE952118A7150036652B /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		2C63FE972118AAE50036652B /* WalletLockedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WalletLockedCell.xib; sourceTree = "<group>"; };
 		2C63FE992118AEA70036652B /* WalletLockedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletLockedCell.swift; sourceTree = "<group>"; };
@@ -952,6 +962,7 @@
 				2C5160FF212B00EE0005EDD7 /* WebViewController.swift */,
 				2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */,
 				2CA0E6FE22801A0A00645998 /* RexViewController.swift */,
+				2C5F0AA8229197DF004197F4 /* RexRemainTimeViewController.swift */,
 				2CA0E70022801A1300645998 /* RexLendViewController.swift */,
 				2CA0E70222801A2000645998 /* RexBorrowViewController.swift */,
 				2C5160FB212AE9CF0005EDD7 /* KeypairViewController.swift */,
@@ -1001,6 +1012,10 @@
 				2C1E3E9620FE18000009D2AF /* Popup.swift */,
 				2C1E3E9820FE18960009D2AF /* Popup.xib */,
 				2CA0E71C228065B000645998 /* CustomPopup.swift */,
+				2C5F0AAA22919D80004197F4 /* RexUnstakeResPopup.swift */,
+				2C5F0AAC22919D94004197F4 /* RexUnstakeResPopup.xib */,
+				2C5F0AA422918A0B004197F4 /* RexBuySellPopup.swift */,
+				2C5F0AA622918A1F004197F4 /* RexBuySellPopup.xib */,
 				2CA0E71E2280663A00645998 /* DepositPopup.swift */,
 				2CA0E71A2280627900645998 /* DepositPopup.xib */,
 				2CA5D18D210B5B58006C928B /* TokenAddPopup.swift */,
@@ -1243,6 +1258,7 @@
 				2CE1110920F1FA6600B93BEB /* Localizable.strings in Resources */,
 				2C2ACFF520F49DCA00C637D8 /* FaceIdInputView.xib in Resources */,
 				2C63FE982118AAE50036652B /* WalletLockedCell.xib in Resources */,
+				2C5F0AA722918A1F004197F4 /* RexBuySellPopup.xib in Resources */,
 				2CE1113620F26DBB00B93BEB /* WalletAddCell.xib in Resources */,
 				2CA0E6FD228019CA00645998 /* Rex.storyboard in Resources */,
 				2C1CC7752149465E0020115A /* KeyHeader.xib in Resources */,
@@ -1264,6 +1280,7 @@
 				2CBAAC712121E880006A423E /* icon_eosdac.png in Resources */,
 				2CE1111520F2395800B93BEB /* Main.storyboard in Resources */,
 				2C1E3E9F20FE37AB0009D2AF /* RamPopup.xib in Resources */,
+				2C5F0AAD22919D94004197F4 /* RexUnstakeResPopup.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1588,6 +1605,7 @@
 				2C2ACFC320F3B86600C637D8 /* Double+extension.swift in Sources */,
 				2C279C0320FA0E3000D2F6C4 /* RealmString.swift in Sources */,
 				2C2ACFE720F47CA200C637D8 /* CreatePinFlowController.swift in Sources */,
+				2C5F0AA9229197DF004197F4 /* RexRemainTimeViewController.swift in Sources */,
 				2CA0E71D228065B000645998 /* CustomPopup.swift in Sources */,
 				2CE1113820F26DF000B93BEB /* RoundedView.swift in Sources */,
 				2CE1112E20F2680100B93BEB /* VoteFlowController.swift in Sources */,
@@ -1600,6 +1618,7 @@
 				2C31F7F6210612CE0025D18A /* Preferences.swift in Sources */,
 				2C3B17AD20FCCC7000E6BAAD /* TxManager.swift in Sources */,
 				2CEC2D4C20F65D1500AF5E9B /* StakeProgressBar.swift in Sources */,
+				2C5F0AA522918A0B004197F4 /* RexBuySellPopup.swift in Sources */,
 				2C04ECED220D09A900B11C11 /* DeleatedBW.swift in Sources */,
 				2C3E72B82123C2CC00D114B2 /* R1Key.mm in Sources */,
 				2C2ACFCF20F3D8EB00C637D8 /* CreateViewController.swift in Sources */,
@@ -1627,6 +1646,7 @@
 				2C279BF020F8E90100D2F6C4 /* Security.swift in Sources */,
 				2CA0E71122803C1500645998 /* RexModel.swift in Sources */,
 				2C7426B82116B07000F8A85E /* ForgetViewController.swift in Sources */,
+				2C5F0AAB22919D80004197F4 /* RexUnstakeResPopup.swift in Sources */,
 				2CA0E6FF22801A0A00645998 /* RexViewController.swift in Sources */,
 				2C5160FE212AEE6B0005EDD7 /* KeypairFlowController.swift in Sources */,
 				2C99E49C211DB40C00DB55A6 /* BorderColorButton.swift in Sources */,

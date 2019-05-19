@@ -168,16 +168,16 @@ extension Contract {
         let contract = Contract(code: "eosio",
                                 action: .sellrex,
                                 args: [Args.sellrex.from: from,
-                                       Args.sellrex.amount: amount.stringValue],
+                                       Args.sellrex.rex: amount.stringValue],
                                 authorization: authorization)
         return contract
     }
     
     /// Buy REX using staked tokens
-    static func unstaketorex(from: String, receiver: String, from_cpu: Currency, from_net: Currency, authorization: Authorization) -> Contract {
+    static func unstaketorex(owner: String, receiver: String, from_cpu: Currency, from_net: Currency, authorization: Authorization) -> Contract {
         let contract = Contract(code: "eosio",
                                 action: .unstaketorex,
-                                args: [Args.unstaketorex.from: from,
+                                args: [Args.unstaketorex.owner: owner,
                                        Args.unstaketorex.receiver: receiver,
                                        Args.unstaketorex.from_cpu: from_cpu.stringValue,
                                        Args.unstaketorex.from_net: from_net.stringValue],

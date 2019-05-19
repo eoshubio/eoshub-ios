@@ -413,5 +413,32 @@ extension RxEOSAPI {
             return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
         }
     }
+    
+    ///buy
+    static func buyRex(owner: String, wallet: Wallet, authorization: Authorization) -> (Currency) -> Observable<JSON> {
+        return { (amount) in
+            let contract = Contract.buyrex(from: owner, amount: amount, authorization: authorization)
+            return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+            
+        }
+    }
+    
+    ///sell
+    static func sellRex(owner: String, wallet: Wallet, authorization: Authorization) -> (Currency) -> Observable<JSON> {
+        return { (amount) in
+            let contract = Contract.sellrex(from: owner, amount: amount, authorization: authorization)
+            return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+            
+        }
+    }
+    
+    ///unstake to REX
+    static func unstakeToRex(owner: String, wallet: Wallet, authorization: Authorization) -> ((cpu: Currency, net: Currency)) -> Observable<JSON> {
+        return { (amount) in
+            let contract = Contract.unstaketorex(owner: owner, receiver: owner, from_cpu: amount.cpu, from_net: amount.net, authorization: authorization)
+            return RxEOSAPI.pushContract(contracts: [contract], wallet: wallet)
+            
+        }
+    }
 }
 
