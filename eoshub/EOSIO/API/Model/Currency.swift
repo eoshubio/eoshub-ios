@@ -44,6 +44,7 @@ struct Token: Equatable, Hashable {
 
 extension Token {
     static let eos = Config.eosInfo.token
+    static let rex = Token(symbol: "REX", contract: "eosio")
     static let pandora = Config.pandoraInfo.token
 }
 

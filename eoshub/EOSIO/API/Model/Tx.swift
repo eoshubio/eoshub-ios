@@ -10,7 +10,7 @@ import Foundation
 
 class Tx: DBObject, JSONInitializable, Mergeable {
     
-    override var hashValue: Int {
+    override var hash: Int {
         return hashId.hashValue
     }
     

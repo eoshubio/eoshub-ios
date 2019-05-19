@@ -34,6 +34,16 @@ extension Contract {
         case permission
         case parent
         case auth
+        case amount
+        case from_cpu
+        case from_net
+        case rex
+        case loan_payment
+        case loan_fund
+        case loan_num
+        case payment
+        case user
+        case max
     }
     
     class Args {
@@ -98,6 +108,107 @@ extension Contract {
             static let permission = Key.permission.rawValue
             static let parent = Key.parent.rawValue
             static let auth = Key.auth.rawValue
+        }
+
+        struct deposit {
+            static let owner = Key.owner.rawValue
+            static let amount = Key.amount.rawValue
+        }
+        
+        struct withdraw {
+            static let owner = Key.owner.rawValue
+            static let amount = Key.amount.rawValue
+        }
+        
+        struct buyrex {
+            static let from = Key.from.rawValue
+            static let amount = Key.amount.rawValue
+        }
+        
+        struct lendrex {
+            static let from = Key.from.rawValue
+            static let amount = Key.amount.rawValue
+        }
+        
+        struct unstaketorex {
+            static let owner = Key.owner.rawValue
+            static let receiver = Key.receiver.rawValue
+            static let from_cpu = Key.from_cpu.rawValue
+            static let from_net = Key.from_net.rawValue
+        }
+        
+        struct sellrex {
+            static let from = Key.from.rawValue
+            static let rex = Key.rex.rawValue
+        }
+        
+        struct cancelrexorder {
+            static let owner = Key.owner.rawValue
+        }
+        
+        struct mvtosavings {
+            static let owner = Key.owner.rawValue
+            static let rex = Key.rex.rawValue
+        }
+        
+        struct mvfromsavings {
+            static let owner = Key.owner.rawValue
+            static let rex = Key.rex.rawValue
+        }
+        
+        struct rentcpu {
+            static let from = Key.from.rawValue
+            static let receiver = Key.receiver.rawValue
+            static let loan_payment = Key.loan_payment.rawValue
+            static let loan_fund = Key.loan_fund.rawValue
+        }
+        
+        struct rentnet {
+            static let from = Key.from.rawValue
+            static let receiver = Key.receiver.rawValue
+            static let loan_payment = Key.loan_payment.rawValue
+            static let loan_fund = Key.loan_fund.rawValue
+        }
+        
+        struct fundcpuloan {
+            static let from = Key.from.rawValue
+            static let loan_num = Key.loan_num.rawValue
+            static let payment = Key.payment.rawValue
+        }
+        
+        struct fundnetloan {
+            static let from = Key.from.rawValue
+            static let loan_num = Key.loan_num.rawValue
+            static let payment = Key.payment.rawValue
+        }
+        
+        struct defundcpuloan {
+            static let from = Key.from.rawValue
+            static let loan_num = Key.loan_num.rawValue
+            static let payment = Key.payment.rawValue
+        }
+        
+        struct defundnetloan {
+            static let from = Key.from.rawValue
+            static let loan_num = Key.loan_num.rawValue
+            static let payment = Key.payment.rawValue
+        }
+        
+        struct consolidate {
+            static let owner = Key.owner.rawValue
+        }
+        
+        struct updaterex {
+            static let owner = Key.owner.rawValue
+        }
+        
+        struct rexexec {
+            static let user = Key.user.rawValue
+            static let max = Key.max.rawValue
+        }
+        
+        struct closerex {
+            static let owner = Key.owner.rawValue
         }
     }
 }
