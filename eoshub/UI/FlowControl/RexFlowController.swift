@@ -34,14 +34,14 @@ class RexFlowController: FlowController, RexFlowEventDelegate {
         }
     }
     
-    func goToLend(from nc: UINavigationController, rexInfo: RexInfo) {
+    func goToLend(from nc: UINavigationController, rexInfo: RexInfoSubject) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = RexLendFlowController(configure: config)
         fc.configure(account: account, rexInfo: rexInfo)
         fc.start(animated: true)
     }
     
-    func goToBorrow(from nc: UINavigationController, rexInfo: RexInfo) {
+    func goToBorrow(from nc: UINavigationController, rexInfo: RexInfoSubject) {
         let config = FlowConfigure(container: nc, parent: self, flowType: .navigation)
         let fc = RexBorrowFlowController(configure: config)
         fc.configure(account: account, rexInfo: rexInfo)
@@ -51,6 +51,6 @@ class RexFlowController: FlowController, RexFlowEventDelegate {
 }
 
 protocol RexFlowEventDelegate: FlowEventDelegate {
-    func goToLend(from nc: UINavigationController, rexInfo: RexInfo)
-    func goToBorrow(from nc: UINavigationController, rexInfo: RexInfo)
+    func goToLend(from nc: UINavigationController, rexInfo: RexInfoSubject)
+    func goToBorrow(from nc: UINavigationController, rexInfo: RexInfoSubject)
 }

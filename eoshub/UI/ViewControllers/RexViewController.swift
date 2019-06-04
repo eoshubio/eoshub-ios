@@ -24,6 +24,7 @@ class RexViewController: BaseTableViewController {
     
     fileprivate var account: AccountInfo!
     fileprivate var rexInfo: RexInfo!
+    fileprivate var rexInfoSubject = RexInfoSubject(value: nil)
     
     enum CellType: Int, CaseIterable {
         case balance, fund, lend, borrow
@@ -65,14 +66,14 @@ class RexViewController: BaseTableViewController {
         goToLend.bind { [weak self] in
             guard let `self` = self else { return }
             guard let nc = self.navigationController else { return }
-            self.flowDelegate?.goToLend(from: nc, rexInfo: self.rexInfo)
+            self.flowDelegate?.goToLend(from: nc, rexInfo: self.rexInfoSubject)
         }
         .disposed(by: disposeBag)
         
         goToBorrow.bind { [weak self] in
             guard let `self` = self else { return }
             guard let nc = self.navigationController else { return }
-            self.flowDelegate?.goToBorrow(from: nc, rexInfo: self.rexInfo)
+            self.flowDelegate?.goToBorrow(from: nc, rexInfo: self.rexInfoSubject)
         }
         .disposed(by: disposeBag)
         
@@ -135,6 +136,15 @@ class RexViewController: BaseTableViewController {
                     .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
+        
+        rexInfoSubject
+            .bind { [weak self](info) in
+                guard let info = info else { return }
+                self?.rexInfo = info
+                self?.tableView.reloadData()
+            }
+            .disposed(by: disposeBag)
+        
     }
     
     private func loadData(useActivityIndicator: Bool = true) {
@@ -143,18 +153,20 @@ class RexViewController: BaseTableViewController {
             WaitingView.shared.start()
         }
         
-        refreshData()
-            .subscribe() {
-                WaitingView.shared.stop()
-            }
-            .disposed(by: disposeBag)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) { [weak self] in
+            guard let `self` = self else { return }
+            self.refreshData()
+                .subscribe() {
+                    WaitingView.shared.stop()
+                }
+                .disposed(by: self.bag)
+        }
     }
     
     private func refreshData() -> Observable<RexInfo> {
         return RxEOSAPI.getRexInfo(account: account.account)
             .flatMap({ [weak self](rexInfo) -> Observable<RexInfo> in
-                self?.rexInfo = rexInfo
-                self?.tableView.reloadData()
+                self?.rexInfoSubject.onNext(rexInfo)
                 return Observable.just(rexInfo)
             })
     }

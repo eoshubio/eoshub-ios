@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import RxSwift
 /*
  {
  "version": 0,
@@ -105,3 +105,5 @@ struct RexInfo {
         return RexInfo(fund: RexFund(account: account), balance: RexBalance(account: account))
     }
 }
+
+typealias RexInfoSubject = BehaviorSubject<RexInfo?>

@@ -24,6 +24,7 @@ class RexBorrowViewController: BaseTableViewController {
     
     fileprivate var account: AccountInfo!
     fileprivate var rexInfo: RexInfo!
+    fileprivate var rexInfoSubject: RexInfoSubject!
     
     fileprivate var depositSubject = PublishSubject<Void>()
     fileprivate var depositToRex = PublishSubject<Currency>()
@@ -35,9 +36,9 @@ class RexBorrowViewController: BaseTableViewController {
     
     private let disposeBag = DisposeBag()
     
-    func configure(account: AccountInfo, rexInfo: RexInfo) {
+    func configure(account: AccountInfo, rexInfo: RexInfoSubject) {
         self.account = account
-        self.rexInfo = rexInfo
+        self.rexInfoSubject = rexInfo
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -162,6 +163,14 @@ class RexBorrowViewController: BaseTableViewController {
                     .disposed(by: self.disposeBag)
             }
             .disposed(by: disposeBag)
+        
+        rexInfoSubject
+            .bind { [weak self](info) in
+                guard let info = info else { return }
+                self?.rexInfo = info
+                self?.tableView.reloadData()
+            }
+            .disposed(by: disposeBag)
     }
     
     private func loadData(useActivityIndicator: Bool = true) {
@@ -188,8 +197,7 @@ class RexBorrowViewController: BaseTableViewController {
                 return RxEOSAPI.getRexInfo(account: self.account.account)
             }
             .flatMap({ [weak self](rexInfo) -> Observable<RexInfo> in
-                self?.rexInfo = rexInfo
-                self?.tableView.reloadData()
+                self?.rexInfoSubject.onNext(rexInfo)
                 return Observable.just(rexInfo)
             })
     }
