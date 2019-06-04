@@ -14,13 +14,13 @@ class RexBorrowFlowController: FlowController {
     var id: FlowIdentifier { return .rexBorrow }
     
     fileprivate var account: AccountInfo!
-    fileprivate var rexInfo: RexInfo!
+    fileprivate var rexInfo: RexInfoSubject!
     
     required init(configure: FlowConfigure) {
         self.configure = configure
     }
     
-    func configure(account: AccountInfo, rexInfo: RexInfo) {
+    func configure(account: AccountInfo, rexInfo: RexInfoSubject) {
         self.account = account
         self.rexInfo = rexInfo
     }

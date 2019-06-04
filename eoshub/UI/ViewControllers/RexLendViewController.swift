@@ -21,6 +21,7 @@ class RexLendViewController: BaseTableViewController {
     
     fileprivate var account: AccountInfo!
     fileprivate var rexInfo: RexInfo!
+    fileprivate var rexInfoSubject: RexInfoSubject!
     
     fileprivate var buyPopupSubject = PublishSubject<Void>()
     fileprivate var sellPopupSubject = PublishSubject<Void>()
@@ -35,9 +36,9 @@ class RexLendViewController: BaseTableViewController {
         Log.i("deinit")
     }
     
-    func configure(account: AccountInfo, rexInfo: RexInfo) {
+    func configure(account: AccountInfo, rexInfo: RexInfoSubject) {
         self.account = account
-        self.rexInfo = rexInfo
+        self.rexInfoSubject = rexInfo
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -151,6 +152,14 @@ class RexLendViewController: BaseTableViewController {
                     .disposed(by: self.bag)
             }
             .disposed(by: bag)
+        
+        rexInfoSubject
+            .bind { [weak self](info) in
+                guard let info = info else { return }
+                self?.rexInfo = info
+                self?.tableView.reloadData()
+            }
+            .disposed(by: bag)
     }
     
     private func loadData(useActivityIndicator: Bool = true) {
@@ -177,8 +186,7 @@ class RexLendViewController: BaseTableViewController {
                     return RxEOSAPI.getRexInfo(account: self.account.account)
                 }
                 .flatMap({ [weak self](rexInfo) -> Observable<RexInfo> in
-                    self?.rexInfo = rexInfo
-                    self?.tableView.reloadData()
+                    self?.rexInfoSubject.onNext(rexInfo)
                     return Observable.just(rexInfo)
                 })
     }
