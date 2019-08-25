@@ -420,6 +420,8 @@ extension WalletViewController: UITableViewDelegate {
             switch item {
             case .add, .guide:
                 flowDelegate?.goToCreate(from: nc)
+            default:
+                break
             }
         }
     }
