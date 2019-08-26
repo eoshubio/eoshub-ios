@@ -258,8 +258,6 @@ class SendMyAccountCell: UITableViewCell {
 
 class SendInputFormCell: TransactionInputFormCell, UITextFieldDelegate {
     @IBOutlet fileprivate weak var lbSendTo: UILabel!
-    @IBOutlet fileprivate weak var btnPaste: UIButton!
-    @IBOutlet fileprivate weak var btnQRCode: UIButton!
     @IBOutlet fileprivate weak var txtAcount: UITextField!
     @IBOutlet fileprivate weak var lbMemo: UILabel!
     @IBOutlet fileprivate weak var lbMemoDesc: UILabel!
@@ -327,15 +325,6 @@ class SendInputFormCell: TransactionInputFormCell, UITextFieldDelegate {
             })
             .disposed(by: bag)
         
-        btnPaste.rx.tap
-            .bind { [weak self] in
-                if let text = UIPasteboard.general.string {
-                    self?.txtAcount.text = text
-                    form.account.value = text
-                }
-            }
-            .disposed(by: bag)
-        
         btnPasteMemo.rx.tap
             .bind { [weak self] in
                 if let text = UIPasteboard.general.string {
@@ -344,10 +333,6 @@ class SendInputFormCell: TransactionInputFormCell, UITextFieldDelegate {
                 }
                 
             }
-            .disposed(by: bag)
-        
-        btnQRCode.rx.singleTap
-            .bind(to: form.qrscan)
             .disposed(by: bag)
      
         txtAcount.inputAccessoryView = makeTransactionButtonToKeyboard(title: LocalizedString.Wallet.Transfer.transfer,
