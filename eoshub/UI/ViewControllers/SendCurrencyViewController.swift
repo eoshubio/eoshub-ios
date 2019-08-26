@@ -283,7 +283,6 @@ class SendInputFormCell: TransactionInputFormCell, UITextFieldDelegate {
         txtMemo.delegate = self
         txtQuantity.delegate = self
         txtQuantity.addDoneButtonToKeyboard(myAction: #selector(self.txtQuantity.resignFirstResponder))
-        btnPaste.setTitle(LocalizedString.Common.paste, for: .normal)
         btnPasteMemo.setTitle(LocalizedString.Common.paste, for: .normal)
         
         clearForm()
