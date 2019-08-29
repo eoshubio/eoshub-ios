@@ -63,6 +63,7 @@ struct Config {
     
     static var apiServers: [String] {
         return ["https://proxy.eosnode.tools",
+                "https://public.eosinfra.io",
                 "https://user-api.eoseoul.io:443",
                 "https://eos.greymass.com",
                 "https://api.main-net.eosnodeone.io",

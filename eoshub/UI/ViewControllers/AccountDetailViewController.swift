@@ -13,7 +13,7 @@ import RxSwift
 class AccountDetailViewController: BaseTableViewController {
     
     fileprivate enum ItemType {
-        case accountInfo, resources, tokens, vote, tx, permissions, donation, delete, rex
+        case accountInfo, resources, tokens, vote, tx, permissions, delete, rex
     }
     
     var flowDelegate: AccountDetailFlowEventDelegate?
@@ -41,8 +41,6 @@ class AccountDetailViewController: BaseTableViewController {
         
         tableView.contentInset = UIEdgeInsets.init(top: 0, left: 0, bottom: 20, right: 0)
         
-        tableView.register(UINib(nibName: "DonationCell", bundle: nil), forCellReuseIdentifier: "DonationCell")
-        
     }
     
     private func bindActions() {
@@ -63,11 +61,6 @@ class AccountDetailViewController: BaseTableViewController {
         items = [.accountInfo, .resources]
         if account.ownerMode {
             items.append(contentsOf: [.permissions, .rex, .tokens, .vote, .tx, .delete])
-            
-            if account.account != "forthehorde2" {
-                items.append(.donation)
-            }
-            
         } else {
             items.append(contentsOf: [.permissions, .tokens, .tx, .delete])
         }
@@ -142,9 +135,6 @@ extension AccountDetailViewController {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "TitleCell", for: indexPath) as? TitleCell else { preconditionFailure() }
             cell.configure(title: LocalizedString.Wallet.Option.delete, color: .red, marginTop: 30)
             return cell
-        case .donation:
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "DonationCell", for: indexPath) as? DonationCell else { preconditionFailure() }
-            return cell
         }
         
         
@@ -168,8 +158,6 @@ extension AccountDetailViewController {
             flowDelegate?.goToKeyPair(from: nc)
         case .delete:
             delete()
-        case .donation:
-            flowDelegate?.goToDonate(from: nc)
         case .rex:
             flowDelegate?.goToRex(from: nc)
         default:
