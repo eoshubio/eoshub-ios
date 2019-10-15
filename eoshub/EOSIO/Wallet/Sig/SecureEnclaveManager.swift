@@ -53,7 +53,9 @@ class SecureEnclaveManager {
         return trySignDigest(d: digest, private_key: priKey)
     }
     
-    
+    class func hasKeyInSecureEncalve(label privateLabel: String) -> Bool {
+        return getPrivateKey(label: privateLabel) == nil ? false : true
+    }
     
     //MARK: private 
     
