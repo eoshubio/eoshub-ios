@@ -26,7 +26,7 @@ struct Config {
     
     static let donationAccount = "eoshuborigin"
     
-    static let mainHost = "https://proxy.eosnode.tools"
+    static let mainHost = "https://eos.greymass.com"
 
     static var host: String {
         switch mode {
@@ -62,13 +62,9 @@ struct Config {
     }
     
     static var apiServers: [String] {
-        return ["https://proxy.eosnode.tools",
-                "https://public.eosinfra.io",
-                "https://user-api.eoseoul.io:443",
+        return ["https://user-api.eoseoul.io:443",
                 "https://eos.greymass.com",
-                "https://api.main-net.eosnodeone.io",
-                "https://publicapi-mainnet.eosauthority.com",
-                "https://mainnet.eoscanada.com"]
+                "https://publicapi-mainnet.eosauthority.com"]
     }
     
     static var versionString: String {
