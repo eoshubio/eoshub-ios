@@ -1808,6 +1808,7 @@
 				CODE_SIGN_ENTITLEMENTS = eoshub/eoshub.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2.0.3.0;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = XYD35BDX65;
 				ENABLE_BITCODE = YES;
@@ -1817,6 +1818,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0.3;
 				OTHER_SWIFT_FLAGS = "$(inherited) \"-D\" \"COCOAPODS\" \"-DDEBUG\"";
 				PRODUCT_BUNDLE_IDENTIFIER = "eos-hub.io.eoshub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1839,6 +1841,7 @@
 				CODE_SIGN_ENTITLEMENTS = eoshub/eoshub.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
+				CURRENT_PROJECT_VERSION = 2.0.3.0;
 				DEVELOPMENT_TEAM = XYD35BDX65;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = eoshub/Info.plist;
@@ -1847,6 +1850,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0.3;
 				PRODUCT_BUNDLE_IDENTIFIER = "eos-hub.io.eoshub";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "ded6a689-65ac-4cfe-a9ff-541f9f9b5f03";
