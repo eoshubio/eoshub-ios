@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nGZ-vk-nhI">
-    <device id="retina6_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nGZ-vk-nhI">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -98,7 +96,7 @@
                                                 </state>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.73725490199999999" green="0.58431372550000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="Q3J-jh-wTP">
                                         <rect key="frame" x="0.0" y="90" width="270" height="70"/>
@@ -137,7 +135,7 @@
                                                 </state>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.73725490199999999" green="0.58431372550000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ICO-4r-A3A">
                                         <rect key="frame" x="0.0" y="180" width="270" height="70"/>
@@ -176,12 +174,12 @@
                                                 </state>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.73725490199999999" green="0.58431372550000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="jIM-UI-j0C">
                                         <rect key="frame" x="0.0" y="270" width="270" height="70"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frj-m6-VHJ" customClass="CircleButton" customModule="eoshub" customModuleProvider="target">
+                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Frj-m6-VHJ" customClass="CircleButton" customModule="eoshub" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
@@ -216,10 +214,10 @@
                                                 </state>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.73725490199999999" green="0.58431372550000005" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="1" green="0.4431372549" blue="0.4431372549" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="270" id="j6a-PX-I2Q"/>
                                     <constraint firstAttribute="height" constant="340" id="mMD-fM-gvV"/>
@@ -233,6 +231,7 @@
                                 </constraints>
                             </view>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="dMI-MI-VIf"/>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="HO9-HL-b6j" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="dMI-MI-VIf" secondAttribute="leading" constant="15" id="Aa0-I1-iYD"/>
@@ -258,7 +257,6 @@
                             <constraint firstItem="eWW-wC-sTf" firstAttribute="top" secondItem="6f8-El-DRx" secondAttribute="bottom" constant="30" id="yvb-mQ-nKe"/>
                             <constraint firstItem="S7d-1y-xxV" firstAttribute="top" secondItem="X25-gU-4B5" secondAttribute="top" id="znP-br-xgZ"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="dMI-MI-VIf"/>
                     </view>
                     <connections>
                         <outlet property="btn0" destination="rmy-MV-7PS" id="Icl-fW-ROC"/>
@@ -322,7 +320,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Face ID" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4a-PO-6Nn">
-                                <rect key="frame" x="174" y="521" width="66" height="24"/>
+                                <rect key="frame" x="174.66666666666666" y="521" width="65" height="24"/>
                                 <fontDescription key="fontDescription" name="AppleSDGothicNeo-Bold" family="Apple SD Gothic Neo" pointSize="20"/>
                                 <color key="textColor" red="0.32549019610000002" green="0.12549019610000001" blue="0.67843137249999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -331,6 +329,7 @@
                                 <rect key="frame" x="149" y="390" width="116" height="116"/>
                             </button>
                         </subviews>
+                        <viewLayoutGuide key="safeArea" id="gss-cl-EJG"/>
                         <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="M4a-PO-6Nn" firstAttribute="centerX" secondItem="XLp-Kl-GkK" secondAttribute="centerX" id="1tk-OO-tFY"/>
@@ -354,7 +353,6 @@
                             <constraint firstItem="bKF-gq-WSN" firstAttribute="top" secondItem="gss-cl-EJG" secondAttribute="top" constant="20" id="rty-pg-ONx"/>
                             <constraint firstItem="OW9-3u-L8V" firstAttribute="top" secondItem="uYE-oT-8ve" secondAttribute="top" id="wUj-26-wDf"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="gss-cl-EJG"/>
                     </view>
                     <connections>
                         <outlet property="btnClose" destination="bKF-gq-WSN" id="YmW-BR-ONn"/>
