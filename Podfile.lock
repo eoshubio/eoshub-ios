@@ -139,7 +139,7 @@ DEPENDENCIES:
   - SDWebImage (~> 4.0)
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - Bolts
     - Crashlytics
@@ -176,9 +176,9 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Bolts: ac6567323eac61e203f6a9763667d0f711be34c8
-  Crashlytics: 058dc1ba579f6c100bc60a6878703779bff383c4
+  Crashlytics: 6a15a6f7cf8c7f037af827d0a54cdd023751c10e
   Eureka: 6d711cb30ca333b4bc893110285a722ae3840114
-  Fabric: d7387db9a31aadff63b147a4b91d982c53afaa4f
+  Fabric: 83595475c4149d220e7a82c2f6b6a00456fd2c4d
   FBSDKCoreKit: fe5f3474499a81963e11e3f3a5c753d0a95ca2b4
   FBSDKLoginKit: 2f7249686d1e30ce8a5ef5400eedf50b3e3df332
   Firebase: 6691d47562a780c26281ce8464518faafc90c610
@@ -193,7 +193,7 @@ SPEC CHECKSUMS:
   GoogleSignIn: 591e46382014e591269f862ba6e7bc0fbd793532
   GoogleToolboxForMac: 91c824d21e85b31c2aae9bb011c5027c9b4e738f
   GoogleUtilities: 8208aee3e97a1ae93d44c57e96c476a5a3b03f0a
-  GTMOAuth2: c77fe325e4acd453837e72d91e3b5f13116857b2
+  GTMOAuth2: e8b6512c896235149df975c41d9a36c868ab7fba
   GTMSessionFetcher: 0c4baf0a73acd0041bf9f71ea018deedab5ea84e
   JSONSyntaxHighlight: 8685d8ad0259b909dc97a829fdfbefbec363f449
   KeychainSwift: bea6bd9f98af7b8d7ca4aa79fe105c00fab532db
@@ -209,4 +209,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 9a3141b1b5e3dca2b9e7a643d02b54ab5487528c
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.10.0
