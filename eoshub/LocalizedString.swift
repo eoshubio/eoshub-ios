@@ -15,6 +15,7 @@ struct LocalizedString {
     }
     
     struct Login {
+        static let apple = NSLocalizedString("login.apple", comment: "")
         static let facebook = NSLocalizedString("login.facebook", comment: "")
         static let kakao = NSLocalizedString("login.kakao", comment: "")
         static let google = NSLocalizedString("login.google", comment: "")

@@ -16,9 +16,9 @@ target 'eoshub' do
   pod 'KeychainSwift', '~> 11.0'
   pod 'Eureka', '~> 5.3.0'
   pod 'QRCode'
-  pod 'Firebase/Core', '~> 5.0.0'
-  pod 'Firebase/Auth'
   pod 'Firebase/DynamicLinks'
+  pod 'Firebase/Core', '~> 6.33.0'
+  pod 'Firebase/Auth'
   pod 'Firebase/Database'
   pod 'Fabric', '~> 1.7.6'
   pod 'Crashlytics', '~> 3.10.1'
@@ -26,10 +26,6 @@ target 'eoshub' do
   pod 'GoogleSignIn'
   pod 'OpenSSL-Universal'
   pod 'JSONSyntaxHighlight'
-  target 'eoshubTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
 
 
 end

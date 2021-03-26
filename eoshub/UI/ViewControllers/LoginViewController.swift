@@ -22,6 +22,11 @@ class LoginViewController: AuthViewController {
     
     @IBOutlet fileprivate weak var btnSkipLogin: UIButton?
     
+    @IBOutlet fileprivate weak var btnApple: LoginButton!
+    @IBOutlet fileprivate weak var btnFacebook: LoginButton!
+    @IBOutlet fileprivate weak var btnGoogle: LoginButton!
+    @IBOutlet fileprivate weak var btnEmail: LoginButton!
+    
     fileprivate var loginButtons: [LoginButton] = []
     
     override func viewWillAppear(_ animated: Bool) {
@@ -47,23 +52,19 @@ class LoginViewController: AuthViewController {
             lbTitle.isHidden = true
         }
         
-        let availableLoginTypes: [LoginType] = [.facebook, .google, .email]
+//        let availableLoginTypes: [LoginType] = [.apple, .facebook, .google, .email]
         
         stackLoginButtons.spacing = 10
-        let white = UIColor(white: 1.0, alpha: 0.8)
-//        let anonymouseTitle = NSAttributedString(string: LocalizedString.Login.none,
-//                                                 attributes: [NSAttributedString.Key.underlineStyle : NSUnderlineStyle.single.rawValue,
-//                                                              NSAttributedString.Key.foregroundColor: white])
-//        btnSkipLogin?.setAttributedTitle(anonymouseTitle, for: .normal)
         btnSkipLogin?.setTitle(LocalizedString.Login.none, for: .normal)
         
-        availableLoginTypes.forEach { (type) in
-            let loginButton = LoginButton(frame: CGRect(x: 0, y: 0, width: stackLoginButtons.bounds.width, height: 44))
-            loginButton.heightAnchor.constraint(equalToConstant: 44).isActive = true
-            loginButton.configure(type: type)
-            stackLoginButtons.addArrangedSubview(loginButton)
-            loginButtons.append(loginButton)
-        }
+        btnApple.configure(type: .apple)
+        loginButtons.append(btnApple)
+        btnFacebook.configure(type: .facebook)
+        loginButtons.append(btnFacebook)
+        btnGoogle.configure(type: .google)
+        loginButtons.append(btnGoogle)
+        btnEmail.configure(type: .email)
+        loginButtons.append(btnEmail)
     }
     
     private func bindActions() {

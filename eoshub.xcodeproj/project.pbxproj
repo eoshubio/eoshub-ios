@@ -7,13 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		292EE1AAB8E5E41BC71CE5FC /* Pods_eoshubTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D7D5622731D969009BA7D68 /* Pods_eoshubTests.framework */; };
 		2C0290BF2129C93900C3AFCB /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290BE2129C93900C3AFCB /* GradientView.swift */; };
 		2C0290C12129CD2B00C3AFCB /* AccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290C02129CD2B00C3AFCB /* AccountDetailViewController.swift */; };
 		2C0290C32129D41C00C3AFCB /* AccountDetailFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C0290C22129D41C00C3AFCB /* AccountDetailFlowController.swift */; };
 		2C02AE6821108FED00C6ECF3 /* RoundedShadowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C02AE6721108FEC00C6ECF3 /* RoundedShadowView.swift */; };
 		2C04ECED220D09A900B11C11 /* DeleatedBW.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C04ECEC220D09A900B11C11 /* DeleatedBW.swift */; };
-		2C06A8CE21665BB0002E32E6 /* LocalizedStringTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C06A8CD21665BB0002E32E6 /* LocalizedStringTest.swift */; };
 		2C1CC7752149465E0020115A /* KeyHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C1CC7742149465E0020115A /* KeyHeader.xib */; };
 		2C1D928E2100C7DC0009F5C4 /* Validator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1D928D2100C7DC0009F5C4 /* Validator.swift */; };
 		2C1E3E9520FE14000009D2AF /* WaitingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C1E3E9420FE14000009D2AF /* WaitingView.swift */; };
@@ -122,8 +120,6 @@
 		2C516100212B00EE0005EDD7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5160FF212B00EE0005EDD7 /* WebViewController.swift */; };
 		2C516102212B03B50005EDD7 /* WebViewFlowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C516101212B03B50005EDD7 /* WebViewFlowController.swift */; };
 		2C516104212B0BD90005EDD7 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C516103212B0BD90005EDD7 /* URLs.swift */; };
-		2C58F54B216249EF003DE166 /* EOSAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58F54A216249EF003DE166 /* EOSAPITest.swift */; };
-		2C58F54D216252BF003DE166 /* EOSHubAPITest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C58F54C216252BF003DE166 /* EOSHubAPITest.swift */; };
 		2C5F0AA522918A0B004197F4 /* RexBuySellPopup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F0AA422918A0B004197F4 /* RexBuySellPopup.swift */; };
 		2C5F0AA722918A1F004197F4 /* RexBuySellPopup.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2C5F0AA622918A1F004197F4 /* RexBuySellPopup.xib */; };
 		2C5F0AA9229197DF004197F4 /* RexRemainTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C5F0AA8229197DF004197F4 /* RexRemainTimeViewController.swift */; };
@@ -290,16 +286,6 @@
 		2CFE954A20F3947300DC173F /* EOSAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFE954920F3947300DC173F /* EOSAccountViewModel.swift */; };
 		34840DFA7B3BAC58E7D2DCBE /* Pods_eoshub.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5F64055F9AA8BAB5FB4EFA /* Pods_eoshub.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		2CE110BA20F1C31300B93BEB /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 2CE1109D20F1C31000B93BEB /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 2CE110A420F1C31000B93BEB;
-			remoteInfo = eoshub;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		2AEBFA022908A658145B9F75 /* Pods-eoshubTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-eoshubTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-eoshubTests/Pods-eoshubTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -542,7 +528,6 @@
 		2CE110AD20F1C31000B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Intro.storyboard; sourceTree = "<group>"; };
 		2CE110B220F1C31300B93BEB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2CE110B420F1C31300B93BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2CE110B920F1C31300B93BEB /* eoshubTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eoshubTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE110BF20F1C31400B93BEB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2CE110CF20F1C4E700B93BEB /* FlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlowController.swift; sourceTree = "<group>"; };
 		2CE110D020F1C4E700B93BEB /* MainFlowController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainFlowController.swift; sourceTree = "<group>"; };
@@ -616,14 +601,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				34840DFA7B3BAC58E7D2DCBE /* Pods_eoshub.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2CE110B620F1C31300B93BEB /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				292EE1AAB8E5E41BC71CE5FC /* Pods_eoshubTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -771,7 +748,6 @@
 			isa = PBXGroup;
 			children = (
 				2CE110A520F1C31000B93BEB /* eoshub.app */,
-				2CE110B920F1C31300B93BEB /* eoshubTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1181,25 +1157,6 @@
 			productReference = 2CE110A520F1C31000B93BEB /* eoshub.app */;
 			productType = "com.apple.product-type.application";
 		};
-		2CE110B820F1C31300B93BEB /* eoshubTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2CE110C520F1C31400B93BEB /* Build configuration list for PBXNativeTarget "eoshubTests" */;
-			buildPhases = (
-				E70F1C3160D6511FF54D7082 /* [CP] Check Pods Manifest.lock */,
-				2CE110B520F1C31300B93BEB /* Sources */,
-				2CE110B620F1C31300B93BEB /* Frameworks */,
-				2CE110B720F1C31300B93BEB /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				2CE110BB20F1C31300B93BEB /* PBXTargetDependency */,
-			);
-			name = eoshubTests;
-			productName = eoshubTests;
-			productReference = 2CE110B920F1C31300B93BEB /* eoshubTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -1219,11 +1176,6 @@
 							};
 						};
 					};
-					2CE110B820F1C31300B93BEB = {
-						CreatedOnToolsVersion = 9.4;
-						LastSwiftMigration = 1000;
-						TestTargetID = 2CE110A420F1C31000B93BEB;
-					};
 				};
 			};
 			buildConfigurationList = 2CE110A020F1C31000B93BEB /* Build configuration list for PBXProject "eoshub" */;
@@ -1241,7 +1193,6 @@
 			projectRoot = "";
 			targets = (
 				2CE110A420F1C31000B93BEB /* eoshub */,
-				2CE110B820F1C31300B93BEB /* eoshubTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1288,13 +1239,6 @@
 				2CE1111520F2395800B93BEB /* Main.storyboard in Resources */,
 				2C1E3E9F20FE37AB0009D2AF /* RamPopup.xib in Resources */,
 				2C5F0AAD22919D94004197F4 /* RexUnstakeResPopup.xib in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		2CE110B720F1C31300B93BEB /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1364,24 +1308,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-eoshub/Pods-eoshub-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E70F1C3160D6511FF54D7082 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-eoshubTests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -1634,25 +1560,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		2CE110B520F1C31300B93BEB /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				2C06A8CE21665BB0002E32E6 /* LocalizedStringTest.swift in Sources */,
-				2C58F54B216249EF003DE166 /* EOSAPITest.swift in Sources */,
-				2C58F54D216252BF003DE166 /* EOSHubAPITest.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		2CE110BB20F1C31300B93BEB /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 2CE110A420F1C31000B93BEB /* eoshub */;
-			targetProxy = 2CE110BA20F1C31300B93BEB /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		2CE110AC20F1C31000B93BEB /* Intro.storyboard */ = {
@@ -1806,14 +1714,14 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = eoshub/eoshub.entitlements;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2.0.3.0;
+				CURRENT_PROJECT_VERSION = 2.0.3.1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = XYD35BDX65;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = eoshub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1841,11 +1749,11 @@
 				CODE_SIGN_ENTITLEMENTS = eoshub/eoshub.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
-				CURRENT_PROJECT_VERSION = 2.0.3.0;
+				CURRENT_PROJECT_VERSION = 2.0.3.1;
 				DEVELOPMENT_TEAM = XYD35BDX65;
 				ENABLE_BITCODE = YES;
 				INFOPLIST_FILE = eoshub/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1859,52 +1767,6 @@
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = arm64;
-			};
-			name = Release;
-		};
-		2CE110C620F1C31400B93BEB /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2AEBFA022908A658145B9F75 /* Pods-eoshubTests.debug.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XYD35BDX65;
-				INFOPLIST_FILE = eoshubTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.peta-vision.eoshubTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eoshub.app/eoshub";
-			};
-			name = Debug;
-		};
-		2CE110C720F1C31400B93BEB /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E481E4A8D39F4D87F2B506BD /* Pods-eoshubTests.release.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = XYD35BDX65;
-				INFOPLIST_FILE = eoshubTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.peta-vision.eoshubTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = 1;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/eoshub.app/eoshub";
 			};
 			name = Release;
 		};
@@ -1925,15 +1787,6 @@
 			buildConfigurations = (
 				2CE110C320F1C31400B93BEB /* Debug */,
 				2CE110C420F1C31400B93BEB /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		2CE110C520F1C31400B93BEB /* Build configuration list for PBXNativeTarget "eoshubTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				2CE110C620F1C31400B93BEB /* Debug */,
-				2CE110C720F1C31400B93BEB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

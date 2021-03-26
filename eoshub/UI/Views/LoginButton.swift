@@ -15,35 +15,17 @@ class LoginButton: RoundedButton {
     
     private let nibName: String = "LoginButton"
     
-    @IBOutlet fileprivate var _view: UIView!
     @IBOutlet fileprivate var icon: UIImageView!
     @IBOutlet fileprivate var titleView: UILabel!
     
     var type: LoginType!
-
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupUI()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        setupUI()
-    }
-    
-    private func setupUI() {
-        let bundle = Bundle.main
-        bundle.loadNibNamed(nibName, owner: self, options: nil)
-        _view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        addSubview(_view)
-    }
-    
+ 
     func configure(type: LoginType) {
         self.type = type
         icon.image = type.icon
         titleView.text = type.title
         titleView.textColor = type.textColor
-        _view.backgroundColor = type.bgColor
+        backgroundColor = type.bgColor
         
     }
     
@@ -52,6 +34,8 @@ class LoginButton: RoundedButton {
 extension LoginType {
     var icon: UIImage? {
         switch self {
+        case .apple:
+            return UIImage(named: "apple")
         case .facebook:
             return UIImage(named: "facebook")
         case .google:
@@ -67,6 +51,8 @@ extension LoginType {
     
     var bgColor: UIColor {
         switch self {
+        case .apple:
+            return .white
         case .facebook:
             return UIColor.colorUInt8(r: 41, g: 134, b: 255)
         case .google:
@@ -82,6 +68,8 @@ extension LoginType {
     
     var textColor: UIColor {
         switch self {
+        case .apple:
+            return .black
         case .facebook:
             return UIColor.white
         case .google:

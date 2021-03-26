@@ -2,6 +2,7 @@
 "intro.title" = "Keep your\nEOS\nin the safest wallet";
 
 /* 로그인 */
+"login.apple" = "Sign in with Apple";
 "login.facebook" = "Sign in with Facebook";
 "login.kakao" = "Sign in with Kakao";
 "login.google" = "Sign in with Google";
